@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · 2026-05-24 · Week 21</title>
+<meta name="description" content="clawii 的 AI 虚拟朋友 — 4 条真信号: opencode 黑马、DeepSeek Reasonix、KPMG × Claude、降价 75%">
+
+<!-- Open Graph (for Discord link preview) -->
+<meta property="og:title" content="AI Radar · 2026-05-24">
+<meta property="og:description" content="4 条真信号 · 1 🚨 必看 · 2 👀 可看 · 1 ℹ️ 知道">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<!-- Fonts: Fraunces (display serif, distinctive) + Geist (body sans) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Editorial cream + ink, with intentional tier accents (oklch for perceptual uniformity) */
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+
+    /* Tier accents — one saturated color per tier, used sparingly */
+    --tier-crit: oklch(0.55 0.22 26);    /* 🚨 朱红 */
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);    /* 👀 琥珀 */
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);    /* ℹ️ 中性 */
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+
+    /* Type scale (fluid clamp) */
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1rem, 1.7vw, 1.0625rem);
+    --t-small: 0.875rem;
+    --t-micro: 0.75rem;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: var(--t-body);
+    line-height: 1.55;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .display {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-feature-settings: "ss01";
+    font-variation-settings: "SOFT" 30, "opsz" 144;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+  }
+  .display-italic {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+  }
+  .mono {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.92em;
+    letter-spacing: -0.005em;
+  }
+  .smallcaps {
+    font-family: 'Geist', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: var(--t-micro);
+    font-weight: 500;
+    color: var(--ink-mute);
+  }
+
+  /* Page container — generous on desktop, full-bleed on mobile */
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+  }
+  @media (min-width: 768px) {
+    .page { max-width: 780px; padding: 3rem 2rem 6rem; }
+  }
+
+  /* ──────────────────────────────────────────────
+     MASTHEAD — magazine cover feel
+     ────────────────────────────────────────────── */
+  .masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--hairline-bold);
+    margin-bottom: 2.5rem;
+  }
+  .masthead .logo {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 0, "opsz" 144;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+  .masthead .meta {
+    font-size: var(--t-micro);
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Cover stat block */
+  .cover {
+    margin-bottom: 3.5rem;
+  }
+  .cover .kicker {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+  .cover .headline {
+    font-size: var(--t-cover);
+    margin: 0 0 1.5rem;
+    max-width: 14ch;
+  }
+  .cover .count-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+  .cover .count-row .total {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 0, "opsz" 144;
+    font-weight: 600;
+    font-size: clamp(3.5rem, 12vw, 5.5rem);
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .cover .count-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .cover .count-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: var(--t-small);
+    color: var(--ink-soft);
+  }
+  .cover .count-pill .dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    flex: none;
+  }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi  { background: var(--tier-fyi); }
+
+  /* ──────────────────────────────────────────────
+     TOC — quick jump for mobile
+     ────────────────────────────────────────────── */
+  .toc {
+    margin-bottom: 3.5rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .toc .smallcaps { margin-bottom: 1rem; display: block; }
+  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  .toc li {
+    counter-increment: toc;
+    display: grid;
+    grid-template-columns: 1.75rem 2rem 1fr;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed var(--hairline);
+  }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: 'Geist Mono', monospace;
+    font-size: var(--t-micro);
+    color: var(--ink-mute);
+    font-variant-numeric: tabular-nums;
+  }
+  .toc li .tier-mark {
+    font-size: 1.1rem;
+  }
+  .toc li a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: var(--t-body);
+    transition: color 0.15s;
+  }
+  .toc li a:hover { color: var(--tier-crit); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ──────────────────────────────────────────────
+     ITEM CARD — colored vertical bar on left, no shadows
+     ────────────────────────────────────────────── */
+  .item {
+    position: relative;
+    margin: 3.5rem 0;
+    padding: 2rem 0 2rem 1.5rem;
+    border-top: 1px solid var(--hairline-bold);
+  }
+  .item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2rem;
+    bottom: 2rem;
+    width: 3px;
+    background: var(--bar-color, var(--tier-fyi));
+  }
+  .item--crit { --bar-color: var(--tier-crit); }
+  .item--look { --bar-color: var(--tier-look); }
+  .item--fyi  { --bar-color: var(--tier-fyi); }
+
+  .item .tier-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--bar-color);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .item .title {
+    font-size: var(--t-h1);
+    margin: 0 0 1rem;
+    max-width: 22ch;
+  }
+  .item .pitch {
+    font-size: var(--t-h3);
+    color: var(--ink-soft);
+    line-height: 1.45;
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    max-width: 38ch;
+  }
+
+  /* Section heads inside an item */
+  .item h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: var(--t-h3);
+    margin: 2rem 0 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .item p { margin: 0.5rem 0 1rem; }
+  .item ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
+  .item li { margin: 0.4rem 0; }
+  .item li::marker { color: var(--bar-color); }
+
+  .item a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--bar-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s;
+  }
+  .item a:hover { text-decoration-color: var(--ink); }
+
+  /* Lang dividers (EN / 中文) */
+  .lang {
+    margin-top: 2rem;
+  }
+  .lang-mark {
+    display: inline-block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    padding: 0.2rem 0.55rem;
+    background: var(--bg-sunk);
+    color: var(--ink-mute);
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  /* Comparison table */
+  .compare {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .compare table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-size: var(--t-small);
+  }
+  .compare th, .compare td {
+    text-align: left;
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+  .compare thead th {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 500;
+    font-size: var(--t-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    border-bottom: 2px solid var(--hairline-bold);
+  }
+  .compare tbody th {
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--bg-sunk);
+    white-space: nowrap;
+  }
+  .compare .ok { color: oklch(0.55 0.15 145); font-weight: 600; }
+  .compare .no { color: var(--tier-crit); font-weight: 600; }
+
+  /* SVG chart — momentum bars */
+  .chart {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background: var(--bg-sunk);
+    border-radius: 2px;
+  }
+  .chart-title {
+    font-size: var(--t-small);
+    color: var(--ink-soft);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .chart-bar-row {
+    display: grid;
+    grid-template-columns: 7rem 1fr 4rem;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.5rem 0;
+    font-size: var(--t-small);
+    font-variant-numeric: tabular-nums;
+  }
+  .chart-bar-row .label { color: var(--ink-soft); }
+  .chart-bar-row .value { text-align: right; font-family: 'Geist Mono', monospace; color: var(--ink); font-weight: 500; }
+  .chart-bar-row .bar {
+    height: 8px;
+    background: var(--bar-color, var(--tier-fyi));
+    border-radius: 1px;
+    transform-origin: left;
+    animation: barGrow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes barGrow { from { transform: scaleX(0); } }
+  @media (prefers-reduced-motion: reduce) { .chart-bar-row .bar { animation: none; } }
+
+  /* Deep dive — collapsible */
+  details.deep-dive {
+    margin: 1.5rem 0;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  details.deep-dive[open] { background: var(--bg-card); }
+  details.deep-dive > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.9rem 1.1rem;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: var(--t-small);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    user-select: none;
+    background: var(--bg-sunk);
+    transition: background 0.15s;
+  }
+  details.deep-dive > summary:hover { background: oklch(0.92 0.014 85); }
+  details.deep-dive > summary::-webkit-details-marker { display: none; }
+  details.deep-dive > summary::after {
+    content: "+";
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--ink-mute);
+    transition: transform 0.2s;
+  }
+  details.deep-dive[open] > summary::after { content: "−"; }
+  details.deep-dive .dd-body {
+    padding: 1.25rem 1.1rem;
+  }
+
+  /* Jargon decoder */
+  .jargon {
+    background: var(--bg-sunk);
+    padding: 1rem 1.25rem;
+    border-radius: 2px;
+    margin: 1.5rem 0;
+    font-size: var(--t-small);
+  }
+  .jargon dt {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 500;
+    color: var(--ink);
+    display: inline;
+  }
+  .jargon dd {
+    display: inline;
+    margin: 0;
+    color: var(--ink-soft);
+  }
+  .jargon dt + dd::before { content: " = "; color: var(--ink-mute); }
+  .jargon dd + dt { display: block; margin-top: 0.5rem; }
+  .jargon dd + dt::before { content: ""; }
+
+  /* What didn't make it (sidebar at bottom) */
+  .killed {
+    margin: 4rem 0 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--hairline-bold);
+  }
+  .killed h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--t-h2);
+    margin: 0 0 1.5rem;
+    color: var(--ink-soft);
+  }
+  .killed table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--t-small);
+  }
+  .killed th, .killed td {
+    text-align: left;
+    padding: 0.6rem 0.5rem 0.6rem 0;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+  .killed thead th {
+    font-family: 'Geist Mono', monospace;
+    font-size: var(--t-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+  }
+  .killed tbody tr td:first-child { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); white-space: nowrap; }
+
+  /* Footer */
+  .footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--hairline-bold);
+    color: var(--ink-mute);
+    font-size: var(--t-small);
+  }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  /* Reveal animation on scroll-in (page load only) */
+  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .item:nth-of-type(1) { animation-delay: 0.05s; }
+  .item:nth-of-type(2) { animation-delay: 0.15s; }
+  .item:nth-of-type(3) { animation-delay: 0.25s; }
+  .item:nth-of-type(4) { animation-delay: 0.35s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .item { opacity: 1; transform: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="logo">AI RADAR</div>
+    <div class="meta">2026 · 05 · 24  ·  Wk 21  ·  №&nbsp;001</div>
+  </header>
+
+  <!-- COVER -->
+  <section class="cover">
+    <span class="kicker smallcaps">今日真信号</span>
+    <h1 class="display headline">第一份样本 — 已校准。</h1>
+    <div class="count-row">
+      <div class="total">4</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 必看 (Must See)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>2</strong>&nbsp;👀 可看 (Worth a Look)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ 知道 (FYI)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Index">
+    <span class="smallcaps">本期目录</span>
+    <ol>
+      <li><span class="tier-mark">🚨</span><a href="#opencode">opencode — 野生 Claude Code，支持 75+ 模型</a></li>
+      <li><span class="tier-mark">👀</span><a href="#reasonix">DeepSeek Reasonix — 缓存把成本砍到 1/5</a></li>
+      <li><span class="tier-mark">👀</span><a href="#kpmg">KPMG × Claude — 27.6 万员工部署</a></li>
+      <li><span class="tier-mark">ℹ️</span><a href="#deepseek-price">DeepSeek 永久降价 75%</a></li>
+    </ol>
+  </nav>
+
+  <!-- ITEM 1: opencode (CRIT) -->
+  <article id="opencode" class="item item--crit">
+    <div class="tier-label">🚨 Must See · 第 1 周信号</div>
+    <h2 class="display title">opencode — 一个野生 Claude Code，能接 75+ 种模型</h2>
+    <p class="pitch">GitHub 涨势最猛的 AI 项目，把 Claude Code 和 codex 都甩在身后。MIT 开源。你用过 Claude Code 的话，5 分钟就能上手。</p>
+
+    <!-- SVG-ish chart: real momentum data -->
+    <div class="chart">
+      <div class="chart-title">28 天 GitHub star 增长（编程 agent）</div>
+      <div class="chart-bar-row" style="--bar-color: var(--tier-crit);">
+        <span class="label">opencode</span>
+        <div class="bar" style="width: 100%;"></div>
+        <span class="value">+1,540</span>
+      </div>
+      <div class="chart-bar-row">
+        <span class="label">Claude Code</span>
+        <div class="bar" style="width: 53.2%; background: var(--ink-mute);"></div>
+        <span class="value">+820</span>
+      </div>
+      <div class="chart-bar-row">
+        <span class="label">codex (OpenAI)</span>
+        <div class="bar" style="width: 48.6%; background: var(--ink-mute);"></div>
+        <span class="value">+748</span>
+      </div>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li>This is the <strong>first credible open-source competitor</strong> to Claude Code / codex with real traction — not just hype.</li>
+        <li>You could <strong>mix-and-match models inside the same workflow</strong> — cheap DeepSeek for boilerplate, Claude Opus 4.7 for tricky logic, all in one tool.</li>
+        <li>You're catching it in <strong>week 1 of breakout</strong> — exactly the SLA we set. Red Note won't cover this until late June.</li>
+      </ul>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how is this actually different / how does it work</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>opencode</th><th>Claude Code</th><th>codex</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Open source</th><td class="ok">✅ MIT</td><td class="no">❌ closed</td><td class="no">❌ closed</td></tr>
+              <tr><th>Models</th><td>75+ (Claude, GPT, Gemini, Grok, local Ollama / llama.cpp / LM Studio)</td><td>Claude only</td><td>OpenAI only</td></tr>
+              <tr><th>Install</th><td>npm / Homebrew / curl / Scoop / Chocolatey</td><td>Anthropic installer</td><td>OpenAI installer</td></tr>
+              <tr><th>Interfaces</th><td>Terminal (TUI) + desktop app + VS Code / Zed extensions</td><td>Terminal + IDE plugins</td><td>Terminal + IDE</td></tr>
+              <tr><th>Built-in modes</th><td>"build" (full write) + "plan" (read-only explore)</td><td>Single mode + permissions</td><td>Single mode</td></tr>
+              <tr><th>Architecture</th><td>Client-server — can run remotely via SDK</td><td>Local-only</td><td>Local-only</td></tr>
+              <tr><th>Managed tier</th><td>OpenCode Zen + Go (curated)</td><td>n/a — use Anthropic API</td><td>n/a — use OpenAI API</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>What it runs on:</strong> TypeScript (66% of codebase). Bring your own API key for whichever provider. No model lock-in.</p>
+        <p><strong>How hard to use:</strong> <code class="mono">brew install opencode</code> → set API key env var → type <code class="mono">opencode</code>. <strong>5 minutes if you've used Claude Code.</strong></p>
+        <p><strong>Practical use cases for clawii:</strong></p>
+        <ol>
+          <li>Drop in DeepSeek API key → cut spend by 5-10× on non-critical sessions</li>
+          <li>Point at local Ollama model → code never leaves your machine (compliance scenarios)</li>
+          <li>Use "plan" mode for read-only exploration — AI looks but doesn't touch files</li>
+        </ol>
+        <p><strong>Honest caveat:</strong> I haven't personally tested the UX. 75-model breadth may mean "jack of all trades, master of none". Momentum says people like it; only your own 30-min test tells you if YOU do.</p>
+      </div>
+    </details>
+
+    <div class="lang">
+      <span class="lang-mark">中文</span>
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li>这是<strong>第一个真正有人在用的 Claude Code / codex 开源对手</strong>，不是纯炒作。</li>
+        <li>它站稳的话，你可以<strong>在同一个工作流里混用不同模型</strong>——便宜的 DeepSeek 干样板代码，Claude Opus 4.7 啃硬骨头，都在同一个工具里。</li>
+        <li>你在<strong>爆发的第 1 周</strong>就知道了——正好是我们定的 SLA。等红薯讲它，已经 6 月底了。</li>
+      </ul>
+      <h3>实操要点</h3>
+      <ul>
+        <li><strong>装</strong>：<code class="mono">brew install opencode</code> 或 <code class="mono">npm install -g opencode</code>，5 分钟。</li>
+        <li><strong>用</strong>：自己塞 API key，想用哪家模型用哪家。</li>
+        <li><strong>场景</strong>：成本砍 5-10×（接 DeepSeek）/ 合规场景（接本地 Ollama）/ 只读探索（"plan" 模式）。</li>
+      </ul>
+    </div>
+
+    <dl class="jargon">
+      <dt>TUI</dt><dd>Terminal User Interface — 跟 Claude Code 一样在终端跑</dd>
+      <dt>Provider-agnostic</dt><dd>不绑定模型厂商，你自己选</dd>
+    </dl>
+
+    <h3>谁在讨论</h3>
+    <ul>
+      <li>GitHub: 28 天 +1,540 颗 star（vs Claude Code +820 / codex +748）</li>
+      <li>OSSInsight 在编程 agent 类别里排第一</li>
+      <li>还没上 HN 头条、还没进主流 newsletter — <strong>这正是"第 1 周"信号</strong></li>
+    </ul>
+
+    <h3>试试 / 深入</h3>
+    <ul>
+      <li>GitHub: <a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></li>
+      <li>详细文档: <a href="https://deepwiki.com/anomalyco/opencode">deepwiki.com/anomalyco/opencode</a></li>
+      <li>OSSInsight 排名: <a href="https://ossinsight.io/trending/ai">ossinsight.io/trending/ai</a></li>
+    </ul>
+  </article>
+
+  <!-- ITEM 2: Reasonix (LOOK) -->
+  <article id="reasonix" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · 成本拐点</div>
+    <h2 class="display title">DeepSeek Reasonix — 缓存命中率 99.82%，把成本砍到 1/5</h2>
+    <p class="pitch">DeepSeek 专用编程 agent，跑越久越省。真实用户报告：4.35 亿 token 从 $61 砍到 $12。HN 头条第 1。和 opencode 走的是相反路线。</p>
+
+    <div class="chart">
+      <div class="chart-title">实测：4.35 亿 token 一天的成本对比</div>
+      <div class="chart-bar-row" style="--bar-color: var(--ink-mute);">
+        <span class="label">不缓存</span>
+        <div class="bar" style="width: 100%;"></div>
+        <span class="value">$61</span>
+      </div>
+      <div class="chart-bar-row" style="--bar-color: var(--tier-look);">
+        <span class="label">Reasonix 缓存</span>
+        <div class="bar" style="width: 19.7%;"></div>
+        <span class="value">$12</span>
+      </div>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li>Opposite philosophy from opencode: instead of 75 models <em>okay</em>, support 1 model <em>extremely well</em>. Single-vendor optimization → <strong>&lt;$0.05 per turn</strong>.</li>
+        <li>Long vibe-coding sessions: prefix-cache magic means follow-up turns are <em>nearly free</em>. Claude Code caches too, but less aggressively.</li>
+        <li>Leading edge of the <strong>"sub-cent AI" era</strong> — coding sessions that used to cost dollars are heading to cents.</li>
+      </ul>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how does the cache magic work</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>Reasonix</th><th>Claude Code</th><th>opencode</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Model lock-in</th><td>DeepSeek only (by design)</td><td>Claude only</td><td>75+ models</td></tr>
+              <tr><th>Default model</th><td>DeepSeek-V4-Flash (cheap)</td><td>Sonnet 4.6</td><td>whatever you set</td></tr>
+              <tr><th>Switch to premium</th><td><code class="mono">/pro</code> command → V4-Pro for next turn</td><td>config swap</td><td>config swap</td></tr>
+              <tr><th>Cache strategy</th><td><strong>Prefix-cache obsession — 99.82% hit rate</strong></td><td>Standard Anthropic caching</td><td>depends on provider</td></tr>
+              <tr><th>Typical cost / turn</th><td><strong>$0.05 (Flash)</strong></td><td>$0.10–0.50 (Sonnet)</td><td>varies</td></tr>
+              <tr><th>Install</th><td><code class="mono">npm i -g reasonix</code> (Node ≥20.10)</td><td>Anthropic installer</td><td>npm / brew / etc.</td></tr>
+              <tr><th>License</th><td class="ok">✅ MIT</td><td class="no">❌ closed</td><td class="ok">✅ MIT</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>What it runs on:</strong> Node.js. Direct calls to <code class="mono">api.deepseek.com</code>, no translation shim. Needs Node ≥20.10 and a DeepSeek API key.</p>
+        <p><strong>How hard:</strong> <code class="mono">npm i -g reasonix</code> → sign up at platform.deepseek.com (5 min) → run <code class="mono">reasonix</code>. <strong>~10 min total.</strong></p>
+        <p><strong>Practical use:</strong> Long exploration on large codebases (cache eats the cost). Boilerplate, refactors, doc writing. Run alongside Claude Code: Reasonix for grunt work, Claude Code for hard parts. <strong>Likely week-over-week impact: 50-70% lower AI spend</strong> if you split tasks correctly.</p>
+        <p><strong>Honest caveat:</strong> DeepSeek quality is good but not Claude-level on complex reasoning. The cost story is real (verified by real users); you'll feel the IQ drop on hard problems.</p>
+      </div>
+    </details>
+
+    <div class="lang">
+      <span class="lang-mark">中文</span>
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li>和 opencode 走<strong>相反的路</strong>：opencode 接 75 种模型但一般，Reasonix 只接 1 种（DeepSeek）但榨干极致。每轮成本压到 <strong>0.05 美元以下</strong>。</li>
+        <li>你 vibe coding 经常一跑几小时，前缀缓存让每轮后续对话几乎不要钱。Claude Code 也有缓存但没这么激进。</li>
+        <li>这是<strong>"分钱级 AI" 时代</strong>的前沿——以前几美元的 session，现在往几分钱走。</li>
+      </ul>
+      <h3>实操要点</h3>
+      <ul>
+        <li><strong>装</strong>：<code class="mono">npm install -g reasonix</code>，10 分钟搞定。需要 Node ≥20.10。</li>
+        <li><strong>用</strong>：默认 V4-Flash 便宜，<code class="mono">/pro</code> 切 V4-Pro 干难活。</li>
+        <li><strong>场景</strong>：和 Claude Code 并用——Reasonix 干粗活，Claude Code 干硬骨头。AI 花费可能砍 50-70%。</li>
+      </ul>
+    </div>
+
+    <dl class="jargon">
+      <dt>前缀缓存 (Prefix-cache)</dt><dd>agent 把每次对话里不变的部分（项目文件、指令）存起来，每轮只付新增 token 的钱——好比把教科书摊开，而不是每翻一页就重新买一本</dd>
+      <dt>API key</dt><dd>你用 DeepSeek API 的个人密码，按用量计费</dd>
+    </dl>
+
+    <h3>谁在讨论</h3>
+    <ul>
+      <li>HN: 头条第 1，311 分，159 评论（7 小时前）</li>
+      <li>GitHub: 5,500+ 颗 star</li>
+      <li>DeepSeek 官方认可（加进了官方文档）</li>
+    </ul>
+
+    <h3>试试 / 深入</h3>
+    <ul>
+      <li>GitHub: <a href="https://github.com/esengine/DeepSeek-Reasonix">esengine/DeepSeek-Reasonix</a></li>
+      <li>主页: <a href="https://esengine.github.io/DeepSeek-Reasonix/">esengine.github.io/DeepSeek-Reasonix</a></li>
+      <li>DeepSeek 官方集成文档: <a href="https://api-docs.deepseek.com/quick_start/agent_integrations/reasonix">api-docs.deepseek.com</a></li>
+    </ul>
+  </article>
+
+  <!-- ITEM 3: KPMG × Claude (LOOK) -->
+  <article id="kpmg" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · 企业 AI 拐点</div>
+    <h2 class="display title">KPMG 把 Claude 部署给了 27.6 万员工</h2>
+    <p class="pitch">迄今最大规模的企业 AI 部署之一。四大对生成式 AI 的犹豫期正式结束。你公司的 IT/法务/合规 30 天内会面对同样的对话——你不应该是最后一个知道的人。</p>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li>You said you wanted to know "what big companies are doing with AI" — this is one of the strongest enterprise signals of 2026. KPMG has the most conservative risk profile of anyone you'd compare to.</li>
+        <li><strong>For your day job</strong>: this kind of move hits C-suites of every other Big-4 (Deloitte, EY, PwC) within 30 days. Your multinational's IT/Legal/Compliance will face the same conversation. Knowing the trend ahead means you can frame it instead of reacting.</li>
+        <li><strong>Specific impact</strong>: HR/Compensation are early enterprise AI use cases (JD writing, benchmark analysis, policy drafting). ~6 months until this is expected of you.</li>
+      </ul>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — what makes this different from a typical SaaS rollout</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>KPMG deployment</th><th>Typical SaaS rollout</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Scale</th><td><strong>276K employees globally</strong></td><td>Usually starts &lt;10K pilot</td></tr>
+              <tr><th>Vendor</th><td>Anthropic (Claude)</td><td>varies</td></tr>
+              <tr><th>Framing</th><td>Multi-year alliance, not procurement</td><td>Tool purchase</td></tr>
+              <tr><th>Deployment</th><td>Claude for Enterprise (data isolation, SSO, admin)</td><td>n/a</td></tr>
+              <tr><th>Why Claude vs ChatGPT Enterprise</th><td>Anthropic's safety/audit positioning fits audit culture; constitutional AI fits compliance story</td><td>n/a</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>What it runs on:</strong> Almost certainly Claude for Enterprise (SSO, data isolation, audit logs). Likely Sonnet 4.6 + Opus 4.7 mix.</p>
+        <p><strong>If you wanted to push something similar in your org:</strong> (1) Identify one painful, standardized HR/Comp workflow. (2) Pilot with Claude Pro/Team (~$20-30/user/mo). (3) Measure time savings. (4) Propose enterprise. KPMG news is your slide-deck ammunition.</p>
+        <p><strong>What you can do today (before IT acts):</strong> Use Claude personally for: comp policy drafting in plain English; salary benchmark analysis; JD writing; reading long HR/labor regulation docs. When IT deploys it formally, you'll have a 6-month head start.</p>
+      </div>
+    </details>
+
+    <div class="lang">
+      <span class="lang-mark">中文</span>
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li>你说想知道"大公司在怎么用 AI"——这是 2026 年最强的企业信号之一。KPMG 风险偏好是你能对标的所有公司里最保守的。</li>
+        <li><strong>对你工作的影响</strong>：30 天内击中其他三大的 C-level 桌面。你公司 IT/法务/合规迟早面对同样对话。提前知道趋势，你就能引导，不是被动响应。</li>
+        <li><strong>具体影响</strong>：HR/薪酬是企业 AI 的早期场景（写 JD、benchmark 分析、政策草稿）。大约 <strong>6 个月内这会是工作要求</strong>。</li>
+      </ul>
+      <h3>实操要点</h3>
+      <ul>
+        <li><strong>个人现在能用</strong>：用 Claude 起草薪酬政策大白话版本、做 salary benchmark、写 JD、读长 HR/劳动法规文件。</li>
+        <li><strong>在公司内推动</strong>：找一个 HR/薪酬里又痛又标准的流程，试点 Claude Pro/Team ($20-30/人/月)，量化省下来的时间，提案企业级。KPMG 这条新闻是你 PPT 的弹药。</li>
+      </ul>
+    </div>
+
+    <dl class="jargon">
+      <dt>Big-4 (四大)</dt><dd>全球四大会计师/咨询公司 — 德勤、普华永道、EY、KPMG</dd>
+      <dt>Claude for Enterprise</dt><dd>Claude 的企业版：数据不用来训练、SSO 登录、管理员后台</dd>
+    </dl>
+
+    <h3>谁在讨论</h3>
+    <ul>
+      <li>Anthropic 官宣: <a href="https://www.anthropic.com/news">anthropic.com/news</a>（5/19）</li>
+      <li>这是企业新闻，不是 X 病毒话题——但 C-level 都在看</li>
+    </ul>
+  </article>
+
+  <!-- ITEM 4: DeepSeek price cut (FYI) -->
+  <article id="deepseek-price" class="item item--fyi">
+    <div class="tier-label">ℹ️ FYI · 价格信号</div>
+    <h2 class="display title">DeepSeek 永久降价 75%</h2>
+    <p class="pitch">Bloomberg 报道，HN 163 分。配合上面 Reasonix 看，是同一个战略——AI 推理在变成大宗商品，价格往零冲。</p>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+      <ul>
+        <li>AI inference is becoming a commodity. Prices racing toward zero.</li>
+        <li>Direct implication: in 6 months, the AI tools you use will cost less or do more for the same price.</li>
+        <li>Not urgent — just keep the trend in your head.</li>
+      </ul>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">中文</span>
+      <ul>
+        <li>AI 推理在变成大宗商品，价格往零冲。</li>
+        <li>对你的直接影响：6 个月后，你现在用的 AI 工具要么更便宜，要么同样价钱能做更多事。</li>
+        <li>不紧急，知道趋势就行。</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- WHAT DIDN'T MAKE IT -->
+  <section class="killed">
+    <h2>今天没选进来的</h2>
+    <table>
+      <thead>
+        <tr><th>来源</th><th>内容</th><th>为什么没选</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Smol AI</td><td>RAEv2 / NVIDIA DeltaNet-2 / 数据过滤研究</td><td>都是学术论文，没有可用产品 — clawii 关心应用</td></tr>
+        <tr><td>Anthropic</td><td>收购 Stainless</td><td>行业内幕，对工作流无直接影响</td></tr>
+        <tr><td>HN</td><td>"Memory cost growing to 2/3 of AI chip"</td><td>产业分析，不可操作</td></tr>
+        <tr><td>HN</td><td>"Claude is not your architect" 博客</td><td>观点文章不是新发布，不在 radar 范围</td></tr>
+        <tr><td>OpenAI</td><td>—</td><td>本期无重大 ship</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      做你的 AI 虚拟朋友 — 每天 07:07 推送。
+    </p>
+    <p>
+      扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/index ·
+      X (10 KOLs，best-effort)
+    </p>
+    <p>
+      剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+    </p>
+    <p class="system">
+      ai-radar · v0.2 · powered by Claude · §1 source-tier OR-logic · Mobile-first card edition
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
