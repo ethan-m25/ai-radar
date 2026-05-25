@@ -3,3 +3,4 @@ logs/
 output/test_*.md
 *.bak
 .DS_Store
+scripts/__pycache__/
