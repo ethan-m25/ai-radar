@@ -40,7 +40,17 @@ A story qualifies for the digest if it hits **any one** of these patterns:
 - 👀 **WORTH A LOOK** — Open it this weekend. Probably matters, not urgent.
 - ℹ️ **FYI** — Just so you've heard the name. Don't dig in unless it keeps coming up.
 
-If nothing hits 🚨 today, that's fine. Some days have 0 🚨. **Do not fabricate urgency to fill quota.**
+## Item count rule (HARD CAP)
+
+- **Maximum 3 items per day.** Pick the 3 strongest signals. If a 4th candidate exists, fold it into an adjacent item's "context" section or drop entirely.
+- **Minimum 1 item per day.** If genuinely nothing hits the threshold, still produce the page with the "no real signals today" header (see below) — do not skip a day silently. Some days have 0 🚨; that's expected.
+- **Do not fabricate urgency to fill quota.** Better 1 strong signal than 3 padded ones.
+
+If nothing crosses the threshold:
+```
+今天没有真信号 — 0/3. 扫描了 N 个源，所有内容都是 recap / 通稿 / 中文圈已覆盖。
+Stay calm and keep building. (连续 3 天无信号是正常；连续 7 天则要重新校准。)
+```
 
 ---
 
@@ -194,30 +204,57 @@ If 0 items pass the filter, write:
 - SVG-style chart bars (use real numbers; skip the section if no quantitative comparison available)
 - "What didn't make it" table
 
-Each item must include:
-- Tier label (using existing CSS classes)
-- Display title (display serif, plain English)
-- Pitch (italic Fraunces, one sentence, friend tone)
-- **EN section** then **中文 section** (use `.lang` / `.lang-mark` classes)
-- Why this matters (3 bullets)
-- **For 🚨 + 👀**: `<details class="deep-dive">` collapsible with comparison table + "what it runs on" / "how hard" / "what you can do" / "honest caveat"
-- Jargon decoder (only if niche acronyms used)
-- "Who's talking" with concrete numbers
-- "Try it / dig in" with real URLs
+Each item must include (in this order):
+1. **Tier label** (using existing CSS classes)
+2. **Display title** (display serif, plain English)
+3. **Pitch** (italic Fraunces, ~2 sentences, friend tone)
+4. **📍 Context box** (`.context-box`) — REQUIRED for 🚨 + 👀. 1 short paragraph (50-90 words) setting up the background: why this category matters, what came before, why now. This is the "you might not know the backstory" prelude.
+5. **(Optional) Chart** (`.chart`) — REQUIRED if there are quantitative comparisons (GitHub stars, cost, speed). Use REAL numbers. Skip if only qualitative.
+6. **EN section** (`.lang` + `.lang-mark`) with `<h3>Why this matters</h3>` + 3-4 bullets (substantive, each bullet 1-2 sentences)
+7. **🎯 Action block** (`.action-block`) — REQUIRED for 🚨 + 👀. Ordered list of 2-4 concrete things clawii can do TODAY. Use install commands when applicable, real CTAs.
+8. **🔬 Deep dive** (`<details class="deep-dive">`) — REQUIRED for 🚨 + 👀. Comparison table + "what it runs on" / "how hard" / "honest caveat"
+9. **🔭 Watch block** (`.watch-block`) — REQUIRED for 🚨 + 👀. 1-2 sentences on what would trigger the next tap-on-shoulder.
+10. **中文 section** (`.lang`) — short version, ~2-3 paragraphs OR a parallel "为什么这事重要 / 实操要点" pair. The 中文 should reinforce the EN, not just translate it verbatim.
+11. **Jargon decoder** (`.jargon`) — only if niche acronyms appear
+12. **Who's talking** — concrete numbers (stars, points, comment counts)
+13. **Try it / dig in** — real URLs
+
+**ℹ️ items** are looser: just title + pitch + 2-3 bullets EN + ZH + maybe links. No mandatory action/watch/deep-dive.
 
 Write the HTML to:
 - `~/ai-radar/output/YYYY-MM-DD.html` (archival)
 - `~/ai-radar/docs/YYYY-MM-DD.html` (published, archive permalink)
 - `~/ai-radar/docs/index.html` (overwrite with today's — this is what `/` serves)
 
-Also write a parallel markdown version to `~/ai-radar/output/YYYY-MM-DD.md` (for grep / future archive index).
+Both `.pager` blocks (top and bottom) must have `data-current-date="YYYY-MM-DD"` so the JS pager populates correctly. The JS code that fetches `./archive.json` and renders prev/next is already at the bottom of the existing template — leave it as-is.
+
+### Phase 3.5: Update archive.json
+
+After writing the HTML, **append the new entry to `~/ai-radar/docs/archive.json`**. Read the existing file, parse JSON, add new entry at the start of `issues` array, write back.
+
+New entry format:
+```json
+{
+  "date": "YYYY-MM-DD",
+  "weekday": "Mon" | "Tue" | ... (3-letter English),
+  "week": <ISO week number>,
+  "issue": <previous_max_issue + 1>,
+  "kind": "daily",
+  "headline": "<the .cover .headline text — short, opinionated>",
+  "summary": "<one-line plaintext summary, ≤120 chars, used in archive listing>",
+  "counts": { "crit": N, "look": N, "fyi": N },
+  "url": "YYYY-MM-DD.html"
+}
+```
+
+Also write a parallel markdown version to `~/ai-radar/output/YYYY-MM-DD.md` (for grep / archive lookup).
 
 ### Phase 4: Publish to GitHub Pages
 
 Run via Bash (cd into `~/ai-radar/`):
 ```bash
 cd ~/ai-radar
-git add docs/ output/
+git add docs/ output/  # this includes the updated archive.json
 git commit -m "digest: YYYY-MM-DD — <one-line summary>"
 git push origin main
 ```

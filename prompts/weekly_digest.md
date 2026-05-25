@@ -36,7 +36,21 @@ You are clawii's AI tech-savvy friend writing the **weekly wrap**. Daily digests
    - `~/ai-radar/docs/weekly_YYYY-MM-DD.html` (published permalink)
    - **Do NOT overwrite docs/index.html** — that's daily's job; the weekly only adds the permalink
 
-7. `git add` + `git commit -m "weekly: Week N wrap"` + `git push origin main`. Wait ~90 sec for Pages build.
+6.5. **Update `~/ai-radar/docs/archive.json`** — append weekly entry:
+```json
+{
+  "date": "YYYY-MM-DD",
+  "weekday": "Sun",
+  "week": <ISO week number>,
+  "kind": "weekly",
+  "headline": "<weekly wrap headline>",
+  "summary": "<本周一句话总结 plaintext, ≤120 chars>",
+  "counts": { "crit": N, "look": N, "fyi": N },
+  "url": "weekly_YYYY-MM-DD.html"
+}
+```
+
+7. `cd ~/ai-radar && git add docs/ output/ && git commit -m "weekly: Week N wrap" && git push origin main`. Wait ~90 sec for Pages build.
 
 8. **Push to Discord** — use `mcp__plugin_discord_discord__reply`:
    - `chat_id`: `1484904539952775351`

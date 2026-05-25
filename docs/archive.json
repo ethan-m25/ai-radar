@@ -1,0 +1,17 @@
+{
+  "$schema": "https://github.com/ethan-m25/ai-radar",
+  "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
+  "issues": [
+    {
+      "date": "2026-05-24",
+      "weekday": "Sun",
+      "week": 21,
+      "issue": 1,
+      "kind": "daily",
+      "headline": "降价潮 + 黑马 agent + 大客户 — 一起来。",
+      "summary": "opencode 跑赢 Claude Code，DeepSeek Reasonix 把成本砍到 1/5，KPMG 把 Claude 部署给 27.6 万员工。",
+      "counts": { "crit": 1, "look": 2, "fyi": 0 },
+      "url": "2026-05-24.html"
+    }
+  ]
+}
