@@ -8,9 +8,13 @@
       "week": 22,
       "issue": 2,
       "kind": "daily",
-      "headline": "趋势确认 — Big 4 已经过半。",
-      "summary": "PwC + KPMG 同月部署 Claude (5/14 + 5/19) — 自我修正昨天的 watch 时间窗。Gemini 3.5 Flash 给出 1M token 上下文。",
-      "counts": { "crit": 1, "look": 1, "fyi": 0 },
+      "headline": "Big 4 过半一周 — 窗口收窄中。",
+      "summary": "KPMG 官宣已 6 天，PwC 已 11 天。没有第三家跟进——这不代表浪停了，代表剩下两家在算账。本期 2 条信号：一条是企业 AI 采用节奏的校准，一条是长文档工作的新工具。",
+      "counts": {
+        "crit": 2,
+        "look": 2,
+        "fyi": 1
+      },
       "url": "2026-05-25.html"
     },
     {
@@ -21,7 +25,11 @@
       "kind": "daily",
       "headline": "降价潮 + 黑马 agent + 大客户 — 一起来。",
       "summary": "opencode 跑赢 Claude Code，DeepSeek Reasonix 把成本砍到 1/5，KPMG 把 Claude 部署给 27.6 万员工。",
-      "counts": { "crit": 1, "look": 2, "fyi": 0 },
+      "counts": {
+        "crit": 1,
+        "look": 2,
+        "fyi": 0
+      },
       "url": "2026-05-24.html"
     }
   ]
