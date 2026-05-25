@@ -20,12 +20,28 @@ You are clawii's AI tech-savvy friend writing the **weekly wrap**. Daily digests
 2. Inventory every 🚨 and 👀 item that appeared
 3. Apply the **"what survived" filter** (see below)
 4. Cross-check: which items have **grown** in signal during the week? (more KOL coverage, more GitHub stars, more deep threads, more "I tried it" reports)
-5. Write the weekly wrap using format below
-6. Save to `~/ai-radar/output/weekly_YYYY-MM-DD.md`
-7. **Push to Discord** — use the `mcp__plugin_discord_discord__reply` tool with:
-   - `chat_id`: `1484904539952775351` (the cc-workspace channel)
-   - `text`: lead with "📅 **AI Radar — Week N Wrap**" + the "本周一句话总结" + a 3-bullet preview of the 🏆 #1 item
-   - `files`: `["<absolute path to weekly output file>"]`
+5. Write the weekly wrap as **HTML** (NOT markdown) using the same editorial template as the daily digest (read `~/ai-radar/docs/index.html` for the structural reference; this is a different structure — week wrap — but uses the same fonts, color tokens, masthead, footer).
+
+   Weekly-specific structure:
+   - Masthead: "AI RADAR · WEEKLY WRAP · 2026-MM-DD · Week N"
+   - Cover: one big "本周一句话总结" headline + week's signal counts (across all 7 days)
+   - **🏆 The 1 thing that mattered most this week** — full editorial section (no deep dive collapse, just narrative)
+   - **📈 Trends building** — up to 3 items, each with 1-paragraph synthesis (not a full daily-style card)
+   - **💀 What I called wrong / overhyped** — honest demote section
+   - **🔮 Watch list for next week** — bullet list, max 3 items
+   - **📅 Calibration metrics** — small footer-style stats block
+
+6. Write the weekly HTML to:
+   - `~/ai-radar/output/weekly_YYYY-MM-DD.html` (archival)
+   - `~/ai-radar/docs/weekly_YYYY-MM-DD.html` (published permalink)
+   - **Do NOT overwrite docs/index.html** — that's daily's job; the weekly only adds the permalink
+
+7. `git add` + `git commit -m "weekly: Week N wrap"` + `git push origin main`. Wait ~90 sec for Pages build.
+
+8. **Push to Discord** — use `mcp__plugin_discord_discord__reply`:
+   - `chat_id`: `1484904539952775351`
+   - `text`: lead with "📅 **AI Radar — Week N Wrap**", the "本周一句话总结", a 3-bullet preview of the 🏆 #1 item, then the permalink URL `https://ethan-m25.github.io/ai-radar/weekly_YYYY-MM-DD.html`
+   - `files`: `["<absolute path to weekly .html file>"]`
 
 ---
 

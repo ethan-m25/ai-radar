@@ -36,12 +36,14 @@ fi
 
 # Claude executes the full pipeline: fetch sources, write output file,
 # push to Discord via MCP reply tool. The prompt specifies exact channel ID.
-claude -p "Execute the AI Radar daily digest workflow per the system prompt at $PROMPT_FILE. Today is $TODAY. Output file: $OUTPUT_FILE. Follow ALL workflow steps including the final Discord push to chat_id 1484904539952775351 with the output file attached." \
+HTML_OUTPUT="$HOME/ai-radar/docs/$TODAY.html"
+
+claude -p "Execute the AI Radar daily digest workflow per the system prompt at $PROMPT_FILE. Today is $TODAY. Follow ALL 5 phases: (1) fetch sources, (2) filter+rank, (3) write HTML to $HTML_OUTPUT + $HOME/ai-radar/docs/index.html + $OUTPUT_FILE markdown copy, (4) git add+commit+push from $HOME/ai-radar, (5) wait for Pages then Discord push to chat_id 1484904539952775351 with $HTML_OUTPUT attached and the URL https://ethan-m25.github.io/ai-radar/" \
   --allowedTools "WebFetch,Write,Read,Bash,mcp__plugin_discord_discord__reply" \
   2>&1 | tee -a "$LOG_FILE"
 
-if [[ ! -f "$OUTPUT_FILE" ]]; then
-  echo "ERROR: digest output file was not created at $OUTPUT_FILE" | tee -a "$LOG_FILE"
+if [[ ! -f "$HTML_OUTPUT" ]]; then
+  echo "ERROR: HTML digest was not created at $HTML_OUTPUT" | tee -a "$LOG_FILE"
   exit 1
 fi
 

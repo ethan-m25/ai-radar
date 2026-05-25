@@ -168,21 +168,86 @@ If 0 items pass the filter, write:
 
 ## Workflow when you run this
 
-1. Fetch latest issue of news.smol.ai (the day's AINews)
-2. Fetch ossinsight.io/trending/ai (look at 28d growth column)
-3. Fetch news.ycombinator.com — scan front page for AI items
+### Phase 1: Fetch sources
+1. Fetch latest issue of `news.smol.ai` (the day's AINews)
+2. Fetch `ossinsight.io/trending/ai` (look at 28d growth column)
+3. Fetch `news.ycombinator.com` — scan front page for AI items
 4. Fetch X via nitter mirrors or RSS for: karpathy, swyx, simonw, rileygoodside, skirano, OfficialLoganK, alexalbert__, sama, demishassabis, miramurati (best-effort — skip if unavailable)
-5. Fetch anthropic.com/news and openai.com/index/ for official ships
+5. Fetch `anthropic.com/news` and `openai.com/index/` for official ships
+
+### Phase 2: Filter and rank
 6. Cross-reference: which stories appear in 2+ sources? Which have lone KOL signals?
 7. Apply hard filters (exclude list)
-8. Rank by tier
-9. Write digest using the format above
-10. Save to `~/ai-radar/output/YYYY-MM-DD.md`
-11. **Push to Discord** — use the `mcp__plugin_discord_discord__reply` tool with:
-    - `chat_id`: `1484904539952775351` (the cc-workspace channel)
-    - `text`: a tight summary (≤1800 chars) — list each item with tier emoji + 1 line each + "📎 完整双语 + 深扒见附件"
-    - `files`: `["<absolute path to today's output file>"]`
-12. If there were 🚨 items, the Discord text should LEAD with "🚨 N 条必看" so the push notification ping is loud enough.
+8. Rank by tier (🚨 / 👀 / ℹ️)
+
+### Phase 3: Generate HTML (the primary artifact)
+
+**READ the canonical template first:** `~/ai-radar/docs/index.html` (or the most recent dated HTML in `~/ai-radar/docs/`). Use it as your structural template — same CSS, same classes, same fonts (Fraunces + Geist), same color tokens (oklch), same layout.
+
+**Swap in today's content. Do NOT redesign. Do NOT invent new styles.** Just change:
+- Masthead date / Week N / №NNN issue number (issue №001 was 2026-05-24, so increment by 1 per day OR compute days-since-001)
+- Cover headline (a short, opinionated title that captures the day's vibe — e.g., "降价潮 + 黑马 + 大客户 一起来。")
+- Cover 4-count: total + breakdown
+- TOC entries (one per item)
+- Each `<article class="item item--crit|--look|--fyi">` block
+- Comparison tables inside deep-dives (REQUIRED for 🚨 + 👀 items)
+- SVG-style chart bars (use real numbers; skip the section if no quantitative comparison available)
+- "What didn't make it" table
+
+Each item must include:
+- Tier label (using existing CSS classes)
+- Display title (display serif, plain English)
+- Pitch (italic Fraunces, one sentence, friend tone)
+- **EN section** then **中文 section** (use `.lang` / `.lang-mark` classes)
+- Why this matters (3 bullets)
+- **For 🚨 + 👀**: `<details class="deep-dive">` collapsible with comparison table + "what it runs on" / "how hard" / "what you can do" / "honest caveat"
+- Jargon decoder (only if niche acronyms used)
+- "Who's talking" with concrete numbers
+- "Try it / dig in" with real URLs
+
+Write the HTML to:
+- `~/ai-radar/output/YYYY-MM-DD.html` (archival)
+- `~/ai-radar/docs/YYYY-MM-DD.html` (published, archive permalink)
+- `~/ai-radar/docs/index.html` (overwrite with today's — this is what `/` serves)
+
+Also write a parallel markdown version to `~/ai-radar/output/YYYY-MM-DD.md` (for grep / future archive index).
+
+### Phase 4: Publish to GitHub Pages
+
+Run via Bash (cd into `~/ai-radar/`):
+```bash
+cd ~/ai-radar
+git add docs/ output/
+git commit -m "digest: YYYY-MM-DD — <one-line summary>"
+git push origin main
+```
+
+GitHub Pages will rebuild in ~1-2 minutes. The public URL is **https://ethan-m25.github.io/ai-radar/** (today's content) and **https://ethan-m25.github.io/ai-radar/YYYY-MM-DD.html** (permalink).
+
+### Phase 5: Push to Discord
+
+Wait ~90 seconds for the Pages build to finish (use `sleep 90` then verify with `curl -sI https://ethan-m25.github.io/ai-radar/` returns 200 with a recent `last-modified` header — retry once if not).
+
+Then use `mcp__plugin_discord_discord__reply`:
+- `chat_id`: `1484904539952775351` (cc-workspace channel)
+- `text`: tight summary (≤1800 chars) leading with date + tier counts, then 1 line per item with the tier emoji, then the URL on its own line, then a closing line "📱 手机一点就开 · 📎 离线版见附件"
+  - If any 🚨 items exist, lead with "🚨 N 条必看 — " so the push notification ping is loud enough
+- `files`: `["<absolute path to today's .html file>"]`
+
+Example Discord text shape:
+```
+🛰️ AI Radar · 2026-MM-DD · Week N
+🚨 1 必看 · 👀 2 可看 · ℹ️ 1 知道
+
+🚨 [item 1 title] — [one-line pitch]
+👀 [item 2 title] — [one-line pitch]
+👀 [item 3 title] — [one-line pitch]
+ℹ️ [item 4 title]
+
+https://ethan-m25.github.io/ai-radar/
+
+📱 手机一点就开 · 📎 离线版 .html 见附件
+```
 
 ---
 
