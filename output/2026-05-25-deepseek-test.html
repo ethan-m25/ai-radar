@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · 2026-05-25 · Week 22</title>
+<meta name="description" content="2 条真信号 — PwC + KPMG 已确认 Big 4 趋势；Gemini 3.5 Flash 给你 1M 上下文">
+
+<meta property="og:title" content="AI Radar · 2026-05-25">
+<meta property="og:description" content="2 条真信号 · 1 🚨 必看 · 1 👀 可看">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+
+  .pager { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 2.5rem; padding: 0.75rem 0; border-top: 1px dashed var(--hairline); border-bottom: 1px dashed var(--hairline); }
+  .pager.bottom { margin: 4rem 0 0; }
+  .pager a, .pager span { font-size: var(--t-small); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; flex: 1; }
+  .pager a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .pager .pg-prev { text-align: left; }
+  .pager .pg-mid { text-align: center; color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pager .pg-next { text-align: right; }
+  .pager .pg-disabled { color: var(--ink-mute); opacity: 0.5; }
+  .pager .pg-arrow { font-family: 'Geist Mono', monospace; color: var(--ink-mute); }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 14ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 48ch; margin: 0 0 2rem; }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .toc { margin-bottom: 3.5rem; padding: 1.5rem 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .toc .smallcaps { margin-bottom: 1rem; display: block; }
+  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  .toc li { counter-increment: toc; display: grid; grid-template-columns: 1.75rem 2rem 1fr; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--hairline); }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); color: var(--ink-mute); }
+  .toc li .tier-mark { font-size: 1.1rem; }
+  .toc li a { color: var(--ink); text-decoration: none; font-size: var(--t-body); transition: color 0.15s; }
+  .toc li a:hover { color: var(--tier-crit); text-decoration: underline; text-underline-offset: 4px; }
+
+  .item { position: relative; margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); }
+  .item::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--bar-color, var(--tier-fyi)); }
+  .item--crit { --bar-color: var(--tier-crit); }
+  .item--look { --bar-color: var(--tier-look); }
+  .item--fyi { --bar-color: var(--tier-fyi); }
+  .item .tier-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bar-color); margin-bottom: 0.6rem; font-weight: 500; }
+  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 22ch; }
+  .item .pitch { font-size: var(--t-h3); color: var(--ink-soft); line-height: 1.45; font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; margin-bottom: 2rem; max-width: 40ch; }
+
+  .context-box { background: var(--bg-sunk); border-left: 2px solid var(--bar-color, var(--tier-fyi)); padding: 0.9rem 1.1rem; margin: 1rem 0 2rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .context-box .smallcaps { color: var(--bar-color); margin-bottom: 0.4rem; display: block; }
+  .context-box p { margin: 0; }
+  .context-box p + p { margin-top: 0.55rem; }
+
+  .action-block, .watch-block { margin: 1.5rem 0; padding: 1.1rem 1.25rem; border-radius: 2px; }
+  .action-block { background: oklch(0.96 0.02 100); border: 1px solid var(--hairline); }
+  .watch-block { background: var(--bg-card); border: 1px solid var(--hairline); border-left: 3px solid var(--bar-color); }
+  .action-block .smallcaps, .watch-block .smallcaps { color: var(--bar-color); margin-bottom: 0.55rem; display: block; }
+  .action-block ul, .watch-block ul, .action-block ol { margin: 0; padding-left: 1.1rem; }
+  .action-block li, .watch-block li { margin: 0.3rem 0; }
+  .action-block p, .watch-block p { margin: 0; }
+
+  .item h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.75rem; font-weight: 600; letter-spacing: -0.01em; }
+  .item p { margin: 0.5rem 0 1rem; }
+  .item ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
+  .item li { margin: 0.45rem 0; }
+  .item li::marker { color: var(--bar-color); }
+  .item a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--bar-color); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
+  .item a:hover { text-decoration-color: var(--ink); }
+
+  .lang { margin-top: 2.25rem; }
+  .lang-mark { display: inline-block; font-family: 'Geist Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.2rem 0.55rem; background: var(--bg-sunk); color: var(--ink-mute); border-radius: 2px; margin-bottom: 1rem; }
+
+  .compare { margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: var(--t-small); }
+  .compare th, .compare td { text-align: left; padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .compare thead th { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); border-bottom: 2px solid var(--hairline-bold); }
+  .compare tbody th { font-weight: 500; color: var(--ink); background: var(--bg-sunk); white-space: nowrap; }
+  .compare .ok { color: oklch(0.55 0.15 145); font-weight: 600; }
+  .compare .no { color: var(--tier-crit); font-weight: 600; }
+
+  details.deep-dive { margin: 1.5rem 0; border: 1px solid var(--hairline); border-radius: 2px; overflow: hidden; }
+  details.deep-dive[open] { background: var(--bg-card); }
+  details.deep-dive > summary { list-style: none; cursor: pointer; padding: 0.9rem 1.1rem; font-family: 'Geist', sans-serif; font-weight: 500; font-size: var(--t-small); color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; user-select: none; background: var(--bg-sunk); transition: background 0.15s; }
+  details.deep-dive > summary:hover { background: oklch(0.92 0.014 85); }
+  details.deep-dive > summary::-webkit-details-marker { display: none; }
+  details.deep-dive > summary::after { content: "+"; font-family: 'Geist Mono', monospace; font-size: 1.1rem; color: var(--ink-mute); transition: transform 0.2s; }
+  details.deep-dive[open] > summary::after { content: "−"; }
+  details.deep-dive .dd-body { padding: 1.25rem 1.1rem; }
+
+  .jargon { background: var(--bg-sunk); padding: 1rem 1.25rem; border-radius: 2px; margin: 1.5rem 0; font-size: var(--t-small); }
+  .jargon dt { font-family: 'Geist Mono', monospace; font-weight: 500; color: var(--ink); display: inline; }
+  .jargon dd { display: inline; margin: 0; color: var(--ink-soft); }
+  .jargon dt + dd::before { content: " = "; color: var(--ink-mute); }
+  .jargon dd + dt { display: block; margin-top: 0.5rem; }
+  .jargon dd + dt::before { content: ""; }
+
+  /* Self-calibration callout — only on days with corrections */
+  .calibration {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: oklch(0.96 0.025 60);
+    border: 1px solid oklch(0.85 0.06 60);
+    border-radius: 2px;
+  }
+  .calibration .smallcaps { display: block; margin-bottom: 0.5rem; color: oklch(0.45 0.12 60); }
+  .calibration p { margin: 0; font-size: var(--t-small); color: var(--ink); }
+
+  .killed { margin: 4rem 0 2rem; padding: 2rem 0; border-top: 1px solid var(--hairline-bold); }
+  .killed h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 500; font-size: var(--t-h2); margin: 0 0 1.5rem; color: var(--ink-soft); }
+  .killed table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+  .killed th, .killed td { text-align: left; padding: 0.6rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .killed thead th { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+  .killed tbody tr td:first-child { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); white-space: nowrap; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .item:nth-of-type(1) { animation-delay: 0.05s; }
+  .item:nth-of-type(2) { animation-delay: 0.15s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./" class="current">今日</a>
+      <a href="./archive.html">归档</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 05 · 25  ·  Wk 22  ·  №&nbsp;003  ·  Mon</span>
+    <span>约 6 分钟读完</span>
+  </div>
+
+  <nav class="pager top" data-current-date="2026-05-25">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-24.html"><span class="pg-arrow">←</span> 2026-05-24 (Sun)</a></span>
+    <span class="pg-mid" data-slot="mid">第 003 期 · 共 3 期</span>
+    <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <section class="cover">
+    <span class="kicker smallcaps">今日真信号</span>
+    <h1 class="display headline">Big 4 过半 + 模型竞争白热化</h1>
+    <p class="lead">今天 2 条信号：趋势确认和工具选择。PwC + KPMG 同月签约 Claude 已经给腰部咨询公司发出了信号；Gemini 3.5 Flash 则给你的工作流多了一个长文档通道。</p>
+    <div class="count-row">
+      <div class="total">2</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 必看 (Must See)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>1</span>&nbsp;👀 可看 (Worth a Look)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</span>&nbsp;ℹ️ 知道 (FYI)</span>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="Index">
+    <span class="smallcaps">本期目录</span>
+    <ol>
+      <li><span class="tier-mark">🚨</span><a href="#big4">Big 4 过半 — PwC + KPMG 都上线 Claude，窗口已到</a></li>
+      <li><span class="tier-mark">👀</span><a href="#gemini">Gemini 3.5 Flash — 1M token 上下文，长文档分析的新基准</a></li>
+    </ol>
+  </nav>
+
+  <!-- ITEM 1: PwC + KPMG (CRIT) -->
+  <article id="big4" class="item item--crit">
+    <div class="tier-label">🚨 Must See · 趋势已确认</div>
+    <h2 class="display title">Big 4 已经过半 — PwC + KPMG 都部署了 Claude</h2>
+    <p class="pitch">clawii，上次我告诉你"看 30-60 天"——其实 5 天内就完成了。PwC 5/14 上线，KPMG 5/19 跟进。两家最保守的咨询公司同月签约。这不是巧合，是企业 AI 采纳的窗口期已经打开。</p>
+
+    <div class="calibration">
+      <span class="smallcaps">⚠️ 自我修正 (Self-calibration)</span>
+      <p>上期我说了 KPMG 的 👀，但漏掉了 PwC 5/14 的官宣——实际上 PwC 比 KPMG 还早 5 天。两家在 5 天内都决定全员部署 Claude，意味着他们的法务/审计/数据隐私团队<strong>独立通过了同一个结论</strong>：Anthropic 的 framework 是安全的、可审计的。</p>
+    </div>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 背景 · Context</span>
+      <p>四大会计师事务所（Deloitte、PwC、EY、KPMG）是企业 IT 采购最保守的群体——审计行业最怕"AI 出错被告"。过去两年他们只做小范围试点。</p>
+      <p>5 月这 5 天内连续两家全员部署 Claude：PwC 是"用 Claude 做开发、成交、改造企业职能"；KPMG 是 27.6 万员工全员覆盖。这不是巧合——是窗口开始关上了。剩下两大现在有巨大的同侪压力。</p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>The wave has officially started.</strong> Two Big-4 firms in 5 days means a cascade is happening. Deloitte + EY's internal CTOs are seeing "PwC + KPMG already shipped" on every consulting industry email this week.</li>
+        <li><strong>For your day job</strong>: your multinational's IT/Legal/Compliance teams won't have 6 months to decide — they'll have 2-3 months. The "should we standardize on Claude" conversation hits in Q3.</li>
+        <li><strong>For your HR/comp work specifically</strong>: when 2+ of the Big-4 run Claude on their actual client-facing audit + advisory workflows, your firm's auditors will see Claude-generated reports next quarter. Knowing how Claude argues/writes is now a literacy issue, not a curiosity.</li>
+        <li><strong>Signal for everyone else</strong>: when the most regulated industry on earth says "yes", every compliance-sensitive sector (banking, pharma, insurance) will follow within 6-12 months.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 实操 — 你这周能做什么</span>
+      <ol>
+        <li><strong>升级你 PPT 的说服力</strong>：把"KPMG 部署了 Claude"改成"PwC 5/14 + KPMG 5/19 同月部署，Big 4 已过半"。这是个更强的信号框架。</li>
+        <li><strong>给 IT/法务发一封短邮件（≤3 段）</strong>：标题"FYI: 行业动态 — 四大已两家全员部署 AI"，附 Anthropic 两条官宣链接。定位自己为"知道行业进度的人"。不要求行动，只是告知。</li>
+        <li><strong>在 Q3 前积累 Claude 使用经验</strong>：现在开始用 Claude 处理 HR 文档（政策草案、JD、benchmark 分析、法规阅读），等公司正式部署时你已经有 3-6 个月的肌肉记忆。</li>
+        <li><strong>设一个 6/10 的日历提醒</strong>：如果届时 Deloitte 或 EY 还没跟进，说明剩下的两家可能在等更便宜的 OpenAI Enterprise 选项——那也是信号。</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 深扒 — PwC vs KPMG 的部署有什么不同</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>PwC (5/14)</th><th>KPMG (5/19)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>规模</th><td>未披露具体数字，覆盖 "core operations"</td><td>明确 276,000+ 员工</td></tr>
+              <tr><th>定位</th><td>"Build technology, execute deals, reinvent enterprise functions"</td><td>"Strategic alliance" — 多年长期</td></tr>
+              <tr><th>用途广度</th><td>开发、客户交付、业务流程改造（最广）</td><td>员工生产力 + 部分客户工作流</td></tr>
+              <tr><th>对外信号</th><td>"AI 是我们的产品" — 向客户卖 AI-augmented 服务</td><td>"AI 是我们的工作方式" — 内部效率</td></tr>
+              <tr><th>潜在含义</th><td>PwC 会拿 Claude 写审计报告卖给客户</td><td>KPMG 内部生产力升级，外部慢慢渗透</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>关键洞察</strong>：PwC 是"我们用 Claude 给客户做事"——客户能直接看到 Claude 的输出。KPMG 是"我们内部用 Claude 效率更高"——客户感知较慢。两种打法都成立，但 PwC 的更激进，意味着审计行业的客户也会被裹挟着接触 Claude 输出。</p>
+        <p><strong>对其他两大的隐含信息</strong>：Deloitte 和 EY 现在必须选边——跟 Claude，跟 ChatGPT Enterprise，或两个都跟。任何 30 天以上的犹豫都意味着被 PwC + KPMG 抢走客户对话的窗口。</p>
+        <p><strong>诚实说明</strong>：这些公告没说具体用 Claude 的哪个版本、怎么收费、员工用不用得了。企业部署和"每人一个 Claude Pro"之间还有距离。但信号本身是明确的。</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 接下来看什么</span>
+      <p>14 天内大概率有 Deloitte 或 EY 跟进。如果到 6/10 还没有，说明剩下的两家在等更便宜的 OpenAI Enterprise 套餐——那也是个值得知道的信号。</p>
+    </div>
+
+    <dl class="jargon">
+      <dt>Big-4 (四大)</dt><dd>全球四大会计师/咨询公司 — Deloitte（德勤）、PwC（普华永道）、EY（安永）、KPMG（毕马威）</dd>
+      <dt>Constitutional AI</dt><dd>Anthropic 的 AI 安全方法论：让模型按一组成文规则自我约束。审计公司喜欢，因为可文档化、可解释、可审计</dd>
+    </dl>
+
+    <h3>谁在讨论</h3>
+    <ul>
+      <li>Anthropic 官宣 PwC (5/14): <a href="https://www.anthropic.com/news">anthropic.com/news</a></li>
+      <li>Anthropic 官宣 KPMG (5/19): <a href="https://www.anthropic.com/news">anthropic.com/news</a></li>
+      <li>X 上 enterprise IT 圈子在传，但还没成为主流话题——这本身就是你的领先窗口</li>
+    </ul>
+  </article>
+
+  <!-- ITEM 2: Gemini 3.5 Flash + Omni -->
+  <article id="gemini" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · 长上下文新基准</div>
+    <h2 class="display title">Gemini 3.5 Flash + Omni — 1M token 上下文，便宜得离谱</h2>
+    <p class="pitch">Google I/O 2026（5/19）发布了 Gemini 3.5 Flash，带 1M token 上下文 + 65k 输出。Omni 是多形态模型，支持文本、图像、视频、音频同时输入。800M+ 月活用户，规模是 Claude 的 10 倍以上。</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 背景 · Context</span>
+      <p>"上下文长度"是过去 12 个月模型竞争的关键战场之一。Claude Sonnet 4.6 是 200k context，GPT-5.5 是 256k。Gemini 3.5 Flash 直接做到 <strong>1M（100 万）token</strong>——大约能一次塞进一本 800 页的书，或你们公司 5 年的 HR 政策合集。</p>
+      <p>对你来说，意义不是"能塞多少"——而是"再也不用切片喂了"。以前做长文档分析要手动把 PDF 切成 10 段分别喂 AI；现在一次丢进去就行。</p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>1M token context = one-shot a whole book.</strong> For your workflow: upload the full annual compensation survey PDF + your company's full HR handbook + an external benchmark report — ask the AI to give you "5 gaps between us and the market" in one go. No more splitting into 3-5 chunks.</li>
+        <li><strong>Flash = cheap variant.</strong> Google designed this for "high-frequency small tasks." Expected cost is 1/10 of Sonnet or Opus. If you often process long documents but don't need Claude-level reasoning depth, this is a great complement.</li>
+        <li><strong>"Omni" = true multimodal.</strong> One model handles voice, video, images, and text. Drop a recorded meeting in and get meeting notes + action items without transcribing first.</li>
+        <li><strong>Scale signal</strong>: Google claims 3.2 quadrillion tokens/month processed, 800M+ Gemini monthly users. When you talk to your company's IT team, saying "Google isn't just a search engine anymore — their AI runs on 800M users" carries more weight than "I personally like Claude."</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 实操 — 你这周能做什么</span>
+      <ol>
+        <li><strong>装 Gemini CLI</strong>：<code class="mono">brew install gemini-cli</code> 或 npm（Google 官方的命令行 AI 工具，类似 Claude Code 但跑 Gemini 模型）。免费层够你试用。</li>
+        <li><strong>找一份你平时要分析的长文档</strong>（薪酬调查报告、劳动法规、年度合规手册任选）。用 Gemini 3.5 Flash 跑一次，看 1M context 在"找特定段落 + 跨章节比对"任务上的表现。</li>
+        <li><strong>对照测一下</strong>：同一份文档用 Claude 跑一次。看哪个更准、哪个更深入。结论很可能是 Claude 更聪明但 Gemini 更便宜且上下文更大——这种"分流"思路和之前说的 Reasonix 一样。</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 深扒 — Gemini 3.5 Flash vs Claude Sonnet 4.6 vs GPT-5.5（长文档场景）</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>Gemini 3.5 Flash</th><th>Claude Sonnet 4.6</th><th>GPT-5.5</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>上下文长度</th><td><strong>1M tokens</strong></td><td>200k tokens</td><td>256k tokens</td></tr>
+              <tr><th>最大输出</th><td>65k tokens</td><td>16k tokens</td><td>~32k tokens</td></tr>
+              <tr><th>定位</th><td>"高频、便宜、上下文大"</td><td>"通用 + 推理强"</td><td>"通用 + 多模态"</td></tr>
+              <tr><th>多模态</th><td>原生 Omni（音视频+图）</td><td>图像</td><td>图像 + 语音</td></tr>
+              <tr><th>预期成本（vs 旗舰）</th><td>~1/10</td><td>~1/4 (vs Opus)</td><td>~1/4 (vs flagship)</td></tr>
+              <tr><th>推理深度</th><td>中等</td><td><strong>强</strong></td><td>中-强</td></tr>
+              <tr><th>对长文档</th><td><strong>最适合"读一本书"</strong></td><td>适合"读一章 + 深入分析"</td><td>适合"读半本书 + 多模态混合"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>你的最佳分流策略</strong>：</p>
+        <ul>
+          <li><em>读 + 找 + 总结</em>类（不需要深推理）→ Gemini 3.5 Flash，便宜量大</li>
+          <li><em>分析 + 论证 + 写作</em>类（需要质量）→ Claude Sonnet / Opus</li>
+          <li><em>开会纪要 + 视频/语音</em> → Gemini Omni</li>
+        </ul>
+        <p><strong>诚实说明</strong>：Gemini 3.5 Flash 我还没在你具体的 HR/compensation 文档上跑过测试。"1M context 真的能用上"和"100k 之后就开始遗忘"是两回事——业内对 Google 长上下文实测的争议历来很多。试一下你自己的真实文档，别只看官方数字。</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 接下来看什么</span>
+      <p>看 6/15 之前 Anthropic 或 OpenAI 有没有出"我们也 1M context 了"的回应。如果出了，说明长上下文进入军备竞赛尾声，价格会快速下降到几乎免费；如果没出，说明 Google 真的拿到了独家优势——你应该开始用 Gemini 处理长文档而不是 Claude。</p>
+    </div>
+
+    <dl class="jargon">
+      <dt>Context (上下文)</dt><dd>模型一次能"看到"的文字量。越长 = 一次塞越多内容。1M token ≈ 750k 字 ≈ 一本 500-800 页的书</dd>
+      <dt>Multimodal (多模态)</dt><dd>同一个模型能处理多种输入：文字、图像、声音、视频。以前每种需要不同模型，现在一个模型全包了</dd>
+      <dt>Gemini CLI</dt><dd>Google 官方的命令行 AI 工具，类似 Claude Code，但跑 Gemini 模型</dd>
+    </dl>
+
+    <h3>谁在讨论</h3>
+    <ul>
+      <li>Google I/O 2026 主题演讲（5/19）— philschmid, jeffdean, demishassabis 都发了推文</li>
+      <li>Smol AI 5/18 issue 头条覆盖</li>
+      <li>gemini-cli GitHub: +272 stars in 28 days（OSSInsight 排名 #16）</li>
+    </ul>
+
+    <h3>试试 / 深入</h3>
+    <ul>
+      <li>Gemini CLI: <a href="https://github.com/google-gemini/gemini-cli">github.com/google-gemini/gemini-cli</a></li>
+      <li>Google AI Studio (网页试用): <a href="https://aistudio.google.com">aistudio.google.com</a></li>
+      <li>Smol AI Google I/O coverage: news.smol.ai/issues</li>
+    </ul>
+  </article>
+
+  <!-- WHAT DIDN'T MAKE IT -->
+  <section class="killed">
+    <h2>今天没选进来的</h2>
+    <table>
+      <thead>
+        <tr><th>来源</th><th>内容</th><th>为什么没选</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>HN</td><td>DeepSeek Reasonix（615 分, 254 comments）</td><td>上期已 tap 过 — 不重复</td></tr>
+        <tr><td>OSSInsight</td><td>opencode 继续 #1 momentum (+1497)</td><td>已连续多期出现 — 不重复 tap</td></tr>
+        <tr><td>Smol AI 5/21</td><td>RAEv2 / NVIDIA DeltaNet-2</td><td>纯学术论文，无落地产品</td></tr>
+        <tr><td>HN</td><td>"Constraint Decay" agent 论文 (262 pts)</td><td>纯研究，对工作流无直接影响</td></tr>
+        <tr><td>HN</td><td>"Memory cost" 产业分析 (410 pts)</td><td>产业分析，不可操作</td></tr>
+        <tr><td>Smol AI 5/18</td><td>LangSmith Engine / SmithDB</td><td>开发者 infra，非你的工作流</td></tr>
+        <tr><td>Anthropic 5/22</td><td>Project Glasswing 更新</td><td>关键基础设施安全，对个人工作流无直接影响</td></tr>
+        <tr><td>Anthropic 5/18</td><td>Stainless 收购</td><td>行业内幕</td></tr>
+        <tr><td>Smol AI 5/12-17</td><td>各种 research 更新</td><td>纯研究，无实用产出</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <nav class="pager bottom" data-current-date="2026-05-25">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-24.html"><span class="pg-arrow">←</span> 2026-05-24 (Sun)</a></span>
+    <a class="pg-mid" href="./archive.html">查看完整归档 →</a>
+    <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      做你的 AI 虚拟朋友 — 每天 07:07 推送 · 上限 3 条 · 宁缺毋滥。
+    </p>
+    <p>
+      扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/index (今天 403)
+    </p>
+    <p>
+      剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+    </p>
+    <p class="system">
+      ai-radar · v0.3 · 2 items today (1🚨 / 1👀 / 0ℹ️) · self-calibration applied
+    </p>
+  </footer>
+
+</main>
+
+<script>
+(async function () {
+  const pagers = document.querySelectorAll('.pager');
+  if (pagers.length === 0) return;
+  const currentDate = pagers[0].dataset.currentDate;
+  if (!currentDate) return;
+  try {
+    const res = await fetch('./archive.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const issues = (data.issues || []).filter(i => i.kind !== 'weekly').sort((a, b) => a.date.localeCompare(b.date));
+    const idx = issues.findIndex(i => i.date === currentDate);
+    if (idx < 0) return;
+    const prev = issues[idx - 1] || null;
+    const next = issues[idx + 1] || null;
+    const totalDailies = issues.length;
+    const issueNum = (issues[idx] && issues[idx].issue) || (idx + 1);
+    for (const pager of pagers) {
+      const prevSlot = pager.querySelector('[data-slot="prev"]');
+      const nextSlot = pager.querySelector('[data-slot="next"]');
+      const midSlot = pager.querySelector('.pg-mid');
+      if (prev && prevSlot) {
+        const a = document.createElement('a');
+        a.href = prev.url;
+        a.className = 'pg-prev';
+        a.innerHTML = '<span class="pg-arrow">←</span> ' + prev.date + ' (' + (prev.weekday || '') + ')';
+        prevSlot.replaceWith(a);
+      }
+      if (next && nextSlot) {
+        const a = document.createElement('a');
+        a.href = next.url;
+        a.className = 'pg-next';
+        a.innerHTML = next.date + ' (' + (next.weekday || '') + ') <span class="pg-arrow">→</span>';
+        nextSlot.replaceWith(a);
+      }
+      if (midSlot && midSlot.tagName !== 'A') {
+        midSlot.textContent = '第 ' + String(issueNum).padStart(3, '0') + ' 期 · 共 ' + totalDailies + ' 期';
+      }
+    }
+  } catch (err) {
+    console.warn('archive.json fetch failed:', err.message);
+  }
+})();
+</script>
+
+</body>
+</html>
