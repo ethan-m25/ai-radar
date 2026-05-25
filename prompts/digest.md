@@ -46,6 +46,35 @@ A story qualifies for the digest if it hits **any one** of these patterns:
 - **Minimum 1 item per day.** If genuinely nothing hits the threshold, still produce the page with the "no real signals today" header (see below) — do not skip a day silently. Some days have 0 🚨; that's expected.
 - **Do not fabricate urgency to fill quota.** Better 1 strong signal than 3 padded ones.
 
+## Carry-over memory (no story gets dropped silently)
+
+You will be given a **PAST 7 DAYS** section in the user prompt listing every previously featured item and every item that was on the "killed" list. Two rules apply:
+
+### Rule A — Killed-list re-evaluation (catches missed risers)
+For each item in the past-7-days "killed" list, **actively re-evaluate it against today's sources.** If its signal has materially grown (more KOL discussion, HN points jumped, GitHub stars accelerated, official ship happened), you SHOULD promote it to today's top-3. This is the "won't be missed all together" promise.
+
+### Rule B — Featured-item suppression with "Still tracking" sidebar
+For each item that was already featured (🚨/👀/ℹ️) in the past 7 days:
+- **Default: it cannot occupy a top-3 slot today.**
+- **Exception — re-feature is allowed ONLY if a "trigger event" has occurred since the last feature:**
+  - Quantitative: a key metric ~2x'd (stars, HN points, MAU, etc.)
+  - KOL signal: a NEW high-influence person (one who wasn't talking before) actively endorsed it
+  - Product signal: official ship, acquisition, major version release, pivot
+  - Status flip: rumored → confirmed; closed → open-sourced; etc.
+  - If you re-feature, the pitch MUST explicitly call out the trigger: "Update — this is back because [X happened]"
+- **If no trigger event but the topic is still developing**, put it in a new section **"📈 Still tracking"** (HTML class: `still-tracking`). One line per item, max 5 lines:
+  - Day counter (e.g., "Day 3"), the item name, and a 1-sentence update on its current state.
+  - Example: `Day 3 · opencode — HN 头条出现一次（昨天没出现），star 涨幅放缓但仍 #1 momentum`
+- **If a featured item has had 0 new movement for 3+ days running**, drop it from "Still tracking" entirely. It's now ambient background noise.
+
+### How the two rules interact with the 3-item cap
+
+- Top-3 = today's "new" or "newly-escalated" stories (fresh + re-promoted from killed list + re-featured with trigger)
+- "📈 Still tracking" = up to 5 micro-updates on persistent storylines, does NOT count against the 3 cap
+- "📊 今天没选进来的" = today's killed list (existing), unchanged
+
+This means a day can legitimately look like: 2 top-3 items + 4 still-tracking + 5 killed = healthy radar.
+
 If nothing crosses the threshold:
 ```
 今天没有真信号 — 0/3. 扫描了 N 个源，所有内容都是 recap / 通稿 / 中文圈已覆盖。
@@ -203,6 +232,28 @@ If 0 items pass the filter, write:
 - Comparison tables inside deep-dives (REQUIRED for 🚨 + 👀 items)
 - SVG-style chart bars (use real numbers; skip the section if no quantitative comparison available)
 - "What didn't make it" table
+
+### "Still tracking" section HTML structure (place AFTER the last <article> item and BEFORE <section class="killed">)
+
+```html
+<aside class="still-tracking">
+  <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
+  <ul>
+    <li>
+      <span class="days">Day 3</span>
+      <div><span class="item-name">opencode</span> <span class="update">— HN 头条出现一次，star 涨幅放缓但仍 #1 momentum；no new KOL endorsement.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN 分数 311 → 612 → 平稳；DeepSeek 官方文档现已收录.</span></div>
+    </li>
+  </ul>
+</aside>
+```
+
+Omit this section entirely if there are no past-7-day items to track. Max 5 `<li>`. Each `<li>` is grid: day-counter + name+update.
+
+---
 
 Each item must include (in this order):
 1. **Tier label** (using existing CSS classes)

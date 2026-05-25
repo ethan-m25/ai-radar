@@ -159,6 +159,16 @@
   .calibration .smallcaps { display: block; margin-bottom: 0.5rem; color: oklch(0.45 0.12 60); }
   .calibration p { margin: 0; font-size: var(--t-small); color: var(--ink); }
 
+  /* Still tracking — sidebar for items already featured this week but still developing.
+     Does NOT count against the 3-item top-3 cap. */
+  .still-tracking { margin: 3rem 0 2rem; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--ink-mute); border-radius: 2px; }
+  .still-tracking .smallcaps { display: block; margin-bottom: 0.85rem; color: var(--ink-soft); }
+  .still-tracking ul { list-style: none; margin: 0; padding: 0; font-size: var(--t-small); }
+  .still-tracking li { margin: 0.55rem 0; padding: 0; display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.6rem; align-items: baseline; }
+  .still-tracking .days { font-family: 'Geist Mono', monospace; color: var(--ink-mute); font-size: 0.82em; background: var(--bg-sunk); padding: 0.15rem 0.4rem; border-radius: 2px; text-align: center; white-space: nowrap; }
+  .still-tracking .item-name { color: var(--ink); font-weight: 500; }
+  .still-tracking .update { color: var(--ink-soft); }
+
   .killed { margin: 4rem 0 2rem; padding: 2rem 0; border-top: 1px solid var(--hairline-bold); }
   .killed h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 500; font-size: var(--t-h2); margin: 0 0 1.5rem; color: var(--ink-soft); }
   .killed table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }

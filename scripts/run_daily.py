@@ -147,6 +147,124 @@ def find_latest_html_template() -> Path | None:
     return candidates[0] if candidates else None
 
 
+def extract_history(n_days: int = 7, exclude_date: str | None = None) -> dict:
+    """Read past N days of dated daily HTML and pull out feature + killed lists.
+
+    Returns:
+        {
+          "featured": [
+            {"date": "2026-05-25", "tier": "crit", "title": "..."},
+            ...
+          ],
+          "killed": [
+            {"date": "2026-05-25", "source": "HN", "topic": "...", "reason": "..."},
+            ...
+          ],
+        }
+    """
+    from datetime import datetime as _dt, timedelta as _td
+    import re
+
+    today_dt = _dt.now()
+    featured: list = []
+    killed: list = []
+    days_scanned: list = []
+
+    for i in range(1, n_days + 1):
+        d = today_dt - _td(days=i)
+        date_str = d.strftime("%Y-%m-%d")
+        if exclude_date and date_str == exclude_date:
+            continue
+        path = OUTPUT_DIR / f"{date_str}.html"
+        if not path.exists():
+            continue
+        days_scanned.append(date_str)
+        html = path.read_text()
+
+        # Featured items: <article id="..." class="item item--TIER">...<h2 class="display title">TITLE</h2>
+        article_pat = re.compile(
+            r'<article\s+id="([^"]+)"\s+class="item\s+item--(crit|look|fyi)"\s*>(.*?)</article>',
+            re.S,
+        )
+        title_pat = re.compile(r'<h2\s+class="display\s+title"[^>]*>(.*?)</h2>', re.S)
+        for m in article_pat.finditer(html):
+            iid, tier, body = m.group(1), m.group(2), m.group(3)
+            tm = title_pat.search(body)
+            if not tm:
+                continue
+            title = re.sub(r"<[^>]+>", "", tm.group(1)).strip()
+            featured.append({
+                "date": date_str,
+                "tier": tier,
+                "id": iid,
+                "title": title,
+            })
+
+        # Killed list: rows in <section class="killed">...<tbody>...<tr><td>...</td>...</tr>
+        killed_section = re.search(r'<section\s+class="killed">.*?</section>', html, re.S)
+        if killed_section:
+            row_pat = re.compile(
+                r"<tr>\s*<td>(.*?)</td>\s*<td>(.*?)</td>\s*<td>(.*?)</td>\s*</tr>",
+                re.S,
+            )
+            for row in row_pat.finditer(killed_section.group(0)):
+                cells = [re.sub(r"<[^>]+>", "", c).strip() for c in row.groups()]
+                if len(cells) == 3 and cells[1] and cells[1] != "—":
+                    killed.append({
+                        "date": date_str,
+                        "source": cells[0],
+                        "topic": cells[1],
+                        "reason": cells[2],
+                    })
+
+    log(f"  history: scanned {len(days_scanned)} days ({days_scanned}), "
+        f"found {len(featured)} featured + {len(killed)} killed entries")
+    return {"featured": featured, "killed": killed, "days_scanned": days_scanned}
+
+
+def format_history_for_prompt(history: dict) -> str:
+    if not history["days_scanned"]:
+        return "(no prior digests in past 7 days — this is the first issue)"
+
+    out = ["**Past 7 days summary**:", ""]
+    out.append(f"_Scanned dates: {', '.join(history['days_scanned'])}_")
+    out.append("")
+
+    # Group featured by date
+    by_date: dict = {}
+    for f in history["featured"]:
+        by_date.setdefault(f["date"], []).append(f)
+
+    if by_date:
+        out.append("### Previously featured (apply SUPPRESSION rule — these cannot occupy top-3 today unless a trigger event occurred):")
+        for date in sorted(by_date.keys(), reverse=True):
+            tier_emoji = {"crit": "🚨", "look": "👀", "fyi": "ℹ️"}
+            days_ago = (datetime.now() - datetime.strptime(date, "%Y-%m-%d")).days
+            day_marker = f"Day {days_ago}"
+            for f in by_date[date]:
+                emoji = tier_emoji.get(f["tier"], "?")
+                out.append(f"- {day_marker} ({date}): {emoji} {f['title']}")
+        out.append("")
+
+    if history["killed"]:
+        # Group killed by topic to dedupe
+        killed_by_topic: dict = {}
+        for k in history["killed"]:
+            key = k["topic"]
+            if key not in killed_by_topic:
+                killed_by_topic[key] = {"first_seen": k["date"], "sources": set(), "reasons": set()}
+            killed_by_topic[key]["sources"].add(k["source"])
+            killed_by_topic[key]["reasons"].add(k["reason"])
+
+        out.append("### Previously KILLED (apply RE-EVALUATION rule — actively check today if signal has grown enough to PROMOTE to top-3):")
+        for topic, info in killed_by_topic.items():
+            srcs = ", ".join(sorted(info["sources"]))
+            out.append(f"- ({info['first_seen']}) {topic}  _[from {srcs}; previously skipped because: {next(iter(info['reasons']))}]_")
+        out.append("")
+
+    return "\n".join(out)
+
+
 def call_openrouter(secrets: dict, system: str, user: str) -> tuple[str, dict]:
     body = json.dumps({
         "model": MODEL,
@@ -380,12 +498,18 @@ If fetched sources are sparse or all repeat yesterday's stories, produce 1 hones
 
 
 def build_user_prompt(today: str, weekday: str, week: int, issue_num: int,
-                      sources: dict, template_html: str) -> str:
+                      sources: dict, template_html: str, history_text: str) -> str:
     return f"""Today is **{today}** ({weekday}, ISO week {week}). Generate AI Radar issue №{issue_num:03d}.
 
 ## STRUCTURAL TEMPLATE (use this CSS, classes, layout exactly — replace content only)
 
 {template_html}
+
+---
+
+## PAST 7 DAYS (apply Carry-over rules from system prompt)
+
+{history_text}
 
 ---
 
@@ -415,7 +539,9 @@ Produce the HTML for issue №{issue_num:03d} ({today}).
 
 - Apply max 3 items rule (min 1)
 - Exclude funding/drama/lawsuits/policy/pure-research/Chinese-already-covered
-- Each 🚨/👀 must have all required sections (Context / Why this matters / Action / Deep dive / Watch / Jargon / Who's talking / Links + both EN and 中文 lang blocks)
+- **Apply Rule A (re-evaluate KILLED-list candidates)** — if any has grown in signal, promote it
+- **Apply Rule B (suppress + sidebar)** — previously-featured items cannot occupy top-3 unless a trigger event occurred; otherwise put them in the `<aside class="still-tracking">` section (max 5 lines)
+- Each 🚨/👀 in top-3 must have all required sections (Context / Why this matters / Action / Deep dive / Watch / Jargon / Who's talking / Links + both EN and 中文 lang blocks)
 - Both pagers must have `data-current-date="{today}"`
 - All issue-counter spans use the new issue number ({issue_num:03d})
 - Keep the JS at the bottom verbatim — it loads archive.json for prev/next
@@ -476,9 +602,14 @@ def main():
     log(f"  template: {template_path.name} ({template_path.stat().st_size} bytes)")
     template_html = template_path.read_text()
 
+    # Extract past-7-day history for carry-over rules
+    log("Extracting history (past 7 days)...")
+    history = extract_history(n_days=7, exclude_date=today)
+    history_text = format_history_for_prompt(history)
+
     # Build prompts
     system = build_system_prompt()
-    user = build_user_prompt(today, weekday, iso_week, issue_num, sources, template_html)
+    user = build_user_prompt(today, weekday, iso_week, issue_num, sources, template_html, history_text)
     log(f"  prompt size: system={len(system)}, user={len(user)} chars (~{(len(system)+len(user))//4} tokens)")
 
     # Call OpenRouter
