@@ -3,6 +3,17 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-05-25",
+      "weekday": "Mon",
+      "week": 22,
+      "issue": 2,
+      "kind": "daily",
+      "headline": "趋势确认 — Big 4 已经过半。",
+      "summary": "PwC + KPMG 同月部署 Claude (5/14 + 5/19) — 自我修正昨天的 watch 时间窗。Gemini 3.5 Flash 给出 1M token 上下文。",
+      "counts": { "crit": 1, "look": 1, "fyi": 0 },
+      "url": "2026-05-25.html"
+    },
+    {
       "date": "2026-05-24",
       "weekday": "Sun",
       "week": 21,
