@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-05-26",
+      "weekday": "Tue",
+      "week": 22,
+      "issue": 3,
+      "kind": "daily",
+      "headline": "慢下来，写更好的代码。",
+      "summary": "今天只有 1 条信号 — 但很值得读。HN 头条 698 分、266 条讨论，关于怎么用 AI 写出真正更好的代码——不是更快的代码。对 vibe 程序员来说，可能是今年最重要的阅读材料之一。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-26.html"
+    },
+    {
       "date": "2026-05-25",
       "weekday": "Mon",
       "week": 22,
