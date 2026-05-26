@@ -370,45 +370,53 @@ def git_push(commit_msg: str) -> None:
     log("  ✅ pushed")
 
 
-def wait_for_pages_build(max_wait: int = 120) -> bool:
-    """Poll GitHub Pages status until 'built' or until max_wait expires.
+def wait_for_pages_build(today: str, max_wait: int = 360) -> bool:
+    """Wait until GitHub Pages actually serves today's content.
 
-    Each gh call has its own 15s timeout — if gh hangs (no auth in sandboxed
-    env, for example), we still progress and don't block Discord posting.
+    We trust ACTUAL HTTP responses over the gh api build-status — Pages can
+    report 'built' before CDN cache refreshes, AND Pages can get stuck
+    'building' (e.g. Jekyll hang) while the deployment is actually fine.
+
+    Strategy:
+      1. Poll the live URL every 10s.
+      2. Verify the response body contains today's date marker.
+      3. Return True as soon as today's content is live.
+      4. Bail after max_wait — caller still posts Discord but with a warning.
     """
-    log("  ⏳ waiting for GitHub Pages build (each poll has 15s cap)...")
+    import urllib.request as _ur
+    import urllib.error as _ue
+
+    log(f"  ⏳ waiting for Pages to actually serve {today} content (max {max_wait}s)...")
     deadline = time.time() + max_wait
-    consecutive_failures = 0
+    expected_marker = today.replace("-", " · ")  # matches "2026 · 05 · 26" in HTML
+
     while time.time() < deadline:
         try:
-            r = subprocess.run(
-                ["gh", "api", "repos/ethan-m25/ai-radar/pages"],
-                capture_output=True, text=True, check=False,
-                timeout=15,
+            req = _ur.Request(
+                GITHUB_PAGES_URL,
+                headers={
+                    "User-Agent": "AI-Radar-Verifier/1.0",
+                    "Cache-Control": "no-cache",
+                },
             )
-            if r.returncode == 0:
-                state = json.loads(r.stdout).get("status")
-                if state == "built":
-                    log("  ✅ Pages built")
-                    return True
-                log(f"    status={state}, retrying...")
-                consecutive_failures = 0
+            with _ur.urlopen(req, timeout=15) as r:
+                body = r.read(50000).decode("utf-8", errors="replace")
+            if expected_marker in body:
+                elapsed = int(time.time() - (deadline - max_wait))
+                log(f"  ✅ Pages serving {today} (after {elapsed}s)")
+                return True
             else:
-                consecutive_failures += 1
-                log(f"    gh exit {r.returncode} ({consecutive_failures}/3): {r.stderr[:200]}")
-                if consecutive_failures >= 3:
-                    log("  ⚠️ gh repeatedly failing — skipping Pages wait (deploy will still happen)")
-                    return False
-        except subprocess.TimeoutExpired:
-            consecutive_failures += 1
-            log(f"    gh timeout ({consecutive_failures}/3)")
-            if consecutive_failures >= 3:
-                log("  ⚠️ gh repeatedly timing out — skipping Pages wait")
-                return False
+                # Show what date IS being served, for debugging
+                import re as _re
+                m = _re.search(r'date-line">([^<]+)', body)
+                serving = m.group(1).strip() if m else "(no date found)"
+                log(f"    still serving: {serving[:40]}, retrying...")
+        except (_ue.URLError, _ue.HTTPError) as e:
+            log(f"    fetch error: {e}, retrying...")
         except Exception as e:
-            log(f"    poll error: {e}")
+            log(f"    unexpected: {e}, retrying...")
         time.sleep(10)
-    log("  ⚠️ Pages build wait timed out — continuing anyway")
+    log(f"  ⚠️ {max_wait}s elapsed and Pages still not serving {today} — posting Discord anyway with a warning note")
     return False
 
 
@@ -663,13 +671,15 @@ def main():
         update_archive_json(today, weekday, iso_week, headline, lead, counts, out_html.name)
 
     # Git push
+    pages_verified = False
     if not args.no_git:
         suffix = " (TEST)" if args.test else ""
         commit_msg = f"digest: {today} — {headline[:60]}{suffix}\n\n[via OpenRouter / {MODEL}]"
         try:
             git_push(commit_msg)
             if not args.test:
-                wait_for_pages_build()
+                # Verify Pages actually serves today's content before claiming success
+                pages_verified = wait_for_pages_build(today, max_wait=360)
         except Exception as e:
             log(f"  ⚠️ git push failed: {e} — continuing with Discord anyway")
 
@@ -684,6 +694,10 @@ def main():
         url = GITHUB_PAGES_URL + (f"{out_html.name}" if args.test else "")
         prefix = "🧪 **AI Radar TEST RUN**\n" if args.test else "🛰️ "
         suffix_note = "\n\n_(via OpenRouter + DeepSeek V4 Flash — 与 Claude 版本对比用)_" if args.test else ""
+
+        # If Pages didn't catch up, warn user that the link may show stale content
+        if not args.test and not pages_verified:
+            suffix_note = "\n\n⚠️ _Pages 还在 build，链接可能仍显示昨天内容 1-2 分钟，刷新页面即可_"
 
         msg = f"""{prefix}**AI Radar · {today} · Wk {iso_week} · №{issue_num:03d}**
 
