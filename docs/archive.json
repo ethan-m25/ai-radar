@@ -8,8 +8,8 @@
       "week": 22,
       "issue": 5,
       "kind": "daily",
-      "headline": "Opus 4.8 来了 + Claude Code 配置指南。",
-      "summary": "Anthropic 今天放了两颗信号弹：Opus 4.8 正式发布（更强判断力 + 更诚实），以及一篇 HN 121 分的 Claude Code 深度配置指南。前者是模型升级，后者是实战手册。两件事都值得你花时间。",
+      "headline": "你的工具刚跃迁了。停下来看一眼。",
+      "summary": "Opus 4.8 + Dynamic Workflows 同步发布：代码诚实度 4×、Claude Code 开放几百 agent 并行、价格不变。HN 第一名 1558 分 1222 评论。",
       "counts": {
         "crit": 1,
         "look": 1,

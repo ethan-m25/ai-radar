@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-05-29 · Week 22</title>
-<meta name="description" content="2 条真信号 — Opus 4.8 发布 + Claude Code 深度配置指南；HN 121 分实战帖">
+<meta name="description" content="2 条真信号 — Opus 4.8 + Dynamic Workflows 正式发布；60 秒游戏揭示 AI 权限疲劳">
 
 <meta property="og:title" content="AI Radar · 2026-05-29">
 <meta property="og:description" content="2 条真信号 · 1 🚨 · 1 👀 · 0 ℹ️">
@@ -149,16 +149,6 @@
   .jargon dd + dt { display: block; margin-top: 0.5rem; }
   .jargon dd + dt::before { content: ""; }
 
-  .calibration {
-    margin: 2rem 0;
-    padding: 1.25rem 1.5rem;
-    background: oklch(0.96 0.025 60);
-    border: 1px solid oklch(0.85 0.06 60);
-    border-radius: 2px;
-  }
-  .calibration .smallcaps { display: block; margin-bottom: 0.5rem; color: oklch(0.45 0.12 60); }
-  .calibration p { margin: 0; font-size: var(--t-small); color: var(--ink); }
-
   .still-tracking { margin: 3rem 0 2rem; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--ink-mute); border-radius: 2px; }
   .still-tracking .smallcaps { display: block; margin-bottom: 0.85rem; color: var(--ink-soft); }
   .still-tracking ul { list-style: none; margin: 0; padding: 0; font-size: var(--t-small); }
@@ -198,19 +188,19 @@
 
   <div class="issue-meta">
     <span class="date-line">2026 · 05 · 29  ·  Wk 22  ·  №&nbsp;005  ·  Fri</span>
-    <span>约 8 分钟读完</span>
+    <span>约 12 分钟读完</span>
   </div>
 
   <nav class="pager top" data-current-date="2026-05-29">
-    <span class="pg-prev" data-slot="prev"><a href="./2026-05-28.html"><span class="pg-arrow">←</span> 2026-05-28 (Thu)</a></span>
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-27.html"><span class="pg-arrow">←</span> 2026-05-27 (Wed)</a></span>
     <span class="pg-mid">第 005 期 · 共 N 期</span>
     <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
   </nav>
 
   <section class="cover">
     <span class="kicker smallcaps">今日真信号</span>
-    <h1 class="display headline">Opus 4.8 来了 + Claude Code 配置指南。</h1>
-    <p class="lead">Anthropic 今天放了两颗信号弹：Opus 4.8 正式发布（更强判断力 + 更诚实），以及一篇 HN 121 分的 Claude Code 深度配置指南。前者是模型升级，后者是实战手册。两件事都值得你花时间。</p>
+    <h1 class="display headline">你的工具刚跃迁了。停下来看一眼。</h1>
+    <p class="lead">Anthropic 昨天发布了 Claude Opus 4.8 + Dynamic Workflows — HN 第一名，1558 分，1222 条评论。不是例行迭代：模型代码诚实度提升约 4 倍，Claude Code 同时开放了"几百个并行子代理"能力。价格不变。如果你每天在用 Claude Code，这条消息直接影响你明天的工作方式。</p>
     <div class="count-row">
       <div class="total">2</div>
       <div class="count-breakdown">
@@ -224,217 +214,182 @@
   <nav class="toc" aria-label="Index">
     <span class="smallcaps">本期目录</span>
     <ol>
-      <li><span class="tier-mark">🚨</span><a href="#opus-48">Claude Opus 4.8 — "更锐的判断，更长的自主工作"</a></li>
-      <li><span class="tier-mark">👀</span><a href="#claude-code-config">Claude Code 配置指南 — HN 121 分，文档没写的全部配置</a></li>
+      <li><span class="tier-mark">🚨</span><a href="#opus-48">Claude Opus 4.8 + Dynamic Workflows — 同价格、代码诚实度 4×、Claude Code 开放几百 agent 并行</a></li>
+      <li><span class="tier-mark">👀</span><a href="#continue-yn">"Continue? Y/N" — 60 秒游戏让你亲身感受 AI 权限焦虑是什么感觉</a></li>
     </ol>
   </nav>
 
-  <!-- ITEM 1: Opus 4.8 -->
+  <!-- ITEM 1: Claude Opus 4.8 + Dynamic Workflows -->
   <article id="opus-48" class="item item--crit">
-    <div class="tier-label">🚨 Must See · 模型升级</div>
-    <h2 class="display title">Claude Opus 4.8 — "更锐的判断，更长的自主工作"</h2>
-    <p class="pitch">Anthropic 今天发布了 Opus 4.8，官方说法是"更锐的判断、更诚实、更长的自主工作能力"，价格不变。HN 1558 分 / 1224 条评论——这是今天最大的信号。如果你在用 Claude 做严肃工作，这是你本周必须了解的事。</p>
+    <div class="tier-label">🚨 Must See · 工具跃迁</div>
+    <h2 class="display title">Claude Opus 4.8 + Dynamic Workflows 同步上线</h2>
+    <p class="pitch">你每天用的模型昨天升级了，而且没涨价。同时发布的 Dynamic Workflows 让 Claude Code 可以一次跑几百个并行任务——这是能力量级的跳跃，不是数字游戏。</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 背景 · Context</span>
-      <p>Opus 是 Anthropic 的旗舰模型系列，定位是"最聪明、最可靠"的模型。上一代 Opus 4.7 在 2026 年 4 月发布，当时已经很强（编程、推理、长文档处理）。今天发布的 Opus 4.8 不是全新架构，而是基于 4.7 的优化升级——更锐的判断（sharper judgment）、更诚实（more honesty）、更长的自主工作能力。价格不变。同时 Anthropic 还宣布了 $65B 的 H 轮融资（$965B 估值）和 Dynamic Workflows（Claude Code 的并行子代理编排功能）。</p>
+      <p>过去几个月，Anthropic 在两条线上同时推进：模型质量（Opus 4.7 → 4.8）和 Claude Code 的 agentic 能力。你每天在用 Claude Code，每次它说"我帮你生成了一段代码，但可能有点问题"时，那个"可能有点问题"是它在猜——它不一定会回头检查。Opus 4.8 改的就是这个：模型现在约 4 倍不太可能对自己写的代码缺陷装作没看到。</p>
+      <p><strong>同步发布的 Dynamic Workflows 解锁了真正的大规模并行</strong>：一个 Claude Code session 里同时跑几百个子代理，然后汇总——以前你要分多个 session 的任务，现在一次命令搞定。Anthropic 这次公告中罕见地说"a modest but tangible improvement"——没有过度营销，Simon Willison 专门引用这句话作为"refreshingly honest"的例子。</p>
     </div>
 
     <div class="lang">
       <span class="lang-mark">EN</span>
-      <h3>Why this matters — this is the model you'll be using for the next 2-3 months</h3>
+      <h3>Why this matters — two things shipped at once, both affect your daily workflow</h3>
       <ul>
-        <li><strong>Opus 4.8 is the new default for serious work.</strong> If you're using Claude for coding, analysis, or document work, this is the model you should switch to. Same price as 4.7, better judgment, longer autonomous sessions. No reason to stay on 4.7.</li>
-        <li><strong>"Sharper judgment" is not marketing fluff.</strong> The model is explicitly trained to be more discerning — fewer false positives in code review, better at saying "I don't know" instead of hallucinating, more consistent in long-running tasks. For clawii's use case (compensation analysis, policy comparison), this means fewer errors in data interpretation and more reliable outputs.</li>
-        <li><strong>"More honesty" is a real feature.</strong> Opus 4.8 is trained to be more honest about its limitations. This is huge for professional work — you want a model that tells you when it's unsure, not one that confidently makes up numbers.</li>
-        <li><strong>Longer autonomous work</strong> means Claude can run longer without needing your input. For vibe-coding sessions, this translates to fewer interruptions and more completed tasks per session.</li>
-        <li><strong>Dynamic Workflows (research preview)</strong> — Claude Code can now orchestrate hundreds of parallel subagents for large tasks. This is the "Subagents" feature from yesterday's article, now officially shipped by Anthropic. If you're using Claude Code, this is a game-changer for complex projects.</li>
+        <li><strong>Opus 4.8 is ~4× less likely to silently skip code flaws it created.</strong> This isn't "answers more questions correctly" — it's "will actually tell you when something it wrote is broken, instead of glossing over it." The model now abstains when uncertain rather than hallucinating confidence. For vibe coding, this means fewer silent failures slipping through.</li>
+        <li><strong>Dynamic Workflows = hundreds of parallel subagents in one Claude Code session.</strong> The announced use case: "codebase-scale migrations across hundreds of thousands of lines of code from kickoff to merge." For clawii: that big analysis you'd normally chunk into 5 separate Claude Code sessions? This could become one session — plan, execute in parallel, verify, report. <em>Currently a research preview for Enterprise, Team, and Max plan subscribers only.</em></li>
+        <li><strong>Same price, actually cheaper for Fast mode.</strong> Opus 4.8 is $5/$25 per million input/output tokens — identical to Opus 4.7. Fast mode got 3× cheaper (now $10/$50 vs old higher price). Also shipping: Effort Control on claude.ai to dial compute per response; API now accepts system messages mid-conversation without breaking the prompt cache.</li>
       </ul>
     </div>
 
     <div class="action-block">
-      <span class="smallcaps">🎯 实操 — 你这周能做什么</span>
+      <span class="smallcaps">🎯 实操 — 你今天能做什么</span>
       <ol>
-        <li><strong>今天切换到 Opus 4.8</strong>：在 Claude.ai 或 Claude Code 中，确认你用的是 Opus 4.8 而不是 4.7。价格一样，性能更好。没有理由不换。</li>
-        <li><strong>试一个"长自主工作"任务</strong>：挑一个你平时需要分 3-4 步完成的任务（比如"分析这份薪酬数据，生成 3 种对比方案，每种写一段说明"），一次性交给 Opus 4.8，观察它是否能一口气完成而不需要你中间打断纠正。</li>
-3. <strong>如果用了 Claude Code，试试 Dynamic Workflows</strong>：在 Claude Code 中启用 research preview 的 Dynamic Workflows，然后给一个复杂任务（比如"重构这个模块，同时写测试，同时更新文档"），看它如何自动拆成子代理并行工作。</li>
-        <li><strong>对比 Opus 4.8 vs GPT-5.5</strong>：挑一个你上周用 GPT-5.5 做过的任务，用 Opus 4.8 重做一次。记录质量差异。这是你未来 2-3 个月的模型选择依据。</li>
+        <li><strong>更新 Claude Code</strong>：在终端跑 <code>npm install -g @anthropic-ai/claude-code@latest</code>（或你安装时用的方式）。确认版本号已更新到最新。</li>
+        <li><strong>测试新的"代码诚实度"</strong>：打开一个你知道有细小 bug 的文件，让 Claude Code 检查——不告诉它哪里有问题，看它能不能自己找出来。把结果和上周经验对比。</li>
+        <li><strong>Dynamic Workflows（如果你有 Max / Team / Enterprise 计划）</strong>：挑一个你一直觉得太大要分多次做的任务——比如"整理公司过去三年薪酬数据、对比市场标准、生成分析报告"——试着一次让 Claude Code 跑完，看它怎么安排并行子任务。</li>
+        <li><strong>读官方公告原文（5 分钟）</strong>：<a href="https://www.anthropic.com/news/claude-opus-4-8">anthropic.com/news/claude-opus-4-8</a>。Effort Control 和 API 中途 system message 这两个功能也值得了解。</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 深扒 — Opus 4.8 到底升级了什么</summary>
+      <summary>🔬 深扒 — Opus 4.7 vs 4.8 到底变了什么</summary>
       <div class="dd-body">
 
         <div class="compare">
           <table>
             <thead>
-              <tr><th></th><th>Opus 4.7 (上一代)</th><th>Opus 4.8 (今天)</th></tr>
+              <tr><th>功能 / 指标</th><th>Opus 4.7</th><th>Opus 4.8</th></tr>
             </thead>
             <tbody>
-              <tr><th>价格</th><td>$15/M input · $75/M output</td><td>相同（未涨价）</td></tr>
-              <tr><th>判断力</th><td>强，但偶尔过度自信</td><td>"更锐的判断"——更少误报，更少幻觉</td></tr>
-              <tr><th>诚实度</th><td>一般</td><td>明确训练了"诚实"——会主动说不知道</td></tr>
-              <tr><th>自主工作</th><td>能跑几分钟</td><td>更长——具体时长未公布，但官方强调"longer autonomous work"</td></tr>
-              <tr><th>Dynamic Workflows</th><td>无</td><td>Research preview —— Claude Code 可编排数百个并行子代理</td></tr>
-              <tr><th>社区反应</th><td>好评但非轰动</td><td>HN 1558 分 / 1224 条评论——巨大关注</td></tr>
+              <tr><th>价格 (input/output)</th><td>$5 / $25 per M tokens</td><td class="ok">$5 / $25 per M tokens（不变）</td></tr>
+              <tr><th>Fast 模式价格</th><td>旧定价（更贵）</td><td class="ok">$10 / $50 per M（比旧版便宜 3×）</td></tr>
+              <tr><th>代码 bug 自查</th><td>基准</td><td class="ok">约 4× 更高 — 主动指出自己写的问题，不装没看到</td></tr>
+              <tr><th>Dynamic Workflows</th><td class="no">❌ 无</td><td class="ok">✅ 研究预览版（Enterprise / Team / Max）</td></tr>
+              <tr><th>Effort Control</th><td class="no">❌</td><td class="ok">✅ 在 claude.ai/Cowork 可调</td></tr>
+              <tr><th>API 中途 system message</th><td class="no">❌ 会打断 prompt cache</td><td class="ok">✅ 支持，不破坏 cache</td></tr>
+              <tr><th>Context window</th><td>1M input / 128K output</td><td>1M / 128K（不变）</td></tr>
+              <tr><th>Knowledge cutoff</th><td>2026-01</td><td>2026-01（不变）</td></tr>
+              <tr><th>Model ID (API)</th><td><code>claude-opus-4-7</code></td><td><code>claude-opus-4-8</code></td></tr>
             </tbody>
           </table>
         </div>
 
-        <p><strong>坦白说：这不是一个"颠覆性"的升级。</strong> 它不是 Opus 5.0，不是全新架构。它是 4.7 的优化版——就像 iPhone 的 "S" 升级。但优化方向很聪明：更锐的判断 + 更诚实 + 更长自主工作。这三个方向直接对应了专业用户最痛的三个问题：模型犯错、模型瞎编、模型做一半需要你介入。</p>
+        <p><strong>Dynamic Workflows 的实际限制</strong>：目前只对 Enterprise、Team、Max 计划开放，且是"研究预览版"——API 还可能变，不建议现在就把它当主工作流。但如果你是个人 Max 用户，现在就可以试。对 clawii 这种 vibe coder，最直接的用法是：一次给一个大任务，让 Claude Code 自己拆分成并行子任务执行。</p>
 
-        <p><strong>对 clawii 最实用的部分</strong>：更长的自主工作能力。你平时用 Claude 做薪酬分析，经常需要分步进行——"先读数据" → "总结结构" → "写分析代码" → "生成报告"。如果 Opus 4.8 能一口气完成这四步而不需要你中间检查纠正，那每次任务能省 5-10 分钟。一天省 30 分钟不是夸张。</p>
+        <p><strong>关于"4× 代码诚实度"怎么理解</strong>：Simon Willison 的分析说，模型是"约 4 倍不太可能让它写的代码缺陷被忽视"。不是准确度提升 4 倍，而是它更愿意在发现问题时主动说出来，而不是假装没事继续往前走。对 vibe coder 来说，这意味着你审查输出的压力减小——不是零，但比以前好得多。</p>
 
-        <p><strong>Dynamic Workflows 是更大的故事</strong>：这是 Anthropic 官方版本的 Subagents 功能。昨天那篇 HN 文章还在教你怎么手动配置 Subagents，今天 Anthropic 就把它做成产品功能了。如果你已经在用 Claude Code，这个功能值得优先尝试。</p>
+        <p><strong>这次没有变的</strong>：知识截止日期（2026年1月）没变，上下文窗口没变，价格没变。这是精准的质量升级，不是全面改版。Simon Willison 描述为"a modest but tangible improvement"——这是诚实的定位，升级方向很聪明。</p>
 
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 接下来看什么</span>
-      <p>接下来 1-2 周，关注：(1) 社区对 Opus 4.8 的实测反馈——特别是"更锐的判断"和"更长的自主工作"是否真的如宣传那样；(2) Dynamic Workflows 从 research preview 转为 GA 的时间线；(3) OpenAI 是否会回应——GPT-5.5 系列已经发布了一段时间，Opus 4.8 的发布可能会触发 OpenAI 的下一步动作。</p>
+      <p>两个触发点值得等：① Dynamic Workflows 从"研究预览"变为全面可用（会出现在官方 changelog）——那时候所有 Claude Code 用户都能用，才是真正改变日常工作流的时刻；② Effort Control 是否会登陆 API——如果可以，就能在自己的工作流里精确控制"这个任务值多少算力"。OpenAI 的 GPT-5.5 系列已发布一段时间，Opus 4.8 这轮发布可能触发对方的回应动作——留意。</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li>Anthropic 官方: <a href="https://anthropic.com/news">Introducing Claude Opus 4.8</a></li>
-      <li>Hacker News: 1558 points, 1224 comments — front page #1</li>
-      <li>社区讨论集中在：Opus 4.8 是否真的比 4.7 强、Dynamic Workflows 的实际效果、$65B 融资对产品路线图的影响</li>
+      <li>Simon Willison (simonwillison.net): <a href="https://simonwillison.net/2026/May/28/claude-opus-4-8/">"a modest but tangible improvement"</a> — 他欣赏 Anthropic 不夸大的表述方式，重点分析了代码诚实度提升和 API 新功能；还在 5/29 用 Opus 4.8 生成 Matplotlib 图表做 Anthropic 收入增长可视化</li>
+      <li>Hacker News: <strong>1,558 points, 1,222 comments</strong> — 前页 #1，连续 24h 以上；本周 AI 社区讨论密度最高的帖子</li>
+      <li>Smol AI (2026-05-28): 多个 KOL 标注 (dan_shipper, scaling01, teortaxes_tex)；社区讨论集中于与 GPT-5.5 系列的对比和 Dynamic Workflows 实际可用性</li>
     </ul>
 
     <h3>Try it / dig in</h3>
     <ul>
-      <li>Anthropic 官方公告: <a href="https://anthropic.com/news">anthropic.com/news</a></li>
-      <li>HN 讨论: <a href="https://news.ycombinator.com/item?id=42894752">news.ycombinator.com/item?id=42894752</a> (Opus 4.8 讨论在同一个 thread 里)</li>
-      <li>Dynamic Workflows 文档: <a href="https://docs.anthropic.com/en/docs/agents/claude-code">docs.anthropic.com/en/docs/agents/claude-code</a></li>
+      <li>官方公告 (必读 5 min): <a href="https://www.anthropic.com/news/claude-opus-4-8">anthropic.com/news/claude-opus-4-8</a></li>
+      <li>Simon Willison 分析: <a href="https://simonwillison.net/2026/May/28/claude-opus-4-8/">simonwillison.net/2026/May/28/claude-opus-4-8/</a></li>
+      <li>HN 讨论 (搜 "claude opus 4.8"): <a href="https://hn.algolia.com/?q=claude+opus+4.8&dateRange=pastWeek&sort=byPopularity">hn.algolia.com 搜索</a></li>
     </ul>
 
     <div class="lang">
       <span class="lang-mark">中文</span>
-      <h3>为什么这事重要</h3>
+      <h3>简短版：这两件事为什么值得现在停下来看</h3>
       <ul>
-        <li><strong>一句话</strong>：Opus 4.8 是 Anthropic 的最新旗舰模型，价格不变但更聪明、更诚实、能跑更久。今天就应该换。</li>
-        <li><strong>对你最有用的是</strong>：更长的自主工作能力。你平时做薪酬分析需要分步进行，如果模型能一口气完成"读数据→分析→写报告"而不需要你中间打断，每次任务省 5-10 分钟。</li>
-        <li><strong>实操第一步</strong>：今天在 Claude.ai 或 Claude Code 中切换到 Opus 4.8。然后挑一个你上周做过的复杂任务重做一次，对比质量差异。</li>
-        <li><strong>Dynamic Workflows 是隐藏亮点</strong>：Claude Code 现在可以自动编排数百个并行子代理。如果你用 Claude Code，这是今天最值得试的新功能。</li>
-        <li><strong>为什么这是 🚨</strong>：1558 分 HN + 1224 条评论 + 官方发布 = 这是本周最大的 AI 新闻。错过这个相当于错过了一个模型时代的切换。</li>
+        <li><strong>Opus 4.8 改了一个很具体的行为</strong>：它现在更愿意告诉你"我刚才写的这段代码可能有问题"——不是猜对更多，而是更诚实。Anthropic 自己说约 4 倍提升。你不需要总盯着它的输出，它会更主动提醒你留意。</li>
+        <li><strong>Dynamic Workflows 是 Claude Code 的能力跃迁</strong>：以前大任务要分 5 个 session，现在理论上一个命令搞定——Claude Code 自己把任务拆成几百个小任务并行跑、验证、汇总。目前只对 Enterprise/Team/Max 用户开放（研究预览），普通用户还要等。</li>
+        <li><strong>价格没变</strong>：这两个升级是免费的，$5/$25 per M tokens 不变。Fast 模式反而便宜了 3 倍。今天打开 Claude Code 用的就是 Opus 4.8。</li>
+        <li><strong>为什么是 🚨</strong>：HN 1558 分 1222 条评论是本周最高热度。Simon Willison 当天就发文分析。这是工具层面的实质跃迁，不是发布会数字游戏。</li>
       </ul>
     </div>
   </article>
 
-  <!-- ITEM 2: Claude Code 配置指南 -->
-  <article id="claude-code-config" class="item item--look">
-    <div class="tier-label">👀 Worth a Look · 实战方法论</div>
-    <h2 class="display title">Claude Code 配置指南 — HN 121 分，文档没写的全部配置</h2>
-    <p class="pitch">一篇 HN 热门文章 (121 pts, 27 comments) 拆解了 Claude Code 的全部可配置项——从环境变量、MCP 服务器、自定义命令到性能调优。作者 ankitg12 说"文档只写了 30%，剩下的 70% 要靠社区摸索"。这篇文章就是那 70%。</p>
+  <!-- ITEM 2: Continue? Y/N -->
+  <article id="continue-yn" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · 设计洞察</div>
+    <h2 class="display title">"Continue? Y/N" — 60 秒游戏，直接让你感受 AI 权限焦虑</h2>
+    <p class="pitch">一个小游戏登上 HN 前页，330 分，135 条评论。它做的事只有一件：用 60 秒让你亲身体验 AI agent 不断问"可以吗？可以吗？可以吗？"是什么感受。你每天用 Claude Code，你就在这个场景里。</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 背景 · Context</span>
-      <p>Claude Code 是 Anthropic 的命令行 AI 编程工具。你已经在用它每天写代码。但它的配置系统比文档展示的要深得多——环境变量、MCP 服务器配置、自定义命令、性能调优参数、日志级别、代理设置……这些在官方文档里要么没写，要么写得很浅。作者 ankitg12 花了大量时间逆向工程 Claude Code 的配置系统，把文档没说的全部整理出来了。这不是"入门教程"，这是"高级配置手册"。</p>
+      <p>AI agent 有一个设计矛盾：安全的做法是每步都问用户确认（"我要创建这个文件，确定吗？""我要运行这个命令，继续吗？"）；但问太多，用户会开始无脑点"是"——这就是"权限疲劳"，和网页的 cookie 弹窗效果一样。你用 Claude Code 的时候，有没有开始不读提示就直接按 Y？这个游戏把这个感受变成了一个可玩的格式。HN 社区的反应不是"好可爱的游戏"，而是在认真讨论怎么设计更好的 AI 权限 UI——这才是值得关注的信号。</p>
     </div>
 
     <div class="lang">
       <span class="lang-mark">EN</span>
-      <h3>Why this matters — this is the "hidden config manual" for Claude Code</h3>
+      <h3>Why this matters — it names a real problem you're already experiencing</h3>
       <ul>
-        <li><strong>The author reverse-engineered Claude Code's configuration system.</strong> He found undocumented environment variables, hidden MCP server options, custom command hooks, and performance tuning parameters that aren't in the official docs. This is the kind of knowledge that separates "someone who uses Claude Code" from "someone who <em>masters</em> Claude Code."</li>
-        <li><strong>Five specific areas covered:</strong>
-          <br>1. <strong>Undocumented env vars</strong> — things like `CLAUDE_CODE_LOG_LEVEL`, `CLAUDE_CODE_MAX_TOKENS`, `CLAUDE_CODE_TEMPERATURE` that let you fine-tune behavior.
-          <br>2. <strong>MCP server deep config</strong> — how to configure multiple MCP servers, set priorities, handle authentication.
-          <br>3. <strong>Custom command hooks</strong> — run scripts before/after Claude Code commands (e.g., auto-format code, run tests).
-          <br>4. <strong>Performance tuning</strong> — how to adjust context window size, parallelism, and caching for different task types.
-          <br>5. <strong>Proxy and network config</strong> — for enterprise environments with strict network policies.</li>
-        <li><strong>Why this is a signal, not just a tutorial:</strong> 121 points on HN with 27 comments means the community is actively validating and extending this knowledge. This is the "next level" for Claude Code power users. If you read this, you'll be 1-2 weeks ahead of the Chinese-language content cycle on advanced Claude Code configuration.</li>
+        <li><strong>Permission fatigue is a design failure, not a user failure.</strong> When an AI agent asks "may I?" 47 times in a session, users stop reading and just click yes. This game makes you feel that exhaustion in 60 seconds. The HN comments are genuinely substantive — people are debating whether batch approvals, intent-level permissions ("you're allowed to edit files in this folder, full stop"), or risk-tiered auto-approval would work better.</li>
+        <li><strong>This matters to clawii specifically because Dynamic Workflows just shipped.</strong> If Claude Code now runs hundreds of parallel subagents, the number of permission prompts could multiply proportionally. Understanding this problem before it lands in your workflow is exactly what 1-week-ahead positioning looks like.</li>
+        <li><strong>It crossed out of the developer bubble.</strong> A 60-second browser game about AI UX reaching 330 HN points and 135 comments means this concept — AI permission fatigue — is entering the vocabulary beyond technical circles. Worth knowing the term before you encounter it in a work meeting or product conversation.</li>
       </ul>
     </div>
 
     <div class="action-block">
-      <span class="smallcaps">🎯 实操 — 你这周能做什么</span>
+      <span class="smallcaps">🎯 实操 — 5 分钟能做什么</span>
       <ol>
-        <li><strong>花 30 分钟读原文 + HN 讨论</strong>：<a href="https://buildingbetter.tech/posts/claude-code-everything-you-can-configure-that-the-docs-dont-tell-you/">buildingbetter.tech</a> 直接打开。重点看"Undocumented env vars"和"MCP server deep config"章节。HN 讨论在 <a href="https://news.ycombinator.com/item?id=42894752">news.ycombinator.com/item?id=42894752</a>。</li>
-        <li><strong>检查你的 Claude Code 配置</strong>：运行 `claude config list` 看看你当前的配置。对比文章里的推荐值，看看哪些可以优化。</li>
-        <li><strong>试一个 undocumented env var</strong>：比如设置 `CLAUDE_CODE_LOG_LEVEL=debug` 运行一个任务，看看 Claude Code 的内部日志——这能帮你理解它为什么做出某些决策。</li>
-        <li><strong>配置一个自定义命令 hook</strong>：比如在每次 Claude Code 生成代码后自动运行 linter 或 formatter。文章里有具体的 hook 配置例子。</li>
+        <li><strong>玩一次</strong>：在 HN 帖子找游戏链接（搜 "Continue Y/N AI permission fatigue HN"），花 60 秒玩一遍。注意你什么时候开始不读就按 Y。</li>
+        <li><strong>检查你自己的 Claude Code 习惯</strong>：回忆一下，你上次实际读完 Claude Code 权限提示再决定——是不是一周前的事了？如果是，你已经在经历权限疲劳了。</li>
+        <li><strong>用 CLAUDE.md 减少噪音</strong>：在项目 CLAUDE.md 里写清楚"可以自动创建/修改的文件范围"和"必须问我的操作类型"——这样 Claude Code 的提示更精准，不用每次问无聊的确认。</li>
       </ol>
     </div>
 
-    <details class="deep-dive">
-      <summary>🔬 深扒 — 这篇文章到底讲了什么文档没写的</summary>
-      <div class="dd-body">
-
-        <div class="compare">
-          <table>
-            <thead>
-              <tr><th></th><th>官方文档</th><th>这篇文章</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>环境变量</th><td>只列出了 5-6 个基本变量</td><td>列出了 20+ 个 undocumented 变量，包括日志级别、token 限制、温度参数</td></tr>
-              <tr><th>MCP 配置</th><td>基础用法示例</td><td>多服务器优先级、认证配置、错误处理、性能调优</td></tr>
-              <tr><th>自定义命令</th><td>未提及</td><td>pre/post command hooks，可运行任意脚本</td></tr>
-              <tr><th>性能调优</th><td>无</td><td>上下文窗口大小、并行度、缓存策略的调整方法</td></tr>
-              <tr><th>网络配置</th><td>无</td><td>代理设置、证书配置、网络策略适配</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p><strong>坦白说：这篇文章不是给新手看的。</strong> 如果你刚接触 Claude Code，先看官方文档。但如果你已经用了 2-3 周，感觉"应该还能做更多但不知道是什么"，这篇文章就是为你写的。它假设你已经知道 Claude Code 的基本用法，然后告诉你如何把它调到最佳状态。</p>
-
-        <p><strong>对 clawii 最实用的部分</strong>：环境变量和性能调优。你可以通过设置 `CLAUDE_CODE_MAX_TOKENS` 和 `CLAUDE_CODE_TEMPERATURE` 来让 Claude Code 的行为更符合你的工作风格——比如分析薪酬数据时用更低的温度（更保守的输出），写创意文案时用更高的温度（更多变化）。</p>
-
-      </div>
-    </details>
-
     <div class="watch-block">
       <span class="smallcaps">🔭 接下来看什么</span>
-      <p>如果这篇文章持续发酵（更多 HN 用户分享他们的配置、发现更多 undocumented 功能），接下来 1-2 周会出现一波 Claude Code 配置知识共享潮。你现在读就是提前看到终点线。另外留意 Anthropic 官方是否会正式文档化这些配置项——这是一个明确的信号：社区在推动产品文档的完善。</p>
+      <p>Anthropic 和 OpenAI 都在扩大 agentic 能力——权限设计会变成越来越重要的 UX 问题。如果 Claude Code 推出"批量权限"或"基于意图的权限规则"（不是每次问，而是"这类操作永远允许"），这个游戏就是那个产品决策的前情提要。留意 Claude Code changelog 里关于权限系统的任何更新。</p>
+    </div>
+
+    <div class="jargon">
+      <dl>
+        <dt>权限疲劳 (Permission fatigue)</dt>
+        <dd>AI 或软件反复弹出"确认吗？"弹窗，用户开始不读直接点"是"的状态 — 和网站 cookie 弹窗效果一样，最终保护变成了摆设</dd>
+      </dl>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li>ankitg12 (作者): <a href="https://buildingbetter.tech/posts/claude-code-everything-you-can-configure-that-the-docs-dont-tell-you/">原文链接</a> — "Claude Code – Everything You Can Configure That the Docs Don't Tell You"</li>
-      <li>Hacker News: 121 points, 27 comments, front page #5</li>
-      <li>社区讨论集中在：哪些 env vars 最有用、MCP 配置的最佳实践、自定义 hook 的实际用例</li>
+      <li>Hacker News: <strong>330 points, 135 comments</strong> — 前页 #13；Show HN 格式（作者本人投稿）；讨论重点在 AI agent 权限 UI 的设计改进方向</li>
+      <li>受众跨越了开发者边界——评论区有 PM、设计师、非技术用户讨论这个体验</li>
     </ul>
 
     <h3>Try it / dig in</h3>
     <ul>
-      <li>原文 (必读): <a href="https://buildingbetter.tech/posts/claude-code-everything-you-can-configure-that-the-docs-dont-tell-you/">buildingbetter.tech</a></li>
-      <li>HN 讨论: <a href="https://news.ycombinator.com/item?id=42894752">news.ycombinator.com/item?id=42894752</a></li>
-      <li>Claude Code 官方文档: <a href="https://docs.anthropic.com/en/docs/agents/claude-code">docs.anthropic.com/en/docs/agents/claude-code</a></li>
+      <li>HN 原帖（含游戏链接）: <a href="https://hn.algolia.com/?q=Continue+Y%2FN+agent+permission+fatigue&dateRange=pastWeek&sort=byPopularity">HN 搜索：Continue Y/N</a></li>
+      <li>也可以在 HN 直接搜 "Continue? Y/N permission fatigue" 找到原帖</li>
     </ul>
 
     <div class="lang">
       <span class="lang-mark">中文</span>
-      <h3>为什么这事重要</h3>
+      <h3>为什么这个游戏值得你花 5 分钟</h3>
       <ul>
-        <li><strong>一句话</strong>：Claude Code 的配置系统比文档深得多。这篇文章把文档没写的 70% 都挖出来了——环境变量、MCP 配置、自定义命令、性能调优。</li>
-        <li><strong>对你最有用的是</strong>：环境变量和性能调优。你可以通过设置参数让 Claude Code 的行为更符合你的工作风格——分析数据时更保守，写文案时更多样。</li>
-        <li><strong>实操第一步</strong>：今天花 30 分钟读原文。然后检查你的 Claude Code 配置，看看哪些可以优化。最快速见效的是设置 `CLAUDE_CODE_MAX_TOKENS` 和 `CLAUDE_CODE_TEMPERATURE`。</li>
-        <li><strong>为什么这是 👀 不是 🚨</strong>：这不是新品发布，是知识分享。但如果你每天用 Claude Code，这篇文章能让你从"会用"变成"精通"。值得这个周末花时间。</li>
+        <li><strong>它把一个你每天都在经历但没有名字的感受变成了可感知的体验</strong>：Claude Code 每次问你"我可以创建这个文件吗？""我可以运行这个命令吗？"——你有没有开始不读就直接按 Y？这就是权限疲劳。这个游戏让你在 60 秒内感受极端版本。</li>
+        <li><strong>和 Dynamic Workflows 直接相关</strong>：今天 🚨 那条说 Claude Code 开放了几百个并行子代理——如果每个子代理都问你"可以吗？"，权限疲劳会快速累积。现在理解这个问题，比等问题出现再应对早一周。</li>
+        <li><strong>不需要深挖</strong>：这条 👀 是"知道这个词、感受过这个感受"就够了。下次遇到有人讨论 AI agent 的权限设计，你已经有背景了。</li>
       </ul>
     </div>
   </article>
 
-  <!-- STILL TRACKING — items from past 7 days still developing -->
+  <!-- STILL TRACKING -->
   <aside class="still-tracking">
     <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
     <ul>
       <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">Big 4 节奏 (PwC + KPMG)</span> <span class="update">— 距 KPMG 官宣 10 天，PwC 15 天，无新公告；下一个观察点：Deloitte/EY 6 月 15 日前.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">Gemini 3.5 Flash</span> <span class="update">— 1M context 实测继续出现，中段检索精度仍是短板；分流策略不变.</span></div>
-      </li>
-      <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">"用 AI 写更好的代码，写慢一点"</span> <span class="update">— HN 698 pts 文章持续讨论中，无新 KOL 背书但社区深度消化中.</span></div>
+        <div><span class="item-name">"用 AI 写慢一点、写更好"</span> <span class="update">— HN 698 pts 文章讨论进入尾声，无新 KOL 背书；开始降温，明天可能移出.</span></div>
       </li>
       <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">opencode</span> <span class="update">— 仍为 OSSInsight 28d star #1（+1,440），但 4 天来无新 KOL 背书或官方更新，正在降温.</span></div>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Claude Code 使用深度指南系列</span> <span class="update">— 今天新出"Everything You Can Configure" (HN 121 pts, 27 评论)，与昨天"Daily Driver"属同一主题浪潮；话题仍在热度中.</span></div>
       </li>
     </ul>
   </aside>
@@ -447,47 +402,37 @@
         <tr><th>来源</th><th>内容</th><th>为什么没选</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#3)</td><td>Real-time LLM Inference on Standard GPUs: 3k tokens/s per request (19 pts)</td><td>技术深度文，对非开发者无直接用途</td></tr>
-        <tr><td>HN (#4)</td><td>I made a million dollar product from my dorm room (430 pts)</td><td>创业故事，非 AI 突破</td></tr>
-        <tr><td>HN (#10)</td><td>Orchestrating AI code review at scale (17 pts)</td><td>Cloudflare 技术博客，对个人无直接用途</td></tr>
-        <tr><td>HN (#14)</td><td>Show HN: Continue? Y/N: A 60-second game about AI agent permission fatigue (330 pts)</td><td>游戏/创意项目，非实用工具</td></tr>
-        <tr><td>HN (#21)</td><td>GitHub bans security researcher who posted zero-day Windows exploits (419 pts)</td><td>安全/政策事件，排除</td></tr>
-        <tr><td>HN (#30)</td><td>SF startup is testing robots in Airbnbs, and trashing them, lawsuit claims (218 pts)</td><td>诉讼/争议，排除</td></tr>
-        <tr><td>Anthropic 5/28</td><td>$65B Series H 融资</td><td>融资新闻，排除（但已在 Opus 4.8 背景中提及）</td></tr>
+        <tr><td>Anthropic 5/28</td><td>Series H 融资 $65B，估值 $965B</td><td>融资公告单独属排除类；已整合为 Opus 4.8 条目的背景（同周有实质发货）</td></tr>
+        <tr><td>HN (#5)</td><td>"Claude Code – Everything You Can Configure That the Docs Don't Tell You" (121 pts)</td><td>主题与昨天"Claude Code Daily Driver"高度重叠；放入 Still Tracking，不单独占坑</td></tr>
+        <tr><td>HN (#9)</td><td>"Orchestrating AI code review at scale" — Cloudflare (16 pts)</td><td>分数太低，无 KOL 讨论，对非开发者无直接用途</td></tr>
+        <tr><td>HN newest</td><td>"Is AI causing a repeat of Frontend's Lost Decade?" (1 pt)</td><td>观点文章，无工具，分数极低</td></tr>
+        <tr><td>HN newest</td><td>"DeepSeek Slashes AI Costs to Cents" (2 pts)</td><td>无新信息，DeepSeek 成本话题已在 5/24 期覆盖</td></tr>
         <tr><td>Anthropic 5/27</td><td>米兰办公室开业</td><td>办公室扩张，排除</td></tr>
-        <tr><td>Anthropic 5/26</td><td>韩国代表理事任命</td><td>人事变动，排除</td></tr>
-        <tr><td>Smol AI 5/28</td><td>Opus 4.8 发布 / Dynamic Workflows</td><td>已作为 🚨 覆盖</td></tr>
-        <tr><td>Smol AI 5/28</td><td>EAGLE 3.1 / Unigram tokenizer / Qwen3.5 580 tok/s</td><td>推理优化技术，对非开发者无直接用途</td></tr>
-        <tr><td>Smol AI 5/28</td><td>Trajectory continual learning platform ($15M)</td><td>融资 + 开发者 infra，排除</td></tr>
-        <tr><td>Smol AI 5/26</td><td>Harness engineering / DeepSWE 基准 / QUEST 2B-35B</td><td>行业趋势/研究，无具体工具可尝试</td></tr>
-        <tr><td>Smol AI 5/26</td><td>Anthropic 安全指导插件</td><td>无官方链接/KOL 讨论，无法验证或尝试</td></tr>
-        <tr><td>Smol AI 5/26</td><td>Claude Mythos 解出 Erdős 问题 #90</td><td>纯研究，无落地应用</td></tr>
-        <tr><td>Smol AI 5/26</td><td>"Language Models Need Sleep" 论文</td><td>纯研究论文，无可用产品</td></tr>
-        <tr><td>OSSInsight</td><td>opencode / claude-code / codex 继续领跑</td><td>已有跟踪，无突破性变化</td></tr>
-        <tr><td>Re-evaluated: RAEv2 / Gated DeltaNet-2</td><td>Smol AI 5/21 纯研究论文</td><td>仍无可用产品，无新 KOL 讨论 — 保持排除</td></tr>
-        <tr><td>Re-evaluated: DeepSeek Reasonix</td><td>HN 热度 4 天前已回落</td><td>无新讨论，无产品升级 — 本周可从 killed list 移除</td></tr>
+        <tr><td>Re-evaluated: opencode</td><td>昨日已标记末日（Day 4 降温）</td><td>本期正式移出 Still Tracking；如有新 KOL 背书或官方更新可重新审视</td></tr>
+        <tr><td>Re-evaluated: Big 4 (PwC/KPMG)</td><td>首次收录 5/25，今日 Day 4</td><td>超过 3 天零动态规则 → 正式移出 Still Tracking</td></tr>
+        <tr><td>Re-evaluated: Gemini 3.5 Flash</td><td>首次收录 5/25，今日 Day 4</td><td>超过 3 天零动态规则 → 正式移出 Still Tracking</td></tr>
       </tbody>
     </table>
   </section>
 
   <nav class="pager bottom" data-current-date="2026-05-29">
-    <span class="pg-prev" data-slot="prev"><a href="./2026-05-28.html"><span class="pg-arrow">←</span> 2026-05-28 (Thu)</a></span>
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-27.html"><span class="pg-arrow">←</span> 2026-05-27 (Wed)</a></span>
     <a class="pg-mid" href="./archive.html">查看完整归档 →</a>
     <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
   </nav>
 
   <footer class="footer">
     <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
-      做你的 AI 虚拟朋友 — 每天 07:07 推送 · 上限 3 条 ·宁缺毋滥。
+      做你的 AI 虚拟朋友 — 每天 07:07 推送 · 上限 3 条 · 宁缺毋滥。
     </p>
     <p>
-      扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/index (403)
+      扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news (403) · simonwillison.net · github.com/trending
     </p>
     <p>
       剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
     </p>
     <p class="system">
-      ai-radar · v0.3 · 2 items today (1🚨 / 1👀 / 0ℹ️) · calibration: opencode Day 5 (last day in tracking, cooling). Still tracking: Big 4 Day 4 · Gemini Flash Day 4 · Slow code Day 3.
+      ai-radar · v0.3 · 2 items today (1🚨 / 1👀 / 0ℹ️) · Dropped from still-tracking: opencode (Day 5), Big 4 (Day 4, 0 movement), Gemini Flash (Day 4, 0 movement). Remaining: "Slow code" Day 3 · "Claude Code guides" Day 2.
     </p>
   </footer>
 
