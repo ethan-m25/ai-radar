@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-05-29",
+      "weekday": "Fri",
+      "week": 22,
+      "issue": 5,
+      "kind": "daily",
+      "headline": "Opus 4.8 来了 + Claude Code 配置指南。",
+      "summary": "Anthropic 今天放了两颗信号弹：Opus 4.8 正式发布（更强判断力 + 更诚实），以及一篇 HN 121 分的 Claude Code 深度配置指南。前者是模型升级，后者是实战手册。两件事都值得你花时间。",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-29.html"
+    },
+    {
       "date": "2026-05-27",
       "weekday": "Wed",
       "week": 22,
