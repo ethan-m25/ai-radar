@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-05-30",
+      "weekday": "Sat",
+      "week": 22,
+      "issue": 6,
+      "kind": "daily",
+      "headline": "周末信号：MCP 还活着吗？  Mistral 在巴黎说了大实话。",
+      "summary": "今天没有必须放下手头活的 🚨 — 正常。但三条值得周末翻翻的内容：MCP 生存争论登上 HN 前页（251 分，221 评论）——如果你用 Claude Code，MCP 是你工作流的一部分；Mistral 峰会的 386 分长文揭示了欧洲 AI 的策略；Liquid AI 的 8B 参数 MoE 模型效率高得吓人。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-05-30.html"
+    },
+    {
       "date": "2026-05-29",
       "weekday": "Fri",
       "week": 22,
