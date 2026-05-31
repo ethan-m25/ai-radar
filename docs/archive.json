@@ -3,6 +3,16 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-05-31",
+      "weekday": "Sun",
+      "week": 22,
+      "kind": "weekly",
+      "headline": "你的主工具跃迁了，别只是更新",
+      "summary": "Opus 4.8 同价格把代码诚实度提升 4×，Big 4 全面开闸，opencode 昙花一现——这周工具层变天，用法层才是关键。",
+      "counts": { "crit": 2, "look": 6, "fyi": 1 },
+      "url": "weekly_2026-05-31.html"
+    },
+    {
       "date": "2026-05-30",
       "weekday": "Sat",
       "week": 22,

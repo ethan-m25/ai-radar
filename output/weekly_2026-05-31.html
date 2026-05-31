@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-05-31 · Week 22</title>
+<meta name="description" content="Week 22 Weekly Wrap — Opus 4.8 让工具更诚实；Big 4 全面开闸；opencode 昙花一现">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 22">
+<meta property="og:description" content="9 条 daily 信号 · 2 🚨 · 6 👀 · 1 ℹ️ · 4 条幸存进 weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 22ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 52ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  /* Weekly sections */
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 28ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .lang { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed var(--hairline); }
+  .lang-mark { display: inline-block; font-family: 'Geist Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.2rem 0.55rem; background: var(--bg-sunk); color: var(--ink-mute); border-radius: 2px; margin-bottom: 1rem; }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+  .trend-item .lang-mark { margin-bottom: 0.5rem; }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">今日</a>
+      <a href="./archive.html" class="current">归档</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 05 · 31 · WK 22 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Week 22 · 2026-05-25 → 2026-05-31</span>
+    <h1 class="display headline">你的主工具跃迁了，别只是更新</h1>
+    <p class="lead">本周 9 条 daily 信号里，1 件事在 1-3 个月后你还会记得——Opus 4.8 同价格提升代码诚实度 4×，你的 AI 工作方式已经悄悄进了下一版本。</p>
+
+    <div class="summary-box">
+      <strong>本周一句话总结：</strong>Opus 4.8 同价格把代码诚实度提升 4×，你什么都不用做——但你应该<em>感知到</em>这个变化并主动验证它。
+    </div>
+
+    <div class="count-row">
+      <div class="total">9</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>2</strong>&nbsp;🚨 critical (across 5 dailies)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>6</strong>&nbsp;👀 worth a look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 4 条幸存进 weekly · 3 条降级</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🏆 THE 1 THING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">Claude Opus 4.8 + Dynamic Workflows</h2>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+
+      <p>The clearest winner of Week 22 is Claude Opus 4.8 + Dynamic Workflows, which shipped May 28 and held HN's #1 spot for two full days (1,558 points, 1,222 comments). But the important story isn't the launch announcement — it's what actually changed.</p>
+
+      <p>Anthropic shipped Opus 4.8 at the exact same price as 4.7 ($5/$25 per million tokens) with one focused improvement: the model is now approximately 4× less likely to silently gloss over bugs it creates. That's not a headline capability jump. It's a trust jump. Simon Willison called it "a modest but tangible improvement" — correct framing, but "modest" undersells it for a daily vibe-coder. When the AI flags its own uncertainty instead of charging ahead, your sessions get more reliable with zero change to your workflow. This upgrade was already delivered: it happened when you last ran <code>npm install -g @anthropic-ai/claude-code@latest</code>.</p>
+
+      <p>Dynamic Workflows is the second piece: orchestrating hundreds of parallel subagents in a single Claude Code session. Still research preview, still Enterprise/Team/Max-only. But it's the preview of the session structure that's coming — more autonomous, more parallel, longer-horizon tasks. Your job right now is to understand the direction, not to act on it yet.</p>
+
+      <p><strong>If you only do one thing this week:</strong> Take a file you know has a subtle issue and run it through Claude Code. See if it flags something it might have silently skipped before. That's the fastest way to verify whether the 4× trust improvement is real in your sessions.</p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">中文</span>
+
+      <p>本周最大的信号是 Claude Opus 4.8 + Dynamic Workflows。5 月 28 日发布，在 HN 连续两天霸榜（1558 分，1222 条评论）。但重要的不是发布本身，而是到底变了什么。</p>
+
+      <p>Anthropic 以和 4.7 完全相同的价格发布了 Opus 4.8（每百万 token $5/$25），核心改进只有一个：模型对自己制造的 bug "装没看见" 的概率降低了约 4 倍。这不是能力跃升，而是信任跃升。Simon Willison 说 "a modest but tangible improvement（小幅但真实的提升）"——这个描述准确，但 "modest" 低估了它对日常 vibe coding 的价值。当 AI 开始主动报告不确定性而不是硬撑冲过去，你的 session 质量会稳定提升，而你什么都不用改变。这个升级已经到你手里了——你上次跑 <code>npm install -g @anthropic-ai/claude-code@latest</code> 就已经切到 4.8 了。</p>
+
+      <p>Dynamic Workflows 是另一块拼图：在一个 Claude Code session 里协调几百个并行子 agent。目前限 Enterprise/Team/Max，还是研究预览。但这是接下来 session 结构的预告片：更自主、更并行、更长周期。你现在的任务是知道这个方向，不是去操作它。</p>
+
+      <p><strong>本周如果只做一件事：</strong>拿一个你知道有点难的文件丢给 Claude Code，看它有没有主动说 "这里我不确定"——和以前比一比。这是验证 4× 诚实度提升是否在你的 session 里成立的最快方法。</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📈 TRENDS BUILDING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">三条正在成形的方向</h2>
+
+    <!-- Trend 1 -->
+    <div class="trend-item">
+      <div class="trend-name">① 小模型竞赛全面开打</div>
+      <p><span class="lang-mark">EN</span> Three items this week pointed at the same shift: Mistral's 12B model claiming GPT-5.5-level performance on specific enterprise tasks (May 30, 386 pts HN), Liquid AI's 8B/1B-active MoE model trained on 38T tokens (May 30, 192 pts), and DeepSeek's permanent 75% price cut as ongoing backdrop. The "bigger model = better quality" assumption is softening fast. What to watch next week: Mistral's agent SDK GitHub star velocity — if it reaches opencode-tier momentum, upgrade to 🚨.</p>
+      <p><span class="lang-mark">中文</span> 本周三条信号指向同一方向：Mistral 12B 模型号称在特定企业任务追平 GPT-5.5（5/30, 386 分 HN）、Liquid AI 的 8B 总参 /1B 活跃 MoE 模型用 38T tokens 训练（5/30, 192 分）、DeepSeek 75% 永久降价持续作为背景音。"模型越大越好" 的假设正在快速松动。接下来一周看什么：Mistral agent SDK 的 GitHub star 增速——如果达到 opencode 级别，直接升 🚨。</p>
+    </div>
+
+    <!-- Trend 2 -->
+    <div class="trend-item">
+      <div class="trend-name">② 企业 AI 采用：从"会不会"变成"谁先谁后"</div>
+      <p><span class="lang-mark">EN</span> KPMG's 276K-employee Claude deployment (May 24 context) + PwC's follow-on announcement (May 25 🚨) closed the "will Big 4 adopt?" question for good. The daily news flow cooled by May 29 — no third domino — but the underlying shift is permanent. For clawii specifically: you're in compensation management at a multinational. The window before "AI use is expected in your role" just moved from 12 months to 6. The KPMG/PwC announcements are the slide-deck ammunition you need if you want to pilot AI in your team before it gets mandated.</p>
+      <p><span class="lang-mark">中文</span> KPMG 27.6 万员工（5/24 背景）+ PwC 跟进（5/25 🚨）——四大 AI 采用已经从 "会不会" 变成了 "谁先谁后"。5/29 新闻流降温，没有第三张骨牌落下，但底层变化是永久性的。对 clawii 最直接的影响：你在跨国公司做薪酬管理，"会被要求用 AI 工具" 的时间窗口现在估计缩短到 6 个月以内。KPMG/PwC 的公告是你想在公司内部推动 AI 试点时最好用的 PPT 弹药。</p>
+    </div>
+
+    <!-- Trend 3 -->
+    <div class="trend-item">
+      <div class="trend-name">③ MCP 争论：你的工具基础设施第一次被公开质疑</div>
+      <p><span class="lang-mark">EN</span> "MCP is dead?" hit HN at 251 points on May 30 (221 comments, mostly from engineers who actually build with the protocol). Consensus: not "abandon MCP," but "MCP needs to get simpler." Too fresh to confirm if this triggers real Anthropic response, but the direction matters. Check the modelcontextprotocol/specification GitHub repo issues this week — if the Anthropic team starts engaging, that's the real signal.</p>
+      <p><span class="lang-mark">中文</span> "MCP is dead?" 在 5/30 以 251 分登上 HN（221 条评论，大多来自真实在用 MCP 的工程师）。共识不是"放弃 MCP"而是"MCP 需要减肥"。信号太新，还不够确认是否触发 Anthropic 的实质响应。接下来 7 天看 modelcontextprotocol/specification 仓库的 issue——如果官方团队开始实质参与讨论，那就是真信号。</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 💀 WHAT I CALLED WRONG -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped</div>
+    <h2 class="display">三个我叫错了的</h2>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+
+      <p>Three items from the May 24 daily — the week's "opening file" — are all confirmed dead by week-end. Worth naming honestly.</p>
+
+      <p><strong>opencode (🚨 May 24):</strong> Called it "the first credible open-source competitor to Claude Code with breakout momentum — catching it in week 1." Five days later: zero new KOL coverage, no follow-on HN thread, GitHub star velocity flattened out of tracking range. The day-one signal (±1,540 stars in 28 days) was real supply-side data, but I didn't have demand-side evidence: no "I switched from Claude Code to opencode because X" stories, no developer adoption reports. I was measuring GitHub vanity metrics instead of actual developer intent. Will resurface only if a real-usage post appears.</p>
+
+      <p><strong>DeepSeek Reasonix (👀 May 24):</strong> HN #1, 311 pts, officially endorsed by DeepSeek, with verified real-user cost numbers ($12 vs $61 for 435M tokens). By day 7, out of tracking with no new signal. The product is probably fine — the audience is just too narrow (DeepSeek-only, terminal-only, serious about prefix-cache optimization) to sustain broad discussion. Not a bad product, just not a signal for a non-developer vibe-coder. I gave it too much weight.</p>
+
+      <p><strong>Big 4 acceleration pace (🚨 May 25):</strong> I implied a rapid domino effect — Deloitte and EY within days. That didn't happen. The underlying trend is real and holds as a 📈 Trend above, but the specific news-flow pace I implied was wrong. Three items demoted total.</p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">中文</span>
+
+      <p>5/24 日报里叫得最响的三条，到周末都确认凉了。诚实说清楚。</p>
+
+      <p><strong>opencode（🚨 5/24）：</strong>当时叫 "Claude Code 第一个真实威胁"，5 天后 KOL 没新背书、HN 没跟进、GitHub star 增速归零。我测量的是 "供给"（star 数量），没有 "需求" 证据：没有人写 "我把 Claude Code 换成了 opencode 因为 X"。把 GitHub 虚荣指标当信号，错了。下次出现真实使用报告才重新考虑。</p>
+
+      <p><strong>DeepSeek Reasonix（👀 5/24）：</strong>HN #1、311 分、DeepSeek 官方认可、真实用户成本数据——但 7 天后移出追踪。产品本身可能没问题，但受众太窄（只用 DeepSeek、只在终端、还得关心缓存优化），撑不住宽泛讨论。不是 clawii 的信号，但我给的分量太重了。</p>
+
+      <p><strong>四大浪潮节奏（🚨 5/25）：</strong>我暗示了快速多米诺骨牌效应——德勤、EY 几天内跟进。没发生。底层趋势是真的（已升入上面的 📈 趋势），但我暗示的新闻流节奏错了。</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🔮 WATCH LIST -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">接下来 7 天盯着这三件事</h2>
+
+    <div class="lang">
+      <span class="lang-mark">EN</span>
+
+      <div class="watch-item">
+        <strong>① Dynamic Workflows scope expansion</strong><br>
+        Currently research preview, Enterprise/Team/Max only. Watch Claude Code release notes and @AnthropicAI for any broader rollout.<br>
+        <span class="trigger">Trigger → official announcement expanding access to Pro users or below</span>
+      </div>
+
+      <div class="watch-item">
+        <strong>② MCP simplification response from Anthropic</strong><br>
+        The "too complex" HN debate (251 pts) deserves a response within 2–4 weeks if Anthropic is listening. Watch the modelcontextprotocol/specification GitHub repo for new PRs, issues labeled "simplification," or any Anthropic team engagement in comments.<br>
+        <span class="trigger">Trigger → Anthropic staff reply on any MCP issue, or a PR that visibly reduces spec surface area</span>
+      </div>
+
+      <div class="watch-item">
+        <strong>③ Deloitte or EY enterprise AI deployment announcement</strong><br>
+        The Big 4 wave has KPMG and PwC. Deloitte (largest of the four) and EY are the remaining pieces. Format to watch for: press release naming employee count + Claude/AI vendor name.<br>
+        <span class="trigger">Trigger → any formal announcement matching the KPMG/PwC scale and format</span>
+      </div>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">中文</span>
+
+      <div class="watch-item">
+        <strong>① Dynamic Workflows 对更多用户开放</strong><br>
+        目前限 Enterprise/Team/Max。看 Claude Code 更新日志和 @AnthropicAI 官方账号。<br>
+        <span class="trigger">触发条件 → 任何扩大可用范围的官方公告（尤其是 Pro 用户）</span>
+      </div>
+
+      <div class="watch-item">
+        <strong>② Anthropic 对 MCP 简化争论的响应</strong><br>
+        251 分 HN 争论正在等 Anthropic 表态。看 modelcontextprotocol/specification 仓库的 PR 和 issue。<br>
+        <span class="trigger">触发条件 → Anthropic 团队成员实质参与 issue 讨论，或合并一个明显缩减 spec 规模的 PR</span>
+      </div>
+
+      <div class="watch-item">
+        <strong>③ 德勤或 EY 的企业 AI 部署公告</strong><br>
+        四大浪潮还差德勤（四家里最大）和 EY。看格式：含员工人数 + 供应商名称的正式新闻稿。<br>
+        <span class="trigger">触发条件 → 规模和格式与 KPMG/PwC 相当的正式公告</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📅 CALIBRATION METRICS -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 22</div>
+    <h2 class="display">本周数字</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>5 of 7 days (May 25, 26, 27, 29, 30 — May 28 + 31 skipped)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>2 (Big 4 May 25 · Opus 4.8 May 29)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>6</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>1 (Liquid AI MoE)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>4 (🏆 Opus 4.8 · 📈 Small models · 📈 Big 4 · 📈 MCP)</dd>
+
+      <dt>Items demoted in weekly review</dt>
+      <dd>3 (opencode · DeepSeek Reasonix · Big 4 pace call)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~33% — higher than ideal; opencode + Reasonix were supply-side metrics only</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~12–15 days ahead on Opus 4.8, Big 4 wave (WeChat / 小红书 大 V 分析 typically needs 10–14 days on English-first AI news)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      做你的 AI 虚拟朋友 — 每天 07:07 推送 · 周日 08:00 出 Weekly Wrap · 宁缺毋滥。
+    </p>
+    <p>
+      扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · simonwillison.net · github.com/trending
+    </p>
+    <p>
+      剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 22 · 2026-05-31 · 5 dailies · 9 items (2🚨 / 6👀 / 1ℹ️) · 4 survived · 3 demoted
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
