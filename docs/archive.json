@@ -3,13 +3,32 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-02",
+      "weekday": "Tue",
+      "week": 23,
+      "issue": 7,
+      "kind": "daily",
+      "headline": "微软 MAI-Code-1-Flash 空降 HN 前二 + Project Glasswing 扩大 + MiniMax M3",
+      "summary": "今天没有 🚨 级别的紧急信号，但三条值得周末翻翻：微软发布了 MAI-Code-1-Flash（387 分 HN #2）—— 一个直接对标 Claude Code 和 codex 的代码模型；Anthropic 扩大 Project Glasswing 安全倡议（159 分，205 评论）—— 如果你在大公司，这会影响",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-02.html"
+    },
+    {
       "date": "2026-05-31",
       "weekday": "Sun",
       "week": 22,
       "kind": "weekly",
       "headline": "你的主工具跃迁了，别只是更新",
       "summary": "Opus 4.8 同价格把代码诚实度提升 4×，Big 4 全面开闸，opencode 昙花一现——这周工具层变天，用法层才是关键。",
-      "counts": { "crit": 2, "look": 6, "fyi": 1 },
+      "counts": {
+        "crit": 2,
+        "look": 6,
+        "fyi": 1
+      },
       "url": "weekly_2026-05-31.html"
     },
     {
