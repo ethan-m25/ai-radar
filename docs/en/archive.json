@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-03",
+      "weekday": "Wed",
+      "week": 23,
+      "issue": 10,
+      "kind": "daily",
+      "headline": "OpenAI Codex Goes Broad + Anthropic Publishes Cyber Threats Report",
+      "summary": "No 🚨-level urgent signals today, but two 👀 worth 20 minutes of your time: OpenAI officially repositioned Codex as a platform for \"Every Role, Tool, Workflow\" (4",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-06-03.html"
+    },
+    {
       "date": "2026-06-02",
       "weekday": "Tue",
       "week": 23,

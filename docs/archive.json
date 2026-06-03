@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-03",
+      "weekday": "Wed",
+      "week": 23,
+      "issue": 10,
+      "kind": "daily",
+      "headline": "OpenAI Codex 全面铺开 + Anthropic 发布网络威胁报告",
+      "summary": "今天没有 🚨 级别紧急信号，但两条 👀 值得你花 20 分钟了解：OpenAI 正式把 Codex 定位为\"每个角色、每个工具、每个工作流\"的平台（477 分 HN #1）—— 这意味着 Codex 不再只是开发者的工具，而是面向所有知识工作者；Anthropic 发布了一份 AI 网络威胁年度报告（HN 讨论中）——",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-06-03.html"
+    },
+    {
       "date": "2026-06-02",
       "weekday": "Tue",
       "week": 23,
