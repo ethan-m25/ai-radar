@@ -4,7 +4,7 @@
 
 ## What this is
 
-A daily AI tech digest curated by Claude, designed for one specific person (clawii) — a non-developer who vibe-codes and wants to catch big AI shifts within 7-10 days, not 4-6 weeks later.
+A daily AI tech digest generated through OpenClaw/OpenRouter, designed for one specific person (clawii) — a non-developer who vibe-codes and wants to catch big AI shifts within 7-10 days, not 4-6 weeks later.
 
 **Not** another AI newsletter that summarizes press releases. **This** filters real signals from cross-source momentum (X discussion, GitHub velocity, HN saturation, KOL endorsements) and writes them up as if a tech-savvy friend was texting you.
 
@@ -29,7 +29,7 @@ A daily AI tech digest curated by Claude, designed for one specific person (claw
                     └───────────┬───────────┘
                                 ▼
                     ┌───────────────────────┐
-                    │  Claude (digest.md)   │
+                    │ OpenRouter + prompt   │
                     │  - clawii lens        │
                     │  - OR-logic signal    │
                     │  - 🚨 / 👀 / ℹ️ tier  │
@@ -41,14 +41,14 @@ A daily AI tech digest curated by Claude, designed for one specific person (claw
                 ▼                           ▼
     ┌──────────────────┐          ┌─────────────────┐
     │ output/          │          │ Discord push    │
-    │ YYYY-MM-DD.md    │          │ #cc-workspace   │
+    │ YYYY-MM-DD.html  │          │ #cc-workspace   │
     └──────────────────┘          └─────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
 │                     Tier 3 (future)                              │
 └─────────────────────────────────────────────────────────────────┘
 
-    output/*.md  →  static site  →  RSS / public web
+    output/*.html  →  static site  →  RSS / public web
 ```
 
 ## Files
@@ -61,19 +61,33 @@ A daily AI tech digest curated by Claude, designed for one specific person (claw
 ├── sources/
 │   └── sources.md             # source list with tiers and exclude rules
 ├── scripts/
-│   ├── run_digest.sh          # daily orchestrator (calls Claude with digest.md)
+│   ├── run_daily.sh           # daily wrapper (OpenRouter/OpenClaw)
+│   ├── run_daily.py           # daily orchestrator
+│   ├── run_weekly.sh          # weekly wrapper (OpenRouter/OpenClaw)
+│   ├── run_weekly.py          # weekly orchestrator
 │   └── test_digest.sh         # manual test run
 ├── output/
-│   └── YYYY-MM-DD.md          # daily digests (committed for history)
+│   ├── YYYY-MM-DD.html        # Chinese daily archive copy
+│   └── en/YYYY-MM-DD.html     # English daily archive copy
 └── docs/
-    └── calibration.md         # tuning log over time
+    ├── index.html             # Chinese daily site
+    ├── en/index.html          # English daily site
+    ├── archive.json           # Chinese archive
+    └── en/archive.json        # English archive
 ```
 
 ## How it runs
 
-**Daily at 07:00**: `/schedule` fires `run_digest.sh` → fetches sources → runs Claude with `prompts/digest.md` → writes `output/YYYY-MM-DD.md` → pushes to Discord.
+**Daily at 07:07**: launchd fires `run_daily.sh` → fetches sources → calls OpenRouter using OpenClaw credentials → writes Chinese pages under `docs/` and English pages under `docs/en/` → commits/pushes → pushes Discord.
 
-**Manual test**: `bash ~/ai-radar/scripts/test_digest.sh` (uses today's sources, prints to stdout, no Discord push).
+**Weekly at Sunday 08:00**: launchd fires `run_weekly.sh` → synthesizes the past 7 daily pages through OpenRouter → writes Chinese and English weekly permalinks → commits/pushes → pushes Discord.
+
+**Manual test**: `bash ~/ai-radar/scripts/test_digest.sh` (uses today's sources, writes test HTML, no Git/Discord).
+
+**URLs**:
+
+- Chinese: `https://ethan-m25.github.io/ai-radar/`
+- English: `https://ethan-m25.github.io/ai-radar/en/`
 
 ## Calibration
 

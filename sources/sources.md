@@ -4,13 +4,24 @@
 
 | Source | URL | Type | Notes |
 |---|---|---|---|
-| Smol AI / AINews | https://news.smol.ai | Newsletter | Indexes 356 X + 21 Discord + Reddit + GitHub. Karpathy-endorsed. THE most important source. |
-| OSSInsight Trending AI | https://ossinsight.io/trending/ai | Dashboard | Use 28d growth column to spot velocity. |
-| Hacker News | https://news.ycombinator.com | Aggregator | Filter for AI-related items on front page. |
-| Anthropic changelog | https://www.anthropic.com/news | Official | Model releases, feature ships. |
-| OpenAI updates | https://openai.com/index/ | Official | Model releases, feature ships. |
+| Smol AI / AINews | https://news.smol.ai/issues/ | Aggregated newsletter | Broad early scan across X, Discord, Reddit, GitHub. Still the best first-pass source. |
+| Hacker News | https://news.ycombinator.com | Aggregator | Look for AI items in the top 1-15, high-comment threads, and repeated appearances. |
+| OSSInsight Trending AI | https://ossinsight.io/trending/ai | GitHub momentum dashboard | Use 28d growth to detect open-source velocity. |
+| GitHub Trending | https://github.com/trending?since=daily | Raw repo breakout scan | Cross-check OSSInsight and catch non-AI-tagged repos. |
 
-## Tier B: KOL X feeds (best-effort, skip if rate-limited)
+## Tier B: Official ship sources (always fetched, but filtered hard)
+
+| Source | URL | Type | Notes |
+|---|---|---|---|
+| OpenAI News RSS | https://openai.com/news/rss | Official RSS | Preferred over the HTML page because the HTML is often Cloudflare-challenged. |
+| OpenAI Developers RSS | https://developers.openai.com/rss.xml | Official developer feed | Catches Codex/API/cookbook/tool releases that may not hit the main news page. |
+| Anthropic News | https://www.anthropic.com/news | Official | Claude/model/product ships; filter out policy, offices, hiring, funding. |
+| Google DeepMind Blog | https://deepmind.google/blog/ | Official | Model/capability releases; filter out pure research with no artifact. |
+| Mistral News | https://mistral.ai/news/ | Official | Model and platform releases, especially open/European AI signals. |
+| Hugging Face Blog | https://huggingface.co/blog | Official/community platform | Open model/tool releases and ecosystem posts. |
+| Hugging Face Trending Models | https://huggingface.co/models?sort=trending | Model momentum | Catch model releases that spike before blog/news coverage. |
+
+## Tier C: Practitioner / KOL signal
 
 Use nitter mirrors or RSS bridges since X API is paywalled.
 
@@ -27,13 +38,22 @@ Use nitter mirrors or RSS bridges since X API is paywalled.
 | @demishassabis | Demis Hassabis — DeepMind, occasional but important |
 | @miramurati | Mira Murati — Thinking Machines |
 
-## Tier C: Verification / fallback (used when Tier A misses something)
+Current non-X fallback:
 
 | Source | URL | Use case |
 |---|---|---|
-| GitHub Trending | https://github.com/trending?since=daily | Cross-check against OSSInsight |
-| Latent Space podcast/newsletter | https://www.latent.space | Weekly deep judgment |
-| Simon Willison weeknotes | https://simonwillison.net | Weekly synthesis |
+| Simon Willison AI tag | https://simonwillison.net/tags/ai/ | Hands-on practitioner signal; useful for "I tried it" validation. |
+| Latent Space podcast/newsletter | https://www.latent.space | Optional weekly deep judgment; not currently fetched daily to avoid recap drift. |
+
+## Judgment rule after expansion
+
+More sources must not mean more items.
+
+- Top-3 still requires the original OR-logic signal threshold.
+- Official announcements alone are not enough unless they ship something usable or trigger HN/KOL/GitHub momentum.
+- Hugging Face/GitHub spikes are leads, not proof; promote only with enough usage evidence or a very clear artifact.
+- Policy, safety, offices, hiring, funding, lawsuits, and generic thought pieces remain hard excludes.
+- If the broader source set only confirms a story already covered yesterday, put it in Still tracking or kill it.
 
 ## Hard exclude (do NOT fetch)
 

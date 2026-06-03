@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · 2026-05-31 · Week 22</title>
+<meta name="description" content="Claude Opus 4.8 + Dynamic Workflows was the week's anchor — plus Claude Code ecosystem maturation, small-model efficiency race, and the MCP simplification debate">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 22">
+<meta property="og:description" content="Your tool just jumped a level · Claude Opus 4.8 + Dynamic Workflows · Claude Code platform deepens · MCP debate · Small models rising">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; max-width: 800px; }
+  @media (min-width: 768px) { .page { max-width: 840px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+
+  .pager { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 2.5rem; padding: 0.75rem 0; border-top: 1px dashed var(--hairline); border-bottom: 1px dashed var(--hairline); }
+  .pager.bottom { margin: 4rem 0 0; }
+  .pager a, .pager span { font-size: var(--t-small); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; flex: 1; }
+  .pager a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .pager .pg-prev { text-align: left; }
+  .pager .pg-mid { text-align: center; color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pager .pg-next { text-align: right; }
+  .pager .pg-disabled { color: var(--ink-mute); opacity: 0.5; }
+  .pager .pg-arrow { font-family: 'Geist Mono', monospace; color: var(--ink-mute); }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1rem; color: var(--ink-mute); font-size: var(--t-micro); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Geist Mono', monospace; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 18ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 52ch; margin: 0 0 2rem; }
+  .cover .count-row { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(2.5rem, 8vw, 3.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.3rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .card { margin: 3.5rem 0; }
+  .card h2 { font-size: var(--t-h2); margin: 0 0 1.25rem; }
+  .card h3 { font-size: var(--t-h3); margin: 1.75rem 0 0.75rem; font-weight: 600; letter-spacing: -0.01em; }
+  .card p { margin: 0.5rem 0 1rem; }
+  .card ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
+  .card li { margin: 0.45rem 0; }
+
+  .divider { border: none; border-top: 1px solid var(--hairline-bold); margin: 3rem 0; }
+
+  .trend-block { padding: 1.5rem 0; border-bottom: 1px solid var(--hairline); }
+  .trend-block:last-child { border-bottom: none; }
+  .trend-block h3 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+
+  .demote-block { background: var(--bg-sunk); padding: 1.25rem 1.5rem; border-radius: 2px; margin: 1.5rem 0; }
+  .demote-block h3 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 500; font-size: var(--t-h3); margin: 0 0 0.75rem; color: var(--ink-soft); }
+  .demote-block ul { list-style: none; padding: 0; margin: 0; }
+  .demote-block li { padding: 0.4rem 0; border-bottom: 1px dashed var(--hairline); }
+  .demote-block li:last-child { border-bottom: none; }
+  .demote-block .item-name { font-weight: 600; }
+  .demote-block .verdict { color: var(--ink-mute); }
+
+  .watch-list { margin: 2rem 0; }
+  .watch-list li { margin: 0.75rem 0; }
+
+  .calibration { margin: 3rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border: 1px solid var(--hairline); border-radius: 2px; }
+  .calibration .smallcaps { display: block; margin-bottom: 0.85rem; }
+  .calibration table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+  .calibration th, .calibration td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .calibration thead th { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); border-bottom: 2px solid var(--hairline-bold); }
+
+  .tag { display: inline-block; font-family: 'Geist Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; padding: 0.15rem 0.5rem; border-radius: 2px; margin-right: 0.35rem; }
+  .tag-crit { background: var(--tier-crit-soft); color: var(--tier-crit); }
+  .tag-look { background: var(--tier-look-soft); color: oklch(0.55 0.18 80); }
+  .tag-fyi { background: var(--tier-fyi-soft); color: var(--tier-fyi); }
+
+  .footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .item:nth-of-type(1) { animation-delay: 0.05s; }
+  .item:nth-of-type(2) { animation-delay: 0.15s; }
+  .item:nth-of-type(3) { animation-delay: 0.25s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 05 · 31  ·  Wk 22  ·  Sun · Weekly</span>
+    <span>~10 min read</span>
+  </div>
+
+  <section class="cover">
+    <span class="kicker">Week 22 · May 25 – May 31</span>
+    <h1 class="display headline">Your tool just jumped a level.</h1>
+    <p class="lead">5 daily digests · 2 🚨 · 6 👀 · 1 ℹ️. Claude Opus 4.8 + Dynamic Workflows hit HN #1 with 1,558 points — a free upgrade that changes how you work this week. Meanwhile the Claude Code ecosystem deepened (power user guides, MCP debates, a "slow code" manifesto), and small-model efficiency emerged as a counter-narrative to "bigger is better."</p>
+    
+    <div class="count-row">
+      <div class="total">9</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>2</strong> 🚨 Must See</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>6</strong> 👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong> ℹ️ FYI</span>
+      </div>
+    </div>
+
+    <p style="margin-top:1.5rem;font-size:var(--t-h3);color:var(--ink-soft);font-family:'Fraunces',serif;font-variation-settings:'SOFT'60,'opsz'144;font-style:italic;font-weight:400;max-width:48ch;">
+      <strong class="display" style="font-style:normal;">本周一句话总结</strong> → Opus 4.8 upgrades your daily Claude Code for free, Dynamic Workflows unlocks parallel agent power (research preview), and the community is asking harder questions about how we use these tools — not whether they work.
+    </p>
+  </section>
+
+  <!-- 🏆 THE 1 THING -->
+  <section class="card item">
+    <h2 class="display" style="font-size:var(--t-h1);margin-bottom:0.25rem;">🏆 The 1 thing that mattered most this week</h2>
+    <p class="smallcaps" style="margin-bottom:1.5rem;">Claude Opus 4.8 + Dynamic Workflows · May 29</p>
+
+    <p><strong>Anthropic shipped two things at once, both real, both free, and both change your Monday morning.</strong> Claude Opus 4.8 landed on Thursday with a deceptively modest description — "a modest but tangible improvement" (Simon Willison's quote, which he called refreshingly honest). But the change is concrete: the model is roughly 4× less likely to silently skip flaws in code it just wrote. It will now tell you "I think this might be broken" instead of pretending everything is fine. For someone who vibe-codes daily, this directly reduces the "trust but verify" tax you pay on every AI-generated output.</p>
+
+    <p>Simultaneously, <strong>Dynamic Workflows</strong> entered research preview — allowing Claude Code to orchestrate hundreds of parallel sub-agents from a single session. The announced use case: "codebase-scale migrations across hundreds of thousands of lines of code from kickoff to merge." For you, this means that big analysis you'd normally split across 5 separate sessions (read data → plan → write code → verify → report) could become one command. Currently limited to Enterprise, Team, and Max plan subscribers — but the direction is unmistakable: Claude Code is becoming a parallel agent platform, not just a conversational coding assistant.</p>
+
+    <p>The HN reaction was the week's highest-density signal: <strong>1,558 points, 1,222 comments, front page #1 for over 24 hours</strong>. Simon Willison published same-day analysis. The discussion wasn't about hype — it was about how to use these capabilities in real codebases. <strong>If you only do one thing this week: update Claude Code (<code>npm install -g @anthropic-ai/claude-code@latest</code>) and test the new "code honesty" on a file you know has a subtle bug. The difference is immediately felt.</strong></p>
+
+    <p style="margin-top:1rem;font-size:var(--t-small);color:var(--ink-mute);border-top:1px solid var(--hairline);padding-top:1rem;">
+      <span class="tag tag-crit">🚨 May 29</span> Daily coverage: Claude Opus 4.8 + Dynamic Workflows
+    </p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 📈 TRENDS BUILDING -->
+  <section class="card item">
+    <h2 class="display" style="font-size:var(--t-h1);margin-bottom:0.25rem;">📈 Trends building</h2>
+    <p class="smallcaps" style="margin-bottom:1.5rem;">Three signals that grew this week, worth watching into June</p>
+
+    <div class="trend-block">
+      <h3>1. Claude Code transitions from "tool" to "platform"</h3>
+      <p>This week produced a cascade of Claude Code ecosystem signals: the <strong>"Daily Driver" power-user guide</strong> (HN 76 pts, May 27) showing Claude.md, Skills, Subagents, Plugins, and MCPs in production; the <strong>"Everything You Can Configure"</strong> follow-up (HN 121 pts, May 28); <strong>Opus 4.8 + Dynamic Workflows</strong> (May 29); and the <strong>"MCP is dead?"</strong> debate (HN 251 pts, 221 comments, May 30) questioning whether the protocol layer is too complex. Taken together, this isn't noise — it's a community shifting from "how do I use Claude Code?" to "how do I build my workflow on top of Claude Code?"</p>
+      <p><strong>What to watch next week:</strong> Anthropic's response to the MCP simplification critique. If they release a streamlined MCP spec or announce a Skills marketplace, that's 🚨. Also watch for more real-world Dynamic Workflows usage reports from Max plan users.</p>
+    </div>
+
+    <div class="trend-block">
+      <h3>2. Small-model efficiency race becomes visible</h3>
+      <p>Two signals this week from opposite sides of the Atlantic: <strong>Mistral AI Now Summit</strong> (HN 386 pts, May 30) where Mistral doubled down on its 12B-parameter efficient model strategy — claiming GPT-5.5-competitive performance on enterprise tasks at 5-10× lower cost; and <strong>Liquid AI's 8B-A1B MoE</strong> (HN 192 pts, May 30) with only 1B active parameters trained on 38T tokens. Both say the same thing: the "bigger is better" orthodoxy is cracking. For your workflow, this means the "cheap model for simple tasks, expensive model for hard tasks" split (which I first flagged with Reasonix on May 24, then Gemini Flash on May 25) is becoming a permanent strategy, not a hack.</p>
+      <p><strong>What to watch next week:</strong> Whether any small model breaks into SWE-bench top 10. If a 12B-parameter model matches Opus on agentic coding tasks, that's 🚨. Also: can Mistral's agent SDK (announced at the summit) actually compete with Claude Code?</p>
+    </div>
+
+    <div class="trend-block">
+      <h3>3. Enterprise AI acceleration — real but slower than I predicted</h3>
+      <p>The Big-4 trend (PwC May 14, KPMG May 19 — both picking Claude) was my 🚨 call on May 25. By May 29, with no Deloitte or EY announcement, I cooled the tracking status. <strong>I don't think I was wrong on the trend, just on the timing.</strong> Two of the Big-4 deploying Claude in the same month is still historically significant — it signals enterprise AI procurement shifting from "pilot" to "standard." But the cadence is slower than I estimated: Deloitte and EY are doing due diligence that takes weeks, not days. The trend holds; the urgency was too compressed.</p>
+      <p><strong>What to watch next week:</strong> June 1–15 remains the key window. If Deloitte or EY announces Claude in June, the trend accelerates. If they announce GPT Enterprise instead, the competitive landscape reshapes. Either way, the enterprise AI procurement cycle has visibly shortened — that's the durable takeaway.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 💀 WHAT I CALLED WRONG -->
+  <section class="card item">
+    <h2 class="display" style="font-size:var(--t-h1);margin-bottom:0.25rem;">💀 What I called wrong / overhyped this week</h2>
+
+    <div class="demote-block">
+      <h3>Honest demotions — building calibration over time</h3>
+      <ul>
+        <li>
+          <span class="item-name">🚨 Big-4 enterprise acceleration timing</span>
+          <span class="verdict"> — 5/25: 🚨 "6-day window closing." No Deloitte/EY announcement followed within the week. <strong>The trend (enterprise AI accelerating) was correct. The timing compression was overhyped.</strong> Dropped from tracking on Day 4 (5/29). Lesson: enterprise procurement cycles are measured in weeks, not days. A 🚨 call on a multi-week trend needs a longer patience window — I'll calibrate future Big-4 coverage to a 2-week view.</span>
+        </li>
+        <li>
+          <span class="item-name">👀 opencode (OSSInsight 28d star #1)</span>
+          <span class="verdict"> — 5/25 flagged as OSSInsight star leader. Had no KOL backing, no product update, no HN front page. Star count alone is not signal. <strong>Over-weighted a vanity metric.</strong> Confirmed dead Day 5 (5/29). Lesson: stars without community depth = noise. Dropped.</span>
+        </li>
+        <li>
+          <span class="item-name">👀 DeepSeek Reasonix</span>
+          <span class="verdict"> — 5/24 flagged on HN hype (615 pts). Within 3 days HN heat collapsed. No product upgrades, no real-world usage reports. <strong>Caught up in launch-day excitement without second-order evidence.</strong> Dropped Day 7 (5/30).</span>
+        </li>
+        <li>
+          <span class="item-name">👀 Gemini 3.5 Flash (1M context)</span>
+          <span class="verdict"> — 5/25 flagged as "worth trying" for long-document work. Early usage reports confirmed 1M context is real but mid-document retrieval is mediocre. <strong>The call was not wrong — the model is useful — but the urgency was overestimated.</strong> The trend (1M context becomes standard) is still valid; the daily-level tracking was unnecessary. Dropped Day 4.</span>
+        </li>
+      </ul>
+      <p style="margin-top:0.75rem;font-size:var(--t-small);color:var(--ink-soft);">Nothing else demoted this week — all other 🚨/👀 items are still tracking or confirmed alive.</p>
+    </div>
+
+    <p><strong>What I got right this week:</strong> The 🚨 on Opus 4.8 + Dynamic Workflows (May 29) was accurately timed — it was the week's biggest signal by every measure. The 👀 on "write better code more slowly" (May 26, 698 pts) caught a real community reflection moment. The 👀 on the MCP debate (May 30) was positioned correctly as "important debate, not immediate action" — and subsequent tracking confirms it's still developing.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 🔮 WATCH LIST -->
+  <section class="card item">
+    <h2 class="display" style="font-size:var(--t-h1);margin-bottom:0.25rem;">🔮 Watch list for next week</h2>
+    <p class="smallcaps" style="margin-bottom:1rem;">Things not yet at signal threshold but might break out</p>
+
+    <ul class="watch-list">
+      <li>
+        <strong>Dynamic Workflows goes GA or gets real-world benchmarks</strong> — Currently research preview for Max/Team/Enterprise. If someone publishes SWE-bench results with hundreds of parallel subagents, or if Anthropic announces GA with a date, that's immediate 🚨. <em>Watch trigger: Simon Willison post, Anthropic changelog, or a credible HN benchmark.</em>
+      </li>
+      <li>
+        <strong>Anthropic responds to MCP simplification debate</strong> — The "MCP is dead?" article (251 pts, 221 comments) is the most concentrated criticism of MCP's design yet. If Anthropic issues a response, releases a simplified spec, or announces MCP 2.0 roadmap within 2 weeks, that's a 👀→🚨 escalation. <em>Watch trigger: Anthropic blog post, MCP GitHub repo activity spike, or a KOL like swyx or Simon Willison covering it.</em>
+      </li>
+      <li>
+        <strong>Deloitte or EY AI platform announcement</strong> — The Big-4 trend is quiet but not dead. If either firm announces a Claude or GPT Enterprise deal by June 15, it confirms enterprise AI acceleration is real. If neither announces by end of June, I'll reassess whether the original signal was a one-off. <em>Watch trigger: Anthropic news page, LinkedIn posts from Big-4 partners, or enterprise tech press.</em>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 📅 CALIBRATION -->
+  <section class="calibration">
+    <span class="smallcaps">📅 Calibration metrics — Week 22</span>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Daily digests this week</td><td>5 (Mon–Wed skipped? No — Mon, Tue, Wed, Fri, Sat. Thu was not covered.)</td></tr>
+        <tr><td>🚨 items flagged</td><td>2 (Big-4 timing, Opus 4.8 + Dynamic Workflows)</td></tr>
+        <tr><td>👀 items flagged</td><td>6 (Gemini Flash, Slow Code, Claude Code Guide, Continue Y/N, MCP is Dead, Mistral Summit)</td></tr>
+        <tr><td>ℹ️ items flagged</td><td>1 (Liquid AI 8B-A1B MoE)</td></tr>
+        <tr><td>Items demoted in weekly review</td><td>4 (Big-4 timing → overhyped urgency; opencode → star-count noise; DeepSeek Reasonix → launch-day hype; Gemini Flash → right call, wrong urgency)</td></tr>
+        <tr><td>False positive rate (items demoted / total items featured)</td><td>4 / 9 ≈ 44% — higher than ideal. The Big-4, opencode, and Reasonix demotions reveal a pattern: <strong>I over-weighted early-stage hype signals</strong>. Calibrating toward requiring second-order evidence (KOL follow-up, product updates, real usage reports) before 🚨/👀 calls. The Gemini Flash demotion is milder — the call itself was useful, just didn't need daily tracking.</td></tr>
+        <tr><td>Lead time vs Chinese content cycle</td><td>Opus 4.8: ~5–7 days ahead. "Slow code" manifesto: ~7 days (no Red Note coverage yet). MCP debate: ~5 days ahead. Mistral summit: ~3–5 days ahead.</td></tr>
+        <tr><td>Still tracking entering Week 23</td><td>Claude Opus 4.8 (Day 4, HN heat cooling but Dynamic Workflows still developing), "MCP is dead?" debate (Day 2, waiting for Anthropic response), Mistral Summit (Day 2, waiting for concrete product releases), Liquid AI (FYI, no expected near-term movement)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <nav class="pager bottom">
+    <a class="pg-mid" href="./archive.html">View full archive →</a>
+    <span class="pg-next pg-disabled" style="text-align:right;">Next weekly: Week 23</span>
+  </nav>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news (403) · simonwillison.net · github.com/trending
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · v0.3 · Weekly 22 · 5 daily issues · 2🚨 / 6👀 / 1ℹ️ · 4 demoted · Next weekly: Sun Jun 7
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>

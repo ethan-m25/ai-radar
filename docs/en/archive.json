@@ -1,0 +1,125 @@
+{
+  "$schema": "https://github.com/ethan-m25/ai-radar",
+  "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
+  "issues": [
+    {
+      "date": "2026-06-02",
+      "weekday": "Tue",
+      "week": 23,
+      "issue": 7,
+      "kind": "daily",
+      "headline": "Microsoft MAI-Code-1-Flash Lands HN #2 + Project Glasswing Expands + MiniMax M3",
+      "summary": "No 🚨-level urgent signals today, but three worth flipping through this weekend: Microsoft shipped MAI-Code-1-Flash (387 pts, HN #2) — a code model that goes hea",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-02.html"
+    },
+    {
+      "date": "2026-05-31",
+      "weekday": "Sun",
+      "week": 22,
+      "kind": "weekly",
+      "headline": "Your tool just jumped a level.",
+      "summary": "5 daily digests · 2 🚨 · 6 👀 · 1 ℹ️. Claude Opus 4.8 + Dynamic Workflows hit HN #1 with 1,558 points — a free upgrade that changes how you work this week. Meanwh",
+      "counts": {
+        "crit": 2,
+        "look": 6,
+        "fyi": 1
+      },
+      "url": "weekly_2026-05-31.html"
+    },
+    {
+      "date": "2026-05-30",
+      "weekday": "Sat",
+      "week": 22,
+      "issue": 6,
+      "kind": "daily",
+      "headline": "周末信号：MCP 还活着吗？  Mistral 在巴黎说了大实话。",
+      "summary": "今天没有必须放下手头活的 🚨 — 正常。但三条值得周末翻翻的内容：MCP 生存争论登上 HN 前页（251 分，221 评论）——如果你用 Claude Code，MCP 是你工作流的一部分；Mistral 峰会的 386 分长文揭示了欧洲 AI 的策略；Liquid AI 的 8B 参数 MoE 模型效率高得吓人。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-05-30.html"
+    },
+    {
+      "date": "2026-05-29",
+      "weekday": "Fri",
+      "week": 22,
+      "issue": 5,
+      "kind": "daily",
+      "headline": "你的工具刚跃迁了。停下来看一眼。",
+      "summary": "Opus 4.8 + Dynamic Workflows 同步发布：代码诚实度 4×、Claude Code 开放几百 agent 并行、价格不变。HN 第一名 1558 分 1222 评论。",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-29.html"
+    },
+    {
+      "date": "2026-05-27",
+      "weekday": "Wed",
+      "week": 22,
+      "issue": 4,
+      "kind": "daily",
+      "headline": "把你用的工具用深，而不是换。",
+      "summary": "今天没什么新玩具发布。但 HN 上有一篇 Claude Code 实战长文正在被认真讨论——关于 Claude.md、Skills、Subagents、Plugins、MCPs 怎么组合使用。如果你每天在用但只用了 20% 的功能，这篇文章值 30 分钟。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-27.html"
+    },
+    {
+      "date": "2026-05-26",
+      "weekday": "Tue",
+      "week": 22,
+      "issue": 3,
+      "kind": "daily",
+      "headline": "慢下来，写更好的代码。",
+      "summary": "今天只有 1 条信号 — 但很值得读。HN 头条 698 分、266 条讨论，关于怎么用 AI 写出真正更好的代码——不是更快的代码。对 vibe 程序员来说，可能是今年最重要的阅读材料之一。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-26.html"
+    },
+    {
+      "date": "2026-05-25",
+      "weekday": "Mon",
+      "week": 22,
+      "issue": 2,
+      "kind": "daily",
+      "headline": "Big 4 过半一周 — 窗口收窄中。",
+      "summary": "KPMG 官宣已 6 天，PwC 已 11 天。没有第三家跟进——这不代表浪停了，代表剩下两家在算账。本期 2 条信号：一条是企业 AI 采用节奏的校准，一条是长文档工作的新工具。",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-25.html"
+    },
+    {
+      "date": "2026-05-24",
+      "weekday": "Sun",
+      "week": 21,
+      "issue": 1,
+      "kind": "daily",
+      "headline": "降价潮 + 黑马 agent + 大客户 — 一起来。",
+      "summary": "opencode 跑赢 Claude Code，DeepSeek Reasonix 把成本砍到 1/5，KPMG 把 Claude 部署给 27.6 万员工。",
+      "counts": {
+        "crit": 1,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-05-24.html"
+    }
+  ]
+}

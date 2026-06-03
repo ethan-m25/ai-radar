@@ -20,6 +20,9 @@
         <integer>7</integer>
     </dict>
 
+    <key>StartInterval</key>
+    <integer>3600</integer>
+
     <key>StandardOutPath</key>
     <string>/Users/clawii/ai-radar/logs/launchd-daily-stdout.log</string>
 
@@ -27,7 +30,7 @@
     <string>/Users/clawii/ai-radar/logs/launchd-daily-stderr.log</string>
 
     <key>RunAtLoad</key>
-    <false/>
+    <true/>
 
     <key>EnvironmentVariables</key>
     <dict>
