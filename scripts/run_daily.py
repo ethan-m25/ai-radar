@@ -453,8 +453,6 @@ def sync_archive_json(source: Path, target: Path, entry: dict) -> None:
     """Maintain a separate language archive with one translated/current entry."""
     if target.exists():
         data = json.loads(target.read_text())
-    elif source.exists():
-        data = json.loads(source.read_text())
     else:
         data = {
             "$schema": "https://github.com/ethan-m25/ai-radar",
