@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · 2026-05-30 · Week 22</title>
+<meta name="description" content="3 signals — MCP survival debate + Mistral Summit notes + Liquid AI MoE">
+
+<meta property="og:title" content="AI Radar · 2026-05-30">
+<meta property="og:description" content="3 real signals · 0 🚨 · 2 👀 · 1 ℹ️">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+
+  .pager { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 2.5rem; padding: 0.75rem 0; border-top: 1px dashed var(--hairline); border-bottom: 1px dashed var(--hairline); }
+  .pager.bottom { margin: 4rem 0 0; }
+  .pager a, .pager span { font-size: var(--t-small); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; flex: 1; }
+  .pager a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .pager .pg-prev { text-align: left; }
+  .pager .pg-mid { text-align: center; color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pager .pg-next { text-align: right; }
+  .pager .pg-disabled { color: var(--ink-mute); opacity: 0.5; }
+  .pager .pg-arrow { font-family: 'Geist Mono', monospace; color: var(--ink-mute); }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 20ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 52ch; margin: 0 0 2rem; }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .toc { margin-bottom: 3.5rem; padding: 1.5rem 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .toc .smallcaps { margin-bottom: 1rem; display: block; }
+  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  .toc li { counter-increment: toc; display: grid; grid-template-columns: 1.75rem 2rem 1fr; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--hairline); }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); color: var(--ink-mute); }
+  .toc li .tier-mark { font-size: 1.1rem; }
+  .toc li a { color: var(--ink); text-decoration: none; font-size: var(--t-body); transition: color 0.15s; }
+  .toc li a:hover { color: var(--tier-look); text-decoration: underline; text-underline-offset: 4px; }
+
+  .item { position: relative; margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); }
+  .item::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--bar-color, var(--tier-fyi)); }
+  .item--crit { --bar-color: var(--tier-crit); }
+  .item--look { --bar-color: var(--tier-look); }
+  .item--fyi { --bar-color: var(--tier-fyi); }
+  .item .tier-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bar-color); margin-bottom: 0.6rem; font-weight: 500; }
+  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 30ch; }
+  .item .pitch { font-size: var(--t-h3); color: var(--ink-soft); line-height: 1.45; font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; margin-bottom: 2rem; max-width: 48ch; }
+
+  .context-box { background: var(--bg-sunk); border-left: 2px solid var(--bar-color, var(--tier-fyi)); padding: 0.9rem 1.1rem; margin: 1rem 0 2rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .context-box .smallcaps { color: var(--bar-color); margin-bottom: 0.4rem; display: block; }
+  .context-box p { margin: 0; }
+  .context-box p + p { margin-top: 0.55rem; }
+
+  .action-block, .watch-block { margin: 1.5rem 0; padding: 1.1rem 1.25rem; border-radius: 2px; }
+  .action-block { background: oklch(0.96 0.02 100); border: 1px solid var(--hairline); }
+  .watch-block { background: var(--bg-card); border: 1px solid var(--hairline); border-left: 3px solid var(--bar-color); }
+  .action-block .smallcaps, .watch-block .smallcaps { color: var(--bar-color); margin-bottom: 0.55rem; display: block; }
+  .action-block ul, .watch-block ul, .action-block ol { margin: 0; padding-left: 1.1rem; }
+  .action-block li, .watch-block li { margin: 0.3rem 0; }
+  .action-block p, .watch-block p { margin: 0; }
+
+  .item h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.75rem; font-weight: 600; letter-spacing: -0.01em; }
+  .item p { margin: 0.5rem 0 1rem; }
+  .item ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
+  .item li { margin: 0.45rem 0; }
+  .item li::marker { color: var(--bar-color); }
+  .item a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--bar-color); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
+  .item a:hover { text-decoration-color: var(--ink); }
+
+  .lang { margin-top: 2.25rem; }
+  .lang-mark { display: inline-block; font-family: 'Geist Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.2rem 0.55rem; background: var(--bg-sunk); color: var(--ink-mute); border-radius: 2px; margin-bottom: 1rem; }
+
+  .compare { margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: var(--t-small); }
+  .compare th, .compare td { text-align: left; padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .compare thead th { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); border-bottom: 2px solid var(--hairline-bold); }
+  .compare tbody th { font-weight: 500; color: var(--ink); background: var(--bg-sunk); white-space: nowrap; }
+  .compare .ok { color: oklch(0.55 0.15 145); font-weight: 600; }
+  .compare .no { color: var(--tier-crit); font-weight: 600; }
+
+  details.deep-dive { margin: 1.5rem 0; border: 1px solid var(--hairline); border-radius: 2px; overflow: hidden; }
+  details.deep-dive[open] { background: var(--bg-card); }
+  details.deep-dive > summary { list-style: none; cursor: pointer; padding: 0.9rem 1.1rem; font-family: 'Geist', sans-serif; font-weight: 500; font-size: var(--t-small); color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; user-select: none; background: var(--bg-sunk); transition: background 0.15s; }
+  details.deep-dive > summary:hover { background: oklch(0.92 0.014 85); }
+  details.deep-dive > summary::-webkit-details-marker { display: none; }
+  details.deep-dive > summary::after { content: "+"; font-family: 'Geist Mono', monospace; font-size: 1.1rem; color: var(--ink-mute); transition: transform 0.2s; }
+  details.deep-dive[open] > summary::after { content: "−"; }
+  details.deep-dive .dd-body { padding: 1.25rem 1.1rem; }
+
+  .jargon { background: var(--bg-sunk); padding: 1rem 1.25rem; border-radius: 2px; margin: 1.5rem 0; font-size: var(--t-small); }
+  .jargon dt { font-family: 'Geist Mono', monospace; font-weight: 500; color: var(--ink); display: inline; }
+  .jargon dd { display: inline; margin: 0; color: var(--ink-soft); }
+  .jargon dt + dd::before { content: " = "; color: var(--ink-mute); }
+  .jargon dd + dt { display: block; margin-top: 0.5rem; }
+  .jargon dd + dt::before { content: ""; }
+
+  .still-tracking { margin: 3rem 0 2rem; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--ink-mute); border-radius: 2px; }
+  .still-tracking .smallcaps { display: block; margin-bottom: 0.85rem; color: var(--ink-soft); }
+  .still-tracking ul { list-style: none; margin: 0; padding: 0; font-size: var(--t-small); }
+  .still-tracking li { margin: 0.55rem 0; padding: 0; display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.6rem; align-items: baseline; }
+  .still-tracking .days { font-family: 'Geist Mono', monospace; color: var(--ink-mute); font-size: 0.82em; background: var(--bg-sunk); padding: 0.15rem 0.4rem; border-radius: 2px; text-align: center; white-space: nowrap; }
+  .still-tracking .item-name { color: var(--ink); font-weight: 500; }
+  .still-tracking .update { color: var(--ink-soft); }
+
+  .killed { margin: 4rem 0 2rem; padding: 2rem 0; border-top: 1px solid var(--hairline-bold); }
+  .killed h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 500; font-size: var(--t-h2); margin: 0 0 1.5rem; color: var(--ink-soft); }
+  .killed table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+  .killed th, .killed td { text-align: left; padding: 0.6rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .killed thead th { font-family: 'Geist Mono', font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .item:nth-of-type(1) { animation-delay: 0.05s; }
+  .item:nth-of-type(2) { animation-delay: 0.15s; }
+  .item:nth-of-type(3) { animation-delay: 0.25s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./" class="current">Today</a>
+      <a href="./archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 05 · 30  ·  Wk 22  ·  №&nbsp;007  ·  Sat</span>
+    <span>~15 min read</span>
+  </div>
+
+  <nav class="pager top" data-current-date="2026-05-30">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-29.html"><span class="pg-arrow">←</span> 2026-05-29 (Fri)</a></span>
+    <span class="pg-mid">Issue 007 · Total N</span>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Real Signals Today</span>
+    <h1 class="display headline">Weekend signals: MCP survival debate + Mistral Summit raw notes + Liquid AI efficiency king</h1>
+    <p class="lead">No 🚨-level urgent signals today — that's normal for a Saturday. Three worth flipping through this weekend: "MCP is dead?" hit HN front page (251 pts, 221 comments) — if you use Claude Code, MCP is part of your workflow; Mistral AI Now Summit notes (386 pts) reveal how Europe's AI leader thinks differently; and Liquid AI's 8B MoE model trained on 38T tokens is absurdly efficient.</p>
+    <div class="count-row">
+      <div class="total">3</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 Must See</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>2</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ FYI</span>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="Index">
+    <span class="smallcaps">Table of Contents</span>
+    <ol>
+      <li><span class="tier-mark">👀</span><a href="#mcp-dead">"MCP is dead?" — 251 pts, 221 comments. The protocol Claude Code depends on is being publicly questioned.</a></li>
+      <li><span class="tier-mark">👀</span><a href="#mistral-summit">Mistral AI Now Summit notes — 386 pts raw notes from Europe's AI leader</a></li>
+      <li><span class="tier-mark">ℹ️</span><a href="#liquid-ai">Liquid AI 8B-A1B MoE — 38T tokens trained, strikingly efficient</a></li>
+    </ol>
+  </nav>
+
+  <!-- ITEM 1: MCP is dead -->
+  <article id="mcp-dead" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · Protocol Debate</div>
+    <h2 class="display title">"MCP is dead?" — The protocol your Claude Code depends on is being publicly questioned</h2>
+    <p class="pitch">A post titled "MCP is dead?" hit HN front page with 251 points and 221 comments. MCP (Model Context Protocol) is how Claude Code talks to your files, databases, and tools. If MCP has fundamental problems, you'll feel it. The HN consensus: the headline is exaggerated, the problems are real, but MCP will evolve — not die.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>MCP (Model Context Protocol) is Anthropic's open protocol standardizing how AI models connect to external tools and data sources — like a "USB-C for AI agents." Every time Claude Code reads a file, searches your codebase, or runs a command, that's MCP in action. It gained broad industry support (OpenAI, Google, etc.) over the past months, but has faced persistent criticism for being over-engineered and complex. This quandri.io post is the most direct "MCP has the wrong architecture" critique yet.</p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">Signal Analysis</span>
+      <h3>Why this matters — a protocol you rely on is being publicly questioned</h3>
+      <ul>
+        <li><strong>MCP is how Claude Code talks to your files and tools.</strong> Every read, search, or command in Claude Code runs through MCP. If the protocol has fundamental design flaws, you experience it as friction in your daily vibe coding flow. The article claims MCP's complexity is unnecessary and that simpler alternatives exist (plain function calling + OpenAPI specs).</li>
+        <li><strong>The HN reaction is surprisingly measured: not "MCP is dead" but "MCP needs to get simpler."</strong> 221 comments reveal a consensus: MCP is useful but over-engineered for what most people need. The debate is whether it should be a formal protocol at all, or just a convention built on existing standards (HTTP, SSE, JSON-RPC). For clawii: if MCP simplifies, Claude Code will get easier to configure — not harder.</li>
+        <li><strong>No alternative has won yet.</strong> OpenAI has "function calling," Google has "A2A" (Agent-to-Agent), MCP is Anthropic's bet. The market hasn't consolidated. This debate is a sign the "standard" is still up for grabs — good to know before you invest time learning a protocol that might change shape.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do this weekend</span>
+      <ol>
+        <li><strong>Read the original post (8 min)</strong>: <a href="https://quandri.io">quandri.io</a> — "MCP is dead?" Don't let the title mislead you. Read the specific criticisms: transport layer, resource model, tool definitions all too complex.</li>
+        <li><strong>Skim HN comments sorted by "best"</strong>: 221 comments include real hands-on experience from MCP server developers. Search "MCP dead HN 2026" to find the thread.</li>
+        <li><strong>Check your own MCP config</strong>: Look at <code>~/.claude/settings.json</code> or your project's MCP config. Understand which MCP servers you depend on — if the protocol changes, these could be affected.</li>
+        <li><strong>Don't panic.</strong> HN consensus: MCP will evolve, not be abandoned. Keep using it, keep watching.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — What the MCP debate is actually about</summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th>Dimension</th><th>MCP's current approach</th><th>What critics want instead</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Transport</th><td>Custom HTTP + SSE + JSON-RPC spec</td><td>Plain HTTP REST API + WebSocket</td></tr>
+              <tr><th>Resource model</th><td>Separate "resources" (expose content) and "tools" (expose actions)</td><td>Merge — function calling is enough</td></tr>
+              <tr><th>Discovery</th><td>MCP servers broadcast "capabilities"</td><td>OpenAPI/Swagger is sufficient</td></tr>
+              <tr><th>Learning cost</th><td>30 min to write a simple MCP server</td><td>5 min to write a function call endpoint</td></tr>
+              <tr><th>Ecosystem</th><td>Anthropic + OpenAI + Google + community; hundreds of MCP servers exist</td><td>Enthusiasm is cooling. New MCP server creation is slowing.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>What this means for clawii</strong>:</p>
+        <ul>
+          <li><strong>Short term (1-2 months)</strong>: Nothing changes. Claude Code still uses MCP. You don't need to do anything.</li>
+          <li><strong>Medium term (3-6 months)</strong>: Likely to see MCP simplified (MCP 2.0?) or a more user-friendly config layer from Anthropic. If configuring MCP servers feels painful, this debate confirms you're not alone — the community is pushing for simplification.</li>
+          <li><strong>Long term</strong>: Protocols may converge to something simpler, or MCP, A2A, and OpenAI function calling coexist. Worth scanning progress every few weeks.</li>
+        </ul>
+
+        <p><strong>Honest caveat</strong>: The post is from quandri.io, a relatively unknown blog. The 251 HN points are driven by the topic (MCP has real pain points) rather than the author's reputation. Read critically — the critiques have merit, but this isn't a definitive verdict.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>Anthropic's response. If they ship a simplified MCP spec or roadmap update within 2-4 weeks, community pressure is working. Another trigger: if OpenAI uses their simpler function calling approach to attract developers frustrated with MCP's complexity. Watch the official MCP repo's issue tracker for discussion density.</p>
+    </div>
+
+    <div class="jargon">
+      <dl>
+        <dt>MCP</dt>
+        <dd>Model Context Protocol — the protocol AI models use to connect to external tools and data; Claude Code's core communication method</dd>
+        <dt>SSE</dt>
+        <dd>Server-Sent Events — a technology for real-time server-to-client streaming, used in MCP's transport layer</dd>
+        <dt>JSON-RPC</dt>
+        <dd>A remote procedure call protocol using JSON to encode requests and responses</dd>
+        <dt>A2A</dt>
+        <dd>Agent-to-Agent — Google's competing protocol for AI agent communication</dd>
+      </dl>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li>Hacker News: <strong>251 points, 221 comments</strong> — front page #11; Show HN from quandri.io; comment section has extensive real-world feedback from MCP server developers and power users</li>
+      <li>Smol AI (5/29): Not directly covering this, but the "multi-agent debate" tag in the Smol 5/29 community discussion touches on related agent communication protocol issues</li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li>HN original post (search "MCP is dead quandri"): <a href="https://hn.algolia.com/?q=MCP+is+dead+quandri&dateRange=pastWeek&sort=byPopularity">hn.algolia.com search</a></li>
+      <li>MCP official repo: <a href="https://github.com/modelcontextprotocol">github.com/modelcontextprotocol</a></li>
+    </ul>
+  </article>
+
+  <!-- ITEM 2: Mistral AI Now Summit -->
+  <article id="mistral-summit" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · Strategy Signal</div>
+    <h2 class="display title">Mistral AI Now Summit notes — raw notes from Europe's AI leader, 386 pts</h2>
+    <p class="pitch">A HN post with 386 points and 163 comments: raw notes from Mistral's Paris summit showing a company diverging from OpenAI/Anthropic on open weights, small-model-first, and European enterprise. Clawii isn't directly in Mistral's ecosystem, but their strategic choices will influence the industry. Worth 15 minutes this weekend.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>Mistral is Europe's most-watched AI company, founded by ex-DeepMind and Meta researchers. Their distinguishing features: open-weight models (unlike OpenAI's closed approach), focus on small-model efficiency (7B-12B parameter models matching larger ones on specific tasks), and strong European enterprise positioning. They've recently released Mistral Large 3 and multiple vertical models. This "AI Now Summit" is their first major developer/customer conference — similar to OpenAI DevDay but more European and more pragmatic.</p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">Signal Analysis</span>
+      <h3>Why this matters — Mistral's strategy is diverging from the US giants in ways that may shape the industry</h3>
+      <ul>
+        <li><strong>Mistral doubles down on "small models, big results."</strong> The summit highlighted that Mistral's 12B parameter models can match or exceed GPT-5.5 and Opus 4.7 on specific enterprise tasks (code generation, document analysis, RAG) at a fraction of the cost and latency. For clawii: the "model size = quality" assumption is breaking down. Smaller, task-optimized models are becoming viable alternatives — relevant for choosing which model to use for which task.</li>
+        <li><strong>European AI stack is real and opinionated.</strong> Deeper integrations with French/German cloud providers, EU-only data residency guarantees, models trained on European legal/regulatory data. For clawii at a multinational: this matters when your company considers AI procurement in EU markets — GDPR compliance is a real constraint.</li>
+        <li><strong>"Open weights" vs "closed API" gets a concrete case study.</strong> Mistral shows open-weight models can sustain a viable business (enterprise support, fine-tuning, on-prem deployment). If this gains traction, it pressures OpenAI/Anthropic/Google to offer better on-prem or self-hosted options — directly affecting how your company buys AI tools.</li>
+        <li><strong>386 points + 163 comments = strong community interest.</strong> The author (koenvangilst) posted raw, detailed notes — not a polished article. HN's interest reflects genuine demand for understanding Mistral's direction.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — 15 min this weekend</span>
+      <ol>
+        <li><strong>Read the HN post (10 min)</strong>: Search "Notes from the Mistral AI Now Summit" for koenvangilst's blog. Covers new models, enterprise strategy, pricing direction.</li>
+        <li><strong>Track one specific signal</strong>: If Mistral releases a competitor agent tool (vs Claude Code), that's a direct competitive signal. Currently they're at the model layer, not agent layer.</li>
+        <li><strong>Try a Mistral model in Claude Code (optional)</strong>: Mistral's API is available via openrouter. Test Mistral Large 3 vs Opus on a specific task — see if a smaller model is "good enough" for certain work.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — What Mistral revealed at the summit</summary>
+      <div class="dd-body">
+
+        <p><strong>Four key announcement directions (from the notes):</strong></p>
+        <ul>
+          <li><strong>Mistral Large 3 update</strong>: Claims near GPT-5.5 performance on code generation and structured output, but at a fraction of the parameter count (~12B vs >100B). Estimated 5-10x lower running cost.</li>
+          <li><strong>Specialized industry models</strong>: Fine-tuned versions for finance, law, medical — not generic models with prompts, but purpose-trained. The legal model reportedly beats GPT-5.5 on EU legal text understanding.</li>
+          <li><strong>La Plateforme enterprise tier</strong>: Dedicated inference clusters in France/Germany, data never leaves EU. For European enterprise customers, this is a real selling point — GDPR compliance without compromise.</li>
+          <li><strong>Agent infrastructure</strong>: Mistral's own agent SDK (lighter than Claude Code), supporting tool calling and RAG, with open-weight models for self-hosting.</li>
+        </ul>
+
+        <p><strong>What this means for clawii</strong>:</p>
+        <ul>
+          <li>You don't need to switch to Mistral. But if you work at a large company, they're likely already evaluating Mistral as an alternative to OpenAI/Anthropic — especially for European markets.</li>
+          <li>Mistral's "small model + industry fine-tuning" strategy, if successful, validates: you don't always need the biggest model. You could use different models for different tasks in Claude Code (Mistral for simple tasks to save cost, Opus for complex ones).</li>
+          <li>Claude Code natively only supports Anthropic models, but you can configure others via openrouter. Worth trying.</li>
+        </ul>
+
+        <p><strong>Honest caveat</strong>: These are raw conference notes — the author's stance may lean positive. Mistral's developer community influence is far smaller than OpenAI's and Anthropic's. 386 HN points shows interest, but it's far from "changing how you work." That's why this is 👀, not 🚨.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>Key trigger: Mistral releasing a direct agent tool competing with Claude Code. Another signal: if Mistral models surpass Opus or GPT-5.5 on SWE-bench or comparable agent coding benchmarks — that would be 🚨. Currently solidly 👀 level.</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li>Hacker News: <strong>386 points, 163 comments</strong> — front page #7; posted by koenvangilst with detailed raw notes from the summit</li>
+      <li>Original blog: <a href="https://koenvangilst.nl">koenvangilst.nl</a> (search "Notes from the Mistral AI Now Summit")</li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li>HN original post: <a href="https://hn.algolia.com/?q=Mistral+AI+Now+Summit+notes+koenvangilst&dateRange=pastWeek&sort=byPopularity">hn.algolia.com search</a></li>
+      <li>Mistral website: <a href="https://mistral.ai">mistral.ai</a></li>
+      <li>Mistral API docs: <a href="https://docs.mistral.ai">docs.mistral.ai</a></li>
+    </ul>
+  </article>
+
+  <!-- ITEM 3: Liquid AI MoE -->
+  <article id="liquid-ai" class="item item--fyi">
+    <div class="tier-label">ℹ️ FYI · Know the Name</div>
+    <h2 class="display title">Liquid AI 8B-A1B MoE — 38T tokens trained, strikingly efficient</h2>
+    <p class="pitch">Liquid AI showed off a new MoE (Mixture of Experts) model on HN: 8B total parameters, only 1B active, trained on 38T tokens. 192 points, 75 comments. No direct use for clawii (not an agent tool), but worth knowing the name — ultra-efficient small models like this could become "fast mode" backends for Claude Code in the future.</p>
+
+    <div class="lang">
+      <span class="lang-mark">Signal Analysis</span>
+      <h3>Why it's worth knowing the name</h3>
+      <ul>
+        <li><strong>8B total / 1B active parameters is striking efficiency.</strong> For comparison: GPT-5.5 is estimated at >300B total, Opus 4.7 >200B. A model with 1B active parameters trained on 38T tokens can deliver competitive performance at a fraction of the compute cost. The MoE architecture means only parts of the model activate per input — like having a 1-person team with access to an 8-person library.</li>
+        <li><strong>This is the "small model + huge data" trend accelerating.</strong> Same direction as Mistral (Item 2 above). Liquid AI's bet: train a small active-parameter model on massive data (38T tokens is huge even by GPT standards) and you get a model that's fast, cheap, and surprisingly capable. For clawii: if this matures, you may use a 1B-parameter model for simple tasks in Claude Code (syntax checks, quick searches) and save Opus for the hard stuff.</li>
+        <li><strong>75 HN comments are substantive.</strong> Discussion centers on whether Liquid AI's approach (liquid neural networks + MoE) is genuinely novel or just good engineering. Either way, they're building real infrastructure — not just publishing a paper.</li>
+      </ul>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li>Hacker News: <strong>192 points, 75 comments</strong> — front page #24; discussion focused on model architecture efficiency vs GPT-5.5/Opus</li>
+      <li>Liquid AI official: <a href="https://liquid.ai">liquid.ai</a></li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li>HN original post: <a href="https://hn.algolia.com/?q=Liquid+AI+8B+A1B+MoE&dateRange=pastWeek&sort=byPopularity">hn.algolia.com search</a></li>
+      <li>Liquid AI: <a href="https://liquid.ai">liquid.ai</a></li>
+    </ul>
+
+    <div class="lang">
+      <span class="lang-mark">Bottom line</span>
+      <ul>
+        <li><strong>8B total, only 1B active per token</strong> = ultra efficient. Think: small team with access to a big library.</li>
+        <li><strong>38T tokens training</strong> — the data budget rivals much larger models. This is the "small model + big data" play.</li>
+        <li><strong>No agent tool, no directly usable product</strong>. But if this name shows up in Claude Code's model picker someday, you've already heard of it.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- STILL TRACKING -->
+  <aside class="still-tracking">
+    <span class="smallcaps">📈 Still tracking · Not getting its own slot but still developing</span>
+    <ul>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">🚨 Claude Opus 4.8 + Dynamic Workflows</span> <span class="update">— Still on HN front page from yesterday's debut; Smol AI 5/29 added "mixed benchmark results, document parsing regression" detail. No trigger event for today 🚨, staying in tracking.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">👀 "Continue? Y/N" game</span> <span class="update">— Debuted yesterday; no new signal, discussion cooling.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">"Write better code, write slower"</span> <span class="update">— Cooling further, no new KOL endorsement; planning to drop after tomorrow if no new signal.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">Claude Code deep usage guide series</span> <span class="update">— No new roundup or update; heat declining steadily.</span></div>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- WHAT DIDN'T MAKE IT -->
+  <section class="killed">
+    <h2>What didn't make it in today</h2>
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Content</th><th>Why excluded</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Smol AI 5/29</td><td>Hugging Face multi-turn RL tokenization bug + fix</td><td>Pure research bug fix, no usable tool</td></tr>
+        <tr><td>Smol AI 5/29</td><td>LangChain Deep Agents v0.6 — strong performance at low cost</td><td>Developer infra, clawii not a LangChain user; no KOL overflow discussion</td></tr>
+        <tr><td>Smol AI 5/29</td><td>vLLM native weight syncing API + Rust BPE tokenizer</td><td>Infra layer update, no direct office use</td></tr>
+        <tr><td>Smol AI 5/29</td><td>Multi-agent system value debate</td><td>Industry opinion, no concrete tool to try</td></tr>
+        <tr><td>HN (#4)</td><td>"SQLite is all you need for durable workflows" (554 pts, 281 comments)</td><td>SQLite database tech, not AI</td></tr>
+        <tr><td>HN (#15)</td><td>"The dead economy theory" (1030 pts)</td><td>Economics article, excluded</td></tr>
+        <tr><td>HN (#18)</td><td>"The Last Technical Interview" (124 pts)</td><td>Software engineering interview opinion, not AI</td></tr>
+        <tr><td>HN (#22)</td><td>Perry — TypeScript compiles to native executables (103 pts)</td><td>Compiler tool, not AI</td></tr>
+        <tr><td>HN (#23)</td><td>"Is AI causing a repeat of frontend's lost decade?" (359 pts)</td><td>Opinion piece, no new tool/model/data</td></tr>
+        <tr><td>HN (#25)</td><td>Bijou64 variable-length integer encoding (232 pts)</td><td>Data encoding, not AI</td></tr>
+        <tr><td>HN (#27)</td><td>Tiny-vLLM — C++/CUDA high-performance inference engine (150 pts)</td><td>Developer infra, clawii doesn't run local models</td></tr>
+        <tr><td>Anthropic 5/28</td><td>Series H $65B funding (already covered)</td><td>Already folded into Opus 4.8 background; not duplicating</td></tr>
+        <tr><td>Anthropic 5/27</td><td>Milan office opening</td><td>Office expansion, excluded</td></tr>
+        <tr><td>Re-evaluated: opencode</td><td>Day 5, no new signal (first featured 5/25)</td><td>Over 3 days zero movement + already removed from tracking → keep excluded</td></tr>
+        <tr><td>Re-evaluated: DeepSeek Reasonix</td><td>Day 7, no new signal (first featured 5/24)</td><td>No new HN/KOL discussion, no product upgrade → keep excluded</td></tr>
+        <tr><td>Re-evaluated: Big 4 (PwC/KPMG)</td><td>Day 6, no new signal (first featured 5/25)</td><td>No new movement → keep excluded</td></tr>
+        <tr><td>Re-evaluated: Gemini 3.5 Flash</td><td>Day 6, no new signal (first featured 5/25)</td><td>No new movement → keep excluded</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <nav class="pager bottom" data-current-date="2026-05-30">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-29.html"><span class="pg-arrow">←</span> 2026-05-29 (Fri)</a></span>
+    <a class="pg-mid" href="./archive.html">View full archive →</a>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · max 3 items · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news (403) · simonwillison.net · github.com/trending
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · v0.3 · 3 items today (0🚨 / 2👀 / 1ℹ️) · Still tracking: Opus 4.8 Day 2, Continue? Y/N Day 2, Slow code Day 4 (cooling), Claude Code guides Day 3 (cooling). Killed-list re-evaluation: opencode (Day 5, no signal), DeepSeek Reasonix (Day 7, no signal), Big 4 (Day 6, no signal), Gemini Flash (Day 6, no signal) — all confirmed dead.
+    </p>
+  </footer>
+
+</main>
+
+<script>
+(async function () {
+  const pagers = document.querySelectorAll('.pager');
+  if (pagers.length === 0) return;
+  const currentDate = pagers[0].dataset.currentDate;
+  if (!currentDate) return;
+  try {
+    const res = await fetch('./archive.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const issues = (data.issues || []).filter(i => i.kind !== 'weekly').sort((a, b) => a.date.localeCompare(b.date));
+    const idx = issues.findIndex(i => i.date === currentDate);
+    if (idx < 0) return;
+    const prev = issues[idx - 1] || null;
+    const next = issues[idx + 1] || null;
+    const totalDailies = issues.length;
+    const issueNum = (issues[idx] && issues[idx].issue) || (idx + 1);
+    for (const pager of pagers) {
+      const prevSlot = pager.querySelector('[data-slot="prev"]');
+      const nextSlot = pager.querySelector('[data-slot="next"]');
+      const midSlot = pager.querySelector('.pg-mid');
+      if (prev && prevSlot) {
+        const a = document.createElement('a');
+        a.href = prev.url;
+        a.className = 'pg-prev';
+        a.innerHTML = '<span class="pg-arrow">←</span> ' + prev.date + ' (' + (prev.weekday || '') + ')';
+        prevSlot.replaceWith(a);
+      }
+      if (next && nextSlot) {
+        const a = document.createElement('a');
+        a.href = next.url;
+        a.className = 'pg-next';
+        a.innerHTML = next.date + ' (' + (next.weekday || '') + ') <span class="pg-arrow">→</span>';
+        nextSlot.replaceWith(a);
+      }
+      if (midSlot && midSlot.tagName !== 'A') {
+        midSlot.textContent = 'Issue ' + String(issueNum).padStart(3, '0') + ' · Total ' + totalDailies;
+      }
+    }
+  } catch (err) {
+    console.warn('archive.json fetch failed:', err.message);
+  }
+})();
+</script>
+
+</body>
+</html>

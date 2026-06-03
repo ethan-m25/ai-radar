@@ -4,335 +4,105 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
-<title>AI Radar · Archive</title>
-<meta name="description" content="AI Radar 所有过往日报和周报归档">
-
+<title>AI Radar · 归档</title>
+<meta name="description" content="AI Radar archive">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-  :root {
-    --bg: oklch(0.97 0.012 85);
-    --bg-card: oklch(0.99 0.008 85);
-    --bg-sunk: oklch(0.94 0.014 85);
-    --ink: oklch(0.18 0.025 270);
-    --ink-soft: oklch(0.36 0.020 270);
-    --ink-mute: oklch(0.52 0.014 270);
-    --hairline: oklch(0.86 0.015 85);
-    --hairline-bold: oklch(0.72 0.020 85);
-    --tier-crit: oklch(0.55 0.22 26);
-    --tier-look: oklch(0.68 0.16 70);
-    --tier-fyi: oklch(0.55 0.03 250);
-    --t-cover: clamp(2.5rem, 7vw, 4rem);
-    --t-h2: clamp(1.4rem, 3vw, 1.75rem);
-    --t-h3: clamp(1.05rem, 2.2vw, 1.2rem);
-    --t-body: clamp(1rem, 1.7vw, 1.0625rem);
-    --t-small: 0.875rem;
-    --t-micro: 0.75rem;
-  }
+  :root { --bg: oklch(0.97 0.012 85); --bg-card: oklch(0.99 0.008 85); --ink: oklch(0.18 0.025 270); --ink-soft: oklch(0.36 0.020 270); --ink-mute: oklch(0.52 0.014 270); --hairline: oklch(0.86 0.015 85); --hairline-bold: oklch(0.72 0.020 85); --tier-crit: oklch(0.55 0.22 26); --tier-look: oklch(0.68 0.16 70); --tier-fyi: oklch(0.55 0.03 250); --t-cover: clamp(2.5rem, 7vw, 4rem); --t-h3: clamp(1.05rem, 2.2vw, 1.2rem); --t-body: clamp(1rem, 1.7vw, 1.0625rem); --t-small: 0.875rem; --t-micro: 0.75rem; }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: var(--t-body);
-    line-height: 1.6;
-    font-feature-settings: "ss01", "cv11";
-    -webkit-font-smoothing: antialiased;
-  }
-  .display {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: "SOFT" 30, "opsz" 144;
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.05;
-  }
-  .display-italic {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-variation-settings: "SOFT" 60, "opsz" 144;
-  }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif; font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .display { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: 0; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
   .mono { font-family: 'Geist Mono', monospace; font-size: 0.92em; }
-  .smallcaps {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: var(--t-micro);
-    font-weight: 500;
-    color: var(--ink-mute);
-  }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
   .page { max-width: 780px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
   @media (min-width: 768px) { .page { padding: 3rem 2rem 6rem; } }
-
-  /* Masthead */
-  .masthead {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--hairline-bold);
-    margin-bottom: 2.5rem;
-  }
-  .masthead .logo {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: "SOFT" 0, "opsz" 144;
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-    text-decoration: none;
-  }
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 2.5rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
   .masthead .nav { display: flex; gap: 1.2rem; }
-  .masthead .nav a {
-    font-size: var(--t-micro);
-    color: var(--ink-mute);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .masthead .nav a:hover,
-  .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
-
-  /* Cover */
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
   .cover { margin-bottom: 3rem; }
   .cover .kicker { display: block; margin-bottom: 1.25rem; }
   .cover h1 { font-size: var(--t-cover); margin: 0; max-width: 18ch; }
-  .cover .lead {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: "SOFT" 60, "opsz" 144;
-    font-style: italic;
-    font-weight: 400;
-    font-size: var(--t-h3);
-    color: var(--ink-soft);
-    max-width: 50ch;
-    margin: 1.25rem 0 0;
-  }
-
-  /* Issues list */
-  .issues-list {
-    margin-top: 1rem;
-    border-top: 1px solid var(--hairline-bold);
-  }
-  .week-group {
-    border-bottom: 1px solid var(--hairline-bold);
-    padding: 2rem 0 0.5rem;
-  }
-  .week-label {
-    font-family: 'Geist Mono', monospace;
-    font-size: var(--t-micro);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--ink-mute);
-    margin-bottom: 1rem;
-  }
-  .issue-card {
-    display: grid;
-    grid-template-columns: 4rem 1fr auto;
-    gap: 1rem;
-    align-items: baseline;
-    padding: 1rem 0;
-    border-top: 1px solid var(--hairline);
-    color: var(--ink);
-    text-decoration: none;
-    transition: background 0.15s;
-  }
-  .issue-card:first-of-type { border-top: none; }
+  .cover .lead { font-family: 'Fraunces', serif; font-style: italic; font-size: var(--t-h3); color: var(--ink-soft); max-width: 50ch; margin: 1.25rem 0 0; }
+  .issues-list { margin-top: 1rem; border-top: 1px solid var(--hairline-bold); }
+  .week-group { border-bottom: 1px solid var(--hairline-bold); padding: 2rem 0 0.5rem; }
+  .week-label { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-mute); margin-bottom: 1rem; }
+  .issue-card { display: grid; grid-template-columns: 4rem 1fr auto; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--hairline); color: var(--ink); text-decoration: none; }
   .issue-card:hover { background: var(--bg-card); }
-  .issue-card .date {
-    font-family: 'Geist Mono', monospace;
-    font-size: var(--t-small);
-    color: var(--ink-soft);
-    font-variant-numeric: tabular-nums;
-  }
-  .issue-card .date .day {
-    display: block;
-    font-size: var(--t-micro);
-    color: var(--ink-mute);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.15rem;
-  }
+  .issue-card .date { font-family: 'Geist Mono', monospace; font-size: var(--t-small); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .issue-card .date .day { display: block; font-size: var(--t-micro); color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.15rem; }
   .issue-card .content { min-width: 0; }
-  .issue-card .headline {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: "SOFT" 30, "opsz" 144;
-    font-weight: 500;
-    font-size: var(--t-h3);
-    line-height: 1.2;
-    color: var(--ink);
-    margin: 0 0 0.4rem;
-  }
-  .issue-card:hover .headline { text-decoration: underline; text-underline-offset: 3px; }
-  .issue-card .summary {
-    font-size: var(--t-small);
-    color: var(--ink-soft);
-    line-height: 1.45;
-    margin: 0;
-  }
-  .issue-card .counts {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.25rem;
-    font-size: var(--t-micro);
-    font-family: 'Geist Mono', monospace;
-    color: var(--ink-mute);
-    white-space: nowrap;
-  }
+  .issue-card .headline { font-family: 'Fraunces', serif; font-weight: 500; font-size: var(--t-h3); line-height: 1.2; color: var(--ink); margin: 0 0 0.4rem; }
+  .issue-card .summary { font-size: var(--t-small); color: var(--ink-soft); line-height: 1.45; margin: 0; }
+  .issue-card .counts { display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; font-size: var(--t-micro); font-family: 'Geist Mono', monospace; color: var(--ink-mute); white-space: nowrap; }
   .count-tag { display: inline-flex; align-items: center; gap: 0.3rem; }
-  .count-tag .dot {
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 999px;
-  }
-  .dot-crit { background: var(--tier-crit); }
-  .dot-look { background: var(--tier-look); }
-  .dot-fyi  { background: var(--tier-fyi); }
-
-  /* Weekly issue distinguished */
-  .issue-card.weekly .headline::before {
-    content: "📅 周报 · ";
-    color: var(--ink-mute);
-    font-family: 'Geist', sans-serif;
-    font-style: normal;
-    font-size: 0.85em;
-  }
-
-  /* Empty state */
-  .empty-state {
-    text-align: center;
-    padding: 4rem 1rem;
-    color: var(--ink-mute);
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: var(--t-h3);
-  }
-
-  /* Footer */
-  .footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--hairline-bold);
-    color: var(--ink-mute);
-    font-size: var(--t-small);
-  }
+  .count-tag .dot { width: 0.45rem; height: 0.45rem; border-radius: 999px; }
+  .dot-crit { background: var(--tier-crit); } .dot-look { background: var(--tier-look); } .dot-fyi { background: var(--tier-fyi); }
+  .issue-card.weekly .headline::before { content: "📅 周报 · "; color: var(--ink-mute); font-family: 'Geist', sans-serif; font-size: 0.85em; }
+  .empty-state { text-align: center; padding: 4rem 1rem; color: var(--ink-mute); font-family: 'Fraunces', serif; font-style: italic; font-size: var(--t-h3); }
+  .footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
   .footer p { margin: 0.5rem 0; }
   .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
-
-  /* Mobile adjustments */
-  @media (max-width: 520px) {
-    .issue-card { grid-template-columns: 3.5rem 1fr; }
-    .issue-card .counts { grid-column: 2; align-items: flex-start; padding-top: 0.25rem; }
-  }
+  @media (max-width: 520px) { .issue-card { grid-template-columns: 3.5rem 1fr; } .issue-card .counts { grid-column: 2; align-items: flex-start; padding-top: 0.25rem; } }
 </style>
 </head>
 <body>
-
 <main class="page">
-
   <header class="masthead">
     <a href="./" class="logo">AI RADAR</a>
-    <nav class="nav">
-      <a href="./">今日</a>
-      <a href="./archive.html" class="current">归档</a>
-    </nav>
+    <nav class="nav"><a href="./">今日</a><a href="./archive.html" class="current">归档</a></nav>
   </header>
-
   <section class="cover">
-    <span class="kicker smallcaps">完整归档 · Archive</span>
+    <span class="kicker smallcaps">AI Radar · 归档</span>
     <h1 class="display">所有过往日报与周报</h1>
     <p class="lead">回看你可能错过的，或想再读一遍的——按周分组，最新在上。每条带 tier 分布。</p>
   </section>
-
-  <div id="issues" class="issues-list">
-    <div class="empty-state">加载中…</div>
-  </div>
-
+  <div id="issues" class="issues-list"><div class="empty-state">Loading...</div></div>
   <footer class="footer">
-    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
-      每天 07:07 自动更新 · 每周日 08:00 出周报。
-    </p>
-    <p>
-      想搜某条历史信号？在浏览器里 <kbd class="mono">Ctrl+F</kbd> (Mac: <kbd class="mono">⌘+F</kbd>) 即可。
-    </p>
-    <p class="system">
-      ai-radar · archive · v0.3
-    </p>
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">每天 07:07 自动更新 · 每周日 08:00 出周报。</p>
+    <p>想搜某条历史信号？在浏览器里 <kbd class="mono">Ctrl+F</kbd> / <kbd class="mono">Cmd+F</kbd>.</p>
+    <p class="system">ai-radar · archive · zh</p>
   </footer>
-
 </main>
-
 <script>
 (async function () {
   const list = document.getElementById('issues');
-
-  function weekKey(dateStr, week) {
-    // group by ISO week label
-    return `Week ${week} · ${dateStr.slice(0, 4)}`;
-  }
-
+  function weekKey(dateStr, week) { return `Week ${week} · ${dateStr.slice(0, 4)}`; }
   function counts(c) {
     const out = [];
     if (c.crit) out.push(`<span class="count-tag"><span class="dot dot-crit"></span>${c.crit} 🚨</span>`);
     if (c.look) out.push(`<span class="count-tag"><span class="dot dot-look"></span>${c.look} 👀</span>`);
-    if (c.fyi)  out.push(`<span class="count-tag"><span class="dot dot-fyi"></span>${c.fyi} ℹ️</span>`);
+    if (c.fyi) out.push(`<span class="count-tag"><span class="dot dot-fyi"></span>${c.fyi} ℹ️</span>`);
     return out.join('');
   }
-
-  function escapeHtml(s) {
-    return String(s ?? '').replace(/[&<>"']/g, c =>
-      ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-
+  function escapeHtml(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
   try {
     const res = await fetch('./archive.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('archive.json fetch failed: ' + res.status);
     const data = await res.json();
-    const issues = (data.issues || []).slice().sort((a, b) =>
-      b.date.localeCompare(a.date)
-    );
-
-    if (issues.length === 0) {
-      list.innerHTML = '<div class="empty-state">还没有归档内容。明天早 07:07 见。</div>';
-      return;
-    }
-
-    // group by week
+    const issues = (data.issues || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+    if (issues.length === 0) { list.innerHTML = '<div class="empty-state">还没有归档内容。明天早 07:07 见。</div>'; return; }
     const groups = new Map();
-    for (const iss of issues) {
-      const key = weekKey(iss.date, iss.week);
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(iss);
-    }
-
+    for (const iss of issues) { const key = weekKey(iss.date, iss.week); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(iss); }
     let html = '';
     for (const [weekLabel, items] of groups) {
-      html += `<div class="week-group">
-        <div class="week-label">${escapeHtml(weekLabel)}</div>`;
+      html += `<div class="week-group"><div class="week-label">${escapeHtml(weekLabel)}</div>`;
       for (const iss of items) {
         const kindClass = iss.kind === 'weekly' ? 'weekly' : 'daily';
-        html += `<a class="issue-card ${kindClass}" href="${escapeHtml(iss.url)}">
-          <div class="date">${escapeHtml(iss.date.slice(5))}<span class="day">${escapeHtml(iss.weekday || '')}</span></div>
-          <div class="content">
-            <h3 class="headline">${escapeHtml(iss.headline || '(无标题)')}</h3>
-            <p class="summary">${escapeHtml(iss.summary || '')}</p>
-          </div>
-          <div class="counts">${counts(iss.counts || {})}</div>
-        </a>`;
+        html += `<a class="issue-card ${kindClass}" href="${escapeHtml(iss.url)}"><div class="date">${escapeHtml(iss.date.slice(5))}<span class="day">${escapeHtml(iss.weekday || '')}</span></div><div class="content"><h3 class="headline">${escapeHtml(iss.headline || '(untitled)')}</h3><p class="summary">${escapeHtml(iss.summary || '')}</p></div><div class="counts">${counts(iss.counts || {})}</div></a>`;
       }
       html += `</div>`;
     }
-
     list.innerHTML = html;
   } catch (err) {
-    list.innerHTML = `<div class="empty-state">加载归档失败：${escapeHtml(err.message)}<br><small>试试刷新页面，或直接访问 <a href="./">今日</a>。</small></div>`;
+    list.innerHTML = `<div class="empty-state">加载归档失败: ${escapeHtml(err.message)}</div>`;
     console.error(err);
   }
 })();
 </script>
-
 </body>
 </html>

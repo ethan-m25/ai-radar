@@ -28,7 +28,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # ────────────────────────── paths and config ──────────────────────────
@@ -72,8 +72,8 @@ SOURCES = {
         "max_chars": 9000,
     },
     "openai": {
-        "url": "https://openai.com/news/rss",
-        "label": "openai.com/news/rss (official ships)",
+        "url": "https://openai.com/news/rss.xml",
+        "label": "openai.com/news/rss.xml (official ships)",
         "max_chars": 10000,
     },
     "openai_developers": {
@@ -211,10 +211,91 @@ def strip_html(s: str, max_chars: int = 25000) -> str:
     return s[:max_chars]
 
 
-def fetch_sources() -> dict:
+def find_smol_issue_url(date_str: str) -> str | None:
+    """Find the AINews issue URL for a YYYY-MM-DD date from the issues index."""
+    import re
+    from html.parser import HTMLParser
+
+    yy_mm_dd = datetime.strptime(date_str, "%Y-%m-%d").strftime("%y-%m-%d")
+    index_url = SOURCES["smol_ai"]["url"]
+
+    class LinkParser(HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.links: list[str] = []
+
+        def handle_starttag(self, tag: str, attrs) -> None:
+            if tag != "a":
+                return
+            href = dict(attrs).get("href")
+            if href:
+                self.links.append(urllib.parse.urljoin(index_url, href))
+
+    try:
+        html = http_get(index_url)
+    except Exception as e:
+        log(f"  ⚠️ could not fetch AINews issue index for backfill: {e}")
+        return None
+
+    parser = LinkParser()
+    parser.feed(html)
+    pat = re.compile(rf"/issues/{re.escape(yy_mm_dd)}-[^/?#]+")
+    for href in parser.links:
+        if pat.search(href):
+            return href
+    return None
+
+
+def hn_front_page_for_date(date_str: str) -> str:
+    d = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    start = int(d.timestamp())
+    end = int((d + timedelta(days=1)).timestamp())
+    params = urllib.parse.urlencode({
+        "tags": "front_page",
+        "numericFilters": f"created_at_i>{start},created_at_i<{end}",
+        "hitsPerPage": "40",
+    })
+    url = f"https://hn.algolia.com/api/v1/search_by_date?{params}"
+    raw = http_get(url, timeout=30)
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return raw[:12000]
+
+    rows = []
+    for hit in data.get("hits", []):
+        rows.append(
+            f"- {hit.get('created_at', '')}: {hit.get('title', '(no title)')} "
+            f"({hit.get('points', 0)} pts, {hit.get('num_comments', 0)} comments) "
+            f"{hit.get('url') or 'https://news.ycombinator.com/item?id=' + str(hit.get('objectID', ''))}"
+        )
+    return "\n".join(rows) if rows else f"[no HN front-page records found for {date_str}]"
+
+
+def fetch_sources(source_date: str | None = None) -> dict:
     out = {}
     for name, cfg in SOURCES.items():
         url = cfg["url"]
+        if source_date and name == "smol_ai":
+            historic = find_smol_issue_url(source_date)
+            if historic:
+                url = historic
+                log(f"  backfill smol_ai issue for {source_date}: {url}")
+            else:
+                log(f"  ⚠️ no AINews issue found for {source_date}; using issue index")
+        if source_date and name == "hackernews":
+            log(f"  fetch hackernews history: {source_date}")
+            try:
+                out[name] = hn_front_page_for_date(source_date)
+                log(f"    → {len(out[name])} chars")
+            except Exception as e:
+                out[name] = f"[historical HN fetch failed: {type(e).__name__}: {e}]"
+                log(f"    ⚠️ {e}")
+            continue
+        if source_date and name in {"ossinsight", "github_trending", "huggingface_models"}:
+            out[name] = f"[historical snapshot unavailable for {source_date}; ignore current live ranking for backfill]"
+            log(f"  skip {name}: no reliable historical snapshot for {source_date}")
+            continue
         log(f"  fetch {name}: {url}")
         try:
             raw = http_get(url)
@@ -236,7 +317,8 @@ def find_latest_html_template(site_dir: Path = OUTPUT_DIR) -> Path | None:
 
 
 def extract_history(n_days: int = 7, exclude_date: str | None = None,
-                    site_dir: Path = OUTPUT_DIR) -> dict:
+                    site_dir: Path = OUTPUT_DIR,
+                    anchor_date: str | None = None) -> dict:
     """Read past N days of dated daily HTML and pull out feature + killed lists.
 
     Returns:
@@ -254,7 +336,7 @@ def extract_history(n_days: int = 7, exclude_date: str | None = None,
     from datetime import datetime as _dt, timedelta as _td
     import re
 
-    today_dt = _dt.now()
+    today_dt = _dt.strptime(anchor_date, "%Y-%m-%d") if anchor_date else _dt.now()
     featured: list = []
     killed: list = []
     days_scanned: list = []
@@ -440,9 +522,9 @@ def update_archive_json(archive_file: Path, today: str, weekday: str, week: int,
         "counts": counts,
         "url": filename,
     }
-    # Most recent first
     issues.insert(0, new_entry)
-    data["issues"] = issues
+    renumber_daily_issues(issues)
+    data["issues"] = sorted(issues, key=lambda i: (i.get("date", ""), 1 if i.get("kind") == "weekly" else 0), reverse=True)
     archive_file.parent.mkdir(parents=True, exist_ok=True)
     archive_file.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     log(f"  updated {archive_file.relative_to(RADAR)}: issue #{issue_num}")
@@ -463,6 +545,7 @@ def sync_archive_json(source: Path, target: Path, entry: dict) -> None:
     issues = data.get("issues", [])
     issues = [i for i in issues if not (i.get("date") == entry["date"] and i.get("kind") == entry["kind"])]
     issues.insert(0, entry)
+    renumber_daily_issues(issues)
 
     def sort_key(i):
         kind_rank = 1 if i.get("kind") == "weekly" else 0
@@ -472,6 +555,15 @@ def sync_archive_json(source: Path, target: Path, entry: dict) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     log(f"  synced {target.relative_to(RADAR)}")
+
+
+def renumber_daily_issues(issues: list[dict]) -> None:
+    dailies = sorted(
+        [i for i in issues if i.get("kind") == "daily"],
+        key=lambda i: i.get("date", ""),
+    )
+    for idx, item in enumerate(dailies, start=1):
+        item["issue"] = idx
 
 
 def write_archive_page(lang: str) -> None:
@@ -763,7 +855,8 @@ If fetched sources are sparse or all repeat yesterday's stories, produce 1 hones
 
 def build_user_prompt(today: str, weekday: str, week: int, issue_num: int,
                       sources: dict, template_html: str, history_text: str,
-                      lang: str, reference_html: str | None = None) -> str:
+                      lang: str, reference_html: str | None = None,
+                      backfill: bool = False) -> str:
     target = "Simplified Chinese" if lang == "zh" else "English"
     source_sections = []
     for name, cfg in SOURCES.items():
@@ -781,6 +874,17 @@ def build_user_prompt(today: str, weekday: str, week: int, issue_num: int,
 Use this already-generated Chinese issue as the canonical source of truth for item selection, tiering, ordering, evidence, links, and counts. For the English site, translate/localize the same issue into English. Do NOT add, drop, or re-rank items.
 
 {reference_html[:70000]}
+"""
+
+    backfill_section = ""
+    if backfill:
+        backfill_section = f"""
+---
+
+## BACKFILL MODE
+
+This is a historical backfill for {today}. Use only evidence that is explicitly from, or clearly available on/before, {today} plus at most the following day for late-posted daily recaps.
+Do NOT use newer live rankings or later announcements to promote items. If a source says a historical snapshot is unavailable, ignore it.
 """
 
     return f"""Today is **{today}** ({weekday}, ISO week {week}). Generate AI Radar issue №{issue_num:03d}.
@@ -804,6 +908,8 @@ Target output language: **{target}**.
 {chr(10).join(source_sections)}
 
 {reference_section}
+
+{backfill_section}
 
 ---
 
@@ -851,12 +957,15 @@ def normalize_langs(value: str) -> list[str]:
 def issue_number_for_date(today: str) -> int:
     if ARCHIVE_FILE.exists():
         arc = json.loads(ARCHIVE_FILE.read_text())
-        daily_count = sum(1 for i in arc.get("issues", []) if i.get("kind") == "daily")
-        issue_num = daily_count + 1
+        dailies = sorted(
+            [i for i in arc.get("issues", []) if i.get("kind") == "daily"],
+            key=lambda i: i.get("date", ""),
+        )
         existing = [i for i in arc.get("issues", []) if i.get("date") == today and i.get("kind") == "daily"]
         if existing:
-            issue_num = existing[0].get("issue", issue_num)
-        return issue_num
+            return existing[0].get("issue", dailies.index(existing[0]) + 1 if existing[0] in dailies else len(dailies))
+        before = [i for i in dailies if i.get("date", "") < today]
+        return len(before) + 1
     return 1
 
 
@@ -881,6 +990,7 @@ def main():
     weekday = datetime.strptime(today, "%Y-%m-%d").strftime("%a")
     iso_year, iso_week, _ = datetime.strptime(today, "%Y-%m-%d").isocalendar()
     langs = normalize_langs(args.lang)
+    backfill = bool(args.date and datetime.strptime(today, "%Y-%m-%d").date() < now.date())
 
     log(f"=== AI Radar run starting · {today} ({weekday}) · Wk {iso_week} · test={args.test} · lang={args.lang} ===")
 
@@ -891,7 +1001,7 @@ def main():
     log(f"  issue number: №{issue_num:03d}")
 
     log("Fetching sources...")
-    sources = fetch_sources()
+    sources = fetch_sources(source_date=today if backfill else None)
 
     log("Loading Chinese template/history...")
     zh_template_path = find_latest_html_template(LANGS["zh"]["site_dir"])
@@ -902,7 +1012,9 @@ def main():
     zh_template_html = zh_template_path.read_text()
 
     log("Extracting history (past 7 days)...")
-    history = extract_history(n_days=7, exclude_date=today, site_dir=LANGS["zh"]["site_dir"])
+    history = extract_history(n_days=7, exclude_date=today,
+                              site_dir=LANGS["zh"]["site_dir"],
+                              anchor_date=today)
     history_text = format_history_for_prompt(history)
 
     results = {}
@@ -927,7 +1039,8 @@ def main():
         system = build_system_prompt(lang)
         user = build_user_prompt(today, weekday, iso_week, issue_num, sources,
                                  template_html, history_text, lang,
-                                 reference_html=reference_html)
+                                 reference_html=reference_html,
+                                 backfill=backfill)
         log(f"  prompt size ({lang}): system={len(system)}, user={len(user)} chars (~{(len(system)+len(user))//4} tokens)")
         raw, usage = call_openrouter(secrets, system, user)
         usage_total += usage.get("total_tokens", 0)
@@ -946,9 +1059,11 @@ def main():
         raw_html = cfg["raw_dir"] / out_name
         raw_html.write_text(html)
 
-        if not args.test:
+        if not args.test and not backfill:
             (cfg["site_dir"] / "index.html").write_text(html)
             log(f"  updated {cfg['site_dir'].relative_to(RADAR)}/index.html")
+        elif backfill:
+            log(f"  backfill mode: left {cfg['site_dir'].relative_to(RADAR)}/index.html unchanged")
 
         headline, lead, counts = parse_html_summary(html)
         log(f"  parsed {lang}: headline='{headline[:60]}...', counts={counts}")

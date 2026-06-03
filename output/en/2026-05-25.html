@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-05-25 · Week 22</title>
-<meta name="description" content="2 条真信号 — Big 4 过半一周，趋势更清晰；Gemini 3.5 Flash 给你 1M 上下文">
+<meta name="description" content="2 signals — Big 4 rhythm calibration at Day 6; Gemini 3.5 Flash 1M context, one week in">
 
 <meta property="og:title" content="AI Radar · 2026-05-25">
-<meta property="og:description" content="2 条真信号 · 1 🚨 必看 · 1 👀 可看">
+<meta property="og:description" content="2 real signals · 1 🚨 · 1 👀 · 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -71,8 +71,8 @@
 
   .cover { margin-bottom: 3.5rem; }
   .cover .kicker { display: block; margin-bottom: 1.5rem; }
-  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 14ch; }
-  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 48ch; margin: 0 0 2rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 18ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 52ch; margin: 0 0 2rem; }
   .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
   .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
   .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -98,8 +98,8 @@
   .item--look { --bar-color: var(--tier-look); }
   .item--fyi { --bar-color: var(--tier-fyi); }
   .item .tier-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bar-color); margin-bottom: 0.6rem; font-weight: 500; }
-  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 22ch; }
-  .item .pitch { font-size: var(--t-h3); color: var(--ink-soft); line-height: 1.45; font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; margin-bottom: 2rem; max-width: 40ch; }
+  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 26ch; }
+  .item .pitch { font-size: var(--t-h3); color: var(--ink-soft); line-height: 1.45; font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; margin-bottom: 2rem; max-width: 44ch; }
 
   .context-box { background: var(--bg-sunk); border-left: 2px solid var(--bar-color, var(--tier-fyi)); padding: 0.9rem 1.1rem; margin: 1rem 0 2rem; font-size: var(--t-small); color: var(--ink-soft); }
   .context-box .smallcaps { color: var(--bar-color); margin-bottom: 0.4rem; display: block; }
@@ -149,18 +149,6 @@
   .jargon dd + dt { display: block; margin-top: 0.5rem; }
   .jargon dd + dt::before { content: ""; }
 
-  .calibration {
-    margin: 2rem 0;
-    padding: 1.25rem 1.5rem;
-    background: oklch(0.96 0.025 60);
-    border: 1px solid oklch(0.85 0.06 60);
-    border-radius: 2px;
-  }
-  .calibration .smallcaps { display: block; margin-bottom: 0.5rem; color: oklch(0.45 0.12 60); }
-  .calibration p { margin: 0; font-size: var(--t-small); color: var(--ink); }
-
-  /* Still tracking — sidebar for items already featured this week but still developing.
-     Does NOT count against the 3-item top-3 cap. */
   .still-tracking { margin: 3rem 0 2rem; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--ink-mute); border-radius: 2px; }
   .still-tracking .smallcaps { display: block; margin-bottom: 0.85rem; color: var(--ink-soft); }
   .still-tracking ul { list-style: none; margin: 0; padding: 0; font-size: var(--t-small); }
@@ -193,79 +181,80 @@
   <header class="masthead">
     <a href="./" class="logo">AI RADAR</a>
     <nav class="nav">
-      <a href="./" class="current">今日</a>
-      <a href="./archive.html">归档</a>
+      <a href="./" class="current">Today</a>
+      <a href="./archive.html">Archive</a>
     </nav>
   </header>
 
   <div class="issue-meta">
     <span class="date-line">2026 · 05 · 25  ·  Wk 22  ·  №&nbsp;002  ·  Mon</span>
-    <span>约 6 分钟读完</span>
+    <span>~7 min read</span>
   </div>
 
   <nav class="pager top" data-current-date="2026-05-25">
     <span class="pg-prev" data-slot="prev"><a href="./2026-05-24.html"><span class="pg-arrow">←</span> 2026-05-24 (Sun)</a></span>
-    <span class="pg-mid">第 002 期 · 共 N 期</span>
-    <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
+    <span class="pg-mid">Issue 002 · Total N</span>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
   </nav>
 
   <section class="cover">
-    <span class="kicker smallcaps">今日真信号</span>
-    <h1 class="display headline">Big 4 过半一周 — 窗口收窄中。</h1>
-    <p class="lead">KPMG 官宣已 6 天，PwC 已 11 天。没有第三家跟进——这不代表浪停了，代表剩下两家在算账。本期 2 条信号：一条是企业 AI 采用节奏的校准，一条是长文档工作的新工具。</p>
+    <span class="kicker smallcaps">Real Signals Today</span>
+    <h1 class="display headline">Two Down, Two to Go — Big 4 Rhythm Calibration at Day 6</h1>
+    <p class="lead">KPMG announced 6 days ago, PwC 11 days ago. No third firm has followed — not because the wave has stopped, but because the remaining two are doing the math. Two signals today: one calibrates enterprise AI adoption velocity with a concrete timeline; the other is a new tool for long-document work that's one week old and worth testing right now.</p>
     <div class="count-row">
       <div class="total">2</div>
       <div class="count-breakdown">
-        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 必看 (Must See)</span>
-        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 可看 (Worth a Look)</span>
-        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ 知道 (FYI)</span>
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 Must See</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
       </div>
     </div>
   </section>
 
   <nav class="toc" aria-label="Index">
-    <span class="smallcaps">本期目录</span>
+    <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">🚨</span><a href="#big4">Big 4 节奏校准 — PwC + KPMG 同月部署后的 6 天空窗期</a></li>
-      <li><span class="tier-mark">👀</span><a href="#gemini">Gemini 3.5 Flash — 1M token 上下文，7 天后的第一波实测</a></li>
+      <li><span class="tier-mark">🚨</span><a href="#big4">Big 4 Rhythm Calibration — PwC + KPMG same month, 6 days since last announcement</a></li>
+      <li><span class="tier-mark">👀</span><a href="#gemini">Gemini 3.5 Flash — 1M context, one week of real-world feedback</a></li>
     </ol>
   </nav>
 
-  <!-- ITEM 1: Big 4 rhythm calibration — 6 days since KPMG -->
+  <!-- ITEM 1: Big 4 rhythm calibration -->
   <article id="big4" class="item item--crit">
-    <div class="tier-label">🚨 Must See · 趋势窗口校准</div>
-    <h2 class="display title">Big 4 过半已 6 天 — 剩下两家在算账</h2>
-    <p class="pitch">KPMG 5/19 官宣，PwC 5/14。到今天（5/25）已经过了 6 天，没有第三家公告。这是正常节奏吗？是的，而且正好告诉你：你们公司 IT 的窗口从"今年底"变成了"这个季度"。</p>
+    <div class="tier-label">🚨 Must See · Enterprise Adoption Timing</div>
+    <h2 class="display title">Big 4 Already Past Halfway — The Remaining Two Are Doing the Math</h2>
+    <p class="pitch">KPMG announced on 5/19, PwC on 5/14. As of today (5/25), six days have passed without a third announcement. This is normal procurement velocity — and it tells you that your company's IT window just compressed from "by year-end" to "this quarter."</p>
 
     <div class="context-box">
-      <span class="smallcaps">📍 背景 · Context</span>
-      <p>Big-4（四大会计师事务所：德勤、PwC、安永、毕马威）是全球企业 IT 采购的风向标。四家中的两家同月部署 Claude——而且是最保守的两家——意味着企业 AI 采用从"试点"阶段进入了"标准化"阶段。</p>
-      <p>6 天的空窗期不反常。Deloitte 和 EY 必然在做内部评估（"跟 Claude 还是双持？自有数据怎么迁移？法务审核周期多长？"）。如果 6 月底前两家都没有公告，那才说明节奏变了。</p>
+      <span class="smallcaps">📍 Context</span>
+      <p>The Big-4 (Deloitte, PwC, EY, KPMG) are the global bellwethers for enterprise IT procurement. Two of the four — including the most conservative ones — deploying Claude in the same month signals that enterprise AI adoption is moving from "pilot phase" into "standardization phase." The 6-day gap since KPMG isn't unusual: Deloitte and EY are deep in diligence — migration costs, compliance audits, pilot reviews. A 2-3 week gap between Big-4 announcements is standard for this level of procurement.</p>
     </div>
 
     <div class="lang">
-      <span class="lang-mark">EN</span>
+      <span class="lang-mark">Signal Analysis</span>
       <h3>Why this matters — updated view from Day 6</h3>
       <ul>
-        <li><strong>The pause is normal. Don't read it as a stall.</strong> Deloitte and EY are doing deep-dive diligence — estimating migration costs, auditing constitutional AI compliance, running pilot results through their own risk committees. A 2-3 week gap between Big-4 announcements is standard procurement velocity.</li>
-        <li><strong>Your company's timeline just compressed.</strong> Six days ago, the Big-4 wave was a cool story. Today, your legal/compliance team is probably 2-3 weeks away from someone forwarding them a "KPMG + PwC both picked Claude" article. <strong>The "we should look into this" conversation is now imminent, not hypothetical.</strong></li>
+        <li><strong>The pause is normal. Don't read it as a stall.</strong> Deloitte and EY are doing deep-dive diligence — estimating migration costs, auditing constitutional AI compliance, running pilot results through their own risk committees. A 2-3 week gap between Big-4 announcements is standard procurement velocity. This isn't silence; it's homework.</li>
+        <li><strong>Your company's timeline just compressed.</strong> Six days ago, the Big-4 wave was a cool story you read about. Today, your legal and compliance team is probably 2-3 weeks away from someone forwarding them a "KPMG and PwC both picked Claude" article. <strong>The "we should look into this" conversation is now imminent, not hypothetical.</strong></li>
         <li><strong>For your comp/HR work</strong>: by the time your firm standardizes on Claude (or GPT Enterprise, or both), you want to already be the person who knows how these tools handle compensation data, policy analysis, and market benchmarking. The runway is 2-3 months, not 6.</li>
-        <li><strong>Deloitte is the bellwether now.</strong> They're the largest of the Big-4 by revenue. If Deloitte picks Claude, the signal is irreversible. If they pick GPT Enterprise, suddenly it's a horse race. Watch the next 14 days.</li>
+        <li><strong>Deloitte is the bellwether now.</strong> They're the largest Big-4 by revenue. If Deloitte picks Claude, the signal is irreversible. If they pick GPT Enterprise, suddenly it's a horse race. Watch the next 14 days.</li>
       </ul>
     </div>
 
     <div class="action-block">
-      <span class="smallcaps">🎯 实操 — 你这周能做什么</span>
+      <span class="smallcaps">🎯 Action — what you can do this week</span>
       <ol>
-        <li><strong>更新你的"公司 AI"对话备忘录</strong>：<br><code class="mono">"PwC (5/14) + KPMG (5/19) 同月部署 Claude · Big 4 已过半 · 剩余两家预计 Q3 前跟进"</code><br>这段话可以在任何场合自然说出来——咖啡聊天、团队会议、和 IT 负责人的 1:1。</li>
-        <li><strong>找 IT 或法务吃一次午饭</strong>：不谈具体采购，就问"你们怎么看 KPMG 用 Claude 的事？"了解他们现在的态度——是已经在看、还是完全没注意。</li>
-        <li><strong>把 Claude 融入你的日常工作流</strong>：每周至少 1 次用 Claude 做一个完整的 HR 分析任务（政策对比、薪酬区间计算、合规检查）。建立肌肉记忆。等公司正式部署时你已经是内部专家。</li>
-        <li><strong>把 Deloitte + EY 的新闻页加入书签</strong>：每天扫一眼。第一个公告出现时你比别人早知道 24-48 小时。</li>
+        <li><strong>Update your "company AI" conversation memo</strong>:<br>
+          <code class="mono">"PwC (5/14) + KPMG (5/19) both deployed Claude same month · Big 4 past halfway · Remaining two expected Q3 at latest"</code><br>
+          This line works naturally in any conversation — coffee chat, team meeting, 1:1 with your IT lead.</li>
+        <li><strong>Grab lunch with IT or legal</strong>: Don't talk about procurement directly. Ask "what do you think about KPMG using Claude?" Gauge whether they're already looking at it or haven't noticed yet.</li>
+        <li><strong>Integrate Claude into your daily workflow</strong>: At least once a week, run a complete HR analysis task in Claude — policy comparison, compensation range calculation, compliance check. Build muscle memory. By the time your company formally deploys, you're the internal expert.</li>
+        <li><strong>Bookmark Deloitte + EY news pages</strong>: Check them daily. When the first announcement appears, you'll know 24-48 hours before most people.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 深扒 — 为什么 6 天没公告是正常节奏</summary>
+      <summary>🔬 Deep dive — Why 6 days with no announcement is normal velocity</summary>
       <div class="dd-body">
         <div class="compare">
           <table>
@@ -273,87 +262,82 @@
               <tr><th></th><th>PwC</th><th>KPMG</th><th>Deloitte</th><th>EY</th></tr>
             </thead>
             <tbody>
-              <tr><th>官宣日期</th><td>5/14</td><td>5/19</td><td>—</td><td>—</td></tr>
-              <tr><th>选择</th><td>Claude</td><td>Claude</td><td>未公开</td><td>未公开</td></tr>
-              <tr><th>部署方式</th><td>客户交付 + 内部</td><td>全公司 276k 人</td><td>—</td><td>—</td></tr>
-              <tr><th>决策复杂度</th><td>已过</td><td>已过</td><td>高（最大体量）</td><td>高</td></tr>
-              <tr><th>预期窗口</th><td>—</td><td>—</td><td>6 月底前</td><td>6-7 月</td></tr>
-              <tr><th>如果选 Claude</th><td>—</td><td>—</td><td>Big-4 扫三，市场定调</td><td>Anthropic 锁死四大</td></tr>
-              <tr><th>如果选 GPT Enterprise</th><td>—</td><td>—</td><td>双强格局打开</td><td>OpenAI 拿下半壁</td></tr>
+              <tr><th>Announcement</th><td>5/14</td><td>5/19</td><td>—</td><td>—</td></tr>
+              <tr><th>Choice</th><td>Claude</td><td>Claude</td><td>Not public</td><td>Not public</td></tr>
+              <tr><th>Deployment</th><td>Client delivery + internal</td><td>All 276k employees</td><td>—</td><td>—</td></tr>
+              <tr><th>Decision complexity</th><td>Complete</td><td>Complete</td><td>High (largest firm)</td><td>High</td></tr>
+              <tr><th>Expected window</th><td>—</td><td>—</td><td>Before end of June</td><td>June-July</td></tr>
+              <tr><th>If Claude</th><td>—</td><td>—td><td>Big-4 sweep — market settled</td><td>Anthropic locks up Big 4</td></tr>
+              <tr><th>If GPT Enterprise</th><td>—</td><td>—</td><td>Two-horse race opens</td><td>OpenAI takes half</td></tr>
             </tbody>
           </table>
         </div>
-        <p><strong>判断</strong>：Deloitte 的决策时间更长是合理的——他们的客户清单最长、合规要求最深。如果 6 月 15 日前仍无公告，我会降低紧迫度评级。但如果 6 月 1 日前就公告，说明谈判早已秘密进行——那节奏就比我预估的快了一倍。</p>
+        <p><strong>Judgment</strong>: Deloitte taking longer is rational — they have the longest client roster and deepest compliance requirements. If there's no announcement by June 15, I'll downgrade urgency. But if they announce before June 1, negotiations were already secret for weeks — and the pace is twice as fast as I estimated.</p>
       </div>
     </details>
 
     <div class="watch-block">
-      <span class="smallcaps">🔭 接下来看什么</span>
-      <p>6 月 1 日 - 6 月 15 日是关键窗口。Deloitte 或 EY 任一公告 = 短期 escalate。两家都沉默到 6 月底 = 重新评估。如果任何一家选了 GPT Enterprise 而非 Claude，这本身就是一个大信号——我会立刻 tap 你。</p>
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>June 1-June 15 is the critical window. If Deloitte or EY announces — either one — I escalate short-term. If both stay silent through end of June, I re-evaluate. And if either picks GPT Enterprise instead of Claude, that's a big signal on its own — I'll tap you immediately.</p>
     </div>
 
     <dl class="jargon">
-      <dt>Big-4 (四大)</dt><dd>全球四大会计师/咨询公司 — Deloitte（德勤）、PwC（普华永道）、EY（安永）、KPMG（毕马威）</dd>
+      <dt>Big-4</dt><dd>The four largest global accounting/consulting firms — Deloitte, PwC, EY, and KPMG</dd>
     </dl>
 
-    <h3>谁在讨论</h3>
+    <h3>Who's talking about it</h3>
     <ul>
-      <li>Anthropic 官宣 PwC (5/14): <a href="https://www.anthropic.com/news">anthropic.com/news</a></li>
-      <li>Anthropic 官宣 KPMG (5/19): 同上</li>
-      <li>讨论热度：Enterprise IT 圈子有讨论，但尚未成为 mainstream tech 话题。这反而说明领先窗口还在。</li>
+      <li>Anthropic official — PwC announcement (5/14): <a href="https://www.anthropic.com/news">anthropic.com/news</a></li>
+      <li>Anthropic official — KPMG announcement (5/19): same page</li>
+      <li>Enterprise IT circles are discussing, but it hasn't broken into mainstream tech conversation yet. That's exactly why the lead-time window is still open.</li>
     </ul>
 
-    <div class="lang">
-      <span class="lang-mark">中文</span>
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>6 天没有第三家公告不是坏信号</strong>——Deloitte 和 EY 体量更大、决策更慢。正常的企业采购节奏是 2-3 周评估期。</li>
-        <li><strong>对你工作的直接影响</strong>：如果你在跨国公司做 HR/薪酬，IT 和法务部门大概率在 1-2 个月内会开始讨论"我们要不要标准化到 Claude"。你现在开始准备，到时能比同事提前 3-6 个月上手。</li>
-        <li><strong>实操要点</strong>：本周主动和 IT 或法务聊一次（非正式），了解他们是否已经开始关注 Big-4 的动向。同时保持每周用 Claude 处理至少一个真实 HR 任务。</li>
-      </ul>
-      <p><strong>下一个观察点</strong>：Deloitte 和 EY 的新闻页。任何一家在 6 月 15 日前公告，趋势确认加速——我会立刻推给你。</p>
-    </div>
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li>Anthropic news page: <a href="https://www.anthropic.com/news">anthropic.com/news</a></li>
+      <li>Deloitte press room: <a href="https://www.deloitte.com/global/en/about/press-room.html">deloitte.com</a></li>
+      <li>EY newsroom: <a href="https://www.ey.com/en_gl/newsroom">ey.com</a></li>
+    </ul>
   </article>
 
-  <!-- ITEM 2: Gemini 3.5 Flash — 7 days post-I/O -->
+  <!-- ITEM 2: Gemini 3.5 Flash -->
   <article id="gemini" class="item item--look">
-    <div class="tier-label">👀 Worth a Look · 长上下文新基准</div>
-    <h2 class="display title">Gemini 3.5 Flash — 1M token 上线一周，可以试了</h2>
-    <p class="pitch">Google I/O 5/18 发布的 Gemini 3.5 Flash，7 天后已经有足够的使用者反馈来判断它对你有没有用。1M context + 65k 输出 + 成本低到离谱。试试拿它读一份长的薪酬报告。</p>
+    <div class="tier-label">👀 Worth a Look · Long-Context New Baseline</div>
+    <h2 class="display title">Gemini 3.5 Flash — 1M Context, One Week In, Worth Trying Now</h2>
+    <p class="pitch">Google I/O on 5/18 released Gemini 3.5 Flash with a 1M-token context window. Seven days later, there's enough user feedback to judge whether it's useful for you. It is — if you regularly handle long documents. Try feeding it a compensation report.</p>
 
     <div class="context-box">
-      <span class="smallcaps">📍 背景 · Context</span>
-      <p>1M token 上下文 = 大约 80 万字的容量，相当于一本 800 页的书。对比：Claude Sonnet 4.6 是 200k，GPT-5.5 是 256k。Google 把这条线直接拉到了百万级别。</p>
-      <p>对你（非开发者做长文档分析）来说，这意味着：以前要分 3-5 次喂给 AI 的长文件，现在一次丢进去就能分析。年度薪酬调查报告 + 内部 HR 手册 + 行业 benchmark 三合一，问一句"我们和市场比有哪些差距"。</p>
-      <p>7 天后的早期反馈：<strong>1M 上下文是真的能用的</strong>（不是纸面规格），但中间段的检索精度（比如找第 500 页的具体某句话）还有提升空间。</p>
+      <span class="smallcaps">📍 Context</span>
+      <p>1M tokens of context ≈ roughly 800,000 words, or an 800-page book. For comparison: Claude Sonnet 4.6 handles 200K, GPT-5.5 handles 256K. Google just pushed the boundary to the million-token level. For you (a non-developer doing long-document analysis), this means: instead of splitting a long file into 3-5 chunks and feeding it to an AI piece by piece, you can dump the entire thing in one go and ask questions. An annual compensation survey, internal HR manual, and industry benchmark report — all at once: "Where are we lagging vs the market?"</p>
+      <p>One week of early feedback: the 1M context is real and usable (not just a spec-sheet number), but retrieval precision in the middle portion of very long documents still needs improvement.</p>
     </div>
 
     <div class="lang">
-      <span class="lang-mark">EN</span>
+      <span class="lang-mark">Signal Analysis</span>
       <h3>Why this matters — one week in</h3>
       <ul>
-        <li><strong>1M context is real, not just a spec sheet number.</strong> Early user reports confirm that Gemini 3.5 Flash can handle book-length inputs without catastrophic forgetting at the start of the document — a genuine problem with earlier long-context models.</li>
+        <li><strong>1M context is real, not just a spec sheet number.</strong> Early user reports confirm that Gemini 3.5 Flash can handle book-length inputs without catastrophic forgetting at the start — a genuine problem with earlier long-context models. This is the first widely-available model that actually works at this scale.</li>
         <li><strong>Interesting trade-off: breadth vs depth.</strong> Gemini Flash is weaker on deep reasoning than Claude Sonnet 4.6 or Opus 4.7. But for "find the paragraph about X across 600 pages and summarize it," it's actually the best tool because it sees everything at once.</li>
         <li><strong>Your optimal split strategy is emerging:</strong><br>
           · <em>Read + find + summarize</em> (low reasoning, high recall) → Gemini 3.5 Flash<br>
           · <em>Analyze + argue + write</em> (high reasoning) → Claude Sonnet/Opus<br>
           · <em>Meeting notes + video/audio</em> → Gemini Omni</li>
-        <li><strong>Cost matters for daily use.</strong> Flash is designed to be ~1/10 the cost of flagship models. If you're processing long documents regularly, the price difference adds up fast.</li>
+        <li><strong>Cost matters for daily use.</strong> Flash is designed to be roughly 1/10 the cost of flagship models. If you process long documents regularly, the price difference adds up fast.</li>
       </ul>
     </div>
 
     <div class="action-block">
-      <span class="smallcaps">🎯 实操 — 你这周能做什么</span>
+      <span class="smallcaps">🎯 Action — what you can do this week</span>
       <ol>
-        <li><strong>装上 Gemini CLI</strong>：<code class="mono">brew install gemini-cli</code> 或 <code class="mono">npm install -g @google-gemini/cli</code>。免费额度够跑 10-20 次长文档分析。</li>
-        <li><strong>挑一份你平时要读的"长文件"</strong>：推荐优先级 (1) 年度薪酬调查报告 (2) 劳动法规全文 (3) 公司 HR 政策手册。用 Gemini 3.5 Flash 跑一次"找特定条款 + 跨章节对比"。</li>
-        <li><strong>A/B 测试</strong>：同一份文档，用 Claude Sonnet 4.6 跑一遍。对比两个结果——哪个更完整、哪个更准确、哪个引用更可靠。记下来，这就是你自己的分流指南。</li>
-        <li><strong>如果文档里有表格/数字</strong>：特别留意 Gemini 是否准确地识别了表格结构和跨页数字。这是长上下文模型的经典弱项之一。如果有问题，可以回复告诉我。</li>
+        <li><strong>Install the Gemini CLI</strong>: <code class="mono">brew install gemini-cli</code> or <code class="mono">npm install -g @google-gemini/cli</code>. The free tier is enough for 10-20 long-document analyses.</li>
+        <li><strong>Pick a long file you'd normally read</strong>: Recommended order — (1) annual compensation survey report, (2) labor law full text, (3) your company's HR policy manual. Run it through Gemini 3.5 Flash with a query like "find all provisions about X and compare across chapters."</li>
+        <li><strong>A/B test it</strong>: Same document, same questions, run through Claude Sonnet 4.6. Compare the two results — which is more complete, which is more accurate, which cites better. Write down your findings. That's your personal routing guide.</li>
+        <li><strong>If your document has tables or numbers</strong>: Pay special attention to whether Gemini accurately reads table structure and cross-page numbers. This is a classic weak point for long-context models. If you see problems, tell me.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 深扒 — 7 天实测后的真实表现 vs 规格表</summary>
+      <summary>🔬 Deep dive — Real performance vs spec sheet after 7 days of user feedback</summary>
       <div class="dd-body">
         <div class="compare">
           <table>
@@ -361,101 +345,108 @@
               <tr><th></th><th>Gemini 3.5 Flash</th><th>Claude Sonnet 4.6</th><th>GPT-5.5</th></tr>
             </thead>
             <tbody>
-              <tr><th>上下文长度</th><td><strong>1M tokens</strong></td><td>200k tokens</td><td>256k tokens</td></tr>
-              <tr><th>最大输出</th><td>65k tokens</td><td>16k tokens</td><td>~32k tokens</td></tr>
-              <tr><th>定位</th><td>"高频 · 便宜 · 大上下文"</td><td>"通用 · 推理强"</td><td>"通用 · 多模态"</td></tr>
-              <tr><th>多模态</th><td>原生 Omni（音视频+图）</td><td>图像</td><td>图像 + 语音</td></tr>
-              <tr><th>推理深度</th><td>中等</td><td><strong>强</strong></td><td>中-强</td></tr>
-              <tr><th>长文档精准度</th><td>开头→结尾召回好，中段偶有漂移</td><td>200k 内稳定</td><td>256k 内稳定</td></tr>
-              <tr><th>表格/数字处理</th><td>中等（早期反馈）</td><td>强</td><td>强</td></tr>
-              <tr><th>最适用</th><td>"读一本书，找关键段落"</td><td>"深度分析，写报告"</td><td>"半本书 + 跨模态"</td></tr>
+              <tr><th>Context window</th><td><strong>1M tokens</strong></td><td>200K tokens</td><td>256K tokens</td></tr>
+              <tr><th>Max output</th><td>65K tokens</td><td>16K tokens</td><td>~32K tokens</td></tr>
+              <tr><th>Positioning</th><td>"High-frequency, cheap, big context"</td><td>"General purpose, strong reasoning"</td><td>"General purpose, multimodal"</td></tr>
+              <tr><th>Multimodal</th><td>Native Omni (audio+video+image)</td><td>Image</td><td>Image + speech</td></tr>
+              <tr><th>Reasoning depth</th><td>Moderate</td><td><strong>Strong</strong></td><td>Moderate-strong</td></tr>
+              <tr><th>Long-document accuracy</th><td>Good on start-to-end recall, occasional drift in middle</td><td>Stable within 200K</td><td>Stable within 256K</td></tr>
+              <tr><th>Table/number handling</th><td>Moderate (early feedback)</td><td>Strong</td><td>Strong</td></tr>
+              <tr><th>Best for</th><td>"Read a book, find key sections"</td><td>"Deep analysis, write reports"</td><td>"Half-book + cross-modal"</td></tr>
             </tbody>
           </table>
         </div>
-        <p><strong>诚实说明</strong>：1M context 是上限，不是常态。500k token 以上时响应速度明显变慢、偶尔出现"找东西不够准"。Google 自己说 Flash 定位是"高频、便宜、够用"，不是"最强推理"。对你来说，最适合的场景是：一份 300+ 页的 PDF，一些快速问答，不需要深层分析。Deep work 还是留给 Claude。</p>
-        <p><strong>和上周 Reasonix 的分流逻辑一致</strong>：不同任务用不同模型。现在问题是"什么时候用哪个"，而不是"哪个最好"。</p>
+        <p><strong>Honest caveat</strong>: 1M context is the ceiling, not the norm. Above 500K tokens, response speed slows noticeably and retrieval precision can drift. Google itself positions Flash as "high-frequency, cheap, good enough" — not "strongest reasoning." For you, the sweet spot is: a 300+ page PDF, some quick Q&A, no need for deep analysis. Deep work still goes to Claude.</p>
+        <p><strong>Consistent with last week's Reasonix split logic</strong>: different tasks → different models. The question now isn't "which model is best" but "when to use which."</p>
       </div>
     </details>
 
     <div class="watch-block">
-      <span class="smallcaps">🔭 接下来看什么</span>
-      <p>看 6 月 15 日前 Anthropic 和 OpenAI 是否跟进 1M context。如果跟进→长上下文标准提升，价格战开启。如果不跟进→Google 在上下文长度上有真实领先优势（可能持续到年底），你应该认真考虑把长文档工作转向 Gemini。</p>
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>Watch whether Anthropic and OpenAI match the 1M context bar by June 15. If they do → long-context standard rises, price war begins. If they don't → Google has a real lead in context length (potentially lasting through year-end), and you should seriously consider shifting your long-document work to Gemini.</p>
     </div>
 
     <dl class="jargon">
-      <dt>Context (上下文)</dt><dd>模型一次能"看到"的文字量。越长 = 一次能塞更多内容。1M token ≈ 80 万字 ≈ 一本 800 页的书</dd>
-      <dt>Token</dt><dd>文字的最小单位。英文约 0.75 词/token，中文约 1.5 字/token。1M token ≈ 75 万英文词 ≈ 150 万中文字符</dd>
-      <dt>Gemini CLI</dt><dd>Google 官方的命令行 AI 工具，类似 Claude Code，但跑的是 Gemini 模型</dd>
+      <dt>Context</dt><dd>The amount of text a model can "see" at once. 1M tokens ≈ 800,000 words ≈ an 800-page book.</dd>
+      <dt>Token</dt><dd>The basic unit of text. Roughly 0.75 words per token in English, ~1.5 characters per token in Chinese. 1M tokens ≈ 750K English words.</dd>
+      <dt>Gemini CLI</dt><dd>Google's official command-line AI tool, similar to Claude Code but running Gemini models.</dd>
     </dl>
 
-    <h3>谁在讨论</h3>
+    <h3>Who's talking about it</h3>
     <ul>
-      <li>Google I/O 2026 (5/18) — philschmid, jeffdean, demishassabis 发推</li>
-      <li>Smol AI 5/18 头条覆盖 + 详细 technical deep-dive</li>
-      <li>早期用户反馈正在 HN 和 X 上积累 — 还没有压倒性的好评或差评，正是自己试的好时机</li>
-      <li>"3.2 quadrillion tokens/month" 处理量——Google 已经把 Gemini 规模化到了非常惊人的程度</li>
+      <li>Google I/O 2026 (5/18) — philschmid, Jeff Dean, Demis Hassabis posted on X</li>
+      <li>Smol AI 5/18 — front-page coverage with detailed technical deep-dive</li>
+      <li>Early user feedback accumulating on HN and X — not overwhelmingly positive nor negative, which is exactly the right time to test for yourself</li>
+      <li>"3.2 quadrillion tokens/month" processing volume — Google has scaled Gemini to an extraordinary level</li>
     </ul>
 
-    <h3>试试 / 深入</h3>
+    <h3>Try it / dig in</h3>
     <ul>
       <li>Gemini CLI: <a href="https://github.com/google-gemini/gemini-cli">github.com/google-gemini/gemini-cli</a></li>
-      <li>Google AI Studio (网页直用，无需安装): <a href="https://aistudio.google.com">aistudio.google.com</a></li>
-      <li>Smol AI Google I/O recap: news.smol.ai/issues/26-05-18-not-much (在页面搜索 "Google I/O 2026")</li>
+      <li>Google AI Studio (browser, no install): <a href="https://aistudio.google.com">aistudio.google.com</a></li>
+      <li>Smol AI Google I/O recap: <a href="https://news.smol.ai/issues/2026-05-18">news.smol.ai/issues/2026-05-18</a> (search for "Google I/O 2026")</li>
     </ul>
-
-    <div class="lang">
-      <span class="lang-mark">中文</span>
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>1M token 上下文是真的</strong>：早期用户反馈确认能用。对你来说，最直接的变化是——以前要分 3-5 次喂的长文档（薪酬报告 + HR 手册 + 法规全文），现在可以一次丢进去分析。</li>
-        <li><strong>分流思路</strong>：读+找+总结类任务 → Gemini（便宜、量大）；分析+论证+写作类任务 → Claude（推理更深）。和上周聊 Reasonix 时"不同模型做不同事"的逻辑一样。</li>
-        <li><strong>本周操作</strong>：挑一份你平时用的长文档（薪酬调查、合规手册、劳动法规任一），同时在 Gemini 3.5 Flash 和 Claude 上跑一遍。自己对比结果——这比任何评测数据都更直接。</li>
-      </ul>
-    </div>
   </article>
+
+  <!-- STILL TRACKING -->
+  <aside class="still-tracking">
+    <span class="smallcaps">📈 Still tracking · Not getting its own slot but still developing</span>
+    <ul>
+      <li>
+        <span class="days">Day 10</span>
+        <div><span class="item-name">🚨 opencode</span> <span class="update">— No new KOL endorsement or trigger event since 5/24 feature; HN points stable, no new community benchmarks.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 10</span>
+        <div><span class="item-name">👀 DeepSeek Reasonix</span> <span class="update">— No new signal since 5/24 feature; cache-hit ratio story still the headline, waiting for broader deployment data.</span></div>
+      </li>
+    </ul>
+  </aside>
 
   <!-- WHAT DIDN'T MAKE IT -->
   <section class="killed">
-    <h2>今天没选进来的</h2>
+    <h2>What didn't make it in today</h2>
     <table>
       <thead>
-        <tr><th>来源</th><th>内容</th><th>为什么没选</th></tr>
+        <tr><th>Source</th><th>Content</th><th>Why excluded</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#10)</td><td>DeepSeek Reasonix (615 pts, 1 day)</td><td>昨天已 tap — 留到周报看是否要 escalate</td></tr>
-        <tr><td>Smol AI 5/21</td><td>RAEv2 / NVIDIA Gated DeltaNet-2</td><td>纯研究论文，无可用产品</td></tr>
-        <tr><td>Smol AI 5/21</td><td>OpenAI 数学突破 (Erdős 问题)</td><td>学术成果，无落地应用</td></tr>
-        <tr><td>HN (#26)</td><td>Constraint Decay 论文 (262 pts)</td><td>纯研究，对工作流无直接影响</td></tr>
-        <tr><td>HN (#29)</td><td>Memory 占 AI 芯片成本 2/3 (410 pts)</td><td>产业分析，不可操作</td></tr>
-        <tr><td>Anthropic 5/22</td><td>Project Glasswing 更新</td><td>关键基础设施安全，个人工作流无关</td></tr>
-        <tr><td>Anthropic 5/18</td><td>Stainless 收购</td><td>M&A 行业内幕，不可操作</td></tr>
-        <tr><td>Anthropic 5/14</td><td>Gates Foundation $200M 合作</td><td>基金会/慈善，不可操作</td></tr>
-        <tr><td>Smol AI 5/11</td><td>Thinking Machines 预览</td><td>未发布产品预览，无实际可用</td></tr>
-        <tr><td>Smol AI 5/11</td><td>OpenAI Deployment Company</td><td>企业服务公告，对个人无影响</td></tr>
-        <tr><td>Smol AI 5/18</td><td>LangSmith Engine / SmithDB</td><td>开发者 infra，非 clawii 工作流</td></tr>
-        <tr><td>HN (#4)</td><td>Pope Leo XIV: AI must serve humanity</td><td>宗教/伦理讨论，不可操作</td></tr>
+        <tr><td>Smol AI 5/21</td><td>RAEv2 / NVIDIA Gated DeltaNet-2</td><td>Pure research papers, no usable product</td></tr>
+        <tr><td>Smol AI 5/21</td><td>OpenAI Erdős math breakthrough</td><td>Academic result, no practical application</td></tr>
+        <tr><td>HN (#26)</td><td>Constraint Decay paper (262 pts)</td><td>Pure research, no workflow impact</td></tr>
+        <tr><td>HN (#29)</td><td>Memory cost 2/3 of AI chip budget (410 pts)</td><td>Industry analysis, not actionable</td></tr>
+        <tr><td>Anthropic 5/22</td><td>Project Glasswing update</td><td>Critical infrastructure security, no direct workflow impact</td></tr>
+        <tr><td>Anthropic 5/18</td><td>Stainless acquisition</td><td>M&A inside baseball, not actionable</td></tr>
+        <tr><td>Anthropic 5/14</td><td>Gates Foundation $200M partnership</td><td>Foundation/charity, not actionable</td></tr>
+        <tr><td>Smol AI 5/11</td><td>Thinking Machines preview</td><td>Unreleased product preview, nothing usable yet</td></tr>
+        <tr><td>Smol AI 5/18</td><td>LangSmith Engine / SmithDB</td><td>Developer infrastructure, not clawii's workflow</td></tr>
+        <tr><td>HN (#4)</td><td>Pope Leo XIV: AI must serve humanity</td><td>Religion/ethics discussion, not actionable</td></tr>
+        <tr><td>Smol AI 5/11</td><td>OpenAI Deployment Company</td><td>Enterprise service announcement, no personal impact</td></tr>
+        <tr><td>Re-evaluated: Stainless acqui.</td><td>No new signal</td><td>Still M&A inside baseball → keep excluded</td></tr>
+        <tr><td>Re-evaluated: Claude architect blog</td><td>No new signal</td><td>Still opinion piece → keep excluded</td></tr>
+        <tr><td>Re-evaluated: DeepSeek price cut</td><td>Already folded into Reasonix</td><td>Already accounted for → keep excluded</td></tr>
       </tbody>
     </table>
   </section>
 
   <nav class="pager bottom" data-current-date="2026-05-25">
     <span class="pg-prev" data-slot="prev"><a href="./2026-05-24.html"><span class="pg-arrow">←</span> 2026-05-24 (Sun)</a></span>
-    <a class="pg-mid" href="./archive.html">查看完整归档 →</a>
-    <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
+    <a class="pg-mid" href="./archive.html">View full archive →</a>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
   </nav>
 
   <footer class="footer">
     <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
-      做你的 AI 虚拟朋友 — 每天 07:07 推送 · 上限 3 条 ·宁缺毋滥。
+      Your AI radar buddy — daily at 07:07 · max 3 items · better to skip than pad.
     </p>
     <p>
-      扫描范围：news.smol.ai · ossinsight.io (timeout) · news.ycombinator.com · anthropic.com/news · openai.com/index (403)
+      Scan range: news.smol.ai · ossinsight.io (timeout) · news.ycombinator.com · anthropic.com/news · openai.com/index (403)
     </p>
     <p>
-      剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
     </p>
     <p class="system">
-      ai-radar · v0.3 · 2 items today (1🚨 / 1👀 / 0ℹ️) · calibration: PwC date corrected from yesterday's issue
+      ai-radar · v0.3 · 2 items today (1🚨 / 1👀 / 0ℹ️) · Still tracking: opencode (Day 10, no trigger), DeepSeek Reasonix (Day 10, no trigger). Killed-list re-evaluation: RAEv2 (no signal), Stainless (no signal), Memory cost (no signal), Claude architect blog (no signal), DeepSeek price cut (already folded) — all confirmed dead.
     </p>
   </footer>
 
@@ -497,7 +488,7 @@
         nextSlot.replaceWith(a);
       }
       if (midSlot && midSlot.tagName !== 'A') {
-        midSlot.textContent = '第 ' + String(issueNum).padStart(3, '0') + ' 期 · 共 ' + totalDailies + ' 期';
+        midSlot.textContent = 'Issue ' + String(issueNum).padStart(3, '0') + ' · Total ' + totalDailies;
       }
     }
   } catch (err) {

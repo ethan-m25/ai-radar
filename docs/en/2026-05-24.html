@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · 2026-05-24 · Week 21</title>
+<meta name="description" content="3 signals — opencode dark horse, DeepSeek Reasonix, KPMG × Claude">
+
+<meta property="og:title" content="AI Radar · 2026-05-24">
+<meta property="og:description" content="3 real signals · 1 🚨 Must See · 2 👀 Worth a Look">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: var(--t-body);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .display {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-feature-settings: "ss01";
+    font-variation-settings: "SOFT" 30, "opsz" 144;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+  }
+  .display-italic {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+  }
+  .mono {
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.92em;
+    letter-spacing: -0.005em;
+  }
+  .smallcaps {
+    font-family: 'Geist', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: var(--t-micro);
+    font-weight: 500;
+    color: var(--ink-mute);
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+  }
+  @media (min-width: 768px) {
+    .page { max-width: 780px; padding: 3rem 2rem 6rem; }
+  }
+  .masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--hairline-bold);
+    margin-bottom: 1rem;
+  }
+  .masthead .logo {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 0, "opsz" 144;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a {
+    font-size: var(--t-micro);
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+  .issue-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 2.5rem;
+    font-size: var(--t-micro);
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    flex-wrap: wrap;
+  }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 2.5rem;
+    padding: 0.75rem 0;
+    border-top: 1px dashed var(--hairline);
+    border-bottom: 1px dashed var(--hairline);
+  }
+  .pager.bottom { margin: 4rem 0 0; }
+  .pager a, .pager span {
+    font-size: var(--t-small);
+    color: var(--ink);
+    text-decoration: none;
+    font-variant-numeric: tabular-nums;
+    flex: 1;
+  }
+  .pager a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .pager .pg-prev { text-align: left; }
+  .pager .pg-mid { text-align: center; color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pager .pg-next { text-align: right; }
+  .pager .pg-disabled { color: var(--ink-mute); opacity: 0.5; }
+  .pager .pg-arrow { font-family: 'Geist Mono', monospace; color: var(--ink-mute); }
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline {
+    font-size: var(--t-cover);
+    margin: 0 0 1.5rem;
+    max-width: 18ch;
+  }
+  .cover .lead {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--t-h3);
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin: 0 0 2rem;
+  }
+  .cover .count-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+  .cover .count-row .total {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 0, "opsz" 144;
+    font-weight: 600;
+    font-size: clamp(3.5rem, 12vw, 5.5rem);
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: var(--t-small);
+    color: var(--ink-soft);
+  }
+  .cover .count-pill .dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    flex: none;
+  }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi  { background: var(--tier-fyi); }
+  .toc {
+    margin-bottom: 3.5rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .toc .smallcaps { margin-bottom: 1rem; display: block; }
+  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  .toc li {
+    counter-increment: toc;
+    display: grid;
+    grid-template-columns: 1.75rem 2rem 1fr;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed var(--hairline);
+  }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: 'Geist Mono', monospace;
+    font-size: var(--t-micro);
+    color: var(--ink-mute);
+    font-variant-numeric: tabular-nums;
+  }
+  .toc li .tier-mark { font-size: 1.1rem; }
+  .toc li a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: var(--t-body);
+    transition: color 0.15s;
+  }
+  .toc li a:hover { color: var(--tier-crit); text-decoration: underline; text-underline-offset: 4px; }
+  .item {
+    position: relative;
+    margin: 4rem 0;
+    padding: 2rem 0 2rem 1.5rem;
+    border-top: 1px solid var(--hairline-bold);
+  }
+  .item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2rem;
+    bottom: 2rem;
+    width: 3px;
+    background: var(--bar-color, var(--tier-fyi));
+  }
+  .item--crit { --bar-color: var(--tier-crit); }
+  .item--look { --bar-color: var(--tier-look); }
+  .item--fyi  { --bar-color: var(--tier-fyi); }
+  .item .tier-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--bar-color);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 28ch; }
+  .item .pitch {
+    font-size: var(--t-h3);
+    color: var(--ink-soft);
+    line-height: 1.45;
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    max-width: 48ch;
+  }
+  .context-box {
+    background: var(--bg-sunk);
+    border-left: 2px solid var(--bar-color, var(--tier-fyi));
+    padding: 0.9rem 1.1rem;
+    margin: 1rem 0 2rem;
+    font-size: var(--t-small);
+    color: var(--ink-soft);
+  }
+  .context-box .smallcaps {
+    color: var(--bar-color, var(--tier-fyi));
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .context-box p { margin: 0; }
+  .action-block, .watch-block {
+    margin: 1.5rem 0;
+    padding: 1.1rem 1.25rem;
+    border-radius: 2px;
+  }
+  .action-block {
+    background: oklch(0.96 0.02 100);
+    border: 1px solid var(--hairline);
+  }
+  .watch-block {
+    background: var(--bg-card);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--bar-color);
+  }
+  .action-block .smallcaps, .watch-block .smallcaps {
+    color: var(--bar-color);
+    margin-bottom: 0.55rem;
+    display: block;
+  }
+  .action-block ul, .watch-block ul, .action-block ol { margin: 0; padding-left: 1.1rem; }
+  .action-block li, .watch-block li { margin: 0.3rem 0; }
+  .action-block p, .watch-block p { margin: 0; }
+  .item h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: var(--t-h3);
+    margin: 2rem 0 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .item p { margin: 0.5rem 0 1rem; }
+  .item ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
+  .item li { margin: 0.45rem 0; }
+  .item li::marker { color: var(--bar-color); }
+  .item a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--bar-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s;
+  }
+  .item a:hover { text-decoration-color: var(--ink); }
+  .lang { margin-top: 2.25rem; }
+  .lang-mark {
+    display: inline-block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    padding: 0.2rem 0.55rem;
+    background: var(--bg-sunk);
+    color: var(--ink-mute);
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+  .compare { margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-size: var(--t-small);
+  }
+  .compare th, .compare td {
+    text-align: left;
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+  .compare thead th {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 500;
+    font-size: var(--t-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    border-bottom: 2px solid var(--hairline-bold);
+  }
+  .compare tbody th {
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--bg-sunk);
+    white-space: nowrap;
+  }
+  .compare .ok { color: oklch(0.55 0.15 145); font-weight: 600; }
+  .compare .no { color: var(--tier-crit); font-weight: 600; }
+  .chart {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background: var(--bg-sunk);
+    border-radius: 2px;
+  }
+  .chart-title {
+    font-size: var(--t-small);
+    color: var(--ink-soft);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .chart-bar-row {
+    display: grid;
+    grid-template-columns: 7rem 1fr 4rem;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.5rem 0;
+    font-size: var(--t-small);
+    font-variant-numeric: tabular-nums;
+  }
+  .chart-bar-row .label { color: var(--ink-soft); }
+  .chart-bar-row .value { text-align: right; font-family: 'Geist Mono', monospace; color: var(--ink); font-weight: 500; }
+  .chart-bar-row .bar {
+    height: 8px;
+    background: var(--bar-color, var(--tier-fyi));
+    border-radius: 1px;
+    transform-origin: left;
+    animation: barGrow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes barGrow { from { transform: scaleX(0); } }
+  @media (prefers-reduced-motion: reduce) { .chart-bar-row .bar { animation: none; } }
+  details.deep-dive {
+    margin: 1.5rem 0;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  details.deep-dive[open] { background: var(--bg-card); }
+  details.deep-dive > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.9rem 1.1rem;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: var(--t-small);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    user-select: none;
+    background: var(--bg-sunk);
+    transition: background 0.15s;
+  }
+  details.deep-dive > summary:hover { background: oklch(0.92 0.014 85); }
+  details.deep-dive > summary::-webkit-details-marker { display: none; }
+  details.deep-dive > summary::after {
+    content: "+";
+    font-family: 'Geist Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--ink-mute);
+    transition: transform 0.2s;
+  }
+  details.deep-dive[open] > summary::after { content: "−"; }
+  details.deep-dive .dd-body { padding: 1.25rem 1.1rem; }
+  .jargon {
+    background: var(--bg-sunk);
+    padding: 1rem 1.25rem;
+    border-radius: 2px;
+    margin: 1.5rem 0;
+    font-size: var(--t-small);
+  }
+  .jargon dt {
+    font-family: 'Geist Mono', monospace;
+    font-weight: 500;
+    color: var(--ink);
+    display: inline;
+  }
+  .jargon dd {
+    display: inline;
+    margin: 0;
+    color: var(--ink-soft);
+  }
+  .jargon dt + dd::before { content: " = "; color: var(--ink-mute); }
+  .jargon dd + dt { display: block; margin-top: 0.5rem; }
+  .jargon dd + dt::before { content: ""; }
+  .killed {
+    margin: 4rem 0 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--hairline-bold);
+  }
+  .killed h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--t-h2);
+    margin: 0 0 1.5rem;
+    color: var(--ink-soft);
+  }
+  .killed table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--t-small);
+  }
+  .killed th, .killed td {
+    text-align: left;
+    padding: 0.6rem 0.5rem 0.6rem 0;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+  .killed thead th {
+    font-family: 'Geist Mono', monospace;
+    font-size: var(--t-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+  }
+  .killed tbody tr td:first-child { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); white-space: nowrap; }
+  .footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--hairline-bold);
+    color: var(--ink-mute);
+    font-size: var(--t-small);
+  }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .item:nth-of-type(1) { animation-delay: 0.05s; }
+  .item:nth-of-type(2) { animation-delay: 0.15s; }
+  .item:nth-of-type(3) { animation-delay: 0.25s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .item { opacity: 1; transform: none; animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./" class="current">Today</a>
+      <a href="./archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 05 · 24  ·  Wk 21  ·  №&nbsp;001  ·  Sun</span>
+    <span>~8 min read</span>
+  </div>
+
+  <nav class="pager top" data-current-date="2026-05-24">
+    <span class="pg-prev pg-disabled" data-slot="prev"><span class="pg-arrow">←</span> First issue</span>
+    <span class="pg-mid">Issue 001 · Total 1</span>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Real Signals Today</span>
+    <h1 class="display headline">Price cuts + dark horse agent + big client — all at once.</h1>
+    <p class="lead">First issue — calibrated. All 3 signals are directly about coding agents and enterprise AI. Each one will affect how you use AI in the next 1-3 months.</p>
+    <div class="count-row">
+      <div class="total">3</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 Must See</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>2</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="Index">
+    <span class="smallcaps">Table of Contents</span>
+    <ol>
+      <li><span class="tier-mark">🚨</span><a href="#opencode">opencode — A wild Claude Code alternative, supports 75+ models</a></li>
+      <li><span class="tier-mark">👀</span><a href="#reasonix">DeepSeek Reasonix — Caching cuts costs to 1/5</a></li>
+      <li><span class="tier-mark">👀</span><a href="#kpmg">KPMG × Claude — 276K employees deployed</a></li>
+    </ol>
+  </nav>
+
+  <!-- ITEM 1: opencode -->
+  <article id="opencode" class="item item--crit">
+    <div class="tier-label">🚨 Must See · Week 1 Signal</div>
+    <h2 class="display title">opencode — A wild Claude Code alternative that supports 75+ models</h2>
+    <p class="pitch">The fastest-growing AI project on GitHub, outpacing both Claude Code and codex. MIT open-source, lets you swap between models from different companies in the same tool. If you've used Claude Code, you'll be productive in 5 minutes.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>The coding agent space has been dominated by Claude Code (Anthropic, closed-source) and codex (OpenAI, closed-source) for the past 18 months. The community wanted "open-source + model freedom" but no credible contender existed — until opencode. It's the first open-source rival to outpace both closed-source giants on GitHub, and it's not a flash in the pan: +1,540 stars in 28 days is 1.9× Claude Code's同期 growth.</p>
+    </div>
+
+    <div class="chart">
+      <div class="chart-title">28-day GitHub star growth (coding agent big three)</div>
+      <div class="chart-bar-row" style="--bar-color: var(--tier-crit);">
+        <span class="label">opencode</span>
+        <div class="bar" style="width: 100%;"></div>
+        <span class="value">+1,540</span>
+      </div>
+      <div class="chart-bar-row">
+        <span class="label">Claude Code</span>
+        <div class="bar" style="width: 53.2%; background: var(--ink-mute);"></div>
+        <span class="value">+820</span>
+      </div>
+      <div class="chart-bar-row">
+        <span class="label">codex (OpenAI)</span>
+        <div class="bar" style="width: 48.6%; background: var(--ink-mute);"></div>
+        <span class="value">+748</span>
+      </div>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">Signal Analysis</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li>This is the <strong>first credible open-source competitor</strong> to Claude Code / codex with real traction — not hype. Independent dev teams are voting with their stars.</li>
+        <li>You can <strong>mix-and-match models inside the same workflow</strong> — cheap DeepSeek for boilerplate, Claude Opus 4.7 for tricky logic, local Ollama for sensitive code, all in one tool with one set of muscle memory.</li>
+        <li>The architecture is <strong>client-server</strong>, meaning future remote-pair-programming patterns become possible — something neither Claude Code nor codex offers today.</li>
+        <li>You're catching this in <strong>week 1 of breakout</strong> — exactly the SLA we set. Chinese-language outlets won't cover this until late June. You have a 4-6 week head start to learn it.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li>Install it: <code class="mono">brew install opencode</code> or <code class="mono">npm install -g opencode</code>, 5 minutes.</li>
+        <li>Plug in your DeepSeek API key, run some code you'd normally write in Claude Code — feel the quality and cost difference yourself.</li>
+        <li>If you like it, next vibe-coding session: run opencode and Claude Code side-by-side, split tasks (simple stuff to opencode, hard stuff to Claude Code).</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — How it differs from Claude Code / codex</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>opencode</th><th>Claude Code</th><th>codex</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Open source</th><td class="ok">✅ MIT</td><td class="no">❌ Closed</td><td class="no">❌ Closed</td></tr>
+              <tr><th>Models supported</th><td>75+ (Claude, GPT, Gemini, Grok, local Ollama / llama.cpp / LM Studio)</td><td>Claude only</td><td>OpenAI only</td></tr>
+              <tr><th>Install</th><td>npm / Homebrew / curl / Scoop / Chocolatey</td><td>Anthropic official</td><td>OpenAI official</td></tr>
+              <tr><th>Interface</th><td>Terminal (TUI) + desktop app + VS Code / Zed plugin</td><td>Terminal + IDE plugin</td><td>Terminal + IDE</td></tr>
+              <tr><th>Built-in modes</th><td>"build" (write files) + "plan" (read-only explore)</td><td>Single mode + permissions</td><td>Single mode</td></tr>
+              <tr><th>Architecture</th><td>Client-server, can run remotely</td><td>Local</td><td>Local</td></tr>
+              <tr><th>Hosted plans</th><td>OpenCode Zen + Go (curated)</td><td>n/a — uses Anthropic API</td><td>n/a — uses OpenAI API</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>What it runs on</strong>: Written in TypeScript (66%). Bring your own API key — no vendor lock-in.</p>
+        <p><strong>How hard to use</strong>: <code class="mono">brew install opencode</code> → set env var with API key → type <code class="mono">opencode</code> in terminal. <strong>If you've used Claude Code, 5 minutes flat</strong>. The interface is very similar.</p>
+        <p><strong>Honest caveat</strong>: I haven't personally verified whether the experience is as smooth as Claude Code. Supporting 75 models could also mean "jack of all trades, master of none." The star count says people like it, but only 30 minutes of your own time will tell you if you do.</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>Watch for Karpathy or Simon Willison posting "I've switched from Claude Code to opencode" threads in early June. If that happens, it's confirmed as a real contender — I'll tap you again.</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li>GitHub: 28 days +1,540 stars (vs Claude Code +820 / codex +748)</li>
+      <li>OSSInsight: #1 in coding agent category</li>
+      <li>Not yet on HN front page, not yet in major newsletters — <strong>this is exactly "week 1" signal</strong></li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li>GitHub: <a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></li>
+      <li>Detailed docs: <a href="https://deepwiki.com/anomalyco/opencode">deepwiki.com/anomalyco/opencode</a></li>
+      <li>OSSInsight ranking: <a href="https://ossinsight.io/trending/ai">ossinsight.io/trending/ai</a></li>
+    </ul>
+  </article>
+
+  <!-- ITEM 2: Reasonix -->
+  <article id="reasonix" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · Cost Inflection Point</div>
+    <h2 class="display title">DeepSeek Reasonix — 99.82% cache hit rate, cuts costs to 1/5</h2>
+    <p class="pitch">DeepSeek's own purpose-built coding agent that gets cheaper the longer you run it. Real user report: 435M tokens in a day went from $61 to $12. HN front page #1. Takes the opposite approach from opencode.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>DeepSeek also announced a <strong>permanent 75% price cut</strong> on their flagship model the same week (Bloomberg, HN 163 pts) — meaning AI inference is becoming a commodity, prices heading toward zero. Reasonix is the product-layer execution of this strategy: not just a cheap model, but an agent tool that optimizes caching to the extreme, making "leave the agent running all day" nearly free. This is one of the most important cost inflection points of the past six months.</p>
+    </div>
+
+    <div class="chart">
+      <div class="chart-title">Real-world test: 435M tokens in one day — cost comparison</div>
+      <div class="chart-bar-row" style="--bar-color: var(--ink-mute);">
+        <span class="label">No caching</span>
+        <div class="bar" style="width: 100%;"></div>
+        <span class="value">$61</span>
+      </div>
+      <div class="chart-bar-row" style="--bar-color: var(--tier-look);">
+        <span class="label">Reasonix cached</span>
+        <div class="bar" style="width: 19.7%;"></div>
+        <span class="value">$12</span>
+      </div>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">Signal Analysis</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>Opposite philosophy from opencode</strong>: instead of supporting 75 models <em>okay</em>, support 1 model (DeepSeek) <em>extremely well</em>. Single-vendor optimization → <strong>under $0.05 per turn</strong>.</li>
+        <li>Long vibe-coding sessions (the way you actually use Claude Code) benefit most — <strong>prefix-cache magic</strong> means each follow-up turn is nearly free. Claude Code caches too but less aggressively.</li>
+        <li>Combined with DeepSeek's <strong>same-week 75% permanent price cut</strong>, this is the leading edge of the "sub-cent AI" era — coding sessions that used to cost dollars are heading to cents.</li>
+        <li>Real users in the wild are already reporting <strong>5× cost reductions</strong> — verified, not theoretical.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li>Install: <code class="mono">npm install -g reasonix</code> (requires Node 20.10+), 10 minutes.</li>
+        <li>Go to platform.deepseek.com to register and get an API key (5 minutes).</li>
+        <li>Next time you have a repetitive task that doesn't need Claude-level intelligence — batch data processing, long document reading, boilerplate code — switch to Reasonix. Save Claude Code for the real hard stuff.</li>
+        <li>Run it for a week and see how much your AI spend actually drops. Expectation: 50-70% savings if you split tasks wisely.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — How it differs from Claude Code / opencode</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>Reasonix</th><th>Claude Code</th><th>opencode</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Model lock-in</th><td>DeepSeek only (by design)</td><td>Claude only</td><td>75+ models</td></tr>
+              <tr><th>Default model</th><td>DeepSeek-V4-Flash (cheap)</td><td>Sonnet 4.6</td><td>You configure</td></tr>
+              <tr><th>Switch to flagship</th><td><code class="mono">/pro</code> command → V4-Pro</td><td>Config change</td><td>Config change</td></tr>
+              <tr><th>Cache strategy</th><td><strong>Prefix-cache obsessed — 99.82% hit rate</strong></td><td>Standard Anthropic cache</td><td>Depends on model</td></tr>
+              <tr><th>Typical per-turn cost</th><td><strong>$0.05 (Flash)</strong></td><td>$0.10–0.50 (Sonnet)</td><td>Depends on model</td></tr>
+              <tr><th>Install</th><td><code class="mono">npm i -g reasonix</code> (Node ≥20.10)</td><td>Anthropic installer</td><td>npm / brew / any</td></tr>
+              <tr><th>License</th><td class="ok">✅ MIT</td><td class="no">❌ Closed</td><td class="ok">✅ MIT</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>What it runs on</strong>: Node.js. Calls <code class="mono">api.deepseek.com</code> directly, no middleware. Requires Node ≥20.10 and a DeepSeek API key.</p>
+        <p><strong>Honest caveat</strong>: DeepSeek's quality is good but complex reasoning is a tier below Claude. The cost story is real (cache numbers verified by real users), but you'll feel the IQ gap on hard problems — so "split your work" is the optimal strategy, not full replacement.</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>Watch whether OpenAI and Anthropic adjust pricing in June. If they follow, the price war is officially on, and the whole market gets significantly cheaper by year-end.</p>
+    </div>
+
+    <div class="jargon">
+      <dl>
+        <dt>Prefix-cache</dt>
+        <dd>The agent stores the unchanging parts of each conversation (project files, instructions) and only charges for new tokens each turn — like keeping a textbook open instead of buying a new one every time you turn a page</dd>
+        <dt>API key</dt>
+        <dd>Your personal password to use the DeepSeek API, billed by usage</dd>
+      </dl>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li>HN: Front page #1, 311 points, 159 comments (posted 7 hours ago)</li>
+      <li>GitHub: 5,500+ stars</li>
+      <li>DeepSeek official endorsement (added to official docs quick_start path)</li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li>GitHub: <a href="https://github.com/esengine/DeepSeek-Reasonix">esengine/DeepSeek-Reasonix</a></li>
+      <li>Homepage: <a href="https://esengine.github.io/DeepSeek-Reasonix/">esengine.github.io/DeepSeek-Reasonix</a></li>
+      <li>DeepSeek official integration: <a href="https://api-docs.deepseek.com/quick_start/agent_integrations/reasonix">api-docs.deepseek.com</a></li>
+    </ul>
+  </article>
+
+  <!-- ITEM 3: KPMG -->
+  <article id="kpmg" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · Enterprise AI Inflection</div>
+    <h2 class="display title">KPMG deployed Claude to 276,000 employees</h2>
+    <p class="pitch">The largest enterprise AI deployment to date. The Big Four's hesitation on generative AI is officially over. Your company's IT/Legal/Compliance teams will face the same conversation within 30 days — you shouldn't be the last person to know.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>The Big Four accounting firms (KPMG, Deloitte, EY, PwC) are the most risk-averse group in enterprise — their audit and compliance consulting businesses depend on "absolutely reliable" branding. For the past two years, they've been in "careful pilot" mode with generative AI. KPMG rolling this out to 276,000 global employees means internal audit/legal/data-privacy reviews are all cleared. <strong>This is a watershed signal</strong>: the other three are now in reactive mode and will almost certainly follow before year-end.</p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">Signal Analysis</span>
+      <h3>Why this matters</h3>
+      <ul>
+        <li>You explicitly said you wanted to know "what big companies are doing with AI" — this is one of the strongest enterprise signals of 2026. KPMG has the most conservative risk profile of anyone you'd compare to.</li>
+        <li><strong>For your day job</strong>: this kind of move hits C-suites of every other Big-4 within 30 days. Your multinational's IT/Legal/Compliance teams will face the same conversation. Knowing the trend ahead means you can frame it instead of reacting.</li>
+        <li><strong>For HR / Compensation specifically</strong>: these are early enterprise AI use cases (JD writing, benchmark analysis, policy drafting). Once your IT formally deploys Claude (~6-12 months out), being already-fluent in personal use means you ramp into the official workflow on day 1.</li>
+        <li>The choice of <strong>Anthropic over OpenAI</strong> is itself a signal — Claude's "constitutional AI" framing reads better to audit-firm compliance teams. Expect more audit/legal/finance firms to follow the same pattern.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li><strong>Personal level</strong>: Keep doing what you're already doing — using Claude/Claude Code for compensation policy drafts, JD writing, salary benchmark analysis, reading long HR/labor regulation documents. You're already on the right track.</li>
+        <li><strong>Organizational level (if you want to push)</strong>: Find one painful, standardized process in HR/Comp, pilot Claude Pro or Team plan ($20-30/person/month), quantify time saved, write a one-page proposal. The KPMG news is ammunition for your PPT.</li>
+        <li><strong>Conversation level</strong>: Next time you talk to IT/Legal colleagues about AI, drop "KPMG already deployed Claude to all 276K employees" — positions you as someone who knows the industry timeline.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — How this differs from a normal SaaS rollout</summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>KPMG deployment</th><th>Typical SaaS rollout</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Scale</th><td><strong>Global 276,000 employees</strong></td><td>Usually &lt;10,000 pilot first</td></tr>
+              <tr><th>Vendor</th><td>Anthropic (Claude)</td><td>Varies</td></tr>
+              <tr><th>Strategic posture</th><td>Multi-year strategic alliance, not procurement</td><td>Tool purchase</td></tr>
+              <tr><th>Deployment form</th><td>Almost certainly Claude for Enterprise (SSO + data isolation + audit logs)</td><td>n/a</td></tr>
+              <tr><th>Why Claude</th><td>Anthropic's safety/audit positioning fits audit culture; constitutional AI narrative works well for compliance</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>What it runs on</strong>: Almost certainly Claude for Enterprise (with SSO, data isolation, audit logs). Specific model not disclosed — likely Sonnet 4.6 as primary + Opus 4.7 for high-complexity tasks.</p>
+        <p><strong>Implicit signal for you</strong>: The window for large multinationals to move from "experiment" to "standardized deployment" is opening. If your company's IT is still "evaluating," they'll either act within 6 months or get overtaken. Being ahead of this positions you well.</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>Watch Deloitte / EY / PwC — expect at least one to announce a similar-scale deployment within 30-60 days. Once a second Big Four firm follows, "all Big Four on Claude" becomes the new normal, and the entire consulting/audit industry will follow.</p>
+    </div>
+
+    <div class="jargon">
+      <dl>
+        <dt>Big Four</dt>
+        <dd>The four largest global accounting/consulting firms — Deloitte, PwC, EY, KPMG</dd>
+        <dt>Claude for Enterprise</dt>
+        <dd>Claude's enterprise tier: data not used for training, SSO login, admin dashboard, audit logs</dd>
+        <dt>Constitutional AI</dt>
+        <dd>Anthropic's AI safety methodology — the model constrains itself by a written set of rules, more auditable than traditional RLHF tuning. This is exactly what KPMG-type firms care about.</dd>
+      </dl>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li>Anthropic official announcement (5/19): <a href="https://www.anthropic.com/news">anthropic.com/news</a></li>
+      <li>This is enterprise news, not a viral X topic — but C-level executives are watching</li>
+    </ul>
+  </article>
+
+  <section class="killed">
+    <h2>What didn't make it in today</h2>
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Content</th><th>Why excluded</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Smol AI</td><td>RAEv2 / NVIDIA DeltaNet-2 / data filtering research</td><td>All academic papers, no usable product — clawii cares about applications</td></tr>
+        <tr><td>Anthropic</td><td>Acquired Stainless</td><td>Industry inside baseball, no direct workflow impact</td></tr>
+        <tr><td>HN</td><td>"Memory cost growing to 2/3 of AI chip"</td><td>Industry analysis, not actionable</td></tr>
+        <tr><td>HN</td><td>"Claude is not your architect" blog post</td><td>Opinion piece, not a new release — out of radar scope</td></tr>
+        <tr><td>OpenAI</td><td>—</td><td>No major ship this period</td></tr>
+        <tr><td>DeepSeek price cut</td><td>Permanent 75% reduction</td><td>Already folded into Reasonix item's context — not duplicated</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <nav class="pager bottom" data-current-date="2026-05-24">
+    <span class="pg-prev pg-disabled" data-slot="prev"><span class="pg-arrow">←</span> First issue</span>
+    <a class="pg-mid" href="./archive.html">View full archive →</a>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · max 3 items · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/index ·
+      X (10 KOLs, best-effort)
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · v0.3 · powered by Claude · §1 source-tier OR-logic · max 3 items/day · mobile-first card edition
+    </p>
+  </footer>
+
+</main>
+
+<script>
+(async function () {
+  const pagers = document.querySelectorAll('.pager');
+  if (pagers.length === 0) return;
+  const currentDate = pagers[0].dataset.currentDate;
+  if (!currentDate) return;
+  try {
+    const res = await fetch('./archive.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const issues = (data.issues || [])
+      .filter(i => i.kind !== 'weekly')
+      .sort((a, b) => a.date.localeCompare(b.date));
+    const idx = issues.findIndex(i => i.date === currentDate);
+    if (idx < 0) return;
+    const prev = issues[idx - 1] || null;
+    const next = issues[idx + 1] || null;
+    const totalDailies = issues.length;
+    const currentIssue = issues[idx];
+    const issueNum = currentIssue.issue || (idx + 1);
+
+    for (const pager of pagers) {
+      const prevSlot = pager.querySelector('[data-slot="prev"]');
+      const nextSlot = pager.querySelector('[data-slot="next"]');
+      const midSlot = pager.querySelector('.pg-mid');
+      if (prev && prevSlot) {
+        const a = document.createElement('a');
+        a.href = prev.url;
+        a.className = 'pg-prev';
+        a.innerHTML = '<span class="pg-arrow">←</span> ' + prev.date + ' (' + (prev.weekday || '') + ')';
+        prevSlot.replaceWith(a);
+      }
+      if (next && nextSlot) {
+        const a = document.createElement('a');
+        a.href = next.url;
+        a.className = 'pg-next';
+        a.innerHTML = next.date + ' (' + (next.weekday || '') + ') <span class="pg-arrow">→</span>';
+        nextSlot.replaceWith(a);
+      }
+      if (midSlot && midSlot.tagName !== 'A') {
+        midSlot.textContent = 'Issue ' + String(issueNum).padStart(3, '0') + ' · Total ' + totalDailies;
+      }
+    }
+  } catch (err) {
+    console.warn('archive.json fetch failed:', err.message);
+  }
+})();
+</script>
+
+</body>
+</html>

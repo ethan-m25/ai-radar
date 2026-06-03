@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · 2026-05-28 · Week 22</title>
+<meta name="description" content="2 条信号 — Claude Opus 4.8 + Dynamic Workflows 发布，Mistral Vibe 新增 Work/Code 模式和 VS Code 扩展">
+
+<meta property="og:title" content="AI Radar · 2026-05-28">
+<meta property="og:description" content="2 条真信号 · 1 🚨 · 1 👀">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+
+  .pager { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 2.5rem; padding: 0.75rem 0; border-top: 1px dashed var(--hairline); border-bottom: 1px dashed var(--hairline); }
+  .pager.bottom { margin: 4rem 0 0; }
+  .pager a, .pager span { font-size: var(--t-small); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; flex: 1; }
+  .pager a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .pager .pg-prev { text-align: left; }
+  .pager .pg-mid { text-align: center; color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pager .pg-next { text-align: right; }
+  .pager .pg-disabled { color: var(--ink-mute); opacity: 0.5; }
+  .pager .pg-arrow { font-family: 'Geist Mono', monospace; color: var(--ink-mute); }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 22ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 55ch; margin: 0 0 2rem; }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .toc { margin-bottom: 3.5rem; padding: 1.5rem 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .toc .smallcaps { margin-bottom: 1rem; display: block; }
+  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  .toc li { counter-increment: toc; display: grid; grid-template-columns: 1.75rem 2rem 1fr; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--hairline); }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); color: var(--ink-mute); }
+  .toc li .tier-mark { font-size: 1.1rem; }
+  .toc li a { color: var(--ink); text-decoration: none; font-size: var(--t-body); transition: color 0.15s; }
+  .toc li a:hover { color: var(--tier-look); text-decoration: underline; text-underline-offset: 4px; }
+
+  .item { position: relative; margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); }
+  .item::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--bar-color, var(--tier-fyi)); }
+  .item--crit { --bar-color: var(--tier-crit); }
+  .item--look { --bar-color: var(--tier-look); }
+  .item--fyi { --bar-color: var(--tier-fyi); }
+  .item .tier-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bar-color); margin-bottom: 0.6rem; font-weight: 500; }
+  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 32ch; }
+  .item .pitch { font-size: var(--t-h3); color: var(--ink-soft); line-height: 1.45; font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; margin-bottom: 2rem; max-width: 52ch; }
+
+  .context-box { background: var(--bg-sunk); border-left: 2px solid var(--bar-color, var(--tier-fyi)); padding: 0.9rem 1.1rem; margin: 1rem 0 2rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .context-box .smallcaps { color: var(--bar-color); margin-bottom: 0.4rem; display: block; }
+  .context-box p { margin: 0; }
+  .context-box p + p { margin-top: 0.55rem; }
+
+  .action-block, .watch-block { margin: 1.5rem 0; padding: 1.1rem 1.25rem; border-radius: 2px; }
+  .action-block { background: oklch(0.96 0.02 100); border: 1px solid var(--hairline); }
+  .watch-block { background: var(--bg-card); border: 1px solid var(--hairline); border-left: 3px solid var(--bar-color); }
+  .action-block .smallcaps, .watch-block .smallcaps { color: var(--bar-color); margin-bottom: 0.55rem; display: block; }
+  .action-block ul, .watch-block ul, .action-block ol { margin: 0; padding-left: 1.1rem; }
+  .action-block li, .watch-block li { margin: 0.3rem 0; }
+  .action-block p, .watch-block p { margin: 0; }
+
+  .item h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.75rem; font-weight: 600; letter-spacing: -0.01em; }
+  .item p { margin: 0.5rem 0 1rem; }
+  .item ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
+  .item li { margin: 0.45rem 0; }
+  .item li::marker { color: var(--bar-color); }
+  .item a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--bar-color); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
+  .item a:hover { text-decoration-color: var(--ink); }
+
+  .compare { margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: var(--t-small); }
+  .compare th, .compare td { text-align: left; padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .compare thead th { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); border-bottom: 2px solid var(--hairline-bold); }
+  .compare tbody th { font-weight: 500; color: var(--ink); background: var(--bg-sunk); white-space: nowrap; }
+  .compare .ok { color: oklch(0.55 0.15 145); font-weight: 600; }
+  .compare .no { color: var(--tier-crit); font-weight: 600; }
+
+  details.deep-dive { margin: 1.5rem 0; border: 1px solid var(--hairline); border-radius: 2px; overflow: hidden; }
+  details.deep-dive[open] { background: var(--bg-card); }
+  details.deep-dive > summary { list-style: none; cursor: pointer; padding: 0.9rem 1.1rem; font-family: 'Geist', sans-serif; font-weight: 500; font-size: var(--t-small); color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; user-select: none; background: var(--bg-sunk); transition: background 0.15s; }
+  details.deep-dive > summary:hover { background: oklch(0.92 0.014 85); }
+  details.deep-dive > summary::-webkit-details-marker { display: none; }
+  details.deep-dive > summary::after { content: "+"; font-family: 'Geist Mono', monospace; font-size: 1.1rem; color: var(--ink-mute); transition: transform 0.2s; }
+  details.deep-dive[open] > summary::after { content: "−"; }
+  details.deep-dive .dd-body { padding: 1.25rem 1.1rem; }
+
+  .jargon { background: var(--bg-sunk); padding: 1rem 1.25rem; border-radius: 2px; margin: 1.5rem 0; font-size: var(--t-small); }
+  .jargon dt { font-family: 'Geist Mono', monospace; font-weight: 500; color: var(--ink); display: inline; }
+  .jargon dd { display: inline; margin: 0; color: var(--ink-soft); }
+  .jargon dt + dd::before { content: " = "; color: var(--ink-mute); }
+  .jargon dd + dt { display: block; margin-top: 0.5rem; }
+  .jargon dd + dt::before { content: ""; }
+
+  .still-tracking { margin: 3rem 0 2rem; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--ink-mute); border-radius: 2px; }
+  .still-tracking .smallcaps { display: block; margin-bottom: 0.85rem; color: var(--ink-soft); }
+  .still-tracking ul { list-style: none; margin: 0; padding: 0; font-size: var(--t-small); }
+  .still-tracking li { margin: 0.55rem 0; padding: 0; display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.6rem; align-items: baseline; }
+  .still-tracking .days { font-family: 'Geist Mono', monospace; color: var(--ink-mute); font-size: 0.82em; background: var(--bg-sunk); padding: 0.15rem 0.4rem; border-radius: 2px; text-align: center; white-space: nowrap; }
+  .still-tracking .item-name { color: var(--ink); font-weight: 500; }
+  .still-tracking .update { color: var(--ink-soft); }
+
+  .killed { margin: 4rem 0 2rem; padding: 2rem 0; border-top: 1px solid var(--hairline-bold); }
+  .killed h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 500; font-size: var(--t-h2); margin: 0 0 1.5rem; color: var(--ink-soft); }
+  .killed table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+  .killed th, .killed td { text-align: left; padding: 0.6rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .killed thead th { font-family: 'Geist Mono', font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .item:nth-of-type(1) { animation-delay: 0.05s; }
+  .item:nth-of-type(2) { animation-delay: 0.15s; }
+  .item:nth-of-type(3) { animation-delay: 0.25s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./" class="current">今日</a>
+      <a href="./archive.html">归档</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 05 · 28  ·  Wk 22  ·  №&nbsp;005  ·  Thu</span>
+    <span>约 14 分钟读完</span>
+  </div>
+
+  <nav class="pager top" data-current-date="2026-05-28">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-27.html"><span class="pg-arrow">←</span> 2026-05-27 (Wed)</a></span>
+    <span class="pg-mid">第 005 期 · 共 N 期</span>
+    <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <section class="cover">
+    <span class="kicker smallcaps">今日真信号</span>
+    <h1 class="display headline">Anthropic 发布 Opus 4.8 + Dynamic Workflows + Mistral Vibe 更新</h1>
+    <p class="lead">今天有一条 🚨：Anthropic 同时发布了 Opus 4.8 和 Dynamic Workflows——模型更强了，但真正的新闻是 Claude 可以自己编排并启动数百个并行子 agent 来协作完成大型任务。另外 Mistral 的 Vibe 产品增加了 Work/Code 模式和 VS Code 扩展，值得知道。</p>
+    <div class="count-row">
+      <div class="total">2</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 必看 (Must See)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 可看 (Worth a Look)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ 知道 (FYI)</span>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="目录">
+    <span class="smallcaps">本期目录</span>
+    <ol>
+      <li><span class="tier-mark">🚨</span><a href="#opus-48">Claude Opus 4.8 + Dynamic Workflows — 模型升级 + 并行 agent 编排</a></li>
+      <li><span class="tier-mark">👀</span><a href="#mistral-vibe">Mistral Vibe 更新 — Work/Code 模式 + VS Code 扩展</a></li>
+    </ol>
+  </nav>
+
+  <!-- ITEM 1: Claude Opus 4.8 + Dynamic Workflows -->
+  <article id="opus-48" class="item item--crit">
+    <div class="tier-label">🚨 Must See · Anthropic 产品发布</div>
+    <h2 class="display title">Claude Opus 4.8 + Dynamic Workflows — 模型升级，但真正的新闻是并行 agent 编排</h2>
+    <p class="pitch">Anthropic 今天发布了 Opus 4.8 和 Dynamic Workflows。Opus 4.8 在 SWE-Bench Pro 上拿到 69.2%（比 GPT-5.5 高 10 分），价格不变，Fast 模式 2.5x 更快。但 Dynamic Workflows 才是真正改变游戏规则的东西——Claude 现在可以自己写编排脚本，同时启动数百个并行子 agent 协作完成大型任务。这直接改变了你用 Claude Code 能做的事。</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 背景 · Context</span>
+      <p>Opus 4.7 是 Anthropic 在 2026 年初发布的旗舰模型，在 coding 和 agent 任务上表现强劲但被一些用户抱怨"懒"——提前停止任务、过度自信地报告进度、不自觉地截断复杂工作。Opus 4.8 直接回应这些反馈：更诚实（主动说不知道）、更持久（不会提前停）、更细致。与此同时，Dynamic Workflows 是 Claude Code 中启用的新编排系统——本质上是一个"递归 agent"框架，Claude 自己写 orchestration 脚本然后 spawn 大量子 agent 并行工作。这被一些研究者视为 Recursive Language Models 概念的产品化。</p>
+    </div>
+
+    <h3>为什么这事重要</h3>
+    <ul>
+      <li><strong>Dynamic Workflows 让你能用数百个并行 agent 协作</strong>——Claude 自己写编排脚本，严格遵循，然后启动成百上千个子 agent 并行处理任务。Anthropic 展示的例子：把 Bun 从 Zig 移植到 Rust，75 万行代码，11 天从第一次 commit 到合并，99.8% 测试通过。另一个例子：10 分钟内并行处理数百个 A/B 测试 flag，识别出过期的。对你来说，这意味着以前需要几天拆解的大任务，现在可以丢给 Claude 让它自己拆。</li>
+      <li><strong>Opus 4.8 模型本身更强了</strong>——SWE-Bench Pro 69.2%（比 GPT-5.5 高 10 分），FrontierSWE #1，APEX-SWE 45.3% Pass@1（比 GPT-5.3 Codex 高近 4 分）。显著提升：Terminal-Bench Hard +6.8，τ²-Bench Telecom +5.9，IFBench +3.6。更重要的是，官方说它用 15% 更少的轮次和 35% 更少的输出 token 达到了更高的性能。</li>
+      <li><strong>价格不变，Fast 模式 2.5x 更快</strong>——输入 $5/M token，输出 $25/M token。1M 上下文窗口。Fast 模式比 Opus 4.7 Fast 快 2.5 倍，而且只比普通 4.8 贵 2 倍（之前 Fast 模式比普通贵 6 倍）。经济性大幅改善。</li>
+      <li><strong>模型更诚实了</strong>——社区一致反馈：Opus 4.8 更愿意说"我不知道"，主动标记代码中的问题，避免虚假的任务完成报告。这解决了很多 heavy user 对 Claude 的最大抱怨。</li>
+    </ul>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 实操 — 今天能做什么</span>
+      <ol>
+        <li><strong>打开 Claude Code 试试 Dynamic Workflows</strong>（5 分钟）——在 Claude Code 里输入包含 "workflow" 关键词的 prompt 来激活。比如 "write a workflow to refactor this codebase" 或 "create a workflow to analyze all these logs"。观察 Claude 是否自动生成编排脚本并启动子 agent。</li>
+        <li><strong>切换到 Opus 4.8</strong>（3 分钟）——在 Claude Code 配置或 Claude.ai 的模型选择中切换到 Opus 4.8。价格和 4.7 一样，但性能和效率都更好。</li>
+        <li><strong>尝试 Fast 模式</strong>——如果你之前因为价格没怎么用 Fast 模式，现在它相对普通模式只贵 2 倍（而不是 6 倍），值得在日常简单任务上试试。</li>
+        <li><strong>读 Dan Shipper 的评测</strong>——Dan Shipper 说 Opus 4.8 "could've been called Opus 5"。他推荐 coding 用 xhigh effort、writing 用 high effort。这可以帮你快速找到最有效的使用方式。</li>
+      </ol>
+    </div>
+
+    <div class="compare">
+      <table>
+        <thead>
+          <tr><th>维度</th><th>Opus 4.8</th><th>Opus 4.7</th><th>GPT-5.5 xhigh</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>SWE-Bench Pro</th><td>69.2%</td><td>~62%</td><td>~59%</td></tr>
+          <tr><th>价格 (输入/输出)</th><td>$5 / $25 M</td><td>$5 / $25 M</td><td>$10 / $40 M</td></tr>
+          <tr><th>Fast 模式速度</th><td>2.5x 更快</td><td>2.5x 更快</td><td>—</td></tr>
+          <tr><th>Fast 模式溢价</th><td>2x</td><td>6x</td><td>—</td></tr>
+          <tr><th>上下文窗口</th><td>1M tokens</td><td>1M tokens</td><td>256K tokens</td></tr>
+          <tr><th>GDPval Elo</th><td>1890</td><td>1753</td><td>1769</td></tr>
+          <tr><th>动态并行 agent</th><td class="ok">有 (Dynamic Workflows)</td><td class="no">无</td><td class="no">无 (Codex 单 agent)</td></tr>
+          <tr><th>诚实/校准</th><td>大幅改善</td><td>中等</td><td>中等</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 深扒 — Dynamic Workflows 到底怎么工作 + 代价是什么</summary>
+      <div class="dd-body">
+
+        <p><strong>Dynamic Workflows 的工作方式</strong>：</p>
+        <ul>
+          <li>你在 Claude Code 里给出一个大型任务（例如"把这个代码库从 JS 移植到 Python"）</li>
+          <li>Claude 自己写一个 orchestration 脚本，描述任务拆解和子 agent 分配方案</li>
+          <li>Claude 严格遵循这个脚本，同时启动数百个并行子 agent</li>
+          <li>每个子 agent 处理一个子任务，两个 reviewer agent 审查每个文件的输出</li>
+          <li>结果汇总后返回给你</li>
+        </ul>
+
+        <p><strong>vs 你之前手动拆任务</strong>：以前你需要自己决定怎么拆任务，一个个按顺序让 Claude 做。现在 Claude 自己拆、自己排、自己并行执行。这是从"你用工具"到"你告诉工具目标，工具自己规划执行"的转变。</p>
+
+        <p><strong>代价</strong>：</p>
+        <ul>
+          <li>token 消耗非常大——数百个并行 agent 意味着大量推理 token。社区反馈："quota-burning"、"token-mogged by GPT-5.5"。</li>
+          <li>并行编辑可能有冲突——Theo 抱怨过并行编辑的冲突问题。</li>
+          <li>需要 Max/Team/Enterprise 计划或 API 访问——不是所有层级都可用。</li>
+        </ul>
+
+        <p><strong>诚实 caveat</strong>：Dynamic Workflows 是 research preview，不是正式版。token 成本没有官方估算，实际使用中可能比手动拆分更贵。建议先在中小型任务上测试，不要一上来就丢 75 万行代码给它。</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 接下来看什么</span>
+      <p>三个关键触发点：(1) Dynamic Workflows 从 research preview 转为正式版——那时可以放心在生产中使用；(2) Anthropic 提到计划发布"比 Opus 更智能的新模型类别"（推测是 Mythos 类模型），在更强的安全保障后推出——这将是 🚨 级别信号；(3) 社区发布 Dynamic Workflows 的 token 成本分析——决定是否值得在常规工作中使用。</p>
+    </div>
+
+    <div class="jargon">
+      <dl>
+        <dt>Dynamic Workflows</dt>
+        <dd>Claude Code 中的新编排系统——Claude 自己写 orchestration 脚本，然后启动数百个并行子 agent 协作完成任务</dd>
+        <dt>SWE-Bench Pro</dt>
+        <dd>评估 AI 代码模型在真实软件工程任务上表现的基准测试</dd>
+        <dt>Effort 设置</dt>
+        <dd>Opus 4.8 支持不同的推理努力级别——xhigh（极高）用于 coding，high（高）用于写作</dd>
+      </dl>
+    </div>
+
+    <h3>谁在讨论</h3>
+    <ul>
+      <li>Dan Shipper: "Opus 4.8 could've been called Opus 5"</li>
+      <li>scaling01: "Anthropic found a cure for laziness" / "first smart model in a long while"</li>
+      <li>Cat Wu (Anthropic): 展示了 Dynamic Workflows 的实际案例（Bun 移植 75 万行代码）</li>
+      <li>Artificial Analysis: GDPval AA 指数 61.4，+4.1 vs Opus 4.7，+1.2 vs GPT-5.5 xhigh</li>
+      <li>Andon Labs: 认为 Opus 4.8 在某些基准上不如 Opus 4.7 / GPT-5.5，更保守/谨慎</li>
+      <li>Hacker News: 387 分（来自 Claude Code 实战文章的热度延续）</li>
+    </ul>
+
+    <h3>试试看 / 深入了解</h3>
+    <ul>
+      <li>Anthropic 官方发布：<a href="https://anthropic.com/news/introducing-claude-opus-4-8">anthropic.com/news/introducing-claude-opus-4-8</a></li>
+      <li>Claude Code 文档（Dynamic Workflows）：<a href="https://docs.anthropic.com/en/docs/claude-code">docs.anthropic.com/en/docs/claude-code</a></li>
+      <li>Artificial Analysis 评测：<a href="https://artificialanalysis.ai">artificialanalysis.ai</a></li>
+      <li>HN 讨论帖（387 pts）：<a href="https://hn.algolia.com/?q=Opus+4.8+Anthropic&dateRange=pastWeek&sort=byPopularity">hn.algolia.com 搜索</a></li>
+    </ul>
+  </article>
+
+  <!-- ITEM 2: Mistral Vibe gets to work -->
+  <article id="mistral-vibe" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · 产品更新</div>
+    <h2 class="display title">Mistral Vibe 更新 — 新增 Work/Code 模式 + VS Code 扩展</h2>
+    <p class="pitch">Mistral 今天给 Vibe 加了 Work 和 Code 两种模式，还推出了 VS Code 扩展。Vibe 是 Mistral 的统一 agent 产品，对标 Claude Code 但更偏通用生产力。如果你用 VS Code，又多了一个直接在编辑器里使用的 AI agent 选择——而且 Mistral 的定价通常比 Anthropic/OpenAI 便宜。</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 背景 · Context</span>
+      <p>Mistral 是法国 AI 公司，以开源模型（Mistral Small/Medium/Large）和高效率著称。Vibe 是他们的 agent 产品线——2026 年初推出的"远程 agent"产品，可以运行在云端、执行长期任务。之前 Vibe 主要面向编码场景。今天的更新把 Vibe 拆成两个模式：Work 模式（文档分析、数据整理、知识工作等非编码任务）和 Code 模式（编码 agent）。同时发布 VS Code 扩展，让你在编辑器里直接使用 Vibe。基于 Mistral Medium 3.5 模型（5 月底发布的新模型）。</p>
+    </div>
+
+    <h3>为什么这事重要</h3>
+    <ul>
+      <li><strong>Vibe 现在覆盖了非编码场景</strong>——Work 模式让你可以用 Vibe 做文档分析、报告写作、数据整理等办公室工作。对 clawii 来说，这可能是 Claude.ai 或 ChatGPT 之外的另一个日常 AI 帮手，而且背后的 Mistral 模型以效率著称（同样任务用更少 token）。</li>
+      <li><strong>VS Code 扩展 = 直接在编辑器里用</strong>——和 Claude Code（终端内）不同，Vibe 的 VS Code 扩展是完整的 GUI 体验。如果你习惯 VS Code 界面而不是终端，这可能更舒服。</li>
+      <li><strong>Mistral 的定价通常更低</strong>——Mistral Medium 3.5 的 API 价格比 Opus 便宜很多。如果你对成本敏感，Vibe 可能是一个经济实惠的替代方案。</li>
+      <li><strong>更多竞争 = 更好选择</strong>——Anthropic（Claude Code）、OpenAI（Codex/ChatGPT）、Mistral（Vibe）三家都在卷 agent 产品。竞争会推动价格下降和功能提升，最终受益的是用户。</li>
+    </ul>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 实操 — 今天能做什么</span>
+      <ol>
+        <li><strong>读 Mistral 的公告</strong>（5 分钟）——<a href="https://mistral.ai/news">mistral.ai/news</a> 上的 "Vibe gets to work" 文章。了解 Work 和 Code 模式的具体区别和定价。</li>
+        <li><strong>安装 VS Code 扩展</strong>（2 分钟）——在 VS Code 扩展市场搜索 "Mistral Vibe" 安装。试试在编辑器里直接提一个简单的编码或文档处理任务。</li>
+        <li><strong>和 Claude Code 对比</strong>——同一个任务分别用 Claude Code 和 Vibe 做一次，比较速度、质量和成本。Mistral 模型通常在效率上有优势（更少的 token 消耗）。</li>
+        <li><strong>别着急切换主力工具</strong>——先试用，等 1-2 周看看社区反馈再决定是否作为日常工具。Mistral 的生态（插件、社区支持、集成）还比不上 Anthropic 和 OpenAI。</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 深扒 — Vibe 和 Claude Code / Codex 比怎么样</summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th>维度</th><th>Mistral Vibe</th><th>Claude Code</th><th>OpenAI Codex</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>定位</th><td>通用 agent（代码 + 知识工作）</td><td>代码 agent</td><td>代码 agent</td></tr>
+              <tr><th>新功能</th><td>Work 模式（非编码）+ Code 模式</td><td>Dynamic Workflows（并行 agent）</td><td>Codex app（多工具集成）</td></tr>
+              <tr><th>编辑器集成</th><td>VS Code 扩展（全新）</td><td>终端 CLI + 部分 IDE</td><td>JetBrains + VS Code 插件</td></tr>
+              <tr><th>底层模型</th><td>Mistral Medium 3.5</td><td>Claude Opus 4.8</td><td>GPT-5.5 Codex</td></tr>
+              <tr><th>价格</th><td>通常较低（Mistral 定价有竞争力）</td><td>$5/$25 M tokens</td><td>$10/$40 M tokens</td></tr>
+              <tr><th>模型效率</th><td>好（Mistral 以 token 效率著称）</td><td>中等（4.8 有改善）</td><td>中等</td></tr>
+              <tr><th>生态成熟度</th><td>较新（2026 年初推出）</td><td>成熟（大量插件/社区）</td><td>成熟（ChatGPT 集成）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>对 clawii 的实际意义</strong>：</p>
+        <ul>
+          <li><strong>Vibe 的核心优势是 Work 模式</strong>——Claude Code 和 Codex 都是代码优先。Vibe 的 Work 模式覆盖了文档处理、数据分析等办公室工作，这让它成为一个更通用的 AI 工具。</li>
+          <li><strong>Mistral 的效率优势</strong>——如果你对 token 成本敏感，Mistral 模型通常用更少的 token 完成同样任务。长期使用可能省不少钱。</li>
+          <li><strong>VS Code 扩展降低了使用门槛</strong>——不需要用终端，直接在 VS Code 里操作，对非开发者更友好。</li>
+        </ul>
+
+        <p><strong>诚实 caveat</strong>：Mistral 的生态远不如 Anthropic 和 OpenAI。社区插件少、第三方集成有限、企业级支持不如大厂。作为主力工具还需要观望。另外底层模型 Mistral Medium 3.5 在纯编码能力上是否比得上 Opus 4.8 或 GPT-5.5 Codex 还有待验证。</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 接下来看什么</span>
+      <p>两个关键触发点：(1) KOL（Karpathy、swyx 等）是否开始认真讨论 Vibe——目前社区关注度主要在 Anthropic/OpenAI；(2) Vibe 的 Work 模式在非编码任务上的实际表现——如果它在文档处理和数据分析上真的比 Claude Code 好，那是另一个故事。</p>
+    </div>
+
+    <div class="jargon">
+      <dl>
+        <dt>Vibe</dt>
+        <dd>Mistral 的 AI agent 产品——类似 Claude Code 但更通用，支持编码和知识工作</dd>
+        <dt>Work 模式</dt>
+        <dd>Vibe 的新模式——用于文档分析、数据整理、报告写作等非编码任务</dd>
+        <dt>Code 模式</dt>
+        <dd>Vibe 的编码 agent 模式——用于代码生成、重构、调试</dd>
+      </dl>
+    </div>
+
+    <h3>谁在讨论</h3>
+    <ul>
+      <li>Mistral 官方博客：<a href="https://mistral.ai/news/vibe-gets-to-work">mistral.ai/news/vibe-gets-to-work</a> — "The unified agent for long-horizon productivity and coding, launching with Work and Code modes. Plus, a new Vibe VS Code extension."</li>
+      <li>Mistral 同时发布了 AI Now Summit 2026 和 Search Toolkit（同一天）</li>
+    </ul>
+
+    <h3>试试看 / 深入了解</h3>
+    <ul>
+      <li>Mistral 官方公告：<a href="https://mistral.ai/news">mistral.ai/news</a> — 搜索 "Vibe gets to work"</li>
+      <li>VS Code 扩展市场：搜索 "Mistral Vibe"</li>
+      <li>Le Chat（Mistral 的对话产品）：<a href="https://chat.mistral.ai">chat.mistral.ai</a></li>
+    </ul>
+  </article>
+
+  <!-- STILL TRACKING -->
+  <aside class="still-tracking">
+    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
+    <ul>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">👀 "Claude Code 当日常驱动"</span> <span class="update">— HN 76 分实战长文，无新触发事件；Opus 4.8 + Dynamic Workflows 的发布可能让这篇文章的讨论重新活跃。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">👀 "用 AI 写更好的代码，写慢一点"</span> <span class="update">— 无新触发事件；仍在 HN 前页但讨论减少。</span></div>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- WHAT DIDN'T MAKE IT -->
+  <section class="killed">
+    <h2>今天没选进来的</h2>
+    <table>
+      <thead>
+        <tr><th>来源</th><th>内容</th><th>为什么没选</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Anthropic 5/28</td><td>Anthropic raises $65B in Series H at $965B post-money valuation</td><td>融资宣布——排除规则；产品 (Opus 4.8) 已单独纳入</td></tr>
+        <tr><td>Anthropic 5/27</td><td>Anthropic opens Milan office</td><td>办公室扩张——排除</td></tr>
+        <tr><td>Anthropic 5/26</td><td>Anthropic appoints KiYoung Choi as Representative Director of Korea</td><td>人事变动——排除</td></tr>
+        <tr><td>Anthropic 5/25</td><td>Chris Olah remarks on Pope Leo XIV's encyclical</td><td>宗教/伦理评论——排除</td></tr>
+        <tr><td>Smol AI</td><td>AI Reddit: Qwen 3.6 Coding Agent Quantization</td><td>开发者 infra，非 clawii 工作流</td></tr>
+        <tr><td>Smol AI</td><td>LLM Serving Infrastructure: ZCube and vLLM Security</td><td>开发者 infra，非 clawii 工作流</td></tr>
+        <tr><td>Smol AI</td><td>AI Agent Safety and Model Internals</td><td>纯研究讨论，无可用产品</td></tr>
+        <tr><td>OpenAI 5/28</td><td>endava / MUFG / Cisco 企业合作</td><td>企业合作公告，非突破性</td></tr>
+        <tr><td>OpenAI 5/28</td><td>OpenAI Frontier Governance Framework</td><td>治理/政策文档——排除</td></tr>
+        <tr><td>Mistral 5/28</td><td>AI Now Summit 2026</td><td>会议/活动，非产品发布</td></tr>
+        <tr><td>Mistral 5/28</td><td>Introducing Search Toolkit</td><td>开发者工具，非 clawii 使用场景</td></tr>
+        <tr><td>Mistral 5/27</td><td>Introducing physics AI at Mistral</td><td>科学领域模型，非办公场景</td></tr>
+        <tr><td>Re-evaluated: opencode</td><td>Day 13 无新信号（5/24 首发）</td><td>超过 3 天零动态 + 已移出跟踪 → 保持排除</td></tr>
+        <tr><td>Re-evaluated: DeepSeek Reasonix</td><td>Day 14 无新信号（5/24 首发）</td><td>无新 HN/KOL 讨论，无产品升级 → 保持排除</td></tr>
+        <tr><td>Re-evaluated: KPMG Claude 27.6 万员工</td><td>Day 13 无新信号（5/24 首发）</td><td>无新动态 → 保持排除</td></tr>
+        <tr><td>Re-evaluated: Big 4 过半已 6 天</td><td>Day 12 无新信号（5/25 首发）</td><td>无新动态 → 保持排除</td></tr>
+        <tr><td>Re-evaluated: Gemini 3.5 Flash 1M token</td><td>Day 12 无新信号（5/25 首发）</td><td>无新动态 → 保持排除</td></tr>
+        <tr><td>Re-evaluated: RAEv2 / Gated DeltaNet-2</td><td>无新信号</td><td>仍为纯研究论文 → 保持排除</td></tr>
+        <tr><td>Re-evaluated: LangSmith Engine / SmithDB</td><td>无新信号</td><td>仍为开发者 infra → 保持排除</td></tr>
+        <tr><td>Re-evaluated: Project Glasswing 更新</td><td>5/22 初始更新后无新信号</td><td>关键基础设施安全，个人工作流无关 → 保持排除</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <nav class="pager bottom" data-current-date="2026-05-28">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-27.html"><span class="pg-arrow">←</span> 2026-05-27 (Wed)</a></span>
+    <a class="pg-mid" href="./archive.html">查看完整归档 →</a>
+    <span class="pg-next pg-disabled" data-slot="next">已是最新 <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      做你的 AI 虚拟朋友 — 每天 07:07 推送 · 上限 3 条 · 宁缺毋滥。
+    </p>
+    <p>
+      扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · mistral.ai/news · huggingface.co/blog · simonwillison.net
+    </p>
+    <p>
+      剔除规则：融资/诉讼/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+    </p>
+    <p class="system">
+      ai-radar · v0.3 · 2 items today (1🚨 / 1👀 / 0ℹ️) · Still tracking: Claude Code 实战长文 Day 2, 用 AI 写更好代码 Day 3. Killed-list re-evaluation: opencode (Day 13), DeepSeek Reasonix (Day 14), KPMG (Day 13), Big 4 (Day 12), Gemini Flash (Day 12), RAEv2, LangSmith, Glasswing — all confirmed dead.
+    </p>
+  </footer>
+
+</main>
+
+<script>
+(async function () {
+  const pagers = document.querySelectorAll('.pager');
+  if (pagers.length === 0) return;
+  const currentDate = pagers[0].dataset.currentDate;
+  if (!currentDate) return;
+  try {
+    const res = await fetch('./archive.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const issues = (data.issues || []).filter(i => i.kind !== 'weekly').sort((a, b) => a.date.localeCompare(b.date));
+    const idx = issues.findIndex(i => i.date === currentDate);
+    if (idx < 0) return;
+    const prev = issues[idx - 1] || null;
+    const next = issues[idx + 1] || null;
+    const totalDailies = issues.length;
+    const issueNum = (issues[idx] && issues[idx].issue) || (idx + 1);
+    for (const pager of pagers) {
+      const prevSlot = pager.querySelector('[data-slot="prev"]');
+      const nextSlot = pager.querySelector('[data-slot="next"]');
+      const midSlot = pager.querySelector('.pg-mid');
+      if (prev && prevSlot) {
+        const a = document.createElement('a');
+        a.href = prev.url;
+        a.className = 'pg-prev';
+        a.innerHTML = '<span class="pg-arrow">←</span> ' + prev.date + ' (' + (prev.weekday || '') + ')';
+        prevSlot.replaceWith(a);
+      }
+      if (next && nextSlot) {
+        const a = document.createElement('a');
+        a.href = next.url;
+        a.className = 'pg-next';
+        a.innerHTML = next.date + ' (' + (next.weekday || '') + ') <span class="pg-arrow">→</span>';
+        nextSlot.replaceWith(a);
+      }
+      if (midSlot && midSlot.tagName !== 'A') {
+        midSlot.textContent = '第 ' + String(issueNum).padStart(3, '0') + ' 期 · 共 ' + totalDailies + ' 期';
+      }
+    }
+  } catch (err) {
+    console.warn('archive.json fetch failed:', err.message);
+  }
+})();
+</script>
+
+</body>
+</html>

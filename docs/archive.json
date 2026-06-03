@@ -6,7 +6,7 @@
       "date": "2026-06-02",
       "weekday": "Tue",
       "week": 23,
-      "issue": 7,
+      "issue": 9,
       "kind": "daily",
       "headline": "微软 MAI-Code-1-Flash 空降 HN 前二 + Project Glasswing 扩大 + MiniMax M3",
       "summary": "今天没有 🚨 级别的紧急信号，但三条值得周末翻翻：微软发布了 MAI-Code-1-Flash（387 分 HN #2）—— 一个直接对标 Claude Code 和 codex 的代码模型；Anthropic 扩大 Project Glasswing 安全倡议（159 分，205 评论）—— 如果你在大公司，这会影响",
@@ -16,6 +16,21 @@
         "fyi": 1
       },
       "url": "2026-06-02.html"
+    },
+    {
+      "date": "2026-06-01",
+      "weekday": "Mon",
+      "week": 23,
+      "issue": 8,
+      "kind": "daily",
+      "headline": "今天没有真信号——一个安静的周一",
+      "summary": "扫描了全部源，今天确实没有什么值得你打破周末的。Smol AI 自己都说 \"not much happened today\"。HN 前 10 无 AI 相关高分帖。OpenAI 和 Anthropic 的新闻要么是基础设施/企业合作公告，要么已被排除规则过滤掉。Stay calm and keep building —",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "2026-06-01.html"
     },
     {
       "date": "2026-05-31",
@@ -35,7 +50,7 @@
       "date": "2026-05-30",
       "weekday": "Sat",
       "week": 22,
-      "issue": 6,
+      "issue": 7,
       "kind": "daily",
       "headline": "周末信号：MCP 还活着吗？  Mistral 在巴黎说了大实话。",
       "summary": "今天没有必须放下手头活的 🚨 — 正常。但三条值得周末翻翻的内容：MCP 生存争论登上 HN 前页（251 分，221 评论）——如果你用 Claude Code，MCP 是你工作流的一部分；Mistral 峰会的 386 分长文揭示了欧洲 AI 的策略；Liquid AI 的 8B 参数 MoE 模型效率高得吓人。",
@@ -50,7 +65,7 @@
       "date": "2026-05-29",
       "weekday": "Fri",
       "week": 22,
-      "issue": 5,
+      "issue": 6,
       "kind": "daily",
       "headline": "你的工具刚跃迁了。停下来看一眼。",
       "summary": "Opus 4.8 + Dynamic Workflows 同步发布：代码诚实度 4×、Claude Code 开放几百 agent 并行、价格不变。HN 第一名 1558 分 1222 评论。",
@@ -60,6 +75,21 @@
         "fyi": 0
       },
       "url": "2026-05-29.html"
+    },
+    {
+      "date": "2026-05-28",
+      "weekday": "Thu",
+      "week": 22,
+      "issue": 5,
+      "kind": "daily",
+      "headline": "Anthropic 发布 Opus 4.8 + Dynamic Workflows + Mistral Vibe 更新",
+      "summary": "今天有一条 🚨：Anthropic 同时发布了 Opus 4.8 和 Dynamic Workflows——模型更强了，但真正的新闻是 Claude 可以自己编排并启动数百个并行子 agent 来协作完成大型任务。另外 Mistral 的 Vibe 产品增加了 Work/Code 模式和 VS Code 扩展，值得知道",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-28.html"
     },
     {
       "date": "2026-05-27",

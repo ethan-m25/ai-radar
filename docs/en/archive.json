@@ -6,7 +6,7 @@
       "date": "2026-06-02",
       "weekday": "Tue",
       "week": 23,
-      "issue": 7,
+      "issue": 9,
       "kind": "daily",
       "headline": "Microsoft MAI-Code-1-Flash Lands HN #2 + Project Glasswing Expands + MiniMax M3",
       "summary": "No 🚨-level urgent signals today, but three worth flipping through this weekend: Microsoft shipped MAI-Code-1-Flash (387 pts, HN #2) — a code model that goes hea",
@@ -16,6 +16,21 @@
         "fyi": 1
       },
       "url": "2026-06-02.html"
+    },
+    {
+      "date": "2026-06-01",
+      "weekday": "Mon",
+      "week": 23,
+      "issue": 8,
+      "kind": "daily",
+      "headline": "No real signals today — a quiet Monday",
+      "summary": "Scanned all sources; nothing worth breaking your weekend for. Smol AI itself says \"not much happened today\". HN front page has no high-scoring AI posts. OpenAI ",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "2026-06-01.html"
     },
     {
       "date": "2026-05-31",
@@ -30,6 +45,111 @@
         "fyi": 1
       },
       "url": "weekly_2026-05-31.html"
+    },
+    {
+      "date": "2026-05-30",
+      "weekday": "Sat",
+      "week": 22,
+      "issue": 7,
+      "kind": "daily",
+      "headline": "Weekend signals: MCP survival debate + Mistral Summit raw notes + Liquid AI efficiency king",
+      "summary": "No 🚨-level urgent signals today — that's normal for a Saturday. Three worth flipping through this weekend: \"MCP is dead?\" hit HN front page (251 pts, 221 commen",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-05-30.html"
+    },
+    {
+      "date": "2026-05-29",
+      "weekday": "Fri",
+      "week": 22,
+      "issue": 6,
+      "kind": "daily",
+      "headline": "Your tool just jumped. Stop and look.",
+      "summary": "Anthropic shipped Claude Opus 4.8 + Dynamic Workflows — HN #1, 1,558 points, 1,222 comments. Not a routine iteration: ~4× better code honesty, Claude Code now r",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-29.html"
+    },
+    {
+      "date": "2026-05-28",
+      "weekday": "Thu",
+      "week": 22,
+      "issue": 5,
+      "kind": "daily",
+      "headline": "Anthropic Ships Opus 4.8 + Dynamic Workflows + Mistral Vibe Gets Work/Code Modes & VS Code Extension",
+      "summary": "One 🚨 today: Anthropic simultaneously dropped Opus 4.8 and Dynamic Workflows — the model is stronger, but the real news is Claude can now orchestrate and spawn ",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-28.html"
+    },
+    {
+      "date": "2026-05-27",
+      "weekday": "Wed",
+      "week": 22,
+      "issue": 4,
+      "kind": "daily",
+      "headline": "Go deeper with the tools you already have, don't chase new ones.",
+      "summary": "Nothing shiny launched today. But a 76-point HN post with 57 comments is getting serious traction — it's a full walkthrough of Claude Code's advanced features: ",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-27.html"
+    },
+    {
+      "date": "2026-05-26",
+      "weekday": "Tue",
+      "week": 22,
+      "issue": 3,
+      "kind": "daily",
+      "headline": "Slow down to write better code.",
+      "summary": "Only 1 signal today — but it's a serious one. HN front page with 698 points, 266 comments. A senior engineer's reflection on how to actually use AI to write bet",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-26.html"
+    },
+    {
+      "date": "2026-05-25",
+      "weekday": "Mon",
+      "week": 22,
+      "issue": 2,
+      "kind": "daily",
+      "headline": "Two Down, Two to Go — Big 4 Rhythm Calibration at Day 6",
+      "summary": "KPMG announced 6 days ago, PwC 11 days ago. No third firm has followed — not because the wave has stopped, but because the remaining two are doing the math. Two",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-05-25.html"
+    },
+    {
+      "date": "2026-05-24",
+      "weekday": "Sun",
+      "week": 21,
+      "issue": 1,
+      "kind": "daily",
+      "headline": "Price cuts + dark horse agent + big client — all at once.",
+      "summary": "First issue — calibrated. All 3 signals are directly about coding agents and enterprise AI. Each one will affect how you use AI in the next 1-3 months.",
+      "counts": {
+        "crit": 1,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-05-24.html"
     }
   ]
 }

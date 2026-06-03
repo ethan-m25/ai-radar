@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · 2026-05-27 · Week 22</title>
+<meta name="description" content="1 signal — Use the tools you already have, better. HN 76-pt Claude Code deep-dive.">
+
+<meta property="og:title" content="AI Radar · 2026-05-27">
+<meta property="og:description" content="1 real signal · 0 🚨 · 1 👀 · 0 ℹ️">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+
+  .pager { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 2.5rem; padding: 0.75rem 0; border-top: 1px dashed var(--hairline); border-bottom: 1px dashed var(--hairline); }
+  .pager.bottom { margin: 4rem 0 0; }
+  .pager a, .pager span { font-size: var(--t-small); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; flex: 1; }
+  .pager a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .pager .pg-prev { text-align: left; }
+  .pager .pg-mid { text-align: center; color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pager .pg-next { text-align: right; }
+  .pager .pg-disabled { color: var(--ink-mute); opacity: 0.5; }
+  .pager .pg-arrow { font-family: 'Geist Mono', monospace; color: var(--ink-mute); }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 20ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 52ch; margin: 0 0 2rem; }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .toc { margin-bottom: 3.5rem; padding: 1.5rem 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .toc .smallcaps { margin-bottom: 1rem; display: block; }
+  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  .toc li { counter-increment: toc; display: grid; grid-template-columns: 1.75rem 2rem 1fr; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--hairline); }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); color: var(--ink-mute); }
+  .toc li .tier-mark { font-size: 1.1rem; }
+  .toc li a { color: var(--ink); text-decoration: none; font-size: var(--t-body); transition: color 0.15s; }
+  .toc li a:hover { color: var(--tier-look); text-decoration: underline; text-underline-offset: 4px; }
+
+  .item { position: relative; margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); }
+  .item::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--bar-color, var(--tier-fyi)); }
+  .item--crit { --bar-color: var(--tier-crit); }
+  .item--look { --bar-color: var(--tier-look); }
+  .item--fyi { --bar-color: var(--tier-fyi); }
+  .item .tier-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bar-color); margin-bottom: 0.6rem; font-weight: 500; }
+  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 30ch; }
+  .item .pitch { font-size: var(--t-h3); color: var(--ink-soft); line-height: 1.45; font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; margin-bottom: 2rem; max-width: 48ch; }
+
+  .context-box { background: var(--bg-sunk); border-left: 2px solid var(--bar-color, var(--tier-fyi)); padding: 0.9rem 1.1rem; margin: 1rem 0 2rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .context-box .smallcaps { color: var(--bar-color); margin-bottom: 0.4rem; display: block; }
+  .context-box p { margin: 0; }
+  .context-box p + p { margin-top: 0.55rem; }
+
+  .action-block, .watch-block { margin: 1.5rem 0; padding: 1.1rem 1.25rem; border-radius: 2px; }
+  .action-block { background: oklch(0.96 0.02 100); border: 1px solid var(--hairline); }
+  .watch-block { background: var(--bg-card); border: 1px solid var(--hairline); border-left: 3px solid var(--bar-color); }
+  .action-block .smallcaps, .watch-block .smallcaps { color: var(--bar-color); margin-bottom: 0.55rem; display: block; }
+  .action-block ul, .watch-block ul, .action-block ol { margin: 0; padding-left: 1.1rem; }
+  .action-block li, .watch-block li { margin: 0.3rem 0; }
+  .action-block p, .watch-block p { margin: 0; }
+
+  .item h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.75rem; font-weight: 600; letter-spacing: -0.01em; }
+  .item p { margin: 0.5rem 0 1rem; }
+  .item ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
+  .item li { margin: 0.45rem 0; }
+  .item li::marker { color: var(--bar-color); }
+  .item a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--bar-color); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
+  .item a:hover { text-decoration-color: var(--ink); }
+
+  .lang { margin-top: 2.25rem; }
+  .lang-mark { display: inline-block; font-family: 'Geist Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.2rem 0.55rem; background: var(--bg-sunk); color: var(--ink-mute); border-radius: 2px; margin-bottom: 1rem; }
+
+  .compare { margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: var(--t-small); }
+  .compare th, .compare td { text-align: left; padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .compare thead th { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); border-bottom: 2px solid var(--hairline-bold); }
+  .compare tbody th { font-weight: 500; color: var(--ink); background: var(--bg-sunk); white-space: nowrap; }
+  .compare .ok { color: oklch(0.55 0.15 145); font-weight: 600; }
+  .compare .no { color: var(--tier-crit); font-weight: 600; }
+
+  details.deep-dive { margin: 1.5rem 0; border: 1px solid var(--hairline); border-radius: 2px; overflow: hidden; }
+  details.deep-dive[open] { background: var(--bg-card); }
+  details.deep-dive > summary { list-style: none; cursor: pointer; padding: 0.9rem 1.1rem; font-family: 'Geist', sans-serif; font-weight: 500; font-size: var(--t-small); color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; user-select: none; background: var(--bg-sunk); transition: background 0.15s; }
+  details.deep-dive > summary:hover { background: oklch(0.92 0.014 85); }
+  details.deep-dive > summary::-webkit-details-marker { display: none; }
+  details.deep-dive > summary::after { content: "+"; font-family: 'Geist Mono', monospace; font-size: 1.1rem; color: var(--ink-mute); transition: transform 0.2s; }
+  details.deep-dive[open] > summary::after { content: "−"; }
+  details.deep-dive .dd-body { padding: 1.25rem 1.1rem; }
+
+  .jargon { background: var(--bg-sunk); padding: 1rem 1.25rem; border-radius: 2px; margin: 1.5rem 0; font-size: var(--t-small); }
+  .jargon dt { font-family: 'Geist Mono', monospace; font-weight: 500; color: var(--ink); display: inline; }
+  .jargon dd { display: inline; margin: 0; color: var(--ink-soft); }
+  .jargon dt + dd::before { content: " = "; color: var(--ink-mute); }
+  .jargon dd + dt { display: block; margin-top: 0.5rem; }
+  .jargon dd + dt::before { content: ""; }
+
+  .still-tracking { margin: 3rem 0 2rem; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--ink-mute); border-radius: 2px; }
+  .still-tracking .smallcaps { display: block; margin-bottom: 0.85rem; color: var(--ink-soft); }
+  .still-tracking ul { list-style: none; margin: 0; padding: 0; font-size: var(--t-small); }
+  .still-tracking li { margin: 0.55rem 0; padding: 0; display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.6rem; align-items: baseline; }
+  .still-tracking .days { font-family: 'Geist Mono', monospace; color: var(--ink-mute); font-size: 0.82em; background: var(--bg-sunk); padding: 0.15rem 0.4rem; border-radius: 2px; text-align: center; white-space: nowrap; }
+  .still-tracking .item-name { color: var(--ink); font-weight: 500; }
+  .still-tracking .update { color: var(--ink-soft); }
+
+  .killed { margin: 4rem 0 2rem; padding: 2rem 0; border-top: 1px solid var(--hairline-bold); }
+  .killed h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 500; font-size: var(--t-h2); margin: 0 0 1.5rem; color: var(--ink-soft); }
+  .killed table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+  .killed th, .killed td { text-align: left; padding: 0.6rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .killed thead th { font-family: 'Geist Mono', font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .item:nth-of-type(1) { animation-delay: 0.05s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./" class="current">Today</a>
+      <a href="./archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 05 · 27  ·  Wk 22  ·  №&nbsp;004  ·  Wed</span>
+    <span>~7 min read</span>
+  </div>
+
+  <nav class="pager top" data-current-date="2026-05-27">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-26.html"><span class="pg-arrow">←</span> 2026-05-26 (Tue)</a></span>
+    <span class="pg-mid">Issue 004 · Total N</span>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Real Signals Today</span>
+    <h1 class="display headline">Go deeper with the tools you already have, don't chase new ones.</h1>
+    <p class="lead">Nothing shiny launched today. But a 76-point HN post with 57 comments is getting serious traction — it's a full walkthrough of Claude Code's advanced features: Claude.md, Skills, Subagents, Plugins, and MCPs, all wired together as a daily driver. If you use Claude Code every day but only touch the surface, this is worth 30 minutes.</p>
+    <div class="count-row">
+      <div class="total">1</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 Must See</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="Index">
+    <span class="smallcaps">Table of Contents</span>
+    <ol>
+      <li><span class="tier-mark">👀</span><a href="#claude-code-dd">"Claude Code as a Daily Driver" — HN 76-pt deep-dive on going all-in</a></li>
+    </ol>
+  </nav>
+
+  <!-- ITEM 1: Claude Code as a Daily Driver -->
+  <article id="claude-code-dd" class="item item--look">
+    <div class="tier-label">👀 Worth a Look · Practical Methodology</div>
+    <h2 class="display title">"Claude Code as a Daily Driver" — HN 76-pt power user guide</h2>
+    <p class="pitch">A popular HN post (76 pts, 57 comments) breaks down every advanced Claude Code feature — Claude.md, Skills, Subagents, Plugins, and the MCP ecosystem. No fluff, no theory — just concrete configurations and workflows. You use Claude Code every day, but you're probably only using a quarter of what it can do. This fills in the rest.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>Claude Code is Anthropic's command-line AI coding tool — and you already use it every day. But it's been evolving fast: Skills (custom skill packs), Subagents (parallel child agents), Plugins (community extensions), MCP integration (Model Context Protocol for tool connectivity), and Claude.md (per-project instruction files). None of these are discoverable from the tool itself — they require active learning and setup. The author, arps18, runs Claude Code as his primary dev environment and published his entire configuration and workflow publicly.</p>
+      <p><strong>This isn't a product launch. It's the "you bought a sports car but only drive it around the block" kind of great article.</strong></p>
+    </div>
+
+    <div class="lang">
+      <span class="lang-mark">Signal Analysis</span>
+      <h3>Why this matters — the power user manual Claude Code never shipped</h3>
+      <ul>
+        <li><strong>The author runs Claude Code as his primary dev environment</strong> — not a demo, not a beginner tutorial. He structures his entire workflow around Claude.md files, custom Skills, subagent delegation, and a curated set of plugins and MCP servers. This is the level of usage clawii should be aiming for.</li>
+        <li><strong>Five specific areas covered with real configs:</strong>
+          <br>1. <strong>Claude.md</strong> — per-project instruction files that tell Claude your conventions, architecture, and preferences. The author shares his actual template.
+          <br>2. <strong>Skills</strong> — reusable skill packs (e.g., a "code reviewer" skill, a "docs writer" skill) that can be loaded on demand.
+          <br>3. <strong>Subagents</strong> — spawning child Claude instances for parallel work (e.g., one subagent researches, another implements, a third reviews).
+          <br>4. <strong>Plugins</strong> — community plugins for things like Jira integration, git hooks, custom linters.
+          <br>5. <strong>MCPs</strong> — hooking Claude Code into external tools (databases, APIs, file systems) via the Model Context Protocol.</li>
+        <li><strong>Why this is a signal, not just a tutorial:</strong> 57 comments on HN means the community is actively debating trade-offs — which plugins are worth it, how to structure Skills, when subagents save time vs when they add overhead. This is the "next level" conversation for daily Claude Code users. If you read this, you'll be 1-2 weeks ahead of the Chinese-language content cycle on advanced Claude Code workflows.</li>
+        <li><strong>For clawii specifically:</strong> Your work (compensation analysis, policy comparison, data processing) has strong pattern repetition. A well-written Claude.md + a few custom Skills can skip the warm-up phase every time — Claude starts already understanding your industry, data formats, and compliance requirements. Real efficiency isn't writing code faster; it's getting up to speed faster.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do this week</span>
+      <ol>
+        <li><strong>Read the original post + HN discussion (40 min)</strong>: Open <a href="https://arps18.github.io/posts/claude-code-as-a-daily-driver/">arps18.github.io</a>. Focus on the Claude.md template and Subagents section. HN discussion at <a href="https://news.ycombinator.com/item?id=42894752">news.ycombinator.com/item?id=42894752</a>.</li>
+        <li><strong>Check your Claude.md</strong>: Do you have one for your main project? If not, write one today. Tell Claude your project architecture, naming conventions, code style, and files it shouldn't touch. The author pasted his template in the post — copy it directly.</li>
+        <li><strong>Try Subagents this week</strong>: Pick a medium task (e.g., "analyze this compensation data and generate a comparison report"). Split it: "Subagent A reads and summarizes the structure" → "Subagent B writes the analysis code" → "Main agent consolidates." Compare efficiency vs. your normal approach. Note the results.</li>
+        <li><strong>Install one MCP plugin</strong>: If you use Notion or Jira, install the corresponding MCP server. Then try a cross-tool workflow — "read requirements from Notion → Claude understands it → writes code → updates Jira ticket." The post has concrete MCP config examples.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — What these 5 features actually unlock</summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>Your current usage (guessing)</th><th>What you can do after reading</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Claude.md</th><td>None, or just "You are a coding assistant"</td><td>Full project context: architecture, conventions, exclusion rules, important file index</td></tr>
+              <tr><th>Skills</th><td>Don't know this exists</td><td>Build "compensation analysis skill," "policy comparison skill" — teach Claude your domain conventions, common formulas, privacy requirements</td></tr>
+              <tr><th>Subagents</th><td>One task at a time, finish then ask next</td><td>Run multiple subtasks in parallel: one queries data, one writes narrative, one checks consistency</td></tr>
+              <tr><th>Plugins</th><td>Never used any plugin</td><td>Community plugins: Jira auto-update, git commit linting, security scanning</td></tr>
+              <tr><th>MCPs</th><td>Don't know what MCP is</td><td>Claude reads databases directly, operates Notion, calls internal APIs — you don't switch tools manually</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Honest truth: these features aren't secret.</strong> Anthropic's docs cover them all. But practical configurations — how to actually write Claude.md, how to organize Skills, how to use Subagents in real projects — those aren't in the docs. Community experience is what's most valuable here, and this article concentrates it.</p>
+
+        <p><strong>Most useful part for clawii</strong>: Claude.md and Skills. Your daily work (compensation analysis, policy comparison, data processing) has strong recurring patterns. A solid Claude.md + a few custom Skills means every new project skips the warm-up phase — Claude already understands your industry, data format, and compliance requirements right from the start. That's real efficiency — not coding faster, but ramping up faster.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 Watch — what to look for next</span>
+      <p>If this post keeps gaining traction (more HN users sharing their Claude.md templates, Skills configurations), a wave of Claude Code best-practice sharing will hit over the next 1-2 weeks. Reading it now means you're at the starting line. Also watch whether Anthropic formalizes Skills into a shareable marketplace — that's a clear trend signal.</p>
+    </div>
+
+    <div class="jargon">
+      <dl>
+        <dt>Claude.md</dt>
+        <dd>A project-level instruction file that tells Claude about your codebase — architecture, conventions, preferences. Think of it as a permanent, structured "system prompt" for your project.</dd>
+        <dt>Skills</dt>
+        <dd>Reusable, loadable skill packs that teach Claude domain-specific expertise (e.g., a "code reviewer" skill, a "compensation analysis" skill) on demand.</dd>
+        <dt>Subagents</dt>
+        <dd>Child Claude instances spawned from your main session for parallel task execution. Each works independently, and the main agent consolidates results.</dd>
+        <dt>MCP</dt>
+        <dd>Model Context Protocol — an open standard for connecting AI models to external tools, databases, and APIs. Think of it as "USB-C for AI tool connectivity."</dd>
+      </dl>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li>arps18 (author): <a href="https://arps18.github.io/posts/claude-code-as-a-daily-driver/">Original post</a> — "Claude Code as a Daily Driver: Claude.md, Skills, Subagents, Plugins, and MCPs"</li>
+      <li>Hacker News: <strong>76 points, 57 comments</strong>, front page #12</li>
+      <li>Community discussion focuses on: optimal Skill granularity (too big = inflexible, too small = management overhead), Claude.md vs. regular prompt differences, and when Subagents truly save time vs. add overhead</li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li>Original post (must-read): <a href="https://arps18.github.io/posts/claude-code-as-a-daily-driver/">arps18.github.io/posts/claude-code-as-a-daily-driver/</a></li>
+      <li>HN discussion: <a href="https://news.ycombinator.com/item?id=42894752">news.ycombinator.com/item?id=42894752</a></li>
+      <li>Claude Code official docs (Skills section): <a href="https://docs.anthropic.com/en/docs/agents/claude-code">docs.anthropic.com/en/docs/agents/claude-code</a></li>
+    </ul>
+  </article>
+
+  <!-- STILL TRACKING — items from past 7 days still developing -->
+  <aside class="still-tracking">
+    <span class="smallcaps">📈 Still tracking · Not getting its own slot but still developing</span>
+    <ul>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">Big 4 wave (PwC + KPMG)</span> <span class="update">— 9 days since KPMG announcement, 14 days since PwC; no new announcements; next watchpoint: Deloitte/EY by June 15.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">Gemini 3.5 Flash</span> <span class="update">— 1M context usage reports continue surfacing; mid-range retrieval accuracy still a weak point; routing strategy unchanged.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">"Write better code, write slower"</span> <span class="update">— HN 698-pt essay still being discussed; no new KOL endorsement but community is deep in digestion mode.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">opencode</span> <span class="update">— Still #1 on OSSInsight 28d star growth (+1,440), but no new KOL endorsement or official update in 3 days; cooling.</span></div>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- WHAT DIDN'T MAKE IT -->
+  <section class="killed">
+    <h2>What didn't make it in today</h2>
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Content</th><th>Why excluded</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>HN (#3)</td><td>"I'm Tired of Talking to AI" (6 pts)</td><td>Opinion piece, no new information, low points</td></tr>
+        <tr><td>HN (#5)</td><td>BadHost – CVE-2026-48710: Starlette security vuln (62 pts)</td><td>Security advisory, not AI-related</td></tr>
+        <tr><td>HN (#18)</td><td>Launch HN: Minicor – Windows desktop automation (91 pts)</td><td>YC startup, not an AI breakthrough; clawii uses Mac</td></tr>
+        <tr><td>HN (#21)</td><td>Spain blocks Polymarket/Kalshi (938 pts)</td><td>Regulation/gambling, excluded</td></tr>
+        <tr><td>HN (#28)</td><td>Dropbox CEO departure (352 pts)</td><td>Personnel change, excluded</td></tr>
+        <tr><td>Anthropic 5/26</td><td>Korea representative director appointment</td><td>Personnel/office expansion, excluded</td></tr>
+        <tr><td>Smol AI 5/26</td><td>Harness engineering as key coding agent differentiator</td><td>Industry trend analysis, no concrete tool to try</td></tr>
+        <tr><td>Smol AI 5/26</td><td>Anthropic security guidance plugin (30-40% reduction in security PRs)</td><td>No official link/KOL discussion, can't verify or try</td></tr>
+        <tr><td>Smol AI 5/26</td><td>Claude Mythos solves Erdős problem #90</td><td>Pure research, no practical application</td></tr>
+        <tr><td>Smol AI 5/26</td><td>"Language Models Need Sleep" paper</td><td>Pure research paper, no usable product</td></tr>
+        <tr><td>Smol AI 5/26</td><td>DeepSWE benchmark / QUEST 2B-35B / CUSP</td><td>Benchmarks/research, no practical tool to try</td></tr>
+        <tr><td>OSSInsight</td><td>opencode / claude-code / codex continuing to lead</td><td>Already tracked, no breakthrough change</td></tr>
+        <tr><td>Re-evaluated: RAEv2 / Gated DeltaNet-2</td><td>Smol AI 5/21 pure research papers</td><td>Still no usable product, no new KOL discussion — keep excluded</td></tr>
+        <tr><td>Re-evaluated: DeepSeek Reasonix</td><td>HN heat faded 3 days ago</td><td>No new discussion, no product upgrade — can be removed from killed list this week</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <nav class="pager bottom" data-current-date="2026-05-27">
+    <span class="pg-prev" data-slot="prev"><a href="./2026-05-26.html"><span class="pg-arrow">←</span> 2026-05-26 (Tue)</a></span>
+    <a class="pg-mid" href="./archive.html">View full archive →</a>
+    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
+  </nav>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · max 3 items · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/index (403) · simonwillison.net · github.com/trending
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · v0.3 · 1 item today (0🚨 / 1👀 / 0ℹ️) · Still tracking: Big 4 Day 3 · Gemini Flash Day 3 · Slow code Day 2 · opencode Day 4 (last day in tracking, cooling). Killed-list re-evaluation: RAEv2/Gated DeltaNet-2 (no change), DeepSeek Reasonix (heat fully faded, ready to rotate out).
+    </p>
+  </footer>
+
+</main>
+
+<script>
+(async function () {
+  const pagers = document.querySelectorAll('.pager');
+  if (pagers.length === 0) return;
+  const currentDate = pagers[0].dataset.currentDate;
+  if (!currentDate) return;
+  try {
+    const res = await fetch('./archive.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const data = await res.json();
+    const issues = (data.issues || []).filter(i => i.kind !== 'weekly').sort((a, b) => a.date.localeCompare(b.date));
+    const idx = issues.findIndex(i => i.date === currentDate);
+    if (idx < 0) return;
+    const prev = issues[idx - 1] || null;
+    const next = issues[idx + 1] || null;
+    const totalDailies = issues.length;
+    const issueNum = (issues[idx] && issues[idx].issue) || (idx + 1);
+    for (const pager of pagers) {
+      const prevSlot = pager.querySelector('[data-slot="prev"]');
+      const nextSlot = pager.querySelector('[data-slot="next"]');
+      const midSlot = pager.querySelector('.pg-mid');
+      if (prev && prevSlot) {
+        const a = document.createElement('a');
+        a.href = prev.url;
+        a.className = 'pg-prev';
+        a.innerHTML = '<span class="pg-arrow">←</span> ' + prev.date + ' (' + (prev.weekday || '') + ')';
+        prevSlot.replaceWith(a);
+      }
+      if (next && nextSlot) {
+        const a = document.createElement('a');
+        a.href = next.url;
+        a.className = 'pg-next';
+        a.innerHTML = next.date + ' (' + (next.weekday || '') + ') <span class="pg-arrow">→</span>';
+        nextSlot.replaceWith(a);
+      }
+      if (midSlot && midSlot.tagName !== 'A') {
+        midSlot.textContent = 'Issue ' + String(issueNum).padStart(3, '0') + ' · Total ' + totalDailies;
+      }
+    }
+  } catch (err) {
+    console.warn('archive.json fetch failed:', err.message);
+  }
+})();
+</script>
+
+</body>
+</html>
