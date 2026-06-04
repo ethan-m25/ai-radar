@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-04",
+      "weekday": "Thu",
+      "week": 23,
+      "issue": 11,
+      "kind": "daily",
+      "headline": "Gemma 4 12B drops, plus a wake-up call on enterprise AI costs",
+      "summary": "Only 1 👀 signal today, but it's worth your time: Google officially released Gemma 4 12B — an Apache 2.0, 16GB-VRAM multimodal model that hit #1 on HN with 854 p",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-04.html"
+    },
+    {
       "date": "2026-06-03",
       "weekday": "Wed",
       "week": 23,

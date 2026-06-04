@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-04",
+      "weekday": "Thu",
+      "week": 23,
+      "issue": 11,
+      "kind": "daily",
+      "headline": "Gemma 4 12B 发布，还有一记企业 AI 成本警钟",
+      "summary": "今天只有 1 条 👀 信号，但值得认真看：Google 正式发布了 Gemma 4 12B，一个 Apache 2.0、16GB VRAM 就能跑的多模态模型，854 分 #1 HN 头条——对 clawii 来说，这意味着你可以在自己的电脑上跑一个接近前沿能力的模型，完全免费、完全开源。同时要留意 Simon Wil",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-04.html"
+    },
+    {
       "date": "2026-06-03",
       "weekday": "Wed",
       "week": 23,
