@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-05",
+      "weekday": "Fri",
+      "week": 23,
+      "issue": 12,
+      "kind": "daily",
+      "headline": "Enterprise AI cost controls + an open-source security framework — two grounded signals",
+      "summary": "Two 👀 signals today. One is a bill you can feel: Uber set a $1,500/month/tool cap on employee AI coding tools. Simon Willison's quantitative breakdown shows wha",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-06-05.html"
+    },
+    {
       "date": "2026-06-04",
       "weekday": "Thu",
       "week": 23,

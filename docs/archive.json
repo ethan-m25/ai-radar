@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-05",
+      "weekday": "Fri",
+      "week": 23,
+      "issue": 12,
+      "kind": "daily",
+      "headline": "企业 AI 成本管控 + 安全框架开源，两条务实信号",
+      "summary": "今天有 2 条 👀 信号。一个是每个人直接相关的账单信息：Uber 给每个员工设了 $1500/月/工具的上限，Simon Willison 的定量分析告诉你这对你的职业生涯意味着什么。另一个是 Anthropic 开源了一个 AI 驱动的漏洞发现框架，438 分冲上 HN 头条——对大公司安全团队是重要参考，对你理解",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-06-05.html"
+    },
+    {
       "date": "2026-06-04",
       "weekday": "Thu",
       "week": 23,
