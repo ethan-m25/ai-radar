@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-06",
+      "weekday": "Sat",
+      "week": 23,
+      "issue": 13,
+      "kind": "daily",
+      "headline": "安静的一天：没有发布、没有新模型、没有 KOL 弹窗",
+      "summary": "今天扫描了全部 10 个源，没有任何一条触及信号阈值。HN 头条被浏览器、相机维修和太空站占据；OpenAI 发了 Lockdown Mode 安全功能（Simon Willison 自挖，但无工具/模型突破）；Claude Code 和 Uber 的讨论在持续但无新触发事件。不硬凑 3 条出来。Stay calm a",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "2026-06-06.html"
+    },
+    {
       "date": "2026-06-05",
       "weekday": "Fri",
       "week": 23,

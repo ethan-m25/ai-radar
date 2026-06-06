@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-06",
+      "weekday": "Sat",
+      "week": 23,
+      "issue": 13,
+      "kind": "daily",
+      "headline": "Quiet Saturday — no releases, no new models, no KOL pop-ups",
+      "summary": "Scanned all 10 sources. Nothing hit the threshold. HN front page is dominated by browsers, camera repair, and the ISS. OpenAI shipped Lockdown Mode (Simon Willi",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "2026-06-06.html"
+    },
+    {
       "date": "2026-06-05",
       "weekday": "Fri",
       "week": 23,
