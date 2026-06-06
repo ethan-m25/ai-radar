@@ -8,11 +8,11 @@
       "week": 23,
       "issue": 13,
       "kind": "daily",
-      "headline": "Quiet Saturday — no releases, no new models, no KOL pop-ups",
-      "summary": "Scanned all 10 sources. Nothing hit the threshold. HN front page is dominated by browsers, camera repair, and the ISS. OpenAI shipped Lockdown Mode (Simon Willi",
+      "headline": "Gemma 4 QAT ships — running an open 12B multimodal model on your phone just got real",
+      "summary": "Saturday is quiet, but one thing stands out: Google released quantization-optimized versions of Gemma 4 12B for mobile and laptop, scoring 357 points on HN (#13",
       "counts": {
         "crit": 0,
-        "look": 0,
+        "look": 1,
         "fyi": 0
       },
       "url": "2026-06-06.html"
