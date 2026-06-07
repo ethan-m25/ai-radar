@@ -8,12 +8,12 @@
       "week": 23,
       "issue": 14,
       "kind": "daily",
-      "headline": "OpenAI's official harness engineering guide + Jane Street ditches Figma for Claude + a detective tool for Claude Code se",
-      "summary": "Three things worth your attention today: OpenAI published a deep \"Harness engineering\" guide on how to use Codex in an agent-first world (207 pts, 131 comments ",
+      "headline": "MetaGPT v0.8 makes agent teams work like a meeting, not a script",
+      "summary": "Open-source multi-agent orchestration framework MetaGPT shipped v0.8 today with natural language orchestration, parallel sub-agents, and a dynamic workflow engi",
       "counts": {
-        "crit": 1,
+        "crit": 0,
         "look": 1,
-        "fyi": 1
+        "fyi": 0
       },
       "url": "2026-06-07.html"
     },

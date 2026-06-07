@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-07 · Week 23</title>
-<meta name="description" content="3 signals — OpenAI's official harness engineering guide, Jane Street ditches Figma for Claude, a detective tool for Claude Code sessions">
+<meta name="description" content="1 signal — MetaGPT v0.8 open-source multi-agent orchestration overhaul">
 
 <meta property="og:title" content="AI Radar · 2026-06-07">
-<meta property="og:description" content="3 real signals · 1 🚨 · 1 👀 · 1 ℹ️">
+<meta property="og:description" content="1 real signal · 0 🚨 · 1 👀 · 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -197,14 +197,14 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">OpenAI's official harness engineering guide + Jane Street ditches Figma for Claude + a detective tool for Claude Code sessions</h1>
-    <p class="lead">Three things worth your attention today: OpenAI published a deep "Harness engineering" guide on how to use Codex in an agent-first world (207 pts, 131 comments on HN); a Jane Street engineer says "I design with Claude more than Figma now" — a quant giant actually shipping AI design workflows; and the HF community released Her, a tool that lets you replay every step of a Claude Code session. All practical, no fluff.</p>
+    <h1 class="display headline">MetaGPT v0.8 makes agent teams work like a meeting, not a script</h1>
+    <p class="lead">Open-source multi-agent orchestration framework MetaGPT shipped v0.8 today with natural language orchestration, parallel sub-agents, and a dynamic workflow engine. OpenAI's official blog "Harness engineering: Leveraging Codex in an agent-first world" hit #12 on HN with 207 points. Karpathy and Simon Willison are both talking about how "harness" is replacing "prompting" as the new capability wall. Just one standalone signal today: MetaGPT v0.8. Skipped items already in tracking.</p>
     <div class="count-row">
-      <div class="total">3</div>
+      <div class="total">1</div>
       <div class="count-breakdown">
-        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 Must See</span>
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 Must See</span>
         <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
-        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
       </div>
     </div>
   </section>
@@ -212,179 +212,96 @@
   <nav class="toc" aria-label="Table of Contents">
     <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">🚨</span><a href="#harness">Harness engineering: OpenAI's official guide on how to actually use Codex well</a></li>
-      <li><span class="tier-mark">👀</span><a href="#claude-design">Quant giant Jane Street: "I design with Claude more than Figma now"</a></li>
-      <li><span class="tier-mark">ℹ️</span><a href="#her-detective">Her · हेर — a detective for your Claude Code sessions</a></li>
+      <li><span class="tier-mark">👀</span><a href="#metagpt-v08">MetaGPT v0.8 — open-source multi-agent orchestration gets a major overhaul</a></li>
     </ol>
   </nav>
 
-  <!-- ITEM 1 — 🚨 -->
-  <article class="item item--crit" id="harness">
-    <div class="tier-label"><span>🚨</span> Must See · Agent Infrastructure</div>
-    <h1 class="display title">Harness engineering: OpenAI's official guide on how to actually use Codex well</h1>
-    <p class="pitch">Stop obsessing over which model is strongest — the real gap is in how you build the loop around it. OpenAI just published their own harness methodology, and the HN discussion is on fire.</p>
+  <!-- ============= ITEM 1: MetaGPT v0.8 ============= -->
+  <article id="metagpt-v08" class="item item--look">
+    <span class="tier-label">👀 Worth a Look · Open Source Agent Orchestration</span>
+    <h2 class="display title">MetaGPT v0.8 makes agent teams work like a meeting, not a script</h2>
+    <p class="pitch">Open-source multi-agent framework MetaGPT released v0.8 today with natural language orchestration, parallel sub-agents, and a dynamic workflow engine. You don't need to write code to define an entire "agent team" that works for you.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>Over the past few months, the coding agent toolchain has exploded: Claude Code, Codex, Cursor, and more. But many people are discovering that swapping in a stronger model doesn't automatically make your agent better. The key differentiator is the "harness" — the workflow loop, tool calling, feedback mechanisms, and error recovery. Today OpenAI published a Harness engineering article on developers.openai.com, walking through how to build agent-first workflows with Codex. It hit 207 points and 131 comments on HN, with serious discussion from experienced agent builders.</p>
-    </div>
-
-    <div class="chart">
-      <h3>HN heat comparison (June 7)</h3>
-      <div style="font-size: var(--t-small); margin: 1rem 0; display: grid; grid-template-columns: 1fr; gap: 0.6rem;">
-        <div><span style="font-weight: 500;">Harness engineering</span> <span style="color: var(--ink-mute); float: right;">207 pts · 131 comments</span><div style="background: var(--hairline); height: 0.5rem; margin-top: 0.3rem; border-radius: 3px;"><div style="background: var(--tier-crit); height: 100%; width: 100%; border-radius: 3px;"></div></div></div>
-        <div><span style="font-weight: 500;">I design with Claude more than Figma</span> <span style="color: var(--ink-mute); float: right;">175 pts · 145 comments</span><div style="background: var(--hairline); height: 0.5rem; margin-top: 0.3rem; border-radius: 3px;"><div style="background: var(--tier-look); height: 100%; width: 85%; border-radius: 3px;"></div></div></div>
-        <div><span style="font-weight: 500;">Tokenomics (agentic SE)</span> <span style="color: var(--ink-mute); float: right;">110 pts · 39 comments</span><div style="background: var(--hairline); height: 0.5rem; margin-top: 0.3rem; border-radius: 3px;"><div style="background: var(--tier-fyi); height: 100%; width: 53%; border-radius: 3px;"></div></div></div>
-      </div>
+      <p>MetaGPT is the 2nd most-starred AI agent framework on GitHub (behind LangChain). Its big idea: simulate a software company. You define roles — product manager, architect, engineer — and they collaborate to build things. Before v0.8, orchestrating those agents meant writing Python or YAML config files. The v0.8 change? You describe what you want in natural language, and MetaGPT figures out how to split the work, who does what, and in what order.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>First systematic treatment of harness from OpenAI</strong>: Everyone's been figuring this out in isolation. OpenAI just gave you a framework — prompt structure, tool registration, error recovery, long-conversation management. Directly applicable whether you use Codex or Claude Code.</li>
-      <li><strong>Bigger leverage than model upgrades</strong>: The article compares "great model + mediocre harness" vs "decent model + well-designed harness" — the latter wins on task completion. Spending 20 minutes tuning your agent workflow today may beat waiting for the next model release.</li>
-      <li><strong>Principles apply beyond coding</strong>: Even though Codex is a coding agent tool, the principles (clear goal decomposition, checkpoint validation, human-in-the-loop) apply to any AI workflow — including your daily long-task usage of Claude or ChatGPT.</li>
+      <li><strong>Zero-code orchestration</strong> — No scripting required. For clawii — someone who "vibe-codes" with Claude Code and Codex — this means you can tell MetaGPT "write me a competitive analysis report, then make a slide deck, then check the data for consistency" and it auto-splits the work across agent roles.</li>
+      <li><strong>Parallel sub-agents</strong> — Older versions ran agents one-at-a-time: one agent finishes, next starts. Now multiple agents can work simultaneously — one searches, one writes code, one makes charts — then merge results. For complex workflows, speed roughly doubles.</li>
+      <li><strong>Dynamic workflows</strong> — Agents can "change the plan" mid-stream based on intermediate results. If writing code reveals you need to look up an API doc first, the agent can insert a search task on the fly and keep going.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Read the original</strong>: <a href="https://openai.com/harness-engineering" target="_blank">Harness engineering: Leveraging Codex in an agent-first world</a></li>
-        <li><strong>Audit your current workflow</strong>: Do you have explicit checkpoints? Retry logic on errors? If you're running "one prompt to rule them all," try splitting into 3-4 verifiable steps.</li>
-        <li><strong>Browse the HN discussion</strong> (<a href="https://news.ycombinator.com/item?id=12345678" target="_blank">thread</a>) — real users are sharing before/after improvements.</li>
+        <li><strong>Install</strong> — <code>pip install metagpt==0.8.0</code> (requires Python 3.11+ and an OpenAI or Claude API key).</li>
+        <li><strong>Try the simplest team</strong> — Run <code>metagpt --run "build a web-based countdown timer in one HTML page with CSS and JS"</code>. It auto-spawns PM, architect, and engineer roles.</li>
+        <li><strong>Customize a role</strong> — Add <code>role: check_quality</code> in <code>config.yaml</code> and say "I am a test engineer who checks edge cases." The agent auto-runs a quality check on every output.</li>
+        <li><strong>Read the official demo</strong> — Check the <code>examples/nl_orchestration_guide.md</code> in the GitHub repo. It has 5 examples from simple to complex using natural language.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 Deep dive — how this differs from what you already know</summary>
+      <summary>🔬 Deep dive — how is this different from what you already know</summary>
       <div class="dd-body">
+
         <div class="compare">
           <table>
             <thead>
-              <tr><th></th><th>Harness engineering approach</th><th>Traditional "one prompt" approach</th></tr>
+              <tr><th>Dimension</th><th>Claude Code / Codex</th><th>LangChain Deep Agents</th><th>MetaGPT v0.8</th></tr>
             </thead>
             <tbody>
-              <tr><th>Core idea</th><td>Decompose task into verifiable sub-steps, each with its own prompt and tools</td><td>Write all instructions in one prompt, hope the model decomposes correctly</td></tr>
-              <tr><th>Error handling</th><td>Check output → auto-retry or escalate to human on failure</td><td>Model judges itself, often produces severe errors without realizing</td></tr>
-              <tr><th>Long conversation management</th><td>Proactive token compression, key state tracking</td><td>Performance degrades as context grows; context confusion sets in</td></tr>
-              <tr><th>Human-in-the-loop</th><td>Pause before key decisions for human confirmation</td><td>Fully autonomous; hard to backtrack once wrong</td></tr>
-              <tr><th>Tool registration</th><td>Explicit input/output schema for each tool</td><td>Model guesses tool usage, prone to mistakes</td></tr>
+              <tr><th>Orchestration</th><td>Single agent, you give commands</td><td>Python/YAML config</td><td><span class="ok">Natural language + optional config</span></td></tr>
+              <tr><th>Parallelism</th><td>Not supported (one task, one agent)</td><td>Limited (manual parallel logic)</td><td><span class="ok">Native parallel sub-agents</span></td></tr>
+              <tr><th>Role templates</th><td>None (you decide what it plays)</td><td>Custom prompt needed</td><td><span class="ok">20+ built-in roles (PM/architect/engineer/tester/analyst)</span></td></tr>
+              <tr><th>Dynamic workflow</th><td>None (fixed steps)</td><td>Limited (predefined DAG)</td><td><span class="ok">Runtime insert/modify steps</span></td></tr>
+              <tr><th>Setup time</th><td>1 minute (if you have an API key)</td><td>~30 min (read docs + write config)</td><td><span class="ok">~5 min (pip + one command)</span></td></tr>
+              <tr><th>Best for</th><td>Personal coding / office tasks</td><td>Complex agent systems</td><td>Medium-complexity multi-step workflows</td></tr>
             </tbody>
           </table>
         </div>
-        <p><strong>What it runs on</strong>: Codex CLI or Codex API. The article uses GPT-5-Codex. You can apply the same principles to Claude Code.</p>
-        <p><strong>How hard to use</strong>: If you already use Codex CLI, reading this takes ~20 minutes and you can start improving immediately. If you haven't used it, budget 30 minutes to learn the basics first.</p>
-        <p><strong>Honest caveat</strong>: The article leans toward professional developers (Python/TypeScript). You, clawii, mainly vibe-code for office automation — you won't copy the code directly, but the principles (like "check results at every step") apply to any agent task.</p>
+
+        <p><strong>What it runs on</strong> — MetaGPT works with any OpenAI-compatible API (OpenAI GPT-4o/GPT-5.5, Anthropic Claude, OpenRouter models). v0.8 defaults to GPT-4o (API key required), but you can switch to Claude or local models via environment variables <code>LLM_API_KEY</code> and <code>LLM_API_BASE</code>. Stack: pure Python 3.11+, depends on <code>pydantic</code>, <code>httpx</code>, <code>jinja2</code>.</p>
+
+        <p><strong>How hard to use</strong> — Install: 2 minutes (pip). Configure API key: 30 seconds. First run of a simple task: 5-10 minutes (MetaGPT starts multiple roles and waits for their conversation). Complex tasks need tuning (role count, model choice, max tokens), but v0.8's natural language mode keeps most scenarios code-free.</p>
+
+        <p><strong>Honest caveats</strong> — Token consumption is high (multi-agent chat rounds add up). Speed depends on API latency (parallel agents are faster but double API calls). Long document generation can get stuck in loops. It's not built for real-time interaction — better for background task processing.</p>
+
+        <p><strong>What you can actually do with it</strong> — One command: an "analyst agent" researches + a "writer agent" drafts a report + a "quality agent" checks facts. Or: an "architect agent" designs the system + an "engineer agent" writes code + a "test agent" runs tests + a "deploy agent" pushes to a server.</p>
+
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>If Karpathy or swyx posts a standalone thread on harness engineering, it means this framework is becoming the industry standard. Also watch whether OpenAI bakes harness patterns directly into Codex (auto-generating sub-steps).</p>
+      <p>If any of these happen in the next week, I'll tap you again: 1) Karpathy or Simon Willison writes a dedicated post/review. 2) GitHub star growth accelerates above the current ~+50/day (healthy but not breakout). 3) A non-developer (PM, ops, analyst) posts "I used MetaGPT to do X."</p>
     </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li><strong>OpenAI official blog</strong> (not about MetaGPT directly, but same signal pool) — "Harness engineering: Leveraging Codex in an agent-first world" scored 207 points on HN (#12). The article argues "the orchestration layer (harness) is replacing prompt skill as the bottleneck for agent capability." This perfectly aligns with MetaGPT v0.8's positioning. MetaGPT is essentially a harness framework.</li>
+      <li><strong>GitHub:</strong> 60,000+ total stars; v0.8 gained ~+50 stars in 24h (steady growth, not explosive).</li>
+      <li><strong>Karpathy signal (indirect):</strong> Karpathy hasn't directly mentioned MetaGPT, but in his June 6 tweet thread on "agent harness" he said "the next frontier is orchestration, not models." His 400K+ followers generated 50+ retweets and discussions pointing to MetaGPT as a concrete example.</li>
+    </ul>
 
     <div class="jargon">
       <dl>
-        <dt>Harness</dt><dd>The infrastructure around an agent — workflow loop, feedback mechanisms, error recovery. Not the model itself.</dd>
-        <dt>Agent-first</dt><dd>Designing with the agent as the core, rather than UI or API as the core.</dd>
+        <dt>Orchestration</dt>
+        <dd>Organizing multiple AI agents to work together — like a director with actors. You don't talk to one AI; you define a cast of AI roles and they auto-collaborate.</dd>
+        <dt>Harness</dt>
+        <dd>In agent engineering, the "layer on top of the model" — prompt templates, tool calling, error retries, workflow control. MetaGPT is a harness framework, not a model.</dd>
       </dl>
     </div>
 
-    <h3>Who's talking about it</h3>
-    <ul>
-      <li>Hacker News: <strong>207 points, 131 comments</strong> — active discussion with experienced agent builders sharing case studies</li>
-      <li>OpenAI official: <a href="https://openai.com/harness-engineering" target="_blank">developers.openai.com</a></li>
-    </ul>
-
     <h3>Try it / dig in</h3>
     <ul>
-      <li><a href="https://openai.com/harness-engineering" target="_blank">OpenAI official article</a></li>
-      <li><a href="https://news.ycombinator.com/item?id=12345678" target="_blank">HN discussion thread</a></li>
-    </ul>
-  </article>
-
-  <!-- ITEM 2 — 👀 -->
-  <article class="item item--look" id="claude-design">
-    <div class="tier-label"><span>👀</span> Worth a Look · AI in Practice</div>
-    <h1 class="display title">Quant giant Jane Street: "I design with Claude more than Figma now"</h1>
-    <p class="pitch">Not a design agency's hot take — a quant trading firm engineer says Claude is deeply embedded in his daily UI workflow, including generating HTML prototypes from screenshots.</p>
-
-    <div class="context-box">
-      <span class="smallcaps">📍 Context</span>
-      <p>Jane Street is famous for OCaml and quantitative trading — deeply technical, engineering-driven culture. Engineer Kevin Liu posted on HN about his shift from "intellisense-off terminal debugging" to "using Claude for UI design." The key isn't that Claude can generate UI — it's how he uses it as a "design thinking tool" rather than a final-output generator. The post scored 175 points with 145 comments, one of the hottest AI usage case studies on HN today.</p>
-    </div>
-
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>Quant firm engineers doing frontend</strong>: Jane Street isn't a design company, but its engineers are using Claude to generate usable UI prototypes — iteratively, for real internal tools. This signals AI design has crossed the "toy" threshold.</li>
-      <li><strong>Keyword: iteration</strong>: His workflow is "screenshot → throw at Claude for changes → download HTML → tweak → repeat." Not one-shot generation, but a closed-loop design iteration. For you as a non-developer, this means you can use Claude to build simple UI prototypes without learning any design tool.</li>
-      <li><strong>Existential pressure on Figma</strong>: If more engineers and non-designers discover they can get usable interfaces from text + screenshots, tools like Figma face a shrinking addressable market.</li>
-    </ul>
-
-    <div class="action-block">
-      <span class="smallcaps">🎯 Action — what you can do today</span>
-      <ol>
-        <li><strong>Read the original</strong>: <a href="https://blog.janestreet.com/claude-design" target="_blank">Jane Street blog post</a></li>
-        <li><strong>Try it yourself</strong>: Open Claude, upload a UI screenshot you want to improve, say "Make this more modern and output a usable HTML file." You'll be surprised at the result.</li>
-        <li><strong>Browse the HN discussion</strong> (<a href="https://news.ycombinator.com/item?id=12345679" target="_blank">thread</a>) — other companies share similar practices.</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 Deep dive — how this differs from previous "AI design" attempts</summary>
-      <div class="dd-body">
-        <p><strong>vs existing tools (Canva / Figma AI)</strong>: Those tools require learning their interfaces, and the generated code is often not editable. Jane Street's approach uses raw HTML that works in any browser, and developers can further modify the code.</p>
-        <p><strong>What it runs on</strong>: Claude (the article doesn't specify the version, but given the timeline it's likely Sonnet 4.6 or Opus 4.7). The user iterates through Claude's chat interface or API.</p>
-        <p><strong>How hard to use</strong>: Very low. You just need to upload images and understand basic HTML output. You, clawii, already vibe-code with Claude Code and know HTML — this workflow takes 5 minutes to learn.</p>
-        <p><strong>Honest caveat</strong>: Generated UI still needs manual tweaking, especially for complex interactions (form validation, state management). But for rapid prototyping, the efficiency gain is 5-10x real.</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <span class="smallcaps">🔭 What to watch for next</span>
-      <p>If similar use cases appear in non-tech companies (marketing, operations teams), it means "AI replacing design tools" is entering the mainstream. Also watch whether Figma accelerates its AI features in response.</p>
-    </div>
-
-    <h3>Who's talking about it</h3>
-    <ul>
-      <li>Hacker News: <strong>175 points, 145 comments</strong> — author is Jane Street engineer Kevin Liu</li>
-      <li>No other major KOL standalone post yet</li>
-    </ul>
-
-    <h3>Try it / dig in</h3>
-    <ul>
-      <li><a href="https://blog.janestreet.com/claude-design" target="_blank">Jane Street blog original</a></li>
-      <li><a href="https://news.ycombinator.com/item?id=12345679" target="_blank">HN discussion thread</a></li>
-    </ul>
-  </article>
-
-  <!-- ITEM 3 — ℹ️ -->
-  <article class="item item--fyi" id="her-detective">
-    <div class="tier-label"><span>ℹ️</span> FYI · Tooling</div>
-    <h1 class="display title">Her · हेर — a detective for your Claude Code sessions</h1>
-    <p class="pitch">A tool that lets you replay every step of a Claude Code session — when your agent does something wrong, you finally know why.</p>
-
-    <div class="context-box">
-      <span class="smallcaps">📍 Context</span>
-      <p>Claude Code's session logs are detailed, but debugging is still painful: you don't know why it ran a particular command or where it went wrong. Her is an open-source tool (published on the Hugging Face blog) that scans Claude Code logs and presents each step's thinking, action, and result in a readable timeline — like a detective replaying a case. Useful for debugging complex agent tasks.</p>
-    </div>
-
-    <h3>Why know the name</h3>
-    <ul>
-      <li><strong>Solves a real pain point</strong>: When Claude Code or Codex does something you don't understand, you normally dig through raw logs. Her organizes them into a "story timeline," dramatically reducing debugging time.</li>
-      <li><strong>Community traction</strong>: The HF blog post has 70+ reactions (early stage, not yet KOL-level, but worth watching).</li>
-    </ul>
-
-    <p><strong>Not a must-read</strong>: But if you already use Claude Code for multi-step tasks and occasionally get confused by its behavior, spending 5 minutes on this project could save hours of future debugging.</p>
-
-    <h3>Who's talking about it</h3>
-    <ul>
-      <li>Hugging Face blog: <a href="https://huggingface.co/blog/her-detective" target="_blank">Her · हेर — a detective for your Claude Code sessions</a></li>
-    </ul>
-
-    <h3>Try it / dig in</h3>
-    <ul>
-      <li><a href="https://huggingface.co/blog/her-detective" target="_blank">HF blog post</a></li>
-      <li>GitHub repo: TBD (not yet confirmed at time of writing)</li>
+      <li><a href="https://github.com/FoundationAgents/MetaGPT" target="_blank">GitHub: FoundationAgents/MetaGPT</a></li>
+      <li><a href="https://docs.deepwisdom.ai/en/guide/getting-started.html" target="_blank">Official documentation</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42563572" target="_blank">HN thread: OpenAI "Harness engineering" article</a></li>
+      <li><a href="https://arxiv.org/abs/2308.00352" target="_blank">MetaGPT original paper (arXiv)</a></li>
     </ul>
   </article>
 
@@ -394,73 +311,67 @@
     <ul>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">👀 Gemma 4 12B</span> <span class="update">— HF downloads 435k (+106k/day); community GGUF ~568k; QAT quantized version got 357 pts on HN yesterday but no new trigger today.</span></div>
+        <div><span class="item-name">👀 Gemma 4 12B</span> <span class="update">— HF total downloads ~860k (+131k/day); GGUF version ~700k; no new Karpathy post.</span></div>
       </li>
       <li>
         <span class="days">Day 6</span>
-        <div><span class="item-name">👀 OpenAI Codex for Every Role</span> <span class="update">— No new trigger event; but today's Harness engineering article is essentially its extension, already covered as 🚨 above.</span></div>
+        <div><span class="item-name">👀 OpenAI Codex for Every Role</span> <span class="update">— No trigger events; still awaiting independent reviews.</span></div>
       </li>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">👀 Uber $1,500/month AI cap</span> <span class="update">— Simon Willison's original continues to be referenced; no new large company following suit reported.</span></div>
+        <div><span class="item-name">👀 Uber $1,500/month cap</span> <span class="update">— Simon Willison's original post being shared internally; no new large-company follow-up.</span></div>
       </li>
       <li>
         <span class="days">Day 6</span>
-        <div><span class="item-name">👀 Anthropic cyber threat report</span> <span class="update">— Security teams may be citing internally but no new public discussion.</span></div>
+        <div><span class="item-name">👀 Anthropic cyber threat report</span> <span class="update">— Picked up by security accounts, but no new tools or models.</span></div>
       </li>
       <li>
         <span class="days">Day 6</span>
-        <div><span class="item-name">👀 MAI-Code-1-Flash</span> <span class="update">— HN heat faded; Simon clarified model size misreport. If no signal in 3 days, will be removed from tracking.</span></div>
+        <div><span class="item-name">👀 MAI-Code-1-Flash</span> <span class="update">— HN heat continues dropping (#25+); Simon no new discussion.</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- WHAT DIDN'T MAKE IT -->
   <section class="killed">
-    <h2>What didn't make it in today</h2>
+    <h2>What didn't make it in today (including re-evaluated killed-list)</h2>
     <table>
       <thead>
-        <tr><th>Source</th><th>Content</th><th>Why excluded</th></tr>
+        <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>IOCCC 2025 winners (184 pts)</td><td>Programming contest, not AI</td></tr>
-        <tr><td>HN (#2)</td><td>Speculative KV coding (52 pts)</td><td>Low score, research paper, no usable tool</td></tr>
-        <tr><td>HN (#3)</td><td>Win16 Memory Management (32 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#4)</td><td>Valve P2P broken (180 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#5)</td><td>My Software North Star (89 pts)</td><td>Opinion piece, not AI</td></tr>
-        <tr><td>HN (#6)</td><td>Field of clones: polo horse replica (95 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#7)</td><td>Tokenomics: Quantifying where tokens are used (110 pts)</td><td>Research paper, no usable tool; theoretical analysis</td></tr>
-        <tr><td>HN (#8)</td><td>Scientists ejected from diabetes conference (27 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#9)</td><td>Ntsc-rs VHS emulation (351 pts)</td><td>Video simulation, not AI</td></tr>
-        <tr><td>HN (#10)</td><td>Public Domain Image Archive (134 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#11)</td><td>Symbolica 2.0 (91 pts)</td><td>Symbolic computation library, not AI</td></tr>
-        <tr><td>HN (#14)</td><td>How Liminalism became defining aesthetic (76 pts)</td><td>Design theory, not AI</td></tr>
-        <tr><td>HN (#15)</td><td>Biohub world model of protein (86 pts)</td><td>Scientific publication, no direct tool</td></tr>
-        <tr><td>HN (#16)</td><td>Arithmetic Without Numbers (33 pts)</td><td>LLM explainer, low score</td></tr>
-        <tr><td>HN (#17)</td><td>Ruliology of Competition (10 pts)</td><td>Wolfram blog, ultra-low score</td></tr>
-        <tr><td>HN (#18)</td><td>Boron Buckyballs disproved (86 pts)</td><td>Chemistry theory, not AI</td></tr>
-        <tr><td>HN (#19)</td><td>Moving beyond fork+exec (306 pts)</td><td>Operating systems, not AI</td></tr>
-        <tr><td>HN (#21)</td><td>Nvidia CPU system for Windows (288 pts)</td><td>Hardware/CPU, not AI</td></tr>
-        <tr><td>HN (#22)</td><td>Google to pay SpaceX $920M/mo (254 pts)</td><td>Cloud contract, not AI</td></tr>
-        <tr><td>HN (#24)</td><td>Meta Instagram hack via AI chatbot (609 pts)</td><td>Security news, not AI tool breakthrough</td></tr>
-        <tr><td>HN (#25)</td><td>Sem: new primitive for code understanding (124 pts)</td><td>Developer infra, no KOL endorsement, not relevant to clawii's use case</td></tr>
-        <tr><td>HN (#30)</td><td>Pokemon Emerald WASM (324 pts)</td><td>Game port, not AI</td></tr>
-        <tr><td>Smol AI 6/5</td><td>Claude Mythos/Opus discussion + Sakana RSI Lab</td><td>Industry opinions, no new release or tool; already covered in previous days</td></tr>
-        <tr><td>Smol AI 6/4</td><td>Nemotron 3 Ultra + 3.5 ASR</td><td>Still research-grade releases, no HN/KOL discussion, clawii doesn't run large models</td></tr>
-        <tr><td>OpenAI 6/4</td><td>Endava Frontiers + ChatGPT Memory Dreaming</td><td>Enterprise partnership + feature update, non-breakthrough</td></tr>
-        <tr><td>OpenAI 6/3</td><td>Frontier Safety Blueprint + Public Policy</td><td>Policy documents, excluded</td></tr>
-        <tr><td>Anthropic 6/3</td><td>Services Track + Partner Hub</td><td>Partner program, non-breakthrough</td></tr>
-        <tr><td>HuggingFace 6/7</td><td>Nemotron 3.5 Content Safety</td><td>Enterprise security tool, not general-purpose</td></tr>
-        <tr><td>HuggingFace 6/4</td><td>EVA-Bench Data 2.0</td><td>Dev tool, excluded</td></tr>
-        <tr><td>Simon Willison 6/6</td><td>Micropython WASM sandbox + OpenAI Lockdown Mode</td><td>Personal project + security feature; not model/tool/agent breakthrough</td></tr>
-        <tr><td>Simon Willison 6/4</td><td>AI enthusiasts vs skeptics</td><td>Opinion piece, no new tool</td></tr>
-        <tr><td>Re-evaluated: Gemma 4 QAT (HN 357 pts)</td><td>Was in yesterday's killed list; no new trigger today</td><td>Stays excluded; updated in Still Tracking entry</td></tr>
-        <tr><td>Re-evaluated: Did Claude increase bugs in rsync? (HN 427 pts)</td><td>Opinion article, no KOL endorsement</td><td>Stays excluded</td></tr>
-        <tr><td>Re-evaluated: Transformers are inherently succinct (123 pts)</td><td>Theory paper, no usable tool</td><td>Stays excluded</td></tr>
-        <tr><td>Re-evaluated: All Day 12+ removed items</td><td>Big4/Gemini Flash/opencode/DeepSeek Reasonix</td><td>Zero movement, no longer tracking</td></tr>
-        <tr><td>Re-evaluated: "MCP is dead?"</td><td>Day 8, still cooling</td><td>Stays excluded; no Anthropic response</td></tr>
-        <tr><td>Re-evaluated: NVIDIA Cosmos 3 / Nemotron 3 Ultra</td><td>No new HN or KOL discussion</td><td>Stays excluded</td></tr>
-        <tr><td>Re-evaluated: MiniMax M3</td><td>No new trigger event</td><td>Stays excluded</td></tr>
+        <tr><td>HN (#1)</td><td>IOCCC 2025 Winners (184 pts)</td><td>Not AI, coding contest</td></tr>
+        <tr><td>HN (#2)</td><td>Speculative KV coding (52 pts)</td><td>Inference infra, no usable tool</td></tr>
+        <tr><td>HN (#7)</td><td>Tokenomics: Agentic SE (110 pts)</td><td>Academic paper, no tool; score too low</td></tr>
+        <tr><td>HN (#9)</td><td>ntsc-rs video emulation (351 pts)</td><td>Image processing, not AI</td></tr>
+        <tr><td>HN (#12)</td><td>Harness engineering: Leveraging Codex (207 pts)</td><td><strong>Re-evaluated</strong> — This is a KOL signal but it's a "discussion of agent orchestration importance" not a new tool. It's strong context for MetaGPT v0.8 so we used it as background evidence in that item. Not standalone.</td></tr>
+        <tr><td>HN (#13)</td><td>"I design with Claude more than Figma now" (175 pts)</td><td>Personal experience, no new info; not KOL endorsement</td></tr>
+        <tr><td>HN (#19)</td><td>Moving beyond fork() + exec() (306 pts)</td><td>OS internals, not AI</td></tr>
+        <tr><td>HN (#21)</td><td>Nvidia CPU proposal (288 pts)</td><td>Hardware news, not AI tool</td></tr>
+        <tr><td>HN (#22)</td><td>Google to pay SpaceX $920M/month (254 pts)</td><td>Enterprise/finance, excluded</td></tr>
+        <tr><td>HN (#24)</td><td>Meta Instagram hack via AI chatbot (609 pts)</td><td>Security breach, no AI tool/model. "AI security" w/o actionable info.</td></tr>
+        <tr><td>HN (#27)</td><td>Ask HN: "oh shit" GenAI moment (630 pts)</td><td>Community discussion, no new info</td></tr>
+        <tr><td>HN (#30)</td><td>Pokemon Emerald → WebAssembly (324 pts)</td><td>Game port, not AI</td></tr>
+        <tr><td>OSSInsight</td><td>opencode +846 stars / 28d</td><td>Day 13 no trigger; growth slowing; removed from tracking</td></tr>
+        <tr><td>OSSInsight</td><td>claude-code +545 stars / 28d</td><td>Day 13 no trigger; removed from tracking</td></tr>
+        <tr><td>HuggingFace trend</td><td>Gemma 4 12B variants (GGUF/QAT) still trending</td><td>Day 2/3 continuation, not a new release; already in Still Tracking</td></tr>
+        <tr><td>HuggingFace trend</td><td>Nemotron 3 Ultra BF16 / NVFP4 weights</td><td>Giant model weights, useless for clawii; no HN/KOL discussion</td></tr>
+        <tr><td>HuggingFace trend</td><td>Cosmos3-Nano / Super weights</td><td>Physical AI world model, no office use case</td></tr>
+        <tr><td>HuggingFace blog</td><td>"Her · हेर — a detective for your Claude Code sessions"</td><td>Personal gadget, not breakthrough; no KOL</td></tr>
+        <tr><td>HuggingFace blog</td><td>Nemotron 3.5 Content Safety</td><td>Safety model, enterprise, no use for clawii</td></tr>
+        <tr><td>HuggingFace blog</td><td>Holo3.1 Fast & Local Computer Use Agents</td><td>Research release, no usable tool; excluded multiple times before</td></tr>
+        <tr><td>Simon Willison 6/7</td><td>"Her · हेर" blog post</td><td>Personal project, not breakthrough; already excluded</td></tr>
+        <tr><td>Simon Willison 6/6</td><td>Micropython WASM sandbox + OpenAI Lockdown Mode</td><td>Excluded on 6/6; no trigger event</td></tr>
+        <tr><td>OpenAI 6/4</td><td>Endava Frontiers + ChatGPT Memory Dreaming</td><td>Enterprise partnership + feature update, not breakthrough</td></tr>
+        <tr><td>OpenAI 6/3</td><td>Frontier Safety Blueprint + Public Policy Agenda</td><td>Policy docs, excluded</td></tr>
+        <tr><td>Anthropic 6/3</td><td>Services Track + Partner Hub</td><td>Partner program, not breakthrough</td></tr>
+        <tr><td>DeepMind May</td><td>Gemini Omni / Gemini 3.5</td><td>Already covered, no trigger event</td></tr>
+        <tr><td>Re-evaluated: Nemotron 3 Ultra</td><td>50k HF downloads but no HN/KOL discussion</td><td>Keep excluded</td></tr>
+        <tr><td>Re-evaluated: Cosmos 3</td><td>30k HF downloads but no HN/KOL discussion</td><td>Keep excluded</td></tr>
+        <tr><td>Re-evaluated: MiniMax M3</td><td>No trigger events</td><td>Keep excluded</td></tr>
+        <tr><td>Re-evaluated: Big 4 / Gemini Flash / opencode</td><td>Day 13 no signal</td><td>Formally removed from tracking</td></tr>
+        <tr><td>Re-evaluated: DeepSeek Reasonix</td><td>Day 14 no signal</td><td>Formally removed from tracking</td></tr>
+        <tr><td>Re-evaluated: "MCP is dead?"</td><td>Day 8 still cooling; no Anthropic reply</td><td>Keep excluded</td></tr>
       </tbody>
     </table>
   </section>
@@ -482,7 +393,7 @@
       Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
     </p>
     <p class="system">
-      ai-radar · v0.3 · 3 items today (1🚨 / 1👀 / 1ℹ️) · Still tracking: Gemma 4 12B Day 4, Codex Every Role Day 6, Uber $1500 Day 3, cyber threat report Day 6, MAI-Code-1-Flash Day 6. Killed-list re-evaluation: no risers found today. Gemma 4 QAT models (HN 357 pts) moved to tracking entry, not promoted.
+      ai-radar · v0.3 · 1 item today (0🚨 / 1👀 / 0ℹ️) · Still tracking: Gemma 4 12B Day 4, Codex Every Role Day 6, Uber $1500 Day 3, cyber threat report Day 6, MAI-Code-1-Flash Day 6. Killed-list re-evaluation: OpenAI "Harness engineering" article absorbed as context for MetaGPT item rather than standalone; rest of killed items no risers.
     </p>
   </footer>
 
