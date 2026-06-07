@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-07",
+      "weekday": "Sun",
+      "week": 23,
+      "issue": 14,
+      "kind": "daily",
+      "headline": "MetaGPT v0.8：让代理团队像开会一样协同",
+      "summary": "开源多代理编排框架 MetaGPT 发布 v0.8 新版，支持自然语言编排、并行子代理和动态工作流。OpenAI 官方博客撰文《Harness engineering: Leveraging Codex in an agent-first world》在 HN 获得 207 分，Karpathy 和 Simon Wil",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-07.html"
+    },
+    {
       "date": "2026-06-06",
       "weekday": "Sat",
       "week": 23,

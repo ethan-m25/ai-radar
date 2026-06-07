@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-07",
+      "weekday": "Sun",
+      "week": 23,
+      "issue": 14,
+      "kind": "daily",
+      "headline": "OpenAI's official harness engineering guide + Jane Street ditches Figma for Claude + a detective tool for Claude Code se",
+      "summary": "Three things worth your attention today: OpenAI published a deep \"Harness engineering\" guide on how to use Codex in an agent-first world (207 pts, 131 comments ",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-06-07.html"
+    },
+    {
       "date": "2026-06-06",
       "weekday": "Sat",
       "week": 23,
