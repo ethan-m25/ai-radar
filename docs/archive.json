@@ -6,6 +6,20 @@
       "date": "2026-06-07",
       "weekday": "Sun",
       "week": 23,
+      "kind": "weekly",
+      "headline": "开源模型第一次真正\"可用可跑\"",
+      "summary": "本周 9 条 daily 信号里，没有 🚨 级别的事件——但 Gemma 4 12B 以 854 分登顶 HN 头条，是你可以在自己笔记本上跑的多模态模型，Apache 2.0 开源。同时企业 AI 成本管控成为最强副线：Uber 设 $1500/月上限，OpenAI 把 Codex 重新定位为全员平台。两条线加起来告",
+      "counts": {
+        "crit": 0,
+        "look": 8,
+        "fyi": 1
+      },
+      "url": "weekly_2026-06-07.html"
+    },
+    {
+      "date": "2026-06-07",
+      "weekday": "Sun",
+      "week": 23,
       "issue": 14,
       "kind": "daily",
       "headline": "MetaGPT v0.8：让代理团队像开会一样协同",

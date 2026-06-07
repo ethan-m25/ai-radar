@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-06-07 · Week 23</title>
+<meta name="description" content="Week 23 — Open-source multimodal finally runs on your laptop; enterprise AI cost controls shift from discussion to hard numbers">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 23">
+<meta property="og:description" content="9 daily signals · 0 🚨 · 8 👀 · 1 ℹ️ · 4 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 22ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 52ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 28ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 06 · 07 · WK 23 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Week 23 · 2026-06-01 → 2026-06-07</span>
+    <h1 class="display headline">Open-source multimodal finally runs on your laptop</h1>
+    <p class="lead">9 daily signals this week, zero at 🚨 level — but Gemma 4 12B hit HN #1 with 854 points and is the first multimodal open model you'd actually want to run locally. Meanwhile enterprise AI cost controls shifted from discussion to hard numbers: Uber capped tools at $1,500/month per employee, and OpenAI repositioned Codex as an everyone-platform. Two lines converging: open capabilities are getting stronger, enterprise willingness to pay is getting tighter.</p>
+
+    <div class="summary-box">
+      <strong>本周一句话总结</strong> → Open-source multimodal is finally usable-and-runnable (Gemma 4 12B on your laptop), while enterprise AI cost controls moved from talk to numbers (Uber $1,500/month/person). Your tool bench is widening; your budget ceiling is tightening.
+    </div>
+
+    <div class="count-row">
+      <div class="total">9</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 critical (none this week)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>8</strong>&nbsp;👀 worth a look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 4 survived to weekly · 5 demoted / removed from tracking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🏆 THE 1 THING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">Gemma 4 12B — 854 points, HN #1, and your laptop can finally run multimodal locally</h2>
+
+    <p>The week's clearest winner is Google DeepMind's Gemma 4 12B. 854 points on HN, #1 on the front page, 331 comments, 143k HuggingFace downloads in 24 hours. But the score and download count aren't the point — the point is that this is the first multimodal open-source model you'd actually want to run on your own machine.</p>
+
+    <p>Apache 2.0 license, zero usage restrictions, 16GB VRAM requirement. Text + image + audio multimodal input. Ollama supported it day one; llama.cpp and vLLM followed immediately. For you, clawii, the most direct use case is sensitive data processing — employee compensation, company financials — where running analysis locally means data never leaves your computer. This isn't a "cool but impractical" model; it's one you can pull this weekend and use for real work.</p>
+
+    <p>But let's be honest: at 12B parameters, it won't match GPT-5.5 or Claude Opus 4.8 across the board. It's best for medium-complexity multimodal tasks, data-privacy-sensitive scenarios, and latency/cost-sensitive local deployment. Don't expect it to beat top-tier closed models on every benchmark.</p>
+
+    <p><strong>If you only do one thing this week:</strong> Install Ollama, run <code class="mono">ollama pull gemma4:12b</code>. Pass it an image and ask for a description. Or test transcription with a local audio file. Experience the "data never leaves your machine" multimodal workflow firsthand — if the speed is acceptable, this becomes your go-to tool for sensitive data.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📈 TRENDS BUILDING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions taking shape</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Open-source small models go practical — you can finally run multimodal locally</div>
+      <p>Gemma 4 12B (854 pts HN #1, Apache 2.0, 16GB VRAM) is the week's clearest signal, but it's not isolated. MAI-Code-1-Flash (387 pts HN #2, code-specific fast model) and MiniMax M3 (1M-context multimodal) together tell the same story: models are getting smaller, cheaper, and more practical while covering enough capability for daily tasks. Gemma 4 12B's "encoder-free" architecture is directional — fusing multimodal features directly into the LLM backbone instead of relying on separate vision encoders. Over the next 1-3 months you'll see more 10-20B practical open models appear.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Enterprise AI cost controls — from discussion to hard numbers</div>
+      <p>Uber capped each employee at $1,500/month per AI coding tool. Simon Willison calculated that's ~11% of median software engineer compensation. On the same day, OpenAI released "Codex for Every Role" (477 pts HN #1), formally repositioning Codex from a developer tool to an everyone-platform. Two signals stacking: AI tools are opening up to entire workforces, but companies are simultaneously figuring out how to control spend. For you, the most directly useful takeaway: Uber's $1,500 is the best reference number you'll get for drafting an enterprise AI procurement budget proposal. If another major company (Meta, Goldman Sachs) announces similar limits in the next 1-2 weeks, this trend escalates to 🚨.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ AI security — from annual reports to deployable tools</div>
+      <p>Anthropic delivered a three-piece set this week: the annual cyber threat report (Day 2 🚨 candidate), Project Glasswing expansion (with AWS/Apple/Google/Microsoft/NVIDIA), and an open-source AI-driven vulnerability discovery framework (438 pts HN #1). The cadence is dense — enterprises are moving fast from "should we do AI security?" to "how do we do it?" For you at a multinational: your security team will likely reference these materials when updating AI procurement policy in the next 1-2 quarters. Knowing the names (Glasswing, Anthropic threat report, vulnerability framework) positions you as someone who understands the landscape beyond just using the tools.</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 💀 WHAT I CALLED WRONG -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">Zero 🚨 signals this week — which means the threshold is working</h2>
+
+    <p>All 9 signals this week were 👀 or ℹ️, zero at 🚨. This isn't a bad thing — it means the "critical" threshold is set correctly. Three weeks ago (Week 22) we had opencode and DeepSeek Reasonix called too loudly. This week's restraint is progress.</p>
+
+    <p><strong>MAI-Code-1-Flash</strong> landed at 387 pts HN #2 on launch day, looking like a major signal. By the weekend HN heat had dropped to #25+, Simon Willison corrected the model size misreport (137B not 5B), and no Karpathy/swyx endorsement appeared. Not a wrong call — the product is real — but the growth rate didn't hit 🚨 level. Downgraded to long-term tracking.</p>
+
+    <p><strong>OpenAI Codex for Every Role</strong> hit 477 pts HN #1 and looked like a major strategic shift. But by the weekend: no independent third-party reviews, no non-technical KOL use cases, no enterprise deployment reports. The direction is right; the information is incomplete. Holding at 👀.</p>
+
+    <p><strong>Permanently removed from tracking:</strong> opencode (Day 13, no signal), DeepSeek Reasonix (Day 14, no signal), Big-4 domino effect (Day 12, no signal), Gemini 3.5 Flash (Day 12, no signal), "MCP is dead?" debate (Day 8, no Anthropic response). These were honestly flagged as "I called this wrong" in Weekly Wrap #22; this week formally confirms them as dead.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🔮 WATCH LIST -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Does Gemma 4 12B get a KOL endorsement?</strong><br>
+      Community momentum is strong (860k+ HF downloads) but neither Karpathy nor Simon Willison has published a dedicated post. If either writes "you should try Gemma 4 12B" next week, that's 🚨 — it means this is genuinely worth your immediate attention.<br>
+      <span class="trigger">Trigger → Karpathy or Simon Willison publishes a standalone post/recommendation</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Enterprise AI cost cap chain reaction</strong><br>
+      Uber's $1,500/month/tool cap is one data point. If Meta, Goldman Sachs, or JPMorgan disclose similar limits in earnings or news, the AI tool pricing model could face structural change.<br>
+      <span class="trigger">Trigger → Any major company announces AI tool usage caps or reduced AI spending expectations</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Does MetaGPT v0.8 break through the score threshold?</strong><br>
+      Sunday's v0.8 release is currently at 1 👀, with steady GitHub star growth (~+50/day). If star growth doubles (to ~+150/day+) or a non-developer posts "I used MetaGPT to do X," it's worth upgrading to 🚨.<br>
+      <span class="trigger">Trigger → GitHub star daily growth > +150 or non-technical user posts a use case</span>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📅 CALIBRATION METRICS -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 23</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (Jun 1–7)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>0 (none this week)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>8 (MAI-Code-1-Flash · Glasswing · Codex for Every Role · Cyber threat report · Gemma 4 12B · Uber $1,500 · Vulnerability framework · MetaGPT v0.8)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>1 (MiniMax M3)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>4 (🏆 Gemma 4 12B · 📈 Small models going practical · 📈 Enterprise cost controls · 📈 AI security tooling)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>5 (MAI-Code-1-Flash downgraded · opencode formally dead · DeepSeek Reasonix formally dead · Big 4 formally dead · Gemini Flash formally dead)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~56% — high, but mostly because legacy items from last week were cleaned out. New-signal demotion rate: 1/8 ≈ 12%.</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~10–14 days ahead on Gemma 4 12B and Uber $1,500 cap (Chinese KOLs typically follow 1-2 weeks after English coverage)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 23 · 2026-06-07 · 7 dailies · 9 items (0🚨 / 8👀 / 1ℹ️) · 4 survived · 5 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>

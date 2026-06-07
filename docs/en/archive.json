@@ -6,6 +6,20 @@
       "date": "2026-06-07",
       "weekday": "Sun",
       "week": 23,
+      "kind": "weekly",
+      "headline": "Open-source multimodal finally runs on your laptop",
+      "summary": "9 daily signals this week, zero at 🚨 level — but Gemma 4 12B hit HN #1 with 854 points and is the first multimodal open model you'd actually want to run locally",
+      "counts": {
+        "crit": 0,
+        "look": 7,
+        "fyi": 1
+      },
+      "url": "weekly_2026-06-07.html"
+    },
+    {
+      "date": "2026-06-07",
+      "weekday": "Sun",
+      "week": 23,
       "issue": 14,
       "kind": "daily",
       "headline": "MetaGPT v0.8 makes agent teams work like a meeting, not a script",
