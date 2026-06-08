@@ -8,8 +8,8 @@
       "week": 24,
       "issue": 15,
       "kind": "daily",
-      "headline": "DeepSeek V4 Pro beats GPT-5.5 Pro on precision, Lathe uses LLMs to teach you new domains",
-      "summary": "Open-source model DeepSeek V4 Pro surpassed OpenAI's flagship GPT-5.5 Pro on precision in an independent benchmark, scoring 284 points on HN. Meanwhile, a new t",
+      "headline": "DeepSeek V4 Pro beats GPT-5.5 Pro on precision + Lathe teaches you a new domain",
+      "summary": "Two strong HN signals today: DeepSeek V4 Pro beats GPT-5.5 Pro on precision (287 pts), and Lathe uses LLMs to learn a new domain instead of skipping past it (32",
       "counts": {
         "crit": 0,
         "look": 2,
