@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-08",
+      "weekday": "Mon",
+      "week": 24,
+      "issue": 15,
+      "kind": "daily",
+      "headline": "DeepSeek V4 Pro 精度反超 GPT-5.5 Pro，Lathe 用 LLM 教你学习",
+      "summary": "开源模型 DeepSeek V4 Pro 在独立评测中精度超越 OpenAI 旗舰 GPT-5.5 Pro，284 分登上 HN。同时，一个新工具 Lathe 用 LLM 帮你系统学习新领域，而不是直接给答案。两条信号都值得周末花时间看看。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-06-08.html"
+    },
+    {
       "date": "2026-06-07",
       "weekday": "Sun",
       "week": 23,

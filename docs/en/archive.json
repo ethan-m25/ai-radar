@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-08",
+      "weekday": "Mon",
+      "week": 24,
+      "issue": 15,
+      "kind": "daily",
+      "headline": "DeepSeek V4 Pro beats GPT-5.5 Pro on precision, Lathe uses LLMs to teach you new domains",
+      "summary": "Open-source model DeepSeek V4 Pro surpassed OpenAI's flagship GPT-5.5 Pro on precision in an independent benchmark, scoring 284 points on HN. Meanwhile, a new t",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-06-08.html"
+    },
+    {
       "date": "2026-06-07",
       "weekday": "Sun",
       "week": 23,
