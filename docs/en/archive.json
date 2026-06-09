@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-09",
+      "weekday": "Tue",
+      "week": 24,
+      "issue": 16,
+      "kind": "daily",
+      "headline": "Apple built a new AI architecture around Gemini — and open-sourced the framework",
+      "summary": "Apple announced a deep partnership with Google Gemini for Siri AI and open-sourced Core AI, a neural network runtime that runs PyTorch models directly on Apple ",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-09.html"
+    },
+    {
       "date": "2026-06-08",
       "weekday": "Mon",
       "week": 24,

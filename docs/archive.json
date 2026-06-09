@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-09",
+      "weekday": "Tue",
+      "week": 24,
+      "issue": 16,
+      "kind": "daily",
+      "headline": "Apple 用 Gemini 做 Siri AI，小米千 token/秒，OpenEnv 获社区力挺",
+      "summary": "Apple 在 WWDC 上宣布 Siri AI 基于 Google Gemini 模型，跑在 Google Cloud + NVIDIA 上，611 分登顶 HN。小米 MiMo-v2.5-Pro-UltraSpeed 以 1T 参数实现 1000 token/s，580 分。OpenEnv 获开源社区 +13 票支",
+      "counts": {
+        "crit": 0,
+        "look": 3,
+        "fyi": 0
+      },
+      "url": "2026-06-09.html"
+    },
+    {
       "date": "2026-06-08",
       "weekday": "Mon",
       "week": 24,
