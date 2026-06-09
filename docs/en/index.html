@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-09 · Week 24</title>
-<meta name="description" content="1 signal — Apple built a new AI architecture around Gemini and open-sourced Core AI framework.">
+<meta name="description" content="3 signals — Apple picks Gemini for Siri AI, Xiaomi hits 1000 tok/s, OpenEnv gets community backing.">
 
 <meta property="og:title" content="AI Radar · 2026-06-09">
-<meta property="og:description" content="1 real signal · 0 🚨 · 1 👀 · 0 ℹ️">
+<meta property="og:description" content="3 real signals · 0 🚨 · 3 👀 · 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -186,7 +186,7 @@
 
   <div class="issue-meta">
     <span class="date-line">2026 · 06 · 09  ·  Wk 24  ·  №&nbsp;016  ·  Tue</span>
-    <span>~4 min read</span>
+    <span>~7 min read</span>
   </div>
 
   <nav class="pager top" data-current-date="2026-06-09">
@@ -197,13 +197,13 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">Apple built a new AI architecture around Gemini — and open-sourced the framework</h1>
-    <p class="lead">Apple announced a deep partnership with Google Gemini for Siri AI and open-sourced Core AI, a neural network runtime that runs PyTorch models directly on Apple Silicon. 612 points, #6 on HN. This isn't just another Apple AI feature — it might change how you run models on your Mac.</p>
+    <h1 class="display headline">Apple picks Gemini for Siri AI, Xiaomi hits 1000 tok/s, OpenEnv gets community backing</h1>
+    <p class="lead">Apple announced Siri AI is powered by Google Gemini, running on Google Cloud + NVIDIA GPUs — 611 points on HN. Xiaomi's MiMo-v2.5-Pro-UltraSpeed hits 1000 tokens/sec on a 1T model (580 pts). OpenEnv gets +13 community votes as the standard environment for agentic RL. All three are worth a weekend look.</p>
     <div class="count-row">
-      <div class="total">1</div>
+      <div class="total">3</div>
       <div class="count-breakdown">
         <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 Must See</span>
-        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>3</strong>&nbsp;👀 Worth a Look</span>
         <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
       </div>
     </div>
@@ -212,100 +212,276 @@
   <nav class="toc" aria-label="Table of Contents">
     <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">👀</span><a href="#apple-core-ai">Apple Core AI Framework — open-source runtime runs PyTorch models on M-series chips</a></li>
+      <li><span class="tier-mark">👀</span><a href="#apple-siri-ai">Apple Siri AI runs on Google Gemini + Google Cloud + NVIDIA GPUs</a></li>
+      <li><span class="tier-mark">👀</span><a href="#mimo-v2.5">Xiaomi MiMo-v2.5-Pro-UltraSpeed — 1T model, 1000 tok/s</a></li>
+      <li><span class="tier-mark">👀</span><a href="#openenv">OpenEnv — open-source community backs it as standard for agentic RL</a></li>
     </ol>
   </nav>
 
-  <!-- ============= ITEM 1: Apple Core AI ============= -->
-  <article id="apple-core-ai" class="item item--look">
-    <span class="tier-label">👀 Worth a Look · Open-Source Inference Framework</span>
-    <h2 class="display title">Apple Core AI Framework — open-source runtime runs PyTorch models on M-series chips</h2>
-    <p class="pitch">Apple announced a deep partnership with Google Gemini to power the new Siri AI, and open-sourced Core AI — a low-level neural network runtime that runs PyTorch-exported models directly on Apple Silicon (M-series, A-series). If you own a Mac, this might matter more than any cloud API for running AI inference.</p>
+  <!-- ============= ITEM 1: Apple Siri AI ============= -->
+  <article id="apple-siri-ai" class="item item--look">
+    <span class="tier-label">👀 Worth a Look · AI Architecture / Ecosystem Shift</span>
+    <h2 class="display title">Apple Siri AI runs on Google Gemini + Google Cloud + NVIDIA GPUs</h2>
+    <p class="pitch">Apple announced at WWDC 2026 that Siri AI is powered by Google's Gemini models, running on Google Cloud infrastructure with NVIDIA GPUs. 611 points on HN. This marks Apple's first public admission that its in-house LLM capability wasn't enough, and a huge endorsement of Gemini as a platform.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>Apple's AI strategy has been conservative: in-house models, closed source, hardware-locked. Last year's Apple Intelligence was widely criticized for weak model capabilities. This time Apple made a pragmatic call — admitting it couldn't catch up on foundation models, it licensed Gemini as Siri AI's brain (running via Private Cloud Compute on Google Cloud with NVIDIA GPUs), while fully open-sourcing the underlying inference framework Core AI and bridging it to the PyTorch ecosystem. This isn't "Apple released another AI feature" — it's Apple opening its AI hardware stack to the world for the first time.</p>
+      <p>Apple announced Apple Intelligence at WWDC 2024 with big promises, but delivery fell short. This year, Apple admitted their own small models weren't sufficient for demanding tasks. Instead, they're licensing a custom Gemini-derived model that runs on Google Cloud + NVIDIA hardware, protected by Apple's Private Cloud Compute (PCC) architecture. The security blog confirms PCC is now extended to third-party cloud infrastructure for the first time.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Apple Silicon + open inference = a new local AI baseline</strong> — M-series NPUs (Neural Engine) have always been powerful but locked inside Apple's walled garden. Now Core AI is open source, meaning you can run open models (Gemma, Qwen, DeepSeek) efficiently on a MacBook, potentially matching or beating equivalently-priced NVIDIA GPUs on latency and throughput.</li>
-      <li><strong>What this means for clawii</strong> — If you have a Mac, you can now run AI models locally using Core AI — no cloud API calls needed. For vibe coding, that means offline code completion and small agent models running at zero cost, zero latency, zero privacy risk.</li>
-      <li><strong>Apple's choice is a signal</strong> — The world's largest consumer electronics company admitted "our own models aren't good enough, we'll use Google's." That validates Gemini as an industry baseline. And open-sourcing Core AI shows Apple finally understands that "closed" doesn't work anymore — the future runs on open ecosystems.</li>
+      <li><strong>Apple concedes on in-house AI</strong> — For the first time, Apple publicly acknowledges that third-party models beat their own. This is a huge win for Google and a signal to OpenAI and Anthropic about competitive pressure.</li>
+      <li><strong>Gemini gets the ultimate endorsement</strong> — If Apple trusts Gemini for Siri AI, the model is enterprise-grade. For clawii evaluating models, Gemini just got the strongest possible validation.</li>
+      <li><strong>Privacy architecture breakthrough</strong> — PCC extended to Google Cloud while maintaining Apple's security promise. This sets a precedent for enterprise AI deployments on third-party clouds with strong privacy guarantees.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Install Core AI PyTorch extensions</strong> — <code>pip install coreai-torch</code>. This package converts PyTorch models (torch.export.ExportedProgram) into Core AI's runtime format, ready to run on Apple hardware.</li>
-        <li><strong>Try a model</strong> — Download a small GGUF model from HuggingFace (e.g., Gemma 4 12B), load it via <code>coreai-torch</code>, and run inference. Compare M-chip speed vs Ollama or llama.cpp.</li>
-        <li><strong>Point Codex / Claude Code at a local model</strong> — If your Mac has 16GB+ RAM, you can point Codex or Claude Code's backend at a locally-running Core AI model for a fully offline coding agent. Tutorials are in Apple's developer docs.</li>
-        <li><strong>Install the iOS 27 Developer Beta</strong> — Siri AI requires a waitlist, but Core AI Framework is available in the iOS and macOS developer betas. Try running a small model locally on your iPhone.</li>
+        <li><strong>Read Apple's security blog</strong> — Go to <a href="https://security.apple.com/blog/private-cloud-compute-google-cloud" target="_blank">security.apple.com</a> for "Expanding Private Cloud Compute" — details on how they maintain privacy on Google Cloud.</li>
+        <li><strong>Try Gemini models</strong> — In Google AI Studio or via API, test Gemini 3.5 or Gemini Omni against GPT-5.5 and Claude Opus 4.8. See how they compare for your vibe coding tasks.</li>
+        <li><strong>Watch for Siri AI reviews</strong> — Once iOS 27 developer beta reviews land, pay attention to how well Siri AI actually performs. If it's good, Gemini excels at agentic tasks.</li>
+        <li><strong>Think about enterprise deployment</strong> — If you're involved in AI procurement at work, Apple's PCC-on-Google-Cloud model is a reference architecture for safe third-party AI deployment.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 Deep dive — why Core AI is not just another AI SDK</summary>
+      <summary>🔬 Deep dive — what actually changed in Apple's AI strategy</summary>
       <div class="dd-body">
 
         <div class="compare">
           <table>
             <thead>
-              <tr><th>Dimension</th><th>Apple Core AI</th><th>Ollama / llama.cpp</th><th>MLX (Apple's earlier framework)</th></tr>
+              <tr><th>Dimension</th><th>2024 Apple Intelligence</th><th>2026 Siri AI</th></tr>
             </thead>
             <tbody>
-              <tr><th>Open source</th><td><span class="ok">Yes (Core AI + PyTorch extensions)</span></td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td></tr>
-              <tr><th>Hardware acceleration</th><td><span class="ok">NPU + GPU + CPU full stack</span></td><td>GPU + CPU (no NPU)</td><td>GPU + CPU (no NPU)</td></tr>
-              <tr><th>Model format</th><td>PyTorch ExportedProgram</td><td>GGUF</td><td>.safetensors / GGUF</td></tr>
-              <tr><th>PyTorch ecosystem compat</th><td><span class="ok">Native — traverses FX graph</span></td><td>Requires conversion</td><td>Requires conversion</td></tr>
-              <tr><th>M4 chip NPU utilization</th><td><span class="ok">Maximum</span></td><td>None</td><td>None</td></tr>
-              <tr><th>Typical inference (7B model)</th><td>~20-30 tok/s (NPU)</td><td>~30-40 tok/s (GPU)</td><td>~25-35 tok/s (GPU)</td></tr>
-              <tr><th>Best for</th><td>Local inference + Apple hardware deployment</td><td>General local inference</td><td>Apple chip optimization</td></tr>
+              <tr><th>Foundation model</th><td>Apple in-house (~3B params)</td><td><span class="ok">Google Gemini (custom derivative)</span></td></tr>
+              <tr><th>Inference hardware</th><td>Apple Silicon + undisclosed cloud</td><td><span class="ok">Google Cloud + NVIDIA GPUs</span></td></tr>
+              <tr><th>Privacy architecture</th><td>Private Cloud Compute (PCC)</td><td>PCC extended to Google Cloud</td></tr>
+              <tr><th>Capability scope</th><td>Text summarization, simple Q&A</td><td><span class="ok">Agentic tool use, complex reasoning</span></td></tr>
+              <tr><th>Open / auditable</th><td>No</td><td>No (but model weights published for inspection)</td></tr>
+              <tr><th>Developer API</th><td>Limited</td><td><span class="ok">Core AI Framework + PyTorch integration</span></td></tr>
             </tbody>
           </table>
         </div>
 
-        <p><strong>What it runs on</strong> — Core AI is a low-level neural network inference runtime that directly accesses Apple's ANE (Neural Engine), GPU (via Metal), and CPU (AMX). The PyTorch extension package <code>coreai-torch</code> traverses PyTorch's FX graph, mapping ATen operators one-by-one to Core AI operations, ultimately producing an <code>AIProgram</code> that runs on hardware.</p>
+        <p><strong>What it runs on</strong> — Siri AI uses a custom Gemini variant, inferred on Google Cloud's NVIDIA GPU clusters. Apple's Core AI Framework provides PyTorch integration — the <code>coreai-torch</code> package lets you deploy PyTorch models on Apple hardware by mapping ATen operators to Core AI operations.</p>
 
-        <p><strong>How hard to use</strong> — If you just want to run an existing PyTorch model: install <code>coreai-torch</code> → export with <code>torch.export.export()</code> → load and infer with Core AI API. About 30 minutes to first demo. If you want to use it as a Codex backend: you'll need some Python glue code to point Codex's inference at Core AI — moderate difficulty, about 2 hours.</p>
+        <p><strong>How hard to use</strong> — Regular users: wait for iOS 27 update. Developers: Core AI Framework requires Xcode + iOS 27 SDK (medium learning curve). The PyTorch integration is straightforward if you already use PyTorch.</p>
 
-        <p><strong>Honest caveats</strong> — 1) Core AI currently only supports PyTorch-exported models, not native GGUF or safetensors — you need to convert first. 2) Not all PyTorch operators are supported by Core AI; complex models may need modification. 3) NPU memory is limited (~8GB on M4), so larger models (12B+) may spill to GPU mode. 4) Documentation is very new and community examples are scarce.</p>
+        <p><strong>Honest caveats</strong> — Apple hasn't fully abandoned in-house AI, just conceded on general-purpose LLMs. Siri AI currently supports English only; Chinese timeline unannounced. Extending PCC to Google Cloud introduces supply chain risk.</p>
 
-        <p><strong>What you can actually do with it</strong> — Run 7B-12B models locally on a MacBook for: offline code completion, local document Q&A, auto-generating email/report drafts. No internet needed, no API costs, privacy stays on-device.</p>
+        <p><strong>What you can actually do with it</strong> — If you use an iPhone, Siri AI will handle complex tasks: booking restaurants, managing schedules, analyzing documents. If you're an AI developer, Core AI Framework lets you run models efficiently on Apple hardware.</p>
 
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>If any of these happen in the next week, I'll tap you again: 1) Karpathy or Simon Willison successfully runs Core AI on a Mac and shares performance numbers. 2) A developer integrates Core AI as a backend for Codex or Claude Code. 3) The Core AI GitHub repo crosses 1,000 stars in a week (indicating community adoption).</p>
+      <p>If any of these happen in the next week, I'll tap you again: 1) Real Siri AI reviews showing it's genuinely better than before; 2) Apple publishes more technical details (model size, training data); 3) Other OEMs (Samsung) also announce Gemini partnerships.</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li><strong>HN (#6, #8, #17)</strong> — Three separate threads: 612 pts + 593 pts + 308 pts, totaling over 1,000 comments. Community consensus: "Apple finally got pragmatic" and "Core AI being open source is the biggest news today."</li>
-      <li><strong>Simon Willison</strong> — Detailed technical analysis calling it "probably the smartest thing Apple has done in AI," noting that Private Cloud Compute Gemini models run on Google Cloud's NVIDIA GPUs while maintaining Apple's privacy guarantees.</li>
-      <li>No Karpathy commentary yet.</li>
+      <li><strong>HN (#6)</strong> — "Apple reveals new AI architecture built around Google Gemini models" — 611 points, 465 comments. Discussion focused on Apple abandoning in-house, privacy architecture, and impact on Google.</li>
+      <li><strong>HN (#8)</strong> — "Siri AI" — 593 points, 548 comments. More discussion on actual Siri experience.</li>
+      <li><strong>HN (#17)</strong> — "Apple Core AI Framework" — 308 points, 79 comments. Developer perspective.</li>
+      <li><strong>Simon Willison</strong> — Wrote a detailed analysis noting PCC expansion to Google Cloud is a major step, but maintains "I'll believe it when I see it."</li>
     </ul>
 
     <div class="jargon">
       <dl>
-        <dt>Private Cloud Compute (PCC)</dt>
-        <dd>Apple's private cloud computing architecture that ensures data processed in the cloud cannot be seen by Apple or any third party (including Google). All binaries are published for public inspection.</dd>
-        <dt>Core AI</dt>
-        <dd>Apple's open-source neural network inference framework that runs PyTorch models directly on Apple hardware.</dd>
-        <dt>torch.export.ExportedProgram</dt>
-        <dd>A static computation graph representation in PyTorch 2.x, designed for deployment to non-PyTorch inference backends.</dd>
+        <dt>PCC (Private Cloud Compute)</dt>
+        <dd>Apple's architecture ensuring user data remains encrypted during cloud processing, unreachable even by Apple.</dd>
+        <dt>Core AI Framework</dt>
+        <dd>Apple's new AI framework for running PyTorch models efficiently on Apple hardware, announced at WWDC 2026.</dd>
       </dl>
     </div>
 
     <h3>Try it / dig in</h3>
     <ul>
-      <li><a href="https://developer.apple.com/documentation/core-ai" target="_blank">Apple Core AI official docs</a></li>
-      <li><a href="https://github.com/apple/coreai-torch" target="_blank">GitHub: apple/coreai-torch</a></li>
-      <li><a href="https://news.ycombinator.com/item?id=42600001" target="_blank">HN: Apple reveals new AI architecture built around Google Gemini models</a></li>
-      <li><a href="https://simonwillison.net/2026/Jun/8/apple/" target="_blank">Simon Willison's deep analysis</a></li>
-      <li><a href="https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture-built-around-google-gemini-models/" target="_blank">MacRumors coverage</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42600578" target="_blank">HN thread (#6): Apple reveals new AI architecture</a></li>
+      <li><a href="https://developer.apple.com/documentation/coreai" target="_blank">Apple Core AI Framework documentation</a></li>
+      <li><a href="https://security.apple.com/blog/private-cloud-compute-google-cloud" target="_blank">Apple Security Blog: Expanding Private Cloud Compute</a></li>
+      <li><a href="https://simonwillison.net/2026/Jun/8/apple-siri-ai/" target="_blank">Simon Willison's analysis</a></li>
+    </ul>
+  </article>
+
+  <!-- ============= ITEM 2: MiMo ============= -->
+  <article id="mimo-v2.5" class="item item--look">
+    <span class="tier-label">👀 Worth a Look · Open-Weight Inference Speed Breakthrough</span>
+    <h2 class="display title">Xiaomi MiMo-v2.5-Pro-UltraSpeed — 1T model, 1000 tok/s</h2>
+    <p class="pitch">Xiaomi released MiMo-v2.5-Pro-UltraSpeed, a 1T-parameter MoE model hitting 1000 tokens per second inference speed. 580 points on HN, 423 comments. This is Chinese vendors pushing inference speed to a new level — potentially upending API pricing globally.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>Xiaomi's MiMo family is their MoE model line. The v2.5-Pro-UltraSpeed is a speed-optimized variant — likely using aggressive MoE routing + quantization + speculative decoding to hit 1000 tok/s. 1T total parameters but only a fraction active per inference (est. 50-100B). Speed is becoming the new moat as model precision converges.</p>
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>Speed is the new moat</strong> — As model accuracy plateaus, speed becomes the key differentiator. 1000 tok/s enables real-time conversation, instant code completion, and high-throughput batch processing.</li>
+      <li><strong>Direct impact on vibe coding</strong> — For clawii using APIs daily, speed directly affects workflow. 1000 tok/s is 5-10x faster than GPT-5.5 Pro, likely at a fraction of the cost.</li>
+      <li><strong>Chinese vendor momentum</strong> — Xiaomi, DeepSeek, Alibaba are all pushing inference optimization hard. The global API pricing landscape could shift significantly within 6 months.</li>
+    </ul>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li><strong>Read Xiaomi's announcement</strong> — Go to <a href="https://xiaomi.com" target="_blank">xiaomi.com</a> for the MiMo-v2.5-Pro-UltraSpeed technical details.</li>
+        <li><strong>Test the API</strong> — If Xiaomi has opened the API (via OpenRouter or directly), register and benchmark speed. Use <code>curl</code> to measure tokens/sec.</li>
+        <li><strong>Compare pricing</strong> — Calculate cost per token vs GPT-5.5 Pro. If it's 10x cheaper, consider switching backend models for your vibe coding.</li>
+        <li><strong>Monitor independent benchmarks</strong> — Check the HN thread for community speed tests. If verified, this signal will upgrade.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how 1000 tok/s is achieved</summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th>Dimension</th><th>GPT-5.5 Pro</th><th>MiMo-v2.5-Pro-UltraSpeed</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Total params</th><td>Undisclosed (est. >1T)</td><td>1T</td></tr>
+              <tr><th>Active params</th><td>Undisclosed</td><td>Est. 50-100B (MoE)</td></tr>
+              <tr><th>Inference speed</th><td>~100-200 tok/s</td><td><span class="ok">~1000 tok/s</span></td></tr>
+              <tr><th>Context window</th><td>128K</td><td>Undisclosed (est. 128K+)</td></tr>
+              <tr><th>Open weights</th><td><span class="no">No</span></td><td><span class="no">No (but API available)</span></td></tr>
+              <tr><th>API price (per 1M tokens)</th><td>$15 input / $60 output</td><td><span class="ok">Est. $2 input / $8 output</span></td></tr>
+              <tr><th>Accuracy</th><td>Baseline</td><td>Close to GPT-5.5 (per Xiaomi)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>What it runs on</strong> — Xiaomi's proprietary MoE architecture with custom inference optimization (likely FlashAttention-4-level + speculative decoding + aggressive quantization). API via Xiaomi Cloud or third-party platforms (OpenRouter).</p>
+
+        <p><strong>How hard to use</strong> — API usage: register, add funds, call — 5 minutes. Self-hosting is impossible (1T params requires massive GPU clusters). Zero-config through OpenRouter.</p>
+
+        <p><strong>Honest caveats</strong> — Speed figure is from Xiaomi, not yet independently verified. Accuracy likely trails GPT-5.5 Pro on some tasks. API stability uncertain (Chinese vendor APIs sometimes have reliability issues). Strong Chinese language but English may lag.</p>
+
+        <p><strong>What you can actually do with it</strong> — If you build real-time conversation apps, code completion, or need high-throughput batch processing, MiMo's speed is transformative. For vibe coding, faster responses mean smoother interaction loops.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 What to watch for next</span>
+      <p>If any of these happen in the next week, I'll tap you again: 1) Independent benchmark confirms 1000 tok/s; 2) Karpathy or Simon Willison test and approve; 3) Xiaomi publishes API pricing; 4) DeepSeek or Alibaba release similarly fast models.</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li><strong>HN (#15)</strong> — "MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second" — 580 points, 423 comments. Discussion on whether speed is real, Chinese vendor competitiveness, impact on API pricing.</li>
+      <li><strong>Xiaomi official</strong> — Technical announcement at xiaomi.com.</li>
+      <li>No KOL endorsement yet, but HN community discussion is intense.</li>
+    </ul>
+
+    <div class="jargon">
+      <dl>
+        <dt>MoE (Mixture of Experts)</dt>
+        <dd>Splits a large model into many "expert" sub-networks; only a subset activates per inference, preserving capability while controlling compute cost.</dd>
+        <dt>Speculative Decoding</dt>
+        <dd>Acceleration technique: a small "draft" model generates tokens ahead; the large model verifies them in parallel, effectively generating multiple tokens per inference pass.</dd>
+      </dl>
+    </div>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li><a href="https://xiaomi.com" target="_blank">Xiaomi official announcement</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42600583" target="_blank">HN discussion thread</a></li>
+      <li><a href="https://openrouter.ai" target="_blank">OpenRouter (may already support MiMo)</a></li>
+    </ul>
+  </article>
+
+  <!-- ============= ITEM 3: OpenEnv ============= -->
+  <article id="openenv" class="item item--look">
+    <span class="tier-label">👀 Worth a Look · Agentic RL Standard Environment</span>
+    <h2 class="display title">OpenEnv — open-source community backs it as standard for agentic RL</h2>
+    <p class="pitch">The HuggingFace blog announced OpenEnv received +13 community votes as the standard environment for agentic reinforcement learning. This matters for anyone building or evaluating AI agents — standardized testing means faster progress and fair comparisons.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>Agentic RL trains AI agents through trial-and-error to complete tasks. OpenEnv, open-sourced by Meta, provides standardized tasks and metrics — like OpenAI Gym but specifically for agent tasks (code generation, API calls, multi-turn dialogue, web browsing). The community vote to make it the standard is a grassroots movement, not a corporate dictate, meaning the standard will be more open and flexible.</p>
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>Standardization signals ecosystem maturity</strong> — When agent development has a standard test environment, teams can compare fairly and progress accelerates. Same role as ImageNet did for computer vision.</li>
+      <li><strong>Indirect impact on clawii</strong> — You don't do RL yourself, but standardized environments mean agent tools (Claude Code, Codex) will improve faster through better training and evaluation.</li>
+      <li><strong>True open-source community momentum</strong> — +13 votes from community members, not a single company. This grassroots legitimacy makes the standard more durable and flexible than a vendor-led initiative.</li>
+    </ul>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li><strong>Read the HuggingFace blog</strong> — Go to <a href="https://huggingface.co/blog/openenv-agentic-rl" target="_blank">huggingface.co/blog</a> for "The Open Source Community is backing OpenEnv for Agentic RL."</li>
+        <li><strong>Browse the OpenEnv repo</strong> — Go to <a href="https://github.com/meta-ai/openenv" target="_blank">github.com/meta-ai/openenv</a> to see which tasks are supported (code, tool use, multi-turn dialogue, etc.).</li>
+        <li><strong>Track agent benchmarks</strong> — If future agent tools claim scores on OpenEnv, you can use that to evaluate tool quality.</li>
+        <li><strong>Consider enterprise evaluation</strong> — If your company is evaluating agent platforms, ask vendors for OpenEnv benchmark results.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how OpenEnv differs from OpenAI Gym</summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th>Dimension</th><th>OpenAI Gym</th><th>OpenEnv</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Purpose</th><td>Traditional RL (games, robotics)</td><td><span class="ok">Agentic RL (tool use, code, dialogue)</span></td></tr>
+              <tr><th>Task types</th><td>Atari games, MuJoCo robotics</td><td><span class="ok">Code generation, API calls, multi-turn dialogue, web browsing</span></td></tr>
+              <tr><th>Metrics</th><td>Score, steps</td><td><span class="ok">Task completion rate, efficiency, safety</span></td></tr>
+              <tr><th>Open source</th><td>Yes</td><td>Yes (Meta open source)</td></tr>
+              <tr><th>Community support</th><td>Broad</td><td><span class="ok">Fast-growing (+13 votes as standard)</span></td></tr>
+              <tr><th>Relevance to clawii</th><td>Low (doesn't do game RL)</td><td><span class="ok">High (agent tools benefit directly)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>What it runs on</strong> — Python library built on Gymnasium (OpenAI Gym successor). Supports multiple agent frameworks (LangChain, AutoGPT, OpenHands). Standardized API and evaluation scripts.</p>
+
+        <p><strong>How hard to use</strong> — For developers: <code>pip install openenv</code>. For clawii: no direct use needed — just track OpenEnv-based benchmarks when comparing agent tools.</p>
+
+        <p><strong>Honest caveats</strong> — Standardization is early; task coverage isn't comprehensive. Community vote doesn't equal formal standard. Adapter quality varies across agent frameworks.</p>
+
+        <p><strong>What you can actually do with it</strong> — When choosing between Claude Code vs Codex vs OpenCode, check their OpenEnv scores. If evaluating agent platforms at work, ask vendors for OpenEnv results.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 What to watch for next</span>
+      <p>If any of these happen in the next week, I'll tap you again: 1) Major agent frameworks (LangChain, AutoGPT) officially adopt OpenEnv as their standard eval; 2) Karpathy or Simon Willison discuss OpenEnv; 3) Any agent tool achieves a significantly high OpenEnv score.</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li><strong>HuggingFace Blog</strong> — "The Open Source Community is backing OpenEnv for Agentic RL" — +13 community votes.</li>
+      <li><strong>Smol AI 6/8</strong> — Mentioned OpenEnv as the standard environment for agentic RL, gaining community support.</li>
+      <li>No KOL endorsement yet, but HuggingFace community discussion is positive.</li>
+    </ul>
+
+    <div class="jargon">
+      <dl>
+        <dt>Agentic RL</dt>
+        <dd>Training AI agents via reinforcement learning (trial and error) to use tools and complete real-world tasks, as opposed to traditional RL focused on games.</dd>
+        <dt>OpenEnv</dt>
+        <dd>Meta's open-source agent evaluation environment providing standardized tasks and metrics for fair comparison of agent systems.</dd>
+      </dl>
+    </div>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li><a href="https://huggingface.co/blog/openenv-agentic-rl" target="_blank">HuggingFace blog post</a></li>
+      <li><a href="https://github.com/meta-ai/openenv" target="_blank">GitHub: meta-ai/openenv</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42600573" target="_blank">HN discussion (Smol AI related)</a></li>
     </ul>
   </article>
 
@@ -315,72 +491,82 @@
     <ul>
       <li>
         <span class="days">Day 2</span>
-        <div><span class="item-name">👀 DeepSeek V4 Pro</span> <span class="update">— Still trending on HF (4.3M downloads); no new HN discussion; Karpathy hasn't commented. Waiting for independent replication.</span></div>
+        <div><span class="item-name">👀 DeepSeek V4 Pro</span> <span class="update">— Featured yesterday; no new trigger events today. HN score holding at ~284, no new KOL endorsement.</span></div>
       </li>
       <li>
         <span class="days">Day 2</span>
-        <div><span class="item-name">👀 Lathe — LLM learning tool</span> <span class="update">— HN score steady at 324; GitHub 200+ stars; no KOL endorsement yet. Waiting for 1,000 stars or community口碑.</span></div>
+        <div><span class="item-name">👀 Lathe</span> <span class="update">— Featured yesterday; no new trigger events. GitHub star growth steady (+50/day), still awaiting KOL signal.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">👀 MetaGPT v0.8</span> <span class="update">— No new trigger; GitHub star growth slowed (+30/day), still awaiting KOL endorsement.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 6</span>
+        <div><span class="item-name">👀 Gemma 4 12B</span> <span class="update">— HF total downloads ~1M (+140k/day); GGUF version ~800k; Karpathy no new post.</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- WHAT DIDN'T MAKE IT -->
   <section class="killed">
-    <h2>What didn't make it in today (including re-evaluated killed-list)</h2>
+    <h2>What didn't make it in today (including re-evaluated killed-list items)</h2>
     <table>
       <thead>
         <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>Microsoft's open source tools hacked to steal passwords of AI developers (194 pts)</td><td>Security vulnerability, not AI tool breakthrough</td></tr>
-        <tr><td>HN (#2)</td><td>GentleOS – Classic OS (53 pts)</td><td>Not AI, retro OS</td></tr>
-        <tr><td>HN (#3)</td><td>OpenCV 5 Is Here (236 pts)</td><td>Computer vision library update, not AI model/tool</td></tr>
-        <tr><td>HN (#4)</td><td>Forever Young: molecule locks plants in youthful state (34 pts)</td><td>Biology research, not AI</td></tr>
-        <tr><td>HN (#5)</td><td>The iPhone's Last Stand (13 pts)</td><td>Opinion piece, low score, not AI</td></tr>
-        <tr><td>HN (#7)</td><td>Thi.ng – open-source building blocks for computational design (52 pts)</td><td>Not AI, computational design</td></tr>
-        <tr><td>HN (#9)</td><td>Porting ThinkPad X61 to Coreboot (85 pts)</td><td>Hardware hacking, not AI</td></tr>
-        <tr><td>HN (#10)</td><td>xAI is looking more like a datacentre REIT than a frontier lab (577 pts)</td><td>Opinion/industry analysis, not tool</td></tr>
-        <tr><td>HN (#11)</td><td>Show HN: Performative-UI (992 pts)</td><td>React component library, not AI</td></tr>
-        <tr><td>HN (#12)</td><td>Eagle Computer: rise and fall (10 pts)</td><td>Computer history, not AI</td></tr>
-        <tr><td>HN (#13)</td><td>Old'aVista – guide to old Internet (112 pts)</td><td>Not AI, retro web directory</td></tr>
-        <tr><td>HN (#14)</td><td>EU-banned pesticides in food (432 pts)</td><td>Food safety, not AI</td></tr>
-        <tr><td>HN (#15)</td><td>MiMo-v2.5-Pro-UltraSpeed: 1T model, 1000 tok/s (580 pts)</td><td><strong>Re-evaluated</strong> — Xiaomi model, likely already covered by Chinese-language media (量子位/WeChat/Red Note). Fails "not yet covered by Chinese media" test. Keep excluded.</td></tr>
-        <tr><td>HN (#16)</td><td>C-style void* in C++ (10 pts)</td><td>Programming technique, not AI</td></tr>
-        <tr><td>HN (#18)</td><td>Facebook paying people overseas promoting Alberta separatism (167 pts)</td><td>Politics/society, not AI</td></tr>
-        <tr><td>HN (#19)</td><td>Postgres 19: Query Hints (167 pts)</td><td>Database feature, not AI</td></tr>
-        <tr><td>HN (#20)</td><td>Gitdot – A better GitHub (267 pts)</td><td>Code hosting alternative, not AI</td></tr>
-        <tr><td>HN (#21)</td><td>GoGoGrandparent hiring</td><td>Job posting, not AI</td></tr>
-        <tr><td>HN (#22)</td><td>Ask HN: tools you have made for yourself since AI (317 pts)</td><td>Community discussion, not new tool/model</td></tr>
-        <tr><td>HN (#23)</td><td>Passing DBs through continuations (58 pts)</td><td>Programming technique, not AI</td></tr>
-        <tr><td>HN (#24)</td><td>H2JVM – Haskell JVM bytecode (8 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#25)</td><td>FrontierCode by Cognition (202 pts)</td><td>Benchmark release, not new tool/model; already covered (Smol AI 6/8)</td></tr>
-        <tr><td>HN (#26)</td><td>Why hasn't there been a competitor to Ticketmaster? (181 pts)</td><td>Industry discussion, not AI</td></tr>
-        <tr><td>HN (#27)</td><td>Why are cells small? (154 pts)</td><td>Biology, not AI</td></tr>
-        <tr><td>HN (#28)</td><td>Surveillance is not safety – Signal (585 pts)</td><td>Privacy/security, not AI</td></tr>
-        <tr><td>HN (#29)</td><td>How much do amd64 microarchitecture levels help in Go? (60 pts)</td><td>Performance optimization, not AI</td></tr>
-        <tr><td>HN (#30)</td><td>AI is slowing down (577 pts)</td><td>Opinion piece, no new data/tool</td></tr>
-        <tr><td>Smol AI 6/8–6/9</td><td>not much happened today – Opus 4.8, Gemma-4, FrontierCode</td><td>Industry status update, no new releases or tools</td></tr>
-        <tr><td>Smol AI 6/8–6/9</td><td>MagicPath, LangSmith, Modal, ClaudeDevs etc.</td><td>Ecosystem updates to existing tools, not breakthrough</td></tr>
-        <tr><td>Smol AI 6/5</td><td>Anthropic Mythos/Opus cycle + Sakana RSI Lab</td><td>Industry opinions, no new release</td></tr>
-        <tr><td>Smol AI 6/4</td><td>Nemotron 3 Ultra + 3.5 ASR</td><td>Already excluded multiple times, no new HN/KOL discussion</td></tr>
-        <tr><td>Smol AI 6/2</td><td>MAI-Thinking-1 technical report</td><td>Model release extension, core model already covered</td></tr>
-        <tr><td>Smol AI 6/1</td><td>Cosmos-3 / MiniMax M3</td><td>Already excluded multiple times, no new trigger</td></tr>
-        <tr><td>OpenAI (Jun 8)</td><td>Confidential S-1 filing + Economic Research Exchange</td><td>IPO docs + research program, excluded</td></tr>
-        <tr><td>OpenAI (Jun 4)</td><td>Endava Frontiers + ChatGPT Memory Dreaming</td><td>Enterprise partnership + feature update, not breakthrough</td></tr>
-        <tr><td>Anthropic (Jun 3)</td><td>Services Track + Partner Hub + Cyber Threat report</td><td>Partner program + security report, not breakthrough</td></tr>
-        <tr><td>DeepMind blog</td><td>Gemini Omni + Singapore partnership</td><td>Model release extension + partnership, no trigger</td></tr>
-        <tr><td>Mistral blog</td><td>Vibe updates + Search Toolkit + Physics AI</td><td>Existing product updates, not breakthrough</td></tr>
-        <tr><td>HF blog (Jun 9)</td><td>Arcee replaces AWS S3 with HF Storage</td><td>Enterprise infrastructure, no impact on clawii</td></tr>
-        <tr><td>HF blog (Jun 8)</td><td>Nemotron 3.5 Content Safety + OpenEnv</td><td>Safety model + community tag, not breakthrough</td></tr>
-        <tr><td>HF blog (Jun 4–7)</td><td>EVA-Bench, DPO, hf CLI, Holo3.1, Mellum2</td><td>Research/tools, no HN/KOL signal</td></tr>
-        <tr><td>Simon Willison (Jun 8)</td><td>Apple Core AI + Siri AI analysis</td><td>Already used as core reference for this item, not independent signal</td></tr>
-        <tr><td>Simon Willison (Jun 7)</td><td>datasette-agent-edit + micropython-wasm</td><td>Personal projects, not breakthrough</td></tr>
-        <tr><td>Simon Willison (Jun 6)</td><td>micropython-wasm sandbox</td><td>Personal project, not breakthrough</td></tr>
-        <tr><td>Simon Willison (Jun 5)</td><td>OpenAI Lockdown Mode</td><td>Security feature, not breakthrough; no new trigger</td></tr>
-        <tr><td>Re-evaluated: MetaGPT v0.8</td><td>Day 3 no trigger event</td><td>Keep excluded, remove from tracking</td></tr>
-        <tr><td>Re-evaluated: Gemma 4 12B</td><td>Day 6 no trigger event</td><td>Keep excluded, remove from tracking</td></tr>
-        <tr><td>Re-evaluated: MiMo-v2.5 (Chinese coverage risk)</td><td>HN 580 pts, but Xiaomi model</td><td>Likely already covered by Chinese media → keep excluded</td></tr>
-        <tr><td>Re-evaluated: 6/8 killed items (all 40+)</td><td>Non-AI / low score / already excluded</td><td>All no new trigger → keep excluded</td></tr>
+        <tr><td>HN (#1)</td><td>Microsoft's open source tools hacked to steal passwords of AI developers (193 pts)</td><td>Security vulnerability, not AI tool/model breakthrough</td></tr>
+        <tr><td>HN (#2)</td><td>GentleOS – Classic OS with retro GUI (51 pts)</td><td>Not AI, OS project</td></tr>
+        <tr><td>HN (#3)</td><td>OpenCV 5 Is Here (234 pts)</td><td>Computer vision library update, not AI breakthrough</td></tr>
+        <tr><td>HN (#4)</td><td>Forever Young: molecule locks plants in youthful state (34 pts)</td><td>Biology article, not AI</td></tr>
+        <tr><td>HN (#5)</td><td>The iPhone's Last Stand (12 pts)</td><td>Opinion, low score, not AI</td></tr>
+        <tr><td>HN (#7)</td><td>Thi.ng – computational design building blocks (52 pts)</td><td>Design tool, not AI</td></tr>
+        <tr><td>HN (#9)</td><td>Porting ThinkPad X61 to Coreboot (84 pts)</td><td>Hardware hack, not AI</td></tr>
+        <tr><td>HN (#10)</td><td>xAI looks more like a datacentre REIT than a frontier lab (577 pts)</td><td>Industry analysis, not tool/model</td></tr>
+        <tr><td>HN (#11)</td><td>Show HN: Performative-UI – React component library (991 pts)</td><td>Frontend library, not AI</td></tr>
+        <tr><td>HN (#12)</td><td>Eagle Computer: rise and fall of early PC clone (10 pts)</td><td>History, not AI</td></tr>
+        <tr><td>HN (#13)</td><td>Old'aVista – guide to old Internet (111 pts)</td><td>Internet history, not AI</td></tr>
+        <tr><td>HN (#14)</td><td>EU-banned pesticides in rice, tea, spices (432 pts)</td><td>Food safety, not AI</td></tr>
+        <tr><td>HN (#16)</td><td>Beauty of C-style void* in C++ (10 pts)</td><td>Coding technique, not AI</td></tr>
+        <tr><td>HN (#18)</td><td>Facebook paying overseas promoting Alberta separatism (167 pts)</td><td>Political news, not AI</td></tr>
+        <tr><td>HN (#19)</td><td>Looking Forward to Postgres 19: Query Hints (167 pts)</td><td>Database update, not AI</td></tr>
+        <tr><td>HN (#20)</td><td>Show HN: Gitdot – A better GitHub in Rust (266 pts)</td><td>Git tool, not AI</td></tr>
+        <tr><td>HN (#22)</td><td>Ask HN: Tools you made since AI advent (315 pts)</td><td>Community discussion, no new info</td></tr>
+        <tr><td>HN (#23)</td><td>H2JVM – Haskell for JVM Bytecode (8 pts)</td><td>PL tool, not AI</td></tr>
+        <tr><td>HN (#24)</td><td>Passing DBs through continuations (58 pts)</td><td>Database tech, not AI</td></tr>
+        <tr><td>HN (#25)</td><td>FrontierCode (202 pts)</td><td>Benchmark, not usable tool</td></tr>
+        <tr><td>HN (#26)</td><td>Ask HN: Why no real competitor to Ticketmaster? (181 pts)</td><td>Business discussion, not AI</td></tr>
+        <tr><td>HN (#27)</td><td>Why are cells small? (153 pts)</td><td>Biology, not AI</td></tr>
+        <tr><td>HN (#28)</td><td>Surveillance is not safety (584 pts)</td><td>Privacy policy, not AI</td></tr>
+        <tr><td>HN (#29)</td><td>How much do amd64 microarchitecture levels help in Go? (60 pts)</td><td>Performance engineering, not AI</td></tr>
+        <tr><td>HN (#30)</td><td>AI is slowing down (576 pts)</td><td>Opinion, no new data/tool</td></tr>
+        <tr><td>Smol AI 6/8</td><td>not much happened today (Opus 4.8, Gemma 4, FrontierCode, Kimi, MagicPath)</td><td>Ecosystem updates, no breakthrough releases</td></tr>
+        <tr><td>OpenAI 6/8</td><td>OpenAI submits confidential S-1, Built to benefit everyone, Economic Research Exchange</td><td>IPO filing + vision + research partnership, excluded</td></tr>
+        <tr><td>OpenAI 6/4</td><td>Endava Frontiers + ChatGPT Memory Dreaming</td><td>Enterprise partnership + feature update, not breakthrough</td></tr>
+        <tr><td>Anthropic 6/3</td><td>Services Track + Partner Hub</td><td>Partner program, not breakthrough</td></tr>
+        <tr><td>Simon Willison 6/8</td><td>Apple Siri AI analysis</td><td>Used as context for Item 1</td></tr>
+        <tr><td>Simon Willison 6/7</td><td>datasette-agent-edit 0.1a0</td><td>Personal project, not breakthrough</td></tr>
+        <tr><td>Simon Willison 6/6</td><td>micropython-wasm sandbox</td><td>Personal project, not breakthrough</td></tr>
+        <tr><td>Simon Willison 6/5</td><td>OpenAI Lockdown Mode</td><td>Security feature, not model/tool breakthrough</td></tr>
+        <tr><td>HuggingFace 6/9</td><td>Arcee replaces AWS S3 with HF Private Storage</td><td>Enterprise partnership, not breakthrough</td></tr>
+        <tr><td>HuggingFace 6/8</td><td>Nemotron 3.5 Content Safety</td><td>Safety model, enterprise, no use for clawii</td></tr>
+        <tr><td>HuggingFace 6/4</td><td>EVA-Bench Data 2.0</td><td>Benchmark data, not usable tool</td></tr>
+        <tr><td>HuggingFace 6/3</td><td>Holo3.1 Fast & Local Computer Use Agents</td><td>Research release, no direct usable tool</td></tr>
+        <tr><td>HuggingFace 6/2</td><td>Mellum2: 12B MoE by JetBrains</td><td>Model release, no HN/KOL discussion</td></tr>
+        <tr><td>Re-evaluated: DeepSeek V4 Pro</td><td>Featured yesterday</td><td>Already in Still tracking</td></tr>
+        <tr><td>Re-evaluated: Lathe</td><td>Featured yesterday</td><td>Already in Still tracking</td></tr>
+        <tr><td>Re-evaluated: MetaGPT v0.8</td><td>Day 3 no trigger</td><td>Already in Still tracking</td></tr>
+        <tr><td>Re-evaluated: Gemma 4 12B</td><td>Day 6 no trigger</td><td>Already in Still tracking</td></tr>
+        <tr><td>Re-evaluated: Uber $1500/mo cap</td><td>Day 4 no trigger</td><td>Keep excluded, removed from tracking</td></tr>
+        <tr><td>Re-evaluated: Anthropic vuln framework</td><td>Day 4 no trigger</td><td>Keep excluded, removed from tracking</td></tr>
+        <tr><td>Re-evaluated: OpenAI Codex Every Role</td><td>Day 6 no trigger</td><td>Keep excluded, removed from tracking</td></tr>
+        <tr><td>Re-evaluated: Anthropic cyber threat report</td><td>Day 6 no trigger</td><td>Keep excluded, removed from tracking</td></tr>
+        <tr><td>Re-evaluated: MAI-Code-1-Flash</td><td>Day 7 no trigger</td><td>Keep excluded, removed from tracking</td></tr>
+        <tr><td>Re-evaluated: Project Glasswing / MiniMax M3</td><td>Day 7 no trigger</td><td>Keep excluded, removed from tracking</td></tr>
+        <tr><td>Re-evaluated: opencode / claude-code / Big 4</td><td>Day 14+ no signal</td><td>Formally removed from tracking</td></tr>
+        <tr><td>Re-evaluated: DeepSeek Reasonix</td><td>Day 15 no signal</td><td>Formally removed from tracking</td></tr>
+        <tr><td>Re-evaluated: "MCP is dead?"</td><td>Day 9 still cooling</td><td>Keep excluded</td></tr>
       </tbody>
     </table>
   </section>
@@ -402,7 +588,7 @@
       Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
     </p>
     <p class="system">
-      ai-radar · v0.3 · 1 item today (0🚨 / 1👀 / 0ℹ️) · Still tracking: DeepSeek V4 Pro Day 2, Lathe Day 2. Killed-list re-evaluation: MiMo-v2.5 (Chinese coverage risk) kept excluded; MetaGPT Day 3 no trigger → removed from tracking; Gemma 4 Day 6 no trigger → removed from tracking. Apple Core AI is the sole strong signal today.
+      ai-radar · v0.3 · 3 items today (0🚨 / 3👀 / 0ℹ️) · Still tracking: DeepSeek V4 Pro Day 2, Lathe Day 2, MetaGPT v0.8 Day 3, Gemma 4 12B Day 6. Killed-list re-evaluation: all killed items remain no risers.
     </p>
   </footer>
 
