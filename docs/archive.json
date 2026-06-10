@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-10",
+      "weekday": "Wed",
+      "week": 24,
+      "issue": 17,
+      "kind": "daily",
+      "headline": "Claude Fable 5 发布：Karpathy 盛赞，HN 2320 分",
+      "summary": "Anthropic 放出两个新模型：Fable 5 全面开放，Mythos 5 受限内测。Fable 5 以 1M token 上下文、更低的定价、全榜单领先的成绩空降，Karpathy 连发多条推特称“感受一切在变化”。今天你必须知道这条。",
+      "counts": {
+        "crit": 1,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "2026-06-10.html"
+    },
+    {
       "date": "2026-06-09",
       "weekday": "Tue",
       "week": 24,

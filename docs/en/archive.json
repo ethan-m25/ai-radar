@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-10",
+      "weekday": "Wed",
+      "week": 24,
+      "issue": 17,
+      "kind": "daily",
+      "headline": "Claude Fable 5 drops: Karpathy raves, HN 2320 pts",
+      "summary": "Anthropic releases two models: Fable 5 broadly available, Mythos 5 restricted access. Fable 5 brings a 1M-token context window, lower pricing, top-of-the-benchm",
+      "counts": {
+        "crit": 1,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "2026-06-10.html"
+    },
+    {
       "date": "2026-06-09",
       "weekday": "Tue",
       "week": 24,
