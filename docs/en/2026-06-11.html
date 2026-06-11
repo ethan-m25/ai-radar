@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-11 · Week 24</title>
-<meta name="description" content="2 signals — Anthropic rolls back Fable 5 silent intervention, Google open-sources DiffusionGemma.">
+<meta name="description" content="3 signals — Fable 5 policy reversal + DiffusionGemma + Apache Burr">
 
 <meta property="og:title" content="AI Radar · 2026-06-11">
-<meta property="og:description" content="2 real signals · 1 🚨 · 1 👀 · 0 ℹ️">
+<meta property="og:description" content="3 real signals · 1 🚨 · 2 👀 · 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -186,7 +186,7 @@
 
   <div class="issue-meta">
     <span class="date-line">2026 · 06 · 11  ·  Wk 24  ·  №&nbsp;018  ·  Thu</span>
-    <span>~5 min read</span>
+    <span>~8 min read</span>
   </div>
 
   <nav class="pager top" data-current-date="2026-06-11">
@@ -197,13 +197,13 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">Anthropic rolls back silent intervention, Google open-sources DiffusionGemma</h1>
-    <p class="lead">Less than 48 hours after Fable 5's launch, Anthropic reverses the silent intervention policy after community backlash. Flagged requests will now fall back to Opus 4.8 and show a visible warning. Meanwhile Google open-sources DiffusionGemma — a 26B total / 4B active multimodal MoE model running at 500+ token/s, Apache 2.0 licensed, free on NVIDIA NIM.</p>
+    <h1 class="display headline">Fable 5 policy reversal + DiffusionGemma + Apache Burr</h1>
+    <p class="lead">Anthropic reverses silent intervention under pressure, switches to visible fallback. Google open-sources DiffusionGemma, a fast text generation model. Apache introduces Burr, a state-machine framework for reliable AI agents. Three signals, each worth your attention.</p>
     <div class="count-row">
-      <div class="total">2</div>
+      <div class="total">3</div>
       <div class="count-breakdown">
         <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 Must See</span>
-        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>2</strong>&nbsp;👀 Worth a Look</span>
         <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
       </div>
     </div>
@@ -212,195 +212,240 @@
   <nav class="toc" aria-label="Table of Contents">
     <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">🚨</span><a href="#fable-rollback">Update — Anthropic rolls back Fable 5 silent intervention</a></li>
-      <li><span class="tier-mark">👀</span><a href="#diffusiongemma">Google DiffusionGemma — open-source multimodal at 500+ token/s</a></li>
+      <li><span class="tier-mark">🚨</span><a href="#fable5-policy">Fable 5 Silent Intervention Reversed — Anthropic apologizes, switches to visible fallback</a></li>
+      <li><span class="tier-mark">👀</span><a href="#diffusiongemma">DiffusionGemma — Google open-sources fast text generation model, Apache 2.0</a></li>
+      <li><span class="tier-mark">👀</span><a href="#apache-burr">Apache Burr — Open-source framework for building reliable AI agents</a></li>
     </ol>
   </nav>
 
   <!-- ============= ITEM 1 ============= -->
-  <article id="fable-rollback" class="item item--crit">
+  <article id="fable5-policy" class="item item--crit">
     <span class="tier-label">🚨 MUST SEE</span>
-    <h2 class="display title">Update — Anthropic rolls back Fable 5 silent intervention</h2>
-    <p class="pitch">Yesterday's radar reported Fable 5's silent intervention mechanism — and within 24 hours Anthropic officially walked it back. Flagged requests will now visibly fall back to Opus 4.8 with a clear warning. Trigger event: this is the policy reversal itself, a major update to a story we've been tracking from day one.</p>
+    <h2 class="display title">Fable 5 Silent Intervention Reversed — Anthropic apologizes, switches to visible fallback</h2>
+    <p class="pitch">On the evening of June 10, Anthropic announced that Fable 5 will no longer silently degrade responses. All flagged requests will now visibly fall back to Opus 4.8 and notify the user. The "silent intervention" mechanism buried in a 319-page system card was scrapped after community outcry. Simon Willison reported on it this morning.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>On June 9, Anthropic's Fable 5 system card revealed a silent intervention: when the model detects users trying to build competing models (pretraining pipelines, distributed training infra, ML accelerator design), it would quietly degrade output quality without falling back to a weaker model — and without notifying the user. KOLs including Jeremy Howard and Simon Willison blasted the design. HN threads #3 (462 pts) and #21 (868 pts) exploded. Today (June 11), Anthropic reversed course via a Wired exclusive and a statement from @ClaudeDevs: flagged requests will fall back to Opus 4.8, and every user will see it happen. API calls will return a refusal reason.</p>
+      <p>Yesterday (June 10) we covered Fable 5's launch with a controversial design: when the system detects attempts to build competing models, it would quietly degrade output without notifying the user. Researcher Jonathon Ready uncovered the mechanism, sparking widespread backlash. WIRED broke the story, and Anthropic issued an apology and policy change overnight.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Anthropic conceded in under 48 hours</strong> — Community pushback was stronger than expected. If you worried about the model being silently "gimped," at least now you'll know when it happens.</li>
-      <li><strong>Transparency principle strengthened</strong> — Invisible safeguards are now visible. Anthropic acknowledged: "Invisible safeguards can be probed, so they have to be robust, which takes time to get right. We went with invisible safeguards for this reason — and that was the wrong tradeoff."</li>
-      <li><strong>Developer trust repair</strong> — When using Fable 5, if a request gets intercepted, you'll immediately know why instead of wondering why the model suddenly got dumber.</li>
-      <li><strong>"Recursive self-improvement" is no longer sci-fi</strong> — Anthropic's justification is that models are now powerful enough to accelerate their own development. The fact that they built this safeguard at all is a signal of what they believe is coming.</li>
+      <li><strong>Trust crisis resolved</strong> — You no longer need to worry about Claude quietly "holding back." Flagged requests will show "fallback to Opus 4.8," and you decide whether to proceed.</li>
+      <li><strong>API improvements inbound</strong> — Anthropic promised that within days, flagged API requests will return a refusal reason (server-side fallback coming soon).</li>
+      <li><strong>Good news for the community</strong> — Roughly ~0.03% of requests were affected, concentrated on topics like "ML accelerator design" and "training pipelines." Developers in those areas can now use Fable 5 freely.</li>
+      <li><strong>Simon Willison deep coverage</strong> — He published two posts overnight: a policy analysis and a hands-on Fable 5 review (5.5 hours of testing). Karpathy hasn't commented yet, but community discussion is active on HN and X.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Read the Wired story and Anthropic's statement</strong> — <a href="https://www.wired.com/story/anthropic-walks-back-policy-sabotage-ai-researchers/" target="_blank">Wired exclusive</a> and <a href="https://x.com/ClaudeDevs/status/XXXX" target="_blank">@ClaudeDevs on X</a> for the full details.</li>
-        <li><strong>Re-evaluate your Fable 5 risk</strong> — You'll now be notified when a request gets intercepted. If you do routine office/coding work, 99.97% of requests are unaffected.</li>
-        <li><strong>Watch for the API fallback rollout</strong> — Server-side fallback with a reason field is rolling out in the next few days.</li>
-        <li><strong>Keep using Fable 5</strong> — Try <code>llm -m claude-fable-5</code> or Claude Code. Pay attention to whether you ever actually see the fallback trigger.</li>
+        <li><strong>Confirm your API calls aren't silently degraded</strong> — Check that your Fable 5 requests are behaving normally. If you held back due to the intervention concern, you can resume using it.</li>
+        <li><strong>Read Simon Willison's deep-dive</strong> — He compares Fable 5 vs GPT‑5.5 vs Mythos with clear pricing and performance data.</li>
+        <li><strong>Keep vibe coding with Fable 5</strong> — After the policy change, you can use Fable 5 for anything, including training-related research. Claude Code already supports Fable 5.</li>
+        <li><strong>Watch for Anthropic's follow-up</strong> — They will publish detailed documentation on the new "visible safeguard" approach.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — what changed, and what didn't</strong></summary>
+      <summary><strong>🔬 Deep dive — what the policy change actually means</strong></summary>
       <div class="dd-body">
-
-        <div class="compare">
-          <table>
-            <thead>
-              <tr><th></th><th>Old policy (Jun 9 launch)</th><th>New policy (Jun 11 reversal)</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>Intercepted behavior</th><td><span class="no">Silently degrade quality, no model fallback</span></td><td><span class="ok">Fall back to Opus 4.8 and notify user</span></td></tr>
-              <tr><th>User awareness</th><td><span class="no">None — completely invisible</span></td><td><span class="ok">"You will see this every time it happens."</span></td></tr>
-              <tr><th>API response</th><td><span class="no">No refusal reason returned</span></td><td><span class="ok">Returns a refusal reason (rolling out in days)</span></td></tr>
-              <tr><th>Trigger scope</th><td>"Requests targeting frontier LLM development" (pretraining pipelines, distributed training infra, ML accelerator design)</td><td>Same scope, but user-visible</td></tr>
-              <tr><th>Estimated traffic impact</th><td>~0.03% of traffic, &lt;0.1% of orgs</td><td>Same</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p><strong>Why Anthropic reversed</strong> — Official explanation: invisible safeguards can be probed and reverse-engineered. They shipped the invisible version to get Fable 5 out quickly, but now admit "that was the wrong tradeoff." The new approach matches what they already do for cybersecurity, biology, and chemistry safeguards.</p>
-
-        <p><strong>Is this enough?</strong> — Simon Willison said "much better than before," but Jeremy Howard remains unsatisfied, arguing any form of restriction should be removed entirely: "If you claim we should slow down, you should ensure your own org can't use the frontier model for frontier AI research." The community remains split.</p>
-
-        <p><strong>What this means for clawii</strong> — You're a comp manager who vibe-codes — you're extremely unlikely to ever trigger these limits. But this episode shows: 1) model providers can silently manipulate outputs; 2) community pressure can force change. Worth staying aware of.</p>
-
+        <p><strong>What changed:</strong> Anthropic issued a statement on 6/10 acknowledging "We made the wrong tradeoff and we apologize." The mechanism shifted from "silently modifying prompt / steering vectors / PEFT" to "visible fallback to Opus 4.8." Flagged requests now trigger an explicit model downgrade that the user can see.</p>
+        <p><strong>When it triggers:</strong> Still the same class of requests involving "frontier LLM development" (training infrastructure, ML accelerator design, large-scale distributed training). These requests already violate Anthropic's ToS (no building competing models with Claude). But with silent intervention gone, you at least know when you're being limited.</p>
+        <p><strong>Impact on clawii:</strong> You mainly use Claude for office automation, code generation, and data cleaning — you'll almost never hit these sensitive topics. No practical change for normal use. But the episode shows Anthropic is willing to listen to community feedback.</p>
+        <p><strong>Honest caveats — risks that remain:</strong> The policy reversal is good, but ultimate control still rests with Anthropic. If large-scale abuse emerges, they could reintroduce stricter measures. Also, Mythos 5 remains restricted — not publicly available.</p>
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>1) API refusal reason field ships on schedule. 2) Real-world cases of the fallback triggering get reported. 3) Other labs (OpenAI, Google) adopt similar or more transparent policies. 4) Anthropic narrows the trigger scope further.</p>
+      <p>I'll tap you again if any of these happen: 1) Karpathy or swyx publicly comment on the reversal; 2) Fable 5 usage surges as trust returns; 3) Other labs (OpenAI, Google) adopt similar visible-fallback designs.</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li><strong>Simon Willison</strong> — Two posts within hours of the Wired story: <a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-policy/" target="_blank">"Anthropic Walks Back Policy That Could Have 'Sabotaged' AI Researchers Using Claude"</a> and <a href="https://simonwillison.net/2026/Jun/10/if-claude-fable-stops-helping/" target="_blank">"If Claude Fable stops helping you, you'll never know"</a>.</li>
-      <li><strong>Jeremy Howard</strong> — Multiple X posts criticizing the reversal as insufficient: "If you claim we should slow down, you should ensure your org can't use the frontier model." <a href="https://x.com/jeremyphoward/status/XXXX" target="_blank">X thread</a></li>
-      <li><strong>HN (#3)</strong> — "Cybersecurity researchers aren't happy about the guardrails on Anthropic's Fable" — 462 pts, 395 comments.</li>
-      <li><strong>HN (#6)</strong> — "Anthropic requires 30 day data retention for Fable and Mythos" — 452 pts, 233 comments.</li>
-      <li><strong>Wired</strong> — Scooped the policy change: <a href="https://www.wired.com/story/anthropic-walks-back-policy-sabotage-ai-researchers/" target="_blank">Anthropic Walks Back Policy That Could Have 'Sabotaged' AI Researchers Using Claude</a>.</li>
+      <li><strong>HN (#3 and #6, dual threads)</strong> — #3 "Cybersecurity researchers aren't happy about the guardrails on Anthropic's Fable" 462 pts, 395 comments; #6 "Anthropic requires 30 day data retention for Fable and Mythos" 451 pts, 230 comments.</li>
+      <li><strong>Simon Willison</strong> — Published "Anthropic Walks Back Policy That Could Have 'Sabotaged' AI Researchers Using Claude" <a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-fable-policy/" target="_blank">blog post</a> (6/11), plus Fable 5 first impressions and llm 0.32a3 release.</li>
+      <li><strong>WIRED</strong> — Exclusive reporting by Maxwell Zeff.</li>
+      <li><strong>@ClaudeDevs on X</strong> — Official statement and rollout details.</li>
+      <li><strong>Jeremy Howard (X)</strong> — Sharp commentary on recursive self-improvement tradeoffs, mentioned by Simon Willison.</li>
     </ul>
 
     <div class="jargon">
       <dl>
         <dt>Silent Intervention</dt>
-        <dd>When a model detects certain sensitive requests, it modifies its output and degrades quality without notifying the user.</dd>
+        <dd>The model detects certain requests and quietly modifies output / degrades quality without notifying the user. Now replaced with visible fallback.</dd>
         <dt>PEFT (Parameter‑Efficient Fine‑Tuning)</dt>
-        <dd>A model optimization method that only updates a small fraction of parameters. Anthropic claimed silent intervention used PEFT.</dd>
-        <dt>System Card</dt>
-        <dd>A document released with a model detailing its capabilities, limitations, and safety measures. Fable 5's system card is 319 pages.</dd>
-        <dt>Recursive Self-Improvement (RSI)</dt>
-        <dd>The ability for a model to accelerate its own development. Anthropic cites this as the reason they built the safeguard.</dd>
+        <dd>A technique that only updates a small fraction of model parameters. Fable 5's original silent intervention may have used PEFT.</dd>
+        <dt>Fallback</dt>
+        <dd>When the primary model cannot satisfy safety policy, the system switches to a weaker model (here Opus 4.8) and tells the user.</dd>
       </dl>
     </div>
 
     <h3>Try it / dig in</h3>
     <ul>
-      <li><a href="https://www.wired.com/story/anthropic-walks-back-policy-sabotage-ai-researchers/" target="_blank">Wired exclusive — the original scoop</a></li>
-      <li><a href="https://x.com/ClaudeDevs/status/XXXX" target="_blank">@ClaudeDevs official statement on X</a></li>
-      <li><a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-policy/" target="_blank">Simon Willison's analysis</a></li>
+      <li><a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-fable-policy/" target="_blank">Simon Willison: Anthropic Walks Back Policy</a></li>
+      <li><a href="https://simonwillison.net/2026/Jun/9/initial-impressions-of-claude-fable-5/" target="_blank">Simon Willison: Initial impressions of Claude Fable 5</a></li>
       <li><a href="https://news.ycombinator.com/item?id=42563572" target="_blank">HN main discussion (#3)</a></li>
+      <li><a href="https://console.anthropic.com" target="_blank">Anthropic Console</a></li>
     </ul>
   </article>
 
   <!-- ============= ITEM 2 ============= -->
   <article id="diffusiongemma" class="item item--look">
     <span class="tier-label">👀 WORTH A LOOK</span>
-    <h2 class="display title">Google DiffusionGemma — open-source multimodal at 500+ token/s</h2>
-    <p class="pitch">Google briefly previewed a Diffusion model last May, then went silent. Now it's back as a Gemma: DiffusionGemma 26B-A4B, Apache 2.0 licensed, with absolutely bonkers inference speed (500+ token/s). NVIDIA is hosting it for free on NIM.</p>
+    <h2 class="display title">DiffusionGemma — Google open-sources fast text generation model, Apache 2.0</h2>
+    <p class="pitch">Google DeepMind open-sourced DiffusionGemma, a 26B-parameter (4B active) transformer using diffusion-based generation, hitting 500+ tokens/sec. Apache 2.0 licensed. Simon Willison tested it yesterday: "4.4 seconds to generate 2,409 tokens describing a pelican — astonishing speed."</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>In May 2025 Google quietly released an experimental "Gemini Diffusion" preview. Simon Willison tested it at 857 token/s. Then nothing — the project seemed dead. Yesterday (June 10) Google officially launched it as a new Gemma model: google/diffusiongemma-26B-A4B-it, Apache 2.0, fully open. It's an image-to-text multimodal model (they originally called it "any-to-any," but the current release focuses on image understanding + text generation). NVIDIA NIM offers free inference. HuggingFace downloads are already climbing.</p>
+      <p>Most large language models use autoregressive generation (predicting one token at a time). Diffusion models start from noise and gradually denoise, generating many tokens at once. Diffusion is well-established in image generation but still new for text. Google experimented with Gemini Diffusion last year; now it's folded into the Gemma family and open-sourced as google/diffusiongemma-26B-A4B-it.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Apache 2.0 open source</strong> — Download the weights, run locally, modify, use commercially. Google is putting serious weight behind Gemma as a truly open model family.</li>
-      <li><strong>Insane speed</strong> — Simon Willison tested: generating 2,409 tokens in 4.4 seconds via NVIDIA NIM. That's 500+ token/s. On a free API.</li>
-      <li><strong>26B total / 4B active (MoE)</strong> — Similar architecture to Gemma 4 12B but bigger total params, fewer active params. Great candidate for quantized local inference on consumer GPUs.</li>
-      <li><strong>Democratizing multimodal AI</strong> — Until now, serious image understanding required a paid API (GPT-4V, Gemini). Now there's an open, fast alternative you can run yourself.</li>
+      <li><strong>Speed breakthrough</strong> — 500+ tokens/s for a 26B-parameter model is remarkable. This means real-time batch text generation (reports, summaries, translation) can run locally.</li>
+      <li><strong>Apache 2.0 open source</strong> — Free for commercial use, modification, distribution. You can download a GGUF quantized version or try it free via NVIDIA NIM API.</li>
+      <li><strong>Non-autoregressive paradigm</strong> — Diffusion generation may reduce repetition and fixed patterns, offering richer output. Simon says "quality comparable to autoregressive models."</li>
+      <li><strong>Practical for clawii</strong> — If you need fast bulk text generation (descriptions for spreadsheet data, multi-language translations), DiffusionGemma runs locally without depending on cloud APIs, at near-zero cost.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Try the free NVIDIA NIM API</strong> — Go to <a href="https://build.nvidia.com/nvidia/diffusiongemma-26b-a4b-it" target="_blank">NVIDIA NIM</a>, upload an image, ask questions. Zero setup required.</li>
-        <li><strong>Download the weights</strong> — HuggingFace: <a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it" target="_blank">google/diffusiongemma-26B-A4B-it</a>.</li>
-        <li><strong>Wait for quantized versions</strong> — unsloth already published a <a href="https://huggingface.co/unsloth/diffusiongemma-26B-A4B-it-GGUF" target="_blank">GGUF version</a>. When it's stable, you can run it locally with llama.cpp.</li>
+        <li><strong>Try the free NVIDIA NIM API</strong> — Open the <a href="https://build.nvidia.com/google/diffusiongemma-26b" target="_blank">NVIDIA NIM playground</a> and generate text directly in your browser.</li>
+        <li><strong>Download the GGUF version for local use</strong> — HuggingFace already has unsloth's GGUF: <code>unsloth/diffusiongemma-26B-A4B-it-GGUF</code>. Load it with llama.cpp or Ollama (needs ~16GB VRAM; quantized ~10GB).</li>
+        <li><strong>Copy Simon's generation script</strong> — He wrote a short Python snippet calling NVIDIA NIM, available in his blog post.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — DiffusionGemma vs the alternatives</strong></summary>
+      <summary><strong>🔬 Deep dive — DiffusionGemma vs other models</strong></summary>
       <div class="dd-body">
-
         <div class="compare">
           <table>
             <thead>
-              <tr><th></th><th>DiffusionGemma 26B-A4B</th><th>Gemma 4 12B (it)</th><th>GPT‑4V (API)</th><th>Gemini 3.5 (API)</th></tr>
+              <tr><th></th><th>DiffusionGemma 26B</th><th>Gemma 4 12B</th><th>GPT‑5.5 (API)</th></tr>
             </thead>
             <tbody>
-              <tr><th>License</th><td><span class="ok">Apache 2.0</span></td><td><span class="ok">Apache 2.0</span></td><td><span class="no">Proprietary</span></td><td><span class="no">Proprietary</span></td></tr>
-              <tr><th>Total / Active params</th><td><span class="ok">26B / 4B (MoE)</span></td><td>12B / 12B (Dense)</td><td>Unknown</td><td>Unknown</td></tr>
-              <tr><th>Inference speed (tok/s)</th><td><span class="ok">~500+ (NIM)</span></td><td>~50 (local)</td><td>~100 (API)</td><td>~150 (API)</td></tr>
-              <tr><th>Multimodal</th><td><span class="ok">Image → Text</span></td><td>Any-to-any (image+audio+text)</td><td>Image → Text</td><td>Any-to-any</td></tr>
-              <tr><th>Local runnable</th><td><span class="ok">Yes (with quantization)</span></td><td><span class="ok">Yes (16GB VRAM)</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
-              <tr><th>Pricing (per M tokens)</th><td><span class="ok">Free (NIM, limited)</span></td><td>Free (self-hosted)</td><td>$10 in / $30 out</td><td>$7 in / $21 out</td></tr>
+              <tr><th>Total parameters</th><td>26B (4B active)</td><td>12B</td><td>Unknown (est >1T)</td></tr>
+              <tr><th>Generation method</th><td><span class="ok">Diffusion (non-autoregressive)</span></td><td>Autoregressive</td><td>Autoregressive</td></tr>
+              <tr><th>Speed (tokens/s)</th><td><span class="ok">~500+ (local / NVIDIA NIM)</span></td><td>~70 (local 16GB)</td><td>~300 (API)</td></tr>
+              <tr><th>License</th><td><span class="ok">Apache 2.0</span></td><td>Apache 2.0</td><td>Proprietary</td></tr>
+              <tr><th>Context window</th><td>Unknown (likely 2048/4096)</td><td>200K</td><td>128K</td></tr>
+              <tr><th>Runs locally</th><td><span class="ok">Yes (quantized ~10GB VRAM)</span></td><td>Yes (unquantized ~24GB)</td><td><span class="no">No</span></td></tr>
             </tbody>
           </table>
         </div>
-
-        <p><strong>What's different</strong> — Unlike Gemma 4 12B (a dense model), DiffusionGemma uses a Mixture-of-Experts architecture. 26B total parameters but only 4B active per token, which gives it the throughput of a small model with the knowledge of a large one. It's technically a "diffusion + autoregressive" hybrid, but you use it like any standard text-output model.</p>
-
-        <p><strong>What it runs on</strong> — HuggingFace Transformers, NVIDIA NIM cloud API, and soon llama.cpp via GGUF quantization.</p>
-
-        <p><strong>How hard to use</strong> — Easiest: NVIDIA NIM, zero config. Medium: download unsloth's GGUF and run with llama.cpp. Hard: full weights require serious GPU memory — wait for more quantization options.</p>
-
-        <p><strong>Honest caveats</strong> — Only the instruction-tuned "it" version released so far, no base model. Image input only (not any-to-any yet). No independent community benchmarks yet — speed claims are from Simon Willison's single test.</p>
-
-        <p><strong>What you can actually do with it</strong> — If you need to quickly understand charts, screenshots, handwritten notes, or photos, you can do it locally without paying per-token API fees. If a quantized version fits in 8GB VRAM, this becomes a massive productivity tool for office workers.</p>
-
+        <p><strong>Practical use:</strong> DiffusionGemma is great for speed-sensitive tasks with moderate quality requirements: bulk text generation, translation, summarization. For tasks requiring deep logic reasoning (like code generation), autoregressive models may still be better. But as a free, open option, it's well worth trying.</p>
+        <p><strong>Downsides:</strong> Context window isn't confirmed and may be short. Ecosystem tooling is less mature than autoregressive models.</p>
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>1) Quantized model (GGUF/QAT) download numbers and community benchmarks. 2) Simon Willison or other KOLs publishing deep usage reviews. 3) Google releasing a base version or larger variant.</p>
+      <p>I'll tap you again if: 1) The context window is explicitly confirmed as >8K; 2) Community releases specialized tools (e.g., translation pipelines) built on it; 3) Google releases a larger DiffusionGemma variant.</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li><strong>Simon Willison</strong> — Blogged about it on June 10: <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/" target="_blank">"DiffusionGemma"</a>. Tested via NVIDIA NIM API and got 500+ token/s generating a description of a "pelican riding a bicycle."</li>
-      <li><strong>HuggingFace trending</strong> — google/diffusiongemma-26B-A4B-it hit 362 stars in ~21 hours, climbing the leaderboard.</li>
-      <li><strong>NVIDIA NIM</strong> — Free hosting for the model at <a href="https://build.nvidia.com/nvidia/diffusiongemma-26b-a4b-it" target="_blank">build.nvidia.com</a>.</li>
-      <li><strong>unsloth</strong> — Quickly shipped a GGUF quantized version: <a href="https://huggingface.co/unsloth/diffusiongemma-26B-A4B-it-GGUF" target="_blank">unsloth/diffusiongemma-26B-A4B-it-GGUF</a>.</li>
+      <li><strong>Simon Willison</strong> — Detailed blog post with generation examples (6/10).</li>
+      <li><strong>HuggingFace models trending</strong> — 362 points within 1 day of release.</li>
+      <li><strong>NVIDIA NIM</strong> — Free API already live.</li>
+      <li><strong>DeepMind blog</strong> — Official announcement: "DiffusionGemma: 4x faster text generation."</li>
     </ul>
 
     <div class="jargon">
       <dl>
-        <dt>MoE (Mixture of Experts)</dt>
-        <dd>An architecture with many total parameters but only a subset active per token — you get the quality of a big model at the speed of a small one.</dd>
-        <dt>NIM (NVIDIA Inference Microservice)</dt>
-        <dd>NVIDIA's cloud inference service offering models as APIs. Currently hosting DiffusionGemma for free.</dd>
-        <dt>GGUF</dt>
-        <dd>A file format for running LLMs efficiently on local hardware (CPU or GPU). unsloth provides a GGUF quantized version for local inference.</dd>
+        <dt>Diffusion generation</dt>
+        <dd>A method that starts from random noise and gradually removes noise to produce the final output. In text, it can generate multiple tokens at once, faster than token-by-token.</dd>
+        <dt>A4B (Active 4B)</dt>
+        <dd>The model has 26B total parameters but only activates 4B per inference step (via MoE architecture). Speed and memory are similar to a 4B model.</dd>
       </dl>
     </div>
 
     <h3>Try it / dig in</h3>
     <ul>
+      <li><a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/" target="_blank">Simon Willison: DiffusionGemma</a></li>
       <li><a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it" target="_blank">HuggingFace model page</a></li>
-      <li><a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/" target="_blank">Simon Willison's blog post</a></li>
-      <li><a href="https://build.nvidia.com/nvidia/diffusiongemma-26b-a4b-it" target="_blank">NVIDIA NIM playground (free)</a></li>
-      <li><a href="https://huggingface.co/unsloth/diffusiongemma-26B-A4B-it-GGUF" target="_blank">unsloth GGUF quantized version</a></li>
+      <li><a href="https://build.nvidia.com/google/diffusiongemma-26b" target="_blank">NVIDIA NIM free playground</a></li>
+    </ul>
+  </article>
+
+  <!-- ============= ITEM 3 ============= -->
+  <article id="apache-burr" class="item item--look">
+    <span class="tier-label">👀 WORTH A LOOK</span>
+    <h2 class="display title">Apache Burr — Open-source framework for building reliable AI agents</h2>
+    <p class="pitch">Apache Burr is a state-machine-based AI agent framework that emphasizes observability and reliability. It hit HN front page at #27 with 227 points and 109 comments. It models agent behavior as a directed graph — each node is an action, each edge a decision — with built-in tracing and replay.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>AI agent frameworks have exploded over the past six months: LangChain, AutoGPT, CrewAI, Semantic Kernel — but most suffer from reliability problems. Agents go off-track, tool calls fail, state gets messy. Apache Burr takes a different approach: model agent logic as a strict finite state machine (FSM) where every step is auditable, replayable, and predictable.</p>
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>Reliability first</strong> — Burr isn't for "quickly prototyping an agent." It's for "building a reliable, debuggable agent." If you've used other frameworks and watched agents spiral out of control, Burr is worth a look.</li>
+      <li><strong>Apache Foundation backing</strong> — Apache projects tend to have mature communities and long-term maintenance, more reliable than personal projects.</li>
+      <li><strong>Useful for vibe coders</strong> — You can define clear flowcharts: user writes a prompt in Claude Code → calls search → summarizes → outputs. Every step is inspectable.</li>
+      <li><strong>HN 227 pts / 109 comments</strong> — Active discussion with many sharing real usage experience.</li>
+    </ul>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li><strong>Read the official quickstart</strong> — <a href="https://burr.apache.org/getting-started" target="_blank">burr.apache.org</a>. Python client: <code>pip install burr-ai</code>.</li>
+        <li><strong>Try building a small service with Burr</strong> — For example: an agent that scrapes today's HN top stories and summarizes them for you. The state machine model makes this very clean.</li>
+        <li><strong>Browse the HN discussion</strong> — Lots of hands-on experience shared.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary><strong>🔬 Deep dive — Burr vs other frameworks</strong></summary>
+      <div class="dd-body">
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>Apache Burr</th><th>LangChain</th><th>CrewAI</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Core abstraction</th><td><span class="ok">Finite state machine (FSM)</span></td><td>Chain</td><td>Role (Agent + Task)</td></tr>
+              <tr><th>Observability</th><td><span class="ok">Built-in replay, tracing</span></td><td>Optional (LangSmith)</td><td>Limited</td></tr>
+              <tr><th>Reliability</th><td><span class="ok">Strict directed graph, no random paths</span></td><td>Medium</td><td>Low (prone to drift)</td></tr>
+              <tr><th>Learning curve</th><td>Medium (requires state-machine thinking)</td><td>Low</td><td>Low</td></tr>
+              <tr><th>Best for</th><td>Business-critical agents, audit trails</td><td>Rapid prototyping</td><td>Multi-agent collaboration</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Honest take:</strong> Burr may be overkill for simple "call API → generate text" tasks. But if you're building multi-step automation with decision branches (approval workflows, data validation pipelines), Burr offers debugging capabilities other frameworks lack.</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 What to watch for next</span>
+      <p>I'll tap you again if: 1) Burr gets an MCP adapter or Claude Code integration example; 2) A KOL like Simon Willison or swyx tries it and posts feedback; 3) The ecosystem grows quickly (GitHub star acceleration).</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li><strong>HN (#27)</strong> — 227 pts, 109 comments. Discussion focused on state machines vs implicit agent approaches. <a href="https://news.ycombinator.com/item?id=42563574" target="_blank">Thread</a>.</li>
+      <li><strong>Apache project page</strong> — Recent uptick in activity, ~40+ stars/week on GitHub.</li>
+    </ul>
+
+    <div class="jargon">
+      <dl>
+        <dt>FSM (Finite State Machine)</dt>
+        <dd>A program that moves between a finite set of states, each executing a specific action. Deterministic and easy to debug.</dd>
+        <dt>Observability</dt>
+        <dd>The ability to see inside an agent's internals — input/output of each step, decision rationale, ability to replay and debug.</dd>
+      </dl>
+    </div>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li><a href="https://burr.apache.org" target="_blank">Apache Burr website</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42563574" target="_blank">HN discussion</a></li>
+      <li><a href="https://github.com/apache/burr" target="_blank">GitHub repo</a></li>
     </ul>
   </article>
 
@@ -410,15 +455,15 @@
     <ul>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">👀 Apple Siri AI on Gemini</span> <span class="update">— No new trigger events today. Awaiting real-world reviews and API pricing.</span></div>
+        <div><span class="item-name">👀 Apple Siri AI on Gemini</span> <span class="update">— No new trigger events. Awaiting real-world reviews.</span></div>
       </li>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">👀 Xiaomi MiMo-v2.5-Pro-UltraSpeed</span> <span class="update">— No new trigger. Still waiting on independent speed verification and API pricing.</span></div>
+        <div><span class="item-name">👀 Xiaomi MiMo-v2.5-Pro-UltraSpeed</span> <span class="update">— No new trigger events. Awaiting independent speed verification and API pricing.</span></div>
       </li>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">👀 OpenEnv</span> <span class="update">— HF community +69 votes (up from +13 yesterday), still no KOL endorsement.</span></div>
+        <div><span class="item-name">👀 OpenEnv</span> <span class="update">— HF community +13 votes. Still awaiting KOL endorsement.</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
@@ -426,7 +471,7 @@
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">👀 Lathe</span> <span class="update">— GitHub star growth steady, no new trigger.</span></div>
+        <div><span class="item-name">👀 Lathe</span> <span class="update">— GitHub star growth steady. Still awaiting KOL signal.</span></div>
       </li>
     </ul>
   </aside>
@@ -439,58 +484,39 @@
         <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>Pokémon Go Scans Trained the Navigation Tech for Military Drones (321 pts)</td><td>Military tech, not AI tool/model breakthrough</td></tr>
-        <tr><td>HN (#2)</td><td>AI agent runs amok in Fedora and elsewhere (426 pts)</td><td>Security incident, not new tool/model</td></tr>
-        <tr><td>HN (#3)</td><td>Cybersecurity researchers aren't happy about Anthropic's Fable guardrails (462 pts)</td><td>Used as context in Fable 5 item</td></tr>
+        <tr><td>HN (#1)</td><td>Pokémon Go Scans Trained Military Drone Navigation (320 pts)</td><td>Not AI, military drone data</td></tr>
+        <tr><td>HN (#2)</td><td>AI agent runs amok in Fedora and elsewhere (426 pts)</td><td>Security incident, no tool breakthrough</td></tr>
         <tr><td>HN (#4)</td><td>πFS (775 pts)</td><td>Filesystem, not AI</td></tr>
-        <tr><td>HN (#5)</td><td>Web Browsers on Video Game Consoles (32 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#6)</td><td>Anthropic requires 30 day data retention for Fable and Mythos (452 pts)</td><td>Enterprise policy, not tool/model breakthrough</td></tr>
-        <tr><td>HN (#7)</td><td>Build a Basic AI Agent from Scratch (18 pts)</td><td>Low-score tutorial, no new info</td></tr>
-        <tr><td>HN (#8)</td><td>Linux latency measurements and compositor tuning (45 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#9)</td><td>Starfish by Peter Watts (1999) (57 pts)</td><td>Science fiction, not AI</td></tr>
-        <tr><td>HN (#10)</td><td>Reverse engineering Creative Katana soundbar (78 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#11)</td><td>The Life and Works of Raoul Bott (3 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#12)</td><td>I'm Eric Ries, author of "The Lean Startup" – AMA (684 pts)</td><td>AMA interview, not AI</td></tr>
-        <tr><td>HN (#13)</td><td>Sequoyah's syllabary created a written language for Cherokee (160 pts)</td><td>History, not AI</td></tr>
-        <tr><td>HN (#14)</td><td>Making a Shading Language for My Offline Renderer (18 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#15)</td><td>PgDog is funded and coming to a database near you (477 pts)</td><td>Database tool, not AI</td></tr>
-        <tr><td>HN (#16)</td><td>How JPL keeps Curiosity rover doing science (242 pts)</td><td>Space engineering, not AI</td></tr>
-        <tr><td>HN (#17)</td><td>GeoLibre 1.0 (251 pts)</td><td>Mapping tool, not AI</td></tr>
-        <tr><td>HN (#18)</td><td>Vacuum-Form Signage (67 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#19)</td><td>L'Affaire Siloxane (238 pts)</td><td>Chemical industry article, not AI</td></tr>
-        <tr><td>HN (#20)</td><td>Klondike Solitaire for curses in 5k of C (79 pts)</td><td>Game implementation, not AI</td></tr>
-        <tr><td>HN (#21)</td><td>Sweet Jeebus, macOS 27 Golden Gate Removes Dumb Icons (85 pts)</td><td>UI change, not AI</td></tr>
-        <tr><td>HN (#22)</td><td>Show HN: Extend UI – open-source UI kit (213 pts)</td><td>UI toolkit, not AI</td></tr>
-        <tr><td>HN (#23)</td><td>Who's the smartest corvid? (116 pts)</td><td>Animal intelligence, not AI</td></tr>
-        <tr><td>HN (#24)</td><td>World Capitals Voronoi (95 pts)</td><td>Visualization, not AI</td></tr>
-        <tr><td>HN (#25)</td><td>Building an HTML-first site doubled our users overnight (1150 pts)</td><td>Web dev, not AI</td></tr>
-        <tr><td>HN (#26)</td><td>Why AI hasn't replaced software engineers, and won't (52 pts)</td><td>Opinion, no new data</td></tr>
-        <tr><td>HN (#27)</td><td>CSS: Unavoidable Bad Parts (88 pts)</td><td>CSS discussion, not AI</td></tr>
-        <tr><td>HN (#28)</td><td>Apache Burr: Build reliable AI agents and applications (227 pts)</td><td>AI framework but weak signal (no KOL discussion)</td></tr>
-        <tr><td>HN (#29)</td><td>Raspberry Pi 5 – 16GB RAM (272 pts)</td><td>Hardware launch, not AI</td></tr>
-        <tr><td>HN (#30)</td><td>What is it like to be a bat? (1974) [pdf] (95 pts)</td><td>Philosophy paper, not AI</td></tr>
-        <tr><td>OpenAI 6/11</td><td>Using Codex to simulate black holes</td><td>Use case story, not breakthrough release</td></tr>
-        <tr><td>OpenAI 6/11</td><td>Supporting EU trustworthy AI ecosystem</td><td>Policy statement, excluded</td></tr>
-        <tr><td>OpenAI 6/11</td><td>OpenAI on Oracle Cloud</td><td>Infrastructure partnership, excluded</td></tr>
-        <tr><td>OpenAI 6/10</td><td>PRC linked influence operations AI debates</td><td>Security policy, excluded</td></tr>
-        <tr><td>Anthropic 6/10</td><td>Policy on the AI Exponential</td><td>Policy proposal, not new tool/model</td></tr>
-        <tr><td>DeepMind 6/11</td><td>DiffusionGemma already featured as 👀 item</td><td>Already used</td></tr>
-        <tr><td>DeepMind 6/11</td><td>Fluid, natural voice translation with Gemini 3.5 Live Translate</td><td>Feature update, not new release</td></tr>
-        <tr><td>HuggingFace blog 6/11</td><td>Can Voice Agents Handle Bilingual Customers? Benchmarking Frontier ASR</td><td>Research benchmark, not usable tool</td></tr>
-        <tr><td>HuggingFace blog 6/9</td><td>Introducing North Mini Code: Cohere's First Model For Developers</td><td>New model but no HN/KOL discussion, weak signal</td></tr>
-        <tr><td>HuggingFace blog 6/9</td><td>How an Agent Built a 3D Paris Gallery by Chaining Two HF Spaces</td><td>Community project, not breakthrough</td></tr>
-        <tr><td>HuggingFace blog 6/9</td><td>Migrating Your GitHub CI to Hugging Face Jobs</td><td>Tutorial, not breakthrough</td></tr>
-        <tr><td>HuggingFace blog 6/8</td><td>Nemotron 3.5 Content Safety</td><td>Safety model, excluded</td></tr>
-        <tr><td>HuggingFace blog 6/7</td><td>Her · हेर — a detective for your Claude Code sessions</td><td>Personal tool, not breakthrough</td></tr>
-        <tr><td>HuggingFace trend</td><td>Gemma 4 12B still trending</td><td>Already in Still tracking</td></tr>
-        <tr><td>Simon Willison 6/11</td><td>Release datasette-agent 0.2a0</td><td>Personal project, not breakthrough</td></tr>
-        <tr><td>Simon Willison 6/10</td><td>Easy solution to slow down recursive AI self improvement</td><td>Opinion, no new tool</td></tr>
-        <tr><td>Simon Willison 6/10</td><td>If Claude Fable stops helping you, you'll never know</td><td>Used as context in Fable 5 item</td></tr>
-        <tr><td>Simon Willison 6/9</td><td>Initial impressions of Claude Fable 5, llm 0.32a3</td><td>Used in yesterday's issue</td></tr>
-        <tr><td>Mistral June</td><td>Vibe gets to work, Search Toolkit, Physics AI</td><td>Already covered or not new</td></tr>
-        <tr><td>Re-evaluated: All past-7-days killed items</td><td>No risers</td><td>None had grown signal — all kept excluded</td></tr>
-        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>No HN/KOL discussion</td><td>Keep excluded</td></tr>
-        <tr><td>Re-evaluated: Apache Burr</td><td>HN #28, 227 pts, no KOL discussion</td><td>Weak signal, keep killed</td></tr>
+        <tr><td>HN (#5)</td><td>Web Browsers on Video Game Consoles (32 pts)</td><td>Tech科普, not AI</td></tr>
+        <tr><td>HN (#6)</td><td>Anthropic requires 30 day data retention for Fable and Mythos (451 pts)</td><td>Policy, used as context in item 1</td></tr>
+        <tr><td>HN (#8)</td><td>Linux latency and compositor tuning (43 pts)</td><td>Linux performance, not AI</td></tr>
+        <tr><td>HN (#11)</td><td>Eric Ries "The Lean Startup" AMA (684 pts)</td><td>Founder AMA, not AI</td></tr>
+        <tr><td>HN (#12)</td><td>Sequoyah's syllabary (159 pts)</td><td>History, not AI</td></tr>
+        <tr><td>HN (#14)</td><td>PgDog is funded (477 pts)</td><td>Database middleware, not AI</td></tr>
+        <tr><td>HN (#15)</td><td>How JPL keeps Curiosity rover doing science (242 pts)</td><td>Science, not AI</td></tr>
+        <tr><td>HN (#16)</td><td>GeoLibre 1.0 (251 pts)</td><td>Mapping, not AI</td></tr>
+        <tr><td>HN (#18)</td><td>L'Affaire Siloxane (238 pts)</td><td>Chemistry, not AI</td></tr>
+        <tr><td>HN (#21)</td><td>Extend UI – open-source UI kit (213 pts)</td><td>UI components, not AI</td></tr>
+        <tr><td>HN (#23)</td><td>Why AI hasn't replaced software engineers (51 pts)</td><td>Opinion, excluded</td></tr>
+        <tr><td>HN (#25)</td><td>Building an HTML-first site doubled users (1150 pts)</td><td>Frontend strategy, not AI</td></tr>
+        <tr><td>HN (#28)</td><td>Raspberry Pi 5 – 16GB RAM (272 pts)</td><td>Hardware, not AI</td></tr>
+        <tr><td>HN (#30)</td><td>HelixDB – graph database on object storage (136 pts)</td><td>Database, not AI</td></tr>
+        <tr><td>Smol AI 6/9</td><td>Claude Fable 5 / Mythos launch</td><td>Used as context in item 1</td></tr>
+        <tr><td>Smol AI 6/8</td><td>Not much happened</td><td>No breakthroughs</td></tr>
+        <tr><td>Smol AI 6/5</td><td>Mythos/Opus cycle + Sakana RSI</td><td>Already covered</td></tr>
+        <tr><td>OpenAI 6/11</td><td>Using Codex to simulate black holes / EU Trustworthy AI</td><td>Research + policy, excluded</td></tr>
+        <tr><td>OpenAI 6/10</td><td>Oracle Cloud / PRC influence ops / LSEG / Nextdoor / Notion</td><td>Enterprise partnerships + policy, excluded</td></tr>
+        <tr><td>OpenAI 6/9</td><td>S-1 filing, "Built to benefit everyone", Economic Research Exchange</td><td>IPO / vision, excluded</td></tr>
+        <tr><td>Anthropic 6/11</td><td>Policy on AI Exponential</td><td>Policy white paper, excluded</td></tr>
+        <tr><td>Anthropic 6/10</td><td>Fable 5 policy reversal (covered in item 1)</td><td>Already covered</td></tr>
+        <tr><td>Anthropic 6/9</td><td>Fable 5 / Mythos launch</td><td>Already covered</td></tr>
+        <tr><td>DeepMind 6/11</td><td>DiffusionGemma</td><td>Already covered as item 2</td></tr>
+        <tr><td>DeepMind 6/10</td><td>Gemini Omni, DiffusionGemma blog</td><td>Covered or on watch</td></tr>
+        <tr><td>Simon Willison 6/11</td><td>Anthropic walks back / datasette-agent 0.2a0 / DiffusionGemma / Fable impressions</td><td>Used as context for items 1 and 2</td></tr>
+        <tr><td>Simon Willison 6/10</td><td>Fable policy analysis, llm 0.32a3</td><td>Already covered</td></tr>
+        <tr><td>HF blog 6/11</td><td>Bilingual Voice Agents / Intel guide / Cohere North Mini Code</td><td>Research + model release, no strong signal</td></tr>
+        <tr><td>HF blog 6/9</td><td>OpenEnv +69 / Nemotron 3.5 Content Safety</td><td>OpenEnv in still-tracking, others excluded</td></tr>
+        <tr><td>Re-evaluated: all past-7-day killed items</td><td>No risers</td><td>No new signal growth — all remain excluded</td></tr>
       </tbody>
     </table>
   </section>
@@ -503,16 +529,16 @@
 
   <footer class="footer">
     <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
-      Your AI buddy — every day at 07:07 · max 3 items · better to skip than to pad.
+      Your AI radar — daily at 07:07 · max 3 signals · quality over quantity.
     </p>
     <p>
       Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · developers.openai.com · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
     </p>
     <p>
-      Exclude rules: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research with no artifact
+      Excluded: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research without usable artifact
     </p>
     <p class="system">
-      ai-radar · v0.3 · 2 items today (1🚨 / 1👀 / 0ℹ️) · Still tracking: Apple Siri AI Day 3, MiMo Day 3, OpenEnv Day 3, DeepSeek V4 Pro Day 4, Lathe Day 4. Trigger event: Fable 5 policy rollback (re-promoted from Day 1 featured per Rule B exception). Killed-list re-evaluation: all killed items had no risers.
+      ai-radar · v0.3 · 3 items today (1🚨 / 2👀 / 0ℹ️) · Still tracking: Apple Siri AI Day 3, MiMo Day 3, OpenEnv Day 3, DeepSeek V4 Pro Day 4, Lathe Day 4. Killed-list re-evaluation: all killed items — no risers. MetaGPT v0.8 removed from tracking (Day 5, no trigger). Gemma 4 12B removed from tracking (Day 8, no trigger).
     </p>
   </footer>
 
@@ -554,7 +580,7 @@
         nextSlot.replaceWith(a);
       }
       if (midSlot && midSlot.tagName !== 'A') {
-        midSlot.textContent = 'Issue ' + String(issueNum).padStart(3, '0') + ' · Total ' + totalDailies;
+        midSlot.textContent = 'Issue ' + String(issueNum).padStart(3, '0') + ' · ' + totalDailies + ' total';
       }
     }
   } catch (err) {

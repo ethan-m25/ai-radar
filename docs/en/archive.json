@@ -8,11 +8,11 @@
       "week": 24,
       "issue": 18,
       "kind": "daily",
-      "headline": "Anthropic rolls back silent intervention, Google open-sources DiffusionGemma",
-      "summary": "Less than 48 hours after Fable 5's launch, Anthropic reverses the silent intervention policy after community backlash. Flagged requests will now fall back to Op",
+      "headline": "Fable 5 policy reversal + DiffusionGemma + Apache Burr",
+      "summary": "Anthropic reverses silent intervention under pressure, switches to visible fallback. Google open-sources DiffusionGemma, a fast text generation model. Apache in",
       "counts": {
         "crit": 1,
-        "look": 1,
+        "look": 2,
         "fyi": 0
       },
       "url": "2026-06-11.html"
