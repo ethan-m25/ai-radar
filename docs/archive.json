@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-11",
+      "weekday": "Thu",
+      "week": 24,
+      "issue": 18,
+      "kind": "daily",
+      "headline": "Anthropic 回滚静默干预，Google 开源 DiffusionGemma",
+      "summary": "Fable 5 发售后不到 48 小时，Anthropic 因社区强烈反弹而宣布政策调整：被标记的请求将回退到 Opus 4.8 并告知用户。与此同时 Google 开源了 DiffusionGemma——26B 总参、4B 激活的多模态模型，推理速度超 500 token/s，Apache 2.0 许可。",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-11.html"
+    },
+    {
       "date": "2026-06-10",
       "weekday": "Wed",
       "week": 24,
