@@ -8,11 +8,11 @@
       "week": 24,
       "issue": 19,
       "kind": "daily",
-      "headline": "Simon Willison: Claude Fable is relentlessly proactive — and painfully expensive",
-      "summary": "After two days of heavy use, Simon Willison describes Fable 5 as \"relentlessly proactive\" — the model autonomously calls tools, rewrites code, and decides your ",
+      "headline": "MiMo Code open-sourced + tops HN — 1000+ token/s open model arrives",
+      "summary": "Xiaomi's MiMo-V2.5-Pro-UltraSpeed is now fully open-sourced under Apache 2.0, hitting #13 on HN with 504 points. It's the first open-source MoE model to reach 1",
       "counts": {
-        "crit": 0,
-        "look": 1,
+        "crit": 1,
+        "look": 0,
         "fyi": 0
       },
       "url": "2026-06-12.html"

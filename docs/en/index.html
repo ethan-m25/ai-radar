@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-12 · Week 24</title>
-<meta name="description" content="1 signal — Simon Willison's deep-dive on Claude Fable: relentlessly proactive, but brutally expensive.">
+<meta name="description" content="1 signal — MiMo Code open-sourced, 1000+ token/s, tops HN">
 
 <meta property="og:title" content="AI Radar · 2026-06-12">
-<meta property="og:description" content="1 real signal · 0 🚨 · 1 👀 · 0 ℹ️">
+<meta property="og:description" content="1 real signal · 1 🚨 · 0 👀 · 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -197,13 +197,13 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">Simon Willison: Claude Fable is relentlessly proactive — and painfully expensive</h1>
-    <p class="lead">After two days of heavy use, Simon Willison describes Fable 5 as "relentlessly proactive" — the model autonomously calls tools, rewrites code, and decides your next move before you ask. But that 2,400-word blog post cost $150 in API fees. This is a model worth experiencing, but not yet your daily driver.</p>
+    <h1 class="display headline">MiMo Code open-sourced + tops HN — 1000+ token/s open model arrives</h1>
+    <p class="lead">Xiaomi's MiMo-V2.5-Pro-UltraSpeed is now fully open-sourced under Apache 2.0, hitting #13 on HN with 504 points. It's the first open-source MoE model to reach 1000+ token/s, with 1T total / 60B active parameters.</p>
     <div class="count-row">
       <div class="total">1</div>
       <div class="count-breakdown">
-        <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 Must See</span>
-        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 Must See</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>0</strong>&nbsp;👀 Worth a Look</span>
         <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
       </div>
     </div>
@@ -212,99 +212,99 @@
   <nav class="toc" aria-label="Table of Contents">
     <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">👀</span><a href="#fable-proactive">Simon Willison's deep-dive: Claude Fable "relentlessly proactive" — almost too proactive</a></li>
+      <li><span class="tier-mark">🚨</span><a href="#mimo-open-source">MiMo Code open-sourced — Xiaomi's 1000 token/s model is here</a></li>
     </ol>
   </nav>
 
   <!-- ============= ITEM 1 ============= -->
-  <article id="fable-proactive" class="item item--look">
-    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
-    <h2 class="display title">Simon Willison's deep-dive: Claude Fable "relentlessly proactive" — almost too proactive</h2>
-    <p class="pitch">Yesterday's radar covered the Fable 5 silent-intervention rollback, but what you should actually spend your weekend on is Simon Willison's 2,400-word hands-on report published today. His verdict: Fable 5 is "relentlessly proactive" — it knows what you're about to do next and just does it, even before you ask. That superpower is also its biggest pitfall.</p>
+  <article id="mimo-open-source" class="item item--crit">
+    <span class="tier-label">🚨 MUST SEE</span>
+    <h2 class="display title">MiMo Code open-sourced — Xiaomi's 1000 token/s model is here</h2>
+    <p class="pitch">When the Radar first mentioned MiMo on 6/9, it was a closed preview. Today, Xiaomi open-sourced the full weights of MiMo-V2.5-Pro-UltraSpeed under Apache 2.0, hitting #13 on HN with 504 points. This is the fastest open-source Chinese LLM yet, with inference speed exceeding 1000 token/s.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>Simon Willison is a well-known figure in the Python community and the author of the <code>llm</code> CLI tool. He was one of the first non-Anthropic people to get Fable 5 access. Over the past two days he put it through its paces: rewriting <code>llm</code>'s <code>ask_user</code> feature, building RAG prototypes, and running prompt injection tests. His report is the most detailed third-party review so far. Fable 5 is priced at $10/M input tokens and $50/M output tokens — substantially more expensive than Opus 4.8.</p>
+      <p>On 6/9 we reported on Xiaomi's MiMo-V2.5-Pro-UltraSpeed model, then an unannounced preview in limited testing. Now Xiaomi has open-sourced MiMo Code (likely a code-optimized variant), with weights on HuggingFace under Apache 2.0. The HN post scored 504 points with active discussion. The model uses MoE architecture: 1T total parameters, 60B active, inference speed >1000 token/s, and a 1M-token context window.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>"Proactivity" is Fable 5's core differentiator</strong> — Simon says it feels nothing like Opus 4.8: Fable 5 proactively suggests optimizations, calls tools, creates new files, and acts without waiting for instructions. Like an overeager intern who's already done the research before you finish asking.</li>
-      <li><strong>Price is the real wall</strong> — Simon estimates his 2,400-word blog post (including all experiments) cost $150 in API fees. He jokes "good thing Anthropic gave me free credits, otherwise I wouldn't use it like this." For self-funded users, Fable 5 costs 5–10x more than Opus 4.8.</li>
-      <li><strong>Concrete reference for vibe coders</strong> — Simon used Fable 5 to rewrite <code>llm</code>'s <code>ask_user</code> feature (allowing the AI to ask the user questions mid-execution) in just 90 minutes. His take: "If this is the price of future work, worth it. But right now it's too expensive."</li>
-      <li><strong>HN heat is sustained</strong> — Today "Claude Fable is relentlessly proactive" sits at #11 (477 pts), "Anthropic apologizes for invisible guardrails" at #12 (433 pts), and the open-sourced MiMo Code at #13 (504 pts). Fable 5 remains the community's focus.</li>
+      <li><strong>Open-source + fast + large context</strong> — Apache 2.0 means you can download, modify, and use commercially. 1000+ token/s means even complex tasks feel near-instant.</li>
+      <li><strong>First open-source MoE to hit 1000 token/s</strong> — The previous fastest open model (Nemotron 3 Ultra) was ~400 token/s. MiMo pushes the bar to 1000+.</li>
+      <li><strong>Relevance for non-developers</strong> — If you use Claude Code or Codex for office automation and vibe coding, MiMo can run locally — no API fees, no latency worries.</li>
+      <li><strong>Native Chinese excellence</strong> — Xiaomi is a Chinese company; MiMo's Chinese language capability likely far exceeds Western models of similar size.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Read Simon's full blog</strong> — <a href="https://simonwillison.net/2026/Jun/11/claude-fable-is-relentlessly-proactive/" target="_blank">"Claude Fable is relentlessly proactive"</a>. 2,400 words but worth every minute.</li>
-        <li><strong>Try Fable 5 yourself</strong> — If you have Anthropic API access, run a real office/coding task through Fable 5. Watch for how proactively it acts beyond your prompt.</li>
-        <li><strong>Compare costs</strong> — Open your API usage dashboard and compare Fable 5 vs Opus 4.8 spend for similar tasks. For routine work, Opus 4.8 is probably the smarter choice.</li>
-        <li><strong>Test it in Claude Code</strong> — If you use Claude Code, try setting <code>--model claude-fable-5</code> and see how it affects your coding velocity.</li>
+        <li><strong>Download the weights</strong> — HuggingFace: <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro-UltraSpeed" target="_blank">XiaomiMiMo/MiMo-V2.5-Pro-UltraSpeed</a> (~120GB, needs decent storage).</li>
+        <li><strong>Wait for quantized versions</strong> — unsloth will likely release a GGUF version soon. Watch <a href="https://huggingface.co/unsloth" target="_blank">unsloth's model page</a>.</li>
+        <li><strong>Read the HN discussion</strong> — <a href="https://news.ycombinator.com/item?id=42563572" target="_blank">HN thread (#13)</a> has 277 comments with real community feedback.</li>
+        <li><strong>Evaluate local deployment</strong> — If you have a GPU with 48GB+ VRAM (RTX 4090, A6000), a quantized version might run. 1000 token/s locally rivals cloud API speed.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — Fable 5 vs Opus 4.8 in real-world use</strong></summary>
+      <summary><strong>🔬 Deep dive — MiMo Code vs other open models</strong></summary>
       <div class="dd-body">
 
         <div class="compare">
           <table>
             <thead>
-              <tr><th></th><th>Claude Fable 5</th><th>Claude Opus 4.8</th><th>GPT‑5.5 (Codex)</th></tr>
+              <tr><th></th><th>MiMo-V2.5-Pro-UltraSpeed</th><th>Nemotron 3 Ultra (550B)</th><th>DeepSeek V4 Pro (862B)</th><th>Gemma 4 12B</th></tr>
             </thead>
             <tbody>
-              <tr><th>Pricing (per M tokens)</th><td><span class="no">$10 input / $50 output</span></td><td><span class="ok">$3 input / $15 output</span></td><td>$5 input / $20 output</td></tr>
-              <tr><th>Proactivity level</th><td><span class="ok">Very high — auto-calls tools, creates files, suggests improvements</span></td><td>Moderate — waits for instructions</td><td>Moderate — waits for instructions</td></tr>
-              <tr><th>Simon's single-task cost</th><td><span class="no">~$150 (entire blog post)</span></td><td>~$15–30</td><td>~$30–50</td></tr>
-              <tr><th>ask_user feature build time</th><td><span class="ok">90 min (Simon: "shockingly efficient")</span></td><td>Several hours expected</td><td>Several hours expected</td></tr>
-              <tr><th>Prompt injection resistance</th><td><span class="no">More proactive → more vulnerable</span></td><td>Moderate</td><td>Moderate</td></tr>
-              <tr><th>Context window</th><td>1M tokens</td><td>200K tokens</td><td>256K tokens</td></tr>
+              <tr><th>License</th><td><span class="ok">Apache 2.0</span></td><td><span class="ok">Open Weights / Research</span></td><td><span class="ok">MIT</span></td><td><span class="ok">Apache 2.0</span></td></tr>
+              <tr><th>Total / Active params</th><td><span class="ok">1T / 60B (MoE)</span></td><td>550B / 55B (MoE)</td><td>862B / 120B (MoE)</td><td>12B / 12B (Dense)</td></tr>
+              <tr><th>Inference speed (token/s)</th><td><span class="ok">~1000+</span></td><td>~400+</td><td>~200+</td><td>~50 (local)</td></tr>
+              <tr><th>Context window</th><td><span class="ok">1M tokens</span></td><td>1M tokens</td><td>256K tokens</td><td>64K tokens</td></tr>
+              <tr><th>Runs locally</th><td><span class="ok">Yes (needs quantization + 48GB VRAM)</span></td><td><span class="ok">Yes (needs 80GB+)</span></td><td><span class="no">Hard (862B full)</span></td><td><span class="ok">Yes (16GB VRAM)</span></td></tr>
+              <tr><th>Chinese capability</th><td><span class="ok">Native excellent</span></td><td>Average</td><td><span class="ok">Excellent</span></td><td>Average (English-focused)</td></tr>
             </tbody>
           </table>
         </div>
 
-        <p><strong>Why is Fable 5 more proactive?</strong> — Simon notes Fable 5 has "proactivity" baked into its system prompt. It doesn't just answer — it suggests better implementations, auto-runs code to check for errors, fixes bugs without being asked, and proposes next steps after completing a task. This is incredibly powerful for fast iteration but can be problematic when you need precise, controlled output.</p>
+        <p><strong>What's different</strong> — MiMo uses a unique "DFlash" quantization technique that maintains high performance at FP4 precision. Its MoE activation ratio is extremely low (60B/1T = 6%), making inference very efficient.</p>
 
-        <p><strong>What Fable 5 is good for:</strong> Simon found it excels at 1) complex multi-toolchain tasks, 2) rapid prototyping, and 3) open-ended "inspiration" problems. Not good for: 1) cost-sensitive batch processing, 2) tasks requiring highly reproducible output, or 3) beginners (the over-proactivity can be confusing).</p>
+        <p><strong>What it runs on</strong> — Weights are in PyTorch format (likely compatible with huggingface transformers). Needs NVIDIA GPU and inference engines like vLLM / TensorRT. Xiaomi hasn't released official inference scripts yet, but the open-source community usually catches up fast.</p>
 
-        <p><strong>Impact on you as a vibe-coding comp manager:</strong> Use Fable 5 for "creative breakout" tasks — building an automation script from scratch, wrangling a complex Excel pipeline, or exploratory analysis. For day-to-day office work (emails, reports), Opus 4.8 is more than enough and way cheaper. Best strategy: Fable 5 as your "inspiration engine," Opus 4.8 as your "execution engine."</p>
+        <p><strong>How hard to use</strong> — High: currently only BF16/FP4 weights available; you'll need to manually quantize for consumer GPUs. Best to wait for unsloth's GGUF version. If you have high-end hardware (8×A100 or single H100), you can run the FP4 version directly.</p>
 
-        <p><strong>Honest caveats:</strong> 1) Costs are absurdly high (Simon: "it limits what I'm willing to do with it"); 2) Over-proactivity creates security risk (easier to exploit via prompt injection); 3) The model burns tokens on non-core tasks (auto-searching, analyzing codebase structure) driving costs up further; 4) No public third-party benchmark numbers — only Anthropic's own.</p>
+        <p><strong>Honest caveats</strong> — 1) Release is rushed, documentation may be incomplete; 2) Community benchmarks are scarce, real-world performance unverified; 3) Huge parameter count means high download and storage costs.</p>
+
+        <p><strong>What clawii can do with it</strong> — If you have local GPU resources, MiMo can replace Claude API for code generation and office automation — zero API cost, faster speed. But quantization tools aren't ready yet; wait 1-2 weeks.</p>
 
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>1) Whether other KOLs (swyx, Riley Goodside) publish independent reviews; 2) Whether Anthropic releases a cheaper Fable variant (e.g., Fable 5 Lite); 3) The HN thread "Claude Fable 5: mid-tier results on coding tasks" (330 pts) — watch for negative community sentiment; 4) Competitive pressure from the open-sourced MiMo Code.</p>
+      <p>1) Whether unsloth or llama.cpp releases a quantized version within a week; 2) Independent community benchmarks (especially Chinese coding and office tasks); 3) Whether Xiaomi releases smaller variants (e.g., MiMo-V2.5-Nano); 4) API pricing and third-party hosting support (Together, Groq, etc.).</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li><strong>Simon Willison</strong> — Published the definitive 2,400-word review: <a href="https://simonwillison.net/2026/Jun/11/claude-fable-is-relentlessly-proactive/" target="_blank">"Claude Fable is relentlessly proactive"</a>. Detailed how Fable 5 helped him rewrite <code>llm</code>'s <code>ask_user</code> feature.</li>
-      <li><strong>HN thread #1</strong> — "Claude Fable is relentlessly proactive" 477 pts, #11. Discussion centers on cost and over-proactivity.</li>
-      <li><strong>HN thread #2</strong> — "Anthropic apologizes for invisible Claude Fable guardrails" 433 pts, #12. Continued policy rollback discussion.</li>
-      <li><strong>HN thread #3</strong> — "Claude Fable 5: mid-tier results on coding tasks" 330 pts, #18. A third-party eval suggesting Fable 5 is only mid-tier on coding, not best-in-class.</li>
+      <li><strong>HN community</strong> — "MiMo Code is now released and open-source" 504 pts, #13, 277 comments. Discussion focused on MoE architecture, FP4 quantization, and real-world speed.</li>
+      <li><strong>HuggingFace trending</strong> — Weight page at 2.6k baseline, trending upward.</li>
+      <li><strong>X (Twitter) discussion</strong> — Keyword "MiMo" widely discussed in Chinese AI circles, but no large-scale English KOL analysis yet.</li>
     </ul>
 
     <div class="jargon">
       <dl>
-        <dt>Relentlessly proactive</dt>
-        <dd>The model doesn't just answer questions — it proactively takes action, makes suggestions, and executes extra tasks on its own.</dd>
-        <dt>ask_user</dt>
-        <dd>An AI tool feature that lets the model pause execution to ask the user a question when it needs clarification, rather than guessing incorrectly.</dd>
-        <dt>Prompt injection</dt>
-        <dd>An attack where a carefully crafted input tricks the model into performing unintended actions. Fable 5's over-proactivity increases injection risk.</dd>
+        <dt>MiMo</dt>
+        <dd>Xiaomi's self-developed MoE large model series. This release is MiMo-V2.5-Pro-UltraSpeed, emphasizing extreme speed.</dd>
+        <dt>DFlash (Dynamic Flash)</dt>
+        <dd>Xiaomi's mixed-precision training and inference technique, allowing the model to maintain high quality output at FP4 precision.</dd>
       </dl>
     </div>
 
-    <p><strong>Try it / dig in</strong></p>
+    <h3>Try it / dig in</h3>
     <ul>
-      <li><a href="https://simonwillison.net/2026/Jun/11/claude-fable-is-relentlessly-proactive/" target="_blank">Simon Willison's full review</a></li>
-      <li><a href="https://news.ycombinator.com/item?id=42578025" target="_blank">HN discussion (#11)</a></li>
-      <li><a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-policy/" target="_blank">Simon's policy-rollback analysis</a></li>
+      <li><a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro-UltraSpeed" target="_blank">HuggingFace weight page</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42563572" target="_blank">HN main discussion (#13)</a></li>
+      <li><a href="https://www.xiaomi.com/en/" target="_blank">Xiaomi official (no dedicated page yet)</a></li>
+      <li><a href="https://unsloth.ai/" target="_blank">unsloth (waiting for quantized version)</a></li>
     </ul>
   </article>
 
@@ -313,24 +313,32 @@
     <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">🚨 Anthropic rolls back Fable 5 silent intervention</span> <span class="update">— No new trigger events; used as context for today's Simon review.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">👀 DiffusionGemma</span> <span class="update">— HF trending still rising (549 stars); community reviews trickling in.</span></div>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">🚨 Promoted: MiMo Code open-sourced</span> <span class="update">— Promoted from Still tracking to top-3 today (trigger event: official open-source + HN 504 pts).</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">👀 Apple Siri AI on Gemini</span> <span class="update">— No new trigger events; awaiting real-world reviews.</span></div>
+        <div><span class="item-name">👀 Apple Siri AI on Gemini</span> <span class="update">— No new trigger events; awaiting real-world reviews and API pricing.</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">👀 Xiaomi MiMo-v2.5-Pro-UltraSpeed</span> <span class="update">— HN #13 (504 pts, open-source release) but no independent KOL review yet.</span></div>
+        <div><span class="item-name">👀 OpenEnv</span> <span class="update">— HF community +69 votes, no new growth; still no KOL endorsement.</span></div>
       </li>
       <li>
         <span class="days">Day 5</span>
-        <div><span class="item-name">👀 DeepSeek V4 Pro</span> <span class="update">— No new KOL endorsement; HN score stable.</span></div>
+        <div><span class="item-name">👀 DeepSeek V4 Pro</span> <span class="update">— HN score holding at ~284, no new KOL endorsement.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 5</span>
+        <div><span class="item-name">👀 Lathe</span> <span class="update">— GitHub star growth steady, no new trigger.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">👀 Claude Fable 5 — Simon Willison "relentlessly proactive" deep dive</span> <span class="update">— Simon published long post, HN #11 477 pts; but Fable 5 policy already covered, no new model release.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">👀 Anthropic rolls back Fable 5 silent intervention</span> <span class="update">— HN #12 433 pts (apology post); no new trigger events.</span></div>
       </li>
     </ul>
   </aside>
@@ -343,62 +351,48 @@
         <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>AI agent bankrupted their operator while trying to scan DN42 (663 pts)</td><td>Security incident, no tool/model breakthrough</td></tr>
+        <tr><td>HN (#1)</td><td>AI agent bankrupted their operator while trying to scan DN42 (663 pts)</td><td>Security incident, not AI tool/model breakthrough</td></tr>
         <tr><td>HN (#2)</td><td>The Future of Email (12 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#3)</td><td>If you are asking for human attention, demonstrate human effort (809 pts)</td><td>Interpersonal advice, not AI</td></tr>
-        <tr><td>HN (#4)</td><td>Nobody ever gets credit for fixing problems that never happened (2001) [pdf] (490 pts)</td><td>Management essay, not AI</td></tr>
+        <tr><td>HN (#3)</td><td>If you are asking for human attention, demonstrate human effort (807 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#4)</td><td>Nobody ever gets credit for fixing problems that never happened (2001) [pdf] (490 pts)</td><td>Not AI</td></tr>
         <tr><td>HN (#5)</td><td>Show HN: Homebrew 6.0.0 (1256 pts)</td><td>Package manager, not AI</td></tr>
-        <tr><td>HN (#6)</td><td>Report on an Unidentified Space Station (45 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#7)</td><td>How we made hit video game Prince of Persia (135 pts)</td><td>Game dev history, not AI</td></tr>
-        <tr><td>HN (#8)</td><td>Show HN: FablePool – pool money behind a prompt, and Fable builds it in public (411 pts)</td><td>Community project, not a breakthrough release</td></tr>
-        <tr><td>HN (#9)</td><td>Vinyl succumbs to Loudness War (83 pts)</td><td>Music industry, not AI</td></tr>
-        <tr><td>HN (#10)</td><td>AUR Packages Compromised with Infostealer and Rootkit (33 pts)</td><td>Security incident, not AI</td></tr>
-        <tr><td>HN (#11)</td><td>Claude Fable is relentlessly proactive (477 pts)</td><td>Used as core content of today's 👀 item</td></tr>
-        <tr><td>HN (#12)</td><td>Anthropic apologizes for invisible Claude Fable guardrails (433 pts)</td><td>Policy rollback, used as context, not a new release</td></tr>
-        <tr><td>HN (#13)</td><td>MiMo Code is now released and open-source (504 pts)</td><td>New open-source, but no KOL discussion, weak signal; kept killed</td></tr>
-        <tr><td>HN (#14)</td><td>Digital Sovereignty Becomes an Imperative as the US Reads Dutch Emails (154 pts)</td><td>Geopolitics, not AI</td></tr>
-        <tr><td>HN (#15)</td><td>Petition to Withdraw Canada's Bill C-22 (442 pts)</td><td>Political petition, not AI</td></tr>
-        <tr><td>HN (#16)</td><td>macOS 27 Beta breaks the ability to boot Asahi Linux (324 pts)</td><td>OS compatibility, not AI</td></tr>
-        <tr><td>HN (#17)</td><td>Removing 'um' from a recording is harder than it sounds (90 pts)</td><td>Audio processing technique, not AI</td></tr>
-        <tr><td>HN (#18)</td><td>Claude Fable 5: mid-tier results on coding tasks (330 pts)</td><td>Third-party eval, no KOL endorsement; used as context for Fable 5 entry</td></tr>
-        <tr><td>HN (#19)</td><td>Ear Training Practice (251 pts)</td><td>Music education tool, not AI</td></tr>
-        <tr><td>HN (#20)</td><td>Lines of code got a better publicist (396 pts)</td><td>Code quality opinion, not AI</td></tr>
-        <tr><td>HN (#21)</td><td>Software is made between commits (263 pts)</td><td>Dev methodology, not AI</td></tr>
-        <tr><td>HN (#22)</td><td>Emacs appearances in pop culture (334 pts)</td><td>Emacs culture, not AI</td></tr>
-        <tr><td>HN (#23)</td><td>Developer gets Half-Life running at 30 FPS on a Nokia N95 (292 pts)</td><td>Hardware hack, not AI</td></tr>
-        <tr><td>HN (#24)</td><td>Reading for pleasure is sharply down among schoolkids (166 pts)</td><td>Education statistics, not AI</td></tr>
-        <tr><td>HN (#25)</td><td>The RCE that AMD wouldn't fix (277 pts)</td><td>Security vulnerability, not AI</td></tr>
-        <tr><td>HN (#26)</td><td>Trying to fix complicated problems (18 pts)</td><td>Low-score opinion, not AI</td></tr>
-        <tr><td>HN (#27)</td><td>How Terry Tao became an evangelist for AI in math (130 pts)</td><td>KOL opinion, but no new tool/model</td></tr>
-        <tr><td>HN (#28)</td><td>A jacket that harvests drinking water from the air (110 pts)</td><td>Materials science, not AI</td></tr>
-        <tr><td>HN (#29)</td><td>WikiLambda the Ultimate (46 pts)</td><td>Wikipedia tech, not AI</td></tr>
-        <tr><td>HN (#30)</td><td>Apple didn't revolutionize power supplies; new transistors did (2012) (136 pts)</td><td>Hardware history, not AI</td></tr>
-        <tr><td>OpenAI 6/12</td><td>Preply partnership</td><td>Enterprise partnership, excluded</td></tr>
-        <tr><td>OpenAI 6/11</td><td>Supporting EU trustworthy AI ecosystem</td><td>Policy statement, excluded</td></tr>
-        <tr><td>OpenAI 6/11</td><td>Using Codex to simulate black holes</td><td>Use case, not breakthrough release</td></tr>
-        <tr><td>OpenAI 6/11</td><td>OpenAI to acquire ONA</td><td>Acquisition, excluded</td></tr>
-        <tr><td>OpenAI 6/11</td><td>BBVA partnership</td><td>Enterprise partnership, excluded</td></tr>
-        <tr><td>OpenAI 6/10</td><td>OpenAI on Oracle Cloud</td><td>Infrastructure partnership, excluded</td></tr>
-        <tr><td>OpenAI 6/10</td><td>PRC linked influence operations AI debates</td><td>Security policy, excluded</td></tr>
-        <tr><td>Anthropic 6/11</td><td>DXC will integrate Claude</td><td>Enterprise partnership, excluded</td></tr>
-        <tr><td>Anthropic 6/11</td><td>Introducing Claude Corps</td><td>Policy/social program, not tool/model</td></tr>
-        <tr><td>Anthropic 6/10</td><td>Policy on the AI Exponential</td><td>Policy proposal, excluded</td></tr>
-        <tr><td>DeepMind June</td><td>DiffusionGemma</td><td>Already in Still tracking</td></tr>
-        <tr><td>DeepMind June</td><td>Multi-agent AI safety research / Gemini 3.5 Live Translate</td><td>Research + existing feature update, excluded</td></tr>
-        <tr><td>HuggingFace 6/12</td><td>Introducing Serge: GitHub-Native AI Code Review</td><td>Code review tool, weak signal (no HN/KOL)</td></tr>
-        <tr><td>HuggingFace 6/11</td><td>Can Voice Agents Handle Bilingual Customers?</td><td>Research benchmark, not usable tool</td></tr>
-        <tr><td>HuggingFace 6/9</td><td>North Mini Code, Arcee S3, etc.</td><td>Low signal or no KOL, kept excluded</td></tr>
-        <tr><td>HF trending</td><td>diffusiongemma-26B-A4B-it 549 stars #1</td><td>Already in Still tracking</td></tr>
-        <tr><td>HF trending</td><td>North-Mini-Code-1.0 (319 stars, #4)</td><td>No HN/KOL discussion, kept excluded</td></tr>
-        <tr><td>Simon Willison 6/12</td><td>Release datasette-agent 0.2a0</td><td>Personal project, not breakthrough</td></tr>
-        <tr><td>Simon Willison 6/11</td><td>Fable blog / Anthropic rollback / DiffusionGemma</td><td>Already included or used as context</td></tr>
-        <tr><td>Simon Willison 6/10</td><td>Easy solution to slow down recursive AI self improvement</td><td>Opinion, no new tool</td></tr>
-        <tr><td>Mistral June</td><td>Vibe / Search Toolkit / Physics AI</td><td>Already covered, no new breakthrough</td></tr>
-        <tr><td>Re-evaluated: all past-7-day killed items</td><td>No risers</td><td>All lack signal growth, kept excluded</td></tr>
-        <tr><td>Re-evaluated: MiMo Code open-source</td><td>HN #13, 504 pts, but no KOL discussion</td><td>Signal not strong enough to promote (HN score only, no Simon/Karpathy KOL). Kept killed</td></tr>
-        <tr><td>Re-evaluated: OpenEnv</td><td>HF community +69 votes (up from +13)</td><td>Signal growth insufficient (community votes ≠ KOL endorsement). Kept killed, removed from Still tracking</td></tr>
-        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>HF trending #4, 319 stars</td><td>No HN/KOL discussion, kept killed</td></tr>
-        <tr><td>Re-evaluated: Serge (GitHub-Native AI Code Review)</td><td>HF blog 6/12</td><td>Only 6 ❤️, no HN/KOL, kept killed</td></tr>
+        <tr><td>HN (#6)</td><td>Report on an Unidentified Space Station (44 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#7)</td><td>How we made hit video game Prince of Persia (135 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#8)</td><td>Vinyl succumbs to Loudness War: more than just collateral damage (83 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#9)</td><td>Show HN: FablePool – pool money behind a prompt, and Fable builds it in public (410 pts)</td><td>Interesting but no KOL discussion, no real model release, signal weak</td></tr>
+        <tr><td>HN (#10)</td><td>AUR Packages Compromised with Infostealer and Rootkit (31 pts)</td><td>Security incident, not AI tool</td></tr>
+        <tr><td>HN (#11)</td><td>Claude Fable is relentlessly proactive (477 pts)</td><td>KOL deep dive, but Fable 5 already covered; in Still tracking</td></tr>
+        <tr><td>HN (#12)</td><td>Anthropic apologizes for invisible Claude Fable guardrails (433 pts)</td><td>Continuation news, no new tool/model; in Still tracking</td></tr>
+        <tr><td>HN (#13)</td><td>MiMo Code is now released and open-source (504 pts)</td><td>Used as core content for 🚨 item</td></tr>
+        <tr><td>HN (#14)</td><td>Digital Sovereignty Becomes an Imperative as the US Reads Dutch Emails (153 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#15)</td><td>Petition to Withdraw Canada's Bill C-22 (442 pts)</td><td>Policy, not AI</td></tr>
+        <tr><td>HN (#16)</td><td>macOS 27 Beta breaks the ability to boot Asahi Linux (323 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#17)</td><td>Removing 'um' from a recording is harder than it sounds (90 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#18)</td><td>Claude Fable 5: mid-tier results on coding tasks (329 pts)</td><td>Review article, not new release; in Still tracking</td></tr>
+        <tr><td>HN (#19)</td><td>Ear Training Practice (251 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#20)</td><td>Lines of code got a better publicist (396 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#21)</td><td>Software is made between commits (263 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#22)</td><td>Emacs appearances in pop culture (334 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#23)</td><td>Developer gets Half-Life running at 30 FPS on a Nokia N95 (292 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#24)</td><td>Reading for pleasure is sharply down among schoolkids (166 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#25)</td><td>Trying to fix complicated problems (18 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#26)</td><td>The RCE that AMD wouldn't fix (277 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#27)</td><td>How Terry Tao became an evangelist for AI in math (130 pts)</td><td>Profile piece, no new tool</td></tr>
+        <tr><td>HN (#28)</td><td>A jacket that harvests drinking water from the air (110 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#29)</td><td>WikiLambda the Ultimate (46 pts)</td><td>Low score, not AI</td></tr>
+        <tr><td>HN (#30)</td><td>Apple didn't revolutionize power supplies; new transistors did (2012) (136 pts)</td><td>Not AI</td></tr>
+        <tr><td>OpenAI 6/12</td><td>Preply, Supporting EU trustworthy AI ecosystem, Using Codex to simulate black holes, Acquiring ONA, BBVA</td><td>Partnerships/policy, not breakthrough releases</td></tr>
+        <tr><td>Anthropic 6/11</td><td>DXC will integrate Claude, Introducing Claude Corps</td><td>Enterprise partnership/policy project, not tool breakthrough</td></tr>
+        <tr><td>DeepMind 6/12</td><td>DiffusionGemma recap</td><td>Already covered (6/11), no new trigger</td></tr>
+        <tr><td>HuggingFace blog 6/12</td><td>Introducing Serge: GitHub-Native AI Code Review</td><td>New tool but no HN/KOL discussion, signal weak</td></tr>
+        <tr><td>HuggingFace blog 6/12</td><td>Can Voice Agents Handle Bilingual Customers? Benchmarking Frontier ASR</td><td>Research benchmark, not usable tool</td></tr>
+        <tr><td>HuggingFace blog 6/9</td><td>Introducing North Mini Code: Cohere's First Model For Developers</td><td>No HN/KOL discussion, signal weak; excluded multiple times</td></tr>
+        <tr><td>HuggingFace blog 6/8</td><td>OpenEnv community support</td><td>Already in Still tracking</td></tr>
+        <tr><td>Simon Willison 6/11</td><td>Claude Fable is relentlessly proactive</td><td>KOL deep dive, used in Still tracking</td></tr>
+        <tr><td>Simon Willison 6/11</td><td>Anthropic Walks Back Policy</td><td>Already in Still tracking</td></tr>
+        <tr><td>Re-evaluated: all past-7-day killed items</td><td>No risers</td><td>All remain excluded — no new signal growth</td></tr>
+        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>HF 319 likes, still no HN/KOL</td><td>Remain excluded</td></tr>
+        <tr><td>Re-evaluated: FablePool</td><td>HN #9 410 pts but no KOL endorsement</td><td>Signal weak, remain killed</td></tr>
       </tbody>
     </table>
   </section>
@@ -420,7 +414,7 @@
       Excluded: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research without usable artifact
     </p>
     <p class="system">
-      ai-radar · v0.3 · 1 item today (0🚨 / 1👀 / 0ℹ️) · Still tracking: Fable 5 rollback Day 2, DiffusionGemma Day 2, Apple Siri AI Day 4, MiMo Day 4, DeepSeek V4 Pro Day 5. Trigger events: none (Fable 5 review from Simon is fresh KOL signal, not an official release, and was never featured before). Killed-list re-evaluation: MiMo Code open-source HN #13 (504 pts) no KOL endorsement, kept killed. OpenEnv community votes +13 → +69, still no KOL endorsement, removed from Still tracking.
+      ai-radar · v0.3 · 1 item today (1🚨 / 0👀 / 0ℹ️) · Still tracking: MiMo promoted to top-3, Apple Siri AI Day 4, OpenEnv Day 4, DeepSeek V4 Pro Day 5, Lathe Day 5, Fable 5 deep dive Day 3, Anthropic apology Day 2. Trigger event: MiMo Code officially open-sourced + HN 504 pts (promoted from Day 3 to 🚨). Killed-list re-evaluation: all killed items — no risers; FablePool 410 pts but no KOL endorsement, signal weak.
     </p>
   </footer>
 
