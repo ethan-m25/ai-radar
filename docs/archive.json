@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-12",
+      "weekday": "Fri",
+      "week": 24,
+      "issue": 19,
+      "kind": "daily",
+      "headline": "Simon Willison 体验：Claude Fable 太主动了——但也很贵",
+      "summary": "经过两天高强度使用，Simon Willison 把 Fable 5 形容为“ relentlessly proactive”——模型会主动调用工具、改写代码、甚至帮你决定下一步。但代价是：一篇 2400 词的博客花了 $150 的 API 费用。这是一个值得体验的模型，但还不是你日常用的工具。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-12.html"
+    },
+    {
       "date": "2026-06-11",
       "weekday": "Thu",
       "week": 24,
