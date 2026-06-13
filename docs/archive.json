@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-13",
+      "weekday": "Sat",
+      "week": 24,
+      "issue": 20,
+      "kind": "daily",
+      "headline": "美国直接下令：Anthropic 必须停掉 Fable 5——所有外国国籍用户都不能用",
+      "summary": "美国出口管制局在周五下班前发来指令，以国家安全为由要求 Anthropic 暂停所有非美国公民（包括 Anthropic 外籍员工）对 Fable 5 和 Mythos 5 的访问。Anthropic 被迫立即关停这两个模型。Simon Willison 的 API 访问在 9:59pm ET 被精准切断。这意味着你—",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-13.html"
+    },
+    {
       "date": "2026-06-12",
       "weekday": "Fri",
       "week": 24,

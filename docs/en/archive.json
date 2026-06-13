@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-13",
+      "weekday": "Sat",
+      "week": 24,
+      "issue": 20,
+      "kind": "daily",
+      "headline": "US government orders Anthropic to kill Fable 5 access — foreign nationals cut off worldwide",
+      "summary": "The US Bureau of Industry and Security sent Anthropic a directive Friday at 5:21pm ET, citing national security, demanding immediate suspension of Fable 5 and M",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-13.html"
+    },
+    {
       "date": "2026-06-12",
       "weekday": "Fri",
       "week": 24,
