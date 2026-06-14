@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-14",
+      "weekday": "Sun",
+      "week": 24,
+      "issue": 21,
+      "kind": "daily",
+      "headline": "GLM 5.2 发布 + Codex 开源计划：两个方向上的信号",
+      "summary": "智谱的 GLM 5.2 在 HN 上冲到 #4（608 分），336 条评论，社区反馈热烈。同时 OpenAI 宣布 Codex 开源计划，237 分 #17。Fable 5 出口管制事件仍在发酵——Amazon CEO 与政府官员的会谈被曝光。今天两条新信号，没有 🚨，但都值得你周末花时间看看。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-06-14.html"
+    },
+    {
       "date": "2026-06-13",
       "weekday": "Sat",
       "week": 24,

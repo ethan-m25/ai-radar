@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-14",
+      "weekday": "Sun",
+      "week": 24,
+      "issue": 21,
+      "kind": "daily",
+      "headline": "GLM 5.2 drops — Tsinghua/Zhipu open-source model lands on HN front page #4",
+      "summary": "Zhipu AI quietly released GLM 5.2 on Saturday and Hacker News exploded: 608 points, 336 comments, ranking #4. This is one of the highest positions a Chinese mod",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-14.html"
+    },
+    {
       "date": "2026-06-13",
       "weekday": "Sat",
       "week": 24,
