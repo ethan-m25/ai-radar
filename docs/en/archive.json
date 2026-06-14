@@ -8,11 +8,11 @@
       "week": 24,
       "issue": 21,
       "kind": "daily",
-      "headline": "GLM 5.2 drops — Tsinghua/Zhipu open-source model lands on HN front page #4",
-      "summary": "Zhipu AI quietly released GLM 5.2 on Saturday and Hacker News exploded: 608 points, 336 comments, ranking #4. This is one of the highest positions a Chinese mod",
+      "headline": "GLM 5.2 drops + Codex goes open-source: two signals worth your Sunday",
+      "summary": "Zhipu's GLM 5.2 hit HN #4 with 608 points and 336 comments — serious community buzz from people who actually used it. Meanwhile OpenAI announced a \"Codex for op",
       "counts": {
         "crit": 0,
-        "look": 1,
+        "look": 2,
         "fyi": 0
       },
       "url": "2026-06-14.html"
