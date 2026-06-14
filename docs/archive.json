@@ -6,6 +6,20 @@
       "date": "2026-06-14",
       "weekday": "Sun",
       "week": 24,
+      "kind": "weekly",
+      "headline": "Fable 5 发布 → 争议 → 出口管制切断所有中国籍用户",
+      "summary": "本周 21 条 daily 信号里，4 条 🚨——但最重要的一条不是技术发布，而是美国出口管制局在周五下午下令停用 Fable 5 和 Mythos 5，所有非美国公民（包括中国籍用户）的 API 被精准切断。这是 AI 模型第一次被当作\"军需品\"直接限制出口。与此同时，DeepSeek V4 Pro 精度反超 GPT",
+      "counts": {
+        "crit": 2,
+        "look": 10,
+        "fyi": 0
+      },
+      "url": "weekly_2026-06-14.html"
+    },
+    {
+      "date": "2026-06-14",
+      "weekday": "Sun",
+      "week": 24,
       "issue": 21,
       "kind": "daily",
       "headline": "GLM 5.2 发布 + Codex 开源计划：两个方向上的信号",

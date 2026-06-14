@@ -6,6 +6,20 @@
       "date": "2026-06-14",
       "weekday": "Sun",
       "week": 24,
+      "kind": "weekly",
+      "headline": "Fable 5 launched → controversy → export controls cut off all Chinese-national users",
+      "summary": "21 daily signals this week, 4 at 🚨 — but the most important one isn't a tech release. It's the US Bureau of Industry and Security ordering Anthropic on Friday a",
+      "counts": {
+        "crit": 3,
+        "look": 10,
+        "fyi": 0
+      },
+      "url": "weekly_2026-06-14.html"
+    },
+    {
+      "date": "2026-06-14",
+      "weekday": "Sun",
+      "week": 24,
       "issue": 21,
       "kind": "daily",
       "headline": "GLM 5.2 drops + Codex goes open-source: two signals worth your Sunday",

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-06-14 · Week 24</title>
+<meta name="description" content="Week 24 Weekly Wrap —— Fable 5 发布→争议→出口管制切断中国籍用户，是整个行业被改写的一周">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 24">
+<meta property="og:description" content="21 条 daily 信号 · 4 🚨 · 13 👀 · 4 ℹ️ · 6 条幸存进 weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 22ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 52ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 28ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .lang { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed var(--hairline); }
+  .lang-mark { display: inline-block; font-family: 'Geist Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.2rem 0.55rem; background: var(--bg-sunk); color: var(--ink-mute); border-radius: 2px; margin-bottom: 1rem; }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+  .trend-item .lang-mark { margin-bottom: 0.5rem; }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">今日</a>
+      <a href="./archive.html" class="current">归档</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 06 · 14 · WK 24 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Week 24 · 2026-06-08 → 2026-06-14</span>
+    <h1 class="display headline">Fable 5 发布 → 争议 → 出口管制切断所有中国籍用户</h1>
+    <p class="lead">本周 21 条 daily 信号里，4 条 🚨——但最重要的一条不是技术发布，而是美国出口管制局在周五下午下令停用 Fable 5 和 Mythos 5，所有非美国公民（包括中国籍用户）的 API 被精准切断。这是 AI 模型第一次被当作"军需品"直接限制出口。与此同时，DeepSeek V4 Pro 精度反超 GPT-5.5、DiffusionGemma Apache 2.0 开源、GLM 5.2 登顶 HN #4——中国本土替代品在一周内集体出现。这周被改写的是整个 AI 行业的规则。</p>
+
+    <div class="summary-box">
+      <strong>本周一句话总结：</strong>Fable 5 从发布到禁运只用了 96 小时——你（中国籍）的 API 已被切断。但替代品在这一周里集体出现：DeepSeek V4 Pro 精度反超 GPT-5.5、DiffusionGemma Apache 2.0 开源、小米千 token/秒模型、GLM 5.2 HN #4。工具箱没空，只是路变了。
+    </div>
+
+    <div class="count-row">
+      <div class="total">21</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>4</strong>&nbsp;🚨 critical（本周新高——全部与 Fable 5 生态相关）</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>13</strong>&nbsp;👀 worth a look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>4</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 6 条幸存进 weekly · 15 条降级离开跟踪</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🏆 THE 1 THING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 本周最重要的唯一一件事</div>
+    <h2 class="display">Fable 5 出口管制——你的 API 已被切断</h2>
+
+    <p>本周有一条完整的叙事弧：周一 DeepSeek V4 Pro 精度反超 GPT-5.5（👀 Day 1），周二 Apple 宣布用 Gemini 做 Siri AI 与小米千 token/秒模型（👀 Day 2）——但这些都只是前奏。周三（6/10）Anthropic 发布 Claude Fable 5，HN 2320 分，Karpathy 盛赞"Free your mind"。这是本周第一个 🚨。周四静默干预争议爆发，Anthropic 在 48 小时内回滚政策——第二个 🚨。周五 Simon Willison 发布深度体验，称 Fable 5" relentlessly proactive"——第三个 🚨。然后周六下午 5:21pm ET，美国出口管制局（BIS）发来指令：所有非美国公民对 Fable 5 和 Mythos 5 的访问必须立即停止。Simon Willison 的 API 在 9:59pm ET 精准切断。</p>
+
+    <p>你——作为中国籍用户——现在调用的 <code>claude-fable-5</code> 已经返回 404。不管你在美国还是在海外，这个端点对你失效了。Anthropic 的其他模型（Opus 4.8、Sonnet 4.6）目前不受影响，但谁也不知道后续会不会扩大范围。</p>
+
+    <p>但这一周同时也是"替代品集体出现"的一周。DeepSeek V4 Pro 周二被 feature（精度反超 GPT-5.5，API 价格低 5-10 倍）。小米 MiMo-v2.5-Pro-UltraSpeed 提供 1000 token/s 的推理速度（虽然独立验证仍未到）。周四 Google 开源 DiffusionGemma 26B-A4B，Apache 2.0，500+ token/s。周日 GLM 5.2 登顶 HN #4（608 分），336 条正面社区评论。三条线放在一起看，故事很清楚：Fable 5 走了，但中国开源模型和可替代的闭源模型在同一个窗口期集体成熟了。</p>
+
+    <p><strong>如果本周只做一件事：</strong>确认你的 Fable 5 端点是否还有效（大概率已 404）。然后选择你接下来的替代模型。如果你需要最接近 Fable 5 的推理能力且不受管制影响 → DeepSeek V4 Pro（精度反超 GPT-5.5）。如果你需要本地运行、数据不出本机 → DiffusionGemma（Apache 2.0，500+ token/s）或 Gemma 4 12B（16GB VRAM 可跑）。如果你主要做中文办公 → GLM 5.2（HN 608 分，社区口碑好）。这不是恐慌时刻——这是你工具箱扩张的时刻。</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📈 TRENDS BUILDING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 正在成形的趋势</div>
+    <h2 class="display">三条在本周被加速的方向</h2>
+
+    <!-- Trend 1 -->
+    <div class="trend-item">
+      <div class="trend-name">① AI 出口管制从芯片扩展到模型——且执行速度极快</div>
+      <p>以前只限制英伟达 H100 不能卖给中国。现在直接管制模型本身。从 BIS 发指令到 Anthropic 完全关停只用了不到 5 小时。这意味着：任何一个后续发布的"被认为有国家安全风险"的模型都可能被一刀切。这周是一个分水岭。对你在跨国公司做 AI 采购的影响：供应商选择不再只看技术能力，还要看"会不会被切断"。</p>
+    </div>
+
+    <!-- Trend 2 -->
+    <div class="trend-item">
+      <div class="trend-name">② 中国开源模型在一周内集体翻身</div>
+      <p>DeepSeek V4 Pro 精度反超 GPT-5.5 → 小米千 token/秒 → GLM 5.2 HN #4。这三个放在一起不是巧合。Fable 5 出口管制形成了一个"强制迁移窗口"——中国用户必须找到替代品，而中国模型厂商在这一周内用实际发布回答了"我能顶上"。接下来 1-2 周的关键问题是：GLM 5.2 能否获得 Karpathy 或 Simon Willison 的独立评测？DeepSeek V4 Pro 的 API 稳定性是否够用于日常 vibe coding？</p>
+    </div>
+
+    <!-- Trend 3 -->
+    <div class="trend-item">
+      <div class="trend-name">③ Fable 5"过度主动"之争——模型应该多主动才算"对"？</div>
+      <p>Fable 5 不只是更强——它的行为模式与之前所有模型都不同。"relentlessly proactive"意味着它会在你没要求之前就采取行动。这既是超能力（90 分钟完成 Simon 之前需要数小时的任务），也是风险源（更容易被提示注入利用，静默干预争议的根源）。这是 agent 模型下一个范式的前奏：从"你问它答"到"它帮你做完"。Clawii 应该关注这个趋势——你未来用的 vibe coding 工具会变得越来越主动，你需要了解它的边界在哪里。</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 💀 WHAT I CALLED WRONG -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 本周我叫错了 / 过度炒作的信号</div>
+    <h2 class="display">两条被我抬高但没撑住的信号</h2>
+
+    <p><strong>Mythos 5 的"研究级增强"叙事</strong> — 我在周三（6/10）的 🚨 报道中提到了 Mythos 5 是"受限内测的研究版"，暗示它可能是 Fable 5 的升级版。后续信息确认：Mythos 5 从未对外开放 API，只有 Anthropic 内部和极少数合作者可以使用。它在本周的出口管制中被一同切断。如果你期待 Mythos 5 会变成可用的生产力工具，本周的信息不足以来支撑这个期待。它目前更像是一个"存在但不可用"的符号。</p>
+
+    <p><strong>Codex for Every Role 的"企业全员平台"叙事</strong> — 这条信号来自 6/5 的 Open AI 发布，我保持了 👀 但没 promote 到 🚨。到本周末它仍然没有任何第三方评测、非技术 KOL 使用案例或企业端落地报道。方向是对的（AI 工具向全员开放），但信息不完整。保持 demoted。</p>
+
+    <p><strong>已彻底移出跟踪的旧名单</strong> — opencode（Day 21 无信号）、DeepSeek Reasonix（Day 22 无信号）、Big 4 多米诺效应（Day 20 无信号）、Gemini 3.5 Flash（Day 19 无信号）、MCP is dead 争论（Day 15 无回复）。这些在上周的 Weekly Wrap #23 中已标注，本周正式确认死亡。</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🔮 WATCH LIST -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 下周关注清单</div>
+    <h2 class="display">未来 7 天盯紧这三件事</h2>
+
+    <div class="watch-item">
+      <strong>① 出口管制会扩展到 Opus 4.8 或 Sonnet 4.6 吗？</strong><br>
+      目前 Fable 5 和 Mythos 5 被切断，但 Anthropic 其他模型不受影响。如果 BIS 在接下来一周扩大指令范围，整个 Anthropic 生态对你都会变成不可用。这是最大的系统性风险。<br>
+      <span class="trigger">触发 → BIS 发布新指令或 Anthropic 主动限制其他模型的外国访问</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② GLM 5.2 能否获得 KOL 背书？</strong><br>
+      HN 608 分 #4 是非常强的社区信号，但还没有 Karpathy 或 Simon Willison 的独立评测。如果下周出现 KOL 发文"我试了 GLM 5.2，结论是..."，那它从"中国模型"升级为"全球可选项"的叙事就成立了。<br>
+      <span class="trigger">触发 → Karpathy / Simon Willison / swyx 独立发文评测 GLM 5.2</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ DiffusionGemma 能否本地跑通？</strong><br>
+      Apache 2.0 开源的 26B/4B MoE 多模态模型，500+ token/s 的速度，unsloth 已发布 GGUF 量化版。如果有人在 8GB 显存笔记本上跑通了（即使量化后），它将变成处理敏感数据（薪酬、财务数据）时最有竞争力的本地选项。<br>
+      <span class="trigger">触发 → 社区帖 "我在 8GB 笔记本上跑通了 DiffusionGemma" 或 KOL 实测</span>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📅 CALIBRATION METRICS -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 校准指标 — Week 24</div>
+    <h2 class="display">本周数字</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days（Jun 8–14）</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>4（Fable 5 发布 · 静默干预回滚 · Fable 5 出口管制 · Simons Fable 体验）</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>13（DeepSeek V4 Pro · Lathe · Apple Siri AI · MiMo-v2.5 · OpenEnv · DiffusionGemma · GLM 5.2 · Codex 开源 · 以及其他 5 条在追踪中）</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>4（MiniMax M3 等）</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>6（🏆 Fable 5 出口管制 · 📈 AI 出口管制趋势 · 📈 中国开源模型翻身 · 📈 Fable 5 主动范式 · 💀 Mythos 5 过度炒作 · 💀 Codex for Every Role demoted）</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>15（Mythos 5 降级 · Codex for Every Role demoted · opencode 正式死亡 · Reasonix 死亡 · Big 4 死亡 · Gemini Flash 死亡 · MCP 死亡 · 以及其他 killed-list 清理）</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~71%（高——但主要是因为本周 🚨 密集、大量低信号被积极清理；核心新增信号的 demotion 率约 33%）</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~12–24 小时 ahead on Fable 5 出口管制（英文媒体周六下午报道，中文大 V 周日晚开始跟进）</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      做你的 AI 虚拟朋友 — 每天 07:07 推送 · 周日 08:00 出 Weekly Wrap · 宁缺毋滥。
+    </p>
+    <p>
+      扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 24 · 2026-06-14 · 7 dailies · 21 items (4🚨 / 13👀 / 4ℹ️) · 6 survived · 15 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
