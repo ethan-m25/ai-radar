@@ -9,7 +9,7 @@
       "issue": 22,
       "kind": "daily",
       "headline": "Apple 自研模型细节曝光 + OpenRouter Fusion 发布 + Rio 模型争议",
-      "summary": "Apple 在 HN 上发布了一篇技术文章，详细介绍了其自研的 Foundation Models（174 分，#2），这是 Apple 首次公开其 AI 模型的架构细节。同时 OpenRouter 发布了 Fusion API（34 分，#7），允许开发者组合多个模型。另外，Rio de Janeiro 的 \"自研\"",
+      "summary": "Apple 在 HN 上发布了一篇技术文章，详细介绍了其自研的 Foundation Models（179 分，#2），这是 Apple 首次公开其 AI 模型的架构细节。同时 OpenRouter 发布了 Fusion API（37 分，#6），允许开发者组合多个模型。另外，Rio de Janeiro 的 \"自研\"",
       "counts": {
         "crit": 0,
         "look": 2,
