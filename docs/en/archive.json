@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-15",
+      "weekday": "Mon",
+      "week": 25,
+      "issue": 22,
+      "kind": "daily",
+      "headline": "Apple's AI strategy finally revealed + OpenRouter Fusion launches + Rio model controversy",
+      "summary": "Apple published a detailed technical article on its Foundation Models on HN (174 points, #2) — the first time Apple has publicly shared its AI architecture. Ope",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-15.html"
+    },
+    {
       "date": "2026-06-14",
       "weekday": "Sun",
       "week": 24,
