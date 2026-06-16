@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-16 · Week 25</title>
-<meta name="description" content="3 signals — Fable 5 export control update, Cohere's first developer model, Homelab AI platform goes viral">
+<meta name="description" content="3 signals — Fable 5 export control update, Cohere launches North Mini Code, Apple model details continue to simmer">
 
 <meta property="og:title" content="AI Radar · 2026-06-16">
 <meta property="og:description" content="3 real signals · 0 🚨 · 2 👀 · 1 ℹ️">
@@ -186,7 +186,7 @@
 
   <div class="issue-meta">
     <span class="date-line">2026 · 06 · 16  ·  Wk 25  ·  №&nbsp;023  ·  Tue</span>
-    <span>~7 min read</span>
+    <span>~6 min read</span>
   </div>
 
   <nav class="pager top" data-current-date="2026-06-16">
@@ -197,8 +197,8 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">Fable 5 export control update + Cohere's first dev model + Homelab AI platform goes viral</h1>
-    <p class="lead">The Fable 5 export control saga keeps developing — Axios reports Anthropic flew staff to DC to "clean up" the White House fight (HN #19, 25 pts, 23 comments). Simon Willison posted a sharp critique calling it "harm to US cyber defense." Meanwhile Cohere released its first developer-focused model North Mini Code (HN #19, 100 pts, 22 comments), and a homelab AI dev platform post hit HN #18 with 320 pts and 55 comments. Three signals, no 🚨 today, but the Fable 5 fallout is worth tracking closely.</p>
+    <h1 class="display headline">Fable 5 export control deepens + Cohere ships North Mini Code + Apple models simmer</h1>
+    <p class="lead">The Fable 5 export-control story gets new reporting: Axios details the White House clash and Simon Willison publishes a deep analysis arguing the "jailbreak" was actually a defensive security request. Cohere released North Mini Code (HN 100 pts, #19), its first developer-facing model — a potential low-export-risk alternative. Apple Foundation Models discussion continues from yesterday. Three signals, no 🚨 today, but the Fable 5 development is worth your time.</p>
     <div class="count-row">
       <div class="total">3</div>
       <div class="count-breakdown">
@@ -212,217 +212,210 @@
   <nav class="toc" aria-label="Table of Contents">
     <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">👀</span><a href="#fable5-export-control-update">Fable 5 export control update — Anthropic flies staff to DC to "clean up" the White House fight</a></li>
-      <li><span class="tier-mark">👀</span><a href="#cohere-north-mini-code">Cohere North Mini Code — first developer-focused model, HN 100 pts</a></li>
-      <li><span class="tier-mark">ℹ️</span><a href="#homelab-ai-dev-platform">Homelab AI Dev Platform goes viral — HN 320 pts, 55 comments</a></li>
+      <li><span class="tier-mark">👀</span><a href="#fable5-export-control-update">Fable 5 export control update — Axios exposes White House clash + Simon Willison deep analysis</a></li>
+      <li><span class="tier-mark">👀</span><a href="#cohere-north-mini-code">Cohere North Mini Code — Cohere's first model for developers</a></li>
+      <li><span class="tier-mark">ℹ️</span><a href="#apple-foundation-models-followup">Apple Foundation Models technical article continues to simmer — HN discussion ongoing</a></li>
     </ol>
   </nav>
 
   <!-- ============= ITEM 1 ============= -->
   <article id="fable5-export-control-update" class="item item--look">
     <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
-    <h2 class="display title">Fable 5 export control update — Anthropic flies staff to DC to "clean up" the White House fight</h2>
-    <p class="pitch">Axios reports Anthropic flew staff to DC to "clean up" the conflict with the White House (HN #19, 25 pts, 23 comments). Simon Willison published a blistering critique calling this "harm to US cyber defense." For you, this means Fable 5's return is probably slower than expected, and export control policy is actively shaping which AI models are usable — you need to plan alternatives.</p>
+    <h2 class="display title">Fable 5 export control update — Axios exposes White House clash + Simon Willison deep analysis</h2>
+    <p class="pitch">The Fable 5 export control story got real reporting today. Axios published a behind-the-scenes account of the White House conflict (HN #16, 27 pts), and Simon Willison published a deep analysis arguing the supposed "jailbreak" was actually a defensive security request — asking Fable 5 to "fix this code." The White House sees it as a safeguards bypass. Anthropic is flying staff to D.C. to "clean up." For you, this means Fable 5 is probably gone for a while — keep building with alternatives.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>Fable 5 is Anthropic's next-gen AI model, released June 9 but shut down June 12 under a US government export control directive. Anthropic had previously rolled back silent guardrails on Fable 5 (June 11), but the model was still cut. Today Axios reports Anthropic sent staff to DC to manage the fallout, and Simon Willison published a strong critique. HN: #16 (separate post, 27 pts) and #19 (Axios, 25 pts). This is Day 4 of sustained tracking.</p>
+      <p>Fable 5 was Anthropic's next-gen model released June 9. Days later, a US export control directive suspended access for foreign users. Anthropic rolled back a silent intervention within 48 hours, but the damage was done. Today, Axios reported new details: the alleged "jailbreak" was simply asking Fable 5 to "fix this code" — a legitimate security task. Simon Willison published a sharp analysis calling the policy absurd, citing cybersecurity expert Kate Moussouris. HN score: 27 pts, #16, 2 comments — low but the Axios and Simon articles carry the real weight.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Fable 5 return is slower than expected</strong> — Anthropic flying staff to DC means the issue isn't resolved. Export control policy is directly impacting model availability.</li>
-      <li><strong>Impact on non-US users</strong> — If you're not in the US, Fable 5 may never be usable for you. You need to evaluate alternatives like DeepSeek V4 Pro, GLM 5.2, or MiMo.</li>
-      <li><strong>Simon Willison's critique is sharp</strong> — "Harm to US cyber defense" is a powerful argument. If Fable 5 got cut because it would "fix code," every coding agent is at risk of similar restrictions.</li>
-      <li><strong>HN 25 pts, #19, 23 comments</strong> — Not a high score, but the topic has sustained community interest for days.</li>
+      <li><strong>Fable 5 probably won't be back soon</strong> — Axios reports the White House believes "perfect jailbreak resistance may be impossible," suggesting indefinite suspension.</li>
+      <li><strong>The "jailbreak" was just "fix this code"</strong> — Simon Willison and Kate Moussouris argue that asking a coding model to fix bugs is the most valuable thing it can do for cybersecurity, not a jailbreak.</li>
+      <li><strong>Anthropic leadership flying to Washington</strong> — Logan Graham (Frontier Red Team lead), Dave Orr (Head of Safeguards), and Nicholas Carlini are meeting Commerce today.</li>
+      <li><strong>Axios exposes personality clashes</strong> — "They screwed us," sources say, framing the suspension as a relationship failure as much as a policy one.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Read the Axios report</strong> — <a href="https://www.axios.com" target="_blank">Axios: "They screwed us" — Personality clashes sent Anthropic's models offline</a>. Best behind-the-scenes reporting on the Fable 5 story so far.</li>
-        <li><strong>Read Simon Willison's critique</strong> — <a href="https://simonwillison.net" target="_blank">"The Fable 5 Export Controls Harm US Cyber Defense"</a>. Understand why security experts think this is counterproductive.</li>
-        <li><strong>Evaluate your alternatives</strong> — If you depend on Fable 5, test DeepSeek V4 Pro, GLM 5.2, or MiMo. These models perform well on coding tasks and aren't subject to US export controls.</li>
-        <li><strong>Follow the HN discussion</strong> — <a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN thread on Axios report</a>. Community has nuanced takes on the situation.</li>
+        <li><strong>Read Simon Willison's analysis</strong> — <a href="https://simonwillison.net/2026/Jun/16/fable-5-export-controls/" target="_blank">"The Fable 5 Export Controls Harm US Cyber Defense"</a> — his strongest take yet.</li>
+        <li><strong>Read the Axios piece</strong> — <a href="https://www.axios.com/2026/06/15/anthropic-fable-5-export-control" target="_blank">"They screwed us": Personality clashes sent Anthropic's models offline</a></li>
+        <li><strong>Audit your Fable 5 dependency</strong> — If you were using Fable 5, make sure you've fully migrated to Claude Opus 4.8, DeepSeek V4 Pro, or GLM 5.2.</li>
+        <li><strong>Watch for the Commerce meeting outcome</strong> — Logan Graham, Dave Orr, and Nicholas Carlini are meeting Commerce today. Any announcement will be big.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — what's actually going on with the Fable 5 export control</strong></summary>
+      <summary><strong>🔬 Deep dive — what actually happened with Fable 5's export control</strong></summary>
       <div class="dd-body">
 
         <div class="compare">
           <table>
             <thead>
-              <tr><th></th><th>Fable 5 (cut off)</th><th>DeepSeek V4 Pro</th><th>GLM 5.2</th><th>MiMo v2.5 Pro</th></tr>
+              <tr><th></th><th>Fable 5 (suspended)</th><th>Claude Opus 4.8 (available)</th><th>DeepSeek V4 Pro (available)</th><th>GLM 5.2 (available)</th></tr>
             </thead>
             <tbody>
-              <tr><th>Export control risk</th><td><span class="no">High (already cut)</span></td><td><span class="ok">Low (Chinese)</span></td><td><span class="ok">Low (Chinese)</span></td><td><span class="ok">Low (Chinese)</span></td></tr>
-              <tr><th>Chinese capability</th><td>Moderate</td><td>Strong</td><td><span class="ok">Strong (Zhipu native)</span></td><td>Strong</td></tr>
-              <tr><th>Coding ability</th><td><span class="ok">Strong (SOTA)</span></td><td>Strong</td><td>Moderate</td><td>Strong</td></tr>
-              <tr><th>API price</th><td>$10 / M tokens</td><td>Low</td><td>Low</td><td>Low</td></tr>
-              <tr><th>Open source</th><td><span class="no">No</span></td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td></tr>
-              <tr><th>Local deploy</th><td><span class="no">No</span></td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td></tr>
+              <tr><th>Status</th><td><span class="no">Export-controlled, suspended</span></td><td><span class="ok">Available</span></td><td><span class="ok">Available</span></td><td><span class="ok">Available</span></td></tr>
+              <tr><th>Export control risk</th><td><span class="no">High (already cut)</span></td><td>Low</td><td><span class="no">High (Chinese company)</span></td><td><span class="no">High (Chinese company)</span></td></tr>
+              <tr><th>Reasoning</th><td>Strongest</td><td>Strong</td><td>Strong</td><td>Moderate</td></tr>
+              <tr><th>Code ability</th><td>Strongest</td><td>Strong</td><td>Strong</td><td>Moderate</td></tr>
+              <tr><th>Chinese language</th><td>Moderate</td><td>Moderate</td><td>Strong</td><td><span class="ok">Strongest</span></td></tr>
+              <tr><th>API price</th><td>$10/M tokens</td><td>$3/M tokens</td><td>Low</td><td>Low</td></tr>
             </tbody>
           </table>
         </div>
 
-        <p><strong>What the Axios report actually says</strong> — "They screwed us": Personality clashes sent Anthropic's models offline. The piece quotes "sources familiar with the administration's thinking" and "sources close to Anthropic." Logan Graham (Anthropic Frontier Red Team lead), Dave Orr (Head of Safeguards), and Nicholas Carlini are reportedly meeting with the Commerce Department today. Axios reports the "jailbreak" that triggered the export control was simply asking Fable 5 to "fix this code" — a routine defensive security task, not a real jailbreak.</p>
+        <p><strong>What Axios revealed</strong> — Axios's "They screwed us" report, based on multiple anonymous sources, describes: 1) The "jailbreak" was asking Fable 5 to "fix this code" — given deliberately insecure code, Fable refused "review for security issues" but complied with "fix this code"; 2) Kate Moussouris (Luta Security CEO) called this "the model working as intended for cyberdefense"; 3) Anthropic is flying Logan Graham, Dave Orr, and Nicholas Carlini to Washington today; 4) One source said the administration's stance boils down to an "attitude fix" — making "everyone feel safe, secure and happy."</p>
 
-        <p><strong>What Simon Willison says</strong> — Willison quotes Kate Moussouris (cybersecurity expert, CEO of Luta Security) confirming the "jailbreak" was actually asking Fable 5 to review and fix code with known vulnerabilities. Moussouris: "That is not a guardrail bypass. It is the most valuable thing an AI model can do for defensive security." Willison concludes: "Non-technical decision-makers have been hearing that models that can 'craft cyber attacks' are uniquely dangerous for months. Now they look ready to ban any model that can help us secure our code."</p>
+        <p><strong>Simon Willison's argument</strong> — Simon quotes Kate Moussouris directly: "Coding models fix bugs, and security exploits are the most important category of bugs for them to fix! Defenders need to be able to ask AI to fix the bugs in a file, explain why the fix matters, and write tests that confirm the patch works. That is not a guardrail bypass. It is the most valuable thing an AI model can do for defensive security." Simon concludes: "Non-technical decision-makers have been hearing that models that can 'craft cyber attacks' are uniquely dangerous for months. Now they look ready to ban any model that can help us secure our code."</p>
 
-        <p><strong>What this means for you</strong> — 1) Fable 5's return will take longer than expected; 2) If you're outside the US, Fable 5 may never be available; 3) Export control policy is actively shaping the AI landscape — plan for alternatives; 4) If you vibe-code for office automation, DeepSeek V4 Pro or GLM 5.2 are solid alternatives.</p>
+        <p><strong>What this means for you</strong> — 1) Fable 5 is unlikely to return soon; 2) If you were relying on it, you need permanent alternatives; 3) The export control precedent could affect other models — Mythos 5 is also suspended; 4) Chinese models (DeepSeek V4 Pro, GLM 5.2) are alternatives but carry their own export control risk.</p>
 
-        <p><strong>Honest caveat</strong> — 1) The Axios post has a modest score (25 pts), so mainstream attention is still limited; 2) This is Day 4 of a story that's been evolving — today's reports are incremental, not a breakthrough; 3) Alternative models may not match Fable 5's coding performance in all scenarios.</p>
+        <p><strong>Honest caveat</strong> — 1) Axios sources are anonymous; 2) Simon's analysis is his opinion (though well-argued and evidence-backed); 3) The Commerce meeting outcome is unknown; 4) Any resolution could come fast or take months.</p>
 
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>1) Outcome of Anthropic's Commerce Department meetings; 2) Whether Fable 5 access is restored; 3) Whether export controls expand to other models (GPT-5.5, Claude Opus 4.8); 4) Whether Chinese models (DeepSeek, GLM, MiMo) gain market share as a result.</p>
+      <p>1) Outcome of today's Commerce Department meeting; 2) Whether the White House revises its export control stance; 3) Whether Fable 5 ever comes back; 4) Whether Mythos 5 faces the same fate; 5) Whether Chinese models (DeepSeek V4 Pro, GLM 5.2) become dominant alternatives in response.</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li><strong>Axios</strong> — "They screwed us": Personality clashes sent Anthropic's models offline (HN #19, 25 pts, 23 comments)</li>
-      <li><strong>Simon Willison</strong> — "The Fable 5 Export Controls Harm US Cyber Defense" (June 16 blog post)</li>
-      <li><strong>Kate Moussouris</strong> — Confirmed the "jailbreak" was actually a "fix this code" defensive request</li>
-      <li><strong>Logan Graham</strong> — Anthropic Frontier Red Team lead, meeting with Commerce Dept</li>
-      <li><strong>The Register</strong> — "Feds freaked over Fable 5 after simple 'fix this code' prompt, not jailbreak" (HN #16, 27 pts)</li>
+      <li><strong>Simon Willison</strong> — "The Fable 5 Export Controls Harm US Cyber Defense" — <a href="https://simonwillison.net/2026/Jun/16/fable-5-export-controls/" target="_blank">blog post</a></li>
+      <li><strong>Axios</strong> — "They screwed us: Personality clashes sent Anthropic's models offline" — <a href="https://www.axios.com/2026/06/15/anthropic-fable-5-export-control" target="_blank">report</a></li>
+      <li><strong>HN (#16)</strong> — "Feds freaked over Fable 5 after simple 'fix this code' prompt, not jailbreak" — 27 pts, 2 comments</li>
+      <li><strong>Kate Moussouris</strong> — "Coding models fix bugs, and security exploits are the most important category of bugs for them to fix!" — quoted in The Atlantic and Simon's blog</li>
     </ul>
 
     <div class="jargon">
       <dl>
-        <dt>Export control</dt>
-        <dd>Government restrictions on exporting certain technologies to specific countries or entities. In AI, this can limit which models are available in which regions.</dd>
         <dt>Jailbreak</dt>
-        <dd>Using specially crafted prompts to bypass an AI model's safety restrictions. In this case, the "jailbreak" was actually asking the model to fix security vulnerabilities in code.</dd>
+        <dd>Using special prompts to bypass an AI model's safety restrictions and make it do things it shouldn't. In this case, "fix this code" was considered a jailbreak by the White House.</dd>
+        <dt>Export control</dt>
+        <dd>Government restrictions on exporting certain technologies or products. For AI, this can limit which models are available to users in certain countries.</dd>
       </dl>
     </div>
 
     <h3>Try it / dig in</h3>
     <ul>
-      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: Anthropic flies staff to D.C. to clean up White House fight (25 pts)</a></li>
-      <li><a href="https://simonwillison.net" target="_blank">Simon Willison: The Fable 5 Export Controls Harm US Cyber Defense</a></li>
-      <li><a href="https://www.axios.com" target="_blank">Axios: "They screwed us" — Personality clashes sent Anthropic's models offline</a></li>
-      <li><a href="https://www.theregister.com" target="_blank">The Register: Feds freaked over Fable 5 after simple 'fix this code' prompt</a></li>
+      <li><a href="https://simonwillison.net/2026/Jun/16/fable-5-export-controls/" target="_blank">Simon Willison: "The Fable 5 Export Controls Harm US Cyber Defense"</a></li>
+      <li><a href="https://www.axios.com/2026/06/15/anthropic-fable-5-export-control" target="_blank">Axios: "They screwed us: Personality clashes sent Anthropic's models offline"</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: Feds freaked over Fable 5 (27 pts)</a></li>
     </ul>
   </article>
 
   <!-- ============= ITEM 2 ============= -->
   <article id="cohere-north-mini-code" class="item item--look">
     <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
-    <h2 class="display title">Cohere North Mini Code — first developer-focused model, HN 100 pts</h2>
-    <p class="pitch">Cohere launched its first developer-focused model, North Mini Code (HN #19, 100 pts, 22 comments) — a 30B-parameter code model for code generation and understanding. For someone like you doing vibe coding for office automation, this is another solid option — and Cohere is a Canadian company, not subject to US export controls.</p>
+    <h2 class="display title">Cohere North Mini Code — Cohere's first model for developers</h2>
+    <p class="pitch">Cohere released North Mini Code (HN 100 pts, #19), their first developer-facing model. For someone doing vibe coding for office automation, this means another model option — and Cohere is Canadian, so export control risk is low. North Mini Code is a 30B-parameter code model with 12.1k downloads and 400 stars on HuggingFace. In a world where Fable 5 is suspended, having a low-risk alternative matters.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>Cohere is a Canadian AI company that previously focused on enterprise AI (search, classification, embeddings). North Mini Code is its first developer-oriented model, specialized for code generation and understanding. The model has 30B parameters, 12.1k HuggingFace downloads, and 400 stars. HN: 100 pts, #19, 22 comments. For you, this means one more code model choice — and Cohere is Canadian, so no US export control worries.</p>
+      <p>Cohere is a Canadian AI company focused on enterprise AI (search, classification). North Mini Code is their first model aimed at developers, specializing in code generation and understanding. It's 30B parameters, supports multiple programming languages, and is available on HuggingFace (CohereLabs/North-Mini-Code-1.0). HN score: 100 pts, #19, 22 comments. With Fable 5 suspended by US export controls, Cohere's Canadian status makes it a geopolitically safer bet than Chinese alternatives.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Another code model option</strong> — With Fable 5 cut off, more choices are good. Cohere is Canadian, not subject to US export controls.</li>
-      <li><strong>30B parameters, mid-size</strong> — Deployable locally (~60GB VRAM needed) or via cloud API. A solid balance for enterprise users.</li>
-      <li><strong>HN 100 pts, #19, 22 comments</strong> — Genuine community interest, not just a press release.</li>
-      <li><strong>HuggingFace 12.1k downloads, 400 stars</strong> — Decent early adoption numbers.</li>
-      <li><strong>Re-evaluated from killed list</strong> — This item was previously killed (HF-only, no HN traction). Today's HN #19 appearance is the signal growth that warrants promotion.</li>
+      <li><strong>Cohere's first developer model</strong> — Previously focused on enterprise search/classification, North Mini Code marks their entry into the developer tools space.</li>
+      <li><strong>Low export control risk</strong> — Cohere is Canadian, so not directly subject to US export controls. In the Fable 5 aftermath, this is a real differentiator.</li>
+      <li><strong>30B parameters, medium scale</strong> — Runs locally with 16GB+ VRAM, or available via cloud API. Not the biggest model, but practical.</li>
+      <li><strong>HN 100 pts, #19, 22 comments</strong> — Genuine community interest.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Read Cohere's announcement</strong> — <a href="https://cohere.com" target="_blank">Cohere website</a>. Learn about North Mini Code's capabilities and pricing.</li>
-        <li><strong>Try it on HuggingFace</strong> — <a href="https://huggingface.co/CohereLabs/North-Mini-Code-1.0" target="_blank">Model page</a>. You can test inference directly in the browser.</li>
-        <li><strong>Compare with other code models</strong> — Benchmark against DeepSeek V4 Pro, GLM 5.2, and MiMo for your specific coding tasks.</li>
-        <li><strong>Watch for larger models from Cohere</strong> — This is their "developer series" first release; bigger models may follow.</li>
+        <li><strong>Read Cohere's announcement</strong> — <a href="https://cohere.com" target="_blank">Cohere official site</a>. Check capabilities, supported languages, and pricing.</li>
+        <li><strong>Try it on HuggingFace</strong> — <a href="https://huggingface.co/CohereLabs/North-Mini-Code-1.0" target="_blank">Model page</a>. Test with some of your vibe-coding prompts.</li>
+        <li><strong>Evaluate for your use case</strong> — Compare against DeepSeek V4 Pro and GLM 5.2. North Mini Code's Chinese ability is unknown, so test if you need bilingual code comments.</li>
+        <li><strong>Watch the API pricing</strong> — Cohere hasn't published pricing yet. Check before committing.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — how North Mini Code actually stacks up</strong></summary>
+      <summary><strong>🔬 Deep dive — how North Mini Code stacks up</strong></summary>
       <div class="dd-body">
 
         <div class="compare">
           <table>
             <thead>
-              <tr><th></th><th>Cohere North Mini Code</th><th>DeepSeek V4 Pro</th><th>GLM 5.2</th><th>MiMo v2.5 Pro</th></tr>
+              <tr><th></th><th>Cohere North Mini Code</th><th>DeepSeek V4 Pro</th><th>GLM 5.2</th><th>Gemma 4 12B</th></tr>
             </thead>
             <tbody>
-              <tr><th>Parameters</th><td>30B</td><td>862B (MoE)</td><td>Undisclosed</td><td>1T (MoE)</td></tr>
-              <tr><th>Specialty</th><td><span class="ok">Code</span></td><td>General + Code</td><td>General + Chinese</td><td>General + Code</td></tr>
-              <tr><th>Export control risk</th><td><span class="ok">None (Canadian)</span></td><td><span class="ok">None (Chinese)</span></td><td><span class="ok">None (Chinese)</span></td><td><span class="ok">None (Chinese)</span></td></tr>
-              <tr><th>Open source</th><td>Yes</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td></tr>
-              <tr><th>Local deploy</th><td><span class="ok">Yes (~60GB VRAM)</span></td><td>Multi-GPU needed</td><td>Multi-GPU needed</td><td>Multi-GPU needed</td></tr>
-              <tr><th>API price</th><td>TBD</td><td>Low</td><td>Low</td><td>Low</td></tr>
-              <tr><th>Chinese language</th><td>Unknown</td><td>Strong</td><td><span class="ok">Strong</span></td><td>Strong</td></tr>
+              <tr><th>Parameters</th><td>30B</td><td>862B (MoE)</td><td>Not disclosed</td><td>12B</td></tr>
+              <tr><th>Company HQ</th><td><span class="ok">Canada</span></td><td><span class="no">China</span></td><td><span class="no">China</span></td><td><span class="ok">USA</span></td></tr>
+              <tr><th>Export control risk</th><td><span class="ok">Low</span></td><td><span class="no">High</span></td><td><span class="no">High</span></td><td><span class="ok">Low</span></td></tr>
+              <tr><th>Open-source</th><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="ok">Yes (Apache 2.0)</span></td></tr>
+              <tr><th>Chinese language</th><td>Unknown</td><td><span class="ok">Strong</span></td><td><span class="ok">Strongest</span></td><td>Moderate</td></tr>
+              <tr><th>HuggingFace downloads</th><td>12.1k</td><td>2.83M</td><td>N/A</td><td>1.22M</td></tr>
+              <tr><th>Local run</th><td>16GB+ VRAM</td><td>Multi-GPU</td><td>16GB+ VRAM</td><td><span class="ok">8GB+ VRAM</span></td></tr>
             </tbody>
           </table>
         </div>
 
-        <p><strong>What Cohere actually said</strong> — According to Cohere's announcement, North Mini Code is the first model in their "developer series," focused on code generation and understanding. It has 30B parameters and scores well on several code benchmarks. Cohere explicitly positions it as the first of multiple developer-oriented releases.</p>
+        <p><strong>Model capabilities</strong> — Based on Cohere's announcement, North Mini Code focuses on code generation and understanding across Python, JavaScript, TypeScript, Java, Go, Rust, and more. It's designed for code completion, review, and explanation.</p>
 
-        <p><strong>What this means for you</strong> — 1) One more code model in your toolkit; 2) No export control risk (Canadian company); 3) 30B params is local-deployable on a high-end workstation; 4) Cohere's enterprise support infrastructure may be a plus for corporate users.</p>
+        <p><strong>What this means for you</strong> — 1) A new code model choice with low geopolitical risk; 2) 30B params means decent capability at a practical size; 3) Canadian HQ means no US export control worries; 4) Chinese ability is unknown — test before relying on it for bilingual work.</p>
 
-        <p><strong>Honest caveat</strong> — 1) 30B is mid-size for code models — likely trails larger models on complex tasks; 2) Chinese language capability is unconfirmed; 3) API pricing not yet announced; 4) Cohere has less developer-community mindshare than OpenAI or Anthropic.</p>
+        <p><strong>Honest caveat</strong> — 1) First code model from Cohere, so capability may trail DeepSeek V4 Pro or GLM 5.2; 2) Chinese language ability is unconfirmed; 3) Only 12.1k downloads — small community; 4) API pricing not yet published.</p>
 
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>1) Real-world coding benchmarks vs alternatives; 2) Whether Cohere releases a larger code model; 3) API pricing competitiveness; 4) Community-built tools and plugins around North Mini Code.</p>
+      <p>1) Benchmark results for North Mini Code on code tasks; 2) Whether Cohere releases larger code models; 3) Community feedback and real-world performance; 4) Chinese language capability testing; 5) API pricing announcement.</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
       <li><strong>HN (#19)</strong> — "Cohere's First Model for Developers" — 100 pts, 22 comments</li>
-      <li><strong>HuggingFace</strong> — 12.1k downloads, 400 stars</li>
-      <li><strong>Cohere official</strong> — <a href="https://cohere.com" target="_blank">Cohere website</a> and <a href="https://huggingface.co/CohereLabs/North-Mini-Code-1.0" target="_blank">HF model page</a></li>
+      <li><strong>Cohere official</strong> — <a href="https://cohere.com" target="_blank">Cohere website</a></li>
+      <li><strong>HuggingFace</strong> — CohereLabs/North-Mini-Code-1.0 — 12.1k downloads, 400 stars</li>
     </ul>
 
     <div class="jargon">
       <dl>
         <dt>MoE</dt>
-        <dd>Mixture of Experts — an architecture that splits a model into multiple "expert" sub-networks, activating only a subset per inference to save compute while keeping high capacity.</dd>
-        <dt>VRAM</dt>
-        <dd>Video RAM, the memory on a GPU that stores model parameters and intermediate results. A 30B-parameter model typically needs ~60GB VRAM to run.</dd>
+        <dd>Mixture of Experts — a model architecture that combines multiple smaller "expert" sub-models, activating only a subset per token for efficiency. DeepSeek V4 Pro uses this.</dd>
       </dl>
     </div>
 
     <h3>Try it / dig in</h3>
     <ul>
       <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: Cohere's First Model for Developers (100 pts)</a></li>
-      <li><a href="https://huggingface.co/CohereLabs/North-Mini-Code-1.0" target="_blank">HuggingFace: North-Mini-Code-1.0</a></li>
+      <li><a href="https://huggingface.co/CohereLabs/North-Mini-Code-1.0" target="_blank">HuggingFace: CohereLabs/North-Mini-Code-1.0</a></li>
       <li><a href="https://cohere.com" target="_blank">Cohere official site</a></li>
     </ul>
   </article>
 
   <!-- ============= ITEM 3 ============= -->
-  <article id="homelab-ai-dev-platform" class="item item--fyi">
+  <article id="apple-foundation-models-followup" class="item item--fyi">
     <span class="tier-label"><span class="dot dot-fyi"></span>ℹ️ FYI</span>
-    <h2 class="display title">Homelab AI Dev Platform goes viral — HN 320 pts, 55 comments</h2>
-    <p class="pitch">A post titled "My Homelab AI Dev Platform" hit HN #18 with 320 points and 55 comments. The author shared how he built a local AI development platform using consumer hardware (RTX 3090/4090). For you, this signals that local AI development is becoming a real trend — if you have the hardware, you can run models locally without depending on cloud APIs.</p>
+    <h2 class="display title">Apple Foundation Models technical article continues to simmer — HN discussion ongoing</h2>
+    <p class="pitch">Yesterday's Apple Foundation Models technical article (HN 179 pts, #2) is still being discussed on HN today. Apple hasn't released new information, but the community is digging deeper into Apple's AI strategy. For you, this means Apple's AI ecosystem (Siri, Xcode, macOS AI features) now has a clear technical foundation — running on Apple Silicon, local inference, privacy-first. Worth keeping on your radar even without new triggers today.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>HN user rsgm shared their homelab AI dev platform build (HN #18, 320 pts, 55 comments). The post covers model selection, inference optimization, toolchain setup — all on consumer-grade GPUs. Against the backdrop of Fable 5 export controls and rising cloud API costs, local AI development is becoming a practical alternative for more people.</p>
+      <p>Apple published a technical article on HN detailing its in-house Foundation Models — the first time Apple has publicly shared its AI model architecture. The article was hosted on claude.com (Apple has a partnership with Anthropic), covering model size, training data, and inference optimization. HN score: 179 pts, #2, 68 comments. Today the discussion continues with no new trigger events, but the community is still working through the implications.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Local AI development is trending</strong> — With cloud API costs rising and export controls creating uncertainty, running models locally is increasingly attractive.</li>
-      <li><strong>Consumer hardware is enough</strong> — RTX 3090/4090 class GPUs can run mid-sized models (7B–30B) at usable speeds. The barrier to entry is dropping.</li>
-      <li><strong>HN 320 pts, #18, 55 comments</strong> — Strong community engagement signals genuine interest.</li>
-      <li><strong>Related: Ask HN "Has anyone replaced Claude/GPT with a local model?" got 1037 pts (#7)</strong> — The community is actively exploring this path.</li>
+      <li><strong>Apple finally shows its AI cards</strong> — First public disclosure of model architecture and training methods. Gives developers a clear picture of Apple's AI capabilities.</li>
+      <li><strong>Local inference + privacy-first design</strong> — Apple's models run on-device (Apple Silicon), no data sent to cloud. Enterprise-friendly.</li>
+      <li><strong>Potential vibe-coding impact</strong> — If Apple's models compete with Claude Code or Codex through Xcode or macOS AI features, the coding-agent landscape could shift.</li>
     </ul>
 
     <h3>Try it / dig in</h3>
     <ul>
-      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: My Homelab AI Dev Platform (320 pts)</a></li>
-      <li><a href="https://rsgm.dev" target="_blank">Author's blog post</a></li>
-      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">Related: Ask HN — Has anyone replaced Claude/GPT with a local model? (1037 pts)</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: Apple Foundation Models (179 pts, ongoing)</a></li>
+      <li><a href="https://claude.com" target="_blank">Apple Foundation Models technical article (hosted on claude.com)</a></li>
     </ul>
   </article>
 
@@ -432,7 +425,7 @@
     <ul>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">👀 Fable 5 export control</span> <span class="update">— Axios report (HN #19, 25 pts) + Simon Willison critique published today. Signal still building.</span></div>
+        <div><span class="item-name">👀 Fable 5 export control</span> <span class="update">— Axios new report + Simon Willison deep analysis. Already featured as today's 👀 item.</span></div>
       </li>
       <li>
         <span class="days">Day 6</span>
@@ -440,7 +433,7 @@
       </li>
       <li>
         <span class="days">Day 8</span>
-        <div><span class="item-name">👀 Apple Siri AI on Gemini</span> <span class="update">— No new trigger events; Apple Foundation Models article (6/15) provides more context.</span></div>
+        <div><span class="item-name">👀 Apple Siri AI on Gemini</span> <span class="update">— No trigger event; Apple Foundation Models article provides broader context today.</span></div>
       </li>
       <li>
         <span class="days">Day 8</span>
@@ -448,7 +441,7 @@
       </li>
       <li>
         <span class="days">Day 9</span>
-        <div><span class="item-name">👀 DeepSeek V4 Pro</span> <span class="update">— No new KOL endorsement; attention split by Cohere North Mini Code and homelab AI platform today.</span></div>
+        <div><span class="item-name">👀 DeepSeek V4 Pro</span> <span class="update">— No new KOL endorsement; Cohere North Mini Code splitting attention today.</span></div>
       </li>
     </ul>
   </aside>
@@ -461,48 +454,48 @@
         <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>The time the x86 emulator team found code so bad they fixed it during emulation (288 pts)</td><td>Not AI, x86 emulation</td></tr>
+        <tr><td>HN (#1)</td><td>The time the x86 emulator team found code so bad they fixed it during emulation (288 pts)</td><td>Not AI, x86 emulation technical</td></tr>
         <tr><td>HN (#2)</td><td>John Carmack on Fabrice Bellard (322 pts)</td><td>Tech personality commentary, not AI tool/model</td></tr>
         <tr><td>HN (#3)</td><td>A backdoor in a LinkedIn job offer (1235 pts)</td><td>Security incident, not AI</td></tr>
-        <tr><td>HN (#4)</td><td>Getting Creative with Perlin Noise Fields (34 pts)</td><td>Low score, not AI</td></tr>
+        <tr><td>HN (#4)</td><td>Getting Creative with Perlin Noise Fields (34 pts)</td><td>Low points, not AI</td></tr>
         <tr><td>HN (#5)</td><td>Iroh 1.0 (1215 pts)</td><td>Networking library, not AI</td></tr>
         <tr><td>HN (#6)</td><td>Banned Book Library in a Wi-Fi Smart Light Bulb (401 pts)</td><td>Hardware project, not AI</td></tr>
-        <tr><td>HN (#7)</td><td>Ask HN: Has anyone replaced Claude/GPT with a local model for daily coding? (1037 pts)</td><td>Community discussion, used as context for homelab AI platform item</td></tr>
+        <tr><td>HN (#7)</td><td>Ask HN: Has anyone replaced Claude/GPT with a local model for daily coding? (1037 pts)</td><td>Community discussion, no new info</td></tr>
         <tr><td>HN (#8)</td><td>TinyWind: A pixel pirate sailing game with real wind physics (861 pts)</td><td>Game, not AI</td></tr>
-        <tr><td>HN (#9)</td><td>Understanding the rationale behind a rule when trying to circumvent it (35 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#10)</td><td>Trinket.io shutting down, so we saved it and hosted it (17 pts)</td><td>Low score, not AI</td></tr>
+        <tr><td>HN (#9)</td><td>Understanding the rationale behind a rule when trying to circumvent it (35 pts)</td><td>Low points, not AI</td></tr>
+        <tr><td>HN (#10)</td><td>Trinket.io shutting down, so we saved it and hosted it (17 pts)</td><td>Low points, not AI</td></tr>
         <tr><td>HN (#11)</td><td>Show HN: Garden of Flowers – an archive of pictorial typography before ASCII art (83 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#12)</td><td>I Love the Computer (243 pts)</td><td>Cultural opinion, not AI</td></tr>
+        <tr><td>HN (#12)</td><td>I Love the Computer (243 pts)</td><td>Personal essay, not AI</td></tr>
         <tr><td>HN (#13)</td><td>I hacked into the worst e-bike and fixed it [video] (104 pts)</td><td>Not AI</td></tr>
         <tr><td>HN (#14)</td><td>Commodore Releases Flip Phone (46 pts)</td><td>Not AI</td></tr>
         <tr><td>HN (#15)</td><td>Hetzner Price Adjustment (455 pts)</td><td>Cloud pricing, not AI</td></tr>
-        <tr><td>HN (#16)</td><td>Feds freaked over Fable 5 after simple 'fix this code' prompt, not jailbreak (27 pts)</td><td><strong>Used as core content for today's 👀 Fable 5 item</strong></td></tr>
-        <tr><td>HN (#17)</td><td>Peopleless economy? Not technically impossible (199 pts)</td><td>Economics opinion, not AI</td></tr>
-        <tr><td>HN (#18)</td><td>My Homelab AI Dev Platform (320 pts)</td><td><strong>Used as core content for today's ℹ️ item</strong></td></tr>
+        <tr><td>HN (#16)</td><td>Feds freaked over Fable 5 after simple 'fix this code' prompt, not jailbreak (27 pts)</td><td><strong>Used as core content for today's 👀 item</strong></td></tr>
+        <tr><td>HN (#17)</td><td>Peopleless economy? Not technically impossible (199 pts)</td><td>Economic opinion, not AI</td></tr>
+        <tr><td>HN (#18)</td><td>My Homelab AI Dev Platform (320 pts)</td><td>Personal project, not breakthrough</td></tr>
         <tr><td>HN (#19)</td><td>Cohere's First Model for Developers (100 pts)</td><td><strong>Used as core content for today's 👀 item</strong></td></tr>
         <tr><td>HN (#20)</td><td>Why I email complete strangers (159 pts)</td><td>Not AI</td></tr>
         <tr><td>HN (#21)</td><td>Humanity isn't ready for the coming intelligence explosion (103 pts)</td><td>Opinion piece, excluded</td></tr>
         <tr><td>HN (#22)</td><td>Fox to buy Roku (325 pts)</td><td>Acquisition news, not AI</td></tr>
-        <tr><td>HN (#23)</td><td>What job interviews taught me about Kubernetes (193 pts)</td><td>Kubernetes experience, not AI</td></tr>
+        <tr><td>HN (#23)</td><td>What job interviews taught me about Kubernetes (193 pts)</td><td>Not AI</td></tr>
         <tr><td>HN (#24)</td><td>Salesforce to Acquire Fin (formerly Intercom) for $3.6B (314 pts)</td><td>Acquisition news, not AI</td></tr>
         <tr><td>HN (#25)</td><td>Copper transport drug restores memory and clears toxic Alzheimer's proteins (314 pts)</td><td>Medical research, not AI</td></tr>
-        <tr><td>HN (#26)</td><td>What every coder should know about gamma (2016) (102 pts)</td><td>Graphics article, not AI</td></tr>
-        <tr><td>HN (#27)</td><td>Game Engine White Papers: Commander Keen (214 pts)</td><td>Game engine history, not AI</td></tr>
-        <tr><td>HN (#28)</td><td>Conquering Recursion (2019) (3 pts)</td><td>Low score, not AI</td></tr>
+        <tr><td>HN (#26)</td><td>What every coder should know about gamma (2016) (102 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#27)</td><td>Game Engine White Papers: Commander Keen (214 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#28)</td><td>Conquering Recursion (2019) (3 pts)</td><td>Low points, not AI</td></tr>
         <tr><td>HN (#29)</td><td>How TimescaleDB compresses time-series data (156 pts)</td><td>Database tech, not AI</td></tr>
-        <tr><td>HN (#30)</td><td>Claude Corps (138 pts)</td><td>Anthropic social project, not tool/model breakthrough</td></tr>
+        <tr><td>HN (#30)</td><td>Claude Corps (138 pts)</td><td>Anthropic social program, not tool/model</td></tr>
         <tr><td>OpenAI 6/16</td><td>Introducing OpenAI Partner Network</td><td>Partner program, excluded</td></tr>
         <tr><td>OpenAI 6/14</td><td>Academy courses / Preply etc.</td><td>Enterprise partnerships / policy, excluded</td></tr>
-        <tr><td>Anthropic 6/12–6/13</td><td>Fable 5 shutdown / TCS / Public Record</td><td>Already used as context; partnerships excluded</td></tr>
+        <tr><td>Anthropic 6/12–6/13</td><td>Fable 5 shutdown / TCS / Public Record</td><td>Core content used; partnerships excluded</td></tr>
         <tr><td>DeepMind June</td><td>DiffusionGemma / Multi-agent safety / Live Translate</td><td>In Still tracking or research-grade</td></tr>
-        <tr><td>HuggingFace 6/16</td><td>Serge / North Mini Code / EVA-Bench / OpenEnv</td><td>Low signal or no HN/KOL, keep killed</td></tr>
+        <tr><td>HuggingFace 6/16</td><td>Serge / North Mini Code / EVA-Bench / OpenEnv</td><td>North Mini Code used as today's 👀 item; others low signal or no HN/KOL, keep killed</td></tr>
         <tr><td>HuggingFace trend</td><td>diffusiongemma-26B-A4B-it / Kimi-K2.7-Code / MiniMax-M3 etc.</td><td>In Still tracking or excluded</td></tr>
         <tr><td>Mistral June</td><td>Vibe / Search Toolkit / Physics AI</td><td>Already covered, no new breakthroughs</td></tr>
-        <tr><td>Re-evaluated: All past-7-day killed items</td><td>No other risers — except Fable 5 export control (Axios report) and Cohere North Mini Code (HN #19), no signal growth</td><td>All remain killed except Cohere (promoted)</td></tr>
-        <tr><td>Re-evaluated: MiMo Code open-source</td><td>HN score continued declining (504 → 95 → gone), no new KOL</td><td>Signal decreasing, keep killed</td></tr>
+        <tr><td>Re-evaluated: All past-7-day killed items</td><td>No risers — except Fable 5 export control (Axios report + Simon Willison analysis), no new signal growth</td><td>Fable 5 featured as today's 👀 item; all others stay killed</td></tr>
+        <tr><td>Re-evaluated: MiMo Code open-source</td><td>HN score continued declining (from 504 to 95 to gone), no new KOL</td><td>Signal decreasing, keep killed</td></tr>
         <tr><td>Re-evaluated: OpenEnv community votes</td><td>+69 → +78, but no HN/KOL discussion</td><td>Growth insufficient; keep killed</td></tr>
         <tr><td>Re-evaluated: Apache Burr</td><td>HN #28 at 227 pts, no KOL discussion</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>HF 361 stars → HN #19 100 pts — signal growth sufficient for promotion</td><td><strong>Promoted to 👀 item today</strong></td></tr>
+        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>HuggingFace 12.1k downloads, HN 100 pts, #19</td><td><strong>Promoted from killed to today's 👀 item (new release + HN 100 pts)</strong></td></tr>
         <tr><td>Re-evaluated: Serge (GitHub-Native AI Code Review)</td><td>Only 6 ❤️, no HN/KOL</td><td>Keep killed</td></tr>
       </tbody>
     </table>
@@ -525,7 +518,7 @@
       Excluded: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research without usable artifact
     </p>
     <p class="system">
-      ai-radar · v0.3 · 3 items today (0🚨 / 2👀 / 1ℹ️) · Still tracking: Fable 5 export control Day 4 (Axios new report + Simon Willison critique), DiffusionGemma Day 6, Apple Siri AI Day 8, MiMo Day 8, DeepSeek V4 Pro Day 9. Trigger events: Fable 5 export control re-featured due to new KOL signal (Simon Willison blog + Axios report HN #19). Cohere North Mini Code promoted from killed list (signal growth: HF stars → HN #19 100 pts). Homelab AI Dev Platform (HN #18, 320 pts) is a fresh topic. Killed-list re-evaluation: Cohere North Mini Code signal grew enough for promotion; MiMo Code open-source HN score continued declining; OpenEnv vote growth insufficient; Apache Burr / Serge all lack KOL discussion. All others keep killed.
+      ai-radar · v0.3 · 3 items today (0🚨 / 2👀 / 1ℹ️) · Still tracking: Fable 5 export control Day 4 (Axios new report + Simon Willison analysis), DiffusionGemma Day 6, Apple Siri AI Day 8, MiMo Day 8, DeepSeek V4 Pro Day 9. Trigger events: Fable 5 export control (Axios report + Simon Willison analysis) is brand-new breaking reporting not previously featured. Cohere North Mini Code (HN #19, 100 pts) is a brand-new release promoted from killed list. Apple Foundation Models is continued discussion from yesterday — no trigger event, placed as ℹ️. Killed-list re-evaluation: MiMo Code open-source HN score continued declining; OpenEnv vote growth insufficient; Apache Burr / Serge all lack KOL discussion. Cohere North Mini Code promoted from killed to 👀 (new release + HN 100 pts). All others keep killed.
     </p>
   </footer>
 
