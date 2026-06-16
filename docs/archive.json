@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-16",
+      "weekday": "Tue",
+      "week": 25,
+      "issue": 23,
+      "kind": "daily",
+      "headline": "Fable 5 出口管制新进展 + Cohere 发布 North Mini Code + Apple 模型细节持续发酵",
+      "summary": "Fable 5 出口管制事件今天有了新进展：Axios 报道了 Anthropic 与白宫之间的冲突细节，Simon Willison 也发表了深度分析。同时，Cohere 发布了 North Mini Code（HN 100 分，#19），这是 Cohere 首个面向开发者的模型。Apple Foundation M",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-16.html"
+    },
+    {
       "date": "2026-06-15",
       "weekday": "Mon",
       "week": 25,

@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-16",
+      "weekday": "Tue",
+      "week": 25,
+      "issue": 23,
+      "kind": "daily",
+      "headline": "Fable 5 export control update + Cohere's first dev model + Homelab AI platform goes viral",
+      "summary": "The Fable 5 export control saga keeps developing — Axios reports Anthropic flew staff to DC to \"clean up\" the White House fight (HN #19, 25 pts, 23 comments). S",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-16.html"
+    },
+    {
       "date": "2026-06-15",
       "weekday": "Mon",
       "week": 25,
