@@ -8,12 +8,12 @@
       "week": 25,
       "issue": 24,
       "kind": "daily",
-      "headline": "Qwen releases robot foundation model suite",
-      "summary": "Today's hot story on HN: Qwen (Alibaba's Tongyi Qianwen) released Qwen-Robot Suite, a foundation model suite for physical world intelligence. 183 points, 31 com",
+      "headline": "GLM 5.2 continues to simmer + GPT‑NL Dutch sovereign model drops + local models are good now",
+      "summary": "GLM 5.2 hit HN #1 again (106 pts) with a fresh HuggingFace blog on long-horizon tasks. The Netherlands released GPT‑NL, a sovereign language model (HN 222 pts).",
       "counts": {
         "crit": 0,
-        "look": 1,
-        "fyi": 0
+        "look": 2,
+        "fyi": 1
       },
       "url": "2026-06-17.html"
     },

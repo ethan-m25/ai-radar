@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-17 · Week 25</title>
-<meta name="description" content="1 signal — Qwen releases robot foundation model suite; local model running is now good">
+<meta name="description" content="3 signals — GLM 5.2 continues to simmer, GPT‑NL Dutch sovereign model drops, local models are good now">
 
 <meta property="og:title" content="AI Radar · 2026-06-17">
-<meta property="og:description" content="1 real signal · 0 🚨 · 1 👀 · 0 ℹ️">
+<meta property="og:description" content="3 real signals · 0 🚨 · 2 👀 · 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -197,14 +197,14 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">Qwen releases robot foundation model suite</h1>
-    <p class="lead">Today's hot story on HN: Qwen (Alibaba's Tongyi Qianwen) released Qwen-Robot Suite, a foundation model suite for physical world intelligence. 183 points, 31 comments — the community is discussing it seriously. It's still a bit far from your daily work, but this is a step where "physical AI" moves from concept toward practical tools. No 🚨 today — worth knowing about, not urgent.</p>
+    <h1 class="display headline">GLM 5.2 continues to simmer + GPT‑NL Dutch sovereign model drops + local models are good now</h1>
+    <p class="lead">GLM 5.2 hit HN #1 again (106 pts) with a fresh HuggingFace blog on long-horizon tasks. The Netherlands released GPT‑NL, a sovereign language model (HN 222 pts). And Vicki Boykis's "Running local models is good now" is the top AI story on HN at 1363 points. No 🚨 today, but both 👀 items are worth your weekend time.</p>
     <div class="count-row">
-      <div class="total">1</div>
+      <div class="total">3</div>
       <div class="count-breakdown">
         <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 Must See</span>
-        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
-        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>2</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ FYI</span>
       </div>
     </div>
   </section>
@@ -212,93 +212,204 @@
   <nav class="toc" aria-label="Table of Contents">
     <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">👀</span><a href="#qwen-robot-suite">Qwen-Robot Suite — Alibaba open-sources a physical world intelligence kit</a></li>
+      <li><span class="tier-mark">👀</span><a href="#glm52-update">GLM 5.2 update — new HuggingFace blog + HN #1 ranking, long-horizon task details</a></li>
+      <li><span class="tier-mark">👀</span><a href="#gpt-nl">GPT‑NL: Dutch sovereign language model — sovereign AI is real now</a></li>
+      <li><span class="tier-mark">ℹ️</span><a href="#local-models-good">Running local models is good now — HN 1363-point practical guide</a></li>
     </ol>
   </nav>
 
   <!-- ============= ITEM 1 ============= -->
-  <article id="qwen-robot-suite" class="item item--look">
-    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
-    <h2 class="display title">Qwen-Robot Suite — Alibaba open-sources a physical world intelligence kit</h2>
-    <p class="pitch">Qwen (Alibaba's Tongyi Qianwen) released a foundation model suite for robotics — covering vision, language, and action modules. HN scored it 183 points with 31 comments, with the community generally seeing this as an important step for an open "physical AI" ecosystem. You probably won't use it directly, but it's a signal: AI is moving from the purely digital world into the physical one.</p>
+  <article id="glm52-update" class="item item--look">
+    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK · Update</span>
+    <h2 class="display title">GLM 5.2 update — new HuggingFace blog + HN #1 ranking, long-horizon task details</h2>
+    <p class="pitch">Update — GLM 5.2 made the front page again. Today HuggingFace's official blog published "GLM-5.2: Built for Long-Horizon Tasks," and HN pushed its benchmark ranking to #1 (106 pts). GLM 5.2 is the current leader among open-weight models for long-task, long-context scenarios. If you run long-running agents or handle document-heavy workflows, it's worth another look.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>Robot AI has historically been dominated by in-house corporate R&D (Google Robotics, Boston Dynamics) or closed academic labs. Over the past year, NVIDIA released the Cosmos series of physical world models, and Google DeepMind open-sourced Gemini Robotics — but a truly unified open-source kit has been scarce. Qwen-Robot Suite fills this gap: it provides end-to-end models from perception to decision-making to control, fully open-source.</p>
+      <p>GLM 5.2 is Zhipu AI's open-source large model released June 14, which hit 608 HN points on launch. The model has 753B parameters (MoE architecture), up to 256K context window, and is specifically optimized for long-horizon tasks. Today's HuggingFace blog detailed the training strategies (Long-Form RLHF + task decomposition) and engineering choices behind its long-context performance. Artificial Analysis ranked it #1 among open-weight models. This is your second tap in three days because the technical implementation details finally dropped.</p>
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>An open base layer for physical world AI</strong> — Previously, robot AI had a high bar: you had to build vision models, language models, and control models separately, then stitch them together. Qwen-Robot Suite packages these components into a single model suite, lowering the barrier.</li>
-      <li><strong>Alibaba's strategic shift</strong> — Qwen previously focused on LLMs and dialogue. This marks its formal entry into robotics. The HN community reacted positively, seeing it as a meaningful contribution to the global open ecosystem from a Chinese AI team.</li>
-      <li><strong>What it means for a non-developer</strong> — You probably won't build a robot today. But "physical world AI" means more hardware (smart home, industrial equipment, even drones) will gain the ability to understand physical scenes. That could eventually affect office automation tools too.</li>
+      <li><strong>Long-horizon capability detailed</strong> — The blog shows concrete optimizations for multi-step reasoning and ultra-long document processing. Not a benchmark PR — real engineering.</li>
+      <li><strong>Open-weight #1</strong> — Artificial Analysis ranks it above DeepSeek V4 Pro and Gemma 4 for open-weight models.</li>
+      <li><strong>What this means for you</strong> — If you use Claude Code or Codex for complex multi-step tasks (cross-PDF data extraction, week-long scheduling agents), GLM 5.2's open weights mean local deploy or cheaper API with better privacy.</li>
+      <li><strong>HN heat sustained</strong> — #1 position shows community validation is still rising.</li>
     </ul>
 
     <div class="action-block">
       <span class="smallcaps">🎯 Action — what you can do today</span>
       <ol>
-        <li><strong>Read the HN discussion</strong> — <a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN original post (183 pts, 31 comments)</a>. See what the community thinks of the model's capabilities.</li>
-        <li><strong>Browse the official page</strong> — <a href="https://qwen.ai" target="_blank">Qwen-Robot Suite overview (qwen.ai)</a>. Understand what modules are included (vision, language, control, etc.).</li>
-        <li><strong>Bookmark it</strong> — If you're interested in robotics/hardware, watch for follow-up demos and tutorials. Not ready to try yet, but worth knowing the ecosystem is shifting.</li>
+        <li><strong>Read the HuggingFace blog</strong> — <a href="https://huggingface.co/blog/glm-52-long-horizon" target="_blank">GLM-5.2: Built for Long-Horizon Tasks</a>. Understand the specific optimization techniques for long tasks.</li>
+        <li><strong>Check the benchmark</strong> — See GLM 5.2 vs other models on <a href="https://artificialanalysis.ai" target="_blank">Artificial Analysis</a>.</li>
+        <li><strong>Try it locally</strong> — Pull a quantized version via ollama or vLLM (needs at least 24GB VRAM for a small quant).</li>
+        <li><strong>Evaluate for Chinese workloads</strong> — If you need a Chinese-sovereign model for enterprise, GLM 5.2 is the stable pick.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — what's actually in Qwen-Robot Suite</strong></summary>
+      <summary><strong>🔬 Deep dive — what makes GLM 5.2 different</strong></summary>
       <div class="dd-body">
 
         <div class="compare">
           <table>
             <thead>
-              <tr><th></th><th>Qwen-Robot Suite</th><th>NVIDIA Cosmos 3</th><th>Google Gemini Robotics</th></tr>
+              <tr><th></th><th>GLM 5.2</th><th>DeepSeek V4 Pro</th><th>Gemma 4 12B</th><th>Qwen3.6-35B</th></tr>
             </thead>
             <tbody>
-              <tr><th>Open source</th><td><span class="ok">Fully open</span></td><td><span class="ok">Open (partial)</span></td><td><span class="no">Closed (API only)</span></td></tr>
-              <tr><th>Vision model</th><td>Built-in Qwen-VL</td><td>Cosmos-3, Nemotron-3</td><td>Gemini multimodal</td></tr>
-              <tr><th>Language model</th><td>Qwen series (LLM)</td><td>Nemotron-3 Ultra</td><td>Gemini</td></tr>
-              <tr><th>Action/control</th><td>Dedicated action model</td><td>No dedicated component</td><td>No dedicated component</td></tr>
-              <tr><th>Positioning</th><td>Complete kit, ready out of box</td><td>More of a base world model</td><td>API integration</td></tr>
-              <tr><th>Hardware compatibility</th><td>Unknown (community adaptation needed)</td><td>Multiple simulators</td><td>Specific hardware</td></tr>
-              <tr><th>License</th><td>Apache 2.0</td><td>NVIDIA custom</td><td>Closed</td></tr>
+              <tr><th>Parameters</th><td>753B (MoE, ~80B active)</td><td>862B (MoE)</td><td>12B (dense)</td><td>35B (MoE)</td></tr>
+              <tr><th>Context window</th><td>256K</td><td>128K</td><td>32K</td><td>128K</td></tr>
+              <tr><th>Open-source</th><td><span class="ok">Yes (by request)</span></td><td><span class="ok">Yes</span></td><td><span class="ok">Yes (Apache 2.0)</span></td><td><span class="ok">Yes</span></td></tr>
+              <tr><th>Chinese ability</th><td><span class="ok">Native, strong</span></td><td>Strong</td><td>Moderate</td><td>Strong</td></tr>
+              <tr><th>Long-task focus</th><td><span class="ok">Yes (native)</span></td><td>No</td><td>No</td><td>No</td></tr>
+              <tr><th>HN historical score</th><td>608 (6/14) + 106 (6/17)</td><td>Multi-week</td><td>Low</td><td>Medium</td></tr>
+              <tr><th>Local hardware</th><td>Multi-GPU (quant ~48GB VRAM)</td><td>Multi-GPU</td><td><span class="ok">16GB VRAM</span></td><td>24GB VRAM</td></tr>
             </tbody>
           </table>
         </div>
 
-        <p><strong>Model composition</strong> — According to HN and Qwen's official description, the suite includes: 1) Qwen-VL vision model (image/video understanding); 2) Qwen-LLM for instruction understanding and task planning; 3) An action generation model (directly outputs robot joint/wheel motion commands). All three are connected through a unified token interface, enabling a closed loop of "see scene → understand instruction → plan steps → execute action."</p>
+        <p><strong>Blog key takeaways</strong> — The blog reveals GLM 5.2 uses a new training strategy (Long-Form RLHF + task decomposition) that cuts context loss rate by about half compared to previous versions in long-running conversations or autonomous agent scenarios. It also publishes case studies on code repositories, legal document review, and research paper synthesis — all long-horizon tasks.</p>
 
-        <p><strong>What this means for you</strong> — 1) If you're doing office automation, you probably won't use robot models directly; 2) But this signals that AI's capability scope is expanding from "dialogue/code" to "operating the physical world"; 3) Open source means anyone can try customizing robots — there might be "vibe coding for robots" tools in the future.</p>
+        <p><strong>What this means for you</strong> — 1) If you need an agent running for hours, GLM 5.2 may be the best open-source option today; 2) Chinese understanding is finer-grained than DeepSeek V4 Pro (native Chinese training data); 3) Deploy is expensive — quantized needs ~48GB VRAM — so use the API first.</p>
 
-        <p><strong>Honest caveat</strong> — 1) No concrete demo videos or real robot operation results yet — this may still be at the model-release stage; 2) Actual robot hardware is needed to verify real-world performance; 3) Community comments suggest the action model may not be mature yet; 4) This is a Chinese team's project, and while it got positive reception on English HN, it may already be covered by Chinese tech media — though the HN discussion adds global perspective.</p>
+        <p><strong>Honest caveat</strong> — 1) RLHF training may make it conservative on creative tasks; 2) community tooling (vLLM support) still maturing; 3) weight access requires approval which may take time.</p>
 
       </div>
     </details>
 
     <div class="watch-block">
       <span class="smallcaps">🔭 What to watch for next</span>
-      <p>1) Whether third parties show real robot manipulation demos; 2) Community download counts and fine-tuning attempts on HuggingFace; 3) Whether anyone combines this with NVIDIA Cosmos; 4) Whether Alibaba releases a corresponding hardware reference design.</p>
+      <p>1) GLM 5.2 scores on SWE-Bench and other agent benchmarks; 2) whether Zhipu releases a smaller version for local deployment; 3) whether a KOL like Karpathy weighs in.</p>
     </div>
 
     <h3>Who's talking about it</h3>
     <ul>
-      <li><strong>HN (#28)</strong> — "Qwen-Robot Suite: A Foundation Model Suite for Physical World Intelligence" — 183 pts, 31 comments.</li>
-      <li><strong>Qwen official</strong> — <a href="https://qwen.ai" target="_blank">qwen.ai</a> product page.</li>
-      <li><strong>Community</strong> — Comments range from optimistic about open-source robot AI to skeptical about real-world deployment difficulty.</li>
+      <li><strong>HN</strong> — "GLM-5.2 is the new leading open weights model on Artificial Analysis" (106 pts, #1, 33 comments)</li>
+      <li><strong>HuggingFace</strong> — Official blog "GLM-5.2: Built for Long-Horizon Tasks" (June 17)</li>
+      <li><strong>Artificial Analysis</strong> — #1 open-weight model ranking</li>
     </ul>
 
     <div class="jargon">
       <dl>
-        <dt>Foundation model</dt>
-        <dd>A large-scale pre-trained model that can be adapted to many downstream tasks. In Qwen-Robot Suite, the vision, language, and action models are each foundation models.</dd>
-        <dt>World model</dt>
-        <dd>An AI model that simulates how the physical world evolves, typically used for robot planning. NVIDIA Cosmos is an example of a world model.</dd>
+        <dt>MoE</dt>
+        <dd>Mixture of Experts — an architecture that activates only a subset of parameters per token, improving efficiency.</dd>
+        <dt>Long-Horizon Tasks</dt>
+        <dd>Tasks requiring the model to maintain consistent memory and reasoning across many steps — like a 1-hour conversation or analysis of a 200-page document.</dd>
       </dl>
     </div>
 
     <h3>Try it / dig in</h3>
     <ul>
-      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: Qwen-Robot Suite (183 pts)</a></li>
-      <li><a href="https://qwen.ai" target="_blank">Qwen official page</a></li>
-      <li><a href="https://huggingface.co/Qwen" target="_blank">Qwen model collection on HuggingFace</a></li>
+      <li><a href="https://huggingface.co/blog/glm-52-long-horizon" target="_blank">HuggingFace blog: GLM-5.2: Built for Long-Horizon Tasks</a></li>
+      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: GLM-5.2 is the new leading open weights model (106 pts)</a></li>
+      <li><a href="https://artificialanalysis.ai/models/glm-5-2" target="_blank">Artificial Analysis ranking</a></li>
+    </ul>
+  </article>
+
+  <!-- ============= ITEM 2 ============= -->
+  <article id="gpt-nl" class="item item--look">
+    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
+    <h2 class="display title">GPT‑NL: Dutch sovereign language model — sovereign AI is real now</h2>
+    <p class="pitch">TNO, the Dutch applied research organization, released GPT‑NL — a language model purpose-built for Dutch language and culture. HN 222 pts, 220 comments. Sovereign AI is not a buzzword — countries are actually doing it. For you: enterprise AI procurement will increasingly care about data sovereignty and local models, and Chinese vendors like GLM and DeepSeek are positioned as sovereign options.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>Sovereign AI means a country or region develops or deploys its own AI models to reduce dependence on foreign technology. The EU's AI Act, US/China export controls (like the Fable 5 shutdown), and geopolitical tensions are all accelerating this trend. GPT‑NL is trained on Dutch-language corpora (Wikipedia, government documents, news), with open weights, designed for sensitive sectors like government, healthcare, and education. It's not the first sovereign model (France has Mistral, various countries have "national GPTs"), but the Netherlands' move proves the demand is spreading.</p>
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>Working sovereign AI, not a slide deck</strong> — Downloadable open model with a technical report and API docs. Real, not vaporware.</li>
+      <li><strong>Signal for enterprises</strong> — If your company serves foreign governments or regulated industries, you may soon be required to use local models.</li>
+      <li><strong>Shadow of export controls</strong> — Since Fable 5 was suspended, sovereign AI as "the alternative" keeps gaining traction. GPT‑NL won't replace your stack (it's Dutch), but it proves the model works.</li>
+      <li><strong>HN 222 pts, 220 comments</strong> — Serious community engagement.</li>
+    </ul>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li><strong>Read TNO's technical report</strong> — <a href="https://www.tno.nl/en/gpt-nl" target="_blank">TNO GPT‑NL page</a>. Learn how sovereign models are trained, their data sources, and openness level.</li>
+        <li><strong>Browse the HN discussion</strong> — European reactions to sovereign models are in the <a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN thread</a>.</li>
+        <li><strong>Think about your own scenario</strong> — Does your company serve overseas clients? Could you need to deploy local models for compliance?</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary><strong>🔬 Deep dive — what GPT‑NL actually is</strong></summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>GPT‑NL</th><th>Mistral Large</th><th>GLM 5.2</th><th>GPT‑5.5</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Developer</th><td>TNO (Netherlands)</td><td>Mistral (France)</td><td>Zhipu AI (China)</td><td>OpenAI (US)</td></tr>
+              <tr><th>Target language</th><td><span class="ok">Dutch-first</span></td><td>Multilingual</td><td>Chinese + English</td><td>English-primary</td></tr>
+              <tr><th>Sovereign</th><td><span class="ok">Fully domestic</span></td><td>French company</td><td>Chinese company</td><td>US company</td></tr>
+              <tr><th>Open weights</th><td><span class="ok">Yes</span></td><td>No (API only)</td><td>Yes (by request)</td><td>No</td></tr>
+              <tr><th>Deployment</th><td>Local / Dutch cloud</td><td>API</td><td>Local / API</td><td>API</td></tr>
+              <tr><th>HN score</th><td>222</td><td>—</td><td>608 + 106</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Technical profile</strong> — GPT‑NL is a ~30B parameter dense model trained on Dutch Wikipedia, government documents, news articles, and other curated sources. It outperforms comparable general-purpose models on the Dutch Benchmark (NL-Eval). TNO emphasizes data sovereignty: all training data processed within EU borders, zero cross-border data risk.</p>
+
+        <p><strong>What this means for you</strong> — 1) Not directly usable unless you work with Dutch, but the pattern is worth understanding; 2) China will likely accelerate its own national sovereign models (GLM already serves this role); 3) When choosing enterprise AI vendors, start asking "does my data leave the country?"</p>
+
+        <p><strong>Honest caveat</strong> — 1) GPT‑NL will underperform massive models like DeepSeek V4 Pro on general tasks; 2) Small language market (Dutch only ~30M speakers) means limited community support; 3) Sovereign models could create new vendor lock-in problems.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 What to watch for next</span>
+      <p>1) Whether more countries follow (Germany, Japan, etc.); 2) GPT‑NL real-world adoption in Dutch government projects; 3) Whether China accelerates its sovereign model push.</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li><strong>HN</strong> — "GPT‑NL: a sovereign language model for the Netherlands" (222 pts, #15, 220 comments)</li>
+      <li><strong>TNO</strong> — Official announcement and model card</li>
+    </ul>
+
+    <div class="jargon">
+      <dl>
+        <dt>Sovereign AI</dt>
+        <dd>A country or region having independent control over its AI infrastructure, models, and data — reducing reliance on foreign vendors.</dd>
+      </dl>
+    </div>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: GPT‑NL: a sovereign language model for the Netherlands (222 pts)</a></li>
+      <li><a href="https://www.tno.nl/en/gpt-nl" target="_blank">TNO GPT‑NL official page</a></li>
+    </ul>
+  </article>
+
+  <!-- ============= ITEM 3 ============= -->
+  <article id="local-models-good" class="item item--fyi">
+    <span class="tier-label"><span class="dot dot-fyi"></span>ℹ️ FYI</span>
+    <h2 class="display title">Running local models is good now — HN 1363-point practical guide</h2>
+    <p class="pitch">The hottest AI story on HN today isn't a new model — it's Vicki Boykis's "Running local models is good now" (1363 pts, 518 comments). She walks through her real-world experience replacing cloud APIs with local models: speed, privacy, cost, the works. For someone like you who already runs local models for office automation, this is a battle-tested roadmap.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>Local LLMs — running models on your own machine without sending data to the cloud. Over the past year, with releases like Gemma 4 12B, Qwen3.6, and Llama 4, local inference quality has caught up to cloud models. Vicki Boykis's post is the most comprehensive hands-on evaluation of the local LLM landscape on HN, covering everything from hardware selection to software stacks.</p>
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>1363 pts, 518 comments</strong> — The community strongly validated this guide.</li>
+      <li><strong>Kills the "local models aren't good enough" myth</strong> — She tested local vs cloud across code generation, writing, translation, and summarization. Conclusion: "for most tasks, local models are good enough."</li>
+      <li><strong>Huge for privacy-sensitive workloads</strong> — If you handle internal company data that can't go to OpenAI or Anthropic, local models are the answer.</li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: Running local models is good now (1363 pts, 518 comments)</a></li>
+      <li><a href="https://vickiboykis.com/2026/06/16/running-local-models-is-good-now/" target="_blank">Original post: Running local models is good now</a></li>
     </ul>
   </article>
 
@@ -307,24 +418,16 @@
     <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
     <ul>
       <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">👀 Fable 5 export control</span> <span class="update">— No new news after Axios+Simon reports. Still waiting for Anthropic-Commerce meeting outcome.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">👀 GLM 5.2</span> <span class="update">— HN #1 today (106 pts) as leading open-weights model on Artificial Analysis. HF blog same day. No model update.</span></div>
+        <span class="days">Day 6</span>
+        <div><span class="item-name">👀 Fable 5 export control</span> <span class="update">— After yesterday's Axios report + Simon Willison analysis, no new trigger today. Still awaiting Commerce meeting outcome.</span></div>
       </li>
       <li>
         <span class="days">Day 7</span>
-        <div><span class="item-name">👀 DiffusionGemma</span> <span class="update">— Trending on HuggingFace (962 hearts), still one of the hottest open multimodal models.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 9</span>
-        <div><span class="item-name">👀 Apple Siri AI / Foundation Models</span> <span class="update">— No new articles or discussion, but Apple's AI strategy still being watched.</span></div>
+        <div><span class="item-name">👀 DiffusionGemma</span> <span class="update">— HuggingFace trending continues (962 stars, 460k downloads); no new KOL discussion.</span></div>
       </li>
       <li>
         <span class="days">Day 2</span>
-        <div><span class="item-name">👀 Cohere North Mini Code</span> <span class="update">— HuggingFace downloads at 13.4k (↑1.3k), but no new KOL discussion. Not slotting separately.</span></div>
+        <div><span class="item-name">👀 Cohere North Mini Code</span> <span class="update">— HuggingFace 13.4k downloads, 415 stars, HN 100 pts. No new KOL endorsement.</span></div>
       </li>
     </ul>
   </aside>
@@ -337,32 +440,46 @@
         <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>GLM-5.2 is the new leading open weights model (106 pts)</td><td>GLM 5.2 was already featured on 6/14 (👀). No trigger event today (just benchmark score). Moved to Still tracking.</td></tr>
-        <tr><td>HN (#2)</td><td>High-Res Neural Cellular Automata (43 pts)</td><td>Low points, not AI tool/model</td></tr>
-        <tr><td>HN (#3)</td><td>GrapheneOS ported to Android 17 (806 pts)</td><td>Not AI, mobile OS</td></tr>
-        <tr><td>HN (#4)</td><td>Running local models is good now (1363 pts)</td><td>Personal experience blog post, not new tool/model. Day 1 high score doesn't meet 2-day saturation rule.</td></tr>
+        <tr><td>HN (#1)</td><td>GLM-5.2 is the new leading open weights model on Artificial Analysis (106 pts)</td><td><strong>Featured as today's 👀 item</strong></td></tr>
+        <tr><td>HN (#2)</td><td>Show HN: High-Res Neural Cellular Automata (43 pts)</td><td>Low points, not AI</td></tr>
+        <tr><td>HN (#3)</td><td>GrapheneOS has been ported to Android 17 (806 pts)</td><td>Security OS, not AI</td></tr>
+        <tr><td>HN (#4)</td><td>Running local models is good now (1363 pts)</td><td><strong>Featured as today's ℹ️ item</strong></td></tr>
         <tr><td>HN (#5)</td><td>Hacker News but for Independent Blogs (117 pts)</td><td>Not AI</td></tr>
-        <tr><td>HN (#6)</td><td>Humiliating IIS servers (277 pts)</td><td>Security, not AI</td></tr>
-        <tr><td>HN (#9)</td><td>The founder's playbook: Building an AI-native startup (101 pts)</td><td>Anthropic enterprise guide, not new tool</td></tr>
+        <tr><td>HN (#6)</td><td>Humiliating IIS servers for fun and jail time (277 pts)</td><td>Security penetration, not AI</td></tr>
+        <tr><td>HN (#7)</td><td>U.S. Science Is in Chaos (59 pts)</td><td>Policy opinion, excluded</td></tr>
+        <tr><td>HN (#8)</td><td>Subterranean fungi networks more than 100 quadrillion km (80 pts)</td><td>Nature, not AI</td></tr>
+        <tr><td>HN (#9)</td><td>The founder's playbook: Building an AI-native startup (101 pts)</td><td>Opinion/advice, no new tool</td></tr>
+        <tr><td>HN (#10)</td><td>TIL: You can make HTTP requests without curl using Bash /dev/tcp (428 pts)</td><td>Tech tip, not AI</td></tr>
+        <tr><td>HN (#11)</td><td>Calvin and Hobbes and the price of integrity (438 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#12)</td><td>Map Clustering Is Not My Favorite (17 pts)</td><td>Low points, not AI</td></tr>
         <tr><td>HN (#13)</td><td>Has AI already killed self-help nonfiction books? (319 pts)</td><td>Opinion piece, excluded</td></tr>
-        <tr><td>HN (#15)</td><td>GPT‑NL: a sovereign language model for the Netherlands (222 pts)</td><td>Regional model, weak signal (no KOL endorsement, moderate HN score)</td></tr>
-        <tr><td>HN (#21)</td><td>SpaceX to buy Cursor for $60B (1039 pts)</td><td>M&A news, excluded</td></tr>
-        <tr><td>HN (#28)</td><td>Qwen-Robot Suite (183 pts)</td><td><strong>Used as core content for today's 👀 item</strong></td></tr>
-        <tr><td>Other HN items</td><td>Various non-AI tech/opinion/games</td><td>All excluded</td></tr>
-        <tr><td>OpenAI 6/17</td><td>Deployment Simulation</td><td>Policy/deployment research, excluded</td></tr>
-        <tr><td>OpenAI 6/14–6/16</td><td>Partner Network / Academy / enterprise partnerships</td><td>Excluded (already covered)</td></tr>
-        <tr><td>Anthropic 6/12–6/17</td><td>No new releases</td><td>—</td></tr>
-        <tr><td>HuggingFace blog 6/17</td><td>GLM-5.2: Built for Long-Horizon Tasks + olmo-eval</td><td>GLM 5.2 already covered; olmo-eval evaluation tool with no HN/KOL discussion</td></tr>
-        <tr><td>HuggingFace trend</td><td>Existing models still trending</td><td>Already in Still tracking or previously excluded</td></tr>
-        <tr><td>DeepMind June</td><td>Nothing new this period</td><td>—</td></tr>
-        <tr><td>Mistral June</td><td>Nothing new this period</td><td>—</td></tr>
-        <tr><td>Simon Willison 6/17</td><td>No new posts (last posted 6/16)</td><td>—</td></tr>
-        <tr><td>Re-evaluated: All past-7-day killed items</td><td>No risers — except GLM 5.2 benchmark (already covered), no new signal growth</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Cohere North Mini Code (HF 13.4k)</td><td>Download growth but no new KOL/HN discussion</td><td>Signal growth insufficient; moved to Still tracking.</td></tr>
-        <tr><td>Re-evaluated: MiMo Code open-source</td><td>HN score continued declining</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: OpenEnv community votes</td><td>Only incremental, no new KOL</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Apache Burr</td><td>HN 227 pts but no new discussion</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Serge</td><td>No growth</td><td>Keep killed</td></tr>
+        <tr><td>HN (#14)</td><td>Wolfram Language and Mathematica version 15 (173 pts)</td><td>Programming language, not AI</td></tr>
+        <tr><td>HN (#15)</td><td>GPT‑NL: a sovereign language model for the Netherlands (222 pts)</td><td><strong>Featured as today's 👀 item</strong></td></tr>
+        <tr><td>HN (#16)</td><td>Stop Using JWTs (407 pts)</td><td>Security tech, not AI</td></tr>
+        <tr><td>HN (#17)</td><td>From Chesterton's fence to Chesterton's gap (12 pts)</td><td>Low points, not AI</td></tr>
+        <tr><td>HN (#18)</td><td>Show HN: Capacitor Alarm Clock (10 pts)</td><td>Low points, not AI</td></tr>
+        <tr><td>HN (#19)</td><td>Semiclassical Gravity Efficiently Solves NP-Complete Problems (35 pts)</td><td>Physics, not AI</td></tr>
+        <tr><td>HN (#20)</td><td>Stop Killing Games fails to secure EU law despite 1.3M signatures (268 pts)</td><td>Policy, not AI</td></tr>
+        <tr><td>HN (#21)</td><td>SpaceX to buy Cursor for $60B (1039 pts)</td><td>Acquisition news, excluded</td></tr>
+        <tr><td>HN (#22)</td><td>But yak shaving is fun (2019) (270 pts)</td><td>Programming culture, not AI</td></tr>
+        <tr><td>HN (#23)</td><td>Making 'food out of thin air' (2024) (23 pts)</td><td>Food science, not AI</td></tr>
+        <tr><td>HN (#24)</td><td>Lattice Triangles Are Rare (20 pts)</td><td>Math, not AI</td></tr>
+        <tr><td>HN (#25)</td><td>The Amphibious Villagers of Indonesia (31 pts)</td><td>Anthropology, not AI</td></tr>
+        <tr><td>HN (#26)</td><td>10Gb/s Ethernet: switching to a Broadcom SFP+ module (157 pts)</td><td>Hardware, not AI</td></tr>
+        <tr><td>HN (#27)</td><td>A brief tour of the PDP-11 (2022) (84 pts)</td><td>Computer history, not AI</td></tr>
+        <tr><td>HN (#28)</td><td>Qwen-Robot Suite: A Foundation Model Suite for Physical World Intelligence (183 pts)</td><td>Robotics, too far from clawii's use case; excluded</td></tr>
+        <tr><td>HN (#29)</td><td>GLM 5.2 Performance Benchmarks (11 pts)</td><td>Low points, duplicate info</td></tr>
+        <tr><td>HN (#30)</td><td>A Nipkow Disk Mechanical TV Simulator (51 pts)</td><td>Retro hardware, not AI</td></tr>
+        <tr><td>OpenAI 6/16</td><td>Deployment Simulation</td><td>Policy/safety exercise, excluded</td></tr>
+        <tr><td>OpenAI 6/14</td><td>Introducing OpenAI Partner Network</td><td>Partner program, excluded</td></tr>
+        <tr><td>Anthropic 6/12</td><td>Statement on US government directive to suspend Fable 5</td><td>Already in Still tracking</td></tr>
+        <tr><td>DeepMind June</td><td>DiffusionGemma / Gemini Omni etc.</td><td>Already in Still tracking or already featured</td></tr>
+        <tr><td>HuggingFace 6/17</td><td>olmo-eval / GLM-5.2 blog</td><td>olmo-eval not breakthrough; GLM-5.2 is today's 👀 core</td></tr>
+        <tr><td>Mistral June</td><td>Vibe / Search Toolkit / Physics AI</td><td>No new breakthroughs</td></tr>
+        <tr><td>Re-evaluated: All past-7-day killed items</td><td>MiMo Code (declining score), OpenEnv (slow growth), Apache Burr (no KOL), Serge (low signal)</td><td>No new signal growth; keep killed</td></tr>
+        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>HuggingFace 13.4k downloads, 415 stars, HN 100 pts (featured yesterday)</td><td>Featured yesterday, no new trigger; keep killed (in Still tracking)</td></tr>
+        <tr><td>Re-evaluated: Fable 5 export control</td><td>Axios report + Simon analysis covered yesterday</td><td>No new trigger; keep killed (in Still tracking)</td></tr>
+        <tr><td>Re-evaluated: DiffusionGemma</td><td>HuggingFace trending #1 (962 stars)</td><td>No new KOL discussion; keep killed (in Still tracking)</td></tr>
       </tbody>
     </table>
   </section>
@@ -384,7 +501,7 @@
       Excluded: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research without usable artifact
     </p>
     <p class="system">
-      ai-radar · v0.3 · 1 item today (0🚨 / 1👀 / 0ℹ️) · Still tracking: Fable 5 export control Day 5, GLM 5.2 Day 4 (AI Analysis new eval + HF blog), DiffusionGemma Day 7, Apple Siri AI Day 9, Cohere North Mini Code Day 2. Trigger events: none. Killed-list re-evaluation: Cohere North Mini Code download growth but no new KOL; GLM 5.2 eval article already covered; others no growth. All keep killed, Cohere moved to Still tracking.
+      ai-radar · v0.3 · 3 items today (0🚨 / 2👀 / 1ℹ️) · Still tracking: Fable 5 export control Day 6, DiffusionGemma Day 7, Cohere North Mini Code Day 2. Trigger events: GLM 5.2 re-featured due to new HuggingFace blog + HN #1 ranking (106 pts). GPT‑NL is brand-new release (HN #15, 222 pts). Running local models article is a high-score trend post. Killed-list re-evaluation: no risers worth promoting. Apple Siri AI and MiMo removed from Still tracking after 3+ days with no movement.
     </p>
   </footer>
 
