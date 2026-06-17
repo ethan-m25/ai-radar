@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-17",
+      "weekday": "Wed",
+      "week": 25,
+      "issue": 24,
+      "kind": "daily",
+      "headline": "Qwen 发布机器人基础模型套件",
+      "summary": "今天 HN 上热度很高的一条：Qwen（阿里通义千问）发布了机器人基础模型套件 Qwen-Robot Suite，定位为物理世界智能。183 分、31 条评论，社区在认真讨论。虽然离你的日常工作有点远，但这是\"物理 AI\" 从概念走向实用的一步。没有 🚨，适合开眼界。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-17.html"
+    },
+    {
       "date": "2026-06-16",
       "weekday": "Tue",
       "week": 25,

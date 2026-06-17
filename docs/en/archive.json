@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-17",
+      "weekday": "Wed",
+      "week": 25,
+      "issue": 24,
+      "kind": "daily",
+      "headline": "Qwen releases robot foundation model suite",
+      "summary": "Today's hot story on HN: Qwen (Alibaba's Tongyi Qianwen) released Qwen-Robot Suite, a foundation model suite for physical world intelligence. 183 points, 31 com",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 0
+      },
+      "url": "2026-06-17.html"
+    },
+    {
       "date": "2026-06-16",
       "weekday": "Tue",
       "week": 25,
