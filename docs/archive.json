@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-19",
+      "weekday": "Fri",
+      "week": 25,
+      "issue": 26,
+      "kind": "daily",
+      "headline": "本地 Qwen 新视角 + Lore 版本控制 + DeepSeek 视觉模型",
+      "summary": "今天 HN 上三条值得看的 AI 信号：一篇关于本地 Qwen 的深度体验文章（235 分）、一个开源版本控制系统 Lore（1156 分）、以及 DeepSeek 发布视觉模型（170 分）。没有 🚨，但 👀 两条值得周末花时间看看。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-19.html"
+    },
+    {
       "date": "2026-06-18",
       "weekday": "Thu",
       "week": 25,
