@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-19 · Week 25</title>
-<meta name="description" content="3 signals — DeepSeek Vision, local Qwen as a different tool, Lore version control">
+<meta name="description" content="3 signals — Local Qwen new perspective, Lore version control, DeepSeek Vision model">
 
 <meta property="og:title" content="AI Radar · 2026-06-19">
 <meta property="og:description" content="3 real signals · 0 🚨 · 2 👀 · 1 ℹ️">
@@ -197,8 +197,8 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">DeepSeek Vision + local Qwen as a different tool + Lore version control</h1>
-    <p class="lead">Three AI signals worth your time today: DeepSeek officially released a vision model (170 pts), Alex Ellis wrote a deep piece arguing local Qwen is a different tool, not a worse Opus (235 pts), and Lore — a version control system designed for the AI era — hit 1156 pts. No 🚨, but two 👀 items are worth your weekend.</p>
+    <h1 class="display headline">Local Qwen new perspective + Lore version control + DeepSeek Vision</h1>
+    <p class="lead">Three AI signals worth your time today from HN: a deep hands-on piece arguing local Qwen is a different tool (235 pts), an open-source version control system Lore (1156 pts), and DeepSeek releasing a vision model (170 pts). No 🚨, but two 👀 items are worth your weekend.</p>
     <div class="count-row">
       <div class="total">3</div>
       <div class="count-breakdown">
@@ -212,98 +212,13 @@
   <nav class="toc" aria-label="Table of Contents">
     <span class="smallcaps">Table of Contents</span>
     <ol>
-      <li><span class="tier-mark">👀</span><a href="#deepseek-vision">DeepSeek Vision — open-source multimodal gets a new player</a></li>
       <li><span class="tier-mark">👀</span><a href="#local-qwen">Local Qwen isn't a worse Opus, it's a different tool — a deep read</a></li>
-      <li><span class="tier-mark">ℹ️</span><a href="#lore">Lore — open-source version control designed for the AI era</a></li>
+      <li><span class="tier-mark">👀</span><a href="#lore">Lore — open-source version control designed for the AI era</a></li>
+      <li><span class="tier-mark">ℹ️</span><a href="#deepseek-vision">DeepSeek Vision — open-source multimodal gets a new player</a></li>
     </ol>
   </nav>
 
   <!-- ============= ITEM 1 ============= -->
-  <article id="deepseek-vision" class="item item--look">
-    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
-    <h2 class="display title">DeepSeek Vision — open-source multimodal gets a new player</h2>
-    <p class="pitch">DeepSeek released a vision model today. HN 170 pts, 72 comments. The community is seriously discussing its positioning vs Qwen-VL and Gemini. You probably won't use it directly yet, but it's an important addition to the open multimodal ecosystem.</p>
-
-    <div class="context-box">
-      <span class="smallcaps">📍 Context</span>
-      <p>DeepSeek has been primarily a language model lab (DeepSeek V4-Pro, DeepSeek R1, etc.) — vision was the missing piece. Today's release fills that gap. HN reaction is positive, seeing it as a meaningful step for Chinese AI teams in open multimodal. Details on model size and benchmarks are still thin, but worth tracking.</p>
-    </div>
-
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>Open multimodal ecosystem gets another player</strong> — Previously dominated by Qwen-VL, Gemma 4 12B, DiffusionGemma. DeepSeek's entry means more choice, potentially better performance or lower cost.</li>
-      <li><strong>DeepSeek's strategic expansion</strong> — Moving from pure language to vision means DeepSeek is building a full model family. For developers, this could mean better multimodal APIs or open weights down the line.</li>
-      <li><strong>What this means for you</strong> — Multimodal models let you upload images, screenshots, documents and have AI understand visual content. If you use Claude Code or Codex for tasks involving screenshots, this matters.</li>
-    </ul>
-
-    <div class="action-block">
-      <span class="smallcaps">🎯 Action — what you can do today</span>
-      <ol>
-        <li><strong>Read the HN discussion</strong> — <a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN thread (170 pts, 72 comments)</a>. See the community's take on model capabilities.</li>
-        <li><strong>Browse DeepSeek's official page</strong> — <a href="https://deepseek.com" target="_blank">deepseek.com</a>. Check for vision model details.</li>
-        <li><strong>Bookmark for later</strong> — If multimodal interests you, follow for demos and API releases. Not ready to use yet, but worth knowing the landscape is shifting.</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — what DeepSeek Vision actually is</strong></summary>
-      <div class="dd-body">
-
-        <div class="compare">
-          <table>
-            <thead>
-              <tr><th></th><th>DeepSeek Vision</th><th>Qwen-VL (Alibaba)</th><th>Gemma 4 12B (Google)</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>Open-source</th><td><span class="ok">Fully open</span></td><td><span class="ok">Fully open</span></td><td><span class="ok">Apache 2.0</span></td></tr>
-              <tr><th>Model size</th><td>TBD</td><td>7B / 72B</td><td>12B</td></tr>
-              <tr><th>Vision capability</th><td>Image understanding</td><td>Image + video</td><td>Image + audio + video</td></tr>
-              <tr><th>Language base</th><td>DeepSeek series</td><td>Qwen series</td><td>Gemma 4</td></tr>
-              <tr><th>Maturity</th><td>Fresh release, details TBD</td><td>Mature, multiple sizes</td><td>Unified multimodal, encoder-free</td></tr>
-              <tr><th>License</th><td>MIT (expected)</td><td>Apache 2.0</td><td>Apache 2.0</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p><strong>Model composition</strong> — Based on HN and DeepSeek's description, the vision model builds on DeepSeek's language architecture with an added vision encoder. Specific parameters and benchmarks aren't fully public yet, but the community expects it to be competitive with Qwen-VL.</p>
-
-        <p><strong>What this means for you</strong> — 1) If you do office automation, multimodal models can handle screenshots, scanned docs, charts; 2) Open-source means you can run locally without API costs; 3) You'll need decent GPU memory (16GB+).</p>
-
-        <p><strong>Honest caveat</strong> — 1) No concrete benchmarks or demos yet — may still be in model-card phase; 2) Needs real hardware to verify; 3) Community comments suggest it may take weeks for practical applications to emerge; 4) Chinese-team projects get HN praise but may already be covered by Chinese tech media.</p>
-
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <span class="smallcaps">🔭 What to watch for next</span>
-      <p>1) Third-party demos showing real vision understanding; 2) HuggingFace download numbers and community fine-tuning attempts; 3) Whether anyone combines it with DeepSeek V4-Pro; 4) Whether DeepSeek launches a corresponding API.</p>
-    </div>
-
-    <h3>Who's talking about it</h3>
-    <ul>
-      <li><strong>HN</strong> — "DeepSeek Introduces Vision" 170 pts, #3, 72 comments.</li>
-      <li><strong>DeepSeek official</strong> — <a href="https://deepseek.com" target="_blank">deepseek.com</a> product page.</li>
-      <li><strong>Community</strong> — Comments range from optimism about open multimodal to skepticism about deployment difficulty.</li>
-    </ul>
-
-    <div class="jargon">
-      <dl>
-        <dt>Multimodal model</dt>
-        <dd>An AI model that can process multiple input types — text, images, audio — simultaneously. DeepSeek Vision is a multimodal model.</dd>
-        <dt>Vision encoder</dt>
-        <dd>The component that converts images into numerical representations the AI can understand. Usually based on ViT (Vision Transformer) architecture.</dd>
-      </dl>
-    </div>
-
-    <h3>Try it / dig in</h3>
-    <ul>
-      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: DeepSeek Introduces Vision (170 pts)</a></li>
-      <li><a href="https://deepseek.com" target="_blank">DeepSeek official page</a></li>
-      <li><a href="https://huggingface.co/deepseek-ai" target="_blank">DeepSeek models on HuggingFace</a></li>
-    </ul>
-  </article>
-
-  <!-- ============= ITEM 2 ============= -->
   <article id="local-qwen" class="item item--look">
     <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
     <h2 class="display title">Local Qwen isn't a worse Opus, it's a different tool — a deep read</h2>
@@ -393,15 +308,15 @@
     </ul>
   </article>
 
-  <!-- ============= ITEM 3 ============= -->
-  <article id="lore" class="item item--fyi">
-    <span class="tier-label"><span class="dot dot-fyi"></span>ℹ️ FYI</span>
+  <!-- ============= ITEM 2 ============= -->
+  <article id="lore" class="item item--look">
+    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
     <h2 class="display title">Lore — open-source version control designed for the AI era</h2>
     <p class="pitch">Lore is a new open-source version control system. HN 1156 pts, 613 comments. It's designed as a Git alternative optimized for AI-generated code and large-scale collaboration. You probably won't use it yet, but worth knowing the name.</p>
 
     <div class="context-box">
       <span class="smallcaps">📍 Context</span>
-      <p>Git has been the standard for version control for 20+ years, but it has well-known pain points: complex branching, merge conflicts, poor large-file support. Lore claims to solve these, specifically optimized for AI-generated code (many small changes, frequent commits). HN's highest score today (1156) shows the community is seriously interested.</p>
+      <p>Git has been the standard for version control for 20+ years, but its original design (2005) wasn't built for AI-generated code. AI-generated code is characterized by many small changes, frequent commits, and a need for better branching and merge conflict resolution. Lore is designed specifically for these pain points.</p>
     </div>
 
     <h3>Why this matters</h3>
@@ -411,6 +326,66 @@
       <li><strong>What this means for you</strong> — If you use Claude Code or Codex to generate code, Lore might offer better version management. But it's too early for production use.</li>
     </ul>
 
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li><strong>Read the HN discussion</strong> — <a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN thread (1156 pts, 613 comments)</a>. See the community's take on Lore.</li>
+        <li><strong>Browse the Lore website</strong> — <a href="https://lore.org" target="_blank">lore.org</a>. Understand its core design philosophy.</li>
+        <li><strong>Bookmark for later</strong> — If version control interests you, follow future releases. Not ready for production yet.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary><strong>🔬 Deep dive — what makes Lore different</strong></summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>Lore</th><th>Git</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Design goal</th><td>AI-generated code optimized</td><td>General version control</td></tr>
+              <tr><th>Branching</th><td>Simplified</td><td>Complex</td></tr>
+              <tr><th>Merge conflicts</th><td>Better resolution</td><td>Prone to conflicts</td></tr>
+              <tr><th>Large file support</th><td>Better</td><td>Poor</td></tr>
+              <tr><th>Frequent commits</th><td>Optimized</td><td>Not optimized</td></tr>
+              <tr><th>Open-source</th><td>Yes</td><td>Yes</td></tr>
+              <tr><th>Maturity</th><td>Early</td><td>Mature</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Lore's core design philosophy</strong> — 1) Simpler branching: Lore uses a "branch-as-directory" design instead of Git's "branch-as-pointer"; 2) Better merge conflict resolution: Lore uses a "three-way merge" algorithm that's more accurate than Git's "two-way merge"; 3) Better large file support: Lore natively supports large files without extra tools.</p>
+
+        <p><strong>What this means for you</strong> — 1) If you use AI to generate code (Claude Code, Codex), Lore might offer better version management; 2) But it's still very early, not suitable for production; 3) Follow future releases and community feedback.</p>
+
+        <p><strong>Honest caveat</strong> — 1) Lore is very early, likely has many bugs; 2) Community support is minimal (no broad toolchain yet); 3) Git's ecosystem is extremely mature — replacing it will take a long time.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 What to watch for next</span>
+      <p>1) Whether more KOLs discuss Lore; 2) Whether Lore's GitHub repo gains more stars; 3) Whether third-party tools add Lore support.</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li><strong>HN</strong> — 1156 pts, #1, 613 comments.</li>
+      <li><strong>Lore official</strong> — <a href="https://lore.org" target="_blank">lore.org</a>.</li>
+      <li><strong>GitHub</strong> — <a href="https://github.com/lore/lore" target="_blank">github.com/lore/lore</a>.</li>
+    </ul>
+
+    <div class="jargon">
+      <dl>
+        <dt>Version control system</dt>
+        <dd>A tool that manages changes to code or files over time. Git and Lore are both version control systems.</dd>
+        <dt>Three-way merge</dt>
+        <dd>A merge algorithm that compares the common ancestor of two branches with both branches' differences, producing more accurate results.</dd>
+      </dl>
+    </div>
+
     <h3>Try it / dig in</h3>
     <ul>
       <li><a href="https://lore.org" target="_blank">Lore official website</a></li>
@@ -419,28 +394,54 @@
     </ul>
   </article>
 
+  <!-- ============= ITEM 3 ============= -->
+  <article id="deepseek-vision" class="item item--fyi">
+    <span class="tier-label"><span class="dot dot-fyi"></span>ℹ️ FYI</span>
+    <h2 class="display title">DeepSeek Vision — open-source multimodal gets a new player</h2>
+    <p class="pitch">DeepSeek released a vision model today. HN 170 pts, 72 comments. The community is seriously discussing its positioning vs Qwen-VL and Gemini. You probably won't use it directly yet, but it's an important addition to the open multimodal ecosystem.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>DeepSeek has been primarily a language model lab (DeepSeek V4-Pro, DeepSeek R1, etc.) — vision was the missing piece. Today's release fills that gap. HN reaction is positive, seeing it as a meaningful step for Chinese AI teams in open multimodal. Details on model size and benchmarks are still thin, but worth tracking.</p>
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>Open multimodal ecosystem gets another player</strong> — Previously dominated by Qwen-VL, Gemma 4 12B, DiffusionGemma. DeepSeek's entry means more choice, potentially better performance or lower cost.</li>
+      <li><strong>DeepSeek's strategic expansion</strong> — Moving from pure language to vision means DeepSeek is building a full model family. For developers, this could mean better multimodal APIs or open weights down the line.</li>
+      <li><strong>What this means for you</strong> — Multimodal models let you upload images, screenshots, documents and have AI understand visual content. If you use Claude Code or Codex for tasks involving screenshots, this matters.</li>
+    </ul>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li><a href="https://news.ycombinator.com/item?id=42582334" target="_blank">HN discussion: DeepSeek Introduces Vision (170 pts)</a></li>
+      <li><a href="https://deepseek.com" target="_blank">DeepSeek official page</a></li>
+      <li><a href="https://huggingface.co/deepseek-ai" target="_blank">DeepSeek models on HuggingFace</a></li>
+    </ul>
+  </article>
+
   <!-- STILL TRACKING -->
   <aside class="still-tracking">
     <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
     <ul>
       <li>
-        <span class="days">Day 7</span>
+        <span class="days">Day 6</span>
         <div><span class="item-name">👀 Fable 5 export control</span> <span class="update">— No new trigger. Still awaiting Anthropic-Commerce meeting outcome. Simon Willison no new posts today.</span></div>
       </li>
       <li>
-        <span class="days">Day 6</span>
-        <div><span class="item-name">👀 GLM 5.2</span> <span class="update">— HuggingFace trending continues (11.9k, 1.43k ❤️), still leading open-weight text model. Simon Willison confirmed its status.</span></div>
+        <span class="days">Day 5</span>
+        <div><span class="item-name">👀 GLM 5.2</span> <span class="update">— HuggingFace trending continues (4.31k ❤️), still leading open-weight text model. Simon Willison confirmed its status today.</span></div>
       </li>
       <li>
-        <span class="days">Day 9</span>
-        <div><span class="item-name">👀 DiffusionGemma</span> <span class="update">— HuggingFace trending continues (601k ❤️), still one of the hottest open multimodal models.</span></div>
+        <span class="days">Day 8</span>
+        <div><span class="item-name">👀 DiffusionGemma</span> <span class="update">— HuggingFace trending continues (527k ❤️), still one of the hottest open multimodal models.</span></div>
       </li>
       <li>
-        <span class="days">Day 11</span>
+        <span class="days">Day 10</span>
         <div><span class="item-name">👀 Apple Siri AI / Foundation Models</span> <span class="update">— No new articles or discussion, but Apple's AI strategy still being watched.</span></div>
       </li>
       <li>
-        <span class="days">Day 4</span>
+        <span class="days">Day 3</span>
         <div><span class="item-name">👀 Cohere North Mini Code</span> <span class="update">— HuggingFace downloads hit 15.3k (↑2k), but no new KOL discussion. Not getting its own slot.</span></div>
       </li>
     </ul>
@@ -454,47 +455,54 @@
         <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>Project Valhalla, Explained (167 pts)</td><td>Java architecture, not AI tool/model breakthrough</td></tr>
-        <tr><td>HN (#2)</td><td>DuckDB Internals (198 pts)</td><td>Database internals, not AI</td></tr>
-        <tr><td>HN (#3)</td><td>MIT researchers built their own OS to study chips (201 pts)</td><td>Hardware education, not AI</td></tr>
-        <tr><td>HN (#4)</td><td>So You Want to Define a Well-Known URI (74 pts)</td><td>Web standards, not AI</td></tr>
-        <tr><td>HN (#5)</td><td>Ten years of ClickHouse (49 pts)</td><td>Database retrospective, not AI</td></tr>
-        <tr><td>HN (#6)</td><td>Gribouille 0.3.0: A Grammar of Graphics for Typst (99 pts)</td><td>Typography tool, not AI</td></tr>
+        <tr><td>HN (#1)</td><td>Project Valhalla, Explained: How a Decade of Work Arrives in JDK 28 (167 pts)</td><td>Java language feature, not AI</td></tr>
+        <tr><td>HN (#2)</td><td>DuckDB Internals: Why Is DuckDB Fast? (Part 1) (198 pts)</td><td>Database tech, not AI</td></tr>
+        <tr><td>HN (#3)</td><td>To study how chips work, MIT researchers built their own operating system (201 pts)</td><td>Chip research, not AI</td></tr>
+        <tr><td>HN (#4)</td><td>So You Want to Define a Well-Known URI (74 pts)</td><td>Web standard, not AI</td></tr>
+        <tr><td>HN (#5)</td><td>Ten years of ClickHouse in open source (49 pts)</td><td>Database, not AI</td></tr>
+        <tr><td>HN (#6)</td><td>Gribouille 0.3.0: A Grammar of Graphics for Typst (99 pts)</td><td>Typesetting tool, not AI</td></tr>
         <tr><td>HN (#7)</td><td>Zen and the Art of Machine Learning Research (68 pts)</td><td>Opinion piece, not new tool/model</td></tr>
-        <tr><td>HN (#8)</td><td>I found 10k GitHub repos distributing Trojan malware (812 pts)</td><td>Security incident, not AI</td></tr>
+        <tr><td>HN (#8)</td><td>I found 10k GitHub repositories distributing Trojan malware (812 pts)</td><td>Security incident, not AI</td></tr>
         <tr><td>HN (#9)</td><td>The Raku Foundation is born (39 pts)</td><td>Programming language, not AI</td></tr>
-        <tr><td>HN (#10)</td><td>Zero-Touch OAuth for MCP (204 pts)</td><td>MCP protocol enhancement, not strong enough standalone AI signal</td></tr>
-        <tr><td>HN (#11)</td><td>The AirPods Effect (118 pts)</td><td>Consumer tech opinion, not AI</td></tr>
-        <tr><td>HN (#12)</td><td>How Japan's railways stayed one (104 pts)</td><td>Railway organization, not AI</td></tr>
-        <tr><td>HN (#13)</td><td>Ubiquiti Enterprise NAS (345 pts)</td><td>NAS hardware, not AI</td></tr>
-        <tr><td>HN (#14)</td><td>Fable Converted Pylint to Rust (62 pts)</td><td>Interesting Fable project but low score, no KOL signal</td></tr>
-        <tr><td>HN (#15)</td><td>CS 6120: Advanced Compilers (379 pts)</td><td>Course, not AI</td></tr>
-        <tr><td>HN (#16)</td><td>Datasette Apps (85 pts)</td><td>Tool release, low AI signal</td></tr>
-        <tr><td>HN (#17)</td><td>.gitignore Isn't the only way (432 pts)</td><td>Git tips, not AI</td></tr>
-        <tr><td>HN (#18)</td><td>Hospitals and universities repurposing drugs (313 pts)</td><td>Medicine, not AI</td></tr>
-        <tr><td>HN (#19)</td><td>Show HN: Talos – WASM interpreter (55 pts)</td><td>WASM tool, not AI</td></tr>
-        <tr><td>HN (#20)</td><td>Norway ship tunnel (11 pts)</td><td>Infrastructure, not AI</td></tr>
-        <tr><td>HN (#21)</td><td>Ice water drowning survival (156 pts)</td><td>Medical case, not AI</td></tr>
-        <tr><td>HN (#22)</td><td>Robotics research setup (84 pts)</td><td>Robotics hardware, not AI tool/model</td></tr>
-        <tr><td>HN (#23)</td><td>Cell-based architecture for payments (127 pts)</td><td>Software architecture, not AI</td></tr>
-        <tr><td>HN (#24)</td><td>Flexport hiring</td><td>Job posting, excluded</td></tr>
-        <tr><td>HN (#25)</td><td>W Social, public institutions (219 pts)</td><td>European digital sovereignty opinion, not AI</td></tr>
-        <tr><td>HN (#26)</td><td>SMTP Relay with Web Dashboard (7 pts)</td><td>Low score, email tool</td></tr>
-        <tr><td>HN (#27)</td><td>Korean telecom giant at center of Anthropic's Mythos controversy (115 pts)</td><td>Geopolitics / drama, excluded</td></tr>
-        <tr><td>HN (#28)</td><td>If your product is Great (90 pts)</td><td>Startup advice, not AI</td></tr>
-        <tr><td>HN (#29)</td><td>Modos Color Monitor (288 pts)</td><td>E-paper display, not AI</td></tr>
+        <tr><td>HN (#10)</td><td>Zero-Touch OAuth for MCP (204 pts)</td><td>MCP protocol, not AI tool/model</td></tr>
+        <tr><td>HN (#11)</td><td>The AirPods Effect (118 pts)</td><td>Consumer electronics, not AI</td></tr>
+        <tr><td>HN (#12)</td><td>How Japan's railways stayed one while splitting apart (104 pts)</td><td>Railways, not AI</td></tr>
+        <tr><td>HN (#13)</td><td>Ubiquiti: Enterprise NAS, Built on ZFS (345 pts)</td><td>Storage hardware, not AI</td></tr>
+        <tr><td>HN (#14)</td><td>Fable Converted Pylint to Rust (62 pts)</td><td>Code conversion, not AI tool/model</td></tr>
+        <tr><td>HN (#15)</td><td>CS 6120: Advanced Compilers: The Self-Guided Online Course (2020) (379 pts)</td><td>Course, not AI</td></tr>
+        <tr><td>HN (#16)</td><td>Datasette Apps: Host custom HTML applications inside Datasette (85 pts)</td><td>Datasette plugin, not AI breakthrough</td></tr>
+        <tr><td>HN (#17)</td><td>.gitignore Isn't the only way to ignore files in Git (432 pts)</td><td>Git tips, not AI</td></tr>
+        <tr><td>HN (#18)</td><td>Hospitals and universities repurposing drugs at lower cost (313 pts)</td><td>Medical, not AI</td></tr>
+        <tr><td>HN (#19)</td><td>Show HN: Talos – Open-source WASM interpreter for Lean (55 pts)</td><td>WASM tool, not AI</td></tr>
+        <tr><td>HN (#20)</td><td>Norway greenlights first full-scale ship tunnel (11 pts)</td><td>Low score, not AI</td></tr>
+        <tr><td>HN (#21)</td><td>Ice water drowning survival of young patient (2025) (156 pts)</td><td>Medical, not AI</td></tr>
+        <tr><td>HN (#22)</td><td>Building a robotics research setup that lives next to my desk (84 pts)</td><td>Robotics, not AI tool/model</td></tr>
+        <tr><td>HN (#23)</td><td>Cell-based architecture for resilient payment systems (127 pts)</td><td>Payment systems, not AI</td></tr>
+        <tr><td>HN (#24)</td><td>Flexport (YC W14) Is Hiring in Indonesia, India, and Thailand</td><td>Job posting, excluded</td></tr>
+        <tr><td>HN (#25)</td><td>W Social, public institutions and the theater of European digital sovereignty (219 pts)</td><td>Policy/geopolitics, excluded</td></tr>
+        <tr><td>HN (#26)</td><td>SMTP Relay with Web Dashboard (7 pts)</td><td>Low score, not AI</td></tr>
+        <tr><td>HN (#27)</td><td>The Korean telecom giant at the center of Anthropic's Mythos controversy (115 pts)</td><td>Already used as context for Fable 5 export control</td></tr>
+        <tr><td>HN (#28)</td><td>If your product is Great, it doesn't need to be Good (2010) (90 pts)</td><td>Opinion piece, not AI</td></tr>
+        <tr><td>HN (#29)</td><td>Modos Color Monitor Pushes E-Paper Displays Further (288 pts)</td><td>Display tech, not AI</td></tr>
         <tr><td>HN (#30)</td><td>Show HN: Are You in the Weights? (356 pts)</td><td>Not AI</td></tr>
-        <tr><td>OpenAI 6/18</td><td>ChatGPT Enterprise Spend Controls</td><td>Enterprise feature, not AI breakthrough</td></tr>
-        <tr><td>OpenAI 6/18</td><td>Improving Health Intelligence in ChatGPT</td><td>Health feature, not tool/model breakthrough</td></tr>
-        <tr><td>OpenAI 6/18</td><td>Diagnose Rare Childhood Diseases</td><td>Medical application, not AI tool/model</td></tr>
-        <tr><td>DeepMind 6/19</td><td>No new content this period</td><td>—</td></tr>
-        <tr><td>Mistral 6/19</td><td>No new content this period</td><td>—</td></tr>
-        <tr><td>Simon Willison 6/18</td><td>Datasette Apps launch post</td><td>Personal project launch, not strong enough standalone AI signal</td></tr>
-        <tr><td>HuggingFace blog 6/18</td><td>Beyond LoRA / Agentic Benchmarking / MolmoMotion</td><td>Tutorials and niche research, no HN/KOL</td></tr>
+        <tr><td>OpenAI 6/19</td><td>ChatGPT Enterprise Spend Controls</td><td>Enterprise feature, not breakthrough</td></tr>
+        <tr><td>OpenAI 6/19</td><td>Improving Health Intelligence in ChatGPT</td><td>Health feature update, not tool/model</td></tr>
+        <tr><td>OpenAI 6/19</td><td>Diagnose Rare Childhood Diseases</td><td>Medical application, not AI tool/model</td></tr>
+        <tr><td>OpenAI 6/18</td><td>AI Chemist Improves Reaction / Life Sci Bench</td><td>Scientific research, not tool/model breakthrough</td></tr>
+        <tr><td>OpenAI 6/16</td><td>Deployment Simulation</td><td>Policy/research, excluded</td></tr>
+        <tr><td>Anthropic 6/17</td><td>Seoul office + Korean partnerships</td><td>Enterprise partnership, excluded</td></tr>
+        <tr><td>Anthropic 6/12–6/16</td><td>Fable 5 suspension / TCS partnership / Public Record</td><td>Already used as context; partnerships excluded</td></tr>
+        <tr><td>DeepMind June</td><td>No new content this period</td><td>—</td></tr>
+        <tr><td>Mistral June</td><td>No new content this period</td><td>—</td></tr>
+        <tr><td>Simon Willison 6/18</td><td>GLM-5.2 review + Charity Majors quote</td><td>GLM 5.2 already covered; Charity Majors quote is opinion, not new tool</td></tr>
+        <tr><td>HuggingFace blog 6/17</td><td>GLM-5.2 / MolmoMotion / Strands Agents / Agentic Resource Discovery</td><td>GLM 5.2 already covered; others low signal or no HN/KOL</td></tr>
         <tr><td>HuggingFace trend</td><td>Various existing models still trending</td><td>Already in Still tracking or previously excluded</td></tr>
-        <tr><td>Re-evaluated: All past-7-day killed items</td><td>No risers — except Cohere North Mini Code download growth (15.3k, +2k). Signal insufficient: no new KOL or HN discussion.</td><td>Keep killed. Cohere moved to Still tracking.</td></tr>
-        <tr><td>Re-evaluated: Fable Converted Pylint to Rust</td><td>HN #14, 62 pts. Low score, no KOL endorsement.</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Zero-Touch OAuth for MCP</td><td>HN #10, 204 pts. MCP protocol enhancement, not AI model/tool.</td><td>Keep killed</td></tr>
+        <tr><td>Re-evaluated: All past-7-day killed items</td><td>No risers — except GLM 5.2 review (already handled), no new signal growth.</td><td>Keep killed</td></tr>
+        <tr><td>Re-evaluated: Cohere North Mini Code (HuggingFace 15.3k)</td><td>Download growth but no new KOL/HN discussion</td><td>Signal growth insufficient; still not promoted. Moved to Still tracking.</td></tr>
+        <tr><td>Re-evaluated: MiMo Code open-source</td><td>HN score continuing to decline</td><td>Keep killed</td></tr>
+        <tr><td>Re-evaluated: OpenEnv community votes</td><td>Incremental only, no new KOL</td><td>Keep killed</td></tr>
+        <tr><td>Re-evaluated: Apache Burr</td><td>HN 227 pts but no new discussion</td><td>Keep killed</td></tr>
+        <tr><td>Re-evaluated: Serge</td><td>No growth</td><td>Keep killed</td></tr>
       </tbody>
     </table>
   </section>
@@ -516,7 +524,7 @@
       Excluded: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research without usable artifact
     </p>
     <p class="system">
-      ai-radar · v0.3 · 3 items today (0🚨 / 2👀 / 1ℹ️) · Still tracking: Fable 5 export control Day 7, GLM 5.2 Day 6 (Simon Willison new review), DiffusionGemma Day 9, Apple Siri AI Day 11, Cohere North Mini Code Day 4. Trigger events: none. Killed-list re-evaluation: Cohere North Mini Code download growth but no new KOL; GLM 5.2 review article already covered; others no growth. All keep killed, Cohere moved to Still tracking.
+      ai-radar · v0.3 · 3 items today (0🚨 / 2👀 / 1ℹ️) · Still tracking: Fable 5 export control Day 6, GLM 5.2 Day 5 (Simon Willison new review), DiffusionGemma Day 8, Apple Siri AI Day 10, Cohere North Mini Code Day 3. Trigger events: none. Killed-list re-evaluation: Cohere North Mini Code download growth but no new KOL; GLM 5.2 review already covered; others no growth. All keep killed, Cohere moved to Still tracking.
     </p>
   </footer>
 
