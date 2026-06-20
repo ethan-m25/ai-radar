@@ -8,12 +8,12 @@
       "week": 25,
       "issue": 27,
       "kind": "daily",
-      "headline": "GPT-5.5 hallucinates 3x more + Hyundai buys Boston Dynamics + John Jumper joins Anthropic",
-      "summary": "Three AI signals worth your time today on HN: a comparison test finding GPT-5.5's hallucination rate is 3x higher than MIT-licensed open model GLM-5.2 (202 pts)",
+      "headline": "GPT-5.5 hallucinates 3x more than MIT-licensed GLM-5.2 — a weekend read worth your time",
+      "summary": "An independent comparison from arrowtsx.dev hit HN with 202 points and 61 comments. The core finding: GPT-5.5's hallucination rate is 3x higher than the MIT-lic",
       "counts": {
         "crit": 0,
-        "look": 2,
-        "fyi": 1
+        "look": 1,
+        "fyi": 0
       },
       "url": "2026-06-20.html"
     },

@@ -8,12 +8,12 @@
       "week": 25,
       "issue": 27,
       "kind": "daily",
-      "headline": "GPT-5.5 幻觉翻倍 + Hyundai 买波士顿动力 + John Jumper 加入 Anthropic",
-      "summary": "今天 HN 上三条值得看的 AI 信号：一篇对比测试发现 GPT-5.5 的幻觉率是 MIT 开源模型 GLM-5.2 的 3 倍（202 分）；Hyundai 以 838 分收购波士顿动力；以及 DeepMind 的 AlphaFold 之父 John Jumper 加入 Anthropic（142 分）。没有 🚨，",
+      "headline": "GPT-5.5 幻觉率是 GLM-5.2 的 3 倍——一篇值得周末读的对比评测",
+      "summary": "今天 HN 上最值得看的 AI 信号是一篇独立评测：GPT-5.5 的幻觉率是 MIT 开源模型 GLM-5.2 的 3 倍（202 分，61 条评论）。没有 🚨，但 👀 一条值得周末花时间看看。周末信号少是正常的。",
       "counts": {
         "crit": 0,
-        "look": 2,
-        "fyi": 1
+        "look": 1,
+        "fyi": 0
       },
       "url": "2026-06-20.html"
     },
