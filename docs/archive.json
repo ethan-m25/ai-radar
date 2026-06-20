@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-20",
+      "weekday": "Sat",
+      "week": 25,
+      "issue": 27,
+      "kind": "daily",
+      "headline": "GPT-5.5 幻觉翻倍 + Hyundai 买波士顿动力 + John Jumper 加入 Anthropic",
+      "summary": "今天 HN 上三条值得看的 AI 信号：一篇对比测试发现 GPT-5.5 的幻觉率是 MIT 开源模型 GLM-5.2 的 3 倍（202 分）；Hyundai 以 838 分收购波士顿动力；以及 DeepMind 的 AlphaFold 之父 John Jumper 加入 Anthropic（142 分）。没有 🚨，",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-20.html"
+    },
+    {
       "date": "2026-06-19",
       "weekday": "Fri",
       "week": 25,
