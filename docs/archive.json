@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-21",
+      "weekday": "Sun",
+      "week": 25,
+      "issue": 28,
+      "kind": "daily",
+      "headline": "今天没有真信号",
+      "summary": "扫描了所有源，没有发现符合信号规则的内容。HN 首页今天以非 AI 条目为主（IPv6、CORS、呼吸与风险行为等），OpenAI/Anthropic/DeepMind/Mistral 无新模型或工具发布，HuggingFace 趋势以已有模型为主。周末信号少是正常的。Stay calm and keep buildi",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "2026-06-21.html"
+    },
+    {
       "date": "2026-06-20",
       "weekday": "Sat",
       "week": 25,
