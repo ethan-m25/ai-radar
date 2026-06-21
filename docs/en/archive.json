@@ -8,11 +8,11 @@
       "week": 25,
       "issue": 28,
       "kind": "daily",
-      "headline": "No real signals today",
-      "summary": "Scanned all sources and found nothing that meets the signal rules. HN front page is almost entirely non-AI today (IPv6, CORS, breathing &amp; risk behavior, etc",
+      "headline": "Cloudflare greenlights AI agents — temporary browser accounts go live",
+      "summary": "Quiet Sunday on the signal front, but Cloudflare shipped something worth knowing: temporary browser accounts for AI agents, bypassing CAPTCHAs and login walls. ",
       "counts": {
         "crit": 0,
-        "look": 0,
+        "look": 1,
         "fyi": 0
       },
       "url": "2026-06-21.html"

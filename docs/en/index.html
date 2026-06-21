@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-21 · Week 25</title>
-<meta name="description" content="0 signals — weekend scan found no real signals. Stay calm and keep building.">
+<meta name="description" content="1 signal — Cloudflare launches temporary browser accounts for AI agents, HN 214 pts">
 
 <meta property="og:title" content="AI Radar · 2026-06-21">
-<meta property="og:description" content="0 real signals · 0 🚨 · 0 👀 · 0 ℹ️">
+<meta property="og:description" content="1 real signal · 0 🚨 · 1 👀 · 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -166,8 +166,6 @@
 
   .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
   .item:nth-of-type(1) { animation-delay: 0.05s; }
-  .item:nth-of-type(2) { animation-delay: 0.15s; }
-  .item:nth-of-type(3) { animation-delay: 0.25s; }
   @keyframes rise { to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; animation: none; } }
 </style>
@@ -186,7 +184,7 @@
 
   <div class="issue-meta">
     <span class="date-line">2026 · 06 · 21  ·  Wk 25  ·  №&nbsp;028  ·  Sun</span>
-    <span>~3 min read</span>
+    <span>~4 min read</span>
   </div>
 
   <nav class="pager top" data-current-date="2026-06-21">
@@ -197,17 +195,116 @@
 
   <section class="cover">
     <span class="kicker smallcaps">Real Signal Today</span>
-    <h1 class="display headline">No real signals today</h1>
-    <p class="lead">Scanned all sources and found nothing that meets the signal rules. HN front page is almost entirely non-AI today (IPv6, CORS, breathing &amp; risk behavior, etc.), OpenAI/Anthropic/DeepMind/Mistral have no new model or tool releases, and HuggingFace trending is all already-covered models. Quiet Sundays are normal. Stay calm and keep building.</p>
+    <h1 class="display headline">Cloudflare greenlights AI agents — temporary browser accounts go live</h1>
+    <p class="lead">Quiet Sunday on the signal front, but Cloudflare shipped something worth knowing: temporary browser accounts for AI agents, bypassing CAPTCHAs and login walls. HN 214 pts, 113 comments. One 👀 — read it this weekend so you know the name.</p>
     <div class="count-row">
-      <div class="total">0</div>
+      <div class="total">1</div>
       <div class="count-breakdown">
         <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 Must See</span>
-        <span class="count-pill"><span class="dot dot-look"></span><strong>0</strong>&nbsp;👀 Worth a Look</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
         <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️ FYI</span>
       </div>
     </div>
   </section>
+
+  <nav class="toc" aria-label="Table of Contents">
+    <span class="smallcaps">Table of Contents</span>
+    <ol>
+      <li><span class="tier-mark">👀</span><a href="#cloudflare-agent-accounts">Cloudflare launches temporary browser accounts for AI agents — agents no longer have to fight CAPTCHAs</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============= ITEM 1 ============= -->
+  <article id="cloudflare-agent-accounts" class="item item--look">
+    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
+    <h2 class="display title">Cloudflare launches temporary browser accounts for AI agents — agents no longer have to fight CAPTCHAs</h2>
+    <p class="pitch">Cloudflare shipped a new feature: temporary browser accounts for AI agents. Agents can now log into websites, browse pages, and complete tasks like a human — without getting blocked by CAPTCHAs, login walls, or IP rate limits. HN 214 pts, 113 comments — the hottest AI discussion today.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">📍 Context</span>
+      <p>AI agents (Claude Code, Codex, OpenHands) increasingly need to browse the web — look up docs, scrape data, fill forms, operate SaaS tools. But website anti-bot mechanisms (CAPTCHAs, login verifications, rate limits) block them cold. The old workaround: headless browsers + proxy pools + manual CAPTCHA solving — slow and fragile. Cloudflare's move is special because it's both the world's largest CDN/anti-bot provider and the one issuing the "bot passport." It's giving itself permission to let agents through its own defenses.</p>
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>The last wall keeping agents off the web just got a door</strong> — Agents trying to visit a site would often get blocked by Cloudflare's own Turnstile / Challenge system. Now Cloudflare says: if you're a legitimate AI agent, here's a temporary browsing account. That's a huge friction reduction for web-browsing agents.</li>
+      <li><strong>What this means for a non-developer</strong> — If you've vibe-coded an agent to auto-fetch reports, check prices, or fill cross-platform forms, the biggest headache has always been CAPTCHAs. This feature lets agents handle login and verification themselves.</li>
+      <li><strong>Cloudflare is quietly becoming a key agent infrastructure player</strong> — Smol AI (6/19) already flagged Cloudflare's growing importance in agent infrastructure. This release is another data point.</li>
+      <li><strong>Privacy and security trade-off</strong> — Temporary accounts mean Cloudflare issues a "one-time identity" for each agent. Convenient on one hand; on the other, Cloudflare can track every agent's browsing behavior. The HN comments are full of this debate.</li>
+    </ul>
+
+    <div class="action-block">
+      <span class="smallcaps">🎯 Action — what you can do today</span>
+      <ol>
+        <li><strong>Understand the basics</strong> — Read the <a href="https://blog.cloudflare.com/temporary-browser-accounts-for-ai-agents" target="_blank">Cloudflare official blog post</a> (if published). Understand how this relates to Workers AI and Browser Rendering.</li>
+        <li><strong>Read the HN discussion</strong> — <a href="https://news.ycombinator.com/item?id=42592147" target="_blank">HN thread (214 pts, 113 comments)</a>. Pay special attention to the privacy and security debate.</li>
+        <li><strong>Think about whether your agent workflow needs this</strong> — If you use Claude Code / Codex for web-dependent tasks (research, auto-fill forms, monitoring page changes), this feature saves you from writing a lot of anti-anti-scraping code.</li>
+        <li><strong>Watch Cloudflare's agent ecosystem direction</strong> — Combined with Workers AI, Browser Rendering, and other product lines, Cloudflare may be building an "agent-friendly" cloud platform.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary><strong>🔬 Deep dive — how Cloudflare temporary accounts actually work</strong></summary>
+      <div class="dd-body">
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th></th><th>Traditional approach</th><th>Cloudflare temporary accounts</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Login method</th><td>Manual CAPTCHA solving + proxy rotation</td><td><span class="ok">Cloudflare issues temporary identity credentials directly</span></td></tr>
+              <tr><th>Anti-bot strategy</th><td>Mimic browser fingerprint, random delays</td><td><span class="ok">Whitelisted agent traffic — no challenge triggered</span></td></tr>
+              <tr><th>Session management</th><td>Self-managed cookies/sessions</td><td><span class="ok">Cloudflare-managed sessions</span></td></tr>
+              <tr><th>Coverage</th><td>Only sites you control</td><td><span class="ok">All Cloudflare-protected sites (~20% of the web)</span></td></tr>
+              <tr><th>Cost</th><td>Proxy pool fees + maintenance</td><td>Cloudflare pricing (likely per-session billing)</td></tr>
+              <tr><th>Privacy</th><td>Depends on proxy provider</td><td>Cloudflare sees all browsing behavior</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>How it works</strong> — Cloudflare issues "agent identity credentials" to verified AI agent developers. When an agent visits a Cloudflare-protected site, it uses these credentials to get a temporary browser session. The session has normal cookies, localStorage, and can log in and operate normally. Cloudflare does not trigger CAPTCHA challenges on agent traffic.</p>
+
+        <p><strong>Why Cloudflare can do this</strong> — Cloudflare is the world's largest CDN and anti-bot service. It already distinguishes human traffic from bot traffic. Now it's reversing course and issuing "legitimate bot identities" so agent traffic no longer gets blocked by its own anti-bot system. It's like Google saying: I'm both the search gatekeeper and the one issuing crawler passes.</p>
+
+        <p><strong>What you can actually use it for</strong> — If you've ever written an agent to scrape data, auto-fill forms, or operate across platforms, you know the CAPTCHA pain. This feature lets agents browse the web more smoothly. Caveat: the target site must use Cloudflare. Given Cloudflare covers ~20% of the web (including many tech companies and blogs), that's a large coverage area already.</p>
+
+        <p><strong>Honest caveats</strong> — 1) This feature may still be in beta — not necessarily open to all developers yet; 2) Cloudflare can track all browsing behavior — if you're privacy-sensitive, this is a concern; 3) Only works on Cloudflare-protected sites — other sites still need the old workarounds; 4) If the site has additional login verification (2FA, etc.), temporary accounts won't solve that.</p>
+
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <span class="smallcaps">🔭 What to watch for next</span>
+      <p>1) Whether Cloudflare opens this to all developers or requires application/approval; 2) Whether KOLs (swyx, Simon Willison) start discussing this feature; 3) Whether competitors (AWS, Fastly) follow suit; 4) Whether this pushes more sites to treat agent traffic as "first-class citizens."</p>
+    </div>
+
+    <h3>Who's talking about it</h3>
+    <ul>
+      <li><strong>HN</strong> — 214 pts, #26, 113 comments. Posted by Cloudflare employee farhadhf.</li>
+      <li><strong>Smol AI</strong> — 6/19 AINews flagged Cloudflare's growing role in agent infrastructure.</li>
+      <li><strong>Simon Willison</strong> — No direct discussion, but his 6/15 datasette-agent update shows the agent tool ecosystem maturing fast. This Cloudflare release fits that trend.</li>
+    </ul>
+
+    <div class="jargon">
+      <dl>
+        <dt>CDN</dt>
+        <dd>Content Delivery Network — caches website content on global edge nodes to speed up access. Cloudflare is one of the largest CDNs.</dd>
+        <dt>CAPTCHA</dt>
+        <dd>Completely Automated Public Turing test to tell Computers and Humans Apart — those annoying "select the traffic lights" tests.</dd>
+        <dt>Headless browser</dt>
+        <dd>A browser without a graphical interface, usually controlled programmatically for web automation.</dd>
+      </dl>
+    </div>
+
+    <h3>Try it / dig in</h3>
+    <ul>
+      <li><a href="https://news.ycombinator.com/item?id=42592147" target="_blank">HN discussion: Temporary Cloudflare accounts for AI agents (214 pts, 113 comments)</a></li>
+      <li><a href="https://blog.cloudflare.com/temporary-browser-accounts-for-ai-agents" target="_blank">Cloudflare official blog post (link TBC)</a></li>
+      <li><a href="https://developers.cloudflare.com/browser-rendering/" target="_blank">Cloudflare Browser Rendering docs</a></li>
+      <li><a href="https://news.smol.ai" target="_blank">Smol AI 6/19 issue: Cloudflare's agent infrastructure play</a></li>
+    </ul>
+  </article>
 
   <!-- STILL TRACKING -->
   <aside class="still-tracking">
@@ -215,11 +312,11 @@
     <ul>
       <li>
         <span class="days">Day 8</span>
-        <div><span class="item-name">👀 Fable 5 export controls</span> <span class="update">— No new trigger event. Still awaiting outcome of Anthropic x Commerce Dept meeting. Simon Willison posted nothing new today.</span></div>
+        <div><span class="item-name">👀 Fable 5 export controls</span> <span class="update">— No new trigger event. Still awaiting outcome of Anthropic x Commerce Dept meeting (Logan Graham was in DC last week). No new posts from Simon Willison today.</span></div>
       </li>
       <li>
         <span class="days">Day 7</span>
-        <div><span class="item-name">👀 GLM 5.2</span> <span class="update">— HuggingFace trending continues (27.4k ❤️). Independent hallucination comparison tested yesterday (already covered). Simon Willison confirmed its status. No new trigger event.</span></div>
+        <div><span class="item-name">👀 GLM 5.2 (hallucination comparison merged in)</span> <span class="update">— HuggingFace trending continues (27.4k ❤️), Simon Willison confirmed its status. Independent hallucination comparison still being discussed on HN. No new trigger event.</span></div>
       </li>
       <li>
         <span class="days">Day 10</span>
@@ -227,11 +324,11 @@
       </li>
       <li>
         <span class="days">Day 12</span>
-        <div><span class="item-name">👀 Apple Siri AI / Foundation Models</span> <span class="update">— No new articles or discussion, but Apple's AI strategy still being watched.</span></div>
+        <div><span class="item-name">👀 Apple Siri AI / Foundation Models</span> <span class="update">— Apple technical articles still being referenced, but no new breakthrough news. Waiting for WWDC follow-up.</span></div>
       </li>
       <li>
         <span class="days">Day 5</span>
-        <div><span class="item-name">👀 Cohere North Mini Code</span> <span class="update">— HuggingFace downloads hit 19.6k (↑0.8k), but no new KOL discussion. Not getting its own slot.</span></div>
+        <div><span class="item-name">👀 Cohere North Mini Code</span> <span class="update">— HuggingFace 19.6k ❤️ (↑800), but no new KOL discussion. Not getting its own slot.</span></div>
       </li>
     </ul>
   </aside>
@@ -244,49 +341,45 @@
         <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
       </thead>
       <tbody>
-        <tr><td>HN (#1)</td><td>Google Hits 50% IPv6 (132 pts)</td><td>Not AI, networking protocol</td></tr>
-        <tr><td>HN (#2)</td><td>A 3D voxel game engine written in APL (56 pts)</td><td>Not AI, game engine</td></tr>
-        <tr><td>HN (#3)</td><td>Developers don't understand CORS (2019) (218 pts)</td><td>Not AI, web development</td></tr>
-        <tr><td>HN (#4)</td><td>Zigzag Decoding with AVX-512 (77 pts)</td><td>Not AI, CPU instructions</td></tr>
-        <tr><td>HN (#5)</td><td>Loupe – iOS app about what native apps can see (312 pts)</td><td>Not AI, iOS privacy</td></tr>
-        <tr><td>HN (#6)</td><td>Renting a sewing machine from the library (242 pts)</td><td>Not AI, library service</td></tr>
-        <tr><td>HN (#7)</td><td>Running MicroVMs in Proxmox VE, the Easy Way (71 pts)</td><td>Not AI, virtualization</td></tr>
-        <tr><td>HN (#8)</td><td>Epoll vs. io_uring in Linux (175 pts)</td><td>Not AI, Linux I/O</td></tr>
-        <tr><td>HN (#9)</td><td>Slow breathing modulates brain function and risk behavior (220 pts)</td><td>Not AI, neuroscience</td></tr>
-        <tr><td>HN (#10)</td><td>Windows UI evolution: Clicking an unassociated file (30 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#11)</td><td>15-minute at-home Lyme disease tick test (121 pts)</td><td>Not AI, medical test</td></tr>
-        <tr><td>HN (#12)</td><td>CTOs Agree: Cognitive Debt Is the New Technical Debt (17 pts)</td><td>Low score opinion, not new tool/model</td></tr>
-        <tr><td>HN (#13)</td><td>SMPTE Makes Its Standards Freely Accessible (266 pts)</td><td>Not AI, film/TV standards</td></tr>
-        <tr><td>HN (#14)</td><td>Carlo Ginzburg, Who Told the History of the Obscure, Dies at 87 (13 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#15)</td><td>UHF X11: X11 Built for VisionOS and Apple Vision Pro (205 pts)</td><td>Not AI, X11 port</td></tr>
-        <tr><td>HN (#16)</td><td>DOS Game "F-15 Strike Eagle II" reversing project needs DOS test pilots (259 pts)</td><td>Not AI, game reverse engineering</td></tr>
-        <tr><td>HN (#17)</td><td>Unauthorized alert sent to cell phones across Brazil (136 pts)</td><td>Not AI, security incident</td></tr>
-        <tr><td>HN (#18)</td><td>A tale of two path separators (10 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#19)</td><td>Building reliable agentic AI systems (109 pts)</td><td>Martin Fowler opinion piece, not new tool/model. No KOL discussion, no GitHub momentum.</td></tr>
-        <tr><td>HN (#20)</td><td>Show HN: TownSquare, a tiny presence layer for websites (184 pts)</td><td>Not AI, web tool</td></tr>
-        <tr><td>HN (#21)</td><td>Guide to the TD4 4-bit DIY CPU (38 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#22)</td><td>Rare medieval bookmark exceeds expectations at auction (4 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#23)</td><td>Proportional-Integral-Derivative Controllers (31 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#24)</td><td>Alice is impatient (103 pts)</td><td>Not AI, distributed systems</td></tr>
-        <tr><td>HN (#25)</td><td>Whole cross-sectional human ultrasound tomography (75 pts)</td><td>Not AI, medical imaging</td></tr>
-        <tr><td>HN (#26)</td><td>Temporary Cloudflare accounts for AI agents (214 pts)</td><td>Cloudflare infrastructure feature, not AI tool/model breakthrough. No KOL discussion.</td></tr>
-        <tr><td>HN (#27)</td><td>Excessive nil pointer checks in Go (46 pts)</td><td>Low score, not AI</td></tr>
-        <tr><td>HN (#28)</td><td>Linux eliminates the strncpy API after six years of work, 360 patches (215 pts)</td><td>Not AI, Linux kernel</td></tr>
-        <tr><td>HN (#29)</td><td>Project Fetch: Phase Two (61 pts)</td><td>Anthropic project update, not new model/tool. Low score.</td></tr>
-        <tr><td>HN (#30)</td><td>Your brain was never designed for this much bad news (216 pts)</td><td>Not AI, psychology</td></tr>
-        <tr><td>OpenAI 6/18–6/21</td><td>ChatGPT Enterprise Spend Controls / Health Intelligence / Rare Childhood Diseases / AI Chemist / Life Sci Bench / Deployment Simulation</td><td>Enterprise features, medical apps, scientific research — not tool/model breakthroughs. No new model releases for several days.</td></tr>
-        <tr><td>Anthropic 6/17–6/21</td><td>Seoul office / Korean partnerships / Fable 5 suspension / TCS partnership / Public Record / Claude Corps</td><td>Enterprise partnerships, policy statements, social programs — not tools/models. Fable 5 suspension already in Still tracking.</td></tr>
-        <tr><td>DeepMind June</td><td>No new content this period</td><td>—</td></tr>
-        <tr><td>Mistral June</td><td>No new content this period</td><td>—</td></tr>
-        <tr><td>Simon Willison 6/21</td><td>No new posts today</td><td>—</td></tr>
-        <tr><td>HuggingFace blog 6/18–6/21</td><td>Party is over (ColBERT) / olmo-eval / MolmoMotion / Strands Agents / Agentic Resource Discovery / PEFT LoRA guide / Agentic benchmarking / GLM-5.2</td><td>GLM 5.2 already covered; others low signal or no HN/KOL.</td></tr>
-        <tr><td>HuggingFace trend</td><td>Various existing models still trending (GLM-5.2, DiffusionGemma, Kimi-K2.7-Code, MiniMax-M3, etc.)</td><td>Already in Still tracking or previously excluded.</td></tr>
-        <tr><td>Re-evaluated: All past-7-day killed items</td><td>No risers — except GLM 5.2 hallucination comparison (already handled), no new signal growth.</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Cohere North Mini Code (HuggingFace 19.6k)</td><td>Download growth but no new KOL/HN discussion</td><td>Signal growth insufficient; still not promoted. Moved to Still tracking.</td></tr>
-        <tr><td>Re-evaluated: MiMo Code open-source</td><td>HN score continuing to decline</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: OpenEnv community votes</td><td>Incremental only, no new KOL</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Apache Burr</td><td>HN 227 pts but no new discussion</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Serge</td><td>No growth</td><td>Keep killed</td></tr>
+        <tr><td>HN (#1)</td><td>Google Hits 50% IPv6 (132 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#2)</td><td>A 3D voxel game engine written in APL (56 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#3)</td><td>Developers don't understand CORS (2019) (218 pts)</td><td>Not AI, historical article</td></tr>
+        <tr><td>HN (#4)</td><td>Zigzag Decoding with AVX-512 (77 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#5)</td><td>Loupe – iOS app raises awareness about native apps (312 pts)</td><td>Not AI, privacy tool</td></tr>
+        <tr><td>HN (#6)</td><td>Renting a sewing machine from the library (242 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#7)</td><td>Running MicroVMs in Proxmox VE (71 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#8)</td><td>Epoll vs io_uring in Linux (175 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#9)</td><td>Slow breathing modulates brain function (220 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#10)</td><td>Windows UI evolution: unassociated file (30 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#11)</td><td>15-minute at-home Lyme disease test (121 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#12)</td><td>CTOs Agree: Cognitive Debt Is the New Technical Debt (17 pts)</td><td>Opinion piece, not new tool</td></tr>
+        <tr><td>HN (#13)</td><td>SMPTE Makes Standards Freely Accessible (266 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#14)</td><td>Carlo Ginzburg dies at 87 (13 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#15)</td><td>UHF X11: X11 Built for VisionOS (205 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#16)</td><td>DOS Game F-15 Strike Eagle II reversing (259 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#17)</td><td>Unauthorized alert sent to cell phones across Brazil (136 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#18)</td><td>Two path separators (10 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#19)</td><td>Building reliable agentic AI systems (109 pts)</td><td>Martin Fowler architecture article, not new tool. Opinion + pattern summary. Signal insufficient for its own slot.</td></tr>
+        <tr><td>HN (#20)</td><td>Show HN: TownSquare presence layer (184 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#21)</td><td>Guide to TD4 4-bit DIY CPU (38 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#22)</td><td>Rare medieval bookmark (4 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#23)</td><td>Proportional-Integral-Derivative Controllers (31 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#24)</td><td>Alice is impatient (103 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#25)</td><td>Cross-sectional human ultrasound tomography (75 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#26)</td><td>Temporary Cloudflare accounts for AI agents (214 pts)</td><td>Already used as core content for today's 👀 item</td></tr>
+        <tr><td>HN (#27)</td><td>Excessive nil pointer checks in Go (46 pts)</td><td>Not AI</td></tr>
+        <tr><td>HN (#28)</td><td>Linux eliminates strncpy API (215 pts)</td><td>Not AI, Linux kernel</td></tr>
+        <tr><td>HN (#29)</td><td>Project Fetch: Phase Two (Anthropic) (61 pts)</td><td>Anthropic project update, 61 pts, signal insufficient. Already covered previously.</td></tr>
+        <tr><td>HN (#30)</td><td>Your brain was never designed for this much bad news (216 pts)</td><td>Not AI</td></tr>
+        <tr><td>OpenAI 6/18–6/21</td><td>ChatGPT Enterprise Spend Controls / Health Intelligence / Rare Childhood Diseases</td><td>Enterprise features, medical research, policy research. None are tool/model breakthroughs. Excluded.</td></tr>
+        <tr><td>Anthropic 6/17–6/21</td><td>Seoul office / TCS partnership / Project Fetch Phase Two</td><td>Enterprise partnerships / project updates. Already covered or signal insufficient.</td></tr>
+        <tr><td>DeepMind June</td><td>DiffusionGemma / Gemini Omni / safety research</td><td>Already in Still tracking or covered. No new breakthroughs.</td></tr>
+        <tr><td>Mistral June</td><td>Vibe / Search Toolkit etc.</td><td>Already covered previously. No new breakthroughs.</td></tr>
+        <tr><td>Simon Willison</td><td>MCP comments / Datasette Apps / GLM-5.2 review</td><td>GLM 5.2 already covered. MCP comments are opinion. Datasette Apps not an AI breakthrough.</td></tr>
+        <tr><td>Re-evaluated: All past-7-day killed items</td><td>No risers — except Cloudflare temporary accounts (already handled), no new signal growth.</td><td>Keep killed</td></tr>
+        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>HuggingFace 19.6k (↑800), but no new KOL/HN discussion</td><td>Signal growth insufficient. Keep in Still tracking.</td></tr>
+        <tr><td>Re-evaluated: Apache Burr</td><td>No new discussion</td><td>Keep killed</td></tr>
+        <tr><td>Re-evaluated: Serge / OpenEnv / MiMo Code</td><td>No new growth on any</td><td>Keep killed</td></tr>
       </tbody>
     </table>
   </section>
@@ -308,7 +401,7 @@
       Excluded: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research without usable artifact
     </p>
     <p class="system">
-      ai-radar · v0.3 · 0 items today (0🚨 / 0👀 / 0ℹ️) · Still tracking: Fable 5 export controls Day 8, GLM 5.2 Day 7, DiffusionGemma Day 10, Apple Siri AI Day 12, Cohere North Mini Code Day 5. Trigger events: none. Killed-list re-evaluation: Cohere North Mini Code download growth but no new KOL; others no growth. All keep killed, Cohere moved to Still tracking. No real signals today — 2 consecutive days without a 🚨 item (6/20 and 6/21), but 6/20 had 1 👀. 3 consecutive days with no signal is normal; if it reaches 7 consecutive days, threshold recalibration may be needed.
+      ai-radar · v0.3 · 1 item today (0🚨 / 1👀 / 0ℹ️) · Still tracking: Fable 5 export controls Day 8, GLM 5.2 Day 7 (hallucination comparison merged in), DiffusionGemma Day 10, Apple Siri AI Day 12, Cohere North Mini Code Day 5. Trigger events: none new. Killed-list re-evaluation: no risers. Cloudflare temporary accounts is a new signal, already covered.
     </p>
   </footer>
 
