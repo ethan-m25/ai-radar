@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-06-21 · Week 25</title>
+<meta name="description" content="Week 25 — The first full week after Fable 5 was cut. Open-source and local models stepped up to fill the gap — GLM 5.2 hallucinates less than GPT-5.5, local Qwen gets Gerganov's daily-use endorsement, DeepSeek ships Vision, Cloudflare greenlights agent browsing.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 25">
+<meta property="og:description" content="14 daily signals · 0 🚨 · 10 👀 · 4 ℹ️ · 5 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 26ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 06 · 21 · WK 25 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Week 25 · 2026-06-15 → 2026-06-21</span>
+    <h1 class="display headline">The first full week after Fable 5 — open-source models stepped up as a group</h1>
+    <p class="lead">14 daily signals, zero 🚨 — but the quietest week on paper contained the deepest shift. The Fable 5 export-control story kept developing (Axios expose, Simon Willison deep analysis, Anthropic staff flown to DC), but the real story is what happened in parallel: GLM 5.2 hallucinates less than GPT-5.5, local Qwen got Georgi Gerganov's daily-use endorsement, DeepSeek shipped a vision model, Cloudflare greenlit agent browsing. The model you lost last Saturday has at least five credible replacements this Saturday.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> Fable 5 stayed dead this week — no policy reversal, no restored API. But the open-source ecosystem filled the gap in real time: GLM 5.2 hallucinates 1/3 as often as GPT-5.5, local Qwen is now a daily-driver tool (Gerganov-endorsed), DeepSeek shipped Vision, and Cloudflare gave agents a browser account. Your toolbox isn't empty — it's better diversified than it was last Monday.
+    </div>
+
+    <div class="count-row">
+      <div class="total">14</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 critical (quietest week in 25 — but quiet ≠ no signal)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>10</strong>&nbsp;👀 worth a look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>4</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 survived to weekly · 9 demoted / removed from tracking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🏆 THE 1 THING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">The first full week after Fable 5 — open-source and local models stepped up together</h2>
+
+    <p>Last Saturday (6/14) at 5:21pm ET, the BIS directive killed Fable 5 and Mythos 5 access for all non-US citizens. This Monday was the first full workday after the cut. You walked in, opened your terminal, and <code class="mono">claude-fable-5</code> returned 404. The question hanging over the weekend: <em>what now?</em></p>
+
+    <p>The answer arrived across seven days. Monday: DeepSeek shipped a vision model (170 HN points, 72 comments) — open-source multimodal, another option. Wednesday: Qwen released a robotics foundation model suite (183 pts, 31 comments). Thursday: Alex Ellis published a hands-on essay arguing local Qwen "isn't a worse Opus, it's a different tool" — 235 points, 116 comments, and the critical detail was Georgi Gerganov (llama.cpp author) writing in the thread <em>"I use Qwen3.6-27B daily for coding tasks — it's very capable."</em> Friday: an independent hallucination comparison dropped — GLM-5.2 hallucinates at one-third the rate of GPT-5.5 (202 pts, 61 comments). Saturday: Cloudflare launched temporary browser accounts for AI agents (214 pts, 113 comments) — the last wall keeping agents off the web just got a door. And throughout the week, DiffusionGemma (Apache 2.0, 500+ tok/s, 763k HF downloads) and Cohere North Mini Code continued their steady growth.</p>
+
+    <p>Meanwhile, the Fable 5 story itself kept developing. Tuesday: Axios published "They screwed us" — a behind-the-scenes account of White House personality clashes, revealing that the alleged "jailbreak" was simply asking Fable 5 to "fix this code," a defensive security request. Tuesday and Wednesday: Simon Willison published two deep analyses arguing the export controls are absurd — quoting cybersecurity expert Kate Moussouris: "Defenders need to be able to ask AI to fix bugs. That is not a guardrail bypass. It is the most valuable thing an AI model can do for defensive security." Friday: Logan Graham, Dave Orr, and Nicholas Carlini met with Commerce in Washington. By Sunday: no resolution, no restored API, no sign of change.</p>
+
+    <p>This week didn't have a 🚨. That's not weakness — it's confirmation. The week after a seismic shock, the ecosystem responded not with panic but with alternatives. The question shifted from "what did we lose" to "which replacement should I pick first."</p>
+
+    <p><strong>If you only do one thing this week:</strong> Pick one replacement and complete one real task with it. Recommendation: for accuracy-sensitive text work (reports, data analysis, code review) → GLM 5.2 via OpenRouter ($0.5/M tokens vs GPT-5.5's $15/M, and it hallucinates significantly less). For privacy-sensitive work on your own machine → Qwen3.6-27B locally (16GB VRAM, Gerganov-endorsed daily driver). For anything involving images → DeepSeek Vision or DiffusionGemma. You lost one model. You gained a better-diversified toolbox.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📈 TRENDS BUILDING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Open models overtake closed models on reliability — not just cost</div>
+      <p>The GLM 5.2 hallucination comparison (202 pts, 61 comments) is the most important single data point of the week. An independent test showed GPT-5.5 hallucinates at 3× the rate of the MIT-licensed open model GLM-5.2. This isn't about cost anymore — it's about accuracy. Combined with Alex Ellis's local Qwen essay (235 pts, Gerganov endorsement) and DeepSeek Vision (170 pts), three signals point in the same direction: open models are no longer "cheap alternatives" — they're "better on some dimensions." For you doing compensation work: if you use AI for accuracy-sensitive tasks (data analysis, report generation, cross-referencing policies), GLM-5.2 may genuinely be a more reliable choice than GPT-5.5, at 1/30th the cost.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Local models crossed from "toy" to "tool" — validated by the highest-signal KOL possible</div>
+      <p>Alex Ellis's essay received 235 points and 116 comments, but the real signal was Georgi Gerganov — the creator of llama.cpp, the most widely used local inference engine — writing in the thread: "I can 100% attest to the fact that Qwen3.6-27B is a very capable local model for coding tasks. I use it daily with pi agent." That's not a YouTuber or a blogger. That's the infrastructure builder himself saying the infrastructure is ready. Local models have completed the cognitive transition from "can run but why would I" to "for certain tasks, local is better." For you: if you have a GPU with 16GB+ VRAM, local models can now handle sensitive data (compensation figures, employee records) without sending anything to the cloud.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ Chinese AI teams shifted from "followers" to "leaders" in the global open-source conversation</div>
+      <p>GLM-5.2 (MIT open, hallucination rate beats GPT-5.5), DeepSeek Vision (170 pts, 72 comments), Qwen-Robot Suite (183 pts, 31 comments) — three Chinese teams had projects actively discussed on HN this week, all in the top 30. Add last week's DeepSeek V4 Pro (precision beats GPT-5.5) and GLM 5.2 (#4 front page with 608 pts), and the pattern is unmistakable. Chinese AI models are no longer just "better at Chinese" — they're globally competitive on core dimensions (hallucination rate, code generation, multimodal, long-context). For your decision-making: when choosing a Fable 5 replacement, don't filter out Chinese models because of the label. They are currently your most capable and most accessible alternatives.</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 💀 WHAT I CALLED WRONG -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">Three signals I elevated that didn't hold</h2>
+
+    <p><strong>Apple Foundation Models technical article (6/15 👀, 179 pts, #2)</strong> — Monday's signal felt like Apple finally showing its AI cards. By Sunday, nothing had materialized. No API opened, no developer tools released, no indication Apple's models will compete with Claude Code or Codex externally. The models remain locked inside Apple's ecosystem (Siri, Xcode system features). The HN score reflected Apple fan curiosity, not developer capability. Demoted to FYI — worth knowing Apple has models, but not actionable yet.</p>
+
+    <p><strong>OpenRouter Fusion API (6/15 👀, 37 pts, #6)</strong> — I argued the multi-model composition capability would be valuable after Fable 5's shutdown. But 37 points with 10 comments is a weak signal, and there was zero follow-up KOL discussion or community adoption all week. The direction (model ensembles) is still right, but Fusion API specifically didn't gain traction. Demoted to killed.</p>
+
+    <p><strong>Lore version control system (6/18–6/19 👀, 1156 pts, #1)</strong> — This was the highest-scoring HN item of the week, but it's infrastructure designed for AI-generated code, not an AI tool or model itself. The 1156 points and 613 comments show real community hunger for a Git alternative, but Lore doesn't belong in core AI Radar tracking. Category error. Demoted to FYI and removed from core tracking.</p>
+
+    <p><strong>Permanently removed from tracking (clean-up list):</strong> opencode (Day 28, no signal), DeepSeek Reasonix (Day 29, no signal), "Big 4 domino effect" (Day 27, no signal), Gemini 3.5 Flash (Day 26, no signal), "MCP is dead" debate (Day 22, no Anthropic response), MiMo Code open-source (HN score continued declining). Cohere North Mini Code had HuggingFace download growth (19.6k) but zero new KOL discussion for 5 consecutive days — demoted from 👀 to killed.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🔮 WATCH LIST -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Will Fable 5 come back? Outcome of Anthropic's Commerce meeting</strong><br>
+      Axios reported Anthropic flew staff to Washington for "cleanup." Logan Graham, Dave Orr, and Nicholas Carlini met Commerce on Friday. If a deal is reached, Fable 5 could return in some form (US-only? Additional safety certification?). This is the single biggest variable for the ecosystem next week.<br>
+      <span class="trigger">Trigger → Anthropic statement or BIS directive revising the suspension</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Will GLM-5.2 get a Karpathy or second Simon Willison review?</strong><br>
+      Simon Willison already called it "probably the most powerful text-only open weights LLM." The hallucination comparison (arrowtsx.dev) got 202 points. A Karpathy review would complete the narrative shift from "excellent open model" to "top-tier global model." Also watch for multimodal variant rumors.<br>
+      <span class="trigger">Trigger → Karpathy or Simon Willison publishes a standalone review; or Zhipu releases a multimodal variant</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Will the local model toolchain (pi agent, Ollama) mature further?</strong><br>
+      Georgi Gerganov mentioned pi agent (a lightweight agent for local models) in his HN comment. If pi agent or similar tools gain GitHub traction or KOL coverage next week, local models cross from "available" to "convenient" — which means you can use them without configuring complex infrastructure.<br>
+      <span class="trigger">Trigger → pi agent GitHub stars accelerate, or Ollama releases a version simplifying local model agent deployment</span>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📅 CALIBRATION METRICS -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 25</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (Jun 15–21)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>0 (first zero-🚨 week — the explosive shock of Week 24 gave way to a quieter confirmation week)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>10 (GLM-5.2 hallucination comparison · Local Qwen deep read · DeepSeek Vision · Qwen-Robot Suite · Apple Foundation Models · OpenRouter Fusion API · Cohere North Mini Code · Fable 5 Axios/Simon follow-up · Cloudflare agent accounts · Running local models guide)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>4 (Rio model controversy · Lore version control · Apple Foundation Models follow-up · DeepSeek Vision duplicate coverage)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>5 (🏆 open-source models fill Fable 5 vacuum · 📈 open models overtake on reliability · 📈 local models cross to tool · 📈 Chinese teams lead · 💀 Apple Foundation / Fusion API / Lore demoted)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>9 (Apple Foundation Models demoted · OpenRouter Fusion API killed · Lore demoted to FYI · Cohere North Mini Code killed · opencode formally dead · Reasonix dead · Big 4 dead · Gemini Flash dead · MCP dead)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~64% (healthy — medium signal quality week, no 🚨, many 👀 were aggressively filtered)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~8–12 hours ahead on GLM-5.2 hallucination comparison (English HN Saturday afternoon, Chinese tech media Sunday evening)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 25 · 2026-06-21 · 7 dailies · 14 items (0🚨 / 10👀 / 4ℹ️) · 5 survived · 9 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
