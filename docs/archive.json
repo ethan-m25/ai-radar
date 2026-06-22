@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-22",
+      "weekday": "Mon",
+      "week": 26,
+      "issue": 29,
+      "kind": "daily",
+      "headline": "Claude 要求验身份了 · Apertus 开源模型 · 开放模型情绪拐点",
+      "summary": "Hacker News 今天罕见地出现了 3 条 AI 主题高分区帖子，合计超过 1400 分。Claude 身份验证以 775 分位居本周最高热度；Apertus 以 405 分成为新的开源模型焦点；一篇关于\"切换到开放模型几乎没有坏处\"的文章以 244 分反映了社区情绪的明显转向。同时并发：周六 OpenAI 宣布",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-06-22.html"
+    },
+    {
       "date": "2026-06-21",
       "weekday": "Sun",
       "week": 25,

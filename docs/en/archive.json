@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-22",
+      "weekday": "Mon",
+      "week": 26,
+      "issue": 29,
+      "kind": "daily",
+      "headline": "Monday brings Claude identity verification, a new sovereign AI model, and Samsung going all-in on Codex",
+      "summary": "Three signals worth your radar this Monday: Claude just shipped identity verification (775 pts / 645 comments on HN — the biggest AI discussion today); a new op",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-06-22.html"
+    },
+    {
       "date": "2026-06-21",
       "weekday": "Sun",
       "week": 25,
