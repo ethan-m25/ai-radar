@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-06-24",
+      "weekday": "Wed",
+      "week": 26,
+      "issue": 31,
+      "kind": "daily",
+      "headline": "Team AI moves into Slack. Small models keep getting smaller.",
+      "summary": "Two signals this Wednesday: Anthropic shipped Claude Tag, a Slack-native integration that turns Claude into an async team member (writes 65% of their own code &",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-06-24.html"
+    },
+    {
       "date": "2026-06-23",
       "weekday": "Tue",
       "week": 26,
