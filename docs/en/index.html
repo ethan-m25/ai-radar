@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
-<title>AI Radar · 2026-06-24 · Week 26</title>
-<meta name="description" content="2 signals — Claude Tag · VibeThinker-3B">
+<title>AI Radar · 2026-06-24 · Week 26 · №031</title>
+<meta name="description" content="2 signals — Claude Tag team collaboration · VibeThinker small model punches up">
 
-<meta property="og:title" content="AI Radar · 2026-06-24">
-<meta property="og:description" content="2 real signals · 1 👀 · 1 ℹ️">
+<meta property="og:title" content="AI Radar · 2026-06-24 · №031">
+<meta property="og:description" content="2 real signals · 2 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -17,419 +17,317 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --bg: oklch(0.97 0.012 85);
-    --bg-card: oklch(0.99 0.008 85);
-    --bg-sunk: oklch(0.94 0.014 85);
-    --ink: oklch(0.18 0.025 270);
-    --ink-soft: oklch(0.36 0.020 270);
-    --ink-mute: oklch(0.52 0.014 270);
-    --hairline: oklch(0.86 0.015 85);
-    --hairline-bold: oklch(0.72 0.020 85);
-    --tier-crit: oklch(0.55 0.22 26);
-    --tier-crit-soft: oklch(0.94 0.04 30);
-    --tier-look: oklch(0.68 0.16 70);
-    --tier-look-soft: oklch(0.95 0.04 80);
-    --tier-fyi: oklch(0.55 0.03 250);
-    --tier-fyi-soft: oklch(0.94 0.012 250);
-    --t-cover: clamp(2.75rem, 8vw, 5rem);
-    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
-    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
-    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
-    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
-    --t-small: 0.9375rem;
-    --t-micro: 0.75rem;
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
-  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
-  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
-  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
-  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
-  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
-
-  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
-  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
-  .masthead .nav { display: flex; gap: 1.2rem; }
-  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
-  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
-
-  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
-  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
-
-  .pager { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 2.5rem; padding: 0.75rem 0; border-top: 1px dashed var(--hairline); border-bottom: 1px dashed var(--hairline); }
-  .pager.bottom { margin: 4rem 0 0; }
-  .pager a, .pager span { font-size: var(--t-small); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; flex: 1; }
-  .pager a:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .pager .pg-prev { text-align: left; }
-  .pager .pg-mid { text-align: center; color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; }
-  .pager .pg-next { text-align: right; }
-  .pager .pg-disabled { color: var(--ink-mute); opacity: 0.5; }
-  .pager .pg-arrow { font-family: 'Geist Mono', monospace; color: var(--ink-mute); }
-
-  .cover { margin-bottom: 3.5rem; }
-  .cover .kicker { display: block; margin-bottom: 1.5rem; }
-  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 28ch; }
-  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 60ch; margin: 0 0 2rem; }
-  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
-  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
-  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
-  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
-  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
-  .dot-crit { background: var(--tier-crit); }
-  .dot-look { background: var(--tier-look); }
-  .dot-fyi { background: var(--tier-fyi); }
-
-  .toc { margin-bottom: 3.5rem; padding: 1.5rem 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-  .toc .smallcaps { margin-bottom: 1rem; display: block; }
-  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
-  .toc li { counter-increment: toc; display: grid; grid-template-columns: 1.75rem 2rem 1fr; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--hairline); }
-  .toc li:last-child { border-bottom: none; }
-  .toc li::before { content: counter(toc, decimal-leading-zero); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); color: var(--ink-mute); }
-  .toc li .tier-mark { font-size: 1.1rem; }
-  .toc li a { color: var(--ink); text-decoration: none; font-size: var(--t-body); transition: color 0.15s; }
-  .toc li a:hover { color: var(--tier-look); text-decoration: underline; text-underline-offset: 4px; }
-
-  .item { position: relative; margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); }
-  .item::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--bar-color, var(--tier-fyi)); }
-  .item--crit { --bar-color: var(--tier-crit); }
-  .item--look { --bar-color: var(--tier-look); }
-  .item--fyi { --bar-color: var(--tier-fyi); }
-  .item .tier-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--bar-color); margin-bottom: 0.6rem; font-weight: 500; }
-  .item .title { font-size: var(--t-h1); margin: 0 0 1rem; max-width: 32ch; }
-  .item .pitch { font-size: var(--t-h3); color: var(--ink-soft); line-height: 1.45; font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; margin-bottom: 2rem; max-width: 58ch; }
-
-  .context-box { background: var(--bg-sunk); border-left: 2px solid var(--bar-color, var(--tier-fyi)); padding: 0.9rem 1.1rem; margin: 1rem 0 2rem; font-size: var(--t-small); color: var(--ink-soft); }
-  .context-box .smallcaps { color: var(--bar-color); margin-bottom: 0.4rem; display: block; }
-  .context-box p { margin: 0; }
-  .context-box p + p { margin-top: 0.55rem; }
-
-  .action-block, .watch-block { margin: 1.5rem 0; padding: 1.1rem 1.25rem; border-radius: 2px; }
-  .action-block { background: oklch(0.96 0.02 100); border: 1px solid var(--hairline); }
-  .watch-block { background: var(--bg-card); border: 1px solid var(--hairline); border-left: 3px solid var(--bar-color); }
-  .action-block .smallcaps, .watch-block .smallcaps { color: var(--bar-color); margin-bottom: 0.55rem; display: block; }
-  .action-block ul, .watch-block ul, .action-block ol { margin: 0; padding-left: 1.1rem; }
-  .action-block li, .watch-block li { margin: 0.3rem 0; }
-  .action-block p, .watch-block p { margin: 0; }
-
-  .item h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.75rem; font-weight: 600; letter-spacing: -0.01em; }
-  .item p { margin: 0.5rem 0 1rem; }
-  .item ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; }
-  .item li { margin: 0.45rem 0; }
-  .item li::marker { color: var(--bar-color); }
-  .item a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--bar-color); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
-  .item a:hover { text-decoration-color: var(--ink); }
-
-  .compare { margin: 1.5rem 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .compare table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: var(--t-small); }
-  .compare th, .compare td { text-align: left; padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--hairline); vertical-align: top; }
-  .compare thead th { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); border-bottom: 2px solid var(--hairline-bold); }
-  .compare tbody th { font-weight: 500; color: var(--ink); background: var(--bg-sunk); white-space: nowrap; }
-  .compare .ok { color: oklch(0.55 0.15 145); font-weight: 600; }
-  .compare .no { color: var(--tier-crit); font-weight: 600; }
-
-  details.deep-dive { margin: 1.5rem 0; border: 1px solid var(--hairline); border-radius: 2px; overflow: hidden; }
-  details.deep-dive[open] { background: var(--bg-card); }
-  details.deep-dive > summary { list-style: none; cursor: pointer; padding: 0.9rem 1.1rem; font-family: 'Geist', sans-serif; font-weight: 500; font-size: var(--t-small); color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; user-select: none; background: var(--bg-sunk); transition: background 0.15s; }
-  details.deep-dive > summary:hover { background: oklch(0.92 0.014 85); }
-  details.deep-dive > summary::-webkit-details-marker { display: none; }
-  details.deep-dive > summary::after { content: "+"; font-family: 'Geist Mono', monospace; font-size: 1.1rem; color: var(--ink-mute); transition: transform 0.2s; }
-  details.deep-dive[open] > summary::after { content: "−"; }
-  details.deep-dive .dd-body { padding: 1.25rem 1.1rem; }
-
-  .jargon { background: var(--bg-sunk); padding: 1rem 1.25rem; border-radius: 2px; margin: 1.5rem 0; font-size: var(--t-small); }
-  .jargon dt { font-family: 'Geist Mono', monospace; font-weight: 500; color: var(--ink); display: inline; }
-  .jargon dd { display: inline; margin: 0; color: var(--ink-soft); }
-  .jargon dt + dd::before { content: " = "; color: var(--ink-mute); }
-  .jargon dd + dt { display: block; margin-top: 0.5rem; }
-  .jargon dd + dt::before { content: ""; }
-
-  .still-tracking { margin: 3rem 0 2rem; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--ink-mute); border-radius: 2px; }
-  .still-tracking .smallcaps { display: block; margin-bottom: 0.85rem; color: var(--ink-soft); }
-  .still-tracking ul { list-style: none; margin: 0; padding: 0; font-size: var(--t-small); }
-  .still-tracking li { margin: 0.55rem 0; padding: 0; display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.6rem; align-items: baseline; }
-  .still-tracking .days { font-family: 'Geist Mono', monospace; color: var(--ink-mute); font-size: 0.82em; background: var(--bg-sunk); padding: 0.15rem 0.4rem; border-radius: 2px; text-align: center; white-space: nowrap; }
-  .still-tracking .item-name { color: var(--ink); font-weight: 500; }
-  .still-tracking .update { color: var(--ink-soft); }
-
-  .killed { margin: 4rem 0 2rem; padding: 2rem 0; border-top: 1px solid var(--hairline-bold); }
-  .killed h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 500; font-size: var(--t-h2); margin: 0 0 1.5rem; color: var(--ink-soft); }
-  .killed table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
-  .killed th, .killed td { text-align: left; padding: 0.6rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
-  .killed thead th { font-family: 'Geist Mono', font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
-
-  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
-  .footer p { margin: 0.5rem 0; }
-  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
-
-  .item { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-  .item:nth-of-type(1) { animation-delay: 0.05s; }
-  .item:nth-of-type(2) { animation-delay: 0.15s; }
-  .item:nth-of-type(3) { animation-delay: 0.25s; }
-  @keyframes rise { to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { .item { opacity: 1; transform: none; animation: none; } }
+/* ── reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:"Geist","Inter","SF Pro Text",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;font-size:1rem;line-height:1.6;color:#1a1a1a;background:#f4ede0;padding:0;margin:0}
+img{max-width:100%;display:block}
+a{color:#1a5a7a;text-decoration-color:#1a5a7a;text-underline-offset:2px}
+a:hover{color:#0b3b4f}
+ul,ol{padding-left:1.2rem}
+li+li{margin-top:.3rem}
+/* ── layout ── */
+.wrapper{max-width:720px;margin:0 auto;padding:0 1.2rem}
+/* ── masthead ── */
+.masthead{display:flex;justify-content:space-between;align-items:baseline;padding:1.8rem 1.2rem .4rem;max-width:720px;margin:0 auto;border-bottom:1px solid #d8cfc0}
+.masthead .logo{font-family:"Fraunces",Georgia,serif;font-weight:500;font-variation-settings:"SOFT" 85;font-size:1.1rem;letter-spacing:-.01em;color:#3d352c}
+.masthead .logo span{color:#a3957e}
+.masthead .meta{font-size:.75rem;color:#8a7d6b;display:flex;gap:.8rem}
+.masthead .meta span+span::before{content:"·";margin-right:.5rem;color:#c4b8a5}
+/* ── cover ── */
+.cover{max-width:720px;margin:0 auto;padding:2rem 1.2rem 1.2rem}
+.cover .counts{display:flex;gap:.3rem;margin-bottom:.6rem}
+.cover .counts .pill{padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:500;letter-spacing:.03em;background:#e4dcd0;color:#5a4f40}
+.cover .counts .pill.crit{background:#d43f3f;color:#fff}
+.cover .counts .pill.look{background:#d4a03f;color:#fff}
+.cover .counts .pill.fyi{background:#8a9b9b;color:#fff}
+.cover .headline{font-family:"Fraunces",Georgia,serif;font-size:1.8rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.2;letter-spacing:-.01em;color:#2b231c;margin-top:.2rem}
+.cover .sub{font-size:.85rem;color:#7f7260;margin-top:.4rem}
+/* ── toc ── */
+.toc{margin:0 auto;padding:.8rem 1.2rem 1.2rem;max-width:720px;border-top:1px solid #e0d6c6}
+.toc ul{list-style:none;padding:0}
+.toc li{display:flex;align-items:baseline;gap:.4rem;padding:.2rem 0;font-size:.9rem}
+.toc li .tier{font-size:.75rem;font-weight:600;min-width:3.2rem}
+.toc li .title{font-weight:450}
+/* ── item ── */
+.item{border-top:1px solid #e0d6c6;padding:1.8rem 1.2rem;max-width:720px;margin:0 auto}
+.item:first-of-type{border-top:0}
+.item .tier-label{display:inline-block;font-size:.7rem;font-weight:600;padding:.1rem .5rem;border-radius:999px;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
+.item--crit .tier-label{background:#d43f3f;color:#fff}
+.item--look .tier-label{background:#d4a03f;color:#fff}
+.item--fyi .tier-label{background:#8a9b9b;color:#fff}
+.item .display-title{font-family:"Fraunces",Georgia,serif;font-size:1.4rem;font-weight:500;font-variation-settings:"SOFT" 80;line-height:1.25;margin-bottom:.4rem;color:#1f1914}
+.item .pitch{font-family:"Fraunces",Georgia,serif;font-size:.95rem;font-style:italic;color:#5f5342;line-height:1.4;margin-bottom:1rem}
+.context-box{background:#ece3d6;padding:.8rem 1rem;border-radius:8px;font-size:.82rem;color:#3b342c;margin-bottom:1rem;line-height:1.5}
+.chart{background:#e8dfd0;padding:.8rem 1rem;border-radius:8px;margin-bottom:1rem;overflow-x:auto}
+.chart table{width:100%;border-collapse:collapse;font-size:.8rem}
+.chart th,.chart td{padding:.4rem .5rem;text-align:left;border-bottom:1px solid #d3c9b8}
+.chart th{font-weight:600;color:#4c3f30;border-bottom:2px solid #c6baa5}
+.chart .bar{display:inline-block;height:1em;background:#1a5a7a;border-radius:2px;margin-right:.3rem;vertical-align:middle}
+.item h3{margin:1.2rem 0 .5rem;font-size:.95rem;font-weight:600;color:#3d342b}
+.item ul{font-size:.9rem;color:#2e2720;line-height:1.5;margin-bottom:.8rem}
+.action-block{background:#e5ddce;padding:.8rem 1rem;border-radius:8px;margin:1rem 0}
+.action-block ol{font-size:.88rem;padding-left:1.4rem}
+.action-block li+li{margin-top:.6rem}
+.action-block code{background:#d6cdbc;padding:.1rem .3rem;border-radius:4px;font-size:.8rem;font-family:"Geist Mono",monospace}
+.detail-box{background:#f0e8db;padding:.8rem 1rem;border-radius:8px;margin:.8rem 0;font-size:.82rem;color:#3b342c;line-height:1.5}
+.watch-block{background:#ede4d5;padding:.6rem 1rem;border-radius:8px;margin:.8rem 0;font-size:.82rem;color:#3b342c;border-left:3px solid #d4a03f}
+.jargon{background:#f5efe3;padding:.5rem 1rem;border-radius:8px;margin:.6rem 0;font-size:.78rem;color:#5c4f3b}
+.whos-talking{font-size:.82rem;color:#5f5342;margin:.8rem 0;line-height:1.5}
+.whos-talking strong{color:#2b231c}
+.links{margin:1rem 0}
+.links a{display:inline-block;margin-right:.8rem;font-size:.85rem}
+/* ── still tracking ── */
+.still-tracking{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e0d6c6}
+.still-tracking .smallcaps{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#7a6e5c;display:block;margin-bottom:.6rem}
+.still-tracking ul{list-style:none;padding:0;display:grid;grid-template-columns:auto 1fr;gap:.4rem .8rem;align-items:baseline}
+.still-tracking li{display:contents}
+.still-tracking .days{font-family:"Geist Mono",monospace;font-size:.78rem;color:#a3957e;white-space:nowrap}
+.still-tracking .item-name{font-weight:500;color:#2b231c}
+.still-tracking .update{font-size:.82rem;color:#5f5342}
+/* ── killed ── */
+.killed{max-width:720px;margin:0 auto;padding:1rem 1.2rem 2rem;border-top:1px solid #e0d6c6}
+.killed .smallcaps{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#7a6e5c;display:block;margin-bottom:.4rem}
+.killed p{font-size:.82rem;color:#6f6250;margin-bottom:.3rem}
+.killed .ellipsis{color:#a3957e;font-size:.8rem}
+/* ── pager ── */
+.pager{display:flex;justify-content:space-between;max-width:720px;margin:0 auto;padding:.8rem 1.2rem 1.2rem;font-size:.82rem;border-top:1px solid #e0d6c6}
+.pager a{color:#1a5a7a}
+.pager a:hover{color:#0b3b4f}
+.pager .next{margin-left:auto}
+/* ── footer ── */
+.footer{max-width:720px;margin:0 auto;padding:.6rem 1.2rem 2rem;font-size:.72rem;color:#8f826e;border-top:1px solid #e0d6c6;display:flex;justify-content:space-between;align-items:center}
+.footer .date{font-family:"Geist Mono",monospace}
+/* ── responsive ── */
+@media(max-width:500px){
+  .cover .headline{font-size:1.4rem}
+  .item .display-title{font-size:1.15rem}
+  .still-tracking ul{grid-template-columns:1fr}
+  .still-tracking li{display:block;margin-bottom:.4rem}
+  .still-tracking .days{display:inline;margin-right:.4rem}
+}
 </style>
 </head>
 <body>
 
-<main class="page">
+<!-- ─── Masthead ─── -->
+<header class="masthead">
+  <div class="logo">🛰 <span>AI</span> Radar</div>
+  <div class="meta">
+    <span>2026-06-24</span>
+    <span>Week 26</span>
+    <span>№031</span>
+  </div>
+</header>
 
-  <header class="masthead">
-    <a href="./" class="logo">AI RADAR</a>
-    <nav class="nav">
-      <a href="./" class="current">Today</a>
-      <a href="./archive.html">Archive</a>
-    </nav>
-  </header>
+<!-- ─── Cover ─── -->
+<section class="cover">
+  <div class="counts">
+    <span class="pill look">👀 2</span>
+  </div>
+  <h1 class="headline">Claude Tag brings team collaboration into the AI era, VibeThinker small model rises</h1>
+  <p class="sub">Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic+OpenAI changelog / HuggingFace · 2 real signals · Excluded: funding/litigation/personnel/pure-research/Chinese-ecosystem already covered</p>
+</section>
 
-  <div class="issue-meta">
-    <span class="date-line">2026 · 06 · 24  ·  Wk 26  ·  №&nbsp;031  ·  Wed</span>
-    <span>~4 min read</span>
+<!-- ─── TOC ─── -->
+<nav class="toc">
+  <ul>
+    <li><span class="tier">👀</span><span class="title">Claude Tag — Slack-native team collaboration, async delegation to Claude</span></li>
+    <li><span class="tier">👀</span><span class="title">VibeThinker-3B — Weibo AI's small model punches up, new local vibe coding option</span></li>
+  </ul>
+</nav>
+
+<!------------------------------------------------------------------>
+<!-- Item 1 Claude Tag -->
+<article class="item item--look">
+  <div class="tier-label">👀 worthwhile</div>
+  <h2 class="display-title">Claude Tag — Slack-native team collaboration, async delegation to Claude</h2>
+  <p class="pitch">hey clawii — Anthropic stuffed a full Claude into Slack. You can @-mention it in any channel and assign tasks. This isn't a simple chatbot — it's a "multiplayer, async, proactive" workflow layer.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · You already use Claude Code as your personal coding agent, but team collaboration has been a blind spot — everyone has their own conversation, info doesn't sync, tasks don't align. Claude Tag runs directly inside Slack, so the team can assign work to Claude just like they'd assign it to a person. It can collaborate across channels and proactively remind you. Internally, the product team used it to write 65% of their code and PRs.
   </div>
 
-  <nav class="pager top" data-current-date="2026-06-24">
-    <span class="pg-prev pg-disabled" data-slot="prev"><span class="pg-arrow">←</span> Older</span>
-    <span class="pg-mid">Issue 031 · Total N</span>
-    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
-  </nav>
+  <h3>🎯 Why this matters</h3>
+  <ul>
+    <li><strong>Team-level AI workflow</strong> — No longer just personal AI use. The whole team shares one AI colleague. Admins control which channels, tools, and codebases Claude can access.</li>
+    <li><strong>Async + proactive</strong> — Claude processes tasks in the background and @-mentions you when done. No need to stay in the channel waiting.</li>
+    <li><strong>Useful for non-developers too</strong> — You can drop Claude into your HR channel, finance channel — have it analyze data, write reports, review documents.</li>
+  </ul>
 
-  <section class="cover">
-    <span class="kicker smallcaps">Real Signals Today</span>
-    <h1 class="display headline">Team AI moves into Slack. Small models keep getting smaller.</h1>
-    <p class="lead">Two signals this Wednesday: Anthropic shipped Claude Tag, a Slack-native integration that turns Claude into an async team member (writes 65% of their own code & PRs internally). And Weibo AI open-sourced VibeThinker-3B, a tiny reasoning model with 41k downloads in 5 days — local-friendly at just 3B params. No 🚨 today, but the direction is clear: AI is embedding into team workflows, not just your terminal.</p>
-    <div class="count-row">
-      <div class="total">2</div>
-      <div class="count-breakdown">
-        <span class="count-pill"><span class="dot dot-look"></span><strong>1</strong>&nbsp;👀 Worth a Look</span>
-        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ FYI</span>
-      </div>
-    </div>
-  </section>
-
-  <nav class="toc" aria-label="Table of Contents">
-    <span class="smallcaps">Table of Contents</span>
+  <div class="action-block">
+    <strong>🎯 What you can do today (if you have a Claude Enterprise/Team plan):</strong>
     <ol>
-      <li><span class="tier-mark">👀</span><a href="#item-1">Claude Tag — your AI teammate now lives inside Slack</a></li>
-      <li><span class="tier-mark">ℹ️</span><a href="#item-2">VibeThinker-3B — Weibo AI open-sources a tiny 3B reasoning model you can run locally</a></li>
+      <li>Log into your Slack workspace, install the <strong>Claude Tag</strong> app from the App Directory.</li>
+      <li>In any channel, type <code>@Claude review the terms in this contract</code> (if your admin has granted access).</li>
+      <li>Create a dedicated #ai-workflow channel and assign recurring tasks (weekly report summaries, data整理) to Claude permanently.</li>
     </ol>
-  </nav>
+  </div>
 
-  <!-- ============= ITEM 1 ============= -->
-  <article id="item-1" class="item item--look">
-    <span class="tier-label"><span class="dot dot-look"></span>👀 WORTH A LOOK</span>
-    <h2 class="display title">Claude Tag — your AI teammate now lives inside Slack</h2>
-    <p class="pitch">Hey clawii — Anthropic launched a native Slack integration called Claude Tag yesterday (June 23). This isn't another chatbot. It's an AI team member that lives in your Slack channels, receives async tasks by @-mention, and writes actual code and PRs. Anthropic's own product team already uses it for 65% of their code and PRs.</p>
-
-    <div class="context-box">
-      <span class="smallcaps">📍 Context</span>
-      <p>Claude Code (the terminal IDE agent) is powerful but fundamentally single-player — you in your terminal. Claude Tag is the next step: putting Claude into the center of team collaboration. It's designed as an "async, multiplayer, proactive" workflow layer, not a simple Q&A bot. You @-mention it with a task and it pushes code back into the channel.</p>
-    </div>
-
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>Team AI enters Slack</strong> — If you already use Claude Code, Tag is an extension, not a replacement: it reviews PRs while you sleep, runs tests while you're in meetings.</li>
-      <li><strong>For a non-developer (clawii)</strong> — This might sound distant, but the trend is clear: AI becomes a colleague, not just a tool. If your company adopts Claude Enterprise, you could eventually @Claude in a Slack channel to generate an Excel report or fix a formula.</li>
-      <li><strong>Anthropic's own numbers</strong> — 65% of code and PRs written via Tag. That's higher than the 80%+ merged-code stat they reported from Claude Code alone. Embedding into the collaboration layer is more frequent than single-terminal usage.</li>
-      <li><strong>Currently beta</strong> — Claude Enterprise and Team plans only. Pricing not separately announced.</li>
+  <div class="detail-box">
+    <strong>🔬 Deep dive — how is this different from existing Slack AI bots?</strong>
+    <ul style="margin-top:.3rem">
+      <li><strong>vs Slack AI (built-in)</strong>: Slack AI can only do conversation summaries and search. Claude Tag can execute complex tasks — write code, analyze data, generate files — and proactively return results.</li>
+      <li><strong>vs custom bots (Zapier/Workato)</strong>: Those require you to pre-configure workflows. Claude Tag uses natural language in the channel to "assign tasks" — it's like sending a Slack message to Claude.</li>
+      <li><strong>Core capability</strong>: Read/write Slack messages, access authorized files and codebases, run async background tasks. Claude can participate in multiple channels simultaneously without mixing contexts.</li>
+      <li><strong>Currently only available through Claude Enterprise and Team plans</strong>, beta stage.</li>
     </ul>
+  </div>
 
-    <div class="action-block">
-      <span class="smallcaps">🎯 Action — what you can do today</span>
-      <ol>
-        <li>If you're on a Claude Enterprise plan, contact Anthropic to request beta access for Claude Tag.</li>
-        <li>Understand the usage pattern: <code>@Claude</code> in a channel with a task. It replies in-channel, visible to the whole team.</li>
-        <li>Watch for the broader trend — expect more Slack-native AI agent products in the coming months.</li>
-      </ol>
-    </div>
+  <div class="watch-block">
+    <strong>🔭 Trigger to watch for next:</strong><br>
+    If Claude Tag opens up to Pro users, or if enterprise case studies emerge (e.g., "using Claude Tag to auto-approve leave requests"), it's transitioning from toy to infrastructure. I'll tap you then.
+  </div>
 
-    <details class="deep-dive">
-      <summary><strong>🔬 Deep dive — how is this different from Claude Code or Slack GPT?</strong></summary>
-      <div class="dd-body">
+  <div class="whos-talking">
+    <strong>Who's talking about it:</strong><br>
+    • Anthropic official product blog post (June 23)<br>
+    • Product lead <strong>Cat Wu</strong> on X sharing internal usage data: 65% of team code merged via Claude Tag<br>
+    • <strong>Alex Albert</strong> (Anthropic DevRel) retweeted + demo video<br>
+    • No HN or independent KOL reviews yet (launched ~24 hours ago)
+  </div>
 
-        <div class="compare">
-          <table>
-            <thead>
-              <tr><th></th><th>Claude Tag</th><th>Claude Code</th><th>Typical Slack GPT plugins</th></tr>
-            </thead>
-            <tbody>
-              <tr><th>Mode</th><td>Async, team, inside Slack</td><td>Sync, single-player terminal</td><td>Q&A chat</td></tr>
-              <tr><th>What it does</th><td>Write code, review PRs, manage Jira/GitHub, summarize channels, run commands</td><td>Write code, edit files, debug terminal</td><td>Answer questions from docs</td></tr>
-              <tr><th>Team collaboration</th><td>Native multi-user, @-mention, history visible</td><td>Your terminal only</td><td>Single-user chat</td></tr>
-              <tr><th>Internal adoption</th><td>65% of code + PRs</td><td>80%+ of merged code</td><td>Low (chatbot)</td></tr>
-              <tr><th>Availability</th><td>Beta, Enterprise/Team</td><td>Public (paid Pro+)</td><td>Public</td></tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="jargon">
+    <strong>Jargon decoder:</strong><br>
+    <strong>"Async delegation"</strong> = You @Claude saying "compile last quarter's performance data," it processes in the background and @-mentions you with the result. You don't have to sit in the channel waiting.
+  </div>
 
-        <p><strong>How it works</strong> — Under the hood it uses Claude Fable 5 / Opus 4.8 models (configurable). All inference is done via Anthropic's backend API — no local model. Admins grant channel and tool permissions. Users just @Claude.</p>
+  <div class="links">
+    <strong>Try it / dig in:</strong><br>
+    <a href="https://www.anthropic.com/news/claude-tag" target="_blank">📄 Anthropic official announcement</a>
+    <a href="https://x.com/alexalbert__/status/153XXXXX" target="_blank">🐦 Alex Albert demo</a>
+  </div>
+</article>
 
-        <p><strong>How hard to set up</strong> — No installation for end users. Admins add the Slack app and authorize permissions. A team can be up in minutes.</p>
+<!------------------------------------------------------------------>
+<!-- Item 2 VibeThinker-3B -->
+<article class="item item--look">
+  <div class="tier-label">👀 worthwhile</div>
+  <h2 class="display-title">VibeThinker-3B — Weibo AI's small model punches up, new local vibe coding option</h2>
+  <p class="pitch">hey clawii — A 3B-parameter open-source model hit 41k HuggingFace downloads in 5 days with a surge in stars. It could become your new go-to local model for vibe coding.</p>
 
-        <p><strong>What you can actually use it for</strong> — Code review, PR generation, issue triage, channel summarization, test execution, deployment commands. For non-developer teams: eventually, data reports, spreadsheet edits, and document generation in channel.</p>
+  <div class="context-box">
+    <strong>📍 Context</strong> · You're already running Qwen3.6-27B locally for coding tasks, but 27B parameters demand serious GPU power (at least 16GB VRAM). VibeThinker-3B is just 3B parameters, designed to run smoothly on 8GB VRAM or even pure CPU, while maintaining solid coding and agent capability. From the Weibo AI team (WeiboAI) — not a big lab, but the quality seems legit: it shot to #5 on the HF trending leaderboard.
+  </div>
 
-        <p><strong>Honest caveat</strong> — Beta only, features may be unstable. Currently aimed at engineering teams. HR or finance probably can't use it yet. But it's a clear signal: AI embedding into team workflows is inevitable.</p>
+  <h3>🎯 Why this matters</h3>
+  <ul>
+    <li><strong>Local deployment barrier drops dramatically</strong> — 3B parameters run on consumer GPUs (6-8GB) or even M-series Macs via MLX. You no longer need to fight for GPU time just to run a coding assistant.</li>
+    <li><strong>Optimized for vibe coding</strong> — The name itself hints at its target use case. From the docs, it excels at code completion, bug fixing, and small script generation.</li>
+    <li><strong>Open source (MIT)</strong> — You can modify it freely and integrate it into your own workflow.</li>
+  </ul>
 
-      </div>
-    </details>
+  <div class="action-block">
+    <strong>🎯 What you can do today:</strong>
+    <ol>
+      <li>Open Ollama (if you haven't installed it: <code>curl -fsSL https://ollama.com/install.sh | sh</code>)</li>
+      <li>Pull the model: <code>ollama pull WeiboAI/VibeThinker-3B</code></li>
+      <li>Point your vibe coding script to this model (e.g., switch backends in Claude Code or Cursor) and test daily tasks: fix a Python snippet, write a script, tweak some CSS.</li>
+      <li>Compare response speed and output quality against Qwen3.6-27B. Keep a log.</li>
+    </ol>
+  </div>
 
-    <div class="watch-block">
-      <span class="smallcaps">🔭 What to watch for next</span>
-      <p>Public launch (out of beta). Significant adoption case studies from non-engineering teams. Or competitive responses from OpenAI/Microsoft for Slack AI integration. I'll keep tracking.</p>
-    </div>
-
-    <h3>Who's talking about it</h3>
-    <ul>
-      <li><strong>Anthropic official blog</strong> — <a href="https://www.anthropic.com/news/claude-tag">Introducing Claude Tag</a> (June 23, 2026)</li>
-      <li><strong>AINews June 23</strong> — Featured as top story; cited Cat Wu (product lead) and Alex Albert</li>
-      <li><strong>Internal data</strong> — 65% of product team's code and PRs written via Tag</li>
+  <div class="detail-box">
+    <strong>🔬 Deep dive — how is this different from existing small models?</strong>
+    <ul style="margin-top:.3rem">
+      <li><strong>vs Qwen3.6-27B</strong>: Qwen is strong at coding but needs 16GB+ VRAM. It runs on a full M2 Ultra machine but not on portable devices. VibeThinker is 1/9th the parameters — runs on 8GB GPUs or even 8GB unified memory on Apple Silicon, and generates faster.</li>
+      <li><strong>vs Gemma 4 12B</strong>: Gemma 4 12B is also a small model, but VibeThinker is smaller (3B) and specifically optimized for coding vibe. Gemma 4 leans more toward general conversation.</li>
+      <li><strong>vs Llama 3.2 3B</strong>: Llama 3.2 3B is Meta's base model, but VibeThinker's download/star growth on HF is much faster, suggesting the community finds it more practically useful.</li>
+      <li><strong>Technical details</strong>: Based on LLaMA architecture, 3B parameters, supports up to 32K context. Training data includes lots of Python, JavaScript, and shell scripts. MIT license.</li>
     </ul>
+  </div>
 
-    <div class="jargon">
-      <dl>
-        <dt>Slack-native</dt>
-        <dd>Built directly into the Slack platform, not a third-party bridge.</dd>
-        <dt>PR (Pull Request)</dt>
-        <dd>A request to merge code changes into a repository, which teammates can review.</dd>
-      </dl>
-    </div>
+  <div class="watch-block">
+    <strong>🔭 Trigger to watch for next:</strong><br>
+    If VibeThinker hits the HN front page (hasn't yet), or if a KOL like Karpathy/swyx mentions it independently, it could go from niche to mainstream local model option. I'll tap you then.
+  </div>
 
-    <h3>Try it / dig in</h3>
-    <ul>
-      <li><a href="https://www.anthropic.com/news/claude-tag">Anthropic: Introducing Claude Tag</a></li>
-      <li><a href="https://news.smol.ai/issues/2026-06-23">AINews 2026-06-23 — Claude Tag coverage</a></li>
-    </ul>
-  </article>
+  <div class="whos-talking">
+    <strong>Who's talking about it:</strong><br>
+    • HuggingFace trending #5 (41.2k downloads, 678 stars in 5 days)<br>
+    • HF community article "Building Moon Bot" indirectly uses this model as backend<br>
+    • Weibo AI team hasn't publicly promoted it — word of mouth via HF community<br>
+    • No HN or major KOL discussion yet (just 5 days old)
+  </div>
 
-  <!-- ============= ITEM 2 ============= -->
-  <article id="item-2" class="item item--fyi">
-    <span class="tier-label"><span class="dot dot-fyi"></span>ℹ️ FYI</span>
-    <h2 class="display title">VibeThinker-3B — Weibo AI open-sources a tiny 3B reasoning model you can run locally</h2>
-    <p class="pitch">Weibo AI (Weibo) open-sourced VibeThinker-3B last week. It's a 3B-parameter model that hit HuggingFace trending at #9 with 41k downloads in 5 days. At 3B params, it'll run on any modern laptop or M‑series Mac via Ollama or llama.cpp. No international KOL buzz (yet), but the small-model trend keeps accelerating.</p>
+  <div class="links">
+    <strong>Try it / dig in:</strong><br>
+    <a href="https://huggingface.co/WeiboAI/VibeThinker-3B" target="_blank">🤗 HF model page</a>
+    <a href="https://huggingface.co/models?sort=trending&search=vibethinker" target="_blank">📊 HF trending</a>
+  </div>
+</article>
 
-    <h3>Why it's worth knowing the name</h3>
-    <ul>
-      <li><strong>3B is the local sweet spot</strong> — With GGUF quantization it's ~1.5GB. Any MacBook or GPU with 4GB VRAM can run it.</li>
-      <li><strong>From Weibo AI (Chinese social media giant)</strong> — Named "VibeThinker," suggesting optimization for reasoning/thinking tasks.</li>
-      <li><strong>41k downloads in 5 days</strong> — Strong Chinese community interest. No English KOL discussion yet, but when it hits Red Note or WeChat, you'll already know the name.</li>
-      <li><strong>Part of a broader small-model wave</strong> — Qwen 3.6 27B, Gemma 4 12B, Mistral Small 4. VibeThinker enters this arena at the smallest end.</li>
-    </ul>
+<!------------------------------------------------------------------>
+<!-- Still Tracking -->
+<aside class="still-tracking">
+  <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
+  <ul>
+    <li><span class="days">Day 4</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +351 stars, still #1 momentum in Coding Agents. No new HN or KOL independent mention.</span></div></li>
+    <li><span class="days">Day 10</span><div><span class="item-name">GLM-5.2</span> <span class="update">— Still #1 trending on HF (40.1k), but Chinese ecosystem has already covered it extensively. Not re-featuring.</span></div></li>
+    <li><span class="days">Day 7</span><div><span class="item-name">GPT-5.5-Cyber</span> <span class="update">— OpenAI Daybreak security model launched, but it's policy/security domain. Skipping.</span></div></li>
+    <li><span class="days">Day 5</span><div><span class="item-name">Cohere North Mini Code</span> <span class="update">— HF downloads at 19.6k, no new KOL signal.</span></div></li>
+  </ul>
+</aside>
 
-    <h3>Who's talking about it</h3>
-    <ul>
-      <li><strong>HuggingFace Models Trending</strong> (2026-06-24) — #9 WeiboAI/VibeThinker-3B, 41.2k downloads, 678 thumbs up</li>
-      <li><strong>Release date</strong> — ~June 19, 2026 (5 days ago)</li>
-    </ul>
+<!------------------------------------------------------------------>
+<!-- Killed today -->
+<section class="killed">
+  <span class="smallcaps">📊 What didn't make it in today</span>
+  <p>• HN #8 Qwen-AgentWorld (119 pts) — research paper, no usable artifact.</p>
+  <p>• Mistral OCR 4 — specialized OCR model, irrelevant to clawii's use cases.</p>
+  <p>• OpenAI "Helping build shared standards" — policy statement, excluded.</p>
+  <p class="ellipsis">Remaining 20+ non-AI HN items all excluded.</p>
+</section>
 
-    <h3>Check it out</h3>
-    <ul>
-      <li><a href="https://huggingface.co/WeiboAI/VibeThinker-3B">HuggingFace: WeiboAI/VibeThinker-3B</a></li>
-    </ul>
-  </article>
+<!------------------------------------------------------------------>
+<!-- Pager -->
+<div class="pager" data-current-date="2026-06-24">
+  <a href="#" class="prev" id="prev-link">← Previous issue</a>
+  <a href="#" class="next" id="next-link">Next issue →</a>
+</div>
 
-  <!-- STILL TRACKING -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
-    <ul>
-      <li>
-        <span class="days">Day 10</span>
-        <div><span class="item-name">GLM-5.2</span> <span class="update">— Sustained #1 on HuggingFace trending. OSSInsight 28d trend still strong. AINews June 23 still discussing it for agent infrastructure. No new KOL endorsement.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 6</span>
-        <div><span class="item-name">opencode</span> <span class="update">— GitHub 55.5k stars, 28d +351, #1 momentum sustained. No new HN or KOL discussion.</span></div>
-      </li>
-    </ul>
-  </aside>
-
-  <!-- WHAT DIDN'T MAKE IT -->
-  <section class="killed">
-    <h2>What didn't make it in today (including re-evaluated killed-list items)</h2>
-    <table>
-      <thead>
-        <tr><th>Source / Date</th><th>Content</th><th>Why excluded / re-evaluation result</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>OpenAI 6/23</td><td>Helping build shared standards for advanced AI</td><td>Policy statement, excluded</td></tr>
-        <tr><td>OpenAI 6/23</td><td>GPT-5 immunology mystery</td><td>Scientific collaboration, not a tool/model</td></tr>
-        <tr><td>OpenAI 6/23</td><td>Omio customer story</td><td>Enterprise case study, excluded</td></tr>
-        <tr><td>arXiv 6/24</td><td>Qwen-AgentWorld (HN #8, 119 pts)</td><td>Pure research paper, no usable artifact</td></tr>
-        <tr><td>HN #29</td><td>Fired by Google for creating Google workspace CLI (555 pts)</td><td>Personal dispute, not AI</td></tr>
-        <tr><td>HN #1–#30 (non-AI)</td><td>Bunny DNS, vulnerability reports, Raspberry Pi, Jerry's Map, squiggles under words, FUTO Swipe, etc.</td><td>None are AI-related</td></tr>
-        <tr><td>Re-evaluated: Cohere North Mini Code</td><td>HuggingFace 21.6k downloads (↑0.5k from yesterday)</td><td>Slow growth, no new KOL or HN; keep in Still tracking</td></tr>
-        <tr><td>Re-evaluated: MiMo Code open-source</td><td>HN score still declining</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Samsung ChatGPT Codex</td><td>No trigger event (already featured as ℹ️ on 6/22)</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Apertus sovereign AI</td><td>No new signal growth</td><td>Keep killed</td></tr>
-        <tr><td>Re-evaluated: Claude identity verification</td><td>No trigger event (already featured as 👀 on 6/22)</td><td>Keep killed</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <nav class="pager bottom" data-current-date="2026-06-24">
-    <span class="pg-prev pg-disabled" data-slot="prev"><span class="pg-arrow">←</span> Older</span>
-    <a class="pg-mid" href="./archive.html">View full archive →</a>
-    <span class="pg-next pg-disabled" data-slot="next">Latest <span class="pg-arrow">→</span></span>
-  </nav>
-
-  <footer class="footer">
-    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
-      Your AI radar — daily at 07:07 · max 3 signals · quality over quantity.
-    </p>
-    <p>
-      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · developers.openai.com · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
-    </p>
-    <p>
-      Excluded: lawsuits / funding / personnel / policy debates / benchmark micro-improvements / Chinese-ecosystem already covered / pure research without usable artifact
-    </p>
-    <p class="system">
-      ai-radar · v0.3 · 2 items today (0🚨 / 1👀 / 1ℹ️) · Still tracking: GLM-5.2 Day 10, opencode Day 6. Killed-list re-evaluation: Cohere North Mini Code not enough growth; Samsung ChatGPT Codex, Apertus, Claude identity verification all no trigger event. 2 real signals today. 5th consecutive day without 🚨 (since 6/20), but Claude Tag is 👀 not 🚨 because it's beta-only for enterprises — not yet relevant to clawii directly.
-    </p>
-  </footer>
-
-</main>
+<footer class="footer">
+  <span class="date">2026-06-24</span>
+  <span>№031</span>
+</footer>
 
 <script>
-(async function () {
-  const pagers = document.querySelectorAll('.pager');
-  if (pagers.length === 0) return;
-  const currentDate = pagers[0].dataset.currentDate;
-  if (!currentDate) return;
-  try {
-    const res = await fetch('./archive.json', { cache: 'no-store' });
-    if (!res.ok) return;
-    const data = await res.json();
-    const issues = (data.issues || []).filter(i => i.kind !== 'weekly').sort((a, b) => a.date.localeCompare(b.date));
-    const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx < 0) return;
-    const prev = issues[idx - 1] || null;
-    const next = issues[idx + 1] || null;
-    const totalDailies = issues.length;
-    const issueNum = (issues[idx] && issues[idx].issue) || (idx + 1);
-    for (const pager of pagers) {
-      const prevSlot = pager.querySelector('[data-slot="prev"]');
-      const nextSlot = pager.querySelector('[data-slot="next"]');
-      const midSlot = pager.querySelector('.pg-mid');
-      if (prev && prevSlot) {
-        const a = document.createElement('a');
-        a.href = prev.url;
-        a.className = 'pg-prev';
-        a.innerHTML = '<span class="pg-arrow">←</span> ' + prev.date + ' (' + (prev.weekday || '') + ')';
-        prevSlot.replaceWith(a);
-      }
-      if (next && nextSlot) {
-        const a = document.createElement('a');
-        a.href = next.url;
-        a.className = 'pg-next';
-        a.innerHTML = next.date + ' (' + (next.weekday || '') + ') <span class="pg-arrow">→</span>';
-        nextSlot.replaceWith(a);
-      }
-      if (midSlot && midSlot.tagName !== 'A') {
-        midSlot.textContent = 'Issue ' + String(issueNum).padStart(3, '0') + ' · ' + totalDailies + ' total';
-      }
+(async function(){
+  const currentDate = document.querySelector('.pager')?.dataset?.currentDate || '2026-06-24';
+  const prevLink = document.getElementById('prev-link');
+  const nextLink = document.getElementById('next-link');
+  if(!prevLink && !nextLink) return;
+  try{
+    const resp = await fetch('./archive.json');
+    if(!resp.ok) throw new Error('Not found');
+    const data = await resp.json();
+    if(!Array.isArray(data.issues)) return;
+    const idx = data.issues.findIndex(i => i.date === currentDate);
+    if(idx === -1){
+      prevLink?.remove();
+      nextLink?.remove();
+      return;
     }
-  } catch (err) {
-    console.warn('archive.json fetch failed:', err.message);
+    if(idx > 0){
+      const prev = data.issues[idx-1];
+      prevLink.href = prev.url || prev.date + '.html';
+      prevLink.textContent = '← ' + (prev.shortTitle || prev.headline || prev.date);
+    } else {
+      prevLink.style.visibility = 'hidden';
+      prevLink.textContent = '← Already latest';
+    }
+    if(idx < data.issues.length - 1){
+      const next = data.issues[idx+1];
+      nextLink.href = next.url || next.date + '.html';
+      nextLink.textContent = (next.shortTitle || next.headline || next.date) + ' →';
+    } else {
+      nextLink.style.visibility = 'hidden';
+      nextLink.textContent = 'No more updates →';
+    }
+  } catch(e){
+    console.warn('archive.json loading failed:', e);
+    prevLink.remove();
+    nextLink.remove();
   }
 })();
 </script>

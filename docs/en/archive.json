@@ -8,12 +8,12 @@
       "week": 26,
       "issue": 31,
       "kind": "daily",
-      "headline": "Team AI moves into Slack. Small models keep getting smaller.",
-      "summary": "Two signals this Wednesday: Anthropic shipped Claude Tag, a Slack-native integration that turns Claude into an async team member (writes 65% of their own code &",
+      "headline": "(no headline)",
+      "summary": "",
       "counts": {
         "crit": 0,
-        "look": 1,
-        "fyi": 1
+        "look": 2,
+        "fyi": 0
       },
       "url": "2026-06-24.html"
     },
