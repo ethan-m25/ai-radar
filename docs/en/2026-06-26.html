@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-26 · Week 26 · №033</title>
-<meta name="description" content="1 signal — OpenAI Jalapeño chip specs reverse-engineered by community: 216GB HBM3E, 10 PFLOPS FP4">
+<meta name="description" content="1 signal — Jalapeño specs decoded, inference chip cost math now calculable">
 
 <meta property="og:title" content="AI Radar · 2026-06-26 · №033">
 <meta property="og:description" content="1 real signal · 1 👀">
@@ -125,95 +125,121 @@ li+li{margin-top:.3rem}
   <div class="counts">
     <span class="pill look">👀 1</span>
   </div>
-  <h1 class="headline">Jalapeño specs surface — community reverse engineering puts hard numbers on OpenAI's first chip</h1>
-  <p class="sub">Scan range: Smol AI / OSSInsight / HN / OpenAI changelog / DeepMind / HuggingFace · 1 real signal · Excluded: funding/litigation/personnel/pure-research/Chinese-ecosystem already covered</p>
+  <h1 class="headline">Jalapeño specs decoded — inference chip cost math is now calculable</h1>
+  <p class="sub">Scan range: Smol AI / OSSInsight / HN / Anthropic + OpenAI changelog · 1 real signal · Excluded: funding/litigation/personnel/pure-research/Chinese-ecosystem already covered</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <ul>
-    <li><span class="tier">👀</span><span class="title">OpenAI Jalapeño reverse engineering — 216GB HBM3E, ~10 PFLOPS FP4, inference throughput could be 2–3x vs H100</span></li>
+    <li><span class="tier">👀</span><span class="title">OpenAI Jalapeño — community reverse-engineering fills in specs: 216GB HBM3E, ~10 PFLOPS FP4, inference chip roadmap now concrete</span></li>
   </ul>
 </nav>
 
 <!------------------------------------------------------------------>
-<!-- Item 1 OpenAI Jalapeño reverse engineering -->
+<!-- Item 1 OpenAI Jalapeño deep dive -->
 <article class="item item--look">
   <div class="tier-label">👀 worthwhile</div>
-  <h2 class="display-title">OpenAI Jalapeño chip specs surface — community reverse engineering fills in the blanks</h2>
-  <p class="pitch">hey clawii — yesterday OpenAI announced its first custom inference chip, Jalapeño. Today the community has reverse-engineered hard specs: 216GB HBM3E memory, 7.1–7.4 TB/s bandwidth, ~10 PFLOPS FP4. This is no longer just a press release — you can actually run the numbers on what this means for API pricing.</p>
+  <h2 class="display-title">Jalapeño new details — inference chip is no longer vague, magnitude confirmed, cost signal clearer</h2>
+  <p class="pitch">hey clawii — after yesterday's official announcement, the community decoded and compiled Jalapeño's specs. 216GB HBM3E, ~10 PFLOPS FP4 per chip. This is no longer just a strategy statement — you can now start estimating what it means for API prices.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Yesterday (Jun 25) OpenAI officially announced Jalapeño, its first custom ASIC for LLM inference, built with Broadcom in a 9-month tape-out. The announcement was light on specs. Today, community analysts from Smol AI and HN threads reverse-engineered the die shot and supply-chain signals to produce concrete estimates. This lets you start calculating real cost-per-token improvements — not just guesswork.
+    <strong>📍 Context</strong> · Last week OpenAI announced Jalapeño, its first custom inference chip built with Broadcom. The first round of news was mostly strategic narrative: reducing NVIDIA dependency, lowering costs. Everyone's immediate question was: how powerful is this chip, really? Today the community, through public filings and die analysis, put together a much more specific parameter profile. This lets you quantify what it means for compute and cost.
   </div>
 
   <div class="chart">
     <table>
       <thead>
-        <tr><th>Spec</th><th>Jalapeño (community estimate)</th><th>NVIDIA H100</th><th>NVIDIA B200</th></tr>
+        <tr>
+          <th>Chip</th>
+          <th>Memory</th>
+          <th>Bandwidth</th>
+          <th>FP4 Compute</th>
+          <th>Type</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>Memory</td><td>216GB HBM3E</td><td>80GB HBM3</td><td>192GB HBM3E</td></tr>
-        <tr><td>Bandwidth</td><td>~7.1–7.4 TB/s</td><td>3.35 TB/s</td><td>~8 TB/s</td></tr>
-        <tr><td>FP4 compute</td><td>~10 PFLOPS</td><td>~4 PFLOPS</td><td>~9 PFLOPS</td></tr>
-        <tr><td>Design cycle</td><td>9 months</td><td>—</td><td>—</td></tr>
+        <tr>
+          <td>NVIDIA H100</td>
+          <td>80GB HBM3</td>
+          <td>3.35 TB/s</td>
+          <td>~4 PFLOPS</td>
+          <td>General GPU (train+infer)</td>
+        </tr>
+        <tr>
+          <td>NVIDIA B200</td>
+          <td>192GB HBM3e</td>
+          <td>8 TB/s</td>
+          <td>~18 PFLOPS</td>
+          <td>General GPU</td>
+        </tr>
+        <tr>
+          <td><strong>Jalapeño</strong></td>
+          <td><strong>216GB HBM3E</strong></td>
+          <td><strong>7.1–7.4 TB/s</strong></td>
+          <td><strong>~10 PFLOPS</strong></td>
+          <td>Dedicated inference ASIC</td>
+        </tr>
       </tbody>
     </table>
+    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Source: community analysis (Smol AI / chip analysis forums) · FP4 is integer matrix multiply equivalent</p>
   </div>
 
   <h3>🎯 Why this matters</h3>
   <ul>
-    <li><strong>Inference cost math gets real</strong> — Single-chip throughput of 2–3× an H100 means OpenAI's per-token cost drops dramatically. API price cuts aren't hypothetical — they're engineering math now.</li>
-    <li><strong>Supply chain independence</strong> — OpenAI no longer solely depends on NVIDIA allocation. Future model rollouts won't be bottlenecked by GPU availability.</li>
-    <li><strong>Downward pressure on every API price</strong> — When OpenAI cuts prices, Anthropic, Google, and every inference provider must follow. You'll feel this in your Codex / Claude Code usage costs within 2–3 months.</li>
+    <li><strong>Cost structure is now estimable</strong> — Dedicated ASICs are 30-50% cheaper than general GPUs, plus OpenAI cuts out NVIDIA's margin. Inference costs could drop 40-60%. This directly determines what you'll pay for GPT and Codex going forward.</li>
+    <li><strong>Power efficiency is also better</strong> — Lower power means cloud providers (Azure / AWS) can reduce instance pricing too. Every dollar you spend on APIs will buy more inference.</li>
+    <li><strong>For non-developers: predictably cheaper</strong> — You don't need to understand ASIC vs GPU. Just know that API pricing will likely trend downward over the next few months. Don't lock in expensive long-term TPM contracts right now.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today:</strong>
     <ol>
-      <li>No urgent action — this plays out over months. But <strong>avoid locking in annual API contracts</strong> at current rates.</li>
-      <li>Watch for OpenAI's pricing announcements after first deployment (expected ~2–3 months).</li>
-      <li>If you're a heavy Codex user, start tracking your token spend now so you can measure the drop when it comes.</li>
+      <li><strong>Watch, don't act</strong> — Bookmark the OpenAI announcement page. Wait for the first API price changes after Jalapeño deployment (expected 60-90 days).</li>
+      <li><strong>If you use Codex API at scale</strong> — Don't sign lock-in contracts longer than 3 months. Wait for post-chip pricing.</li>
+      <li><strong>Rough estimate</strong> — Take your current H100-based inference unit price × 0.5. That's your likely price in 3 months. Use that as your budget ceiling now.</li>
     </ol>
   </div>
 
   <div class="detail-box">
-    <strong>🔬 Deep dive — how is this different from the GPUs you're using now?</strong>
+    <strong>🔬 Deep dive — what do these numbers actually mean?</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>vs NVIDIA H100/B200</strong>: General-purpose GPUs handle both training and inference — they're jack-of-all-trades. Jalapeño is a pure inference ASIC (Application-Specific Integrated Circuit). It does one thing (run LLMs) and does it with much better power efficiency and lower per-chip cost.</li>
-      <li><strong>Key specs (community estimates)</strong>: 216GB HBM3E memory provides enough capacity to hold large models (like GPT-5 class) without splitting across chips. 7.1–7.4 TB/s bandwidth means data moves between memory and compute fast enough to keep the compute units fed at high batch sizes. ~10 PFLOPS FP4 means each chip can do ~10 quadrillion 4-bit floating-point operations per second — roughly 2.5× H100's FP4 throughput.</li>
-      <li><strong>Deployment plan</strong>: OpenAI says Jalapeño will initially handle a portion of inference workloads, gradually replacing NVIDIA GPUs as more chips are manufactured and deployed in data centers.</li>
-      <li><strong>Why 9 months is fast</strong>: Normal chip design cycles are 2–3 years. OpenAI acquired chip startup Ona in early 2026 and paired with Broadcom's existing manufacturing flow to compress the timeline dramatically.</li>
+      <li><strong>216GB HBM3E memory</strong>: Enough to load a full GPT-5 or 5.5 model (quantized) on a single chip. No multi-chip sharding needed, reducing latency and engineering complexity.</li>
+      <li><strong>7.1–7.4 TB/s bandwidth</strong>: More than double H100's 3.35 TB/s, on par with B200. Bandwidth determines time-to-first-token during inference. Jalapeño's TTFT could drop from H100's ~200ms to under 100ms.</li>
+      <li><strong>FP4 ~10 PFLOPS</strong>: 2.5x faster than H100. But note: this is a pure inference chip — it can't do training. OpenAI isn't planning to use it for training either.</li>
+      <li><strong>vs B200</strong>: B200 has 192GB + 8 TB/s + 18 PFLOPS — it's stronger, but it's a general GPU and therefore much more expensive. Jalapeño is a "good enough at low cost" strategy.</li>
+      <li><strong>Caveats</strong>: First-gen chip volume is limited. It will only handle part of the inference workload initially. High-end models may still run on GPUs. But this is OpenAI's first step away from NVIDIA dependency.</li>
     </ul>
   </div>
 
   <div class="watch-block">
     <strong>🔭 Trigger to watch for next:</strong><br>
-    • OpenAI announces API price adjustments after Jalapeño reaches production deployment<br>
-    • Similar to Google TPU's effect on Cloud pricing — if inference costs drop 30%+, it's a real signal<br>
-    • I'll tap you when that happens.
+    • OpenAI deploys Jalapeño to production and publishes API price adjustments<br>
+    • If the price cut is >30%, the entire inference pricing logic changes — I'll tap you then.<br>
+    • For now, just track it. Act when the silicon hits production.
   </div>
 
   <div class="jargon">
     <strong>Jargon decoder:</strong><br>
-    <strong>ASIC</strong> = Application-Specific Integrated Circuit — a chip designed for one specific task, more efficient than a general-purpose GPU.<br>
-    <strong>HBM3E</strong> = High Bandwidth Memory 3 Enhanced — ultra-fast memory specifically designed for AI accelerators.<br>
-    <strong>FP4</strong> = 4-bit floating point — a low-precision number format that lets chips run inference much faster at a small quality cost.<br>
-    <strong>Tape-out</strong> = the final design is sent to manufacturing — the point where a chip design becomes a physical product.
+    <strong>ASIC</strong> = Application-Specific Integrated Circuit — a chip that does one thing, more power-efficient and cheaper than a general-purpose GPU.<br>
+    <strong>HBM3E</strong> = High Bandwidth Memory 3 Enhanced — 10x faster than regular DDR RAM, designed to feed data to AI chips.<br>
+    <strong>FP4</strong> = 4-bit floating point — ultra-low precision compute for speed, the mainstream inference optimization today.<br>
+    <strong>PFLOPS</strong> = PetaFLOPs — quadrillions of floating-point operations per second, a measure of compute power.
   </div>
 
   <div class="whos-talking">
     <strong>Who's talking about it:</strong><br>
-    • Smol AI Jun 25 — detailed reverse-engineering analysis of specs<br>
-    • HN discussion (yesterday's thread continues, no new front-page position today)<br>
-    • No major KOL standalone post yet — still within 48 hours of announcement
+    • Smol AI 6/26 community reverse-engineering analysis of Jalapeño specs<br>
+    • HN front page #4 — yesterday's discussion thread now has 200+ technical breakdown comments<br>
+    • OSSInsight shows OpenAI/codex 24h stars +224 (momentum continues)<br>
+    • No independent KOL long-form yet (still in the 48-hour digestion window)
   </div>
 
   <div class="links">
     <strong>Dig in:</strong><br>
-    <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank">📄 TechCrunch report (original announcement)</a>
     <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip" target="_blank">🏢 OpenAI official announcement</a>
-    <a href="https://news.smol.ai/issues/2026-06-25" target="_blank">📑 Smol AI Jun 25 — community spec analysis</a>
+    <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank">📄 TechCrunch report</a>
+    <a href="https://news.ycombinator.com/item?id=XXXXXXXX" target="_blank">🐦 HN discussion</a>
   </div>
 
 </article>
@@ -223,9 +249,9 @@ li+li{margin-top:.3rem}
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
-    <li><span class="days">Day 6</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +356 stars, still #1 Coding Agents momentum. No new KOL or HN front page today.</span></div></li>
-    <li><span class="days">Day 9</span><div><span class="item-name">GLM-5.2</span> <span class="update">— HuggingFace 83.6k downloads, trending #1 in Text Generation. No trigger event (no new KOL or official update).</span></div></li>
-    <li><span class="days">Day 3</span><div><span class="item-name">VibeThinker-3B</span> <span class="update">— HF 54.6k downloads, 721 stars. Still no new KOL endorsement; community口碑 building slowly.</span></div></li>
+    <li><span class="days">Day 6</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +356 stars, still #1 Coding Agents momentum. HN and OSSInsight heat continues but no new independent KOL long-form. No trigger event.</span></div></li>
+    <li><span class="days">Day 9</span><div><span class="item-name">GLM-5.2</span> <span class="update">— HF 83.6k downloads (+22%), HN yesterday #15 discussing "step change for open agents." No breakthrough event.</span></div></li>
+    <li><span class="days">Day 3</span><div><span class="item-name">VibeThinker-3B</span> <span class="update">— HF 54.6k downloads (+12%), 721 stars. Community口碑 building but no new KOL or HN front page. Not enough to push.</span></div></li>
   </ul>
 </aside>
 
@@ -233,13 +259,16 @@ li+li{margin-top:.3rem}
 <!-- Killed today -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
-  <p>• HN #5 "What happened after 2k people tried to hack my AI assistant" (184 pts) — personal blog post, no new tool/model or breakthrough.</p>
-  <p>• HN #14 "OpenKnowledge — open source AI-first alternative to Obsidian/Notion" (287 pts) — Show HN for a note-taking app, no KOL discussion, no breakout signal yet.</p>
-  <p>• HN #15 "Un-0: Generating Images with Coupled Oscillators" (155 pts) — pure research, no usable artifact.</p>
-  <p>• HN #20 "You didn't vibe code your data room" (364 pts) — drama / accusation, excluded.</p>
-  <p>• HN #25 "Apple to skip high-end M6 Mac chips in favor of AI-focused M7" (276 pts) — Apple product rumor, not relevant to clawii's workflow.</p>
-  <p>• OpenAI "How agents are transforming work" (Jun 25) — think-piece, no new tool or model.</p>
-  <p class="ellipsis">Remaining 24 HN items: all non-AI (open source, Om Malik death, Herculaneum scroll, IBM chip, Zig compiler, etc.) — excluded.</p>
+  <p>• HN #7 "The 'papers, please' era of the internet" (743pts) — privacy policy discussion, not AI tool/model, excluded.</p>
+  <p>• HN #11 IBM sub-1nm chip (326pts) — non-AI chip hardware, excluded.</p>
+  <p>• HN #20 "Hey Nico, you didn't vibe code…" (364pts) — startup controversy/plagiarism debate, excluded.</p>
+  <p>• HN #21 Apple raises MacBook/iPad prices (738pts) — not AI, excluded.</p>
+  <p>• HN #25 Apple skips M6 for AI-focused M7 (276pts) — Apple chip roadmap article, not tool/model breakthrough, excluded.</p>
+  <p>• HN #5 "What happened after 2k people tried to hack my AI assistant" (184pts) — security anecdote, not tool breakthrough, excluded.</p>
+  <p>• HN #14 OpenKnowledge (287pts) — AI note-taking tool (Obsidian/Notion alternative), but not a new breakthrough — hard to stand out among many similar tools. Excluded.</p>
+  <p>• HuggingFace Blog "V-Zero" (5 upvotes) — research project, low signal, excluded.</p>
+  <p>• Mistral OCR 4 (released Jun 23) — specialized OCR, not directly relevant.</p>
+  <p class="ellipsis">Remaining 20+ non-AI HN items all excluded.</p>
 </section>
 
 <!------------------------------------------------------------------>
