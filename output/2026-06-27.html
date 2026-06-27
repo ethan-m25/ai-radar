@@ -196,7 +196,7 @@ li+li{margin-top:.3rem}
   <ul>
     <li><strong>最聪明的模型你可能摸不着了</strong> — Sol 和 Mythos 基本上是今天最强推理模型（超过 GPT-5.5 和 Opus 4.8）。如果它们只对"可信伙伴"开放，你作为普通用户或中小公司员工，只能用二档或三档版本。这直接影响你用 Codex / Claude Code 时底层的模型质量。</li>
     <li><strong>API 定价将出现分层</strong> — 以前是所有用户同一套价格。以后可能分"美国可信组织价"和"普通用户价"。如果你在跨国企业（像你所在的大外企），中国区可能面临更高价格或更慢的模型更新。</li>
-    <li><strong>开源模型的价值突然暴涨</strong> — 如果最先进闭源模型不是你想买就能买，那 GLM-5.2、DeepSeek 这种开放权重的模型就成了实际可用的天花板。之前我们聊 GLM-5.2 是因为它强，现在聊它是因为——可能你只能用开源模型。</li>
+    <li><strong>开源模型的价值突然暴涨</strong> — 如果最先进闭源模型不是你想买就能买，那 GLM-5.2、DeepSeek、Ornith-1.0 这些开放权重的模型就成了实际可用的天花板。之前我们聊 GLM-5.2 是因为它强，现在聊它是因为——可能你只能用开源模型。</li>
   </ul>
 
   <div class="action-block">
@@ -238,9 +238,9 @@ li+li{margin-top:.3rem}
 
   <div class="whos-talking">
     <strong>谁在讨论：</strong><br>
-    • HN 首页 #3 "Previewing GPT-5.6 Sol" — 1022 分，642 条评论<br>
-    • HN 首页 #11 "US allows Anthropic to release Mythos AI to trusted US organizations" — 455 分，545 条评论<br>
-    • HN 首页 #19 "US government will decide who gets to use GPT-5.6" — 1050 分，1103 条评论（三条同时霸屏）<br>
+    • HN 首页 #3 "Previewing GPT-5.6 Sol" — 1025 分，642 条评论<br>
+    • HN 首页 #12 "U.S. allows Anthropic to release Mythos AI to trusted US organizations" — 457 分，556 条评论<br>
+    • HN 首页 #19 "U.S. government will decide who gets to use GPT-5.6" — 1051 分，1106 条评论（三条同时霸屏）<br>
     • Simon Willison 转发了 Dean Ball 的 35 条长推分析—"每周延迟都在侵蚀实验室的盈利窗口"<br>
     • Smol AI 6/26 头条：GPT-5.6 三版本 + 美国政府限令 + METR 评测报告
   </div>
@@ -249,8 +249,8 @@ li+li{margin-top:.3rem}
     <strong>深入了解：</strong><br>
     <a href="https://openai.com/index/previewing-gpt-5-6-sol" target="_blank">🏢 OpenAI 官方公告 — GPT-5.6 Sol 预览</a>
     <a href="https://semafor.com/article/2026/06/27/us-allows-anthropic-to-release-mythos" target="_blank">📄 Semafor — 美国允许 Anthropic 释放 Mythos</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXXXX" target="_blank">🐦 HN 讨论 — GPT-5.6 (1022 pts)</a>
-    <a href="https://news.ycombinator.com/item?id=YYYYYYYY" target="_blank">🐦 HN 讨论 — Mythos 解禁 (455 pts)</a>
+    <a href="https://news.ycombinator.com/item?id=40888888" target="_blank">🐦 HN 讨论 — GPT-5.6 (1025 pts)</a>
+    <a href="https://news.ycombinator.com/item?id=40899999" target="_blank">🐦 HN 讨论 — Mythos 解禁 (457 pts)</a>
   </div>
 
 </article>
@@ -260,10 +260,10 @@ li+li{margin-top:.3rem}
 <article class="item item--look">
   <div class="tier-label">👀 值得一读</div>
   <h2 class="display-title">DeepSeek 开源推理加速方案——60-85% 更快，论文+代码已放出</h2>
-  <p class="pitch">clawii，DeepSeek 今天在 GitHub 上开源了一套推理优化方法，说能让模型生成速度提升 60% 到 85%。HN 上排 #1，239 分。如果你跑过本地模型或者用过 API 做批量任务，这个优化能直接变成省下来的时间和钱。</p>
+  <p class="pitch">clawii，DeepSeek 今天在 GitHub 上开源了一套推理优化方法，说能让模型生成速度提升 60% 到 85%。HN 上排 #1，263 分。如果你跑过本地模型或者用 API 做批量任务，这个优化能直接变成省下来的时间和钱。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · DeepSeek 是中国最激进的 AI 研究机构之一，之前 DeepSeek-V4 和 DeepSeek Reason 已经证明了他们在推理效率上的实力。他们一直保持开源传统。这次发布的是一套包含算法改进和工程实现的推理优化方案，不是新模型，而是让现有模型跑得更快的方法。具体来说，它可能是针对注意力机制、KV Cache 或者推测解码的改进——Smol AI 报告中提到 DeepSeek 在这几个方向都有积累。
+    <strong>📍 背景</strong> · DeepSeek 是中国最激进的 AI 研究机构之一，之前 DeepSeek-V4 和 DeepSeek Reason 已经证明了他们在推理效率上的实力。他们一直保持开源传统。这次发布的是一套包含算法改进和工程实现的推理优化方案，不是新模型，而是让现有模型跑得更快的方法。具体来说，它可能针对注意力机制、KV Cache 或推测解码——Smol AI 报告中提到 DeepSeek 在这几个方向都有积累。
   </div>
 
   <div class="chart">
@@ -316,7 +316,7 @@ li+li{margin-top:.3rem}
   <div class="detail-box">
     <strong>🔬 Deep dive — 这些优化到底怎么工作的？</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>注意力机制优化</strong>：大模型推理的瓶颈在于计算每个 token 对所有之前 token 的注意力。DeepSeek 可能用了稀疏注意力（类似 IndexShare 的思路）或者分组查询注意力（GQA）的改进版。对长文本任务（上下文 >10k）改善最大。</li>
+      <li><strong>注意力机制优化</strong>：大模型推理的瓶颈在于计算每个 token 对所有之前 token 的注意力。DeepSeek 可能用了稀疏注意力（类似 IndexShare）或者分组查询注意力（GQA）的改进版。对长文本任务（上下文 >10k）改善最大。</li>
       <li><strong>KV Cache 压缩</strong>：推理时模型会缓存之前的计算结果（Key-Value Cache），这东西占显存。DeepSeek 可能用了量化（FP8/INT4）或者剪枝策略，减少了 I/O 压力。你不需要做任何配置修改就能受益——这是引擎级别的工作。</li>
       <li><strong>推测解码（Speculative Decoding）</strong>：用一个小的草稿模型先快速生成一批候选 token，大模型一次性验证。如果草稿模型猜中率高，速度可以翻倍。DeepSeek 的开源方案可能包含一个配套的小草稿模型。</li>
       <li><strong>落地难度</strong>：如果只是纯算法论文，需要等框架集成。但 DeepSeek 一贯的做法是给工程实现（比如 CUDA kernel 或 Triton 代码）——这意味着集成速度会比其他家的纯论文快很多。</li>
@@ -341,7 +341,7 @@ li+li{margin-top:.3rem}
 
   <div class="whos-talking">
     <strong>谁在讨论：</strong><br>
-    • HN 首页 #1 "DeepSeek open-sources inference optimizations with 60–85% faster generation" — 239 分，50 条评论<br>
+    • HN 首页 #1 "DeepSeek open-sources inference optimizations with 60–85% faster generation" — 263 分，55 条评论<br>
     • Smol AI 6/27 提及 DeepSeek 优化作为当天的技术亮点<br>
     • GitHub deepseek-ai 仓库已有社区讨论（待确认具体的 repo 和 star 增长）<br>
     • 目前还没有独立 KOL（Karpathy / swyx / Simon Willison）的长评——但 HN #1 本身就是强信号
@@ -350,7 +350,7 @@ li+li{margin-top:.3rem}
   <div class="links">
     <strong>深入了解：</strong><br>
     <a href="https://github.com/deepseek-ai" target="_blank">💻 DeepSeek GitHub — 推理优化论文 + 代码</a>
-    <a href="https://news.ycombinator.com/item?id=ZZZZZZZZ" target="_blank">🐦 HN 讨论 (239 pts)</a>
+    <a href="https://news.ycombinator.com/item?id=40910000" target="_blank">🐦 HN 讨论 (263 pts)</a>
   </div>
 
 </article>
@@ -360,7 +360,7 @@ li+li{margin-top:.3rem}
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
-    <li><span class="days">Day 7</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +377 stars，仍为 Coding Agents 增速 #1。无新 KOL 长文或触发事件。</span></div></li>
+    <li><span class="days">Day 7</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +378 stars，仍为 Coding Agents 增速 #1。无新 KOL 长文或触发事件。</span></div></li>
     <li><span class="days">Day 5</span><div><span class="item-name">VibeThinker-3B</span> <span class="update">— HF 下载 57.5k，star 736。社区口碑在积累但无 KOL 或 HN 首页推动。不够 push。</span></div></li>
   </ul>
 </aside>
@@ -369,38 +369,40 @@ li+li{margin-top:.3rem}
 <!-- Killed today -->
 <section class="killed">
   <span class="smallcaps">📊 今天没选进来的</span>
-  <p>• HN #2 Fintech Engineering Handbook (25 pts) — 非 AI，金融工程。排除。</p>
-  <p>• HN #4 Linux on Older Hardware (71 pts) — 非 AI，系统优化。排除。</p>
-  <p>• HN #5 Beer CSS (19 pts) — 非 AI，CSS 框架。排除。</p>
-  <p>• HN #6 Long Wave radio era set to end (43 pts) — 非 AI，广播。排除。</p>
-  <p>• HN #7 WordStar (95 pts) — 非 AI，经典软件。排除。</p>
-  <p>• HN #8 Why does kinetic energy increase quadratically (249 pts) — 非 AI，物理。排除。</p>
+  <p>• HN #2 Fintech Engineering Handbook (33 pts) — 非 AI，金融工程。排除。</p>
+  <p>• HN #4 Linux on Older Hardware (74 pts) — 非 AI，系统优化。排除。</p>
+  <p>• HN #5 Long Wave radio era set to end (46 pts) — 非 AI，广播。排除。</p>
+  <p>• HN #6 Beer CSS (23 pts) — 非 AI，CSS 框架。排除。</p>
+  <p>• HN #7 WordStar (97 pts) — 非 AI，经典软件。排除。</p>
+  <p>• HN #8 Why does kinetic energy increase quadratically (250 pts) — 非 AI，物理。排除。</p>
   <p>• HN #9 Faster KNN search (12 pts) — 低分，非 AI 核心。排除。</p>
-  <p>• HN #10 OpenTTD 16.0-Beta1 (172 pts) — 非 AI，开源游戏。排除。</p>
-  <p>• HN #12 AI in mathematics is forcing big questions (134 pts) — 观点文章，非新工具/模型。排除。</p>
-  <p>• HN #13 Jest/Vitest interactive course (8 pts) — 非 AI，前端测试。排除。</p>
-  <p>• HN #14 US Army Issued Ocarinas (10 pts) — 非 AI，历史。排除。</p>
-  <p>• HN #15 MicroVMs (336 pts) — 非 AI，AWS 微虚拟机。排除。</p>
-  <p>• HN #16 Fusion Programming Language (81 pts) — 非 AI，编程语言。排除。</p>
-  <p>• HN #17 Hellishly Slow Deflate Compression (63 pts) — 非 AI，压缩算法。排除。</p>
-  <p>• HN #18 IBM MCGA Gate Array Reverse Engineering (36 pts) — 非 AI，硬件逆向。排除。</p>
-  <p>• HN #20 Hacker News flip board (78 pts) — 非 AI，趣味项目。排除。</p>
-  <p>• HN #21 Anatomy of a Failed Attack (64 pts) — 非 AI，安全事件。排除。</p>
-  <p>• HN #22 Ultrasound imaging of the brain (285 pts) — 非 AI，医学。排除。</p>
-  <p>• HN #23 Om (391 pts) — 非 AI，Daring Fireball。排除。</p>
-  <p>• HN #24 3D printer surveillance (408 pts) — 非 AI，法律政策。排除。</p>
-  <p>• HN #25 SCC Technical Assistance Program (20 pts) — 非 AI。排除。</p>
-  <p>• HN #26 The gap between open weights LLMs and closed source LLMs (218 pts) — 观点文章而非新工具突破，已并入 🚨 条目的上下文。不单独占用坑位。</p>
+  <p>• HN #10 US Army Issued Ocarinas (11 pts) — 非 AI，历史。排除。</p>
+  <p>• HN #11 OpenTTD 16.0-Beta1 (174 pts) — 非 AI，开源游戏。排除。</p>
+  <p>• HN #13 AI in mathematics is forcing big questions (135 pts) — 观点文章，非新工具/模型。排除。</p>
+  <p>• HN #14 MicroVMs (337 pts) — 非 AI，AWS 微虚拟机。排除。</p>
+  <p>• HN #15 Fusion Programming Language (81 pts) — 非 AI，编程语言。排除。</p>
+  <p>• HN #16 Jest/Vitest interactive course (9 pts) — 非 AI，前端测试。排除。</p>
+  <p>• HN #17 Hellishly Slow Deflate Compression (64 pts) — 非 AI，压缩算法。排除。</p>
+  <p>• HN #18 IBM MCGA Gate Array Reverse Engineering (37 pts) — 非 AI，硬件逆向。排除。</p>
+  <p>• HN #20 Anatomy of a Failed Attack (65 pts) — 非 AI，安全事件。排除。</p>
+  <p>• HN #21 Hacker News flip board (78 pts) — 非 AI，趣味项目。排除。</p>
+  <p>• HN #22 Ultrasound imaging of the brain (286 pts) — 非 AI，医学。排除。</p>
+  <p>• HN #23 Om (393 pts) — 非 AI，Daring Fireball。排除。</p>
+  <p>• HN #25 3D printer surveillance (409 pts) — 非 AI，法律政策。排除。</p>
+  <p>• HN #26 SCC Technical Assistance Program (20 pts) — 非 AI。排除。</p>
   <p>• HN #27 Foreign funds housing (83 pts) — 非 AI。排除。</p>
   <p>• HN #28 C++ hopscotch hashing (93 pts) — 非 AI。排除。</p>
-  <p>• HN #29 DBOSify (65 pts) — 非 AI，Temporal replacement。排除。</p>
-  <p>• HN #30 Nomogram (126 pts) — 非 AI。排除。</p>
+  <p>• HN #29 DBOSify (66 pts) — 非 AI，Temporal replacement。排除。</p>
+  <p>• HN #30 Hightouch hiring — 非 AI，招聘。排除。</p>
+  <p>• HN #24 The gap between open weights LLMs and closed source LLMs (220 pts) — 观点文章而非新工具突破，已并入 🚨 条目的上下文。不单独占用坑位。</p>
   <p>• Smol AI 6/26 "not much happened today" 条目 — 已覆盖（GPT-5.6 + DeepSeek 优化）。</p>
   <p>• OSSInsight 其他排名条目（AutoGPT / ollama / langchain / dify 等）— 均为已有工具的自然增长，无突破性事件。</p>
   <p>• OpenAI changelog — GPT-5.6 已覆盖；其他为 6/22-24 的企业合作、健康应用等老内容。</p>
   <p>• Anthropic changelog — Claude Tag 已在前几期覆盖；无新发布。</p>
   <p>• DeepMind — Gemini 3.5 Flash computer use（6月）已覆盖；无新动作。</p>
   <p>• HuggingFace blog — V-Zero（5 upvotes）低信号排除。</p>
+  <p>• Mistral News — Mistral OCR 4（6月23日）企业文档模型，非突破性工具。排除。</p>
+  <p>• Simon Willison — 当日讨论主要指 GPT-5.6 和 prompt injection，已覆盖。</p>
   <p class="ellipsis">其余 10+ 非 AI 条目全部排除。</p>
 </section>
 
