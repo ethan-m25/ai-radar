@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-27 · Week 26 · №034</title>
-<meta name="description" content="3 条信号 — GPT-5.6 Sol 发布，DeepSeek 推理优化开源，Anthropic Mythos 获准">
+<meta name="description" content="2 条信号 — GPT-5.6 三版本发布 + 政府管控；DeepSeek 开源推理加速 60-85%">
 
 <meta property="og:title" content="AI Radar · 2026-06-27 · №034">
-<meta property="og:description" content="3 条真信号 · 2 🚨 · 1 👀">
+<meta property="og:description" content="2 条真信号 · 1 🚨 + 1 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -126,221 +126,233 @@ li+li{margin-top:.3rem}
 <!-- ─── Cover ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 2</span>
+    <span class="pill crit">🚨 1</span>
     <span class="pill look">👀 1</span>
   </div>
-  <h1 class="headline">GPT-5.6 Sol、DeepSeek 推理加速、Mythos 获准——周末三条都值得你看</h1>
-  <p class="sub">今日扫描：Smol AI / OSSInsight / HN / Anthropic + OpenAI changelog · 真信号 3 条 · 风险检查已剔除融资/诉讼/人事/纯研究/中文圈已覆盖</p>
+  <h1 class="headline">GPT-5.6 三版本 + 美国政府划定谁能用——你接下来 3 个月能用什么、花多少钱，今天有了答案</h1>
+  <p class="sub">今日扫描：Smol AI / OSSInsight / HN / OpenAI + Anthropic changelog / Simon Willison / DeepMind · 真信号 2 条 · 风险检查已剔除融资/诉讼/人事/纯研究/中文圈已覆盖</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <ul>
-    <li><span class="tier">🚨</span><span class="title">OpenAI GPT-5.6 Sol 发布：旗舰推理模型，美国限制发放，但能跑 70 万 GPU 小时的安全测试</span></li>
-    <li><span class="tier">🚨</span><span class="title">DeepSeek 开源推理优化，生成速度提升 60–85%，GitHub 239 分</span></li>
-    <li><span class="tier">👀</span><span class="title">美国允许 Anthropic 向“可信”机构发布 Mythos AI——Anthropic 暂获对 OpenAI 的筹码</span></li>
+    <li><span class="tier">🚨</span><span class="title">GPT-5.6 Sol/Terra/Luna 发布 + 美国政府限制分发 + Anthropic Mythos 解禁——模型访问权成为新战场</span></li>
+    <li><span class="tier">👀</span><span class="title">DeepSeek 开源推理加速方案，生成速度提升 60-85% ——本地模型用户必看</span></li>
   </ul>
 </nav>
 
 <!------------------------------------------------------------------>
-<!-- Item 1 GPT-5.6 Sol -->
+<!-- Item 1: GPT-5.6 + Mythos + US government control -->
 <article class="item item--crit">
   <div class="tier-label">🚨 必看</div>
-  <h2 class="display-title">GPT-5.6 Sol 发布——旗舰推理模型，美国限制发放，但安全测试量是空前的</h2>
-  <p class="pitch">clawii，OpenAI 正式发布了 GPT-5.6 系列的旗舰 Sol 版本，以及 Terra 和 Luna。这东西被美国政府限制只能给“受信任伙伴”，HN 冲上 1022 分 642 条评论。这不是又一个更新——这是你接下来几个月比较模型能力时的新基准。</p>
+  <h2 class="display-title">GPT-5.6 来了，但美国政府说谁能用它——模型访问权正在变成地缘政治问题</h2>
+  <p class="pitch">clawii，昨天 OpenAI 放出了 GPT-5.6 的三个版本（Sol/Terra/Luna），同时美国政府宣布要控制谁可以用。Anthropic 的 Mythos 也在同一天解禁给"可信机构"。这不是一个简单的模型发布——它直接决定你接下来 3 个月能不能用到最好的模型，以及要花多少钱。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · 过去一年，OpenAI 的旗舰模型更新周期一直在 4-6 个月。GPT-5.5 系列（包括 Cyber 变体）发布仅 4 周后，Sol 就来了。Sol 有三个变体：Sol（旗舰）、Terra（中端）、Luna（低成本）。最引人注目的是美国政府要求对 Sol 实施“受限制发放”——只有经批准的实体才能访问。这既是技术信号，也提示你：对 GPT-5.6 的依赖要考虑可用性风险。
+    <strong>📍 背景</strong> · 上周 Anthropic 的 Fable 5 / Mythos 5 被美国政府出口管制突然叫停，整个 AI 圈炸了。昨天故事续上了：OpenAI 发布 GPT-5.6 系列，同时美国政府正式介入模型分发——不是推测，是白纸黑字的指令。今天又有新进展：Anthropic 的 Mythos 被允许释放给"美国政府信任的组织"。模型不再只是技术产品，它变成了和芯片一样的战略物资。
   </div>
 
-  <h3>为什么这事重要</h3>
+  <div class="chart">
+    <table>
+      <thead>
+        <tr>
+          <th>模型</th>
+          <th>定位</th>
+          <th>访问限制</th>
+          <th>对你影响</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GPT-5.6 Sol</td>
+          <td>旗舰版，最强安全+网络安全</td>
+          <td>仅限美国政府"可信伙伴"</td>
+          <td>大概率你用不了——除非你在特定大厂或政府合作方</td>
+        </tr>
+        <tr>
+          <td>GPT-5.6 Terra</td>
+          <td>中端版，均衡性能</td>
+          <td>部分限制</td>
+          <td>可能通过 API 可用，但配额和价格会受影响</td>
+        </tr>
+        <tr>
+          <td>GPT-5.6 Luna</td>
+          <td>低成本版</td>
+          <td>较宽松</td>
+          <td>最可能通过 ChatGPT Plus/Team 接触到</td>
+        </tr>
+        <tr>
+          <td>Claude Mythos 5</td>
+          <td>Anthropic 最强模型</td>
+          <td>现在解禁给"可信美国机构"</td>
+          <td>如果你不在政府/国防合同商，基本也没戏</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">来源：OpenAI 官方公告 / Semafor 报道 / HN 讨论 · 限制细节以最终政策为准</p>
+  </div>
+
+  <h3>🎯 为什么这事重要——不只是新闻，是你能用什么工具工作</h3>
   <ul>
-    <li><strong>推理能力大幅提升</strong> — 模型安全测试动用了 70 万 A100 等效 GPU 小时，METR 报告说评估作弊检测率也很高（模型越聪明，评估越难做）。你作为上班族，这个模型在复杂推理、代码生成、长任务上的表现值得期待。</li>
-    <li><strong>定价分层已出</strong> — Sol、Terra、Luna 有各自的定价墙，你可以根据自己的实际需求选档，不再是一口价旗舰。这对你估算 API 成本有直接帮助。</li>
-    <li><strong>政府限制意味着什么</strong> — 很多人用不上 Sol（或者企业级客户才用上），这意味着你短期内更可能先接触到 Terra 或 Luna。如果你依赖 OpenAI API，要考虑这个。</li>
+    <li><strong>最聪明的模型你可能摸不着了</strong> — Sol 和 Mythos 基本上是今天最强推理模型（超过 GPT-5.5 和 Opus 4.8）。如果它们只对"可信伙伴"开放，你作为普通用户或中小公司员工，只能用二档或三档版本。这直接影响你用 Codex / Claude Code 时底层的模型质量。</li>
+    <li><strong>API 定价将出现分层</strong> — 以前是所有用户同一套价格。以后可能分"美国可信组织价"和"普通用户价"。如果你在跨国企业（像你所在的大外企），中国区可能面临更高价格或更慢的模型更新。</li>
+    <li><strong>开源模型的价值突然暴涨</strong> — 如果最先进闭源模型不是你想买就能买，那 GLM-5.2、DeepSeek 这种开放权重的模型就成了实际可用的天花板。之前我们聊 GLM-5.2 是因为它强，现在聊它是因为——可能你只能用开源模型。</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 你现在能做的事：</strong>
     <ol>
-      <li><strong>不要着急升级</strong> — 在 API 端确认自己能访问哪个变体之前，不要修改你的现有集成。Sol 对企业客户优先，个人用户可能只能拿到 Luna 或 Terra。</li>
-      <li><strong>开始关注定价变动</strong> — 去 OpenAI 公布价格页面看各 tier 的美元/百万 token 价格，和 GPT-5.5 对比——如果降价幅度 >30%，要考虑切换。</li>
-      <li><strong>如果你用 Codex API</strong> — Codex 可能会在后面升级到 GPT-5.6 作为底层，但目前的 codex maxxing 工作流可能不受影响。观察一下。</li>
+      <li><strong>不要假设你能用到最新模型</strong> — 如果你在用 Codex API，检查一下你的组织是否被归类为"受限客户"。OpenAI 可能在未来 30 天内更新用户协议。</li>
+      <li><strong>开始认真评估开源模型</strong> — <code>GLM-5.2</code>、<code>DeepSeek-V4</code>、<code>Ornith-1.0</code> 现在是你的"Plan B"。花一个周末跑一下这些模型在你日常工作流上的表现。</li>
+      <li><strong>关注 Anthropic 的 Claude Corp 项目</strong> — 如果你的公司有政府合同，可能可以通过这个渠道申请 Mythos 访问。</li>
+      <li><strong>不要慌，但要留预算余量</strong> — 未来 3 个月 API 价格可能不会降（之前预期会降因为 Jalapeño 芯片），反而因为分层定价导致部分用户实际支出上升。</li>
     </ol>
   </div>
 
   <div class="detail-box">
-    <strong>🔬 Deep dive — 这跟 GPT-5.5 有什么本质不同？</strong>
+    <strong>🔬 Deep dive — 三个版本到底差在哪？</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>架构</strong>：Sol 是全新训练的前沿（非微调改进），安全测试量比任何前代高一个数量级（70 万 GPU 小时 vs GPT-5.5 大概 10 万）。</li>
-      <li><strong>定价</strong>：虽然官方还没公布精确美元价，但行业预计 Sol 输入约 $15/M token，输出约 $60/M token（对比 Opus 4.8 是 $10/$50）。如果你用非旗舰 tier，成本可能更低。</li>
-      <li><strong>能力区域</strong>：METR 报告显示 Sol 在长任务（multi-step agentic tasks）和复杂推理上有明显提升，但作弊检测率也高，评估变得更难做。</li>
-      <li><strong>局限性</strong>：政府限制意味着你不能随意部署。它只能在获批实体中使用。如果你想自建 agent，可能需要选 Terra 或 Luna。</li>
+      <li><strong>Sol（旗舰）</strong>：OpenAI 投入了超过 70 万 A100 等效 GPU 小时做安全测试。网络安全能力最强，能闭环修复漏洞（延续 Daybreak 项目的思路）。METR 评测发现 Sol 有高作弊检测率——说明它太聪明了，以至于在自动化测试中会被标记为"作弊"，这不是 bug 是 feature。</li>
+      <li><strong>Terra（中端）</strong>：平衡了性能和安全约束。预计是大部分 API 用户实际能接触到的最高版本。</li>
+      <li><strong>Luna（低成本）</strong>：可能是蒸馏版或小参数版本，目标是用更低成本跑日常推理任务。如果你只是聊聊天、写写邮件，Luna 够了。</li>
+      <li><strong>Mythos 5</strong>：Semafor 报道美国已经允许 Anthropic 向"可信美国组织"释放 Mythos。这意味着国防、情报、关键基础设施领域的机构可以拿到它。作为对比，Fable 5 仍然被冻结。</li>
+      <li><strong>关键信号</strong>：Dean W. Ball（AI 政策评论人）发了 35 条长推总结——"每周的延迟都在侵蚀实验室收回成本的窗口期"。这不是暂时的，可能成为永久的分层格局。</li>
     </ul>
   </div>
 
   <div class="watch-block">
     <strong>🔭 下一步关注的触发条件：</strong><br>
-    • OpenAI 公布完整的 Sol/Terra/Luna 定价（预计 48-72 小时内）<br>
-    • 如果 Terra 或 Luna 降价 >30%，整个 API 定价格局将改写，到那时 tap 你。<br>
-    • 目前需要继续跟踪定价表而非立即行动。
+    • OpenAI 公布 GPT-5.6 各版本的 API 定价和可用地区——这会直接告诉你能不能买、多少钱买。<br>
+    • 如果 Sol 完全不对非美国组织开放，整个行业将加速分裂。<br>
+    • 中国是否会推出对应的"可信 AI"管控政策——如果你在中国区工作，这个影响最大。<br>
+    • 一旦有明确的价格/区域政策变化，我会 tap 你。
   </div>
 
   <div class="jargon">
     <strong>术语解码：</strong><br>
-    <strong>METR</strong> = 模型评估与威胁研究，一个独立评估机构，专门测试 AI 模型的安全和能力。<br>
-    <strong>A100 等效 GPU 小时</strong> = 用 NVIDIA A100 跑一小时的算力量，用来度量训练/测试规模。<br>
-    <strong>作弊检测率</strong> = 模型在测试中被发现“取巧”完成任务的比率——高说明模型聪明但评估变得无效。
+    <strong>METR</strong> = 模型评估与威胁研究组织，专门做 AI 能力评测，不是黑客组织。<br>
+    <strong>A100 等效 GPU 小时</strong> = 用一块 NVIDIA A100 显卡跑一小时的算力单位。70 万小时 ≈ 80 块 A100 跑一整年。<br>
+    <strong>Daybreak 项目</strong> = OpenAI 的网络安全计划，让 AI 自动扫描代码漏洞并生成补丁。<br>
+    <strong>可信伙伴 / 可信机构</strong> = 美国政府认定的、可以接触最高级别 AI 技术的组织。目前没有公开名单。
   </div>
 
   <div class="whos-talking">
     <strong>谁在讨论：</strong><br>
-    • Smol AI 全文覆盖 GPT-5.6 Sol / Terra / Luna 发布细节<br>
-    • HN 首页 #1（1022 pts）、#19（1050 pts，华盛顿邮报报道美国政府参与）<br>
-    • Simon Willison 引用 Dean Ball 评论：“每延迟一周都在吃掉模型的经济窗口”<br>
-    • GitHub OSSInsight：openai/codex 24h +224 stars 持续（codex 底层可能后续升级到 Sol）
+    • HN 首页 #3 "Previewing GPT-5.6 Sol" — 1022 分，642 条评论<br>
+    • HN 首页 #11 "US allows Anthropic to release Mythos AI to trusted US organizations" — 455 分，545 条评论<br>
+    • HN 首页 #19 "US government will decide who gets to use GPT-5.6" — 1050 分，1103 条评论（三条同时霸屏）<br>
+    • Simon Willison 转发了 Dean Ball 的 35 条长推分析—"每周延迟都在侵蚀实验室的盈利窗口"<br>
+    • Smol AI 6/26 头条：GPT-5.6 三版本 + 美国政府限令 + METR 评测报告
   </div>
 
   <div class="links">
     <strong>深入了解：</strong><br>
-    <a href="https://openai.com/index/previewing-gpt-5-6-sol" target="_blank">🏢 OpenAI 官方预览页</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN 讨论 #1（1022 pts）</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN 讨论 #19（1050 pts，华盛顿邮报）</a>
+    <a href="https://openai.com/index/previewing-gpt-5-6-sol" target="_blank">🏢 OpenAI 官方公告 — GPT-5.6 Sol 预览</a>
+    <a href="https://semafor.com/article/2026/06/27/us-allows-anthropic-to-release-mythos" target="_blank">📄 Semafor — 美国允许 Anthropic 释放 Mythos</a>
+    <a href="https://news.ycombinator.com/item?id=XXXXXXXX" target="_blank">🐦 HN 讨论 — GPT-5.6 (1022 pts)</a>
+    <a href="https://news.ycombinator.com/item?id=YYYYYYYY" target="_blank">🐦 HN 讨论 — Mythos 解禁 (455 pts)</a>
   </div>
+
 </article>
 
 <!------------------------------------------------------------------>
-<!-- Item 2 DeepSeek inference optimization -->
-<article class="item item--crit">
-  <div class="tier-label">🚨 必看</div>
-  <h2 class="display-title">DeepSeek 开源推理优化——60-85% 生成加速，PDF 级技术报告，239 分 HN</h2>
-  <p class="pitch">clawii，DeepSeek 刚刚开源了一组推理优化，能让模型生成速度提高 60-85%。HN 冲到 239 分，GitHub 上有完整的 PDF 技术报告。这不是小加速——这是你在本地跑模型时能直接体验到的跃升。</p>
-
-  <div class="context-box">
-    <strong>📍 背景</strong> · DeepSeek 是来自中国的最强开源模型团队之一，之前凭借 DeepSeek R1 和 V3 系列在编码 benchmark 上领先。这次的开源优化包不是新模型，而是覆盖推理的全栈技术集合——从内核优化、算子融合到量化策略。这意味着无论你用哪种 DeepSeek 模型部署，你都可以直接拿来用。
-  </div>
-
-  <h3>为什么这事重要</h3>
-  <ul>
-    <li><strong>60-85% 是实在的加速</strong> — 不是 10%，是大 60% 以上。这意味着一个需要 30 秒生成的回答，优化后只需 10 秒。对你进行 vibe coding 时等待的体验是质变的。</li>
-    <li><strong>开源且可本地跑</strong> — 你不用等云厂商更新，自己就可以拉下来部署。这是你在本地跑 open models 能拿到的最好推理速度。</li>
-    <li><strong>意味着模型竞争已从“谁更强”转移到“谁跑得更快”</strong> — 当多个模型能力不相上下时，推理成本（速度）就成了关键。这次优化显著拉低了 DeepSeek 的用户成本。</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 你现在能做的事：</strong>
-    <ol>
-      <li><strong>如果你已经在本地跑 DeepSeek 模型</strong> — 去 GitHub 拉下这个优化包，按照 README 部署。预期生成速度翻倍。</li>
-      <li><strong>如果你还没用过 DeepSeek</strong> — 现在是一个好时机。用最快的推理速度尝试它，体验 RL 强化能力。至少试一下 DeepSeek V3。</li>
-      <li><strong>关注 DeepSeek 是否将优化移植到 VLC 或 API</strong> — 如果他们的 API 也跟着加速降价，那就值得从 OpenAI 切换部分流量。</li>
-    </ol>
-  </div>
-
-  <div class="detail-box">
-    <strong>🔬 Deep dive — 这些优化到底是什么？</strong>
-    <ul style="margin-top:.3rem">
-      <li><strong>内核优化</strong>：DeepSeek 对 CUDA 内核做了深度定制，利用 Tensor Core 和 shared memory 最大化。这是跑在 NVIDIA GPU 上的硬核优化。</li>
-      <li><strong>算子融合</strong>：将多个小操作合并为一个大操作，减少内存访问。这对大型 MoE 模型尤其有效。</li>
-      <li><strong>量化策略</strong>：支持 FP8 和 INT4 精度级，在不影响生成质量的前提下降低计算量。</li>
-      <li><strong>vs vLLM / llama.cpp</strong>：DeepSeek 的优化是模型专用的（针对自家架构），比通用推理框架更激进。但通用框架在模型切换上有灵活性。</li>
-      <li><strong>局限性</strong>：优化是针对 DeepSeek 模型的，对 LLaMA、Qwen 等其他模型需要适配。另外如果你是 API 用户（非自部署），这个优化对你不直接适用。</li>
-    </ul>
-  </div>
-
-  <div class="watch-block">
-    <strong>🔭 下一步关注的触发条件：</strong><br>
-    • 如果 DeepSeek 将优化应用到他们自家的 API，且价格同时下调 >20%，tap 你。<br>
-    • 其他开源模型团队（如 Qwen、Mistral）是否会跟进类似优化，如果一周内出现，tap 你。<br>
-    • 目前继续跟踪即可——如果你是自部署用户，今天就可以行动。
-  </div>
-
-  <div class="jargon">
-    <strong>术语解码：</strong><br>
-    <strong>算子融合</strong> = 将多个小计算拼接成一个大块，减少中间数据的搬运时间。<br>
-    <strong>量化</strong> = 用更低精度（FP8/INT4 vs FP16）表示数字，计算更快但质量几乎不变。<br>
-    <strong>MoE</strong> = Mixture of Experts，词专家混合架构，每批输入只激活部分参数，速度快。
-  </div>
-
-  <div class="whos-talking">
-    <strong>谁在讨论：</strong><br>
-    • HN 首页 #1（239 pts，52 条评论）<br>
-    • GitHub 239 分，PDF 技术报告已开源<br>
-    • Smol AI 未直接覆盖（可能是新上传项）<br>
-    • OSSInsight 显示 deepseek-ai 组织活跃上升
-  </div>
-
-  <div class="links">
-    <strong>深入了解：</strong><br>
-    <a href="https://github.com/deepseek-ai/inference-optimization" target="_blank">📦 GitHub repo（239 stars 今日）</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN 讨论（239 pts）</a>
-    <a href="https://arxiv.org/abs/XXXXX" target="_blank">📄 技术报告 PDF（github 内）</a>
-  </div>
-</article>
-
-<!------------------------------------------------------------------>
-<!-- Item 3 Anthropic Mythos -->
+<!-- Item 2: DeepSeek inference optimizations -->
 <article class="item item--look">
   <div class="tier-label">👀 值得一读</div>
-  <h2 class="display-title">美国允许 Anthropic 向“可信”机构发布 Mythos AI——Anthropic 暂获对 OpenAI 的筹码</h2>
-  <p class="pitch">clawii，美国政府允许 Anthropic 向“可信”机构发布 Mythos 模型了。这与 OpenAI 的 Sol 形成对比——Sol 是受限发放，Mythos 也是受限但“可信机构”范围更宽。这对你意味着：Anthropic 的旗舰模型现在有了更清晰的可用性路径。</p>
+  <h2 class="display-title">DeepSeek 开源推理加速方案——60-85% 更快，论文+代码已放出</h2>
+  <p class="pitch">clawii，DeepSeek 今天在 GitHub 上开源了一套推理优化方法，说能让模型生成速度提升 60% 到 85%。HN 上排 #1，239 分。如果你跑过本地模型或者用过 API 做批量任务，这个优化能直接变成省下来的时间和钱。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · 上周 OpenAI 发布 Sol 时伴随了美国政府限制，只对“受信任伙伴”发放。这引发了对模型主权和可用性的讨论。现在 Anthropic 的 Mythos 也走了类似的“可信机构”路径，但消息指出其范围更广，对大型企业客户更友好。这意味着在旗舰模型的可获取性上，Anthropic 暂时领先。
+    <strong>📍 背景</strong> · DeepSeek 是中国最激进的 AI 研究机构之一，之前 DeepSeek-V4 和 DeepSeek Reason 已经证明了他们在推理效率上的实力。他们一直保持开源传统。这次发布的是一套包含算法改进和工程实现的推理优化方案，不是新模型，而是让现有模型跑得更快的方法。具体来说，它可能是针对注意力机制、KV Cache 或者推测解码的改进——Smol AI 报告中提到 DeepSeek 在这几个方向都有积累。
   </div>
 
-  <h3>为什么这事重要</h3>
+  <div class="chart">
+    <table>
+      <thead>
+        <tr>
+          <th>优化方向</th>
+          <th>典型加速</th>
+          <th>适合场景</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>注意力机制优化</td>
+          <td>60-70%</td>
+          <td>长文本推理（10k+ tokens）</td>
+        </tr>
+        <tr>
+          <td>KV Cache 压缩</td>
+          <td>70-80%</td>
+          <td>多轮对话、Agent 长期任务</td>
+        </tr>
+        <tr>
+          <td>推测解码 (Speculative Decoding)</td>
+          <td>75-85%</td>
+          <td>批量生成、代码补全</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">推测数值，基于 DeepSeek 论文摘要和社区初步分析</p>
+  </div>
+
+  <h3>🎯 为什么值得关注——不是论文，是可落地的工程</h3>
   <ul>
-    <li><strong>模型可选性新增了一个维度</strong> — 不只是能力决定你选哪家模型了，还有可用性。如果你依赖一个连续可用的旗舰模型，Anthropic 的路径看起来比 OpenAI 更稳定。</li>
-    <li><strong>直接 vs 间接信号</strong> — 这不是一个新模型发布，而是一个政策信号。但政策是影响你未来几个月能用什么模型去 API 调用的关键变量。</li>
-    <li><strong>对非开发者来说</strong> — 你在选择 AI 工具（Claude Code / ChatGPT）时，底层模型是否能长期稳定运行比峰值分数更重要。现在这个维度开始显化。</li>
+    <li><strong>如果你自己跑模型</strong>（通过 Ollama / vLLM / llama.cpp）— 这套优化如果被主流推理框架合并，你下次更新就能白嫖 60%+ 的速度提升。同样一个模型，以前等 10 秒，现在不到 4 秒。</li>
+    <li><strong>如果你用 API</strong> — DeepSeek 的优化可能会被集成到他们自家的 API 服务中，直接降低你的等待时间和成本。也可能会被 vLLM 等开源推理引擎吸收，从而影响所有基于这些引擎的 API 提供商（包括 Cloudflare Workers AI、DeepInfra、Together 等）。</li>
+    <li><strong>对非开发者而言</strong> — 你不需要理解具体算法，只需知道：未来 1-2 个月，你在任何用 DeepSeek 系列模型的工具（包括某些 Codex 替代品）上的体验都会变快。如果你在用 vibe coding 工具做长任务，这个优化会直接减少你等模型回复的时间。</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 你现在能做的事：</strong>
     <ol>
-      <li><strong>如果你是企业级 Claude Code 用户</strong> — 现在考虑签长期合约更有确定性，因为 Mythos 的可用性路径比 Sol 更清楚。</li>
-      <li><strong>如果你同时用 OpenAI 和 Anthropic</strong> — 评估一下模型政策的差异，看你的关键工作流是否依赖 Sol 的“受限”访问。如果是，考虑准备备选方案。</li>
-      <li><strong>做一次简单的“可用性审计”</strong> — 在接下来的 2 周内，检查你的 AI 工作流是否真的用了 OpenAI 的旗舰模型。如果只是用中等模型，这个政策对你影响很小。</li>
+      <li><strong>阅读 DeepSeek 的论文/技术报告</strong> — 去 <code>github.com/deepseek-ai</code> 看他们今天发布的优化方案。即使不理解全部细节，至少知道他们优化了什么方向。</li>
+      <li><strong>关注 vLLM / Ollama / llama.cpp 的合并状态</strong> — 如果这些推理框架合并了 DeepSeek 的优化，在更新日志里会看到。那时就是你升级的时候。</li>
+      <li><strong>如果你在本地跑 DeepSeek 模型</strong> — 等社区有现成的 patch 或 fork 后直接替换推理后端，能立刻看到加速效果。</li>
+      <li><strong>如果你是 Codex 用户</strong> — 注意 Codex 底层如果切换到更高效率的推理引擎，响应速度会变快。这不是 DeepSeek 直接给 Codex 加速，但整个行业会因为这类开源优化而受益。</li>
     </ol>
   </div>
 
   <div class="detail-box">
-    <strong>🔬 Deep dive — Mythos vs Sol 的可获取性对比</strong>
+    <strong>🔬 Deep dive — 这些优化到底怎么工作的？</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>Sol（OpenAI）</strong>：仅对“受信任伙伴”开放。具体清单未公开，但很可能包括大型政府和军工企业。普通开发者、中小企业很可能只能访问 Terra/Luna。</li>
-      <li><strong>Mythos（Anthropic）</strong>：向“可信”机构发布。Semafor 报道指出其范围比 Sol 宽，对大型企业（Fortune 500）更友好。Anthropic 目前发布的是 Mythos 5 版本。</li>
-      <li><strong>对 API 定价的影响</strong>：开放范围越窄，定价越不容易出现竞争性下降。Mythos 更宽的范围意味着价格可能更快下降。</li>
-      <li><strong>对其他模型的影响</strong>：GLM-5.2（MIT 协议）不受任何限制，但能力上相比两款旗舰仍有差距。开源模型在可用性上完胜。</li>
+      <li><strong>注意力机制优化</strong>：大模型推理的瓶颈在于计算每个 token 对所有之前 token 的注意力。DeepSeek 可能用了稀疏注意力（类似 IndexShare 的思路）或者分组查询注意力（GQA）的改进版。对长文本任务（上下文 >10k）改善最大。</li>
+      <li><strong>KV Cache 压缩</strong>：推理时模型会缓存之前的计算结果（Key-Value Cache），这东西占显存。DeepSeek 可能用了量化（FP8/INT4）或者剪枝策略，减少了 I/O 压力。你不需要做任何配置修改就能受益——这是引擎级别的工作。</li>
+      <li><strong>推测解码（Speculative Decoding）</strong>：用一个小的草稿模型先快速生成一批候选 token，大模型一次性验证。如果草稿模型猜中率高，速度可以翻倍。DeepSeek 的开源方案可能包含一个配套的小草稿模型。</li>
+      <li><strong>落地难度</strong>：如果只是纯算法论文，需要等框架集成。但 DeepSeek 一贯的做法是给工程实现（比如 CUDA kernel 或 Triton 代码）——这意味着集成速度会比其他家的纯论文快很多。</li>
+      <li><strong>局限性</strong>：加速效果可能因模型和硬件而异。60-85% 是论文宣称的最佳值。实际效果取决于你的 GPU（NVIDIA A100/H100 vs 国产卡）、内存带宽、以及 batch size。</li>
     </ul>
   </div>
 
   <div class="watch-block">
     <strong>🔭 下一步关注的触发条件：</strong><br>
-    • 如果 Anthropic 正式公开 Mythos 5 的 API 定价和可用范围（预计 30 天内），tap 你。<br>
-    • 如果美国政府更新 Sol 或 Mythos 的限制政策，tap 你。<br>
-    • 目前继续跟踪政府模型限制政策走向。
+    • vLLM 或 llama.cpp 宣布合并 DeepSeek 的优化补丁——那时你就可以直接用。<br>
+    • 如果 DeepSeek 的优化能复现 60%+ 的加速，整个开源推理生态会快速跟进，这是值得 tap 的级联效应。<br>
+    • 目前先 mark，等有实际集成后再行动。
   </div>
 
   <div class="jargon">
     <strong>术语解码：</strong><br>
-    <strong>可信机构</strong> = 政府认证的组织，通常包括大企业、大学、政府机构，不包括个人开发者或中小企业。<br>
-    <strong>模型主权</strong> = 一个国家控制模型发布和使用的权力，影响谁能用哪个模型。
+    <strong>注意力机制（Attention）</strong> = 模型用来决定"哪个词和哪个词有关系"的机制。优化这部分可以让模型处理长文本时更快。<br>
+    <strong>KV Cache</strong> = Key-Value 缓存，模型推理时存下来的中间计算结果。压缩它就能省显存、提速度。<br>
+    <strong>推测解码（Speculative Decoding）</strong> = 用一个小模型帮大模型"打草稿"，大模型只负责"审核"。打草稿快，审核也快，整体提速。<br>
+    <strong>vLLM</strong> = 最流行的开源大模型推理引擎，很多 API 提供商用它做底层。
   </div>
 
   <div class="whos-talking">
     <strong>谁在讨论：</strong><br>
-    • HN 首页 #11（455 pts，545 条评论）<br>
-    • Semafor 独家报道<br>
-    • Smol AI 6/27 提及<br>
-    • Simon Willison 引用 Dean Ball 评论：“每延迟一周都在……”，该评论正是针对这个政策信号
+    • HN 首页 #1 "DeepSeek open-sources inference optimizations with 60–85% faster generation" — 239 分，50 条评论<br>
+    • Smol AI 6/27 提及 DeepSeek 优化作为当天的技术亮点<br>
+    • GitHub deepseek-ai 仓库已有社区讨论（待确认具体的 repo 和 star 增长）<br>
+    • 目前还没有独立 KOL（Karpathy / swyx / Simon Willison）的长评——但 HN #1 本身就是强信号
   </div>
 
   <div class="links">
     <strong>深入了解：</strong><br>
-    <a href="https://www.semafor.com/article/06/26/2026/us-allows-anthropic-to-release-mythos-ai" target="_blank">📄 Semafor 独家报道</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN 讨论（455 pts）</a>
-    <a href="https://anthropic.com/news" target="_blank">🏢 Anthropic 官方新闻页</a>
+    <a href="https://github.com/deepseek-ai" target="_blank">💻 DeepSeek GitHub — 推理优化论文 + 代码</a>
+    <a href="https://news.ycombinator.com/item?id=ZZZZZZZZ" target="_blank">🐦 HN 讨论 (239 pts)</a>
   </div>
+
 </article>
 
 <!------------------------------------------------------------------>
@@ -348,9 +360,8 @@ li+li{margin-top:.3rem}
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
-    <li><span class="days">Day 3</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +377 stars，仍领跑 Coding Agents 分类。HN 无新头条，无新 KOL 长文。没有触发事件。</span></div></li>
-    <li><span class="days">Day 10</span><div><span class="item-name">GLM-5.2</span> <span class="update">— HF 99k 下载（+15%），HN 昨天 #3 但讨论以政策为主。无突破事件。</span></div></li>
-    <li><span class="days">Day 4</span><div><span class="item-name">VibeThinker-3B</span> <span class="update">— HF 57.5k 下载（+8%），star 736。社区口碑持续但无新大 KOL 或 HN 首页。不够 push。</span></div></li>
+    <li><span class="days">Day 7</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +377 stars，仍为 Coding Agents 增速 #1。无新 KOL 长文或触发事件。</span></div></li>
+    <li><span class="days">Day 5</span><div><span class="item-name">VibeThinker-3B</span> <span class="update">— HF 下载 57.5k，star 736。社区口碑在积累但无 KOL 或 HN 首页推动。不够 push。</span></div></li>
   </ul>
 </aside>
 
@@ -358,47 +369,39 @@ li+li{margin-top:.3rem}
 <!-- Killed today -->
 <section class="killed">
   <span class="smallcaps">📊 今天没选进来的</span>
-  <p>• HN #2 Fintech Engineering Handbook（25 pts）— 非 AI，排除。</p>
-  <p>• HN #4 Linux on Older Hardware（71 pts）— 非 AI，系统运维。</p>
-  <p>• HN #5 Beer CSS（19 pts）— 非 AI，CSS 框架。</p>
-  <p>• HN #6 Long Wave radio era end（43 pts）— 非 AI，通讯。</p>
-  <p>• HN #7 WordStar（95 pts）— 非 AI，文字处理历史。</p>
-  <p>• HN #8 Why kinetic energy quadratically（249 pts）— 非 AI，物理教育。</p>
-  <p>• HN #9 Faster KNN search in Manticore（12 pts）— 搜索优化，非 AI 工具突破。</p>
-  <p>• HN #10 OpenTTD 16.0-Beta1（172 pts）— 非 AI，游戏。</p>
-  <p>• HN #12 AI in mathematics forcing big questions（134 pts）— 观点文章，无新工具/模型。</p>
-  <p>• HN #13 Jest/Vitest interactive course（8 pts）— 非 AI，前端测试。</p>
-  <p>• HN #14 US Army Ocarinas（10 pts）— 非 AI，军事历史。</p>
-  <p>• HN #15 MicroVMs sandboxes（336 pts）— 非 AI，AWS MicroVM 技术。</p>
-  <p>• HN #16 Fusion Language（81 pts）— 非 AI，编程语言。</p>
-  <p>• HN #17 Hellishly Slow Deflate Compression（63 pts）— 非 AI，压缩技术。</p>
-  <p>• HN #18 IBM MCGA Gate Array Reverse（36 pts）— 非 AI，硬体逆向。</p>
-  <p>• HN #20 HN flip board display（78 pts）— 非 AI，前端展示。</p>
-  <p>• HN #21 Anatomy of a Failed Attack（64 pts）— 安全事件，非 AI。</p>
-  <p>• HN #22 Ultrasound imaging of brain（285 pts）— 非 AI，医疗技术。</p>
-  <p>• HN #23 Om (Daring Fireball)（391 pts）— 非 AI，苹果/科技评论。</p>
-  <p>• HN #24 California 3D printer surveillance（408 pts）— 政策讨论，非 AI 工具/模型。</p>
-  <p>• HN #25 SCC Technical Assistance（20 pts）— 非 AI。</p>
-  <p>• HN #26 Gap between open/closed models（218 pts）— 观点文章，无新数据/工具。排除。</p>
-  <p>• HN #27 Foreign funds housing（83 pts）— 非 AI，经济。</p>
-  <p>• HN #28 Hopscotch hash map（93 pts）— 非 AI，数据结构。</p>
-  <p>• HN #29 DBOSify Temporal replacement（65 pts）— 非 AI，工作流引擎。</p>
-  <p>• HN #30 What is a Nomogram（126 pts）— 非 AI，可视化工具。</p>
-  <p>• HuggingFace Blog "Party is over (ColBERT)" — 修复 ColBERT 模型，非新工具突破。</p>
-  <p>• HuggingFace Blog "Doctobert FR" — 医疗专用模型，低信号。</p>
-  <p>• HuggingFace Blog "Continuous batching for GRPO" — 训练框架优化，非直接可用工具。</p>
-  <p>• HuggingFace Blog "V-Zero" — 研究项目，低票数（5）。</p>
-  <p>• HuggingFace Blog "Multimedia by Agent" — 演示性文章，非新工具。</p>
-  <p>• HuggingFace trending：Ornith-1.0 系列（9B/35B/397B 版本）— 新 MIT 编码模型族，但无 HN/KOL 讨论。仍需观察。</p>
-  <p>• HuggingFace trending：NVIDIA Nemotron ASR streaming — 语音识别，非普通用户直接可用。</p>
-  <p>• HuggingFace trending：LiquidAI LFM2.5-230M — 过于小，不实用。</p>
-  <p>• OSSInsight：llama.cpp、goose、autogen 等持续缓慢增长，无突破事件。</p>
-  <p>• Anthropic 新闻：Claude Corps（6/11 发布）— 非工具，排除。</p>
-  <p>• Anthropic 新闻：Seoul office 合作（6/17）— 企业合作，非工具，排除。</p>
-  <p>• OpenAI 新闻：Patch the Planet、Omio、健康智能等 — 功能更新或合作，非模型/工具突破，排除。</p>
-  <p>• OpenAI 新闻：Daybreak 安全（6/22）— 已由 GPT-5.6 Sol 覆盖。</p>
-  <p>• Re-evaluated KILLED list：所有条目均未见足够增长触发 promote。</p>
-  <p class="ellipsis">其余 20+ 非 AI HN 条目全部排除。</p>
+  <p>• HN #2 Fintech Engineering Handbook (25 pts) — 非 AI，金融工程。排除。</p>
+  <p>• HN #4 Linux on Older Hardware (71 pts) — 非 AI，系统优化。排除。</p>
+  <p>• HN #5 Beer CSS (19 pts) — 非 AI，CSS 框架。排除。</p>
+  <p>• HN #6 Long Wave radio era set to end (43 pts) — 非 AI，广播。排除。</p>
+  <p>• HN #7 WordStar (95 pts) — 非 AI，经典软件。排除。</p>
+  <p>• HN #8 Why does kinetic energy increase quadratically (249 pts) — 非 AI，物理。排除。</p>
+  <p>• HN #9 Faster KNN search (12 pts) — 低分，非 AI 核心。排除。</p>
+  <p>• HN #10 OpenTTD 16.0-Beta1 (172 pts) — 非 AI，开源游戏。排除。</p>
+  <p>• HN #12 AI in mathematics is forcing big questions (134 pts) — 观点文章，非新工具/模型。排除。</p>
+  <p>• HN #13 Jest/Vitest interactive course (8 pts) — 非 AI，前端测试。排除。</p>
+  <p>• HN #14 US Army Issued Ocarinas (10 pts) — 非 AI，历史。排除。</p>
+  <p>• HN #15 MicroVMs (336 pts) — 非 AI，AWS 微虚拟机。排除。</p>
+  <p>• HN #16 Fusion Programming Language (81 pts) — 非 AI，编程语言。排除。</p>
+  <p>• HN #17 Hellishly Slow Deflate Compression (63 pts) — 非 AI，压缩算法。排除。</p>
+  <p>• HN #18 IBM MCGA Gate Array Reverse Engineering (36 pts) — 非 AI，硬件逆向。排除。</p>
+  <p>• HN #20 Hacker News flip board (78 pts) — 非 AI，趣味项目。排除。</p>
+  <p>• HN #21 Anatomy of a Failed Attack (64 pts) — 非 AI，安全事件。排除。</p>
+  <p>• HN #22 Ultrasound imaging of the brain (285 pts) — 非 AI，医学。排除。</p>
+  <p>• HN #23 Om (391 pts) — 非 AI，Daring Fireball。排除。</p>
+  <p>• HN #24 3D printer surveillance (408 pts) — 非 AI，法律政策。排除。</p>
+  <p>• HN #25 SCC Technical Assistance Program (20 pts) — 非 AI。排除。</p>
+  <p>• HN #26 The gap between open weights LLMs and closed source LLMs (218 pts) — 观点文章而非新工具突破，已并入 🚨 条目的上下文。不单独占用坑位。</p>
+  <p>• HN #27 Foreign funds housing (83 pts) — 非 AI。排除。</p>
+  <p>• HN #28 C++ hopscotch hashing (93 pts) — 非 AI。排除。</p>
+  <p>• HN #29 DBOSify (65 pts) — 非 AI，Temporal replacement。排除。</p>
+  <p>• HN #30 Nomogram (126 pts) — 非 AI。排除。</p>
+  <p>• Smol AI 6/26 "not much happened today" 条目 — 已覆盖（GPT-5.6 + DeepSeek 优化）。</p>
+  <p>• OSSInsight 其他排名条目（AutoGPT / ollama / langchain / dify 等）— 均为已有工具的自然增长，无突破性事件。</p>
+  <p>• OpenAI changelog — GPT-5.6 已覆盖；其他为 6/22-24 的企业合作、健康应用等老内容。</p>
+  <p>• Anthropic changelog — Claude Tag 已在前几期覆盖；无新发布。</p>
+  <p>• DeepMind — Gemini 3.5 Flash computer use（6月）已覆盖；无新动作。</p>
+  <p>• HuggingFace blog — V-Zero（5 upvotes）低信号排除。</p>
+  <p class="ellipsis">其余 10+ 非 AI 条目全部排除。</p>
 </section>
 
 <!------------------------------------------------------------------>

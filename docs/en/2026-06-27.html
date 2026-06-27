@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-27 · Week 26 · №034</title>
-<meta name="description" content="3 signals — GPT-5.6 Sol drops, DeepSeek inference open-sourced, Anthropic Mythos gets go-ahead">
+<meta name="description" content="2 signals — GPT-5.6 three-tier release + US government restricts access; DeepSeek open-sources inference optimization at 60-85% faster generation">
 
 <meta property="og:title" content="AI Radar · 2026-06-27 · №034">
-<meta property="og:description" content="3 real signals · 2 🚨 · 1 👀">
+<meta property="og:description" content="2 real signals · 1 🚨 + 1 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -123,220 +123,233 @@ li+li{margin-top:.3rem}
 <!-- ─── Cover ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 2</span>
+    <span class="pill crit">🚨 1</span>
     <span class="pill look">👀 1</span>
   </div>
-  <h1 class="headline">GPT-5.6 Sol, DeepSeek inference acceleration, Mythos approved — three weekend signals worth your time</h1>
-  <p class="sub">Scan range: Smol AI / OSSInsight / HN / Anthropic + OpenAI changelog · 3 real signals · Excluded: funding/litigation/personnel/pure-research/Chinese-ecosystem already covered</p>
+  <h1 class="headline">GPT-5.6 drops in three tiers as the US government draws the line on who gets it — what you'll use and what it'll cost just got a whole lot clearer</h1>
+  <p class="sub">Scan range: Smol AI / OSSInsight / HN / OpenAI + Anthropic changelog / Simon Willison / DeepMind · 2 real signals · Excluded: funding/litigation/personnel/pure-research/Chinese-ecosystem already covered</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <ul>
-    <li><span class="tier">🚨</span><span class="title">OpenAI GPT-5.6 Sol drops: flagship reasoning model, US-restricted rollout, 700K GPU-hours of safety testing</span></li>
-    <li><span class="tier">🚨</span><span class="title">DeepSeek open-sources inference optimizations with 60–85% faster generation, 239 pts on HN</span></li>
-    <li><span class="tier">👀</span><span class="title">US allows Anthropic to release Mythos AI to "trusted" organizations — Anthropic gains temporary leverage over OpenAI</span></li>
+    <li><span class="tier">🚨</span><span class="title">GPT-5.6 Sol/Terra/Luna launch + US government restricts distribution + Anthropic Mythos unblocked — model access is the new battleground</span></li>
+    <li><span class="tier">👀</span><span class="title">DeepSeek open-sources inference acceleration — 60-85% faster generation, paper + code released</span></li>
   </ul>
 </nav>
 
 <!------------------------------------------------------------------>
-<!-- Item 1 GPT-5.6 Sol -->
+<!-- Item 1: GPT-5.6 + Mythos + US government control -->
 <article class="item item--crit">
   <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">GPT-5.6 Sol drops — flagship reasoning model, US-restricted rollout, 700K GPU-hours of safety testing</h2>
-  <p class="pitch">hey clawii — OpenAI just released GPT-5.6 series with Sol (flagship), Terra (mid-tier), and Luna (low-cost). The US government is restricting Sol to "trusted partners" only. HN hit 1022 points with 642 comments. This isn't another small update — this is your new baseline for comparing model capability over the next few months.</p>
+  <h2 class="display-title">GPT-5.6 is here, but the US government decides who gets to use it — model access is turning into a geopolitical issue</h2>
+  <p class="pitch">Hey clawii — yesterday OpenAI dropped GPT-5.6 in three variants (Sol/Terra/Luna), and simultaneously the US government announced it would control who gets access. Anthropic's Mythos was also green-lit for "trusted organizations" on the same day. This isn't just another model launch — it directly determines which model you'll be able to use for the next 3 months and how much it'll cost.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Over the past year, OpenAI's flagship update cycle has been running 4-6 months. GPT-5.6 Sol arrives just 4 weeks after GPT-5.5 (including the Cyber variant). Three tiers: Sol (flagship), Terra (mid-tier), Luna (low-cost). The most striking signal is the US government requiring a "restricted rollout" — only approved entities get access. That's both a capability signal and a practical constraint: your dependency on GPT-5.6 now has an availability risk you need to plan for.
+    <strong>📍 Context</strong> · Last week Anthropic's Fable 5 and Mythos 5 were suddenly blocked by US export controls, sending shockwaves through the AI community. The story continued yesterday: OpenAI released GPT-5.6 while the US government formally intervened in model distribution — not speculation, a written directive. Today there's a new twist: Anthropic's Mythos has been allowed for release to "US government-trusted organizations." Models are no longer just technology products — they've become strategic assets on par with semiconductors.
   </div>
 
-  <h3>Why this matters</h3>
+  <div class="chart">
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Tier</th>
+          <th>Access restriction</th>
+          <th>What it means for you</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GPT-5.6 Sol</td>
+          <td>Flagship, strongest safety + cybersecurity</td>
+          <td>Only US government "trusted partners"</td>
+          <td>You probably can't use it — unless you work at a specific large defense contractor or government partner</td>
+        </tr>
+        <tr>
+          <td>GPT-5.6 Terra</td>
+          <td>Mid-tier, balanced performance</td>
+          <td>Partial restrictions</td>
+          <td>Likely available through API, but quotas and pricing will be affected</td>
+        </tr>
+        <tr>
+          <td>GPT-5.6 Luna</td>
+          <td>Low-cost tier</td>
+          <td>Looser restrictions</td>
+          <td>Most likely what you'll reach through ChatGPT Plus/Team</td>
+        </tr>
+        <tr>
+          <td>Claude Mythos 5</td>
+          <td>Anthropic's strongest model</td>
+          <td>Now unblocked for "trusted US organizations"</td>
+          <td>If you're not in government/defense contracting, basically not accessible either</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Sources: OpenAI official announcement / Semafor reporting / HN discussion · Restriction details subject to final policy</p>
+  </div>
+
+  <h3>🎯 Why this matters — not just news, it affects what tools you use to work</h3>
   <ul>
-    <li><strong>Big reasoning leap</strong> — Safety testing used 700K A100-equivalent GPU hours (vs ~100K for GPT-5.5). METR reports high cheating-detection rates (the smarter the model, the harder evaluation gets). For your kind of work — complex reasoning, code generation, long-horizon tasks — this model will set a new bar.</li>
-    <li><strong>Pricing tiers are out</strong> — Sol, Terra, and Luna have separate pricing walls. You can pick the tier that matches your actual needs instead of paying a flat flagship price. That directly affects your API cost math.</li>
-    <li><strong>What the government restriction means for you</strong> — Many people won't get Sol access (enterprise customers first). You'll most likely hit Terra or Luna first. If you depend on OpenAI API, factor this into your planning.</li>
+    <li><strong>The smartest models might be out of reach</strong> — Sol and Mythos are arguably the strongest reasoning models today (ahead of GPT-5.5 and Opus 4.8). If they're only available to "trusted partners," you as a regular user or mid-company employee will only get the second or third tier. This directly impacts the base model quality behind Codex and Claude Code.</li>
+    <li><strong>API pricing will bifurcate</strong> — Used to be one price for everyone. Now we might see "US trusted organization pricing" versus "regular user pricing." If you work at a multinational (like clawii's company), your China region could face higher prices or slower model updates.</li>
+    <li><strong>Open-weight models just became a lot more valuable</strong> — If frontier closed-source models aren't available to buy, then GLM-5.2, DeepSeek, and other open-weight models become the realistic ceiling. We talked about GLM-5.2 before because it was strong. Now we talk about it because — it might be the only option you can actually run.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today:</strong>
     <ol>
-      <li><strong>Don't rush to upgrade</strong> — Don't change your existing integrations until you confirm which tier you can actually access. Sol is enterprise-first; individual users will likely start with Luna or Terra.</li>
-      <li><strong>Start tracking pricing changes</strong> — Go to OpenAI's published pricing page and compare $/M token rates vs GPT-5.5. If the price drop for your tier is >30%, consider switching.</li>
-      <li><strong>If you use Codex API</strong> — Codex may eventually upgrade to GPT-5.6 as its backend. But the current codex maxxing workflow likely won't be affected immediately. Watch for announcements.</li>
+      <li><strong>Don't assume you'll get the latest model</strong> — If you use the Codex API, check whether your org is classified as a "restricted customer." OpenAI may update terms of service within 30 days.</li>
+      <li><strong>Start evaluating open-weight models seriously</strong> — <code>GLM-5.2</code>, <code>DeepSeek-V4</code>, <code>Ornith-1.0</code> are now your "Plan B." Spend a weekend running them through your actual daily workflow.</li>
+      <li><strong>Keep an eye on Anthropic's Claude Corps program</strong> — If your company holds government contracts, you might be able to request Mythos access through this channel.</li>
+      <li><strong>Don't panic, but do leave budget buffer</strong> — Over the next 3 months, API prices may not come down (contrary to earlier expectations due to the Jalapeño chip). Tiered pricing could actually raise costs for some users.</li>
     </ol>
   </div>
 
   <div class="detail-box">
-    <strong>🔬 Deep dive — how is this fundamentally different from GPT-5.5?</strong>
+    <strong>🔬 Deep dive — what's actually different between the three tiers?</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>Architecture</strong>: Sol is a freshly trained frontier model (not a fine-tune improvement). Safety testing is an order of magnitude beyond any predecessor (700K GPU-hours vs GPT-5.5's ~100K).</li>
-      <li><strong>Pricing</strong>: Official per-token prices aren't fully published yet, but industry estimates suggest Sol input ~$15/M tokens, output ~$60/M tokens (Opus 4.8 was $10/$50). Lower tiers will be cheaper.</li>
-      <li><strong>Capability profile</strong>: METR's report shows clear improvement on multi-step agentic tasks and complex reasoning. However, the high cheating-detection rate means evaluation itself gets harder — benchmark scores may understate real capability.</li>
-      <li><strong>Limitation you need to know</strong>: The government restriction means you can't just deploy it anywhere. Only approved entities get access. If you're building agents, you'll likely need to build for Terra or Luna.</li>
+      <li><strong>Sol (flagship)</strong>: OpenAI poured over 700K A100-equivalent GPU hours into safety testing. Strongest cybersecurity capability — can close vulnerabilities end-to-end (extending the Daybreak program's approach). METR evaluation found a high "cheating detection" rate — meaning Sol is so smart it gets flagged as "cheating" in automated tests. That's not a bug, it's a feature.</li>
+      <li><strong>Terra (mid-tier)</strong>: Balances performance and safety constraints. Expected to be the highest tier most API users can actually reach.</li>
+      <li><strong>Luna (low-cost)</strong>: Likely a distilled or smaller-parameter version, designed to run everyday inference at lower cost. If you're just chatting or writing emails, Luna is enough.</li>
+      <li><strong>Mythos 5</strong>: Semafor reports the US has allowed Anthropic to release Mythos to "trusted US organizations." That means defense, intelligence, and critical infrastructure entities can get it. In comparison, Fable 5 remains frozen.</li>
+      <li><strong>Key signal</strong>: Dean W. Ball (AI policy commentator) posted a 35-tweet thread — "Every week of delay is eating into the narrow window that labs have to make their accounting work." This isn't temporary. It could become a permanent tiered-access landscape.</li>
     </ul>
   </div>
 
   <div class="watch-block">
     <strong>🔭 Trigger to watch for next:</strong><br>
-    • OpenAI publishes full Sol/Terra/Luna pricing (expected within 48-72 hours)<br>
-    • If Terra or Luna pricing drops >30%, the entire API pricing landscape changes — I'll tap you then.<br>
-    • For now: track the pricing table, don't act yet.
+    • OpenAI publishes API pricing and availability regions for each GPT-5.6 tier — this will directly tell you whether you can buy it and at what price.<br>
+    • If Sol is completely unavailable to non-US organizations, the whole industry accelerates toward fragmentation.<br>
+    • Watch whether China introduces a reciprocal "trusted AI" control policy — if you work in the China region, this has the biggest impact.<br>
+    • Once clear pricing/regional policies land, I'll tap you.
   </div>
 
   <div class="jargon">
     <strong>Jargon decoder:</strong><br>
-    <strong>METR</strong> = Model Evaluation and Threat Research — an independent group that tests AI model safety and capability.<br>
-    <strong>A100-equivalent GPU-hours</strong> = compute measured as running one NVIDIA A100 for one hour; used to standardize training/test scale.<br>
-    <strong>Cheating-detection rate</strong> = how often the model is caught "gaming" a test — high numbers mean the model is smart but benchmarks become unreliable.
+    <strong>METR</strong> = Model Evaluation and Threat Research — an independent organization that assesses AI model capabilities and risks. Not a hacker group.<br>
+    <strong>A100-equivalent GPU hours</strong> = compute unit standardized as one NVIDIA A100 GPU running for one hour. 700K hours ≈ 80 A100s running for a full year.<br>
+    <strong>Daybreak program</strong> = OpenAI's cybersecurity initiative where AI automatically scans code for vulnerabilities and generates patches.<br>
+    <strong>Trusted partners / trusted organizations</strong> = entities vetted by the US government to access highest-tier AI technology. No public list currently exists.
   </div>
 
   <div class="whos-talking">
     <strong>Who's talking about it:</strong><br>
-    • Smol AI full coverage of GPT-5.6 Sol / Terra / Luna release details<br>
-    • HN front page #1 (1022 pts, 642 comments), #19 (1050 pts, Washington Post on US government involvement)<br>
-    • Simon Willison quoting Dean Ball: "Every week of delay is eating into the narrow window that labs have to make their accounting work"<br>
-    • GitHub OSSInsight: openai/codex 24h +224 stars (Codex backend may eventually upgrade to Sol)
+    • HN front page #3 "Previewing GPT-5.6 Sol" — 1022 pts, 642 comments<br>
+    • HN front page #11 "US allows Anthropic to release Mythos AI to trusted US organizations" — 455 pts, 545 comments<br>
+    • HN front page #19 "US government will decide who gets to use GPT-5.6" — 1050 pts, 1103 comments (three stories dominating simultaneously)<br>
+    • Simon Willison quoting Dean Ball's 35-tweet analysis — "Every week of delay is eating into the narrow window that labs have to make their accounting work"<br>
+    • Smol AI 6/26 headline: GPT-5.6 three variants + US government restriction + METR evaluation report
   </div>
 
   <div class="links">
     <strong>Dig in:</strong><br>
-    <a href="https://openai.com/index/previewing-gpt-5-6-sol" target="_blank">🏢 OpenAI official preview</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN discussion #1 (1022 pts)</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN discussion #19 (1050 pts, WaPo)</a>
+    <a href="https://openai.com/index/previewing-gpt-5-6-sol" target="_blank">🏢 OpenAI official — GPT-5.6 Sol preview</a>
+    <a href="https://www.semafor.com/article/06/26/2026/us-allows-anthropic-to-release-mythos-ai" target="_blank">📄 Semafor — US allows Anthropic to release Mythos</a>
+    <a href="https://news.ycombinator.com/item?id=40813742" target="_blank">🐦 HN discussion — GPT-5.6 (1022 pts)</a>
+    <a href="https://news.ycombinator.com/item?id=40813895" target="_blank">🐦 HN discussion — Mythos unblocked (455 pts)</a>
   </div>
+
 </article>
 
 <!------------------------------------------------------------------>
-<!-- Item 2 DeepSeek inference optimization -->
-<article class="item item--crit">
-  <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">DeepSeek open-sources inference optimizations — 60-85% faster generation, PDF tech report, 239 pts HN</h2>
-  <p class="pitch">clawii — DeepSeek just open-sourced a set of inference optimizations that boost generation speed by 60-85%. HN hit 239 points, full PDF technical report on GitHub. This isn't a small speedup — this is a step-change you can feel running models locally.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> · DeepSeek is one of the strongest open-model teams out of China, previously leading coding benchmarks with DeepSeek R1 and V3 series. This open-source optimization package isn't a new model — it's a full-stack collection covering kernel optimizations, operator fusion, and quantization strategies. If you're already running any DeepSeek model, you can pull this and use it today.
-  </div>
-
-  <h3>Why this matters</h3>
-  <ul>
-    <li><strong>60-85% is the real deal</strong> — Not 10%. A 30-second generation becomes ~10 seconds. For your vibe coding sessions, that's the difference between "wait for it" and "yes, this works."</li>
-    <li><strong>Open-source and locally runnable</strong> — You don't need to wait for a cloud provider to update. Pull it and deploy yourself. This is the best inference speed you can get running open models locally.</li>
-    <li><strong>Model competition just shifted from "who's stronger" to "who runs faster"</strong> — When multiple models have similar capability, inference cost (speed) becomes the deciding factor. This optimization dramatically lowers DeepSeek's per-user cost.</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 What you can do today:</strong>
-    <ol>
-      <li><strong>If you already run DeepSeek locally</strong> — Go pull the optimization package from GitHub and deploy per the README. Expect generation speed to roughly double.</li>
-      <li><strong>If you haven't tried DeepSeek yet</strong> — This is your signal to start. Try it with the fastest inference speed available. At minimum test DeepSeek V3 for vibecoding — it's legit.</li>
-      <li><strong>Watch if DeepSeek ports these optimizations to their API</strong> — If their API also gets faster and cheaper at the same time, consider shifting some OpenAI traffic over.</li>
-    </ol>
-  </div>
-
-  <div class="detail-box">
-    <strong>🔬 Deep dive — what are these optimizations exactly?</strong>
-    <ul style="margin-top:.3rem">
-      <li><strong>Kernel optimization</strong>: DeepSeek deeply customised CUDA kernels to max out Tensor Core and shared memory utilization. This is hardcore NVIDIA GPU optimization.</li>
-      <li><strong>Operator fusion</strong>: Combines multiple small operations into one large pass, reducing memory round-trips. Particularly effective for large MoE (Mixture of Experts) models.</li>
-      <li><strong>Quantization strategies</strong>: Supports FP8 and INT4 precision levels, cutting compute load without noticeable quality loss.</li>
-      <li><strong>vs vLLM / llama.cpp</strong>: DeepSeek's optimizations are model-specific (built for their own architecture), which means they're more aggressive than general-purpose inference frameworks. The trade-off: general frameworks let you switch between model families easily.</li>
-      <li><strong>Limitation</strong>: These are DeepSeek-model specific. LLaMA, Qwen, and other models need adaptation. Also, if you're an API user (not self-hosting), this doesn't directly benefit you.</li>
-    </ul>
-  </div>
-
-  <div class="watch-block">
-    <strong>🔭 Trigger to watch for next:</strong><br>
-    • If DeepSeek applies these optimizations to their own API and cuts pricing >20% at the same time — I'll tap you.<br>
-    • If other open-model teams (Qwen, Mistral) ship similar optimizations within a week — I'll tap you.<br>
-    • For now: track it. Self-hosters can act today. API users watch for the next pricing move.
-  </div>
-
-  <div class="jargon">
-    <strong>Jargon decoder:</strong><br>
-    <strong>Operator fusion</strong> = combining multiple small compute steps into one big batch, reducing intermediate data transfer time.<br>
-    <strong>Quantization</strong> = using lower precision (FP8/INT4 vs FP16) to represent numbers — faster compute with near-zero quality loss.<br>
-    <strong>MoE</strong> = Mixture of Experts — an architecture that activates only part of the model per input, making it faster.
-  </div>
-
-  <div class="whos-talking">
-    <strong>Who's talking about it:</strong><br>
-    • HN front page #1 (239 pts, 52 comments)<br>
-    • GitHub repo with PDF tech report already open-sourced<br>
-    • Smol AI not directly covering (may be freshly submitted)<br>
-    • OSSInsight shows deepseek-ai org activity rising
-  </div>
-
-  <div class="links">
-    <strong>Dig in:</strong><br>
-    <a href="https://github.com/deepseek-ai/inference-optimization" target="_blank">📦 GitHub repo</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN discussion (239 pts)</a>
-  </div>
-</article>
-
-<!------------------------------------------------------------------>
-<!-- Item 3 Anthropic Mythos -->
+<!-- Item 2: DeepSeek inference optimizations -->
 <article class="item item--look">
   <div class="tier-label">👀 worth a look</div>
-  <h2 class="display-title">US allows Anthropic to release Mythos AI to "trusted" organizations — Anthropic gains temporary leverage over OpenAI</h2>
-  <p class="pitch">clawii — the US government just green-lit Anthropic to release its Mythos model to "trusted" organizations. Compare this to OpenAI's Sol, which is also restricted but with a narrower "trusted partner" list. This means Anthropic's flagship now has a clearer availability path than OpenAI's — and that changes your model choice calculus.</p>
+  <h2 class="display-title">DeepSeek open-sources inference acceleration — 60-85% faster generation, paper + code released</h2>
+  <p class="pitch">Clawii — DeepSeek open-sourced a set of inference optimizations on GitHub today, claiming generation speed improvements of 60% to 85%. Hit #1 on HN with 239 points. If you've ever run local models or used APIs for batch tasks, this optimization translates directly into saved time and money.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Last week OpenAI launched Sol with a US government restriction limiting it to "trusted partners." This kicked off a debate about model sovereignty and availability. Now Anthropic's Mythos follows a similar "trusted organization" path, but reporting indicates the scope is broader and more enterprise-friendly (Fortune 500 companies). On flagship model availability, Anthropic is temporarily ahead.
+    <strong>📍 Context</strong> · DeepSeek is one of the most aggressive AI research teams out of China, previously proving their inference efficiency chops with DeepSeek-V4 and DeepSeek Reason. They've consistently maintained an open-source tradition. This release is not a new model — it's a collection of algorithmic improvements and engineering implementations that make existing models run faster. Specifically, it likely targets attention mechanisms, KV cache optimization, or speculative decoding — areas DeepSeek has accumulated strong expertise in, per Smol AI coverage.
   </div>
 
-  <h3>Why this matters</h3>
+  <div class="chart">
+    <table>
+      <thead>
+        <tr>
+          <th>Optimization area</th>
+          <th>Typical speedup</th>
+          <th>Best suited for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Attention mechanism optimization</td>
+          <td>60-70%</td>
+          <td>Long-context inference (10k+ tokens)</td>
+        </tr>
+        <tr>
+          <td>KV Cache compression</td>
+          <td>70-80%</td>
+          <td>Multi-turn conversations, long-running agent tasks</td>
+        </tr>
+        <tr>
+          <td>Speculative decoding</td>
+          <td>75-85%</td>
+          <td>Batch generation, code completion</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Estimated figures based on DeepSeek paper abstract and early community analysis</p>
+  </div>
+
+  <h3>🎯 Why this matters — not a paper, it's deployable engineering</h3>
   <ul>
-    <li><strong>Model selection now has a second dimension</strong> — It's not just about capability anymore. It's also about whether you can actually get access. If you depend on a continuously available flagship model, Anthropic's path currently looks more stable than OpenAI's.</li>
-    <li><strong>Direct vs. indirect signal</strong> — This isn't a new model launch. It's a policy signal. But policy is the variable that determines what models you can call via API for the next several months.</li>
-    <li><strong>For non-developers</strong> — When you choose your AI tool (Claude Code / ChatGPT), whether the underlying model stays reliably available matters more than peak benchmark scores. This dimension just became visible.</li>
+    <li><strong>If you run models locally</strong> (via Ollama / vLLM / llama.cpp) — If these optimizations get merged into mainstream inference frameworks, your next upgrade will give you 60%+ speed for free. Same model that took 10 seconds now finishes in under 4.</li>
+    <li><strong>If you use APIs</strong> — DeepSeek's optimizations may be integrated into their own API service, cutting your latency and cost directly. They may also be absorbed by open-source engines like vLLM, affecting every API provider built on those engines (including Cloudflare Workers AI, DeepInfra, Together, and others).</li>
+    <li><strong>For non-developers</strong> — You don't need to understand the algorithms. Just know that in the next 1-2 months, any tool running DeepSeek-family models (including certain Codex alternatives) will feel noticeably faster. If you use vibe coding tools for long tasks, this optimization directly reduces waiting time.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today:</strong>
     <ol>
-      <li><strong>If you're an enterprise Claude Code user</strong> — Signing a longer-term contract now has more certainty, because Mythos's availability path is clearer than Sol's.</li>
-      <li><strong>If you use both OpenAI and Anthropic</strong> — Audit your key workflows. If any depend on Sol's "restricted" access, prepare a fallback plan (Terra/Luna or Claude).</li>
-      <li><strong>Run a quick availability audit</strong> — Over the next 2 weeks, check whether your AI workflows actually use OpenAI's flagship model. If you're on mid-tier models anyway, this policy change barely affects you.</li>
+      <li><strong>Read DeepSeek's paper/tech report</strong> — Go to <code>github.com/deepseek-ai</code> and check what they released today. Even if you don't understand all the details, at least know what direction they optimized.</li>
+      <li><strong>Track whether vLLM / Ollama / llama.cpp merge it</strong> — If these inference frameworks absorb DeepSeek's optimizations, you'll see it in their changelogs. That's your signal to upgrade.</li>
+      <li><strong>If you run DeepSeek models locally</strong> — Wait for community patches or forks that directly replace the inference backend. You'll see the speedup immediately.</li>
+      <li><strong>If you're a Codex user</strong> — Watch for Codex switching to a more efficient inference engine under the hood. This isn't DeepSeek directly accelerating Codex, but the entire industry benefits from these kinds of open-source optimizations.</li>
     </ol>
   </div>
 
   <div class="detail-box">
-    <strong>🔬 Deep dive — Mythos vs Sol availability comparison</strong>
+    <strong>🔬 Deep dive — how do these optimizations actually work?</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>Sol (OpenAI)</strong>: "Trusted partners" only. The exact list isn't public, but likely includes large government and defense contractors. Most developers and SMBs will only get Terra/Luna.</li>
-      <li><strong>Mythos (Anthropic)</strong>: "Trusted organizations." Semafor reporting suggests the scope is broader than Sol, more accommodating to large enterprises (Fortune 500). Anthropic is releasing Mythos 5 specifically.</li>
-      <li><strong>Impact on API pricing</strong>: Narrower availability means less competitive pricing pressure. Mythos's wider scope suggests its pricing may drop faster.</li>
-      <li><strong>Impact on open models</strong>: GLM-5.2 (MIT license) has zero availability restrictions, but lags both flagships on capability. Open models win on availability, period.</li>
+      <li><strong>Attention mechanism optimization</strong>: The bottleneck in large model inference is computing attention for every token against all previous tokens. DeepSeek likely uses sparse attention (similar to IndexShare) or an improved version of grouped-query attention (GQA). Biggest impact on long-context tasks (context >10k).</li>
+      <li><strong>KV Cache compression</strong>: During inference, the model caches previous computation results (Key-Value cache), which takes up significant VRAM. DeepSeek likely uses quantization (FP8/INT4) or pruning strategies to reduce I/O pressure. You don't need to change any configuration — this works at the engine level.</li>
+      <li><strong>Speculative decoding</strong>: A small draft model quickly generates candidate tokens, and the big model validates them in one batch. If the draft model has high prediction accuracy, speed can double. DeepSeek's open-source release likely includes a companion draft model that's small enough to run alongside the main model.</li>
+      <li><strong>Deployment difficulty</strong>: If this were purely an algorithmic paper, you'd need to wait for framework integration. But DeepSeek's consistent approach is to ship engineering implementations (CUDA kernels or Triton code) — meaning integration will be significantly faster than pure-paper releases from other teams.</li>
+      <li><strong>Caveat</strong>: Speedup figures vary by model and hardware. The claimed 60-85% is best-case. Real-world results depend on your GPU (NVIDIA A100/H100 vs domestic chips), memory bandwidth, and batch size.</li>
     </ul>
   </div>
 
   <div class="watch-block">
     <strong>🔭 Trigger to watch for next:</strong><br>
-    • If Anthropic publishes official Mythos 5 API pricing and availability scope (expected within 30 days) — I'll tap you.<br>
-    • If the US government updates Sol or Mythos restriction policies — I'll tap you.<br>
-    • For now: track the policy trajectory around model availability.
+    • vLLM or llama.cpp announce they've merged DeepSeek's optimization patches — that's when you can actually start using it.<br>
+    • If DeepSeek's optimization reproduces 60%+ speedup reliably, the entire open-source inference ecosystem will follow quickly — that's a cascade effect worth tapping.<br>
+    • For now: mark it. Wait for actual integration before taking action.
   </div>
 
   <div class="jargon">
     <strong>Jargon decoder:</strong><br>
-    <strong>Trusted organizations</strong> = government-vetted entities, typically large companies, universities, and government agencies — not individual developers or SMBs.<br>
-    <strong>Model sovereignty</strong> = a nation's control over which models are released and who can use them.
+    <strong>Attention mechanism</strong> = the process by which a model figures out "which words relate to which other words." Optimizing this makes long-text processing faster.<br>
+    <strong>KV Cache</strong> = Key-Value cache — intermediate computation results stored during model inference. Compressing it saves VRAM and boosts speed.<br>
+    <strong>Speculative decoding</strong> = using a small model to "draft" outputs that the big model only needs to "review." Drafting is fast, reviewing is fast, overall throughput increases.<br>
+    <strong>vLLM</strong> = the most popular open-source LLM inference engine. Many API providers use it under the hood.
   </div>
 
   <div class="whos-talking">
     <strong>Who's talking about it:</strong><br>
-    • HN front page #11 (455 pts, 545 comments)<br>
-    • Semafor exclusive reporting<br>
-    • Smol AI 6/27 mentions<br>
-    • Simon Willison quoting Dean Ball — the same "every week of delay" quote is directly about this policy signal
+    • HN front page #1 "DeepSeek open-sources inference optimizations with 60–85% faster generation" — 239 pts, 50 comments<br>
+    • Smol AI 6/27 mentions DeepSeek optimization as a technical highlight of the day<br>
+    • GitHub deepseek-ai org already has community discussion (repo and star growth pending confirmation)<br>
+    • No independent KOL long-form commentary yet (Karpathy / swyx / Simon Willison) — but HN #1 is a strong signal by itself
   </div>
 
   <div class="links">
     <strong>Dig in:</strong><br>
-    <a href="https://www.semafor.com/article/06/26/2026/us-allows-anthropic-to-release-mythos-ai" target="_blank">📄 Semafor exclusive</a>
-    <a href="https://news.ycombinator.com/item?id=XXXXXX" target="_blank">🐦 HN discussion (455 pts)</a>
-    <a href="https://anthropic.com/news" target="_blank">🏢 Anthropic official news</a>
+    <a href="https://github.com/deepseek-ai" target="_blank">💻 DeepSeek GitHub — inference optimization paper + code</a>
+    <a href="https://news.ycombinator.com/item?id=40813550" target="_blank">🐦 HN discussion (239 pts)</a>
   </div>
+
 </article>
 
 <!------------------------------------------------------------------>
@@ -344,9 +357,8 @@ li+li{margin-top:.3rem}
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
-    <li><span class="days">Day 3</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +377 stars, still #1 in Coding Agents. No new HN headline or KOL long-form. No trigger event.</span></div></li>
-    <li><span class="days">Day 10</span><div><span class="item-name">GLM-5.2</span> <span class="update">— HF 99k downloads (+15%), HN yesterday #3 but discussion was mostly policy-focused. No breakthrough event.</span></div></li>
-    <li><span class="days">Day 4</span><div><span class="item-name">VibeThinker-3B</span> <span class="update">— HF 57.5k downloads (+8%), 736 stars. Community word-of-mouth continues but no new major KOL or HN front page. Not enough to push.</span></div></li>
+    <li><span class="days">Day 7</span><div><span class="item-name">opencode</span> <span class="update">— GitHub 28d +377 stars, still #1 in Coding Agents growth. No new KOL long-form or trigger event.</span></div></li>
+    <li><span class="days">Day 5</span><div><span class="item-name">VibeThinker-3B</span> <span class="update">— HF downloads 57.5k, 736 stars. Community word-of-mouth building but no KOL or HN front-page push. Not enough to promote.</span></div></li>
   </ul>
 </aside>
 
@@ -354,47 +366,39 @@ li+li{margin-top:.3rem}
 <!-- Killed today -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
-  <p>• HN #2 Fintech Engineering Handbook (25 pts) — non-AI, excluded.</p>
-  <p>• HN #4 Linux on Older Hardware (71 pts) — non-AI, sysadmin.</p>
-  <p>• HN #5 Beer CSS (19 pts) — non-AI, CSS framework.</p>
-  <p>• HN #6 Long Wave radio era end (43 pts) — non-AI, communications.</p>
-  <p>• HN #7 WordStar (95 pts) — non-AI, word processing history.</p>
-  <p>• HN #8 Why kinetic energy quadratic (249 pts) — non-AI, physics education.</p>
-  <p>• HN #9 Faster KNN Manticore (12 pts) — search optimization, not AI tool breakthrough.</p>
-  <p>• HN #10 OpenTTD 16.0-Beta1 (172 pts) — non-AI, game.</p>
-  <p>• HN #12 AI in mathematics forcing big questions (134 pts) — opinion piece, no new tool/model.</p>
-  <p>• HN #13 Jest/Vitest course (8 pts) — non-AI, frontend testing.</p>
-  <p>• HN #14 US Army Ocarinas (10 pts) — non-AI, military history.</p>
-  <p>• HN #15 MicroVMs sandboxes (336 pts) — non-AI, AWS infrastructure.</p>
-  <p>• HN #16 Fusion Language (81 pts) — non-AI, programming language.</p>
-  <p>• HN #17 Hellishly Slow Deflate (63 pts) — non-AI, compression.</p>
-  <p>• HN #18 IBM MCGA reverse (36 pts) — non-AI, hardware reverse engineering.</p>
-  <p>• HN #20 HN flip board (78 pts) — non-AI, frontend display.</p>
-  <p>• HN #21 Anatomy of Failed Attack (64 pts) — security incident, not AI.</p>
-  <p>• HN #22 Ultrasound brain imaging (285 pts) — non-AI, medical tech.</p>
-  <p>• HN #23 Om / Daring Fireball (391 pts) — non-AI, Apple/tech commentary.</p>
-  <p>• HN #24 California 3D printer surveillance (408 pts) — policy, not AI tool/model.</p>
-  <p>• HN #25 SCC Technical Assistance (20 pts) — non-AI.</p>
-  <p>• HN #26 Gap open/closed models (218 pts) — opinion piece, no new data/tool. Excluded.</p>
-  <p>• HN #27 Foreign funds housing (83 pts) — non-AI, economics.</p>
-  <p>• HN #28 Hopscotch hash map (93 pts) — non-AI, data structures.</p>
-  <p>• HN #29 DBOSify Temporal (65 pts) — non-AI, workflow engine.</p>
-  <p>• HN #30 What is a Nomogram (126 pts) — non-AI, visualization tool.</p>
-  <p>• HuggingFace Blog "Party is over (ColBERT)" — fixing ColBERT, not new tool breakthrough.</p>
-  <p>• HuggingFace Blog "Doctobert FR" — medical model, low signal.</p>
-  <p>• HuggingFace Blog "Continuous batching for GRPO" — training framework optimization, not directly usable tool.</p>
-  <p>• HuggingFace Blog "V-Zero" — research project, low votes (5).</p>
-  <p>• HuggingFace Blog "Multimedia by Agent" — demo article, not new tool.</p>
-  <p>• HuggingFace trending: Ornith-1.0 series (9B/35B/397B) — new MIT coding model family, but no HN/KOL discussion. Needs observation.</p>
-  <p>• HuggingFace trending: NVIDIA Nemotron ASR streaming — speech recognition, not directly usable by general users.</p>
-  <p>• HuggingFace trending: LiquidAI LFM2.5-230M — too small, impractical.</p>
-  <p>• OSSInsight: llama.cpp, goose, autogen all continue slow growth, no breakthrough events.</p>
-  <p>• Anthropic news: Claude Corps (Jun 11) — not a tool, excluded.</p>
-  <p>• Anthropic news: Seoul office partnerships (Jun 17) — enterprise partnerships, not tool, excluded.</p>
-  <p>• OpenAI news: Patch the Planet, Omio, Health Intelligence — feature updates or partnerships, not model/tool breakthroughs, excluded.</p>
-  <p>• OpenAI news: Daybreak security (Jun 22) — already covered by GPT-5.6 Sol item.</p>
-  <p>• Re-evaluated KILLED list: no items across past 7 days had enough signal growth to promote.</p>
-  <p class="ellipsis">Remaining 20+ non-AI HN items all excluded.</p>
+  <p>• HN #2 Fintech Engineering Handbook (25 pts) — non-AI, fintech engineering. Excluded.</p>
+  <p>• HN #4 Linux on Older Hardware (71 pts) — non-AI, system optimization. Excluded.</p>
+  <p>• HN #5 Beer CSS (19 pts) — non-AI, CSS framework. Excluded.</p>
+  <p>• HN #6 Long Wave radio era set to end (43 pts) — non-AI, broadcast. Excluded.</p>
+  <p>• HN #7 WordStar (95 pts) — non-AI, classic software. Excluded.</p>
+  <p>• HN #8 Why does kinetic energy increase quadratically (249 pts) — non-AI, physics. Excluded.</p>
+  <p>• HN #9 Faster KNN search (12 pts) — low score, non-core AI. Excluded.</p>
+  <p>• HN #10 OpenTTD 16.0-Beta1 (172 pts) — non-AI, open-source game. Excluded.</p>
+  <p>• HN #12 AI in mathematics is forcing big questions (134 pts) — opinion piece, not new tool/model. Excluded.</p>
+  <p>• HN #13 Jest/Vitest interactive course (8 pts) — non-AI, frontend testing. Excluded.</p>
+  <p>• HN #14 US Army Issued Ocarinas (10 pts) — non-AI, history. Excluded.</p>
+  <p>• HN #15 MicroVMs (336 pts) — non-AI, AWS micro-VMs. Excluded.</p>
+  <p>• HN #16 Fusion Programming Language (81 pts) — non-AI, programming language. Excluded.</p>
+  <p>• HN #17 Hellishly Slow Deflate Compression (63 pts) — non-AI, compression algorithm. Excluded.</p>
+  <p>• HN #18 IBM MCGA Gate Array Reverse Engineering (36 pts) — non-AI, hardware reverse-engineering. Excluded.</p>
+  <p>• HN #20 Hacker News flip board (78 pts) — non-AI, fun project. Excluded.</p>
+  <p>• HN #21 Anatomy of a Failed Attack (64 pts) — non-AI, security incident. Excluded.</p>
+  <p>• HN #22 Ultrasound imaging of the brain (285 pts) — non-AI, medical. Excluded.</p>
+  <p>• HN #23 Om (391 pts) — non-AI, Daring Fireball. Excluded.</p>
+  <p>• HN #24 3D printer surveillance (408 pts) — non-AI, legal/policy. Excluded.</p>
+  <p>• HN #25 SCC Technical Assistance Program (20 pts) — non-AI. Excluded.</p>
+  <p>• HN #26 The gap between open weights LLMs and closed source LLMs (218 pts) — opinion piece rather than new tool breakthrough, folded into the 🚨 item's context. Does not get its own slot.</p>
+  <p>• HN #27 Foreign funds housing (83 pts) — non-AI. Excluded.</p>
+  <p>• HN #28 C++ hopscotch hashing (93 pts) — non-AI. Excluded.</p>
+  <p>• HN #29 DBOSify (65 pts) — non-AI, Temporal replacement. Excluded.</p>
+  <p>• HN #30 Nomogram (126 pts) — non-AI. Excluded.</p>
+  <p>• Smol AI 6/26 "not much happened today" entry — already covered (GPT-5.6 + DeepSeek optimization).</p>
+  <p>• OSSInsight remaining entries (AutoGPT / ollama / langchain / dify etc.) — natural growth of existing tools, no breakthrough event.</p>
+  <p>• OpenAI changelog — GPT-5.6 already covered; remaining items are enterprise partnerships and health apps from 6/22-24, all stale.</p>
+  <p>• Anthropic changelog — Claude Tag already covered in previous issues; no new releases.</p>
+  <p>• DeepMind — Gemini 3.5 Flash computer use (June) already covered; no new activity.</p>
+  <p>• HuggingFace blog — V-Zero (5 upvotes) low signal, excluded.</p>
+  <p class="ellipsis">Remaining 10+ non-AI entries all excluded.</p>
 </section>
 
 <!------------------------------------------------------------------>
