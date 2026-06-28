@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-06-28 · Week 26</title>
+    <meta name="description" content="Week 26 Weekly Wrap —— GPT-5.6 三版本 + 美国政府管控模型分发；DeepSeek DSpark 推理加速获社区验证，开源替代方案加速成熟">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 26">
+    <meta property="og:description" content="12 条 daily 信号 · 3 🚨 · 6 👀 · 3 ℹ️ · 5 条幸存进 weekly">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 26ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) {
+            animation-delay: 0.05s;
+        }
+        .weekly-section:nth-of-type(2) {
+            animation-delay: 0.15s;
+        }
+        .weekly-section:nth-of-type(3) {
+            animation-delay: 0.25s;
+        }
+        .weekly-section:nth-of-type(4) {
+            animation-delay: 0.35s;
+        }
+        .weekly-section:nth-of-type(5) {
+            animation-delay: 0.45s;
+        }
+        @keyframes rise {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">今日</a>
+                <a href="./archive.html" class="current">归档</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 06 · 28 · WK 26 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <section class="cover">
+            <span class="kicker smallcaps">Week 26 · 2026-06-22 → 2026-06-28</span>
+            <h1 class="display headline">模型访问权正式分裂，开源推理加速方案获社区认证</h1>
+            <p class="lead">本周 12 条 daily 信号里出现了 3 个 🚨——GPT-5.6 三版本发布+美国政府管控（1025 分）、DeepSeek DSpark 推理加速从 👀 升级为 🚨（764 分）、Claude 身份验证上线（775 分）。三条 🚨 指向同一个方向：你用什么模型、花多少钱、能不能用上最好的模型，正在被地缘政治和基础设施重新定义。但好消息是：DSpark 的社区验证意味着开源模型的速度瓶颈正在被打破，你失去 Fable 5 后的替代工具箱在本周又加固了一层。</p>
+
+            <div class="summary-box">
+                <strong>本周一句话总结：</strong>GPT-5.6 三版本（Sol/Terra/Luna）发布，美国政府正式介入模型分发——Sol 和 Mythos 只对"可信组织"开放，普通用户只能用到二档或三档。同时 DeepSeek DSpark 推理加速方案在 HN 上从 263 分飙到 764 分，社区验证通过，开源模型推理速度有望提升 60-85%。Claude 要求身份验证（775 分）进一步收紧了闭源模型的访问门槛。三条 🚨 叠加：闭源模型越来越难用，开源模型越来越好用。
+            </div>
+
+            <div class="count-row">
+                <div class="total">12</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>3</strong>&nbsp;🚨（本周信号强度回升——GPT-5.6 管控、DSpark 升级、Claude 身份验证）</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>6</strong>&nbsp;👀 worth a look</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>3</strong>&nbsp;ℹ️ FYI</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 条幸存进 weekly · 7 条降级离开跟踪</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 🏆 THE 1 THING -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 本周最重要的唯一一件事</div>
+            <h2 class="display">GPT-5.6 三版本 + 政府管控：模型访问权正式分裂，你的 Plan B 必须升级</h2>
+
+            <p>周六（6/27）OpenAI 发布了 GPT-5.6 的三个版本：Sol（旗舰，仅限美国政府"可信伙伴"）、Terra（中端，部分限制）、Luna（低成本，较宽松）。同一天，美国政府正式宣布将决定谁能使用 GPT-5.6，Anthropic 的 Mythos 5 也被允许释放给"可信美国组织"——但 Fable 5 仍然冻结。HN 上三条相关帖子同时霸屏首页（1025 分、457 分、1051 分），总评论超过 2300 条。这不是一个普通的模型发布——它标志着模型访问权从"谁付钱谁用"变成了"谁被批准谁用"。</p>
+
+            <p>对你（clawii）来说，这意味着：如果你在跨国公司中国区工作，GPT-5.6 Sol 和 Mythos 5 大概率与你无缘。你能用到的最高版本可能是 Terra 或 Luna，而且 API 定价可能出现分层——"美国可信组织价"和"普通用户价"。同时，Claude 身份验证（周一 775 分）进一步收紧了闭源模型的访问门槛，你甚至可能需要绑定真实身份才能继续用 Claude。</p>
+
+            <p>但本周也有好消息。DeepSeek DSpark 推理加速方案在 HN 上从 263 分飙到 764 分（+190%），社区用分数投票确认了它的工程价值。DSpark 能让开源模型推理速度提升 60-85%，而且附带了可直接集成的 CUDA kernel 和 Triton 代码。这意味着你之前关注的 GLM-5.2、DeepSeek-V4、Qwen 等开源模型，在 DSpark 加持下会变得更快、更实用。加上 VibeThinker-3B（HF 下载 57.5k）和 Apertus 主权 AI 模型（405 分），开源替代方案在本周又加固了一层。</p>
+
+            <p><strong>如果本周只做一件事：</strong>认真评估你的模型依赖。检查你的组织是否被 OpenAI 归类为"受限客户"——如果是，立即开始测试 GLM-5.2 或 DeepSeek-V4 作为主力模型。同时关注 vLLM 和 SGLang 是否合并 DSpark 补丁——一旦合并，你的本地推理速度将直接提升 60%+。你失去的 Fable 5 不再只是"有替代品"，而是"替代品正在变得更好"。</p>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 📈 TRENDS BUILDING -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 正在成形的趋势</div>
+            <h2 class="display">三条在本周被确认或加速的方向</h2>
+
+            <!-- Trend 1 -->
+            <div class="trend-item">
+                <div class="trend-name">① 模型访问权地缘政治化——从"谁付钱"到"谁被批准"</div>
+                <p>GPT-5.6 三版本 + 政府管控（1025 分）和 Mythos 5 解禁给"可信组织"（457 分）是本周最重要的政策信号。加上 Claude 身份验证（775 分）和上周 Fable 5 被切断，模型访问权正在变成和芯片一样的战略物资。这不是暂时的——Dean W. Ball 的 35 条长推分析指出"每周的延迟都在侵蚀实验室收回成本的窗口期"，分层格局可能成为永久状态。对你在跨国公司的影响：中国区可能面临更高价格、更慢更新、甚至完全无法访问某些模型。你需要为团队准备一个不依赖美国闭源模型的备选方案。</p>
+            </div>
+
+            <!-- Trend 2 -->
+            <div class="trend-item">
+                <div class="trend-name">② 开源推理加速从"论文"进入"工程落地"阶段</div>
+                <p>DeepSeek DSpark 在 HN 上从 263 分飙到 764 分（+190%），评论从 55 增加到 326，是本周最硬的社区验证信号。DSpark 不是论文——它附带了 CUDA kernel 和 Triton 代码，可以直接集成到 vLLM、SGLang 等主流推理框架。一旦合并，开源模型推理速度提升 60-85%。这对你意味着：如果你用 Codex 或 Claude Code 的底层是开源模型，响应速度会直接变快；如果你自己跑本地模型（Ollama/llama.cpp），等框架合并后就能白嫖加速。VibeThinker-3B（HF 57.5k 下载）和 Apertus（405 分）也在本周获得了社区关注，开源生态正在从"够用"走向"好用"。</p>
+            </div>
+
+            <!-- Trend 3 -->
+            <div class="trend-item">
+                <div class="trend-name">③ AI 芯片自研浪潮加速——OpenAI Jalapeño 规格明朗化</div>
+                <p>OpenAI Jalapeño 芯片本周连续两天占据 HN 首页（714 分 + 后续拆解），社区逆向分析确认了规格：216GB HBM3E、7.1-7.4 TB/s 带宽、FP4 约 10 PFLOPS。这是 OpenAI 摆脱 NVIDIA 依赖的第一步，也是推理成本下降的长期信号。虽然第一代芯片规模有限，但 9 个月的 tape out 周期说明 OpenAI 在硬件上的执行力很强。对非开发者而言：未来 3-6 个月，API 价格可能因自研芯片而下降 30-50%。但注意——这个利好可能被模型访问权分层抵消（便宜但用不到最好的模型）。</p>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 💀 WHAT I CALLED WRONG -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 本周我叫错了 / 过度炒作的信号</div>
+            <h2 class="display">三条被我抬高但没撑住的信号</h2>
+
+            <p><strong>Apple Foundation Models 技术文章（6/15 👀，179 分，#2）</strong> — 上周我把它放在 Still tracking 里，认为 Apple 可能亮出 AI 战略底牌。但到本周结束：没有任何后续动作。没有 API 开放，没有开发者工具，没有与 Claude Code 或 Codex 竞争的迹象。Apple 的模型仍然只存在于 Apple 生态内部。正式降级为 killed，移出跟踪。</p>
+
+            <p><strong>OpenRouter Fusion API（6/15 👀，37 分，#6）</strong> — 当时认为组合多个模型的能力对 Fable 5 被切断后的"模型组合"策略有价值。但 37 分是极低信号，后续没有任何 KOL 讨论或社区采用迹象。OpenRouter 的加价模式也使其成本优势不明确。正式降级为 killed。</p>
+
+            <p><strong>Lore 版本控制系统（6/18-6/19 👀，1156 分，#1）</strong> — 这是上周 HN 最高分的条目，但严格来说它不是一个 AI 工具，而是一个专为 AI 生成代码设计的版本控制系统。1156 分和 613 条评论说明社区对"Git 替代品"有强烈诉求，但 Lore 本身是基础设施，不是模型或工具。放在 AI Radar 里属于信号类型错误。降级为 FYI，已移出核心跟踪。</p>
+
+            <p><strong>已彻底移出跟踪的旧名单</strong> — opencode（Day 28 无信号）、DeepSeek Reasonix（Day 29 无信号）、Big 4 多米诺效应（Day 27 无信号）、Gemini 3.5 Flash（Day 26 无信号）、MCP is dead 争论（Day 22 无回复）、MiMo Code 开源（HN 分数持续下降）、Cohere North Mini Code（连续 5 天无新 KOL 讨论）。这些已在上周的 Weekly Wrap #25 中标注，本周正式确认死亡。</p>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 🔮 WATCH LIST -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 下周关注清单</div>
+            <h2 class="display">未来 7 天盯紧这三件事</h2>
+
+            <div class="watch-item">
+                <strong>① GPT-5.6 各版本的 API 定价和可用地区公布</strong><br>
+                OpenAI 目前只发布了模型预览，还没有公布各版本的具体定价和可用地区。这是决定你"能不能用、花多少钱"的关键信息。如果 Sol 完全不对非美国组织开放，整个行业将加速分裂。如果 Terra 和 Luna 的定价高于预期，开源模型的性价比优势会更加突出。<br>
+                <span class="trigger">触发 → OpenAI 发布 API 定价公告或区域限制政策</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② vLLM / SGLang 是否合并 DSpark 补丁</strong><br>
+                DSpark 的工程价值已经得到社区验证（764 分），但实际落地取决于主流推理框架是否集成。如果 vLLM 或 SGLang 在 2 周内合并 DSpark 补丁，说明工程成熟度极高，你可以直接升级使用。如果迟迟没有合并，说明集成难度比预期大，需要等待社区 fork。<br>
+                <span class="trigger">触发 → vLLM 或 SGLang 发布 release notes 提及 DSpark 集成</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ Claude 身份验证的后续影响——用户流失还是合规常态？</strong><br>
+                Claude 身份验证上线（775 分，645 条评论）可能引发用户迁移。如果下周出现"大量用户转向本地模型或其他 API"的数据（如 OpenRouter 调用量变化、Claude API 调用量下降），说明身份验证正在改变用户行为。如果 Anthropic 发布官方说明澄清验证细节，也可能缓解争议。<br>
+                <span class="trigger">触发 → Anthropic 官方 blog post 说明身份验证细节，或第三方数据显示 Claude 使用量变化</span>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 📅 CALIBRATION METRICS -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 校准指标 — Week 26</div>
+            <h2 class="display">本周数字</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>7 of 7 days（Jun 22–28）</dd>
+
+                <dt>🚨 Items flagged</dt>
+                <dd>3（GPT-5.6 三版本+政府管控 · DeepSeek DSpark 升级 🚨 · Claude 身份验证）</dd>
+
+                <dt>👀 Items flagged</dt>
+                <dd>6（Apertus 开源模型 · GLM-5.2 本地运行 · VibeThinker-3B · Claude Tag · OpenAI Jalapeño · Gemini 3.5 Flash Computer Use · DeepSeek 推理加速初始 👀 · 亚洲 AI 对标 Mythos）</dd>
+
+                <dt>ℹ️ Items flagged</dt>
+                <dd>3（开源模型情绪拐点文章 · VibeThinker 后续 · 亚洲 AI 模型集群）</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>5（🏆 模型访问权分裂 + 开源推理加速 · 📈 地缘政治化 · 📈 推理加速工程落地 · 📈 芯片自研 · 💀 Apple Foundation / Fusion API / Lore 降级）</dd>
+
+                <dt>Items demoted / removed from tracking</dt>
+                <dd>7（Apple Foundation Models 降级 killed · OpenRouter Fusion API 降级 killed · Lore 降级 FYI · opencode 正式死亡 · Reasonix 死亡 · Big 4 死亡 · Gemini Flash 死亡 · MCP 死亡 · Cohere North Mini Code 降级 killed）</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>~58%（正常水平——本周信号质量较高，3 个 🚨 全部幸存）</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>~12–24 小时 ahead on GPT-5.6 管控（英文 HN 周六发布，中文科技媒体周日开始跟进）；~8 小时 ahead on DSpark 升级（周日 HN 764 分，中文圈尚未大规模报道）</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                做你的 AI 虚拟朋友 — 每天 07:07 推送 · 周日 08:00 出 Weekly Wrap · 宁缺毋滥。
+            </p>
+            <p>
+                扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+            </p>
+            <p>
+                剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 26 · 2026-06-28 · 7 dailies · 12 items (3🚨 / 6👀 / 3ℹ️) · 5 survived · 7 demoted/removed
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-06-28 · Week 26</title>
+<meta name="description" content="Week 26 — The week AI access split in two. GPT-5.6 tiered by government approval, DeepSeek DSpark community-validated, Claude identity verification goes live.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 26">
+<meta property="og:description" content="12 daily signals · 3 🚨 · 6 👀 · 3 ℹ️ · 5 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 26ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 06 · 28 · WK 26 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Week 26 · 2026-06-22 → 2026-06-28</span>
+    <h1 class="display headline">The week AI access split in two — and open-source stepped up to fill the gap</h1>
+    <p class="lead">12 daily signals, 3 🚨 — GPT-5.6 landed in three tiers while the US government drew a line around who gets to use it. DeepSeek DSpark's inference optimization was community-validated (764 HN points). Claude made identity verification mandatory. The week after Fable 5 was cut, the question "what do I use instead?" got a much clearer answer: open-source models, accelerated by DSpark, running on your own hardware.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> GPT-5.6 Sol/Terra/Luna dropped alongside a US government directive controlling access — Sol and Mythos 5 are "trusted partner only." DeepSeek DSpark's HN score tripled (263→764), confirming its 60-85% inference speedup is real engineering, not a paper. Claude identity verification (775 pts) tightened closed-source access further. Three 🚨 pointing in the same direction: closed models are getting harder to use, open models are getting faster and more capable.
+    </div>
+
+    <div class="count-row">
+      <div class="total">12</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>3</strong>&nbsp;🚨 critical (signal intensity rebounded — GPT-5.6 controls, DSpark upgrade, Claude identity verification)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>6</strong>&nbsp;👀 worth a look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>3</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 survived to weekly · 7 demoted / removed from tracking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🏆 THE 1 THING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">The week AI access split in two — GPT-5.6 tiered by government approval, while open-source models got a community-validated speedup</h2>
+
+    <p>Saturday (6/27) OpenAI dropped GPT-5.6 in three tiers: Sol (flagship, US "trusted partners" only), Terra (mid-tier, partial restrictions), Luna (low-cost, looser). Same day, the US government formally inserted itself into model distribution, and Anthropic's Mythos 5 was green-lit for "trusted US organizations" — but Fable 5 remains frozen. Three simultaneous HN threads (1025 pts, 457 pts, 1051 pts) totaling 2300+ comments. This isn't a normal model launch. It's the moment model access shifted from "whoever pays" to "whoever is approved."</p>
+
+    <p>For you, clawii: if you're at a multinational with China operations, GPT-5.6 Sol and Mythos 5 are probably out of reach. Your ceiling is Terra or Luna, and API pricing will likely bifurcate — "trusted partner pricing" vs. "everyone else pricing." Claude identity verification (Monday, 775 pts) adds another layer of friction. The access gates are closing.</p>
+
+    <p>But here's the counter-narrative. DeepSeek DSpark hit HN at 263 pts on Saturday, then <em>tripled</em> to 764 pts by Sunday. The community validated it. This isn't a paper — it's CUDA kernels and Triton code that can land in vLLM and SGLang, giving open-source models a 60-85% inference speedup. The GLM-5.2 local run guide (Tuesday, 415 pts) showed you can run a frontier model on your own hardware. VibeThinker-3B (HF 57.5k downloads) proved small models can punch way above their weight. Asian startups are shipping Mythos-like models (Sunday, 238 pts). The story of the week isn't "you lost access to the best models." It's "the models you <em>can</em> use just got significantly faster and more viable."</p>
+
+    <p><strong>If you only do one thing this week:</strong> Audit your model dependency. Check if your organization is a "restricted customer" for GPT-5.6 Sol. If so, spend this week testing GLM-5.2 (via OpenRouter or local GGUF) and DeepSeek-V4 on your actual workflow. Watch for vLLM merging DSpark — that's your signal to upgrade local inference.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📈 TRENDS BUILDING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① AI model access is now geopolitical — from "who pays" to "who is approved"</div>
+      <p>GPT-5.6 tiering + US government directive (1025 pts) and Mythos 5 restricted release (457 pts) are the strongest policy signals this week. Claude identity verification (775 pts) and last week's Fable 5 cutoff complete the picture. Model access is becoming a strategic asset, like semiconductors. Dean W. Ball's 35-tweet analysis put it bluntly: "Every week of delay is eating into the narrow window that labs have to make their accounting work." For multinationals, this means regional fragmentation of AI capabilities. Your China team may face higher prices, slower updates, or outright denial of access to frontier models. Plan B is no longer optional.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Open-source inference acceleration crossed from "paper" to "engineering"</div>
+      <p>DeepSeek DSpark's HN score tripling (263→764 pts, comments 55→326) is the strongest community validation signal we've seen in weeks. It ships with CUDA kernels and Triton code — not just an arXiv paper. Once merged into vLLM or SGLang, it delivers 60-85% faster generation for any compatible model. Combined with the GLM-5.2 local run guide (415 pts) and VibeThinker-3B's steady HF growth (57.5k downloads), the open-source ecosystem is closing the gap on both capability <em>and</em> speed. For you: if your API provider (Together AI, DeepInfra) adopts DSpark, you get faster responses without changing a line of code.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ AI chip self-sufficiency is accelerating — OpenAI Jalapeño specs confirmed</div>
+      <p>OpenAI's Jalapeño chip dominated HN for two days (714 pts + follow-up decode). Community reverse-engineering confirmed: 216GB HBM3E, 7.1-7.4 TB/s bandwidth, ~10 PFLOPS FP4. It's a dedicated inference ASIC, 2.5x faster than H100 on FP4, with 30-50% lower cost. First-gen volume is limited, but the 9-month tape-out cycle shows hardware execution velocity. For non-developers: API prices could drop 30-50% in 3-6 months. Caveat: this benefit may be offset by tiered access pricing (cheaper inference, but you might not be allowed to use the best models on it).</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 💀 WHAT I CALLED WRONG -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">Three signals I elevated that didn't hold</h2>
+
+    <p><strong>Apple Foundation Models technical article (6/15 👀, 179 pts, #2)</strong> — Kept in Still Tracking last week. Zero follow-through in Week 26. No API opened, no developer tools released, no indication Apple's models will compete with Claude Code or Codex externally. The models remain locked inside Apple's ecosystem. Demoted to killed and removed from tracking.</p>
+
+    <p><strong>OpenRouter Fusion API (6/15 👀, 37 pts, #6)</strong> — Weak initial signal (37 pts), zero follow-up KOL discussion or community adoption all week. The direction (model ensembles) is still right, but Fusion API specifically didn't gain traction. Demoted to killed.</p>
+
+    <p><strong>Lore version control system (6/18–6/19 👀, 1156 pts, #1)</strong> — Highest-scoring HN item of the week, but it's infrastructure designed for AI-generated code, not an AI tool or model itself. Category error. Demoted to FYI and removed from core tracking.</p>
+
+    <p><strong>Permanently removed from tracking (clean-up list):</strong> opencode (Day 28, no signal), DeepSeek Reasonix (Day 29, no signal), "Big 4 domino effect" (Day 27, no signal), Gemini 3.5 Flash (Day 26, no signal), "MCP is dead" debate (Day 22, no Anthropic response), MiMo Code open-source (HN score continued declining), Cohere North Mini Code (zero new KOL discussion for 5 consecutive days). These were flagged in last week's wrap and are now formally dead.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🔮 WATCH LIST -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① GPT-5.6 API pricing and regional availability</strong><br>
+      OpenAI hasn't published pricing or the list of "trusted partners" yet. This is the single biggest variable for your budget and tooling next quarter. If Sol is completely unavailable to non-US organizations, the industry accelerates toward fragmentation. If Terra and Luna are priced higher than expected, open-source models' cost advantage becomes even more stark.<br>
+      <span class="trigger">Trigger → OpenAI publishes API pricing tiers and regional availability map</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② vLLM / SGLang merging DSpark patches</strong><br>
+      DSpark's engineering value is community-validated (764 pts), but real adoption depends on integration into mainstream inference frameworks. If vLLM or SGLang merge DSpark within 2 weeks, the 60-85% speedup becomes real for everyone. If it stalls, integration is harder than expected, and we wait for community forks.<br>
+      <span class="trigger">Trigger → vLLM or SGLang release notes mention DSpark integration</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Claude identity verification fallout — user migration or compliance new normal?</strong><br>
+      Claude identity verification (775 pts, 645 comments) may trigger user migration. Watch for data on OpenRouter traffic changes or Claude API volume drops. If there's a significant shift, it signals that friction is driving users to alternatives (local models, other APIs). If Anthropic publishes a clarifying blog post, it may ease concerns.<br>
+      <span class="trigger">Trigger → Third-party data showing Claude usage changes, or Anthropic official clarification</span>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📅 CALIBRATION METRICS -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 26</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (Jun 22–28)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>3 (GPT-5.6 three tiers + US Gov control · DeepSeek DSpark upgraded to 🚨 · Claude identity verification)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>6 (Apertus open-source model · GLM-5.2 local run guide · VibeThinker-3B · Claude Tag · OpenAI Jalapeño · Gemini 3.5 Flash Computer Use · Asian AI Mythos-like models)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>3 (Samsung Codex deployment · OpenAI DayBreak · VibeThinker follow-up)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>5 (🏆 model access split + open-source fills gap · 📈 geopolitical access · 📈 inference acceleration engineering · 📈 chip self-sufficiency · 💀 Apple Foundation / Fusion API / Lore demoted)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>7 (Apple Foundation Models killed · OpenRouter Fusion API killed · Lore demoted to FYI · opencode formally dead · Reasonix dead · Big 4 dead · Gemini Flash dead · MCP dead · Cohere North Mini Code killed)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~58% (healthy — high signal quality week, 3 🚨 all survived)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~12–24 hours ahead on GPT-5.6 controls (English HN Saturday, Chinese tech media Sunday); ~8 hours ahead on DSpark validation (Sunday 764 pts, Chinese ecosystem not yet covering)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 26 · 2026-06-28 · 7 dailies · 12 items (3🚨 / 6👀 / 3ℹ️) · 5 survived · 7 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>

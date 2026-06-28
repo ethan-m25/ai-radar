@@ -6,6 +6,20 @@
       "date": "2026-06-28",
       "weekday": "Sun",
       "week": 26,
+      "kind": "weekly",
+      "headline": "The week AI access split in two — and open-source stepped up to fill the gap",
+      "summary": "12 daily signals, 3 🚨 — GPT-5.6 landed in three tiers while the US government drew a line around who gets to use it. DeepSeek DSpark's inference optimization wa",
+      "counts": {
+        "crit": 3,
+        "look": 10,
+        "fyi": 2
+      },
+      "url": "weekly_2026-06-28.html"
+    },
+    {
+      "date": "2026-06-28",
+      "weekday": "Sun",
+      "week": 26,
       "issue": 35,
       "kind": "daily",
       "headline": "(no headline)",

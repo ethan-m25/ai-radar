@@ -6,6 +6,20 @@
       "date": "2026-06-28",
       "weekday": "Sun",
       "week": 26,
+      "kind": "weekly",
+      "headline": "模型访问权正式分裂，开源推理加速方案获社区认证",
+      "summary": "本周 12 条 daily 信号里出现了 3 个 🚨——GPT-5.6 三版本发布+美国政府管控（1025 分）、DeepSeek DSpark 推理加速从 👀 升级为 🚨（764 分）、Claude 身份验证上线（775 分）。三条 🚨 指向同一个方向：你用什么模型、花多少钱、能不能用上最好的模型，正在被地缘政治和基",
+      "counts": {
+        "crit": 3,
+        "look": 8,
+        "fyi": 1
+      },
+      "url": "weekly_2026-06-28.html"
+    },
+    {
+      "date": "2026-06-28",
+      "weekday": "Sun",
+      "week": 26,
       "issue": 35,
       "kind": "daily",
       "headline": "(no headline)",
