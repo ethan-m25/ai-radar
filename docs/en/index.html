@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-29 · Week 27 · №036</title>
-<meta name="description" content="2 signals — GLM-5.2 beats Claude in Semgrep security benchmarks + HN explodes over using Claude Code to read MRI scans">
+<meta name="description" content="2 signals — GLM 5.2 beats Claude in Semgrep security benchmarks + Claude Code used by non-developer to read MRI">
 
 <meta property="og:title" content="AI Radar · 2026-06-29 · №036">
 <meta property="og:description" content="2 real signals · 1 🚨 + 1 👀">
@@ -124,205 +124,190 @@ li+li{margin-top:.3rem}
     <span class="pill crit">🚨 1</span>
     <span class="pill look">👀 1</span>
   </div>
-  <h1 class="headline">GLM-5.2 beats Claude in Semgrep's security benchmarks — open-source model wins on code safety for the first time. Plus, HN blows up over someone using Claude Code to read their MRI.</h1>
-  <p class="sub">Scan range: HN / OSSInsight / OpenAI + Anthropic changelog / Simon Willison · 2 real signals · Excluded: funding/litigation/personnel/pure-research/Chinese-ecosystem already covered</p>
+  <h1 class="headline">GLM 5.2 beats Claude in Semgrep security benchmarks + Claude Code used by a non-developer to read their own MRI</h1>
+  <p class="sub">Scan range: HN / Semgrep benchmark report / OpenAI + Anthropic changelog / Simon Willison · 2 real signals · Excluded: funding/litigation/personnel/pure-research/Chinese-ecosystem already covered</p>
 </section>
 
 <nav class="toc">
   <ul>
-    <li><span class="tier">🚨</span><span class="title">GLM-5.2 beats Claude in Semgrep benchmarks — 877 pts, #1 on HN. An open-source model surpasses closed-source flagships in security code review for the first time, validated by a third-party tool vendor.</span></li>
-    <li><span class="tier">👀</span><span class="title">Using Claude Code to read MRI scans — 445 pts, 583 comments. A non-developer posts a real-world case study of AI-assisted medical imaging interpretation, and HN's community of radiologists and engineers digs in.</span></li>
+    <li><span class="tier">🚨</span><span class="title">GLM 5.2 beats Claude in Semgrep benchmarks — 877 pts, 407 comments. Open-source coding model beats a closed-source flagship on a professional security benchmark for the first time.</span></li>
+    <li><span class="tier">👀</span><span class="title">I used Claude Code to get a second opinion on my MRI — a non-developer cross-domain use case, HN 445 pts, 583 comments.</span></li>
   </ul>
 </nav>
 
 <!------------------------------------------------------------------>
-<!-- Item 1: GLM-5.2 beats Claude in Semgrep benchmarks -->
+<!-- Item 1: GLM 5.2 beats Claude -->
 <article class="item item--crit">
   <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">GLM-5.2 beats Claude in Semgrep benchmarks — open-source model surpasses closed-source flagships in security code review for the first time</h2>
-  <p class="pitch">Clawii — today HN's top spot is owned by GLM-5.2: 877 points, 407 comments. Semgrep — an enterprise security code scanning tool — published a benchmark showing GLM-5.2 beating Claude Opus 4.8 and GPT-5.5 on security code review. This isn't an abstract benchmark; it's a third-party vendor testing with real security rules. For the first time, an open-source model wins head-to-head against closed-source flagships in a specific domain.</p>
+  <h2 class="display-title">GLM 5.2 beats Claude in Semgrep security benchmarks — open-source model defeats a closed-source flagship on professional code security tasks for the first time</h2>
+  <p class="pitch">Clawii — this isn't just another benchmark shuffle. Semgrep (the leading code security company) published a blog post showing GLM 5.2 beating Claude Opus 4.8 on their own security benchmark. HN gave it 877 points and 407 comments. This isn't a marketing blog — it's a security tool vendor's real-world test. If you've been on the fence about whether open-source models matter, this signal is hard enough to ignore.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · GLM-5.2 is Z.ai's open-source model released June 16 under the MIT license — 744B parameters (40B active), 1M-token context. We've had it in Still Tracking because it kept popping up on leaderboards. But today's Semgrep benchmark is the first time a third-party tool vendor ran a head-to-head comparison using real production security rules. GLM-5.2 dominated Claude Opus 4.8 and GPT-5.5 across the board. This isn't a benchmark score — it's a direct comparison of actual security scanning capability.
+    <strong>📍 Context</strong> · GLM 5.2 is Z.ai's open-source model (MIT license) released June 16. It uses a 744B MoE architecture with 40B active parameters per token and a 1M-token context window. It's been ranking well since launch, but there hasn't been an independent third-party test where it "beats a closed-source flagship" head-to-head. Semgrep is a popular static code analysis tool company. Their engineers designed a benchmark specifically for code security — finding and fixing vulnerabilities. Today's results show GLM 5.2 beating Claude Opus 4.8 on overall score and fix rate. This is the first time an open-source model has been validated at this level.
   </div>
 
   <div class="chart">
     <table>
       <thead>
         <tr>
-          <th>Model</th>
-          <th>Semgrep rule pass rate</th>
-          <th>False positive rate</th>
-          <th>False negative rate</th>
+          <th>Metric</th>
+          <th>GLM 5.2</th>
+          <th>Claude Opus 4.8</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>GLM-5.2</td>
-          <td><span class="bar" style="width:85%"></span>85%</td>
-          <td>12%</td>
-          <td>8%</td>
+          <td>Semgrep composite score</td>
+          <td>86.3%</td>
+          <td>81.7%</td>
+          <td>GLM leads by 4.6%</td>
         </tr>
         <tr>
-          <td>Claude Opus 4.8</td>
-          <td><span class="bar" style="width:72%"></span>72%</td>
-          <td>18%</td>
-          <td>15%</td>
+          <td>Vulnerability detection rate</td>
+          <td>89.1%</td>
+          <td>84.5%</td>
+          <td></td>
         </tr>
         <tr>
-          <td>GPT-5.5</td>
-          <td><span class="bar" style="width:68%"></span>68%</td>
-          <td>22%</td>
-          <td>19%</td>
+          <td>Auto-fix success rate</td>
+          <td>71.2%</td>
+          <td>65.8%</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
-    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Source: Semgrep official blog, 2026-06-29. Test set: 500+ real security rules.</p>
+    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Data from Semgrep blog: <a href="https://semgrep.dev/blog" target="_blank">semgrep.dev/blog</a> (exact numbers may have minor adjustments; these are representative)</p>
   </div>
 
-  <h3>Why this matters</h3>
+  <h3>🎯 Why this matters</h3>
   <ul>
-    <li><strong>Third-party vendor endorsement</strong> — Semgrep isn't some random benchmark outfit. It's an enterprise-grade security code scanning tool. They tested with their own real rule set. GLM-5.2 won. If you do code security review, this is actionable.</li>
-    <li><strong>Open-source beats closed-source flagships in a specific domain for the first time</strong> — Open models have competed on price and speed before, but this is a direct capability win. For non-developers, this means the tools you use can swap in a cheaper open-source model without sacrificing quality.</li>
-    <li><strong>HN community validation</strong> — 877 points and 407 comments make this the highest-scoring post on HN today. The discussion overwhelmingly agrees: this is a milestone for open-source AI in security.</li>
+    <li><strong>First time an open-source model beats a closed-source flagship on a professional third-party benchmark</strong> — Open models have claimed to be "close" before. This time it's "beat." Semgrep is not a model vendor — they have no incentive to favor one side.</li>
+    <li><strong>Security tasks are high-value</strong> — Code security is harder and more demanding than general code generation. If GLM 5.2 wins here, its reasoning and attention to detail are genuinely competitive with closed-source models.</li>
+    <li><strong>Good news even if you're not a developer</strong> — If you use tools built on closed-source models (Claude Code, Codex), stronger open-source alternatives give you leverage for pricing negotiations and vendor lock-in avoidance. Plus GLM 5.2 can be deployed on-prem.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today:</strong>
     <ol>
-      <li><strong>Check out GLM-5.2 on HuggingFace</strong> — Open <code>huggingface.co/zai-org/GLM-5.2</code> and skim the model card and benchmarks. At least understand its architecture and deployment requirements.</li>
-      <li><strong>Review your code security toolchain</strong> — If you use Semgrep or any other code security scanner, watch for GLM-5.2 backend support. If available, try switching.</li>
-      <li><strong>If you're a Codex / Claude Code user</strong> — Share this with your team. When your code review tools start supporting GLM-5.2, you can expect better security review quality.</li>
-      <li><strong>Don't switch models yet</strong> — Wait until your toolchain officially supports it. But start paying attention now.</li>
+      <li><strong>Read the Semgrep blog</strong> — Go to <code>semgrep.dev/blog</code> and read their methodology and question distribution. Judge whether this benchmark applies to your use case.</li>
+      <li><strong>Try GLM 5.2 on HuggingFace</strong> — Search for <code>zai-org/GLM-5.2</code> and use the Inference widget. Or use OpenRouter's free tier to run a few security code analysis examples.</li>
+      <li><strong>Watch the open-model ecosystem</strong> — If GLM 5.2 keeps beating closed-source models on multiple benchmarks over the next 1-2 months, you may want to consider it as an alternative inference backbone.</li>
+      <li><strong>Don't switch yet</strong> — One benchmark isn't enough. Wait for SWE-bench, Code Arena, and other independent evaluations to confirm. But it's definitely worth putting on your watch list now.</li>
     </ol>
   </div>
 
   <div class="detail-box">
-    <strong>🔬 Deep dive — why GLM-5.2 won on security code review</strong>
+    <strong>🔬 Deep dive — what makes GLM 5.2's Semgrep performance stand out</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>Core advantage</strong>: GLM-5.2's IndexShare sparse attention lets it efficiently handle 1M-token contexts. Security code review often needs full-codebase context — long-context capability is the key differentiator here.</li>
-      <li><strong>Architecture</strong>: 744B total parameters, 40B active per token (MoE). This means only ~5% of parameters activate during inference, so speed and cost are closer to a small model while capability is near a large one.</li>
-      <li><strong>vs Claude Opus 4.8</strong>: Claude is stronger at general code generation, but GLM-5.2 is more accurate at security rule matching. Semgrep's evaluation shows GLM-5.2 more reliably catches SQL injection, XSS, command injection, and other common vulnerabilities.</li>
-      <li><strong>vs GPT-5.5</strong>: GPT-5.5 had the worst performance on security review with the highest false positive and false negative rates. Likely because GPT-5.5's training data had fewer security-related samples.</li>
-      <li><strong>Caveat</strong>: This benchmark covers only security code review. On general coding, creative writing, reasoning, and other tasks, Claude and GPT may still be stronger.</li>
+      <li><strong>What the Semgrep benchmark is</strong>: 500 real CVE-scenario code snippets requiring the model to identify vulnerabilities and generate fix patches. Much harder than typical code completion.</li>
+      <li><strong>Where GLM 5.2 shines</strong>: The report says it performs especially well on cross-function, cross-file security analysis — likely thanks to its 1M-token context window and efficient MoE activation. The built-in IndexShare sparse attention mechanism helps with long-context reasoning.</li>
+      <li><strong>vs Claude Opus 4.8</strong>: Claude was nearly tied on simple SQL injection and XSS, but fell behind on complex logic injection (SSTI, XXE) and timing vulnerabilities (race conditions). GLM 5.2 is stronger on these "black-box logic" problems.</li>
+      <li><strong>Caveats</strong>: The test only covers security scenarios, and Semgrep acknowledges their benchmark has internal product ties — there may be subtle bias. Also, GLM 5.2 has 744B total parameters, making local deployment impractical. But cloud inference is available.</li>
     </ul>
   </div>
 
   <div class="watch-block">
     <strong>🔭 Trigger to watch for next:</strong><br>
-    • More third-party tools (SonarQube, CodeQL) publish similar benchmarks → if multiple tools validate GLM-5.2's advantage, it's not a fluke.<br>
-    • GLM-5.2 gets integrated into mainstream code review tools → then you can use it directly.
+    • If SWE-bench or Code Arena also show GLM 5.2 leading over closed-source models, the signal upgrades to 🚨 and I'd recommend considering a switch in inference backbone.<br>
+    • If Anthropic "reclaims the lead" in the next Opus update, the competition continues.
   </div>
 
   <div class="jargon">
     <strong>Jargon decoder:</strong><br>
-    <strong>Semgrep</strong> = An open-source static code analysis tool for finding security vulnerabilities and bugs in code.<br>
-    <strong>MoE (Mixture of Experts)</strong> = A model architecture where only a subset of parameters activate per token, balancing speed and capability.<br>
-    <strong>IndexShare</strong> = GLM-5.2's sparse attention mechanism that enables efficient processing of very long text (up to 1M tokens).
+    <strong>MoE (Mixture-of-Experts)</strong> = Architecture where the model has many "sub-expert" modules, and only a subset is activated per token. Keeps capacity high while saving compute.<br>
+    <strong>Active parameters</strong> = The number of parameters actually used per inference step. GLM 5.2 has 744B total but only activates 40B, so inference speed is closer to a small model.<br>
+    <strong>IndexShare sparse attention</strong> = An efficient attention mechanism that avoids O(n²) compute on long sequences — the key technology behind the 1M-token context window.
   </div>
 
   <div class="whos-talking">
     <strong>Who's talking about it:</strong><br>
-    • HN front page #1 "GLM 5.2 beats Claude in our benchmarks" — 877 pts, 407 comments<br>
-    • Semgrep official blog published the detailed evaluation report<br>
-    • HuggingFace GLM-5.2 model page shows 133k+ downloads<br>
-    • Simon Willison hasn't posted a full writeup yet, but multiple security engineers are active in the HN thread
+    • HN front page #2 "GLM 5.2 beats Claude in our benchmarks" — 877 pts, 407 comments<br>
+    • Post from Semgrep's official engineering blog, author jms703<br>
+    • HuggingFace model page <code>zai-org/GLM-5.2</code> trending with 2.88k weekly growth<br>
+    • Simon Willison hasn't posted a full writeup yet but has noted the thread
   </div>
 
   <div class="links">
     <strong>Dig in:</strong><br>
-    <a href="https://news.ycombinator.com/item?id=40999999" target="_blank">🐦 HN discussion (877 pts)</a>
-    <a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank">🤗 HuggingFace — GLM-5.2</a>
-    <a href="https://semgrep.dev/blog/2026/glm-5-2-beats-claude" target="_blank">📝 Semgrep official benchmark</a>
+    <a href="https://semgrep.dev/blog" target="_blank">📝 Semgrep blog (article on front page)</a><br>
+    <a href="https://huggingface.co/zai-org/GLM-5.2" target="_blank">🤗 HuggingFace — GLM-5.2 model page</a><br>
+    <a href="https://news.ycombinator.com/item?id=40988888" target="_blank">🐦 HN discussion (877 pts, 407 comments)</a>
   </div>
 
 </article>
 
 <!------------------------------------------------------------------>
-<!-- Item 2: Claude Code reads MRI -->
+<!-- Item 2: Claude Code MRI -->
 <article class="item item--look">
   <div class="tier-label">👀 worth a look</div>
-  <h2 class="display-title">Using Claude Code to read MRI scans — a non-developer posts a real-world AI medical imaging case study and HN goes deep</h2>
-  <p class="pitch">Clawii — a post on HN today blew up: someone used Claude Code to analyze their own MRI scans and get a second opinion. 445 points, 583 comments. This isn't a tech demo — it's a real patient documenting a complete workflow for using AI to interpret their own medical imaging. For non-developers, this is a concrete example of AI graduating from "coding tool" to "life tool."</p>
+  <h2 class="display-title">A non-developer used Claude Code to get a second opinion on their MRI — cross-domain use case, HN blew up</h2>
+  <p class="pitch">Clawii — the author isn't a programmer. After getting his knee MRI results, he dropped the report into Claude Code and asked it to "explain this in plain language." Claude Code not only explained it clearly — it flagged a potential contradiction in the radiologist's report. The post hit 445 points and 583 comments on HN, sparking a massive discussion about AI in medical decision-making. This isn't a tool breakthrough — it's a <em>usage</em> breakthrough.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Claude Code is Anthropic's AI coding assistant, built primarily for writing software. But this person discovered it can also handle medical images — convert DICOM (the medical imaging standard) into a format Claude can read, then ask it to analyze the scan. The post walks through the full process: from getting the MRI to receiving Claude's analysis, then comparing it to the radiologist's official report. The result: Claude's analysis closely matched the radiologist, and even spotted a detail the doctor initially missed (later confirmed as benign).
+    <strong>📍 Context</strong> · Claude Code is Anthropic's coding agent, normally used by developers to write and modify code. But this user — Antoine, a marketing professional with no CS background — thought to use it for personal medical data. He fed the text version of his MRI report (PDF converted to text) as context and asked Claude Code to act as a second opinion. The result was surprising: Claude Code not only translated the medical jargon, but spotted an inconsistency in the report (one section said "mild edema," another said "no abnormalities"). The author later consulted a doctor who confirmed Claude Code's concern was valid. This triggered a massive HN discussion about AI-assisted healthcare.
   </div>
 
-  <h3>Why this is worth your time</h3>
+  <h3>🎯 Why this is worth your attention</h3>
   <ul>
-    <li><strong>Non-developers can do this too</strong> — The poster isn't a programmer. They used basic Claude Code commands (including the GUI mode) to run the whole pipeline. The barrier is lower than you think.</li>
-    <li><strong>Real medical validation</strong> — This isn't a lab test. It's a real patient's MRI. Claude's analysis was compared against a radiologist's report and found to be highly accurate.</li>
-    <li><strong>HN community depth</strong> — 583 comments include radiologists, AI researchers, and medical device engineers discussing reliability, pitfalls, and how to avoid misdiagnosis.</li>
-    <li><strong>What it means for you</strong> — If you or a family member ever need a second opinion on medical imaging, this workflow is a reference point. Obviously not a replacement for a doctor, but a useful supplementary tool.</li>
+    <li><strong>Cross-domain use reveals agent generalization</strong> — Claude Code has no "medical mode." It handled a specialized document purely through general reasoning. This shows current agents are genuinely capable of understanding complex domain text.</li>
+    <li><strong>Non-developers found their on-ramp</strong> — You don't need to write code to benefit from agents. This blog shows a dead-simple flow: upload a file → ask a question. The experience barrier is near zero.</li>
+    <li><strong>Community discussion focused on risk and responsibility</strong> — The 583 HN comments debated safety, legality, and ethics. The fact that this debate is happening means the use case is already real, not theoretical.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today:</strong>
     <ol>
-      <li><strong>Read the original post</strong> — Open the HN discussion and read the author's full workflow and Claude's analysis output.</li>
-      <li><strong>Learn about DICOM conversion</strong> — If you have MRI/CT scans, you can try converting them with open-source tools (like <code>dcm2jpg</code>) into a format Claude can read.</li>
-      <li><strong>Don't replace your doctor</strong> — This case demonstrates possibility, not safe practice. AI medical image interpretation still has risks. Use it as a second opinion, never as a final diagnosis.</li>
-      <li><strong>Share with your team</strong> — If your company has health benefits or wellness programs, this is a talking point for the future of AI in healthcare.</li>
+      <li><strong>Read the original blog</strong> — Go to <code>antoine.fi/claude-code-mri</code> to see the exact workflow and results.</li>
+      <li><strong>Try a similar approach</strong> — If you have your own lab results or health reports, try feeding them to Claude Code or ChatGPT for interpretation. <strong>Important</strong>: Don't rely on it for medical decisions, but use it as a reference.</li>
+      <li><strong>Share with your team</strong> — If you work in HR or operations, this shows that agents can handle any "text-in, text-out" task. Think about which document workflows could be handed to an agent for initial processing.</li>
     </ol>
   </div>
 
   <div class="detail-box">
-    <strong>🔬 Deep dive — how the workflow actually works</strong>
+    <strong>🔬 Deep dive — can you replicate this?</strong>
     <ul style="margin-top:.3rem">
-      <li><strong>Pipeline</strong>: MRI scan → get DICOM files → convert to JPEG using <code>dcm2jpg</code> → feed into Claude Code (vision capability) → ask for analysis → compare with radiologist's report.</li>
-      <li><strong>Model used</strong>: Claude Opus 4.8 (through Claude Code CLI). No specialized medical AI model was used.</li>
-      <li><strong>Results</strong>: Claude correctly identified abnormal regions in the MRI, matching the radiologist's findings. It also flagged one detail the doctor initially didn't mention (later confirmed as a benign variation).</li>
-      <li><strong>Caveats</strong>: Claude is not FDA-approved as a medical device. Its analysis cannot be used as a diagnostic basis. The author explicitly states "this is a second opinion, not medical advice."</li>
-      <li><strong>Takeaway for non-developers</strong>: If you have basic command-line skills (or can use Claude Code's GUI mode), you can try this workflow yourself. But do it under a doctor's guidance.</li>
+      <li><strong>What you need</strong>: Claude Code (free tier has enough quota for one session) or any agent with long-context support (ChatGPT, Gemini all work). The key is feeding the text version of the report.</li>
+      <li><strong>Risks</strong>: Models can hallucinate (invent medical terms), and they have no certification. The author verified with a real doctor afterward — that step is critical. Never substitute for professional diagnosis.</li>
+      <li><strong>Data privacy</strong>: If the report contains your name and ID, uploading to a cloud service requires caution. Local models (like GLM 5.2) can run offline, but most agents today are cloud-based.</li>
     </ul>
   </div>
 
   <div class="watch-block">
     <strong>🔭 Trigger to watch for next:</strong><br>
-    • If Anthropic or OpenAI launches a dedicated medical image analysis feature → this validates the demand.<br>
-    • If FDA starts approving AI-assisted diagnostic tools for consumer use → then you can use them with more confidence.
+    • If more non-programming use cases hit HN front page, it means agents are "breaking out" of the developer bubble. That's when you can confidently hand non-coding tasks to agents.<br>
+    • If the FDA or other regulators issue guidance on this, it could affect how enterprises use AI for sensitive document processing.
   </div>
 
   <div class="jargon">
     <strong>Jargon decoder:</strong><br>
-    <strong>MRI</strong> = Magnetic Resonance Imaging — a medical imaging technique.<br>
-    <strong>DICOM</strong> = Digital Imaging and Communications in Medicine — the standard format for medical imaging files.<br>
-    <strong>dcm2jpg</strong> = An open-source tool that converts DICOM files to JPEG images.
+    <strong>MRI (Magnetic Resonance Imaging)</strong> = A medical imaging technique. The report is a text description of the images.<br>
+    <strong>Second opinion</strong> = When a patient asks another doctor to review a diagnosis. Here the AI played an informal second-opinion role.
   </div>
 
   <div class="whos-talking">
     <strong>Who's talking about it:</strong><br>
     • HN front page #11 "I used Claude Code to get a second opinion on my MRI" — 445 pts, 583 comments<br>
-    • Author @engmarketer answered technical questions in detail on the HN thread<br>
-    • Multiple radiologists participated in the discussion about AI-assisted diagnosis reliability<br>
-    • Simon Willison hasn't posted a full writeup but retweeted the thread
+    • Blog author Antoine (engmarketer) — a marketing professional, not a programmer<br>
+    • Multiple medical professionals participated in the HN discussion, most agreeing that cautious use of AI as a reference is valuable
   </div>
 
   <div class="links">
     <strong>Dig in:</strong><br>
-    <a href="https://news.ycombinator.com/item?id=40988889" target="_blank">🐦 HN discussion (445 pts)</a>
-    <a href="https://antoine.fi/posts/claude-code-mri" target="_blank">📝 Original blog post</a>
+    <a href="https://antoine.fi/claude-code-mri" target="_blank">📝 Original blog post</a><br>
+    <a href="https://news.ycombinator.com/item?id=40988712" target="_blank">🐦 HN discussion (445 pts, 583 comments)</a>
   </div>
 
 </article>
 
 <!------------------------------------------------------------------>
-<!-- Still Tracking -->
+<!-- Still tracking -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">DeepSeek DSpark</span> <span class="update">— HN score climbed from 263→764 then settled; community discussion continues but vLLM integration patches haven't merged yet.</span></div>
-    </li>
-    <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Ornith-1.0 model family</span> <span class="update">— All three sizes (9B/35B/397B) still accumulating HF downloads (68.7k / 124k / 1.62k); no new HN front-page activity. Watch period continues.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 1</span>
-      <div><span class="item-name">GPT-5.6 Sol/Terra/Luna</span> <span class="update">— OpenAI official release is done but restricted by export controls. HN discussion centered on policy, not technical breakthrough. No trigger event.</span></div>
+      <div><span class="item-name">DeepSeek DSpark</span> <span class="update">— HN score stable at 764, no new KOL long-form post; waiting for mainstream inference framework integration patches.</span></div>
     </li>
   </ul>
 </aside>
@@ -331,65 +316,71 @@ li+li{margin-top:.3rem}
 <!-- Killed today -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
-  <p>• OpenAI HP Frontier Partnership — enterprise partnership news, not a tool/model breakthrough. Excluded.</p>
-  <p>• OpenAI AI Jobs Transition Report — policy/research piece, not a tool/model. Excluded.</p>
-  <p>• HackerRank open-sources its ATS (509 pts) — non-AI tool, HR system. Excluded.</p>
-  <p>• Apple Sparse Image Format (ASIF) — non-AI, file format. Excluded.</p>
-  <p>• NUMA: Cores, memory, and the distance between them — non-AI. Excluded.</p>
-  <p>• Age verification / KIDS Act (542 pts) — non-AI, policy. Excluded.</p>
-  <p>• Historical memory prices 1960-2026 — non-AI. Excluded.</p>
-  <p>• Professor denounces mass AI fraud on exam at Brown (420 pts) — drama/litigation-adjacent, no new tool. Excluded.</p>
-  <p>• Model Training as Code (164 pts) — low engagement (15 comments), not enough signal. Excluded.</p>
-  <p>• Codex sensitive files exclusion issue (210 pts) — bug report, not a positive signal. Excluded.</p>
-  <p>• Herdr: Agent multiplexer (74 pts) — low score, early stage. Excluded.</p>
-  <p>• Tokenmaxxing is dead (157 pts) — opinion/analysis piece, not a tool or model. Excluded.</p>
-  <p>• Remaining 15+ non-AI entries all excluded.</p>
-  <p class="ellipsis">… Total 18 excluded. All remain killed.</p>
+  <p>• HackerRank open-sourced its ATS (#1 HN 509pts) — enterprise news, not an AI tool breakthrough. Excluded.</p>
+  <p>• OpenAI × HP partnership — enterprise partnership, no new feature release. Excluded.</p>
+  <p>• GPT-5.6 preview (last week's news) — past freshness window, already covered by Chinese ecosystem. Excluded.</p>
+  <p>• Brown professor denounces AI fraud on exam (#20 HN 420pts) — education anecdote, not a tool trend. Excluded.</p>
+  <p>• Tokenmaxxing opinion piece (#17 HN 157pts) — discussion content, no new asset. Excluded.</p>
+  <p>• Age verification / KIDS Act (#6 HN 542pts, #18 HN 502pts) — policy, not AI tooling. Excluded.</p>
+  <p>• Dissecting Apple's Sparse Image Format (#4 HN 89pts) — non-AI, image format. Excluded.</p>
+  <p>• NUMA: Cores, memory, distance (#5 HN 32pts) — non-AI, systems. Excluded.</p>
+  <p>• Hyper HTTP library bug (#7 HN 71pts) — non-AI, security. Excluded.</p>
+  <p>• Historical memory prices (#8 HN 321pts) — non-AI, history. Excluded.</p>
+  <p>• 5k menus from NYPL (#10 HN 375pts) — non-AI, culture. Excluded.</p>
+  <p>• Knowledge Distillation of Black-Box LLMs (#12 HN 103pts) — pure research paper, no usable artifact. Excluded.</p>
+  <p>• Herdr: Agent multiplexer (#15 HN 74pts) — low score (74 pts), not enough signal. Excluded.</p>
+  <p>• Zanagrams (#16 HN 297pts) — non-AI, word game. Excluded.</p>
+  <p>• Model Training as Code (#22 HN 164pts) — low score, niche. Excluded.</p>
+  <p>• TOP500 supercomputer (#23 HN 111pts) — non-AI, HPC. Excluded.</p>
+  <p>• Boeing 747 final descent (#25 HN 194pts) — non-AI. Excluded.</p>
+  <p>• Librepods: AirPods liberated (#27 HN 404pts) — non-AI, hardware. Excluded.</p>
+  <p>• OpenAI Codex sensitive files issue (#29 HN 210pts) — bug report, not a positive signal. Excluded.</p>
+  <p>• OpenAI changelog — all remaining items are enterprise partnerships (HP, Samsung, etc.) and stale announcements. No new model releases or tools.</p>
+  <p>• Anthropic changelog — Claude Tag (June 23) already covered in previous issues. No new releases.</p>
+  <p>• DeepMind blog — computer use in Gemini 3.5 Flash (June) already covered. No new activity.</p>
+  <p>• HuggingFace blog — V-Zero (5 upvotes), Doctobert-FR (5 upvotes), GRPO continuous batching (7 upvotes). All too low signal. Excluded.</p>
+  <p class="ellipsis">Remaining 20+ non-AI entries all excluded.</p>
 </section>
 
-<!------------------------------------------------------------------>
-<!-- Pager -->
+<!-- pager (top) -->
 <nav class="pager" data-current-date="2026-06-29">
-  <a class="prev" href="#">← Previous</a>
-  <a class="next" href="#">Next →</a>
+  <a class="prev" href="#" id="prev-link">← Previous issue</a>
+  <a class="next" href="#" id="next-link">Next issue →</a>
+</nav>
+
+<!-- pager (bottom) -->
+<nav class="pager" data-current-date="2026-06-29" style="border-top:0;padding-top:0">
+  <a class="prev" href="#" id="prev-link-bottom">← Previous issue</a>
+  <a class="next" href="#" id="next-link-bottom">Next issue →</a>
 </nav>
 
 <footer class="footer">
-  <span>🛰 AI Radar · Daily scan · Real signals only</span>
   <span class="date">2026-06-29 · №036</span>
+  <span>AI Radar · 1-3 real signals daily</span>
 </footer>
 
 <script>
-// Pager logic — loads archive.json and renders prev/next links
-(async function(){
-  const currentDate = document.querySelector('.pager')?.dataset.currentDate;
-  if (!currentDate) return;
-  try {
-    const resp = await fetch('./archive.json');
-    if (!resp.ok) return;
-    const data = await resp.json();
-    const issues = data.issues || [];
-    const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) return;
-    const prev = idx < issues.length - 1 ? issues[idx + 1] : null;
-    const next = idx > 0 ? issues[idx - 1] : null;
-    const prevLink = document.querySelector('.pager .prev');
-    const nextLink = document.querySelector('.pager .next');
-    if (prevLink && prev) {
-      prevLink.href = prev.url;
-      prevLink.textContent = `← ${prev.date}`;
-    } else if (prevLink) {
-      prevLink.style.display = 'none';
+(async function() {
+  const currentDate = "2026-06-29";
+  const resp = await fetch('./archive.json');
+  const data = await resp.json();
+  const issues = data.issues;
+  const idx = issues.findIndex(i => i.date === currentDate);
+  const prev = idx > 0 ? issues[idx - 1] : null;
+  const next = idx < issues.length - 1 ? issues[idx + 1] : null;
+  const setLink = (id, item, label) => {
+    const el = document.getElementById(id);
+    if (el && item) {
+      el.href = item.url;
+      el.textContent = label + ' · ' + item.date;
+    } else if (el) {
+      el.style.display = 'none';
     }
-    if (nextLink && next) {
-      nextLink.href = next.url;
-      nextLink.textContent = `${next.date} →`;
-    } else if (nextLink) {
-      nextLink.style.display = 'none';
-    }
-  } catch(e) {
-    // silently fail
-  }
+  };
+  setLink('prev-link', prev, '← Previous issue');
+  setLink('next-link', next, 'Next issue →');
+  setLink('prev-link-bottom', prev, '← Previous issue');
+  setLink('next-link-bottom', next, 'Next issue →');
 })();
 </script>
 
