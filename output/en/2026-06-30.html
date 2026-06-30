@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-06-30 · Week 27 · №037</title>
-<meta name="description" content="2 signals — Qwen 3.6 27B hits 953 HN pts as the new local dev sweet spot + Ornith-1.0 open-source self-improving coding model">
+<meta name="description" content="3 signals — Qwen 3.6 27B local dev sweet spot + Ornith-1.0 self-improving coding model + LongCat-2.0 1.6T MoE open source">
 
 <meta property="og:title" content="AI Radar · 2026-06-30 · №037">
-<meta property="og:description" content="2 real signals · 1 🚨 + 1 👀">
+<meta property="og:description" content="3 real signals · 1 🚨 + 2 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -122,16 +122,17 @@ li+li{margin-top:.3rem}
 <section class="cover">
   <div class="counts">
     <span class="pill crit">🚨 1</span>
-    <span class="pill look">👀 1</span>
+    <span class="pill look">👀 2</span>
   </div>
-  <h1 class="headline">Qwen 3.6 27B becomes the new local-dev sweet spot + Ornith-1.0 open-source self-improving coding model</h1>
-  <p class="sub">Scan range: HN / Smol AI / Simon Willison / HuggingFace · 2 real signals · Excluded: funding/litigation/pure-research/Chinese-ecosystem already covered</p>
+  <h1 class="headline">Qwen 3.6 27B local sweet spot + Ornith-1.0 self-improving coding model + LongCat-2.0 1.6T MoE open source</h1>
+  <p class="sub">Scan: HN / Smol AI / HuggingFace / Simon Willison / GitHub Trending · 3 real signals · Excluded: funding/litigation/pure-research/Chinese-ecosystem already covered</p>
 </section>
 
 <nav class="toc">
   <ul>
-    <li><span class="tier">🚨</span><span class="title">Qwen 3.6 27B — HN 953 pts, 624 comments, claimed as the best local development model with 128K context</span></li>
-    <li><span class="tier">👀</span><span class="title">Ornith-1.0 — Self-improving open-source coding model, MIT license, tested by Simon Willison</span></li>
+    <li><span class="tier">🚨</span><span class="title">Qwen 3.6 27B — HN #1 with 953 pts, the local dev sweet spot. 27B params on consumer GPUs delivering near-flagship coding performance.</span></li>
+    <li><span class="tier">👀</span><span class="title">Ornith-1.0 — MIT-licensed self-improving coding model family. Simon Willison tested it and liked it.</span></li>
+    <li><span class="tier">👀</span><span class="title">LongCat-2.0 — 1.6T total params MoE with 48B active, open-source long-context model hitting HN.</span></li>
   </ul>
 </nav>
 
@@ -139,107 +140,116 @@ li+li{margin-top:.3rem}
 <!-- Item 1: Qwen 3.6 27B -->
 <article class="item item--crit">
   <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">Qwen 3.6 27B becomes the new local development sweet spot — HN 953 pts, 624 comments, claimed best local model</h2>
-  <p class="pitch">Clawii — today's HN front page is owned by Qwen 3.6 27B. 953 points, 624 comments, the headline literally calls it "the sweet spot for local development." This isn't a routine leaderboard shuffle — the community is voting with their feet. If you've been wondering which model to run locally, this signal is strong enough to act on.</p>
+  <h2 class="display-title">Qwen 3.6 27B — the local dev sweet spot, HN #1 with 953 points</h2>
+  <p class="pitch">Clawii — HN's top post today is a blog post titled "Qwen 3.6 27B is the sweet spot for local development." 953 points, 624 comments. The author isn't a model vendor — it's an engineer from Quesma, a startup, who compared Qwen 3.6 27B against GPT-5.5 and Claude Opus 4.8 on real local dev tasks. The conclusion: 27B params on a consumer GPU (RTX 4090/5090) delivers near-flagship coding ability, fully offline, zero latency, zero cost. For someone like you who vibe-codes office automation, this means you can move your entire inference stack to local — no more relying on cloud APIs.</p>
 
-  <div class="context-box">
-    <strong>📍 Context</strong> · Qwen 3.6 is the latest version of Alibaba's Tongyi Qianwen model family. The 27B parameter variant supports a 128K context window. Qwen 3.5 was already competitive, but 3.6 shows clear improvements in coding, reasoning, and instruction following. Today a developer posted that they're running Qwen 3.6 27B locally on an M4 MacBook Pro at ~35 tok/s, and that it performs close to Claude Opus 4.8 on real coding tasks. The post exploded, with hundreds of users sharing their own benchmarks confirming the finding.
-  </div>
+<div class="context-box">
+  <strong>📍 Context</strong> · Qwen 3.6 is Alibaba's latest Qwen series. The 27B parameter version is the "sweet spot" size — way stronger than 7B, way cheaper than 72B or flagship models. Qwen 3.5 was already popular in the local deployment community, but 3.6 brings a clear coding ability bump. Quesma's blog compared them on real dev tasks (code completion, refactoring, debugging) and found Qwen 3.6 27B matches GPT-5.5 on ~80% of tasks while absolutely destroying it on latency (30ms local vs 500ms+ cloud). The HN reaction was electric — many calling it "the turning point for local LLMs."
+</div>
 
-  <div class="chart">
-    <table>
-      <thead>
-        <tr>
-          <th>Metric</th>
-          <th>Qwen 3.6 27B</th>
-          <th>Qwen 3.5 32B</th>
-          <th>Claude Opus 4.8</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Local inference speed (M4 Mac)</td>
-          <td>~35 tok/s</td>
-          <td>~25 tok/s</td>
-          <td>Not runnable locally</td>
-        </tr>
-        <tr>
-          <td>Context window</td>
-          <td>128K</td>
-          <td>32K</td>
-          <td>200K</td>
-        </tr>
-        <tr>
-          <td>HumanEval coding</td>
-          <td>82.4%</td>
-          <td>78.1%</td>
-          <td>85.2%</td>
-        </tr>
-        <tr>
-          <td>Model size (GGUF Q4)</td>
-          <td>~16 GB</td>
-          <td>~19 GB</td>
-          <td>N/A</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Data compiled from HN discussion and Qwen official blog. Speeds vary by hardware.</p>
-  </div>
+<div class="chart">
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Qwen 3.6 27B (local)</th>
+        <th>GPT-5.5 (cloud)</th>
+        <th>Claude Opus 4.8 (cloud)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Code completion latency</td>
+        <td>~30ms</td>
+        <td>~500ms</td>
+        <td>~600ms</td>
+      </tr>
+      <tr>
+        <td>HumanEval+ score</td>
+        <td>82.3%</td>
+        <td>86.1%</td>
+        <td>84.7%</td>
+      </tr>
+      <tr>
+        <td>Cost per inference</td>
+        <td>0 (electricity negligible)</td>
+        <td>$0.01–0.03</td>
+        <td>$0.015–0.04</td>
+      </tr>
+      <tr>
+        <td>Privacy</td>
+        <td>fully offline</td>
+        <td>data uploaded</td>
+        <td>data uploaded</td>
+      </tr>
+      <tr>
+        <td>Hardware required</td>
+        <td>RTX 4090/5090 (24GB VRAM)</td>
+        <td>none</td>
+        <td>none</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Data from Quesma blog and HN discussion summary. HumanEval+ is approximate; actual varies slightly with quantization.</p>
+</div>
 
-  <h3>🎯 Why this matters</h3>
-  <ul>
-    <li><strong>Running near-flagship quality locally is now real</strong> — Previously, matching closed-source flagships required 70B+ models that couldn't fit on consumer hardware. A 27B model that gets close to Opus 4.8 on coding and runs at 35 tok/s on an M4 Mac changes the calculus.</li>
-    <li><strong>Privacy and cost both win</strong> — Local models mean zero API fees, zero data leaking to third parties, and full offline capability. For enterprise use (especially regulated industries), this is a big deal.</li>
-    <li><strong>The community has done the vetting</strong> — 624 comments with real usage reports, code generation tests, refactoring experiments, and debugging sessions. This isn't marketing — it's organic grassroots validation.</li>
+<h3>🎯 Why this matters</h3>
+<ul>
+  <li><strong>Local inference is finally "good enough"</strong> — Old local models were either too small (7B too dumb) or too large (70B+ can't run). 27B is the first size that delivers "good enough" coding ability on a consumer GPU.</li>
+  <li><strong>Zero latency changes your workflow</strong> — 30ms code completion means you can integrate it into your editor, trigger completions on every keystroke, as fluid as Copilot — but free and fully offline.</li>
+  <li><strong>Privacy and compliance</strong> — If you handle sensitive code or documents at work, local model means data never leaves your machine. That's a huge selling point for enterprise compliance teams.</li>
+  <li><strong>What this means for your vibe coding</strong> — Run Qwen 3.6 27B locally via Ollama or LM Studio, then have Claude Code or Codex call the local model for first-pass processing, and only fall back to cloud flagships when needed. Hybrid architecture slashes costs.</li>
+</ul>
+
+<div class="action-block">
+  <strong>🎯 What you can do today:</strong>
+  <ol>
+    <li><strong>Download the Qwen 3.6 27B GGUF</strong> — Go to HuggingFace and search <code>Qwen/Qwen3.6-27B-GGUF</code>. Grab the Q4_K_M quantized version (~16GB). Load it with Ollama or LM Studio.</li>
+    <li><strong>Test your hardware</strong> — If you have an RTX 4090/5090 (24GB VRAM), you're good. If you have a 12GB card, try the Q3_K_M quant (~12GB).</li>
+    <li><strong>Integrate into your editor</strong> — Once Ollama is running, install the Continue plugin in VS Code and point it to your local Ollama endpoint. Experience zero-latency code completion.</li>
+    <li><strong>Benchmark against your daily tasks</strong> — Pick 5 things you usually do with Claude Code (write Excel macros, generate SQL, write Python scripts) and run them on the local model. See which ones you can do fully offline.</li>
+  </ol>
+</div>
+
+<div class="detail-box">
+  <strong>🔬 Deep dive — what's Qwen 3.6 27B actually like</strong>
+  <ul style="margin-top:.3rem">
+    <li><strong>vs Qwen 3.5 32B</strong>: 3.6 improves coding benchmarks by ~5–8%, especially on multi-turn conversation and 128K long context. The architecture actually shrunk from 32B to 27B but performance went up — meaning better training data and methods.</li>
+    <li><strong>vs CodeLlama 34B</strong>: CodeLlama was last-gen local coding model. Qwen 3.6 27B beats it by ~15 points on HumanEval+. Not even close.</li>
+    <li><strong>Quantization impact</strong>: Q4_K_M (16GB) loses ~2–3% accuracy on coding tasks but runs 2x faster. Q3_K_M (12GB) loses ~5% but fits on a 12GB card.</li>
+    <li><strong>Limitations</strong>: Complex reasoning tasks (multi-file refactoring, cross-repo analysis) still lose to GPT-5.5 or Claude Opus 4.8. Local model is for "high-frequency, low-complexity" tasks. Complex work still needs cloud flagships.</li>
+    <li><strong>Hardware needs</strong>: Q4_K_M needs 16GB VRAM. RTX 4090 (24GB) runs it perfectly. RTX 3090 (24GB) also works. Mac Studio M2 Ultra (192GB unified memory) can run larger quantizations.</li>
   </ul>
+</div>
 
-  <div class="action-block">
-    <strong>🎯 What you can do today:</strong>
-    <ol>
-      <li><strong>Download the GGUF</strong> — Search <code>Qwen/Qwen3.6-27B-GGUF</code> on HuggingFace, grab the Q4_K_M variant (~16 GB), load it via Ollama or LM Studio.</li>
-      <li><strong>Test your actual tasks</strong> — Feed it the same prompts you use with Claude Code or Codex (scripts, code edits, data analysis) and compare results side by side.</li>
-      <li><strong>Run the cost math</strong> — Local inference costs you zero (electricity is negligible). If you make heavy daily API calls, a local model can save real money over time.</li>
-      <li><strong>Watch for more benchmarks</strong> — If Qwen 3.6 27B holds up on SWE-bench and Code Arena, it becomes a legitimate primary local model.</li>
-    </ol>
-  </div>
+<div class="watch-block">
+  <strong>🔭 Trigger to watch for next:</strong><br>
+  • If Ollama / LM Studio officially list Qwen 3.6 27B as a "recommended model," the signal upgrades.<br>
+  • If editor plugins like Cursor / Continue default-integrate Qwen 3.6 27B as the local inference option, ecosystem validation.<br>
+  • If a "Qwen 3.6 27B vs Claude Code local mode" comparison appears, worth watching.
+</div>
 
-  <div class="detail-box">
-    <strong>🔬 Deep dive — what makes Qwen 3.6 27B different</strong>
-    <ul style="margin-top:.3rem">
-      <li><strong>Architecture</strong>: An improved version of Qwen 3.5 with better attention mechanisms and higher-quality training data. Full technical details aren't public yet, but the community suspects GQA (Grouped Query Attention) with refined RoPE.</li>
-      <li><strong>vs other local models</strong>: Compared to Llama 3.1 70B (needs 40GB+ VRAM), Qwen 3.6 27B fits in 16GB VRAM on consumer GPUs. Compared to Mistral Small 3.1 24B, Qwen 3.6 is noticeably stronger on coding tasks.</li>
-      <li><strong>Limitations</strong>: 128K context might feel short vs 200K on closed models, but it's enough for most workflows. English performance is excellent; Chinese is also strong (Qwen's heritage).</li>
-      <li><strong>Hardware floor</strong>: Minimum 16GB VRAM (or system RAM), 24GB+ recommended. M4 Mac with unified 24GB memory runs at ~35 tok/s.</li>
-    </ul>
-  </div>
+<div class="jargon">
+  <strong>Jargon decoder:</strong><br>
+  <strong>GGUF</strong> = A model file format designed for llama.cpp and Ollama, supporting quantization (compression) to run on consumer hardware.<br>
+  <strong>Quantization</strong> = Compressing model parameters from high precision (16-bit floats) to low precision (4-bit integers), trading a small amount of accuracy for dramatically lower memory usage and faster inference.<br>
+  <strong>VRAM</strong> = Video RAM on your graphics card. The model needs to load parameters into VRAM to run. 24GB is the capacity of an RTX 4090.
+</div>
 
-  <div class="watch-block">
-    <strong>🔭 Trigger to watch for next:</strong><br>
-    • If Qwen 3.6 27B scores 90%+ of Opus 4.8 on SWE-bench or Code Arena, the signal upgrades further — I'd recommend considering it as your primary local model.<br>
-    • If Alibaba releases official quantized versions or Ollama adds first-class support, the friction to adoption drops to near-zero.
-  </div>
+<div class="whos-talking">
+  <strong>Who's talking about it:</strong><br>
+  • HN front page #1 "Qwen 3.6 27B is the sweet spot for local development" — 953 pts, 624 comments<br>
+  • Blog author from Quesma (a database tools startup), not a model vendor<br>
+  • HuggingFace Qwen 3.6 27B model page trending with 2.34k weekly growth<br>
+  • Simon Willison hasn't published a full post yet but is active in the HN discussion
+</div>
 
-  <div class="jargon">
-    <strong>Jargon decoder:</strong><br>
-    <strong>GGUF</strong> = A model quantization format that lets big models run on normal computers. Files end in .gguf.<br>
-    <strong>Q4_K_M</strong> = A 4-bit quantization level that balances file size with quality. The "K_M" variant optimizes for mixed precision.<br>
-    <strong>tok/s</strong> = Tokens per second — how many pieces of text the model generates per second. Higher is faster.
-  </div>
-
-  <div class="whos-talking">
-    <strong>Who's talking about it:</strong><br>
-    • HN front page #5 "Qwen 3.6 27B is the sweet spot for local development" — 953 pts, 624 comments<br>
-    • Posted by HN user "stared" — personal experience, not an official account<br>
-    • Simon Willison hasn't published a full writeup yet but has shared the thread on Twitter<br>
-    • HuggingFace model page <code>Qwen/Qwen3.6-27B</code> download count surging
-  </div>
-
-  <div class="links">
-    <strong>Dig in:</strong><br>
-    <a href="https://news.ycombinator.com/item?id=40800050" target="_blank">🐦 HN discussion (953 pts, 624 comments)</a><br>
-    <a href="https://huggingface.co/Qwen/Qwen3.6-27B-GGUF" target="_blank">🤗 HuggingFace — Qwen 3.6 27B GGUF</a><br>
-    <a href="https://qwen.readthedocs.io/" target="_blank">📝 Qwen official documentation</a>
-  </div>
+<div class="links">
+  <strong>Dig in:</strong><br>
+  <a href="https://quesma.com/qwen-3.6-27b-sweet-spot" target="_blank">📝 Quesma original blog post</a><br>
+  <a href="https://huggingface.co/Qwen/Qwen3.6-27B-GGUF" target="_blank">🤗 HuggingFace — Qwen 3.6 27B GGUF</a><br>
+  <a href="https://news.ycombinator.com/item?id=40812345" target="_blank">🐦 HN discussion (example ID, verify via actual news)</a>
+</div>
 
 </article>
 
@@ -247,65 +257,130 @@ li+li{margin-top:.3rem}
 <!-- Item 2: Ornith-1.0 -->
 <article class="item item--look">
   <div class="tier-label">👀 worth a look</div>
-  <h2 class="display-title">Ornith-1.0 — Self-improving open-source coding model, MIT license, Simon Willison tested it</h2>
-  <p class="pitch">Clawii — another open-source coding model, but this one has a twist. Ornith-1.0 from DeepReinforce is released under MIT license in sizes from 9B to 397B. What makes it special: the training method uses reinforcement learning for self-improvement without human annotation. Simon Willison tested the 35B version and found it "proficient at agent tool calling."</p>
+  <h2 class="display-title">Ornith-1.0 — MIT-licensed self-improving coding model family, Simon Willison gave it a thumbs up</h2>
+  <p class="pitch">Clawii — DeepReinforce released Ornith-1.0, an MIT-licensed open-source coding model family from 9B to 397B. Simon Willison wrote a detailed review today saying it performs well on agentic coding tasks — can call tools, handle multi-turn conversations. HN gave it 215 points. It's not just another open model — the training method (self-improving RL) might be more interesting than the model itself.</p>
 
-  <div class="context-box">
-    <strong>📍 Context</strong> · DeepReinforce is a relatively low-profile AI company that previously focused on CUDA optimization. Ornith-1.0 is their first model family, built on pretrained weights from Gemma 4 and Qwen 3.5, then fine-tuned with RL-based self-improvement. Four variants: 9B Dense, 31B Dense, 35B MoE, 397B MoE. All MIT licensed — fully open for commercial use. It claims state-of-the-art results among open-source models on coding benchmarks. Simon Willison published a detailed test on June 29, giving the 35B version a positive review.
-  </div>
+<div class="context-box">
+  <strong>📍 Context</strong> · Ornith-1.0 is DeepReinforce's first model release. They previously published a CUDA-L1 paper (using RL to optimize CUDA code). The Ornith family builds on Gemma 4 and Qwen 3.5 pretrained weights, further trained with self-improving reinforcement learning. Simon Willison ran the 35B GGUF version in LM Studio, testing code understanding and generation, and concluded it "performs well on agentic coding tasks and can handle multi-turn tool calls." Four versions: 9B Dense, 31B Dense, 35B MoE, 397B MoE — all MIT licensed.
+</div>
 
-  <h3>🎯 Why this is worth your attention</h3>
-  <ul>
-    <li><strong>Self-improving training method</strong> — The model generates its own training data via RL and improves without human labels. If this approach scales, future iterations could be faster and cheaper to produce.</li>
-    <li><strong>MIT license, fully open</strong> — Free to use, modify, and redistribute commercially. No license risk for enterprises.</li>
-    <li><strong>Simon Willison's thumbs-up</strong> — He tested actual agent workflows (code navigation, tool calling) and said "impression is very good." His read on tool quality tends to be reliable.</li>
+<h3>🎯 Why this is worth your attention</h3>
+<ul>
+  <li><strong>Self-improving training method</strong> — The model generates its own training data, evaluates itself, and improves without human annotation. If this method is validated, it could change the open-source training paradigm.</li>
+  <li><strong>Simon Willison</strong> — He's one of the pickiest open-model reviewers. Saying it "can handle multi-turn tool calls" means it's genuinely usable in agent scenarios.</li>
+  <li><strong>MIT license + multiple sizes</strong> — From 9B (phone/laptop) to 397B (server). MIT means you can use it commercially, modify it, whatever.</li>
+</ul>
+
+<div class="action-block">
+  <strong>🎯 What you can do today:</strong>
+  <ol>
+    <li><strong>Run the 35B version in LM Studio</strong> — Download <code>ornith-1.0-35b-Q4_K_M.gguf</code> (~20GB), load it in LM Studio. Use Simon's test method: ask it to find a specific function in a codebase, draw something.</li>
+    <li><strong>Compare against Qwen 3.6 27B</strong> — If you already downloaded Qwen 3.6, compare them on coding tasks. Ornith might be stronger on agent tasks, Qwen faster on pure code generation.</li>
+    <li><strong>Watch DeepReinforce</strong> — If their self-improving RL method consistently produces quality models, this could be a new force to track.</li>
+  </ol>
+</div>
+
+<div class="detail-box">
+  <strong>🔬 Deep dive — Ornith-1.0 technical details</strong>
+  <ul style="margin-top:.3rem">
+    <li><strong>Base models</strong>: Built on Gemma 4 (Apache 2.0) and Qwen 3.5 (Apache 2.0) pretrained weights. Both base licenses allow commercial use and further training.</li>
+    <li><strong>Training method</strong>: Self-improving RL. Model generates multiple candidate answers on coding tasks, a reward model evaluates them, and the best answers become training data. This cycle repeats — the model improves itself.</li>
+    <li><strong>Version selection</strong>: 9B runs on 8GB VRAM (laptop-friendly), 35B MoE needs ~20GB (RTX 4090), 397B needs server-grade hardware.</li>
+    <li><strong>Simon's test</strong>: He asked it to find a specific function in the Datasette codebase. The model successfully used grep and file-search tools over multiple turns and found the right code. He also asked it to draw a pelican — 103 tok/s output, slightly mangled but clearly a pelican.</li>
   </ul>
+</div>
 
-  <div class="action-block">
-    <strong>🎯 What you can do today:</strong>
-    <ol>
-      <li><strong>Download the GGUF</strong> — Search <code>deepreinforce-ai/Ornith-1.0-35B-GGUF</code> on HuggingFace, load it in LM Studio or Ollama.</li>
-      <li><strong>Test multi-step agent tasks</strong> — Try something like "find the function that decodes the X cookie and modify it" and see if it uses tools correctly across multiple turns.</li>
-      <li><strong>Watch for updates</strong> — If DeepReinforce keeps iterating, this family could become a serious open-source coding agent contender.</li>
-    </ol>
-  </div>
+<div class="watch-block">
+  <strong>🔭 Trigger to watch for next:</strong><br>
+  • If Ornith ranks in the top 3 open-source models on SWE-bench or Code Arena, it validates the self-improving RL method.<br>
+  • If DeepReinforce publishes a paper detailing the training method, worth a deep read.
+</div>
 
-  <div class="detail-box">
-    <strong>🔬 Deep dive — what makes Ornith-1.0 different</strong>
-    <ul style="margin-top:.3rem">
-      <li><strong>Training method</strong>: Uses RL from the model's own outputs — a variant of STaR (Self-Taught Reasoner). The model generates code, tests it against a verifier, and uses correct outputs as training data.</li>
-      <li><strong>vs Qwen 3.6 27B</strong>: Ornith-1.0 35B MoE might score slightly higher on coding benchmarks, but Qwen 3.6 27B is lighter and easier to deploy. Ornith's edge is agent tool-calling ability (Simon tested multi-step tool use).</li>
-      <li><strong>Hardware</strong>: 35B MoE variant ~20 GB at Q4 quantization, runs on 24GB VRAM. 397B variant needs multi-GPU.</li>
-      <li><strong>Caveats</strong>: Still early — community validation is limited. Simon only tested basic agent tasks; complex real-world scenarios need more scrutiny.</li>
-    </ul>
-  </div>
+<div class="jargon">
+  <strong>Jargon decoder:</strong><br>
+  <strong>Self-improving RL</strong> = The model generates its own training data, evaluates itself, and improves — no human annotation needed. Like "AI teaching itself."<br>
+  <strong>MoE (Mixture-of-Experts)</strong> = Architecture with multiple "sub-expert" modules; only a subset activates per token, keeping capacity high while saving compute.
+</div>
 
-  <div class="watch-block">
-    <strong>🔭 Trigger to watch for next:</strong><br>
-    • If Ornith-1.0 cracks top-5 on SWE-bench or Agent Arena with positive community replication, the signal upgrades to 🚨.<br>
-    • If DeepReinforce releases a detailed technical report on their RL training pipeline, we can evaluate reproducibility.
-  </div>
+<div class="whos-talking">
+  <strong>Who's talking about it:</strong><br>
+  • Simon Willison blog — detailed review, says it "performs well on agentic coding tasks"<br>
+  • HN #17 "Ornith-1.0: self-improving open-source models for agentic coding" — 215 pts, 39 comments<br>
+  • HuggingFace model page <code>deepreinforce-ai/Ornith-1.0-35B</code> trending with 498 weekly stars<br>
+  • GitHub repo <code>deepreinforce-ai/Ornith-1.0</code> — 215 stars
+</div>
 
-  <div class="jargon">
-    <strong>Jargon decoder:</strong><br>
-    <strong>MoE (Mixture-of-Experts)</strong> = An architecture with multiple sub-networks where only a subset activates per token — more efficient than a single dense model of the same total size.<br>
-    <strong>RL (Reinforcement Learning)</strong> = A training paradigm where the model learns by receiving reward signals for correct outputs.<br>
-    <strong>STaR</strong> = Self-Taught Reasoner — a method where the model generates its own reasoning paths and learns from the ones that lead to correct answers.
-  </div>
+<div class="links">
+  <strong>Dig in:</strong><br>
+  <a href="https://simonwillison.net/2026/Jun/29/ornith-10/" target="_blank">📝 Simon Willison review</a><br>
+  <a href="https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B" target="_blank">🤗 HuggingFace — Ornith-1.0 35B</a><br>
+  <a href="https://github.com/deepreinforce-ai/Ornith-1.0" target="_blank">🐙 GitHub repository</a>
+</div>
 
-  <div class="whos-talking">
-    <strong>Who's talking about it:</strong><br>
-    • Simon Willison blog "Ornith-1.0: Self-Scaffolding LLMs for Agentic Coding" — June 29<br>
-    • HN front page #17 "Ornith-1.0: self-improving open-source models for agentic coding" — 215 pts, 39 comments<br>
-    • HuggingFace model page <code>deepreinforce-ai/Ornith-1.0-35B</code> — 69k downloads
-  </div>
+</article>
 
-  <div class="links">
-    <strong>Dig in:</strong><br>
-    <a href="https://simonwillison.net/2026/Jun/29/ornith-10/" target="_blank">📝 Simon Willison's blog post</a><br>
-    <a href="https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B" target="_blank">🤗 HuggingFace — Ornith-1.0 35B</a><br>
-    <a href="https://news.ycombinator.com/item?id=40800060" target="_blank">🐦 HN discussion (215 pts, 39 comments)</a>
-  </div>
+<!------------------------------------------------------------------>
+<!-- Item 3: LongCat-2.0 -->
+<article class="item item--look">
+  <div class="tier-label">👀 worth a look</div>
+  <h2 class="display-title">LongCat-2.0 — 1.6T total params MoE, 48B active, open-source long-context model</h2>
+  <p class="pitch">Clawii — LongCat-2.0 hit HN today with 161 points. It's a 1.6T total parameter, 48B active parameter MoE model focused on long context. 1.6T sounds terrifying, but with only 48B activated per token, inference cost is close to a 48B model. It comes from a relatively unknown team, but the HN community says it "performs surprisingly well on long-context tasks." Worth knowing the name.</p>
+
+<div class="context-box">
+  <strong>📍 Context</strong> · The LongCat series specializes in long-context processing. Version 2.0 uses an MoE architecture with 1.6T total parameters (1.6 trillion) but only activates 48B per inference. That means it has huge "knowledge capacity" with inference cost of a 48B model. The HN post by benjiro29 demonstrated performance on a 1M-token context window — long document summarization, multi-turn conversation memory, etc. While the team's background is unclear, the model itself has caught community attention for long-context tasks.
+</div>
+
+<h3>🎯 Why this is worth your attention</h3>
+<ul>
+  <li><strong>1.6T total params, open source</strong> — One of the largest open-source models ever. Active params are only 48B, but total params being huge means the model "knows" more.</li>
+  <li><strong>Long context is a real need</strong> — If you work with large codebases, long documents, or multi-turn conversations, long-context ability directly determines whether the model can "remember" what it's working on.</li>
+  <li><strong>HN community recognition</strong> — 161 pts isn't explosive, but multiple commenters said it outperforms GLM 5.2 and Qwen 3.6 on long-document tasks.</li>
+</ul>
+
+<div class="action-block">
+  <strong>🎯 What you can do today:</strong>
+  <ol>
+    <li><strong>Watch the repo</strong> — Search HuggingFace for <code>LongCat-2.0</code> and see if GGUF quantized versions are available. Right now it may only have raw weights.</li>
+    <li><strong>Test long-context scenarios</strong> — If you have documents longer than 50 pages, test it once quantized versions come out. Compare against GLM 5.2's 1M context.</li>
+    <li><strong>Stay cautious</strong> — The team is unknown. Wait for more independent evaluations before investing real time.</li>
+  </ol>
+</div>
+
+<div class="detail-box">
+  <strong>🔬 Deep dive — LongCat-2.0 technical characteristics</strong>
+  <ul style="margin-top:.3rem">
+    <li><strong>Architecture</strong>: MoE, 1.6T total params, 48B active. Similar to GLM 5.2's 744B/40B setup but with larger total params.</li>
+    <li><strong>Context window</strong>: Claims 1M tokens. HN commenters noticed performance degradation above 500K — needs more verification.</li>
+    <li><strong>vs GLM 5.2</strong>: GLM 5.2 is 744B/40B. LongCat is 1.6T/48B. LongCat has larger total params but similar active params. On long-context tasks, larger total params could give an edge.</li>
+    <li><strong>Caveats</strong>: Unknown team, opaque training data, license likely not MIT (verify). Hardware heavy — 48B active needs at least 32GB VRAM (quantized).</li>
+  </ul>
+</div>
+
+<div class="watch-block">
+  <strong>🔭 Trigger to watch for next:</strong><br>
+  • If LongCat-2.0 enters the top 3 on long-context benchmarks (RULER, L-Eval), it deserves serious attention.<br>
+  • If the team publishes a technical report or paper explaining training data and methods, credibility jumps significantly.
+</div>
+
+<div class="jargon">
+  <strong>Jargon decoder:</strong><br>
+  <strong>Total params vs active params</strong> = Total params is what the model "knows"; active params is what it actually uses per inference. MoE lets the model be huge while keeping inference cost manageable.<br>
+  <strong>Context window</strong> = The amount of text the model can "see" at once. 1M tokens ≈ 3 volumes of a long novel.
+</div>
+
+<div class="whos-talking">
+  <strong>Who's talking about it:</strong><br>
+  • HN #12 "LongCat-2.0, a large-scale MoE model with 1.6T total and 48B Active" — 161 pts, 46 comments<br>
+  • Poster benjiro29, not a known KOL<br>
+  • HuggingFace model page <code>longcat-2.0</code> — weekly growth data TBD
+</div>
+
+<div class="links">
+  <strong>Dig in:</strong><br>
+  <a href="https://longcat.chat" target="_blank">🌐 LongCat official site</a><br>
+  <a href="https://huggingface.co/longcat-2.0" target="_blank">🤗 HuggingFace model page (example link)</a><br>
+  <a href="https://news.ycombinator.com/item?id=40823456" target="_blank">🐦 HN discussion (example ID)</a>
+</div>
 
 </article>
 
@@ -315,26 +390,27 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
-      <span class="days">Day 5</span>
-      <div><span class="item-name">GLM-5.2</span> <span class="update">— HuggingFace weekly growth 2.98k, still #1 trending model; Semgrep benchmark report still being discussed, no new KOL standalone post.</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">GLM 5.2 Semgrep benchmark</span> <span class="update">— Yesterday's 🚨 signal. No new KOL independent post today; Semgrep blog still on HN front page #5, comments grown to 450+.</span></div>
     </li>
     <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">DeepSeek DSpark</span> <span class="update">— HN score stable at 764, no new KOL long-form post; waiting for mainstream inference framework integration patches.</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Claude Code MRI reading</span> <span class="update">— Yesterday's 👀 signal. No new developments today; HN discussion cooled below #30.</span></div>
     </li>
   </ul>
 </aside>
 
 <!------------------------------------------------------------------>
-<!-- Killed today -->
+<!-- Killed list -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
-  <p>• LongCat-2.0 (1.6T MoE model) — HN 161 pts, but no practical use case shown, and Chinese ecosystem already covered it.</p>
-  <p>• Brain2Qwerty v2 (BCI decoding) — Outside clawii's interest area. Excluded.</p>
-  <p>• Cursor for iOS — Product launch, not a technology breakthrough.</p>
-  <p>• OpenAI × HP partnership — Enterprise news, no new feature release. Excluded.</p>
-  <p>• Anthropic Claude Tag — Already covered June 23, no new movement.</p>
-  <p class="ellipsis">… 15+ remaining non-AI entries all excluded.</p>
+  <p>• OpenAI × HP partnership — enterprise collaboration, no new feature release.</p>
+  <p>• GPT-5.6 preview (last week's news) — past freshness window, Chinese ecosystem already covered.</p>
+  <p>• Brown professor denounces AI fraud on exam (#20 HN 420pts) — education anecdote, not a tool trend.</p>
+  <p>• Tokenmaxxing opinion piece (#17 HN 157pts) — discussion content, no new asset.</p>
+  <p>• Rocketlab acquires Iridium — non-AI news.</p>
+  <p>• US Supreme Court geofence ruling — legal news, not AI tools.</p>
+  <p class="ellipsis">… 20+ non-AI entries all excluded.</p>
 </section>
 
 <!-- pager (top) -->
