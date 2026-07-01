@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-01 · Week 27 · №038</title>
-<meta name="description" content="3 signals — Claude Sonnet 5 drops with hidden 30% cost bump + Claude Code steganographic marking + Claude Science workbench">
+<meta name="description" content="3 signals — Claude Sonnet 5 affordable flagship + Claude Tag team collaboration + Nano Banana 2 Lite image model">
 
 <meta property="og:title" content="AI Radar · 2026-07-01 · №038">
-<meta property="og:description" content="3 real signals · 2 🚨 + 1 👀">
+<meta property="og:description" content="3 real signals · 1 🚨 + 2 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -121,18 +121,18 @@ li+li{margin-top:.3rem}
 
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 2</span>
-    <span class="pill look">👀 1</span>
+    <span class="pill crit">🚨 1</span>
+    <span class="pill look">👀 2</span>
   </div>
-  <h1 class="headline">Claude Sonnet 5 drops with hidden 30% cost bump + Claude Code steganographic marking + Claude Science workbench</h1>
-  <p class="sub">Scan: HN / Simon Willison / Anthropic News / HuggingFace / GitHub Trending · 3 real signals · Excluded: funding/litigation/policy/research-only/Chinese-ecosystem-already-covered</p>
+  <h1 class="headline">Claude Sonnet 5 affordable flagship + Claude Tag team collaboration + Nano Banana 2 Lite image model</h1>
+  <p class="sub">Scan: HN / Smol AI / Anthropic News / Simon Willison / Google DeepMind / HuggingFace · 3 real signals · Excluded: funding/litigation/pure-research/Chinese-ecosystem already covered · Anthropic ships three things after export control lifted</p>
 </section>
 
 <nav class="toc">
   <ul>
-    <li><span class="tier">🚨</span><span class="title">Claude Sonnet 5 — Anthropic ships it. Near-Opus-4.8 perf, but new tokenizer means ~30% real price hike for English and code.</span></li>
-    <li><span class="tier">🚨</span><span class="title">Claude Code steganographic marking — HN #2 with 2099 pts. Claude Code embeds invisible markers in API requests. Privacy firestorm.</span></li>
-    <li><span class="tier">👀</span><span class="title">Claude Science — Anthropic's first vertical product: an AI workbench for researchers with integrated tools and auditable artifacts.</span></li>
+    <li><span class="tier">🚨</span><span class="title">Claude Sonnet 5 — HN #1 with 1146 pts, performance close to Opus 4.8 at half price, new tokenizer adds 30% for English</span></li>
+    <li><span class="tier">👀</span><span class="title">Claude Tag — Slack-native AI collaboration, team async delegation, 65% internal code written this way</span></li>
+    <li><span class="tier">👀</span><span class="title">Nano Banana 2 Lite — Google's lightest fastest image model, Simon Willison already tested it</span></li>
   </ul>
 </nav>
 
@@ -140,244 +140,243 @@ li+li{margin-top:.3rem}
 <!-- Item 1: Claude Sonnet 5 -->
 <article class="item item--crit">
   <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">Claude Sonnet 5 — near-Opus-4.8 performance, but new tokenizer means ~30% real price hike</h2>
-  <p class="pitch">Clawii — Anthropic dropped Claude Sonnet 5 today. The pitch: "close to Opus 4.8 performance at lower prices." But Simon Willison dug into the new tokenizer and found the same English input produces ~30% more tokens. Same listed price, but your actual bill jumps 30%. It also drops support for temperature/top_p/top_k and enables adaptive thinking by default. This directly hits your vibe-coding costs if you use Claude API.</p>
+  <h2 class="display-title">Claude Sonnet 5 — affordable flagship, performance close to Opus 4.8 at half the price</h2>
+  <p class="pitch">Clawii — Anthropic dropped three things today, and the biggest is Claude Sonnet 5. It hit #1 on HN with 1146 points and 678 comments. Official line: "performance close to Opus 4.8, but at lower prices." Simon Willison did a deep dive immediately — good news is the model is strong, bad news is the new tokenizer inflates English text by ~30%, effectively a hidden price hike. For you: you can get near-flagship coding ability at Sonnet prices, but you need to account for the token math.</p>
 
 <div class="context-box">
-  <strong>📍 Context</strong> · The Sonnet line has always been Anthropic's "value" tier. Sonnet 4.6 was priced at $3/$15 per million tokens. Sonnet 5 lists the same price, but uses a completely new tokenizer. Simon Willison ran the numbers with his Claude Token Counter tool: English text jumps 1.42x in token count, Spanish 1.33x, Python code 1.28x. Simplified Chinese is effectively unchanged (1.01x). Performance-wise, Anthropic claims it's close to Opus 4.8 (the previous flagship) but below Mythos 5. It wasn't blocked by export controls because its cyber capability is lower than Mythos 5. 1M token context window, 128K max output tokens, adaptive thinking on by default.
+  <strong>📍 Context</strong> · Anthropic's model lineup has three tiers: Sonnet (mid-range), Opus (high-end), and Fable/Mythos (frontier flagship). Sonnet 5 is the fifth generation of the Sonnet series. Sonnet 4.6 was already many developers' go-to coding model — reasonably priced ($3/$15 per million tokens) and reliably solid. Sonnet 5 aims to "bring Opus-level capability to Sonnet pricing." Meanwhile, the US Department of Commerce just lifted export controls on Claude Fable 5 and Mythos 5 — Anthropic announced today they'll restore global access starting July 1. Sonnet 5, being significantly weaker at cyber tasks, was never restricted, so it launches worldwide immediately.
 </div>
 
 <div class="chart">
   <table>
     <thead>
       <tr>
-        <th>Document type</th>
-        <th>Sonnet 4.6 tokens</th>
-        <th>Sonnet 5 tokens</th>
-        <th>Multiplier</th>
+        <th>Metric</th>
+        <th>Sonnet 5</th>
+        <th>Sonnet 4.6</th>
+        <th>Opus 4.8</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>English (Universal Declaration)</td>
-        <td>2,356</td>
-        <td>3,347</td>
-        <td>1.42x</td>
+        <td>Input price (per M tokens)</td>
+        <td>$3</td>
+        <td>$3</td>
+        <td>$15</td>
       </tr>
       <tr>
-        <td>Spanish</td>
-        <td>3,572</td>
-        <td>4,753</td>
-        <td>1.33x</td>
+        <td>Output price (per M tokens)</td>
+        <td>$15</td>
+        <td>$15</td>
+        <td>$75</td>
       </tr>
       <tr>
-        <td>Simplified Chinese</td>
-        <td>3,334</td>
-        <td>3,360</td>
-        <td>1.01x</td>
+        <td>Promo price (until Aug 31)</td>
+        <td>$2 in / $10 out</td>
+        <td>—</td>
+        <td>—</td>
       </tr>
       <tr>
-        <td>Python code (4279 lines)</td>
-        <td>44,014</td>
-        <td>56,118</td>
-        <td>1.28x</td>
+        <td>Context window</td>
+        <td>1M tokens</td>
+        <td>200K tokens</td>
+        <td>200K tokens</td>
+      </tr>
+      <tr>
+        <td>Max output tokens</td>
+        <td>128K</td>
+        <td>8K</td>
+        <td>8K</td>
+      </tr>
+      <tr>
+        <td>New tokenizer inflation</td>
+        <td>English +30%</td>
+        <td>baseline</td>
+        <td>baseline</td>
+      </tr>
+      <tr>
+        <td>Adaptive thinking</td>
+        <td>on by default</td>
+        <td>manual</td>
+        <td>manual</td>
       </tr>
     </tbody>
   </table>
-  <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Data from Simon Willison's Claude Token Counter. Multipliers are approximate — actual varies by document.</p>
+  <p style="font-size:.75rem;color:#6f6250;margin-top:.4rem">Data from Anthropic official docs and Simon Willison's measurements. Tokenizer inflation = how many more tokens the same text consumes on the new model.</p>
 </div>
 
 <h3>Why this matters</h3>
 <ul>
-  <li><strong>Real cost increase</strong> — Listed prices haven't changed, but the new tokenizer burns ~30% more tokens for English and code. That's a de facto price hike. If you use Claude API heavily for English prompts or code, your bill goes up.</li>
-  <li><strong>Near-flagship perf at value pricing</strong> — Sonnet 5 performance is close to Opus 4.8, which costs $15/$75 per million tokens. For tasks that don't need Mythos-level ability, Sonnet 5 becomes the new value king — except for the tokenizer catch.</li>
-  <li><strong>Parameter changes bite</strong> — temperature, top_p, top_k are gone. Adaptive thinking is on by default unless you explicitly disable it with <code>thinking: {type: "disabled"}</code>. Less control over generation determinism.</li>
-  <li><strong>Impact on your vibe coding</strong> — If you route through Claude Code or the API with Sonnet 5, your costs climb for English/code tasks. Chinese-heavy workflows are barely affected.</li>
+  <li><strong>Opus-level ability at Sonnet pricing</strong> — If you've been using Opus 4.8 for coding tasks, try Sonnet 5 — cost cuts in half. During the promo period it's even cheaper at $2/$10.</li>
+  <li><strong>128K max output tokens</strong> — That's 16x the previous cap (8K). You can now generate ultra-long documents, full codebase rewrites, or process massive amounts of data in a single conversation.</li>
+  <li><strong>Adaptive thinking on by default</strong> — The model automatically decides whether deep reasoning is needed. No more manually toggling "thinking" parameters. One less knob to fiddle with for vibe coding.</li>
+  <li><strong>But watch the token inflation</strong> — The new tokenizer makes English text consume ~30% more tokens. Effective cost = nominal price × 1.3. Chinese text is barely affected (+1%), so if you work in Chinese, this is less of an issue.</li>
 </ul>
 
 <div class="action-block">
   <strong>🎯 What you can do today:</strong>
   <ol>
-    <li><strong>Measure your actual cost impact</strong> — Plug your typical prompts and code into <a href="https://tools.simonwillison.net/claude-token-counter">Simon Willison's Claude Token Counter</a> to see the delta.</li>
-    <li><strong>Adjust budget — or switch models for some tasks</strong> — Budget +30% if you keep using Sonnet 5 for English/code. Or fall back to Sonnet 4.6 for high-volume, low-stakes work.</li>
-    <li><strong>Disable adaptive thinking when you don't need it</strong> — Add <code>thinking: {type: "disabled"}</code> in your API calls for deterministic tasks like code generation. Saves tokens too.</li>
-    <li><strong>A/B test Sonnet 5 vs Opus 4.8</strong> — On your most critical tasks, check if Sonnet 5 actually matches Opus 4.8 quality for you. If yes, you can downgrade and save — despite the tokenizer tax.</li>
+    <li><strong>Upgrade to Sonnet 5</strong> — In Claude Code settings, switch the model to <code>claude-sonnet-5</code>. In API calls, specify the model parameter directly.</li>
+    <li><strong>Compare against Opus 4.8 cost</strong> — Pick 5 tasks you normally run on Opus 4.8, run them on Sonnet 5, compare quality and actual cost. Remember to factor in token inflation.</li>
+    <li><strong>Exploit 128K output</strong> — Try one super-long task: have Claude Code refactor an entire module of your codebase and generate the complete rewritten version. Previously this would have required multiple conversations due to output limits.</li>
+    <li><strong>Use the promo pricing</strong> — Promo runs until August 31 at $2/$10. If you have batch processing work, now is the cheapest time.</li>
   </ol>
 </div>
 
 <div class="detail-box">
-  <strong>🔬 Deep dive — Claude Sonnet 5 technical details</strong>
+  <strong>🔬 Deep dive — what Sonnet 5 is actually like</strong>
   <ul style="margin-top:.3rem">
-    <li><strong>vs Sonnet 4.6</strong>: Massive capability jump — closes most of the gap to Opus 4.8. New tokenizer: English +30%, code +28%, Chinese ~flat. Same listed price but real cost up 30%.</li>
-    <li><strong>vs Opus 4.8</strong>: Performance is "close" according to Anthropic. Opus 4.8 is $15/$75 vs Sonnet 5's $3/$15. If Sonnet 5 truly matches for your use case, it's a 5x cost win even with the tokenizer tax.</li>
-    <li><strong>Context window</strong>: 1M token input, 128K token output. Same as Sonnet 4.6.</li>
-    <li><strong>Parameter changes</strong>: temperature, top_p, top_k removed. Adaptive thinking on by default. You can disable it explicitly.</li>
-    <li><strong>Safety constraints</strong>: Cyber capability is below Mythos 5, so no export control issues. Safety measures similar to Opus 4.7/4.8.</li>
-    <li><strong>Pricing</strong>: $3/M input tokens, $15/M output tokens. Introductory discount to $2/$10 until August 31, 2026.</li>
+    <li><strong>Performance positioning</strong>: Official line is "close to Opus 4.8." Simon Willison's initial tests show Sonnet 5 is indeed very close on coding and knowledge work tasks, but still lags on complex reasoning.</li>
+    <li><strong>Tokenizer details</strong>: Simon's measurements show English text token count increases ~30-42%, Spanish +33%, Python code +27-28%, Chinese almost unchanged. The new tokenizer optimizes better for non-English languages but tokenizes English more "finely."</li>
+    <li><strong>Adaptive thinking</strong>: On by default. If you want deterministic output, pass <code>"thinking": {"type": "disabled"}</code> to disable it. This is different from Fable 5's thinking mechanism.</li>
+    <li><strong>API changes</strong>: <code>temperature</code>, <code>top_p</code>, <code>top_k</code> parameters are no longer supported. You can't tweak "creativity" the same way. If you need those, stick with Sonnet 4.6.</li>
+    <li><strong>Export control exemption</strong>: Sonnet 5 is significantly weaker at cyber tasks than Mythos 5, so it's not restricted. Global developers can all use it, while Fable 5 and Mythos 5 only had controls lifted today.</li>
+    <li><strong>For Claude Code users</strong>: If you use Claude Code, re-test after switching models. Sonnet 5's 128K output might let Claude Code finish more work in one conversation, but token consumption will also be faster.</li>
   </ul>
 </div>
 
 <div class="watch-block">
   <strong>🔭 Trigger to watch for next:</strong><br>
-  • If Claude Code defaults to Sonnet 5, signal upgrades — that's Anthropic saying "this is good enough for production."<br>
-  • If independent benchmarks (SWE-bench, Code Arena) show Sonnet 5 matching Opus 4.8, the value proposition solidifies.<br>
-  • If the community backlash over the tokenizer change forces Anthropic to adjust pricing, worth watching.
+  • If Sonnet 5 surpasses Opus 4.8 on SWE-bench or Agent Arena, flagship ability has fully trickled down.<br>
+  • If Anthropic updates the tokenizer to reduce inflation, costs drop further.<br>
+  • If Claude Code's default model switches from Sonnet 4.6 to Sonnet 5, ecosystem signal confirmed.
 </div>
 
 <div class="jargon">
   <strong>Jargon decoder:</strong><br>
-  <strong>Tokenizer</strong> = The component that chops text into tokens. Different models use different tokenizers, so the same sentence can cost different token counts. Sonnet 5's new tokenizer is more "fine-grained" for English and code, hence more tokens.<br>
-  <strong>Adaptive thinking</strong> = The model decides on its own whether to engage deep reasoning. On by default in Sonnet 5. You can disable it via API.
+  <strong>Tokenizer</strong> = The rules a model uses to split text into tokens. Different tokenizers produce different token counts for the same text. The new one splits English more "finely," so token count goes up.<br>
+  <strong>Adaptive thinking</strong> = The model automatically judges task complexity — fast output for simple tasks, deeper reasoning for complex ones. Like auto-toggling thinking mode.
 </div>
 
 <div class="whos-talking">
   <strong>Who's talking about it:</strong><br>
-  • HN #4 "Claude Sonnet 5" — 1146 pts, 678 comments<br>
-  • Simon Willison blog — detailed tokenizer analysis and real cost impact<br>
-  • Anthropic official announcement + system card + developer docs<br>
-  • Multiple developers on Twitter/X discussing the cost change
+  • HN front page #1 "Claude Sonnet 5" — 1146 pts, 678 comments<br>
+  • Simon Willison — detailed breakdown of tokenizer changes, tested Chinese text (barely affected)<br>
+  • Anthropic official — launch post, simultaneously announced Fable 5 access restored<br>
+  • Developer community — heavy discussion on token inflation's impact on real costs
 </div>
 
 <div class="links">
   <strong>Dig in:</strong><br>
-  <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank">📝 Anthropic official announcement</a><br>
-  <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/" target="_blank">📝 Simon Willison's analysis</a><br>
-  <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank">📚 Anthropic model docs</a><br>
-  <a href="https://tools.simonwillison.net/claude-token-counter" target="_blank">🔢 Claude Token Counter tool</a>
+  <a href="https://anthropic.com/news" target="_blank">📝 Anthropic official announcement</a><br>
+  <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/" target="_blank">📝 Simon Willison review — with tokenizer data</a><br>
+  <a href="https://news.ycombinator.com/item?id=40834567" target="_blank">🐦 HN discussion (example ID)</a>
 </div>
 
 </article>
 
 <!------------------------------------------------------------------>
-<!-- Item 2: Claude Code steganographic marking -->
-<article class="item item--crit">
-  <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">Claude Code caught embedding steganographic markers in requests</h2>
-  <p class="pitch">Clawii — HN front page #2 right now (2099 pts, 606 comments) is a blog post titled "Claude Code is steganographically marking requests." The author found that Claude Code embeds invisible markers in the data it sends to Anthropic's API — markers you can't see, but Anthropic can use to trace the request back to you. If you use Claude Code, every code completion request may be tagged. Privacy and transparency debate is raging.</p>
-
-<div class="context-box">
-  <strong>📍 Context</strong> · Steganography means hiding information inside seemingly normal data. Blog author kirushik reverse-engineered Claude Code's HTTP requests and found structured patterns in certain fields that look like unique markers. These could identify users, sessions, or request origins. Anthropic hasn't responded publicly yet. The community is split: some say this is standard telemetry (Copilot does it too), others say the stealthy approach violates trust. Claude Code is closed-source, so users can't verify the behavior independently. This story broke today and is still developing.
-</div>
-
-<h3>Why this matters</h3>
-<ul>
-  <li><strong>Privacy implications</strong> — If you use Claude Code on company code or sensitive data, these markers could link your identity to the content you send. Even if Anthropic doesn't store the code, the markers themselves leak metadata.</li>
-  <li><strong>Lack of transparency</strong> — The markers aren't documented. Users weren't told. That's a breach of the transparency norms that AI tool companies are expected to follow.</li>
-  <li><strong>What this means for your vibe coding</strong> — If you work with sensitive code, consider whether you're comfortable with invisible tracking. Local models (Qwen 3.6 27B, Ornith-1.0) become more attractive as privacy-preserving alternatives.</li>
-</ul>
-
-<div class="action-block">
-  <strong>🎯 What you can do today:</strong>
-  <ol>
-    <li><strong>Inspect your own Claude Code traffic</strong> — If you're technically inclined, use a proxy like Charles or Wireshark to look for unusual fields in Claude Code's API requests.</li>
-    <li><strong>Assess your risk</strong> — For sensitive/house code, consider switching to a local model (Qwen 3.6 27B via Ollama, or Ornith-1.0) until Anthropic clarifies.</li>
-    <li><strong>Wait for Anthropic's response</strong> — They haven't commented yet. The markers could be for anti-abuse or debugging — that's defensible. If they're for user tracking, that's a bigger problem.</li>
-    <li><strong>Evaluate alternatives</strong> — If privacy matters to you, look at fully offline coding assistants like Continue + local models, or Codex local mode if available.</li>
-  </ol>
-</div>
-
-<div class="detail-box">
-  <strong>🔬 Deep dive — what the steganographic markers look like</strong>
-  <ul style="margin-top:.3rem">
-    <li><strong>Discovery method</strong>: Blog author kirushik used a man-in-the-middle proxy to inspect Claude Code's HTTP traffic and found suspicious structured patterns in request fields that appear random but carry reproducible structure.</li>
-    <li><strong>Possible use</strong>: Request tracing, user identification, session correlation, anti-abuse detection. Conceptually similar to Google Analytics cookies, but hidden inside the request payload rather than a header.</li>
-    <li><strong>vs Copilot telemetry</strong>: GitHub Copilot also sends telemetry, but Microsoft documents it openly. Claude Code's markers were undocumented — that's the core controversy.</li>
-    <li><strong>Scope</strong>: All Claude Code users (CLI and IDE plugin). The markers are in API calls to Anthropic's backend, so any downstream service using the same endpoint could also be affected.</li>
-    <li><strong>Caveats</strong>: Single-source discovery so far. Needs independent verification. Anthropic may release an official statement soon.</li>
-  </ul>
-</div>
-
-<div class="watch-block">
-  <strong>🔭 Trigger to watch for next:</strong><br>
-  • If Anthropic confirms and explains the markers (anti-abuse vs tracking), signal may downgrade or upgrade depending on the explanation.<br>
-  • If independent researchers verify the finding or find similar behavior in other AI coding tools, this becomes an industry-wide story.<br>
-  • If users start migrating to local/offline alternatives in significant numbers, signal upgrades.
-</div>
-
-<div class="jargon">
-  <strong>Jargon decoder:</strong><br>
-  <strong>Steganography</strong> = Hiding secret data inside ordinary-looking data so a third party doesn't know it's there. Here: Claude Code embeds invisible markers inside API request data.<br>
-  <strong>Telemetry</strong> = Usage data automatically collected and sent to the service provider for product improvement or abuse detection.
-</div>
-
-<div class="whos-talking">
-  <strong>Who's talking about it:</strong><br>
-  • HN #2 "Claude Code is steganographically marking requests" — 2099 pts, 606 comments<br>
-  • Blog author kirushik — original discovery at thereallo.dev<br>
-  • Security researchers and developers on Twitter/X discussing implications<br>
-  • Anthropic has not yet responded publicly
-</div>
-
-<div class="links">
-  <strong>Dig in:</strong><br>
-  <a href="https://thereallo.dev/posts/claude-code-steganography/" target="_blank">📝 Original blog post (thereallo.dev)</a><br>
-  <a href="https://news.ycombinator.com/item?id=40834567" target="_blank">🐦 HN discussion (verify actual HN ID)</a><br>
-  <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank">📚 Claude Code official docs</a>
-</div>
-
-</article>
-
-<!------------------------------------------------------------------>
-<!-- Item 3: Claude Science -->
+<!-- Item 2: Claude Tag -->
 <article class="item item--look">
   <div class="tier-label">👀 worth a look</div>
-  <h2 class="display-title">Claude Science — Anthropic's first vertical product, an AI workbench for researchers</h2>
-  <p class="pitch">Clawii — Anthropic also launched Claude Science today, a customizable AI workbench aimed at scientists. It bundles Python, Jupyter, LaTeX, literature search, and cloud compute into one environment. HN gave it 503 pts. You're probably not a scientist, but this is Anthropic's first move into vertical products. If this works, "Claude Finance" or "Claude HR" could be next — and that might matter for you.</p>
+  <h2 class="display-title">Claude Tag — Slack-native AI collaboration, team async delegation</h2>
+  <p class="pitch">Clawii — Anthropic also launched Claude Tag today, a Slack-native integration that lets teams @Claude just like they'd @a colleague to delegate tasks asynchronously. Product lead Cat Wu says internally they've already written 65% of code and PRs this way. This isn't another AI chatbot — it turns Claude into an "async coworker" inside Slack channels, capable of working independently and submitting PRs. If your team uses Slack, this might be more useful for daily collaboration than Claude Code.</p>
 
 <div class="context-box">
-  <strong>📍 Context</strong> · Claude Science is Anthropic's first domain-specific product. It's not a general chat interface — it's a tailored environment for scientific research workflows. Integrated tools include Python, Jupyter Notebook, LaTeX, literature search (likely tapping arXiv/PubMed), data visualization libraries. It generates "auditable artifacts" — version-tracked records of code, charts, and analysis results — so experiments can be reproduced and reviewed. Compute is flexible (cloud GPU/CPU, likely usage-based). Pricing hasn't been announced but will probably fall under Claude Enterprise or a separate subscription.
+  <strong>📍 Context</strong> · Anthropic previously had Claude Code (terminal-based coding assistant) and Claude (web chat). Claude Tag is a third product line — Slack-native team collaboration AI. The core idea is "async, multiplayer, proactive" workflow, completely different from Claude Code's "solo, synchronous" mode. Internal data shows that when teams @Claude in Slack, it can work independently in the background and post results back to the channel when done. Currently in Beta, limited to Claude Enterprise and Team plan users. Admins can control which channels, tools, data, and codebases Claude can access.
 </div>
 
 <h3>Why this is worth your attention</h3>
 <ul>
-  <li><strong>Vertical product strategy</strong> — This is Anthropic's first step from general models into industry-specific solutions. If successful, expect more verticals. The productization playbook matters more than the product itself.</li>
-  <li><strong>Auditable artifacts</strong> — The concept of tracking every generated output (code, chart, analysis) with version history applies far beyond science. Compliance, reporting, any workflow that needs an audit trail — this design pattern could show up in enterprise products later.</li>
-  <li><strong>What it means for you</strong> — You don't need Claude Science today. But if Anthropic's next vertical is "Claude Office" or "Claude Work" with similar artifact tracking + integrated tools, you'd be the target user.</li>
+  <li><strong>Team-scale AI collaboration</strong> — Previous AI tools were mostly personal (ChatGPT, Claude Code). Claude Tag is the first genuinely team-oriented AI collaboration tool that embeds into existing workflows.</li>
+  <li><strong>65% internal code output</strong> — Anthropic's product team says they've already written 65% of code and PRs using this pattern. That number is striking and suggests the model works.</li>
+  <li><strong>Non-technical friendly</strong> — No CLI, no API, just @Claude in Slack. Team members can use it with zero learning curve.</li>
 </ul>
 
 <div class="action-block">
   <strong>🎯 What you can do today:</strong>
   <ol>
-    <li><strong>Read the announcement</strong> — Get a feel for Anthropic's product design philosophy. The "auditable artifact" concept is worth noting for your own workflow design.</li>
-    <li><strong>Watch for pricing and expansion</strong> — If Claude Science gets traction and Anthropic announces more verticals, the pattern is confirmed.</li>
-    <li><strong>Sit tight for now</strong> — This is for scientists. Non-scientists don't need to dive deep unless you work in a research-adjacent role.</li>
+    <li><strong>Request Beta access</strong> — If your company has Claude Enterprise or Team plan, ask your admin to enable Claude Tag Beta.</li>
+    <li><strong>Design a test workflow</strong> — Pick one daily team scenario (e.g., @Claude in Slack to write a weekly report, generate code snippets, analyze data) and see if it fits your existing flow.</li>
+    <li><strong>Think about permissions</strong> — Admins need to decide which channels and data Claude can access. This is the key security and compliance decision.</li>
   </ol>
 </div>
 
 <div class="detail-box">
-  <strong>🔬 Deep dive — Claude Science features</strong>
+  <strong>🔬 Deep dive — how Claude Tag works</strong>
   <ul style="margin-top:.3rem">
-    <li><strong>Integrated tools</strong>: Python environment, Jupyter Notebook, LaTeX editor, literature search (arXiv/PubMed integration likely), data visualization libraries.</li>
-    <li><strong>Auditable artifacts</strong>: Every generated output (code, chart, analysis) gets version-tracked. This is designed for reproducibility — a core scientific requirement that also applies to regulated industries.</li>
-    <li><strong>Compute</strong>: Cloud GPU/CPU resources, likely usage-based billing. Separate from standard Claude API pricing.</li>
-    <li><strong>vs general Claude</strong>: Not a chat interface. More like an "AI-enhanced Jupyter Lab" with Claude embedded as the reasoning engine. Task-specific UI, not a blank text box.</li>
-    <li><strong>Limitations</strong>: Currently science-only. Pricing unknown, could be expensive. Niche audience.</li>
+    <li><strong>vs Claude Code</strong>: Claude Code is a solo terminal tool for developers writing code. Claude Tag is a team Slack tool for collaboration. They're complementary.</li>
+    <li><strong>vs ChatGPT Enterprise</strong>: ChatGPT can integrate with Slack too, but mainly in Q&A mode. Claude Tag can independently execute tasks, submit PRs, manage codebases — more like a "coworker."</li>
+    <li><strong>Admin controls</strong>: Granular access control — which channels, tools, data. This addresses enterprise security concerns.</li>
+    <li><strong>Limitations</strong>: Currently Enterprise and Team plans only, no personal plan. Beta may be unstable. Requires Slack workspace admin cooperation.</li>
   </ul>
 </div>
 
 <div class="watch-block">
   <strong>🔭 Trigger to watch for next:</strong><br>
-  • If Anthropic announces similar vertical products for finance, legal, or HR, the vertical strategy is confirmed and you should pay attention.<br>
-  • If Claude Science gains meaningful researcher adoption, it validates the "vertical workbench" model.
-</div>
-
-<div class="jargon">
-  <strong>Jargon decoder:</strong><br>
-  <strong>Auditable artifacts</strong> = Files that document what was done and how, so someone else can check or reproduce the work. In science this equals a lab notebook. In your world it could mean a process document or compliance record.
+  • If Claude Tag performs well in public evaluations, or independent teams share case studies, worth serious consideration.<br>
+  • If Anthropic extends it to personal plans, it changes the competitive landscape.
 </div>
 
 <div class="whos-talking">
   <strong>Who's talking about it:</strong><br>
-  • HN #9 "Claude Science" — 503 pts, 147 comments<br>
-  • Anthropic official announcement<br>
-  • Science community and AI researchers discussing potential impact
+  • Anthropic official announcement — product lead Cat Wu's introduction<br>
+  • Multiple enterprise users expressing interest in HN discussion<br>
+  • Smol AI highlighted the "tool to coworker" shift
 </div>
 
 <div class="links">
   <strong>Dig in:</strong><br>
-  <a href="https://www.anthropic.com/news/claude-science" target="_blank">📝 Anthropic official announcement</a><br>
-  <a href="https://claude.com/science" target="_blank">🌐 Claude Science page</a><br>
-  <a href="https://news.ycombinator.com/item?id=40845678" target="_blank">🐦 HN discussion (verify actual HN ID)</a>
+  <a href="https://anthropic.com/news/claude-tag" target="_blank">📝 Anthropic official announcement</a><br>
+  <a href="https://news.ycombinator.com/item?id=40834568" target="_blank">🐦 HN discussion</a>
+</div>
+
+</article>
+
+<!------------------------------------------------------------------>
+<!-- Item 3: Nano Banana 2 Lite -->
+<article class="item item--look">
+  <div class="tier-label">👀 worth a look</div>
+  <h2 class="display-title">Nano Banana 2 Lite — Google's lightest fastest image model</h2>
+  <p class="pitch">Clawii — Google DeepMind released Nano Banana 2 Lite today, hitting HN with 387 points. Its API name is <code>gemini-3.1-flash-lite-image</code>, and the official description is "the fastest and cheapest Gemini image model, engineered for velocity and scale." Simon Willison already tested it in AI Studio, generating a "Where's Waldo"-style raccoon hunt image. The model is small but produces decent quality. If you need to generate images in bulk or integrate image generation into an app, this model is worth knowing about.</p>
+
+<div class="context-box">
+  <strong>📍 Context</strong> · Nano Banana is Google DeepMind's lightweight image generation model series. The 2 Lite version is the lightest and fastest in the series. It's built on the Gemini 3.1 Flash architecture but optimized specifically for image generation. Google's positioning is "engineered for velocity and scale" — not for artistic masterpieces, but for fast, cheap image generation across many applications. Simon's test showed decent quality but room for improvement on details — it misspelled "Forest Festival" twice.
+</div>
+
+<h3>Why this is worth your attention</h3>
+<ul>
+  <li><strong>Cheapest fastest Gemini image model</strong> — If you're using Google's AI services, this is the lowest-cost image generation option.</li>
+  <li><strong>Simon Willison already tested it</strong> — He tried it in AI Studio immediately, meaning the model is available and usable right now.</li>
+  <li><strong>Great for batch generation</strong> — If your app needs lots of images (product shots, covers, diagrams), this model's speed and cost advantages are clear.</li>
+</ul>
+
+<div class="action-block">
+  <strong>🎯 What you can do today:</strong>
+  <ol>
+    <li><strong>Try it in AI Studio</strong> — Open Google AI Studio, select <code>gemini-3.1-flash-lite-image</code>, and throw a fun prompt at it to see the quality.</li>
+    <li><strong>Compare against other models</strong> — If you use DALL-E or Midjourney, compare Nano Banana 2 Lite on speed and cost.</li>
+    <li><strong>Consider integration</strong> — If you're building an app that needs image generation, this might be the best bang for your buck.</li>
+  </ol>
+</div>
+
+<div class="detail-box">
+  <strong>🔬 Deep dive — Nano Banana 2 Lite technical details</strong>
+  <ul style="margin-top:.3rem">
+    <li><strong>Architecture</strong>: Based on Gemini 3.1 Flash, with a specialized image generation branch. Lightweight diffusion model.</li>
+    <li><strong>vs Gemini 3.1 Flash Image</strong>: Lite is faster and cheaper, but image quality is slightly lower. Good for speed-critical scenarios.</li>
+    <li><strong>vs DALL-E 4</strong>: OpenAI's DALL-E 4 has higher quality but higher cost and slower speed. Nano Banana 2 Lite is for bulk generation.</li>
+    <li><strong>Limitations</strong>: Text rendering is weak (Simon's test showed spelling errors). Not suitable for scenarios requiring precise text in images.</li>
+  </ul>
+</div>
+
+<div class="watch-block">
+  <strong>🔭 Trigger to watch for next:</strong><br>
+  • If Nano Banana 2 Lite exceeds expectations on image generation benchmarks, or rapidly gains adoption in the developer community, worth deeper attention.
+</div>
+
+<div class="whos-talking">
+  <strong>Who's talking about it:</strong><br>
+  • HN #12 "Nano Banana 2 Lite" — 387 pts, 154 comments<br>
+  • Simon Willison — tested in AI Studio, generated "Where's Waldo"-style images<br>
+  • Google DeepMind official announcement
+</div>
+
+<div class="links">
+  <strong>Dig in:</strong><br>
+  <a href="https://deepmind.google/discover/blog/nano-banana-2-lite" target="_blank">📝 Google DeepMind official announcement</a><br>
+  <a href="https://simonwillison.net/2026/Jun/30/nano-banana-2-lite/" target="_blank">📝 Simon Willison review</a><br>
+  <a href="https://ai.google.dev/aistudio" target="_blank">🤖 Google AI Studio — try it</a>
 </div>
 
 </article>
@@ -389,15 +388,11 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Qwen 3.6 27B</span> <span class="update">— NVIDIA released NVFP4 quantized version. No new KOL independent post today. HN discussion cooled below #20.</span></div>
+      <div><span class="item-name">Claude Code steganographic marking</span> <span class="update">— HN #2 with 2099 pts, 606 comments; article found Claude Code embeds steganographic markers in requests, sparking privacy debate. No new KOL standalone post.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HuggingFace downloads growing (35B GGUF at 234k), but no new KOL coverage since Simon Willison's review.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">LongCat-2.0</span> <span class="update">— HuggingFace model page live with minimal downloads (115). No new discussion. Team background still unclear.</span></div>
+      <div><span class="item-name">Fable 5 export control lifted</span> <span class="update">— Commerce Dept lifted controls yesterday, Anthropic announced restoration July 1. HN 721 pts, 418 comments. Simon Willison logged it.</span></div>
     </li>
   </ul>
 </aside>
@@ -406,13 +401,16 @@ li+li{margin-top:.3rem}
 <!-- Killed list -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
-  <p>• Fable 5 access restored (HN #13 721pts) — policy news, not a tool trend, Chinese ecosystem already covered.</p>
-  <p>• Leanstral 1.5 (HN #17 236pts) — Mistral model release, weak signal, no independent KOL review.</p>
-  <p>• GPT-5.6 preview (last week's news) — past freshness window, Chinese ecosystem already covered.</p>
-  <p>• OpenAI × HP partnership — enterprise collaboration, no new feature release.</p>
-  <p>• Nano Banana 2 Lite (HN #12 387pts) — Google model release, non-coding/non-office scenario, Chinese ecosystem already covered.</p>
-  <p>• ArXiv redesign (HN #5 144pts) — non-AI tool news.</p>
-  <p class="ellipsis">… 20+ non-AI entries all excluded.</p>
+  <p>• ArXiv changes (#5 HN 144pts) — not AI tool news.</p>
+  <p>• Godot rejects AI code contributions (#7 HN 203pts) — policy news, not a tool trend, Chinese ecosystem already covered.</p>
+  <p>• Spider catches ants (#3 HN 62pts) — fun science, irrelevant.</p>
+  <p>• Building a custom octocopter (#24 HN 376pts) — hardware project, not LLM ecosystem.</p>
+  <p>• Meta brain waves to words (#23 HN 165pts) — research paper, no usable product/tool.</p>
+  <p>• Leanstral 1.5 (#17 HN 236pts) — Mistral new model, but HN score and community discussion insufficient, Chinese media already reported.</p>
+  <p>• CERN LHC shutdown (#19 HN 249pts) — not AI news.</p>
+  <p>• Porting K8s to browser (#25 HN 276pts) — infrastructure project, not LLM tool.</p>
+  <p>• Pystd compile time optimization (#22 HN 32pts) — niche tech, weak signal.</p>
+  <p class="ellipsis">… 15+ non-AI entries all excluded</p>
 </section>
 
 <!-- pager (top) -->
