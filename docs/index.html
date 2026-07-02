@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="zh-Hans">
 <head>
@@ -43,4 +42,410 @@ li+li{margin-top:.3rem}
 .cover .counts .pill.look{background:#d4a03f;color:#fff}
 .cover .counts .pill.fyi{background:#8a9b9b;color:#fff}
 .cover .headline{font-family:"Fraunces",Georgia,serif;font-size:1.8rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.2;letter-spacing:-.01em;color:#2b231c;margin-top:.2rem}
-.cover .sub{font-size:.85
+.cover .sub{font-size:.85rem;color:#6b5f4e;margin-top:.3rem}
+/* ── pager ── */
+.pager{display:flex;justify-content:space-between;max-width:720px;margin:0 auto;padding:.6rem 1.2rem;font-size:.8rem;color:#8a7d6b}
+.pager a{color:#1a5a7a;text-decoration:none;font-weight:500}
+.pager a:hover{text-decoration:underline}
+.pager .prev::before{content:"← ";font-weight:400}
+.pager .next::after{content:" →";font-weight:400}
+.pager .disabled{color:#c4b8a5;pointer-events:none}
+/* ── toc ── */
+.toc{max-width:720px;margin:0 auto;padding:.8rem 1.2rem 1.2rem;border-bottom:1px solid #d8cfc0}
+.toc .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
+.toc ul{list-style:none;padding:0;margin-top:.4rem}
+.toc li{display:flex;gap:.4rem;align-items:baseline;padding:.2rem 0;font-size:.9rem}
+.toc .tier{font-size:.7rem;font-weight:600;padding:.05rem .4rem;border-radius:999px;background:#e4dcd0;color:#5a4f40;white-space:nowrap;flex-shrink:0}
+.toc .tier.crit{background:#d43f3f;color:#fff}
+.toc .tier.look{background:#d4a03f;color:#fff}
+.toc .tier.fyi{background:#8a9b9b;color:#fff}
+/* ── item ── */
+.item{padding:1.8rem 1.2rem;max-width:720px;margin:0 auto;border-bottom:1px solid #e4dcd0}
+.item:last-of-type{border-bottom:none}
+.item .tier-label{display:inline-block;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.15rem .55rem;border-radius:999px;margin-bottom:.5rem}
+.item .tier-label.crit{background:#d43f3f;color:#fff}
+.item .tier-label.look{background:#d4a03f;color:#fff}
+.item .tier-label.fyi{background:#8a9b9b;color:#fff}
+.item h2{font-family:"Fraunces",Georgia,serif;font-size:1.35rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.25;color:#2b231c;margin-bottom:.3rem}
+.item .pitch{font-family:"Fraunces",Georgia,serif;font-size:.95rem;font-style:italic;font-weight:400;color:#5a4f40;margin-bottom:.8rem;line-height:1.5}
+.item h3{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#6b5f4e;margin-top:1.2rem;margin-bottom:.4rem}
+.item ul,.item ol{margin-bottom:.6rem}
+.item li{font-size:.9rem;line-height:1.5}
+/* ── context box ── */
+.context-box{background:#eae3d6;border-left:3px solid #c4b8a5;padding:.6rem .9rem;margin:.6rem 0 .8rem;font-size:.85rem;border-radius:0 4px 4px 0;color:#3d352c}
+/* ── chart ── */
+.chart{margin:.6rem 0 .8rem;padding:.4rem 0}
+.chart .bar-row{display:flex;align-items:center;gap:.4rem;margin:.15rem 0;font-size:.8rem}
+.chart .bar{height:1.1rem;border-radius:3px;background:#1a5a7a;min-width:2px;flex-shrink:0}
+.chart .bar-label{color:#3d352c;white-space:nowrap;min-width:5rem}
+.chart .bar-val{color:#6b5f4e;font-variant-numeric:tabular-nums}
+/* ── action block ── */
+.action-block{background:#eae3d6;border-radius:6px;padding:.7rem .9rem;margin:.6rem 0 .8rem}
+.action-block ol{margin:0;padding-left:1.2rem}
+.action-block li{font-size:.85rem;margin:.2rem 0}
+.action-block code{font-family:"Geist Mono","SF Mono",monospace;font-size:.8rem;background:#d8cfc0;padding:.05rem .3rem;border-radius:3px}
+/* ── deep dive ── */
+.deep-dive{background:#f4ede0;border:1px solid #d8cfc0;border-radius:6px;padding:.6rem .9rem;margin:.6rem 0 .8rem}
+.deep-dive summary{font-weight:600;font-size:.85rem;cursor:pointer;color:#1a5a7a}
+.deep-dive .dd-table{width:100%;border-collapse:collapse;margin:.4rem 0;font-size:.8rem}
+.deep-dive .dd-table th,.deep-dive .dd-table td{border:1px solid #d8cfc0;padding:.3rem .5rem;text-align:left;vertical-align:top}
+.deep-dive .dd-table th{background:#e4dcd0;font-weight:600}
+.deep-dive .dd-table td{background:#faf6ef}
+/* ── watch block ── */
+.watch-block{background:#f4ede0;border:1px dashed #c4b8a5;border-radius:6px;padding:.5rem .8rem;margin:.6rem 0 .8rem;font-size:.85rem;color:#5a4f40}
+.watch-block strong{color:#1a5a7a}
+/* ── jargon ── */
+.jargon{background:#f4ede0;border-radius:6px;padding:.4rem .7rem;margin:.4rem 0;font-size:.8rem;color:#6b5f4e}
+.jargon strong{color:#3d352c}
+/* ── who's talking ── */
+.whos-talking{font-size:.8rem;color:#6b5f4e;margin:.4rem 0;padding:.3rem 0}
+.whos-talking a{color:#1a5a7a}
+/* ── links ── */
+.links{font-size:.85rem;margin:.4rem 0}
+.links a{display:inline-block;margin-right:.6rem}
+/* ── still tracking ── */
+.still-tracking{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e4dcd0}
+.still-tracking .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
+.still-tracking ul{list-style:none;padding:0;margin-top:.4rem}
+.still-tracking li{display:grid;grid-template-columns:3.5rem 1fr;gap:.3rem;padding:.2rem 0;font-size:.85rem;color:#5a4f40}
+.still-tracking .days{font-weight:500;color:#8a7d6b;font-variant-numeric:tabular-nums}
+.still-tracking .item-name{font-weight:500;color:#2b231c}
+.still-tracking .update{color:#6b5f4e}
+/* ── killed ── */
+.killed{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e4dcd0}
+.killed .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
+.killed table{width:100%;border-collapse:collapse;margin-top:.4rem;font-size:.8rem}
+.killed th,.killed td{border:1px solid #e4dcd0;padding:.25rem .4rem;text-align:left}
+.killed th{background:#f4ede0;font-weight:500;color:#6b5f4e}
+.killed td{color:#5a4f40}
+/* ── footer ── */
+.footer{max-width:720px;margin:0 auto;padding:1.2rem;border-top:1px solid #d8cfc0;font-size:.75rem;color:#8a7d6b;text-align:center}
+/* ── responsive ── */
+@media(max-width:480px){.cover .headline{font-size:1.4rem}.item h2{font-size:1.15rem}.masthead{flex-wrap:wrap;gap:.3rem}}
+</style>
+</head>
+<body>
+
+<!-- ─── MASTHEAD ─── -->
+<header class="masthead">
+  <div class="logo">AI <span>Radar</span></div>
+  <div class="meta">
+    <span>2026-07-02</span>
+    <span>Week 27</span>
+    <span>№039</span>
+  </div>
+</header>
+
+<!-- ─── PAGER (top) ─── -->
+<nav class="pager" data-current-date="2026-07-02">
+  <a class="prev" href="#">上一期</a>
+  <span class="disabled">2026-07-02</span>
+  <a class="next" href="#">下一期</a>
+</nav>
+
+<!-- ─── COVER ─── -->
+<section class="cover">
+  <div class="counts">
+    <span class="pill crit">🚨 2 必看</span>
+    <span class="pill look">👀 1 可看</span>
+    <span class="pill fyi">ℹ️ 0 知道</span>
+  </div>
+  <h1 class="headline">ZCode 正式发布 + Kimi K2.7 Code 进入 Copilot，编码工具链再洗牌</h1>
+  <p class="sub">Z.ai 推出 GLM-5.2 官方开发环境；Kimi K2.7 Code 成为 GitHub Copilot 可选模型；CursorBench 3.1 更新评测标准。三件事指向同一个方向：编码 agent 的竞争从模型本身蔓延到了工具链和评测体系。</p>
+</section>
+
+<!-- ─── TOC ─── -->
+<nav class="toc">
+  <span class="smallcaps">目录</span>
+  <ul>
+    <li><span class="tier crit">🚨</span> ZCode — GLM-5.2 官方开发环境</li>
+    <li><span class="tier crit">🚨</span> Kimi K2.7 Code 进入 GitHub Copilot</li>
+    <li><span class="tier look">👀</span> CursorBench 3.1 — 编码 agent 评测更新</li>
+  </ul>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 🚨 ITEM 1 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--crit">
+  <span class="tier-label crit">🚨 必看</span>
+  <h2>ZCode — GLM-5.2 官方开发环境正式发布</h2>
+  <p class="pitch">clawii，Z.ai 终于给 GLM-5.2 配了一个正经的开发环境。不是模型，是工具链。如果你之前因为 GLM-5.2 没有好用的 IDE 而没试，现在可以了。</p>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · GLM-5.2 是过去一个月最火的开源编码模型（MIT 协议，744B MoE，1M 上下文），在 APEX-SWE 上以 55.3% Pass@1 领先。但之前它只有原始模型权重和第三方集成，没有一个官方的、开箱即用的开发环境。ZCode 填补了这个空白。
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>BYOK（自带密钥）支持</strong> — 你可以用自己的 API key 接入 GLM-5.2，数据不出企业网络。这对大公司合规部门是硬需求。</li>
+    <li><strong>跨平台</strong> — 桌面端 + 云端都能跑，LangChain 官方出了集成指南，hwchase17 亲自转发。这意味着 ZCode 不是玩具，是认真想进企业工作流的。</li>
+    <li><strong>GLM-5.2 的编码能力已经被验证</strong> — 现在有了官方工具链，之前"模型强但没地方用"的问题解决了。</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 今天就能做的事</strong>
+    <ol>
+      <li>去 <a href="https://z.ai">z.ai</a> 注册 ZCode 预览版（目前免费）</li>
+      <li>用你的 GLM-5.2 API key 连上，跑一个你平时用 Claude Code 做的任务，对比结果</li>
+      <li>读一下 LangChain 的集成指南，看看能不能替换你现有的 agent 后端</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——和已有的开发环境有什么不同</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>维度</th><th>ZCode (GLM-5.2)</th><th>Claude Code</th><th>Codex CLI</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>模型</td><td>GLM-5.2 (744B MoE, 40B active)</td><td>Sonnet 5 / Opus 4.8</td><td>GPT-5.6 Sol / Codex</td></tr>
+        <tr><td>协议</td><td>MIT 开源</td><td>闭源 API</td><td>闭源 API</td></tr>
+        <tr><td>BYOK</td><td>✅ 支持</td><td>❌ 不支持</td><td>❌ 不支持</td></tr>
+        <tr><td>本地部署</td><td>✅ 可自托管</td><td>❌</td><td>❌</td></tr>
+        <tr><td>上下文窗口</td><td>1M tokens</td><td>1M tokens</td><td>128K (GPT-5.6)</td></tr>
+        <tr><td>Pass@1 (APEX-SWE)</td><td>55.3%</td><td>~52% (Sonnet 5)</td><td>~58% (GPT-5.6 Sol)</td></tr>
+      </tbody>
+    </table>
+    <p><strong>跑在什么之上</strong>：GLM-5.2 模型 + Z.ai 自研推理引擎（支持 IndexShare 稀疏注意力）。ZCode 是前端 IDE 层，后端可以接 Z.ai 云 API 或自建推理。</p>
+    <p><strong>上手难度</strong>：注册 → 配 key → 开箱即用，约 10 分钟。自托管需要 vLLM / SGLang 部署经验，约 2 小时。</p>
+    <p><strong>老实说</strong>：ZCode 目前还是预览版，功能丰富度不如 Cursor 或 Claude Code。但如果你需要数据主权 + 开源模型 + 强编码能力，这是目前唯一的选择。</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 关注点</strong> · ZCode 什么时候出正式版？LangChain 集成会不会催生一批基于 GLM-5.2 的企业 agent 应用？如果 Z.ai 把 ZCode 做成 Cursor 的平替，编码 IDE 市场又要变天。
+  </div>
+
+  <div class="jargon">
+    <strong>术语解码</strong> · <strong>BYOK</strong> = Bring Your Own Key — 用自己的 API 密钥，数据不经过第三方服务器。<strong>MoE</strong> = Mixture of Experts — 混合专家模型，每次只激活一部分参数，兼顾性能和效率。<strong>Pass@1</strong> = 一次尝试就成功的概率，编码 benchmark 的核心指标。
+  </div>
+
+  <div class="whos-talking">
+    <strong>谁在讨论</strong> · HN 首页 #5，411 points，297 comments · hwchase17 (LangChain CEO) 转发 · Z.ai 官方 + LangChain 联合发布集成指南 · GitHub 上 GLM-5.2 模型页 176k 下载，3.21k stars
+  </div>
+
+  <div class="links">
+    <strong>试试看 / 深入了解</strong> · <a href="https://z.ai">z.ai — ZCode 官方</a> · <a href="https://news.ycombinator.com/item?id=???">HN 讨论</a> · <a href="https://langchain.com">LangChain 集成指南</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 🚨 ITEM 2 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--crit">
+  <span class="tier-label crit">🚨 必看</span>
+  <h2>Kimi K2.7 Code 正式进入 GitHub Copilot</h2>
+  <p class="pitch">clawii，Moonshot 的开源编码模型 Kimi K2.7 Code 现在直接在 GitHub Copilot 里可选了。这不是"又一个模型"，这是 Copilot 第一次正式支持非 OpenAI/Anthropic 的开源模型。</p>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · Kimi K2.7 Code 是 Moonshot AI 在 6 月中旬发布的开源编码模型，在多个编码 benchmark 上接近 GPT-5.5 和 Opus 4.8 水平。之前它只能通过 API 或本地部署使用。进入 Copilot 意味着它直接进入了数百万开发者的日常工具链。
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>Copilot 首次拥抱第三方开源模型</strong> — 之前 Copilot 只支持 OpenAI 和 Anthropic 的模型。Kimi K2.7 Code 的加入意味着 GitHub 在认真做"模型市场"，用户不再被锁定在单一模型生态。</li>
+    <li><strong>对非开发者也是好消息</strong> — 你用 Copilot 写脚本、做自动化、写 SQL 查询，现在多了一个免费/低成本的选择。Kimi K2.7 Code 在代码补全和简单 agent 任务上表现扎实。</li>
+    <li><strong>开源模型进入主流 IDE 的信号</strong> — 如果 Kimi 能在 Copilot 里站稳，GLM-5.2、Qwen 等开源模型跟进只是时间问题。</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 今天就能做的事</strong>
+    <ol>
+      <li>打开 VS Code / JetBrains，在 Copilot 设置里找到模型选择，切换到 Kimi K2.7 Code</li>
+      <li>跑一个你平时用 GPT-4o 或 Claude 做的编码任务，感受一下差异</li>
+      <li>关注 Copilot 的定价变化——如果 Kimi 模型更便宜，可以考虑长期切换</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——Kimi K2.7 Code 在 Copilot 里到底能做什么</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>维度</th><th>Kimi K2.7 Code</th><th>GPT-5.6 Luna (Copilot 默认)</th><th>Claude Sonnet 5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>模型规模</td><td>~270B MoE</td><td>未知 (OpenAI 未公开)</td><td>未知 (Anthropic 未公开)</td></tr>
+        <tr><td>协议</td><td>开源 (Apache 2.0)</td><td>闭源</td><td>闭源</td></tr>
+        <tr><td>上下文</td><td>128K tokens</td><td>128K tokens</td><td>1M tokens</td></tr>
+        <tr><td>Copilot 功能</td><td>代码补全 + 聊天</td><td>全部 Copilot 功能</td><td>全部 Copilot 功能</td></tr>
+        <tr><td>定价</td><td>免费 (自带推理)</td><td>含在 Copilot 订阅内</td><td>含在 Copilot 订阅内</td></tr>
+        <tr><td>编码 benchmark</td><td>接近 GPT-5.5</td><td>略高于 Kimi</td><td>略高于 Kimi</td></tr>
+      </tbody>
+    </table>
+    <p><strong>跑在什么之上</strong>：Moonshot 自研推理引擎 + GitHub 的托管基础设施。用户不需要自己部署。</p>
+    <p><strong>上手难度</strong>：零——在 Copilot 设置里切换模型就行，5 秒。</p>
+    <p><strong>老实说</strong>：Kimi K2.7 Code 在复杂 agent 任务上不如 GPT-5.6 Sol 或 Claude Opus 4.8，但在日常编码补全和简单脚本生成上完全够用。最大的价值是"开源 + 可切换"——你不必担心被一家模型供应商锁定。</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 关注点</strong> · Copilot 会不会继续引入 GLM-5.2 和 Qwen？如果开源模型在 Copilot 里表现不输闭源模型，微软的模型策略会发生根本变化。另外，Moonshot 会不会推出 Kimi K2.7 Code 的本地部署版？
+  </div>
+
+  <div class="jargon">
+    <strong>术语解码</strong> · <strong>MoE</strong> = Mixture of Experts — 每次只激活部分参数，降低推理成本。<strong>Copilot</strong> = GitHub 的 AI 编程助手，内置于 VS Code / JetBrains。
+  </div>
+
+  <div class="whos-talking">
+    <strong>谁在讨论</strong> · HN 首页 #2，183 points，72 comments · GitHub Blog 官方发布 · Moonshot AI 官方公告 · 中文圈尚未大规模覆盖（截至 7/2 下午）
+  </div>
+
+  <div class="links">
+    <strong>试试看 / 深入了解</strong> · <a href="https://github.blog">GitHub Blog — 官方公告</a> · <a href="https://news.ycombinator.com/item?id=???">HN 讨论</a> · <a href="https://moonshot.ai">Moonshot AI</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 3 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 可看</span>
+  <h2>CursorBench 3.1 — 编码 agent 评测标准更新</h2>
+  <p class="pitch">clawii，Cursor 发布了 CursorBench 3.1，更新了编码 agent 的评测方式。这不是一个产品，但它是你判断"哪个模型/工具真的强"的尺子——而且这把尺子变了。</p>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · 编码 agent 的评测一直是个难题。SWE-Bench 被诟病"刷榜"，HumanEval 太简单，新出的 FrontierSWE 和 APEX-SWE 各有侧重。CursorBench 是 Cursor 团队自己维护的评测集，侧重真实开发场景。3.1 版本加入了更长的任务周期和成本感知指标。
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>评测标准决定了"谁是最好的模型"</strong> — 之前 SWE-Bench 被刷爆后，大家不知道该信哪个 benchmark。CursorBench 3.1 加入了任务时长和 token 消耗的权重，更贴近真实使用场景。</li>
+    <li><strong>对非开发者的意义</strong> — 你选工具（Claude Code vs Codex vs Cursor）时，benchmark 是你判断的依据之一。如果 benchmark 本身在进化，你的选择逻辑也要跟着变。</li>
+    <li><strong>Cursor 在定义行业标准</strong> — 作为最大的 AI IDE 之一，Cursor 的评测标准会影响整个行业怎么比较编码 agent。</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 今天就能做的事</strong>
+    <ol>
+      <li>读一下 <a href="https://cursor.com">cursor.com</a> 上的 CursorBench 3.1 发布说明</li>
+      <li>看看你正在用的工具在 CursorBench 3.1 上的排名（如果已公布）</li>
+      <li>下次选模型时，把"成本 / 任务时长"纳入考量，不只是看 Pass@1</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——CursorBench 3.1 到底改了啥</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>维度</th><th>CursorBench 3.0</th><th>CursorBench 3.1</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>任务类型</td><td>单文件修改</td><td>多文件、跨仓库任务</td></tr>
+        <tr><td>任务时长</td><td>忽略</td><td>计入评分（长任务加分）</td></tr>
+        <tr><td>成本感知</td><td>无</td><td>按 token 消耗加权</td></tr>
+        <tr><td>评测维度</td><td>Pass@1</td><td>Pass@1 + 效率 + 成本</td></tr>
+        <tr><td>真实度</td><td>中等</td><td>高（来自真实 PR）</td></tr>
+      </tbody>
+    </table>
+    <p><strong>为什么这对你重要</strong>：之前你看到"模型 A 比模型 B 高 5%"时，不知道那 5% 是花了 10 倍 token 换来的。CursorBench 3.1 试图回答"谁在合理成本下做得最好"。</p>
+    <p><strong>老实说</strong>：任何 benchmark 都有局限性。CursorBench 3.1 比之前好，但它仍然是 Cursor 自己出的题。独立第三方评测（如 METR、Epoch AI）仍然更有公信力。</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 关注点</strong> · 其他 IDE（VS Code、JetBrains）会不会跟进类似的评测标准？如果 CursorBench 3.1 成为行业默认 benchmark，模型厂商的优化方向会变——从"刷 Pass@1"转向"在合理成本内完成任务"。
+  </div>
+
+  <div class="whos-talking">
+    <strong>谁在讨论</strong> · HN 首页 #12，75 points，46 comments · Cursor 官方发布 · 社区讨论集中在"成本感知评测是否公平"
+  </div>
+
+  <div class="links">
+    <strong>试试看 / 深入了解</strong> · <a href="https://cursor.com">cursor.com — CursorBench 3.1 发布说明</a> · <a href="https://news.ycombinator.com/item?id=???">HN 讨论</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📈 STILL TRACKING -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<aside class="still-tracking">
+  <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
+  <ul>
+    <li>
+      <span class="days">Day 3</span>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— 开源编码模型家族 (9B-397B)，MIT 协议，Simon Willison 实测评价正面。HuggingFace 下载量持续增长，但尚未进入主流 IDE。</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— 已正式上线，1M 上下文 + 新 tokenizer（实际涨价 ~30%）。社区讨论集中在 tokenizer 变化和定价策略。</span></div>
+    </li>
+    <li>
+      <span class="days">Day 1</span>
+      <div><span class="item-name">Fable 5 恢复访问</span> <span class="update">— Anthropic 宣布 7/1 恢复 Fable 5 全球访问，同时提出行业 jailbreak 评分框架。影响有限，但值得关注后续政策变化。</span></div>
+    </li>
+  </ul>
+</aside>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📊 今天没选进来的 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="killed">
+  <span class="smallcaps">📊 今天没选进来的</span>
+  <table>
+    <thead>
+      <tr><th>项目</th><th>没选的原因</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>GPT-5.6 预览</td><td>6/26 已报道，今天无新进展。仍在政府限制发布状态。</td></tr>
+      <tr><td>Meta Brain2Qwerty v2</td><td>纯研究，无可用产品。非开发者无法使用。</td></tr>
+      <tr><td>OpenAI Jalapeño 芯片</td><td>6/24 已报道，今天无新进展。</td></tr>
+      <tr><td>Claude Tag (Slack 集成)</td><td>6/23 已报道，仍在 beta。无新 trigger event。</td></tr>
+      <tr><td>Senior SWE-Bench</td><td>HN #13，100 points，但属于 benchmark 增量更新，信号不够强。</td></tr>
+      <tr><td>Weave Robotics Isaac 1 机器人</td><td>非 AI 软件工具，偏离 clawii 关注范围。</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ─── PAGER (bottom) ─── -->
+<nav class="pager" data-current-date="2026-07-02">
+  <a class="prev" href="#">上一期</a>
+  <span class="disabled">2026-07-02</span>
+  <a class="next" href="#">下一期</a>
+</nav>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <p>AI Radar · 每日 AI 信号扫描 · 由 clawii 的朋友自动生成</p>
+  <p>扫描范围：Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace</p>
+  <p>© 2026 · 数据来源均为公开信息 · 不构成投资建议</p>
+</footer>
+
+<script>
+// ─── Pager: load archive.json and set prev/next ───
+(async function(){
+  const currentDate = document.querySelector('.pager')?.dataset?.currentDate || '2026-07-02';
+  try {
+    const resp = await fetch('./archive.json');
+    if (!resp.ok) throw new Error('fetch failed');
+    const data = await resp.json();
+    const issues = data.issues || [];
+    const idx = issues.findIndex(i => i.date === currentDate);
+    if (idx === -1) return;
+    const prev = issues[idx + 1];
+    const next = issues[idx - 1];
+    document.querySelectorAll('.pager').forEach(pager => {
+      const prevEl = pager.querySelector('.prev');
+      const nextEl = pager.querySelector('.next');
+      if (prev && prevEl) {
+        prevEl.href = prev.url;
+        prevEl.textContent = prev.date;
+        prevEl.classList.remove('disabled');
+      } else if (prevEl) {
+        prevEl.classList.add('disabled');
+        prevEl.textContent = '已是第一期';
+      }
+      if (next && nextEl) {
+        nextEl.href = next.url;
+        nextEl.textContent = next.date;
+        nextEl.classList.remove('disabled');
+      } else if (nextEl) {
+        nextEl.classList.add('disabled');
+        nextEl.textContent = '已是最新';
+      }
+    });
+  } catch(e) {
+    // silently fail — pager stays as-is
+  }
+})();
+</script>
+
+</body>
+</html>
