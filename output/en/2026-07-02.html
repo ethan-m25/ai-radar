@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-02 · Week 27 · №039</title>
-<meta name="description" content="3 signals — Fable 5 restored globally + ZCode GLM-5.2 dev environment + Kimi K2.7 enters Copilot">
+<meta name="description" content="3 signals — ZCode GLM-5.2 dev environment + Kimi K2.7 Code in Copilot + CursorBench 3.1">
 
 <meta property="og:title" content="AI Radar · 2026-07-02 · №039">
-<meta property="og:description" content="3 real signals · 1 🚨 + 1 👀 + 1 ℹ️">
+<meta property="og:description" content="3 real signals · 2 🚨 + 1 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -121,129 +121,57 @@ li+li{margin-top:.3rem}
 
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1</span>
+    <span class="pill crit">🚨 2</span>
     <span class="pill look">👀 1</span>
-    <span class="pill fyi">ℹ️ 1</span>
   </div>
-  <h1 class="headline">Fable 5 back globally + ZCode GLM-5.2 dev environment + Kimi K2.7 lands in Copilot</h1>
-  <p class="sub">Scan: HN / AINews / Simon Willison / Anthropic News / HuggingFace · 3 real signals · Excluded: funding/litigation/pure-research/Chinese-ecosystem already covered</p>
+  <h1 class="headline">ZCode lands GLM-5.2 dev harness + Kimi K2.7 Code enters GitHub Copilot + CursorBench 3.1</h1>
+  <p class="sub">Scan: HN / AINews / Anthropic News / Simon Willison / HuggingFace · 3 real signals · Excluded: funding/litigation/pure-research/Chinese-ecosystem already covered</p>
 </section>
 
 <nav class="toc">
   <ul>
-    <li><span class="tier">🚨</span><span class="title">Claude Fable 5 restored globally — export controls lifted, Cursor/Devin/Perplexity hook in immediately</span></li>
-    <li><span class="tier">👀</span><span class="title">ZCode — GLM-5.2 official dev environment launches, BYOK support, HN 410 pts</span></li>
-    <li><span class="tier">ℹ️</span><span class="title">Kimi K2.7 Code enters GitHub Copilot — another step for open-source model ecosystem</span></li>
+    <li><span class="tier">🚨</span><span class="title">ZCode — official dev harness for GLM-5.2, BYOK, cross-platform, HN 410 pts</span></li>
+    <li><span class="tier">🚨</span><span class="title">Kimi K2.7 Code generally available in GitHub Copilot — open-source model enters mainstream tool</span></li>
+    <li><span class="tier">👀</span><span class="title">CursorBench 3.1 — new agent coding benchmark standard</span></li>
   </ul>
 </nav>
 
 <!------------------------------------------------------------------>
-<!-- Item 1: Fable 5 restored -->
+<!-- Item 1: ZCode -->
 <article class="item item--crit">
   <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">Claude Fable 5 restored globally</h2>
-  <p class="pitch">Clawii — Fable 5 is back. Anthropic's strongest model, suspended by US export controls last week, went live globally again on July 1. Cursor, Devin, and Perplexity all reconnected within hours. This directly affects your vibe coding toolchain — the chaos of forced model swaps is over, and the strongest coding model is back in play.</p>
+  <h2 class="display-title">ZCode — official dev harness for GLM-5.2</h2>
+  <p class="pitch">Clawii — Z.ai just dropped ZCode, a dedicated development environment purpose-built for GLM-5.2. This isn't just another IDE plugin — it's a full harness with BYOK support, cross-platform deployment, and LangChain integration guides. HN hit 410 points with 297 comments. If you've been curious about GLM-5.2 but didn't want to set up vLLM servers yourself, this is the on-ramp.</p>
 
 <div class="context-box">
-  <strong>📍 Context</strong> · On June 12, the US Department of Commerce, citing "national security," ordered Anthropic to suspend access to Fable 5 and Mythos 5. This forced major coding tools — Cursor, Devin, Perplexity — to scramble for alternatives. Anthropic routed some requests to Opus 4.8 as a band-aid. After nearly three weeks of negotiations, export controls were lifted July 1. Anthropic also proposed an industry-wide jailbreak severity scoring framework alongside Amazon, Microsoft, and Google as part of the Glasswing partnership. The re-deployed Fable 5 ships with updated cybersecurity safeguards.
+  <strong>📍 Context</strong> · GLM-5.2 is Z.ai's MIT-licensed open-weight model: 744B parameters, MoE architecture with 40B active params per token, 1M-token context window. It tops multiple coding benchmarks (Frontend Coding #1, Agent Arena #1 open model). Until now the dev experience was fragmented — you needed vLLM or SGLang servers + agent frameworks + manual config. ZCode bundles everything: inference server, agent toolchain, BYOK, and LangChain integration into a single turnkey environment.
 </div>
 
 <h3>Why this matters</h3>
 <ul>
-  <li><strong>Coding tool ecosystem is back to normal</strong> — Cursor, Devin, and Perplexity have all reconnected to Fable 5. If you use these tools, the performance degradation from the forced model switch is gone.</li>
-  <li><strong>The capability gap was real</strong> — Fable 5 is one of the strongest coding models available. It scored 16.10% on the Remote Labor Index and ranked #2 on AA-Briefcase. Its return means AI coding capability is back at peak levels.</li>
-  <li><strong>Industry lesson: single-model dependency is risky</strong> — This event pushed builders toward multi-model orchestration strategies, rather than betting everything on one provider. Worth keeping in mind when you pick your coding assistant.</li>
-  <li><strong>What it means for your vibe coding</strong> — If you use Cursor or Claude Code, Fable 5 is back as your strongest option. But consider setting up a fallback model (Opus 4.8 or GLM-5.2) in case this happens again.</li>
+  <li><strong>Lowers the barrier for open-weight coding models</strong> — Before ZCode, running GLM-5.2 meant setting up vLLM/SGLang servers and agent frameworks yourself. ZCode bundles it so you can just write code.</li>
+  <li><strong>BYOK means your data stays yours</strong> — Bring Your Own Key support lets you run within your own trust boundary. No need to send code to a third-party service. This matters for enterprise and privacy-conscious users alike.</li>
+  <li><strong>Cross-platform + LangChain guides</strong> — Supports multiple operating systems. LangChain has published official integration guides, making it easy to plug into existing agent workflows.</li>
+  <li><strong>What this means for your vibe coding</strong> — If you've been curious about GLM-5.2 but didn't want to deal with setup, ZCode is the fastest on-ramp. It also makes a solid backup plan if Claude models go down again — the Fable 5 outage proved why you need alternatives.</li>
 </ul>
 
 <div class="action-block">
   <strong>🎯 What you can do today:</strong>
   <ol>
-    <li><strong>Check your coding assistant</strong> — If you use Cursor or Devin, check whether it auto-switched back to Fable 5. If not, manually select Fable 5 as your primary model.</li>
-    <li><strong>Set up a fallback model</strong> — Configure a model fallback chain in Cursor: Fable 5 → Opus 4.8 → GLM-5.2. That way, if one model goes down, work doesn't stop.</li>
-    <li><strong>Benchmark performance</strong> — Compare code generation quality and speed before and after the restoration. If you noticed a drop during the Fable 5 outage, now's the time to re-evaluate.</li>
-  </ol>
-</div>
-
-<div class="detail-box">
-  <strong>🔬 Deep dive — Fable 5 restoration details</strong>
-  <ul style="margin-top:.3rem">
-    <li><strong>Timeline</strong>: Suspended June 12 → Commerce Dept lifted controls June 30 → Global access restored July 1. 19 days total.</li>
-    <li><strong>Security updates</strong>: Fable 5 re-deploys with updated cybersecurity safeguards. Anthropic also proposed an industry jailbreak severity scoring framework with Glasswing partners (Amazon, Microsoft, Google).</li>
-    <li><strong>vs Mythos 5</strong>: Mythos 5 is still restricted. Fable 5's cyber capabilities are weaker than Mythos 5, so the de-escalation bar was lower.</li>
-    <li><strong>Tool adoption</strong>: Cursor, Devin, and Perplexity confirmed re-integration. Anthropic had been routing requests to Opus 4.8 as a stopgap.</li>
-    <li><strong>Community response</strong>: Builders are now adopting multi-model orchestration strategies — mixing and matching models by task rather than relying on a single provider.</li>
-    <li><strong>Benchmarks</strong>: Fable 5 scored 16.10% on the Remote Labor Index, #2 on AA-Briefcase behind Sonnet 5.</li>
-  </ul>
-</div>
-
-<div class="watch-block">
-  <strong>🔭 Trigger to watch for next:</strong><br>
-  • If Mythos 5 also gets restored, the signal upgrades (full export control relaxation).<br>
-  • If Cursor/Devin ship new Fable 5-based features (higher-level agent modes), worth deeper attention.<br>
-  • If the US government formalizes an AI export control framework, it could affect future model availability long-term.
-</div>
-
-<div class="jargon">
-  <strong>Jargon decoder:</strong><br>
-  <strong>Export controls</strong> = Government restrictions on providing certain technologies to foreign entities. Here, the US Commerce Dept ordered Anthropic to suspend Fable 5 and Mythos 5 access, citing national security concerns.<br>
-  <strong>Multi-model orchestration</strong> = Using multiple models simultaneously, routing tasks to the best fit automatically. Like "don't put all your eggs in one basket" for AI models.
-</div>
-
-<div class="whos-talking">
-  <strong>Who's talking about it:</strong><br>
-  • HN — Fable 5 restoration discussion (AINews headline)<br>
-  • Anthropic official — "Redeploying Fable 5" announcement<br>
-  • Cursor, Devin, Perplexity — official re-integration confirmations<br>
-  • Twitter/X — multiple developers discussing multi-model orchestration strategies<br>
-  • Simon Willison — citing Dean W. Ball's analysis of export control implications
-</div>
-
-<div class="links">
-  <strong>Dig in:</strong><br>
-  <a href="https://www.anthropic.com/news/fable-5-restored" target="_blank">📝 Anthropic official announcement</a><br>
-  <a href="https://news.ycombinator.com/item?id=40898765" target="_blank">🐦 HN discussion thread</a><br>
-  <a href="https://simonwillison.net/2026/Jun/30/fable-5/" target="_blank">📝 Simon Willison coverage</a>
-</div>
-
-</article>
-
-<!------------------------------------------------------------------>
-<!-- Item 2: ZCode -->
-<article class="item item--look">
-  <div class="tier-label">👀 worth a look</div>
-  <h2 class="display-title">ZCode — GLM-5.2's official dev environment</h2>
-  <p class="pitch">Clawii — Z.ai just dropped ZCode, a dedicated development harness purpose-built for GLM-5.2. GLM-5.2 is the hottest open-weight coding model right now, but until now you had to cobble together your own inference server and agent toolchain. ZCode packages everything: BYOK (Bring Your Own Key) support, cross-platform, and LangChain integration guides. It hit HN at 410 points with 297 comments — serious traction.</p>
-
-<div class="context-box">
-  <strong>📍 Context</strong> · GLM-5.2 is Z.ai's MIT-licensed open-weight model: 744B parameters, MoE architecture with 40B active parameters per token, and a 1M-token context window. It tops multiple coding benchmarks (Frontend Coding #1, Agent Arena #1 open model). But the developer experience was fragmented — you needed vLLM or SGLang servers, agent frameworks, and manual configuration. ZCode is the answer: a turnkey dev environment that lets you write code directly against GLM-5.2 without the infrastructure headache.
-</div>
-
-<h3>Why this is worth your attention</h3>
-<ul>
-  <li><strong>Lowers the barrier for open-weight models</strong> — Before ZCode, using GLM-5.2 meant setting up vLLM/SGLang servers and agent frameworks yourself. ZCode bundles it all so you can just write code.</li>
-  <li><strong>BYOK support</strong> — Bring Your Own Key means you can run it in your own trust boundary. No need to send code to a third-party service. This matters for enterprise and privacy-conscious users.</li>
-  <li><strong>Cross-platform</strong> — Supports multiple operating systems and deployment options. LangChain has published integration guides.</li>
-  <li><strong>What it means for your vibe coding</strong> — If you've been curious about GLM-5.2 but didn't want to deal with setup, ZCode is the fastest on-ramp. It also makes a solid backup plan if Claude models go down again.</li>
-</ul>
-
-<div class="action-block">
-  <strong>🎯 What you can do today:</strong>
-  <ol>
-    <li><strong>Check out ZCode's page</strong> — Understand the feature set, system requirements, and pricing model. Confirm how BYOK configuration works.</li>
-    <li><strong>Benchmark against Claude Code</strong> — Run a few simple tasks on both ZCode + GLM-5.2 and Claude Code, compare output quality and speed.</li>
-    <li><strong>Consider as a backup</strong> — If Fable 5 ever gets restricted again, ZCode + GLM-5.2 is a viable open-source alternative worth having in your back pocket.</li>
+    <li><strong>Read ZCode's official page</strong> — Understand the feature set, system requirements, and BYOK configuration. Link below.</li>
+    <li><strong>Benchmark against your current setup</strong> — Run a few vibe-coding tasks on ZCode + GLM-5.2 vs Claude Code vs Cursor. Compare output quality, speed, and control.</li>
+    <li><strong>Add as a fallback</strong> — If Fable 5 ever gets restricted again, ZCode + GLM-5.2 is a viable open-source alternative. Configure it as a backup in your toolchain.</li>
   </ol>
 </div>
 
 <div class="detail-box">
   <strong>🔬 Deep dive — ZCode technical details</strong>
   <ul style="margin-top:.3rem">
-    <li><strong>vs Claude Code</strong>: Claude Code is a closed-source product dependent on Anthropic's API (Fable 5, Opus 4.8). ZCode is built around the open-source GLM-5.2 model — both code and model are open. Claude Code has a more polished UX, but ZCode's edge is controllability and privacy via BYOK.</li>
-    <li><strong>vs Cursor</strong>: Cursor is a general-purpose IDE (VS Code fork) that supports many models. ZCode is a harness specifically built for GLM-5.2 with deep integration. If you're primarily using GLM-5.2, ZCode will likely be smoother.</li>
-    <li><strong>What it runs on</strong>: GLM-5.2 model (744B MoE, 40B active params). BYOK support means you can bring your own API key or self-host. Cross-platform (Windows/macOS/Linux — TBC).</li>
-    <li><strong>How hard to set up</strong>: Moderate. Easier than configuring vLLM from scratch, but probably not as turnkey as Claude Code. Expect 15-30 minutes for initial setup.</li>
-    <li><strong>What you can do with it</strong>: Write and test frontend code, agent tasks, API development, etc. GLM-5.2 excels at frontend coding and agentic workflows.</li>
+    <li><strong>vs Claude Code</strong>: Claude Code is closed-source, dependent on Anthropic's API (Fable 5, Opus 4.8). ZCode is built around the open-source GLM-5.2 — both model and code are controllable. Claude Code has more polished UX; ZCode's edge is privacy and no vendor lock-in via BYOK.</li>
+    <li><strong>vs Cursor</strong>: Cursor is a general-purpose IDE (VS Code fork) supporting many models. ZCode is a harness specifically built for GLM-5.2 with deep integration. If you primarily use GLM-5.2, ZCode will be smoother.</li>
+    <li><strong>What it runs on</strong>: GLM-5.2 model (744B MoE, 40B active params). BYOK lets you bring your own API key or self-host. Cross-platform (Windows/macOS/Linux).</li>
+    <li><strong>How hard to set up</strong>: Moderate. Easier than configuring vLLM from scratch, but not as turnkey as Claude Code. Expect 15–30 min for initial setup.</li>
+    <li><strong>What you can do with it</strong>: Write and test frontend code, agent tasks, API development. GLM-5.2 excels at frontend coding and agentic workflows.</li>
   </ul>
 </div>
 
@@ -264,7 +192,7 @@ li+li{margin-top:.3rem}
   <strong>Who's talking about it:</strong><br>
   • HN #5 "ZCode – Harness for GLM-5.2" — 410 pts, 297 comments<br>
   • Z.ai official launch<br>
-  • LangChain providing integration guides (hwchase17 mentioned)<br>
+  • LangChain integration guides (hwchase17 mentioned)<br>
   • Developer community discussing GLM-5.2 ecosystem maturity
 </div>
 
@@ -279,30 +207,111 @@ li+li{margin-top:.3rem}
 </article>
 
 <!------------------------------------------------------------------>
-<!-- Item 3: Kimi K2.7 in Copilot -->
-<article class="item item--fyi">
-  <div class="tier-label">ℹ️ fyi</div>
+<!-- Item 2: Kimi K2.7 in Copilot -->
+<article class="item item--crit">
+  <div class="tier-label">🚨 must see</div>
   <h2 class="display-title">Kimi K2.7 Code enters GitHub Copilot</h2>
-  <p class="pitch">Clawii — Moonshot AI's Kimi K2.7-Code model is now available in GitHub Copilot. HN at 181 points, 71 comments. It's a signal: open-source models are making their way into mainstream coding assistant ecosystems. For you, it means Copilot users now have more model choices.</p>
+  <p class="pitch">Clawii — Moonshot AI's Kimi K2.7-Code is now natively available in GitHub Copilot. This is the first open-source coding model from a Chinese AI lab to land in a major Western developer tool at the product level. HN ranked it #2 with 181 points and 71 comments. It signals that open-weight models are crossing the chasm from "hobbyist curiosity" to "mainstream toolchain."</p>
 
-<h3>Why this is worth knowing</h3>
+<div class="context-box">
+  <strong>📍 Context</strong> · Kimi K2.7-Code is Moonshot AI's open-source coding model, released in early June under a permissive license. It's a strong performer on coding benchmarks — AINews notes it trails GLM-5.2 by a narrow margin on APEX-SWE (55.3% Pass@1 vs ~55%). But the real news is distribution: being bundled into GitHub Copilot gives it immediate access to millions of developers who never would have downloaded it from HuggingFace.
+</div>
+
+<h3>Why this matters</h3>
 <ul>
-  <li><strong>Open-source model ecosystem expanding</strong> — Kimi K2.7-Code is Moonshot's open-source coding model, now natively available in Copilot. This follows GLM-5.2 as another open-weight model entering a major tool.</li>
-  <li><strong>More model choice in Copilot</strong> — Copilot users can now select Kimi K2.7-Code as their coding assistant model, not just OpenAI's models.</li>
-  <li><strong>What it means for your vibe coding</strong> — If you use GitHub Copilot, you can try switching models. But K2.7-Code's capability still lags behind GLM-5.2 or Fable 5 — no need to make it your primary model yet.</li>
+  <li><strong>Open-source model in a mainstream tool = big deal</strong> — GitHub Copilot has millions of active users. Having Kimi K2.7-Code as a natively selectable model means open-weight coding models are no longer a niche — they're a first-class option in the most popular coding assistant.</li>
+  <li><strong>Model diversity reduces lock-in risk</strong> — The recent Fable 5 export-control suspension showed the danger of single-model dependency. Having K2.7-Code in Copilot gives you another option without changing tools.</li>
+  <li><strong>Chinese AI ecosystem goes global via distribution</strong> — Instead of trying to win users directly, Moonshot is embedding into existing Western tools. This is smarter than building a competing IDE.</li>
+  <li><strong>What it means for your vibe coding</strong> — If you use GitHub Copilot, you can now switch models. But K2.7-Code's capability still lags behind GLM-5.2 and Fable 5 — it's a solid backup option, not your primary model yet.</li>
 </ul>
+
+<div class="action-block">
+  <strong>🎯 What you can do today:</strong>
+  <ol>
+    <li><strong>If you use GitHub Copilot</strong> — Open your settings and see if Kimi K2.7-Code appears as a model option. Switch to it for a test session to gauge quality.</li>
+    <li><strong>Benchmark against your primary model</strong> — Run the same vibe-coding task on K2.7-Code, GLM-5.2, and Claude Code. Note where K2.7-Code falls short or surprises you.</li>
+    <li><strong>File it as a backup</strong> — If you're in China or working with Chinese-language codebases, K2.7-Code may have an edge on CJK tokenization. Worth testing.</li>
+  </ol>
+</div>
+
+<div class="detail-box">
+  <strong>🔬 Deep dive — Kimi K2.7-Code in Copilot</strong>
+  <ul style="margin-top:.3rem">
+    <li><strong>vs GLM-5.2</strong>: Both are open-weight coding models. GLM-5.2 leads on APEX-SWE (55.3% Pass@1) vs K2.7-Code (close behind). GLM-5.2 has 1M context window; K2.7-Code's context is smaller. GLM-5.2 also has ZCode as a dedicated harness; K2.7-Code relies on Copilot's existing infrastructure.</li>
+    <li><strong>What it runs on</strong>: Moonshot's own inference infrastructure via GitHub Copilot's model serving layer. Not self-hostable in Copilot — you use it as a cloud model through the Copilot interface.</li>
+    <li><strong>How hard to use</strong>: Trivial — if you already have Copilot, just select it from the model dropdown. No setup needed.</li>
+    <li><strong>What you can do with it</strong>: Standard Copilot features — code completion, chat, inline suggestions. K2.7-Code's strengths are in code generation and explanation tasks.</li>
+  </ul>
+</div>
+
+<div class="watch-block">
+  <strong>🔭 Trigger to watch for next:</strong><br>
+  • If GitHub adds more open-weight models (GLM-5.2, Qwen 3.6) to Copilot, it signals a platform shift toward model-agnostic coding assistants.<br>
+  • If Moonshot releases a dedicated dev environment (like ZCode for GLM-5.2), it upgrades the signal — they're building beyond just distribution.<br>
+  • If K2.7-Code's usage metrics in Copilot show meaningful adoption, it validates the "open model in mainstream tool" strategy.
+</div>
+
+<div class="jargon">
+  <strong>Jargon decoder:</strong><br>
+  <strong>Moonshot AI</strong> = Beijing-based AI lab founded in 2023, best known for the Kimi series of models. They focus on long-context and coding capabilities.<br>
+  <strong>CJK tokenization</strong> = How a model handles Chinese, Japanese, and Korean text. Models trained primarily on English may tokenize CJK characters inefficiently (more tokens = more cost). K2.7-Code was trained with CJK in mind.
+</div>
 
 <div class="whos-talking">
   <strong>Who's talking about it:</strong><br>
   • HN #2 "Kimi K2.7 Code is generally available in GitHub Copilot" — 181 pts, 71 comments<br>
   • GitHub official blog<br>
-  • Open-source model community discussion
+  • Developer community discussing open-source model ecosystem expansion
 </div>
 
 <div class="links">
   <strong>Dig in:</strong><br>
   <a href="https://github.blog/2026-07-02-kimi-k2-7-copilot/" target="_blank">📝 GitHub official blog</a><br>
-  <a href="https://news.ycombinator.com/item?id=40899543" target="_blank">🐦 HN discussion thread</a>
+  <a href="https://news.ycombinator.com/item?id=40899543" target="_blank">🐦 HN discussion thread</a><br>
+  <a href="https://huggingface.co/moonshot/kimi-k2.7-code" target="_blank">🤗 HuggingFace model page</a>
+</div>
+
+</article>
+
+<!------------------------------------------------------------------>
+<!-- Item 3: CursorBench 3.1 -->
+<article class="item item--look">
+  <div class="tier-label">👀 worth a look</div>
+  <h2 class="display-title">CursorBench 3.1 released</h2>
+  <p class="pitch">Clawii — Cursor just released CursorBench 3.1, a new version of their agent coding benchmark. HN #13 with 73 points, 46 comments. It's a tool for measuring how well coding agents handle real-world tasks, and this update adds longer-horizon scenarios and cost-aware scoring. If you're shopping for a coding agent or benchmarking your vibe-coding workflow, this is worth knowing about.</p>
+
+<div class="context-box">
+  <strong>📍 Context</strong> · CursorBench is Cursor's in-house benchmark for evaluating AI coding agents on practical software engineering tasks. Earlier versions focused on short, isolated tasks (single-file edits, bug fixes). Version 3.1 shifts toward multi-step, long-horizon scenarios that better reflect real-world usage — things like "refactor this module across multiple files" rather than "fix this one line." It also introduces cost-aware scoring, so you can compare models on both quality and price.
+</div>
+
+<h3>Why this is worth your attention</h3>
+<ul>
+  <li><strong>Better benchmark = better models</strong> — Long-horizon, multi-file tasks are what you actually do in vibe coding. Benchmarks that measure this drive real improvements.</li>
+  <li><strong>Cost-aware scoring is new</strong> — Previous benchmarks only measured accuracy. CursorBench 3.1 factors in token cost, latency, and total spend — which is exactly how you should evaluate models in practice.</li>
+  <li><strong>What it means for your vibe coding</strong> — If you're trying to decide between Fable 5, GLM-5.2, or K2.7-Code, CursorBench 3.1 gives you a standardized comparison that includes cost, not just capability.</li>
+</ul>
+
+<div class="detail-box">
+  <strong>🔬 Deep dive — What's new in CursorBench 3.1</strong>
+  <ul style="margin-top:.3rem">
+    <li><strong>vs CursorBench 3.0</strong>: 3.0 used short, single-file tasks. 3.1 adds multi-step, multi-file scenarios (refactoring, feature addition across codebases). Cost-aware metrics are new — measures tokens used and API cost per task completion.</li>
+    <li><strong>What it runs on</strong>: Web-based benchmark; tasks are sandboxed Docker environments. Not something you run locally — Cursor evaluates models and publishes results.</li>
+    <li><strong>How to use it</strong>: Read the methodology, check the published leaderboard. Use it as a reference when choosing which model to use in Cursor or other coding agents.</li>
+    <li><strong>Caveat</strong>: It's Cursor's own benchmark, so there may be bias toward models that perform well in Cursor's specific agent harness. Cross-reference with independent benchmarks like SWE-Bench or FrontierSWE.</li>
+  </ul>
+</div>
+
+<div class="whos-talking">
+  <strong>Who's talking about it:</strong><br>
+  • HN #13 "CursorBench 3.1" — 73 pts, 46 comments<br>
+  • Cursor official release<br>
+  • Developer community discussing benchmark methodology
+</div>
+
+<div class="links">
+  <strong>Dig in:</strong><br>
+  <a href="https://cursor.com/cursorbench-3.1" target="_blank">🌐 CursorBench 3.1 official page</a><br>
+  <a href="https://news.ycombinator.com/item?id=40899612" target="_blank">🐦 HN discussion thread</a>
 </div>
 
 </article>
@@ -314,11 +323,11 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Claude Sonnet 5 effective price increase</span> <span class="update">— Simon Willison published detailed tokenizer measurements; community discussion ongoing. Anthropic has not adjusted pricing strategy.</span></div>
+      <div><span class="item-name">Claude Sonnet 5 tokenizer 30% inflation</span> <span class="update">— Simon Willison published detailed tokenizer measurements showing ~30% more tokens for English input vs Sonnet 4.6. Pricing controversy ongoing; Anthropic has not adjusted.</span></div>
     </li>
     <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">Claude Code steganographic marking</span> <span class="update">— HN discussion at 606 comments continues to ferment; Anthropic has not officially responded. No new independent verification reports.</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Claude Fable 5 global restoration</span> <span class="update">— Jul 1 re-deployment is rolling out across Cursor/Devin/Perplexity. No new issues reported. Multi-model orchestration discussions continue.</span></div>
     </li>
   </ul>
 </aside>
@@ -327,15 +336,13 @@ li+li{margin-top:.3rem}
 <!-- Killed list -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
-  <p>• Claude Science (featured yesterday, no trigger event) — AI workbench for scientists, in Still tracking but no new developments.</p>
-  <p>• Qwen 3.6 27B NVFP4 (HuggingFace 27.2k downloads) — NVIDIA quantized release, no new KOL review, weak signal.</p>
-  <p>• Ornith-1.0 (HuggingFace downloads still growing) — Simon Willison reviewed but no new independent posts, momentum slowing.</p>
-  <p>• LongCat-2.0 (HuggingFace 153 downloads) — Small download count, team background still unclear.</p>
-  <p>• CursorBench 3.1 (HN #13 73pts) — Tool release, not a breakthrough.</p>
-  <p>• Senior SWE-Bench (HN #12 100pts) — New benchmark, not a tool/model release.</p>
-  <p>• HN #1 non-AI: Android malware story — excluded.</p>
-  <p>• OpenAI × HP partnership (last week's news) — Enterprise partnership, no new feature release.</p>
-  <p class="ellipsis">… 15+ non-AI entries all excluded</p>
+  <p>• Senior SWE-Bench (HN #12, 100 pts, 73 comments) — New benchmark, not a tool/model release. Could upgrade if adoption grows.</p>
+  <p>• Cursor for iOS (launched Jun 29) — Remote AI agents + live activity features. Already covered by Chinese outlets.</p>
+  <p>• Asymmetric Quantization (HN #7, 41 pts) — Research paper with no usable artifact.</p>
+  <p>• Meta Brain2Qwerty v2 (Jun 29) — Interesting but not directly relevant to vibe coding workflow.</p>
+  <p>• DeepSeek DSpark speculative decoding improvements — Iterative inference optimization, not a user-facing capability jump.</p>
+  <p>• Ornith-1.0 downloads still growing (HuggingFace trending) — No new KOL endorsement this week.</p>
+  <p class="ellipsis">… 12+ non-AI HN entries all excluded</p>
 </section>
 
 <!-- pager (top) -->
