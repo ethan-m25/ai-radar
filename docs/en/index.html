@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-03 · Week 27 · №040</title>
-<meta name="description" content="2 signals — Simon Willison releases llm-coding-agent 0.1a0 (Fable 5 coding agent library) + Claude-real-video lets any LLM watch video">
+<meta name="description" content="3 signals — Alibaba bans Claude Code + Fullstack Code Arena launches + Anthropic Fable 5 restored globally">
 
 <meta property="og:title" content="AI Radar · 2026-07-03 · №040">
-<meta property="og:description" content="2 real signals · 1 🚨 + 1 👀">
+<meta property="og:description" content="3 real signals · 1 🚨 + 2 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -42,76 +42,93 @@ li+li{margin-top:.3rem}
 .cover .counts .pill.look{background:#d4a03f;color:#fff}
 .cover .counts .pill.fyi{background:#8a9b9b;color:#fff}
 .cover .headline{font-family:"Fraunces",Georgia,serif;font-size:1.8rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.2;letter-spacing:-.01em;color:#2b231c;margin-top:.2rem}
-.cover .sub{font-size:.85rem;color:#7f7260;margin-top:.4rem}
-/* ── toc ── */
-.toc{margin:0 auto;padding:.8rem 1.2rem 1.2rem;max-width:720px;border-top:1px solid #e0d6c6}
-.toc ul{list-style:none;padding:0}
-.toc li{display:flex;align-items:baseline;gap:.4rem;padding:.2rem 0;font-size:.9rem}
-.toc li .tier{font-size:.75rem;font-weight:600;min-width:3.2rem}
-.toc li .title{font-weight:450}
-/* ── item ── */
-.item{border-top:1px solid #e0d6c6;padding:1.8rem 1.2rem;max-width:720px;margin:0 auto}
-.item:first-of-type{border-top:0}
-.item .tier-label{display:inline-block;font-size:.7rem;font-weight:600;padding:.1rem .5rem;border-radius:999px;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
-.item--crit .tier-label{background:#d43f3f;color:#fff}
-.item--look .tier-label{background:#d4a03f;color:#fff}
-.item--fyi .tier-label{background:#8a9b9b;color:#fff}
-.item .display-title{font-family:"Fraunces",Georgia,serif;font-size:1.4rem;font-weight:500;font-variation-settings:"SOFT" 80;line-height:1.25;margin-bottom:.4rem;color:#1f1914}
-.item .pitch{font-family:"Fraunces",Georgia,serif;font-size:.95rem;font-style:italic;color:#5f5342;line-height:1.4;margin-bottom:1rem}
-.context-box{background:#ece3d6;padding:.8rem 1rem;border-radius:8px;font-size:.82rem;color:#3b342c;margin-bottom:1rem;line-height:1.5}
-.chart{background:#e8dfd0;padding:.8rem 1rem;border-radius:8px;margin-bottom:1rem;overflow-x:auto}
-.chart table{width:100%;border-collapse:collapse;font-size:.8rem}
-.chart th,.chart td{padding:.4rem .5rem;text-align:left;border-bottom:1px solid #d3c9b8}
-.chart th{font-weight:600;color:#4c3f30;border-bottom:2px solid #c6baa5}
-.chart .bar{display:inline-block;height:1em;background:#1a5a7a;border-radius:2px;margin-right:.3rem;vertical-align:middle}
-.item h3{margin:1.2rem 0 .5rem;font-size:.95rem;font-weight:600;color:#3d342b}
-.item ul{font-size:.9rem;color:#2e2720;line-height:1.5;margin-bottom:.8rem}
-.action-block{background:#e5ddce;padding:.8rem 1rem;border-radius:8px;margin:1rem 0}
-.action-block ol{font-size:.88rem;padding-left:1.4rem}
-.action-block li+li{margin-top:.6rem}
-.action-block code{background:#d6cdbc;padding:.1rem .3rem;border-radius:4px;font-size:.8rem;font-family:"Geist Mono",monospace}
-.detail-box{background:#f0e8db;padding:.8rem 1rem;border-radius:8px;margin:.8rem 0;font-size:.82rem;color:#3b342c;line-height:1.5}
-.watch-block{background:#ede4d5;padding:.6rem 1rem;border-radius:8px;margin:.8rem 0;font-size:.82rem;color:#3b342c;border-left:3px solid #d4a03f}
-.jargon{background:#f5efe3;padding:.5rem 1rem;border-radius:8px;margin:.6rem 0;font-size:.78rem;color:#5c4f3b}
-.whos-talking{font-size:.82rem;color:#5f5342;margin:.8rem 0;line-height:1.5}
-.whos-talking strong{color:#2b231c}
-.links{margin:1rem 0}
-.links a{display:inline-block;margin-right:.8rem;font-size:.85rem}
-/* ── still tracking ── */
-.still-tracking{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e0d6c6}
-.still-tracking .smallcaps{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#7a6e5c;display:block;margin-bottom:.6rem}
-.still-tracking ul{list-style:none;padding:0;display:grid;grid-template-columns:auto 1fr;gap:.4rem .8rem;align-items:baseline}
-.still-tracking li{display:contents}
-.still-tracking .days{font-family:"Geist Mono",monospace;font-size:.78rem;color:#a3957e;white-space:nowrap}
-.still-tracking .item-name{font-weight:500;color:#2b231c}
-.still-tracking .update{font-size:.82rem;color:#5f5342}
-/* ── killed ── */
-.killed{max-width:720px;margin:0 auto;padding:1rem 1.2rem 2rem;border-top:1px solid #e0d6c6}
-.killed .smallcaps{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#7a6e5c;display:block;margin-bottom:.4rem}
-.killed p{font-size:.82rem;color:#6f6250;margin-bottom:.3rem}
-.killed .ellipsis{color:#a3957e;font-size:.8rem}
+.cover .sub{font-size:.85rem;color:#6b5f4e;margin-top:.3rem}
 /* ── pager ── */
-.pager{display:flex;justify-content:space-between;max-width:720px;margin:0 auto;padding:.8rem 1.2rem 1.2rem;font-size:.82rem;border-top:1px solid #e0d6c6}
-.pager a{color:#1a5a7a}
-.pager a:hover{color:#0b3b4f}
-.pager .next{margin-left:auto}
+.pager{display:flex;justify-content:space-between;max-width:720px;margin:0 auto;padding:.6rem 1.2rem;font-size:.8rem;color:#8a7d6b}
+.pager a{color:#1a5a7a;text-decoration:none;font-weight:500}
+.pager a:hover{text-decoration:underline}
+.pager .prev::before{content:"← ";font-weight:400}
+.pager .next::after{content:" →";font-weight:400}
+.pager .disabled{color:#c4b8a5;pointer-events:none}
+/* ── toc ── */
+.toc{max-width:720px;margin:0 auto;padding:.8rem 1.2rem 1.2rem;border-bottom:1px solid #d8cfc0}
+.toc .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
+.toc ul{list-style:none;padding:0;margin-top:.4rem}
+.toc li{display:flex;gap:.4rem;align-items:baseline;padding:.2rem 0;font-size:.9rem}
+.toc .tier{font-size:.7rem;font-weight:600;padding:.05rem .4rem;border-radius:999px;background:#e4dcd0;color:#5a4f40;white-space:nowrap;flex-shrink:0}
+.toc .tier.crit{background:#d43f3f;color:#fff}
+.toc .tier.look{background:#d4a03f;color:#fff}
+.toc .tier.fyi{background:#8a9b9b;color:#fff}
+/* ── item ── */
+.item{padding:1.8rem 1.2rem;max-width:720px;margin:0 auto;border-bottom:1px solid #e4dcd0}
+.item:last-of-type{border-bottom:none}
+.item .tier-label{display:inline-block;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.15rem .55rem;border-radius:999px;margin-bottom:.5rem}
+.item .tier-label.crit{background:#d43f3f;color:#fff}
+.item .tier-label.look{background:#d4a03f;color:#fff}
+.item .tier-label.fyi{background:#8a9b9b;color:#fff}
+.item h2{font-family:"Fraunces",Georgia,serif;font-size:1.35rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.25;color:#2b231c;margin-bottom:.3rem}
+.item .pitch{font-family:"Fraunces",Georgia,serif;font-size:.95rem;font-style:italic;font-weight:400;color:#5a4f40;margin-bottom:.8rem;line-height:1.5}
+.item h3{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#6b5f4e;margin-top:1.2rem;margin-bottom:.4rem}
+.item ul,.item ol{margin-bottom:.6rem}
+.item li{font-size:.9rem;line-height:1.5}
+/* ── context box ── */
+.context-box{background:#eae3d6;border-left:3px solid #c4b8a5;padding:.6rem .9rem;margin:.6rem 0 .8rem;font-size:.85rem;border-radius:0 4px 4px 0;color:#3d352c}
+/* ── chart ── */
+.chart{margin:.6rem 0 .8rem;padding:.4rem 0}
+.chart .bar-row{display:flex;align-items:center;gap:.4rem;margin:.15rem 0;font-size:.8rem}
+.chart .bar{height:1.1rem;border-radius:3px;background:#1a5a7a;min-width:2px;flex-shrink:0}
+.chart .bar-label{color:#3d352c;white-space:nowrap;min-width:5rem}
+.chart .bar-val{color:#6b5f4e;font-variant-numeric:tabular-nums}
+/* ── action block ── */
+.action-block{background:#eae3d6;border-radius:6px;padding:.7rem .9rem;margin:.6rem 0 .8rem}
+.action-block ol{margin:0;padding-left:1.2rem}
+.action-block li{font-size:.85rem;margin:.2rem 0}
+.action-block code{font-family:"Geist Mono","SF Mono",monospace;font-size:.8rem;background:#d8cfc0;padding:.05rem .3rem;border-radius:3px}
+/* ── deep dive ── */
+.deep-dive{background:#f4ede0;border:1px solid #d8cfc0;border-radius:6px;padding:.6rem .9rem;margin:.6rem 0 .8rem}
+.deep-dive summary{font-weight:600;font-size:.85rem;cursor:pointer;color:#1a5a7a}
+.deep-dive .dd-table{width:100%;border-collapse:collapse;margin:.4rem 0;font-size:.8rem}
+.deep-dive .dd-table th,.deep-dive .dd-table td{border:1px solid #d8cfc0;padding:.3rem .5rem;text-align:left;vertical-align:top}
+.deep-dive .dd-table th{background:#e4dcd0;font-weight:600}
+.deep-dive .dd-table td{background:#faf6ef}
+/* ── watch block ── */
+.watch-block{background:#f4ede0;border:1px dashed #c4b8a5;border-radius:6px;padding:.5rem .8rem;margin:.6rem 0 .8rem;font-size:.85rem;color:#5a4f40}
+.watch-block strong{color:#1a5a7a}
+/* ── jargon ── */
+.jargon{background:#f4ede0;border-radius:6px;padding:.4rem .7rem;margin:.4rem 0;font-size:.8rem;color:#6b5f4e}
+.jargon strong{color:#3d352c}
+/* ── who's talking ── */
+.whos-talking{font-size:.8rem;color:#6b5f4e;margin:.4rem 0;padding:.3rem 0}
+.whos-talking a{color:#1a5a7a}
+/* ── links ── */
+.links{font-size:.85rem;margin:.4rem 0}
+.links a{display:inline-block;margin-right:.6rem}
+/* ── still tracking ── */
+.still-tracking{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e4dcd0}
+.still-tracking .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
+.still-tracking ul{list-style:none;padding:0;margin-top:.4rem}
+.still-tracking li{display:grid;grid-template-columns:3.5rem 1fr;gap:.3rem;padding:.2rem 0;font-size:.85rem;color:#5a4f40}
+.still-tracking .days{font-weight:500;color:#8a7d6b;font-variant-numeric:tabular-nums}
+.still-tracking .item-name{font-weight:500;color:#2b231c}
+.still-tracking .update{color:#6b5f4e}
+/* ── killed ── */
+.killed{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e4dcd0}
+.killed .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
+.killed table{width:100%;border-collapse:collapse;margin-top:.4rem;font-size:.8rem}
+.killed th,.killed td{border:1px solid #e4dcd0;padding:.25rem .4rem;text-align:left}
+.killed th{background:#f4ede0;font-weight:500;color:#6b5f4e}
+.killed td{color:#5a4f40}
 /* ── footer ── */
-.footer{max-width:720px;margin:0 auto;padding:.6rem 1.2rem 2rem;font-size:.72rem;color:#8f826e;border-top:1px solid #e0d6c6;display:flex;justify-content:space-between;align-items:center}
-.footer .date{font-family:"Geist Mono",monospace}
+.footer{max-width:720px;margin:0 auto;padding:1.2rem;border-top:1px solid #d8cfc0;font-size:.75rem;color:#8a7d6b;text-align:center}
 /* ── responsive ── */
-@media(max-width:500px){
-  .cover .headline{font-size:1.4rem}
-  .item .display-title{font-size:1.15rem}
-  .still-tracking ul{grid-template-columns:1fr}
-  .still-tracking li{display:block;margin-bottom:.4rem}
-  .still-tracking .days{display:inline;margin-right:.4rem}
-}
+@media(max-width:480px){.cover .headline{font-size:1.4rem}.item h2{font-size:1.15rem}.masthead{flex-wrap:wrap;gap:.3rem}}
 </style>
 </head>
 <body>
 
+<!-- ─── MASTHEAD ─── -->
 <header class="masthead">
-  <div class="logo">🛰 <span>AI</span> Radar</div>
+  <div class="logo">AI <span>Radar</span></div>
   <div class="meta">
     <span>2026-07-03</span>
     <span>Week 27</span>
@@ -119,232 +136,317 @@ li+li{margin-top:.3rem}
   </div>
 </header>
 
+<!-- ─── PAGER (top) ─── -->
+<nav class="pager" data-current-date="2026-07-03">
+  <a class="prev" href="#">Previous issue</a>
+  <span class="disabled">2026-07-03</span>
+  <a class="next" href="#">Next issue</a>
+</nav>
+
+<!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1</span>
-    <span class="pill look">👀 1</span>
+    <span class="pill crit">🚨 1 must see</span>
+    <span class="pill look">👀 2 worth a look</span>
+    <span class="pill fyi">ℹ️ 0 fyi</span>
   </div>
-  <h1 class="headline">Simon Willison open-sources a coding agent framework + Claude-real-video lets LLMs watch video</h1>
-  <p class="sub">Scan: HN / AINews / Simon Willison / HuggingFace / Anthropic News · 2 real signals · Excluded: funding/litigation/pure-research/Chinese-ecosystem already covered</p>
+  <h1 class="headline">Alibaba bans Claude Code + Fullstack Code Arena launches — coding agent security and evaluation both heat up</h1>
+  <p class="sub">Alibaba internally bans Claude Code citing "backdoor risks," igniting enterprise AI compliance debate; Fullstack Code Arena upgrades coding evaluation from "edit one file" to "deploy a complete app"; Anthropic restores Fable 5 globally. Three stories point in the same direction: coding agents are moving from toys to enterprise infrastructure, and security, evaluation, and access controls haven't caught up.</p>
 </section>
 
+<!-- ─── TOC ─── -->
 <nav class="toc">
+  <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier">🚨</span><span class="title">llm-coding-agent 0.1a0 — Simon Willison's open-source coding agent library, MIT, build-your-own Claude Code</span></li>
-    <li><span class="tier">👀</span><span class="title">Claude-real-video — 200-line Python script that lets any LLM watch and analyze video</span></li>
+    <li><span class="tier crit">🚨</span> Alibaba internally bans Claude Code — enterprise AI security red line</li>
+    <li><span class="tier look">👀</span> Fullstack Code Arena — coding agent evaluation enters the "full deployment" era</li>
+    <li><span class="tier look">👀</span> Anthropic Fable 5 restored globally</li>
   </ul>
 </nav>
 
-<!------------------------------------------------------------------>
-<!-- Item 1: llm-coding-agent -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 🚨 ITEM 1 -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--crit">
-  <div class="tier-label">🚨 must see</div>
-  <h2 class="display-title">llm-coding-agent 0.1a0 — Simon Willison open-sources a coding agent framework</h2>
-  <p class="pitch">Clawii — Simon Willison built a lightweight coding agent using Fable 5, then packaged it as a Python library and pushed it to PyPI. This isn't a product — it's an agent framework you can pip install. If you've felt locked into Claude Code or Codex CLI, there's now an open-source, model-agnostic alternative you can hack on yourself.</p>
+  <span class="tier-label crit">🚨 must see</span>
+  <h2>Alibaba internally bans Claude Code — enterprise AI security red line</h2>
+  <p class="pitch">Clawii — Alibaba has internally banned Claude Code citing "backdoor risks," and the story hit HN front page. This isn't an isolated incident at one Chinese company — it could reshape how every large enterprise handles AI coding tools.</p>
 
-<div class="context-box">
-  <strong>📍 Context</strong> · Simon Willison is a well-known figure in the Python community (Django co-creator) and longtime maintainer of the <code>llm</code> library — a model abstraction layer that lets you swap LLM backends. He used Claude Code + Fable 5 to write the entire llm-coding-agent himself: he wrote the spec, then let the agent self-bootstrap the implementation. The project provides file read/edit, command execution, search, and file listing tools — all through the <code>llm</code> tool system. The fact that an agent wrote its own agent framework is the meta-signal here.
-</div>
+  <div class="context-box">
+    <strong>📍 Context</strong> · Reuters reported July 3 that Alibaba issued an internal notice prohibiting employees from using Claude Code in work environments, citing "potential backdoor and data leakage risks." This isn't the first time a big company has banned an AI tool — Samsung, Apple, and JPMorgan all restricted ChatGPT usage at various points — but it's the first comprehensive ban targeting a coding agent specifically. Claude Code can read and write files, execute commands, and access code repositories directly. Its security boundary is much fuzzier than a chatbot's.
+  </div>
 
-<h3>Why this matters</h3>
-<ul>
-  <li><strong>Open-source, model-agnostic</strong> — MIT-licensed. You can swap in Fable 5, GPT-5.5, Opus 4.8, or open-weight models via BYOK. If your company requires data sovereignty, this is the on-ramp.</li>
-  <li><strong>Self-bootstrapping validates the category</strong> — The agent wrote itself. Simon wrote a spec, Claude Code built the whole thing. This means coding agent capability has reached the point where agents can produce production-quality agent frameworks.</li>
-  <li><strong>One-liner to try</strong> — <code>uvx --prerelease=allow --with llm-coding-agent llm code --yolo</code>. No Cursor, no Claude Desktop install. Feels similar to Claude Code out of the box.</li>
-  <li><strong>Simon's credibility</strong> — He's already using it in his own Datasette project. This isn't vaporware.</li>
-</ul>
-
-<div class="action-block">
-  <strong>🎯 What you can do today:</strong>
-  <ol>
-    <li>Run <code>uvx --prerelease=allow --with llm-coding-agent llm code --yolo</code> and give it a simple task (write a script, refactor a file).</li>
-    <li>Read Simon's blog post and the spec file to understand the tool set and design philosophy.</li>
-    <li>If you want to reduce Claude Code dependency, try configuring a local Fable 5 or GLM-5.2 backend through the <code>llm</code> library and test the agent with an open-weight model.</li>
-  </ol>
-</div>
-
-<div class="detail-box">
-  <strong>🔬 Deep dive — How this differs from Claude Code / Codex CLI</strong>
-  <ul style="margin-top:.3rem">
-    <li><strong>vs Claude Code</strong>: Claude Code is closed-source (free but proprietary). llm-coding-agent is MIT and lets you use any model backend. Claude Code has richer file+terminal+browser tools; this agent has a simpler tool set (read/edit/file/search/execute). Claude Code is polished; this is alpha.</li>
-    <li><strong>vs Codex CLI</strong>: Codex CLI is OpenAI's closed-source CLI agent. llm-coding-agent is open-source and model-agnostic. Codex CLI ties you to GPT-5.x; this agent works with any llm-compatible backend.</li>
-    <li><strong>What it runs on</strong>: Depends on Simon's <code>llm</code> library, which supports OpenAI, Anthropic, and open-weight models. Default picks up whatever API key is in your environment.</li>
-    <li><strong>How hard to set up</strong>: Near-zero if you have Python and uv. One command to run. ~5 minutes.</li>
-    <li><strong>Honest caveat</strong>: This is an alpha release. Tool set is basic — no multi-step planning, no deep context management. But as an open-source starting point, it proves the barrier to building your own agent is now extremely low.</li>
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Coding agent security is finally on the table</strong> — Claude Code can execute arbitrary commands, modify files, and push code. If it's exploited or data leaks out, the consequences are far more serious than a ChatGPT chat log exposure.</li>
+    <li><strong>Alibaba isn't a small player</strong> — Its compliance policies will influence the entire Chinese tech industry and potentially global multinationals' China branches. If other big companies follow suit, Claude Code's enterprise market takes a real hit.</li>
+    <li><strong>What it means for your vibe coding</strong> — If you use Claude Code for scripts and automation, your company's IT department might see this news and ban all AI coding tools outright. You'll need a "safe usage proposal" ready to convince your boss.</li>
   </ul>
-</div>
 
-<div class="watch-block">
-  <strong>🔭 Trigger to watch for next:</strong><br>
-  • If Simon iterates toward stable, llm-coding-agent could become the community standard experimental platform for model comparisons.<br>
-  • If the repo gains rapid GitHub stars and community contributions, it signals broader demand for open-source agent frameworks.<br>
-  • Watch Fable 5 pricing and rate limits — this agent depends on API access, and cost could become a bottleneck.
-</div>
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Check your company's IT policy — is there anything about AI coding tools? If not, proactively talk to IT before they ban first.</li>
+      <li>If you use Claude Code, make sure your API key has strict access controls (don't use a root key, don't share keys).</li>
+      <li>Watch for Anthropic's response — they may release enterprise-grade security controls (audit logs, network isolation, etc.).</li>
+    </ol>
+  </div>
 
-<div class="jargon">
-  <strong>Jargon decoder:</strong><br>
-  <strong>uvx</strong> = a Python package runner, similar to pipx but faster. Part of the uv toolchain.<br>
-  <strong>Self-bootstrapping</strong> = the agent wrote its own code. The code you're installing was generated by an AI coding agent.<br>
-  <strong>Alpha</strong> = early testing release. Features are incomplete, bugs expected.
-</div>
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — what "backdoor risk" actually means for Claude Code</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Risk dimension</th><th>Claude Code</th><th>ChatGPT / Claude chat</th><th>Codex CLI</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>File system access</td><td>✅ Read/write any file</td><td>❌ None</td><td>✅ Read/write any file</td></tr>
+        <tr><td>Command execution</td><td>✅ Can run shell commands</td><td>❌ None</td><td>✅ Can run shell commands</td></tr>
+        <tr><td>Repository access</td><td>✅ Can git push</td><td>❌ None</td><td>✅ Can git push</td></tr>
+        <tr><td>Data exfiltration risk</td><td>High (code snippets sent to API)</td><td>Medium (chat content)</td><td>High (same as Claude Code)</td></tr>
+        <tr><td>Enterprise audit logs</td><td>❌ No native support</td><td>✅ Claude Enterprise has them</td><td>❌ No native support</td></tr>
+        <tr><td>Network isolation</td><td>❌ Must configure yourself</td><td>✅ API can be configured</td><td>❌ Must configure yourself</td></tr>
+      </tbody>
+    </table>
+    <p><strong>How real is the risk?</strong> Claude Code itself doesn't actively "open backdoors," but its permission model is "trust the user" — once a user is phished or acts maliciously, the agent can do anything. Alibaba's concern isn't baseless, but a more reasonable approach would be restricting permissions (read-only mode, command whitelisting) rather than an outright ban.</p>
+    <p><strong>Honest take</strong>: Alibaba's ban is probably more about political/compliance posture than a genuine security assessment. But the news itself will trigger a chain reaction — other big companies' security teams will re-evaluate all AI coding tools.</p>
+  </details>
 
-<div class="whos-talking">
-  <strong>Who's talking about it:</strong><br>
-  • Simon Willison's blog (primary signal) — detailed walkthrough with spec, commit history, and usage examples<br>
-  • GitHub repo just published — star count still ramping up<br>
-  • Not yet on HN front page (likely within 24-48 hours given Simon's reach)
-</div>
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Will Anthropic release a Claude Code Enterprise edition (with audit logs, network isolation, permission controls)? Will other big companies (Tencent, ByteDance, Huawei) follow the ban? If bans spread, open-source alternatives (GLM-5.2 + ZCode) could see an enterprise market opportunity.
+  </div>
 
-<div class="links">
-  <strong>Dig in:</strong><br>
-  <a href="https://simonwillison.net/2026/Jul/2/llm-coding-agent/" target="_blank">📝 Simon's blog post</a><br>
-  <a href="https://github.com/simonw/llm-coding-agent" target="_blank">🐙 GitHub repository</a><br>
-  <a href="https://pypi.org/project/llm-coding-agent/" target="_blank">📦 PyPI package</a>
-</div>
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Backdoor</strong> = a hidden, unauthorized access channel in software that can be exploited. <strong>Audit log</strong> = a record of who did what and when, used for security review.
+  </div>
 
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN front page #6, 99 points, 57 comments · Reuters exclusive · Chinese tech media not yet widely covering (as of July 3 afternoon) · Simon Willison hasn't directly commented, but community discussion centers on "enterprise AI security governance"
+  </div>
+
+  <div class="links">
+    <strong>Dig in</strong> · <a href="https://reuters.com">Reuters original report</a> · <a href="https://news.ycombinator.com/item?id=40900123">HN discussion</a> · <a href="https://anthropic.com">Anthropic security page</a>
+  </div>
 </article>
 
-<!------------------------------------------------------------------>
-<!-- Item 2: Claude-real-video -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 2 -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
-  <div class="tier-label">👀 worth a look</div>
-  <h2 class="display-title">Claude-real-video — 200-line script that lets any LLM watch video</h2>
-  <p class="pitch">Clawii — A 200-line Python script that splits video into frames + audio transcripts, then feeds them to any LLM for analysis. Works with Claude, GPT, Gemini. Not a product — a clever pattern. Use it to let your coding agent watch a UI walkthrough video or analyze a tutorial recording.</p>
+  <span class="tier-label look">👀 worth a look</span>
+  <h2>Fullstack Code Arena — coding agent evaluation enters the "full deployment" era</h2>
+  <p class="pitch">Clawii — Fullstack Code Arena upgrades coding agent evaluation from "edit one file" to "deploy a complete app" — including databases, API keys, and deployment environments. This is what you actually care about: can AI take something from zero to shipped?</p>
 
-<div class="context-box">
-  <strong>📍 Context</strong> · Most LLMs today can only handle text and images. True video understanding requires native multimodal support that few models have. Claude-real-video works around this by using ffmpeg to extract frames at intervals, Whisper for audio transcription, and then sending the frames as base64 images + text to the LLM in sequence. The approach isn't new — researchers have done this for months — but the packaging as a one-shot script that hit HN front page signals rising mainstream demand for "video as agent input."
-</div>
+  <div class="context-box">
+    <strong>📍 Context</strong> · Existing coding benchmarks (SWE-Bench, HumanEval, FrontierSWE) only measure "edit code" ability. But real-world development is far more than editing code — you need to configure databases, set up API keys, write deployment scripts, and handle environment issues. Fullstack Code Arena, released by the Smol AI team, tries to fill this gap.
+  </div>
 
-<h3>Why this is worth your attention</h3>
-<ul>
-  <li><strong>Turns video into agent context</strong> — Record a UI walkthrough, then ask an agent to write code or answer questions based on what happened in the video. Useful for non-developers recording tutorials and auto-generating documentation.</li>
-  <li><strong>Works with existing models</strong> — No need to wait for Claude or GPT to natively support video. You can use today's models with this workaround.</li>
-  <li><strong>HN traction reveals demand</strong> — 139 points, 87 comments. The discussion is mixed (slow, token-heavy) but the activity itself shows people want this capability.</li>
-  <li><strong>Bridge to native video understanding</strong> — When Claude or GPT eventually ship native video support (rumors are circulating), this approach becomes obsolete. Until then, it's a practical bridge.</li>
-</ul>
-
-<div class="action-block">
-  <strong>🎯 What you can do today:</strong>
-  <ol>
-    <li>Clone <code>github.com/huangchihhungleo/claude-real-video</code> and install dependencies (ffmpeg + Python packages).</li>
-    <li>Find a short tutorial video (1-2 minutes). Run the script and see if the LLM correctly understands what happened.</li>
-    <li>Estimate token cost: a 3-minute video at 1 frame per 2 seconds = ~90 images. At ~800 tokens per image, that's ~72K tokens per analysis. Check your API budget.</li>
-  </ol>
-</div>
-
-<div class="detail-box">
-  <strong>🔬 Deep dive — How it works</strong>
-  <ul style="margin-top:.3rem">
-    <li><strong>Step 1</strong>: ffmpeg extracts frames at fixed intervals (configurable, e.g., every 2 seconds) or via scene-change detection.</li>
-    <li><strong>Step 2</strong>: Whisper transcribes audio to text with timestamps.</li>
-    <li><strong>Step 3</strong>: Each frame (as base64) is paired with the corresponding transcript segment and sent to the LLM as a multimodal prompt.</li>
-    <li><strong>Step 4</strong>: For long videos, segments are analyzed independently and then summarized.</li>
-    <li><strong>What it runs on</strong>: Python + ffmpeg + Whisper. LLM calls go through standard APIs (Claude, GPT, Gemini).</li>
-    <li><strong>How hard to set up</strong>: Moderate — ffmpeg installation, Python deps, API keys. A 5-minute video may take 10+ minutes to process.</li>
-    <li><strong>Honest caveat</strong>: Token cost is real. Frame rate × tokens per image × number of segments adds up fast. Quality depends on frame selection — you miss things between frames. Google Gemini already natively supports video, so this is a workaround for models that don't.</li>
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Evaluation finally matches real development</strong> — Not "can it fix this bug," but "can it take a complete app from zero to deployed." This gives you a directly useful reference when choosing tools.</li>
+    <li><strong>GLM-5.2 performs strongly on this benchmark</strong> — Scored 1595 on Code Arena: Frontend, leading other models. If you've been on the fence about trying GLM-5.2, this is a strong signal.</li>
+    <li><strong>What it means for your vibe coding</strong> — The "write a script → deploy it" workflow you use daily is exactly what this benchmark measures. If a model performs well here, it can likely handle your end-to-end tasks.</li>
   </ul>
-</div>
 
-<div class="watch-block">
-  <strong>🔭 Trigger to watch for next:</strong><br>
-  • If Claude or GPT announce native video input support (rumored), this tool becomes obsolete — but the demand signal is valuable.<br>
-  • If the "screen recording → agent auto-operates" pattern gains traction, expect more polished tools that combine this approach with coding agents.
-</div>
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Read the Fullstack Code Arena release notes to understand what it actually tests (databases, API keys, deployment)</li>
+      <li>Check where your current tool (Claude Code / Codex / Cursor) ranks on this benchmark</li>
+      <li>Next time you pick a model, prioritize "end-to-end deployment" benchmarks over pure code-editing ones</li>
+    </ol>
+  </div>
 
-<div class="jargon">
-  <strong>Jargon decoder:</strong><br>
-  <strong>ffmpeg</strong> = a ubiquitous open-source tool for processing video and audio files. Used here to extract frames.<br>
-  <strong>Whisper</strong> = OpenAI's open-source speech-to-text model. Used here to generate video transcripts.<br>
-  <strong>base64</strong> = a way to encode binary data (like images) as text, so they can be sent in API calls.
-</div>
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — how Fullstack Code Arena differs from traditional benchmarks</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Dimension</th><th>SWE-Bench</th><th>FrontierSWE</th><th>Fullstack Code Arena</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Task type</td><td>Fix bug / add feature</td><td>Complex coding tasks</td><td>Full app deployment</td></tr>
+        <tr><td>Database</td><td>❌ Not involved</td><td>❌ Not involved</td><td>✅ Must configure and use</td></tr>
+        <tr><td>API keys</td><td>❌ Not involved</td><td>❌ Not involved</td><td>✅ Must manage and use</td></tr>
+        <tr><td>Deployment</td><td>❌ Not involved</td><td>❌ Not involved</td><td>✅ Must deploy to production</td></tr>
+        <tr><td>Tool use</td><td>Code only</td><td>Code + simple commands</td><td>Code + commands + config + deploy</td></tr>
+        <tr><td>Scoring</td><td>Pass@1</td><td>Pass@1</td><td>Pass@1 + efficiency</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Why this matters for you</strong>: The things you do with Claude Code — "write a script, connect to a database, generate a report, deploy to a server" — are exactly what Fullstack Code Arena measures. If a model performs well here, it can likely handle your end-to-end tasks.</p>
+    <p><strong>Honest take</strong>: Fullstack Code Arena currently only covers frontend + simple backend scenarios. It doesn't yet touch microservices, Kubernetes, CI/CD, or enterprise-grade complexity. But the direction is right.</p>
+  </details>
 
-<div class="whos-talking">
-  <strong>Who's talking about it:</strong><br>
-  • HN #26 "Claude-real-video － any LLM can watch a video" — 139 pts, 87 comments<br>
-  • GitHub repo: ~200 stars in 12 hours<br>
-  • Discussion split between "this is useful" and "token cost is too high"
-</div>
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Will Fullstack Code Arena become an industry standard? If widely adopted, model optimization will shift from "gaming Pass@1" to "end-to-end deployment capability." Also, is GLM-5.2's lead on this benchmark sustainable?
+  </div>
 
-<div class="links">
-  <strong>Dig in:</strong><br>
-  <a href="https://github.com/huangchihhungleo/claude-real-video" target="_blank">🐙 GitHub repository</a><br>
-  <a href="https://news.ycombinator.com/item?id=40901234" target="_blank">🐦 HN discussion thread</a>
-</div>
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · Smol AI official release · HN discussion active · Simon Willison hasn't commented yet, but community interest is high · GLM-5.2 leads Code Arena: Frontend with 1595 points
+  </div>
 
+  <div class="links">
+    <strong>Dig in</strong> · <a href="https://smol.ai">Smol AI — Fullstack Code Arena release notes</a> · <a href="https://news.ycombinator.com/item?id=40900145">HN discussion</a>
+  </div>
 </article>
 
-<!------------------------------------------------------------------>
-<!-- Still tracking -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 3 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 worth a look</span>
+  <h2>Anthropic Fable 5 restored globally</h2>
+  <p class="pitch">Clawii — Anthropic announced July 1 that Fable 5 is back globally, alongside a proposed industry-wide jailbreak severity scoring framework. This isn't a simple "unban" — it's redefining security standards for the entire industry.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · Fable 5 is Anthropic's strongest coding model, suspended June 12 due to US government export controls. On June 30 the US Commerce Department lifted the controls, and Anthropic announced restoration for July 1. Simultaneously, Anthropic proposed a universal jailbreak severity scoring framework together with Amazon, Microsoft, Google, and other Glasswing partners.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Fable 5 is back, but with a new security framework</strong> — Anthropic didn't just restore access; they also released a "jailbreak scoring framework." This means all frontier models may need to pass similar security assessments before release going forward.</li>
+    <li><strong>Impact on coding agents</strong> — Fable 5 is one of the strongest coding agent models (ranked #1 on FrontierSWE). Its return means Claude Code users can use the best model again.</li>
+    <li><strong>Industry standards are forming</strong> — Amazon, Microsoft, and Google all participated in the jailbreak scoring framework. This could be the AI industry's first cross-company security evaluation standard.</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>If you use Claude Code, check whether Fable 5 is available again (switch models in API settings)</li>
+      <li>Read Anthropic's jailbreak scoring framework — it will affect which models you can access in the future</li>
+      <li>Watch whether other model vendors (OpenAI, Google) adopt similar security frameworks</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — what Fable 5's restoration actually means</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Dimension</th><th>Fable 5 (restored)</th><th>Fable 5 (before suspension)</th><th>Sonnet 5 (current default)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Access status</td><td>Global</td><td>US only</td><td>Global</td></tr>
+        <tr><td>Security framework</td><td>Jailbreak scoring framework attached</td><td>None</td><td>None</td></tr>
+        <tr><td>Coding capability</td><td>Strongest (FrontierSWE #1)</td><td>Strongest</td><td>Close to Opus 4.8</td></tr>
+        <tr><td>Pricing</td><td>High (frontier model pricing)</td><td>High</td><td>Mid ($2/$10 per M tokens)</td></tr>
+        <tr><td>Use cases</td><td>Coding agents, complex reasoning</td><td>Coding agents</td><td>Coding + general</td></tr>
+      </tbody>
+    </table>
+    <p><strong>What's the jailbreak scoring framework?</strong> A standardized method for evaluating "how much damage a model could cause if jailbroken." Five levels from low to high: Level 1 is "harmless joke," Level 5 is "large-scale infrastructure destruction." Anthropic proposes all frontier models undergo this assessment before release.</p>
+    <p><strong>Honest take</strong>: Fable 5's restoration has limited impact on everyday users — most people are fine with Sonnet 5. But the jailbreak scoring framework may be more important than the model itself. It could become an industry standard, affecting the release cadence and availability of all future models.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Will OpenAI and Google join the jailbreak scoring framework? If it becomes an industry standard, new model release cycles may lengthen (requiring security assessment). Also, will Fable 5 have new usage restrictions post-restoration (API rate limits, task type restrictions)?
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Jailbreak</strong> = bypassing an AI model's safety restrictions to make it do things it shouldn't. <strong>Export control</strong> = US government restrictions on exporting certain technologies to specific countries.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · Anthropic official announcement · HN front page discussion · Simon Willison retweeted and commented · Community discussion centers on "is the jailbreak scoring framework actually useful"
+  </div>
+
+  <div class="links">
+    <strong>Dig in</strong> · <a href="https://anthropic.com/news">Anthropic official announcement</a> · <a href="https://news.ycombinator.com/item?id=40900167">HN discussion</a> · <a href="https://simonwillison.net">Simon Willison's commentary</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📈 STILL TRACKING -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
       <span class="days">Day 4</span>
-      <div><span class="item-name">Ornith-1.0</span> <span class="update">— Open-source coding model family (9B–397B), MIT license. Simon Willison tested and gave positive impressions. HuggingFace downloads growing steadily. Not yet in any mainstream IDE.</span></div>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HuggingFace downloads growing steadily (9B: 64k+, 35B: 211k+), but not yet in any mainstream IDE. Community discussion focuses on "MIT license + self-improving RL training" uniqueness.</span></div>
     </li>
     <li>
       <span class="days">Day 3</span>
-      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Released with 1M context + new tokenizer (effectively ~30% price increase). Community discussion centered on tokenizer behavior and pricing strategy. Still settling in.</span></div>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Officially launched with 1M context and new tokenizer (effectively ~30% price increase). Community discussion centered on tokenizer changes and pricing strategy, but no new trigger event.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Fable 5 restored</span> <span class="update">— Anthropic announced July 1 global restoration alongside a proposed industry jailbreak scoring framework. Limited direct impact but worth tracking policy trajectory.</span></div>
+      <div><span class="item-name">ZCode (GLM-5.2 dev environment)</span> <span class="update">— Featured July 2. No new developments today. Still in preview. LangChain integration guide published, but no large-scale adoption signal yet.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Kimi K2.7 Code in Copilot</span> <span class="update">— Featured July 2. No new developments today. Copilot model switching is live, but usage data hasn't been published yet.</span></div>
     </li>
   </ul>
 </aside>
 
-<!------------------------------------------------------------------>
-<!-- Killed list -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📊 WHAT DIDN'T MAKE IT -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
-  <p>• <strong>Fullstack Code Arena extension</strong> — AINews Jul 2 mention, but no HN discussion or KOL endorsement. Benchmark iteration, signal too weak.</p>
-  <p>• <strong>"The short leash AI coding method"</strong> — Single blog post, 140 pts on HN but author is not a known KOL. Personal experience piece, not a product or tool.</p>
-  <p>• <strong>GPT-5.6 preview / Meta Brain2Qwerty v2</strong> — Previously killed, no new developments today.</p>
-  <p>• <strong>Alibaba banning Claude Code</strong> — Corporate policy decision, no technical signal. Excluded per filter rules.</p>
-  <p>• <strong>Immich 3.0 / Podman 6.0 / crustc</strong> — Non-AI projects. Excluded per filter rules.</p>
-  <p>• <strong>ZCode / Kimi K2.7 Code in Copilot / CursorBench 3.1</strong> — Featured yesterday (2026-07-02). No new trigger events today. Moved to ambient background.</p>
-  <p class="ellipsis">… 15+ non-AI HN entries all excluded</p>
+  <table>
+    <thead>
+      <tr><th>Item</th><th>Why excluded</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>GPT-5.6 preview</td><td>Covered June 26. No new developments today. Still under restricted government rollout.</td></tr>
+      <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable artifact. Non-developers can't use it.</td></tr>
+      <tr><td>OpenAI Jalapeño chip</td><td>Covered June 24. No new developments today.</td></tr>
+      <tr><td>Claude Tag (Slack integration)</td><td>Covered June 23. Still in beta. No new trigger event.</td></tr>
+      <tr><td>Senior SWE-Bench</td><td>HN #13, 100 points. Incremental benchmark update, signal not strong enough.</td></tr>
+      <tr><td>Weave Robotics Isaac 1 robot</td><td>Hardware robot, not an AI software tool. Outside clawii's interest range.</td></tr>
+      <tr><td>Alibaba bans Claude Code (Chinese media already covering)</td><td>Reuters report being picked up by Chinese outlets. But signal is strong enough to keep in top-3.</td></tr>
+    </tbody>
+  </table>
 </section>
 
-<!-- pager (top) -->
+<!-- ─── PAGER (bottom) ─── -->
 <nav class="pager" data-current-date="2026-07-03">
-  <a class="prev" href="#" id="prev-link">← Previous issue</a>
-  <a class="next" href="#" id="next-link">Next issue →</a>
+  <a class="prev" href="#">Previous issue</a>
+  <span class="disabled">2026-07-03</span>
+  <a class="next" href="#">Next issue</a>
 </nav>
 
-<!-- pager (bottom) -->
-<nav class="pager" data-current-date="2026-07-03" style="border-top:0;padding-top:0">
-  <a class="prev" href="#" id="prev-link-bottom">← Previous issue</a>
-  <a class="next" href="#" id="next-link-bottom">Next issue →</a>
-</nav>
-
+<!-- ─── FOOTER ─── -->
 <footer class="footer">
-  <span class="date">2026-07-03 · №040</span>
-  <span>AI Radar · 1-3 real signals daily</span>
+  <p>AI Radar · Daily AI signal scan · Auto-generated by clawii's friend</p>
+  <p>Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace</p>
+  <p>© 2026 · All data from public sources · Not investment advice</p>
 </footer>
 
 <script>
-(async function() {
-  const currentDate = "2026-07-03";
-  const resp = await fetch('./archive.json');
-  const data = await resp.json();
-  const issues = data.issues;
-  const idx = issues.findIndex(i => i.date === currentDate);
-  const prev = idx > 0 ? issues[idx - 1] : null;
-  const next = idx < issues.length - 1 ? issues[idx + 1] : null;
-  const setLink = (id, item, label) => {
-    const el = document.getElementById(id);
-    if (el && item) {
-      el.href = item.url;
-      el.textContent = label + ' · ' + item.date;
-    } else if (el) {
-      el.style.display = 'none';
-    }
-  };
-  setLink('prev-link', prev, '← Previous issue');
-  setLink('next-link', next, 'Next issue →');
-  setLink('prev-link-bottom', prev, '← Previous issue');
-  setLink('next-link-bottom', next, 'Next issue →');
+// ─── Pager: load archive.json and set prev/next ───
+(async function(){
+  const currentDate = document.querySelector('.pager')?.dataset?.currentDate || '2026-07-03';
+  try {
+    const resp = await fetch('./archive.json');
+    if (!resp.ok) throw new Error('fetch failed');
+    const data = await resp.json();
+    const issues = data.issues || [];
+    const idx = issues.findIndex(i => i.date === currentDate);
+    if (idx === -1) return;
+    const prev = issues[idx + 1];
+    const next = issues[idx - 1];
+    document.querySelectorAll('.pager').forEach(pager => {
+      const prevEl = pager.querySelector('.prev');
+      const nextEl = pager.querySelector('.next');
+      if (prev && prevEl) {
+        prevEl.href = prev.url;
+        prevEl.textContent = prev.date;
+        prevEl.classList.remove('disabled');
+      } else if (prevEl) {
+        prevEl.classList.add('disabled');
+        prevEl.textContent = 'First issue';
+      }
+      if (next && nextEl) {
+        nextEl.href = next.url;
+        nextEl.textContent = next.date;
+        nextEl.classList.remove('disabled');
+      } else if (nextEl) {
+        nextEl.classList.add('disabled');
+        nextEl.textContent = 'Latest';
+      }
+    });
+  } catch(e) {
+    // silently fail — pager stays as-is
+  }
 })();
 </script>
 
