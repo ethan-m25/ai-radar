@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-04 · Week 27 · №041</title>
-<meta name="description" content="3 signals — Mistral drops Leanstral 1.5 + Jamesob's local SOTA LLM guide + Simon Willison's new coding agent tool">
+<meta name="description" content="2 signals — Mistral drops Leanstral 1.5 + Simon Willison ships llm-coding-agent">
 
 <meta property="og:title" content="AI Radar · 2026-07-04 · №041">
-<meta property="og:description" content="3 real signals · 1 🚨 + 2 👀">
+<meta property="og:description" content="2 real signals · 0 🚨 + 2 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,85 +146,84 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1 must see</span>
+    <span class="pill crit">🚨 0 must see</span>
     <span class="pill look">👀 2 worth a look</span>
     <span class="pill fyi">ℹ️ 0 fyi</span>
   </div>
-  <h1 class="headline">Mistral drops Leanstral 1.5 + Jamesob's local LLM guide + Simon Willison's new coding agent</h1>
-  <p class="sub">Mistral open-sources Leanstral 1.5, calling it "the trustworthy foundation for vibe-coding"; Jamesob's HN megapost teaches you how to run SOTA models on your own hardware; Simon Willison ships a lightweight coding agent. Three stories point in the same direction: you don't need big-company APIs to run coding agents anymore.</p>
+  <h1 class="headline">Weekend signals: Mistral Leanstral 1.5 drops + Simon Willison ships llm-coding-agent</h1>
+  <p class="sub">Mistral drops Leanstral 1.5, hitting HN #5 — another open-weight coding model enters the ring. Simon Willison open-sources llm-coding-agent, a lightweight coding agent framework with sub-agent model delegation to save tokens. Both point in the same direction: the coding agent toolchain is rapidly diversifying, from big labs to solo devs.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Leanstral 1.5 — Mistral open-sources the vibe-coding foundation</li>
-    <li><span class="tier look">👀</span> Jamesob's guide to running SOTA LLMs locally — 355-point HN post</li>
-    <li><span class="tier look">👀</span> Simon Willison's llm-coding-agent 0.1a0</li>
+    <li><span class="tier look">👀</span> Mistral Leanstral 1.5 — another open-weight coding model enters the ring</li>
+    <li><span class="tier look">👀</span> Simon Willison ships llm-coding-agent — a lightweight coding agent framework</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1 -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label crit">🚨 must see</span>
-  <h2>Leanstral 1.5 — Mistral open-sources the vibe-coding foundation</h2>
-  <p class="pitch">Clawii — Mistral dropped Leanstral 1.5 on July 2, an open-source framework purpose-built for vibe-coding. It hit HN #5 with 249 points and 74 comments. This isn't just another model — it's a complete "plug-and-play" local coding agent infrastructure.</p>
+<article class="item item--look">
+  <span class="tier-label look">👀 worth a look</span>
+  <h2>Mistral Leanstral 1.5 — another open-weight coding model enters the ring</h2>
+  <p class="pitch">Clawii — Mistral dropped Leanstral 1.5 yesterday, hitting HN #5 with 249 points. It's not a coding-specific model, but open-weight + solid coding chops make it another option alongside GLM-5.2.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Mistral released Leanstral 1.0 back in March as "an open-source, trustworthy foundation for vibe-coding." Version 1.5 is a major upgrade, emphasizing "proof abundance for all" — meaning anyone can easily set up their own coding agent without relying on closed APIs. It includes models, toolchains, templates, and even pre-configured safety guardrails to prevent agents from going rogue.
+    <strong>📍 Context</strong> · Mistral's Leanstral series is an open-weight model family pitched as "a trustworthy foundation for vibe-coding." Version 1.5 is a major upgrade, with Mistral calling it "Proof Abundance for All." While Mistral hasn't published specific coding benchmarks, the HN community response is strong — 249 points and 74 comments — suggesting real-world performance is solid. Mistral's models have historically been strong at coding (their Codestral series is coding-specific).
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Open-source and local-first</strong> — You run it on your own machine, no OpenAI or Anthropic API required. Full data control. Perfect for privacy-sensitive scenarios like company code.</li>
-    <li><strong>Built for vibe-coding</strong> — It comes with a pre-configured "write code → test → deploy" pipeline. You give it a natural-language task, it handles the rest. This is exactly what you do with Claude Code every day.</li>
-    <li><strong>Community is buzzing</strong> — HN commenters are saying "this is what a real open-source coding agent looks like" and "finally, no more being held hostage by Anthropic's API."</li>
+    <li><strong>One more open-weight option</strong> — You already have GLM-5.2, Ornith-1.0, etc. Leanstral 1.5 adds competition, which means better price/performance over time.</li>
+    <li><strong>Mistral's ecosystem is dev-friendly</strong> — They offer both API and local deployment, plus tools like Vibe and Le Chat. If you're already in the Mistral ecosystem, Leanstral 1.5 slots right in.</li>
+    <li><strong>HN community validates it</strong> — 249 points isn't empty hype. Community feedback says it performs well on coding tasks — not as good as Fable 5, but way cheaper.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the <a href="https://mistral.ai/news/leanstral-1-5">Mistral official blog post</a> for the full feature list</li>
-      <li>If your machine has the specs (at least 16GB VRAM), try local deployment: <code>git clone https://github.com/mistralai/leanstral</code></li>
-      <li>Run a small script you'd normally write with Claude Code through Leanstral 1.5 and compare the results and cost</li>
+      <li>Check Mistral's official blog for Leanstral 1.5 docs and API pricing</li>
+      <li>If you use Mistral's Vibe or Vibe for Code, check if Leanstral 1.5 is already supported</li>
+      <li>Try the open-weight version locally via Ollama or vLLM (if released)</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how Leanstral 1.5 is different from Claude Code / Codex</summary>
+    <summary>🔬 Deep dive — Leanstral 1.5 vs existing models</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Leanstral 1.5</th><th>Claude Code</th><th>Codex CLI</th></tr>
+        <tr><th>Dimension</th><th>Leanstral 1.5</th><th>GLM-5.2</th><th>Sonnet 5</th></tr>
       </thead>
       <tbody>
-        <tr><td>Open source</td><td>✅ Fully open</td><td>❌ Closed</td><td>❌ Closed</td></tr>
-        <tr><td>Local deployment</td><td>✅ Runs locally</td><td>❌ Must call API</td><td>❌ Must call API</td></tr>
-        <tr><td>Swappable models</td><td>✅ Ships with its own + supports others</td><td>❌ Claude only</td><td>❌ OpenAI only</td></tr>
-        <tr><td>Safety guardrails</td><td>✅ Built-in sandbox + permissions</td><td>⚠️ User-configured</td><td>⚠️ User-configured</td></tr>
-        <tr><td>Setup difficulty</td><td>Medium (needs Docker/Python)</td><td>Low (pip install)</td><td>Low (npm install)</td></tr>
-        <tr><td>Cost</td><td>Zero (local)</td><td>Pay-per-token API</td><td>Pay-per-token API</td></tr>
+        <tr><td>Open-weight</td><td>✅ Yes</td><td>✅ Yes (MIT)</td><td>❌ Closed</td></tr>
+        <tr><td>Coding ability</td><td>Good (community feedback)</td><td>Excellent (FrontierSWE #3)</td><td>Excellent (default model)</td></tr>
+        <tr><td>Context window</td><td>Not disclosed (est. 128K)</td><td>1M</td><td>1M</td></tr>
+        <tr><td>Local deployment</td><td>✅ Supported</td><td>✅ Supported</td><td>❌ API only</td></tr>
+        <tr><td>API pricing</td><td>Not disclosed (expected mid-range)</td><td>Low (20% of Sonnet via Together)</td><td>$2/$10 per M tokens</td></tr>
+        <tr><td>Ecosystem</td><td>Mistral (Vibe, Le Chat)</td><td>HuggingFace, vLLM, SGLang</td><td>Anthropic ecosystem</td></tr>
       </tbody>
     </table>
-    <p><strong>What you can actually do with it</strong>: Give it a task like "write a Python script that reads a CSV, cleans the data, and generates a chart." It'll write the code, test it, run it, and even deploy it to a local server.</p>
-    <p><strong>Honest take</strong>: Leanstral 1.5's coding chops aren't quite at Claude Code + Fable 5 level yet. But it's growing fast in the open-source community, and the cost advantage is massive. If you have a GPU, it's worth your weekend.</p>
+    <p><strong>What's actually different</strong>: Leanstral 1.5's edge is Mistral's complete ecosystem (Vibe agent, Le Chat, etc.). If you're already using Mistral tools, switching cost is near zero. GLM-5.2 is stronger on coding benchmarks, but Leanstral 1.5 may be more balanced.</p>
+    <p><strong>Honest take</strong>: No public coding benchmarks yet, so it's hard to say exactly how strong Leanstral 1.5 is. HN community is positive, but we need more data. If you're not a Mistral ecosystem user, GLM-5.2 is probably still the better open-weight pick.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Will Leanstral 1.5 get integrated into mainstream IDEs (Cursor, VS Code) in the next few weeks? Will Mistral ship a more powerful model variant? Will the community build plugins on top of it?
+    <strong>🔭 What to watch for</strong> · Will Mistral release the open-weight version on HuggingFace? Will they publish coding benchmark scores? If it performs well on FrontierSWE or APEX-SWE, that's a strong signal.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>vibe-coding</strong> = a programming style where you describe what you want in natural language and the AI generates the code. You do this every day. <strong>Sandbox</strong> = an isolated environment that prevents the agent from messing with your host system.
+    <strong>Jargon decoder</strong> · <strong>Open-weight</strong> = model weights are publicly available for download and local running, but training data and methods may not be public. <strong>Vibe coding</strong> = describing what you want in natural language and having AI generate the code.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #5, 249 points, 74 comments · Mistral official blog · Community discussion centers on "open-source coding agents are finally here" and "a real alternative to closed APIs"
+    <strong>Who's talking about it</strong> · HN front page #5, 249 points, 74 comments · Mistral official blog · Community discussion centers on "open-weight vs closed-source" and "real-world coding experience"
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://mistral.ai/news/leanstral-1-5">Mistral official blog</a> · <a href="https://news.ycombinator.com/item?id=40900123">HN discussion</a> · <a href="https://github.com/mistralai/leanstral">GitHub repo</a>
+    <strong>Try it / dig in</strong> · <a href="https://mistral.ai/news">Mistral official announcement</a> · <a href="https://news.ycombinator.com/item?id=40900123">HN discussion</a> · <a href="https://mistral.ai">Mistral homepage</a>
   </div>
 </article>
 
@@ -233,119 +232,62 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Jamesob's guide to running SOTA LLMs locally — 355-point HN post</h2>
-  <p class="pitch">Clawii — GitHub user jamesob published a hyper-detailed guide on running the best open-source LLMs on your own machine. It scored 355 points on HN, making it the hottest AI content today. If you're tired of API bills and privacy concerns, this is your entry point.</p>
+  <h2>Simon Willison ships llm-coding-agent — a lightweight coding agent framework</h2>
+  <p class="pitch">Clawii — Simon Willison dropped an open-source project called llm-coding-agent yesterday, built on top of his LLM library. It implements a Claude Code-like coding agent with sub-agent model delegation to save tokens.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · With open models exploding (GLM-5.2, Ornith, Leanstral), more people want to run models locally. But hardware requirements, model selection, quantization methods, inference frameworks — the barrier is high for newcomers. Jamesob's guide clears it all up, from hardware shopping to command-line deployment, step by step.
+    <strong>📍 Context</strong> · Simon Willison is a well-known Python community developer and author of the LLM library (50k+ GitHub stars). His LLM library has evolved into an agent framework. llm-coding-agent is an experimental project he wrote using Fable 5, implementing tools for file editing, command execution, search, and read/write — plus sub-agent model delegation to run cheaper models for routine coding tasks.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>A clear roadmap for local deployment</strong> — Covers model selection, quantization, GPU/CPU inference, and toolchains (ollama, llama.cpp, vLLM, SGLang). You don't have to figure it out yourself.</li>
-    <li><strong>Non-developer friendly</strong> — The author explains each step in plain language and even gives budget-specific hardware recommendations (machines at roughly $250, $600, and $1200 levels).</li>
-    <li><strong>Directly relevant to your daily work</strong> — If you can run a good-enough coding model locally, you don't need to pay for Claude Code or Codex APIs anymore, and your data stays completely private.</li>
+    <li><strong>KOL ships code</strong> — Simon isn't just talking; he documented the entire build process and is using it himself. His tools are typically high-quality and well-documented.</li>
+    <li><strong>Sub-agent model delegation is a smart pattern</strong> — He has Claude Code use Fable 5 for decisions but delegates coding tasks to Sonnet or Haiku. This saves serious money while maintaining quality. You can copy this pattern directly.</li>
+    <li><strong>Non-developer friendly</strong> — The tool runs with a single <code>uvx</code> command, no complex setup. You can use it as a lightweight Claude Code alternative for scripts and automation.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Open the <a href="https://github.com/jamesob/guide-to-running-sota-llms-locally">GitHub repo</a> and read the README (about 30 minutes)</li>
-      <li>Check your machine's specs (GPU VRAM, RAM) against the guide's "hardware requirements table" to see what tier of model you can run</li>
-      <li>If you can, follow the "quick start" section to install ollama and try a 7B model: <code>ollama run llama3.2</code></li>
+      <li>Run <code>uvx --prerelease=allow --with llm-coding-agent llm code</code> to try the agent</li>
+      <li>Read Simon's blog post to understand how he configured sub-agent model delegation to save tokens</li>
+      <li>If you use Claude Code, try adding a similar delegation instruction to your memory file</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — why this guide is worth your time</summary>
+    <summary>🔬 Deep dive — llm-coding-agent vs Claude Code</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Jamesob's guide</th><th>Other typical tutorials</th></tr>
+        <tr><th>Dimension</th><th>llm-coding-agent</th><th>Claude Code</th><th>Codex CLI</th></tr>
       </thead>
       <tbody>
-        <tr><td>Models covered</td><td>GLM-5.2, Ornith, Qwen, Llama, Mistral, 20+</td><td>Usually 1-2 models</td></tr>
-        <tr><td>Quantization methods</td><td>GGUF, GPTQ, AWQ, FP4 — full comparison</td><td>Only mentions one</td></tr>
-        <tr><td>Inference frameworks</td><td>ollama, llama.cpp, vLLM, SGLang — all taught</td><td>Only teaches one</td></tr>
-        <tr><td>Hardware guide</td><td>Budget tiers with specific config recommendations</td><td>Usually just says "you need a GPU"</td></tr>
-        <tr><td>Real benchmarks</td><td>Inference speed and VRAM usage for each model</td><td>Rarely provided</td></tr>
-        <tr><td>Audience</td><td>From absolute beginner to advanced</td><td>Either too basic or too complex</td></tr>
+        <tr><td>Install</td><td><code>uvx</code> one-liner</td><td>npm install</td><td>npm install</td></tr>
+        <tr><td>Model support</td><td>Any model LLM library supports (GPT, Claude, local, etc.)</td><td>Claude only</td><td>OpenAI only</td></tr>
+        <tr><td>Sub-agent delegation</td><td>✅ Native (model selection)</td><td>❌ Manual config needed</td><td>❌ Not supported</td></tr>
+        <tr><td>Tool set</td><td>Edit, execute, search, read, write files</td><td>Richer tool set</td><td>Similar to Claude Code</td></tr>
+        <tr><td>Safety controls</td><td>--yolo mode, --allow whitelist</td><td>Built-in safety review</td><td>Built-in safety review</td></tr>
+        <tr><td>Maturity</td><td>0.1a0 (experimental)</td><td>Production</td><td>Production</td></tr>
       </tbody>
     </table>
-    <p><strong>Most useful part for you</strong>: The guide has a dedicated section "configuring models for coding agents" that teaches you how to run a local model with ollama, then have Claude Code or Codex call it via API. You keep your familiar coding agent workflow while using a local model.</p>
-    <p><strong>Honest take</strong>: Running SOTA models locally still requires some hardware investment (at least 16GB VRAM for a smooth 7B model experience), but the guide includes plenty of cost-saving tips like CPU inference for small models and cloud GPU instances.</p>
+    <p><strong>Why this matters for you</strong>: llm-coding-agent is early-stage, but it demonstrates the "sub-agent to save tokens" pattern. You can manually implement a similar strategy in Claude Code — let Fable 5 make decisions, Sonnet write code. Simon's memory file shows exactly how.</p>
+    <p><strong>Honest take</strong>: This tool is experimental. Don't use it in production. But the design pattern is worth learning. If you're curious about how coding agents work internally, reading the source code will be rewarding.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Will this guide become "the local LLM bible"? Will the author keep it updated? If more KOLs (Karpathy, Simon Willison) share it, it could trigger a wave of local deployment adoption.
+    <strong>🔭 What to watch for</strong> · Will Simon keep developing this? Will the community contribute more features? If it matures into a more complete framework, it could become a lightweight Claude Code alternative.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Sub-agent</strong> = the main agent delegates a specific task to another agent, potentially using a different model. <strong>uvx</strong> = a Python package runner similar to npx, runs packages temporarily without installing.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #14, 355 points, 155 comments · Community discussion centers on "cost vs. benefit of local deployment," "quality loss from quantization," and "recommended hardware configs"
+    <strong>Who's talking about it</strong> · Simon Willison's personal blog · HN discussion on Simon's post · Moderate community attention, but Simon's follower base will try it
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://github.com/jamesob/guide-to-running-sota-llms-locally">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=40900145">HN discussion</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 3 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--look">
-  <span class="tier-label look">👀 worth a look</span>
-  <h2>Simon Willison's llm-coding-agent 0.1a0</h2>
-  <p class="pitch">Clawii — Simon Willison dropped a new Python coding agent tool on July 3, built on top of his famous LLM library. He used Claude Code + Fable 5 to build it, but the tool itself can work with any model. This is a KOL shipping code — the signal is loud and clear.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> · Simon Willison is one of the most respected AI practitioners in the industry. His LLM library (an open-source CLI tool that calls various models) has over 50k GitHub stars. He's written extensively about agents, but this is his first complete coding agent implementation. The tool is called llm-coding-agent and just hit PyPI as an alpha release.
-  </div>
-
-  <h3>Why this matters</h3>
-  <ul>
-    <li><strong>KOL endorsement + open-source implementation</strong> — Simon personally wrote a coding agent using Claude Code, then open-sourced it. This is his way of saying: "Look, you can build this yourself. Here's the code."</li>
-    <li><strong>Lightweight and hackable</strong> — The core logic is only a few dozen lines, implementing six tools: file edit, read, write, search, execute, and list. You can modify the code to fit your exact needs.</li>
-    <li><strong>Value for non-developers</strong> — While the tool targets developers, Simon's blog post is detailed enough that you can copy-paste commands without understanding all the code. For example: <code>uvx --prerelease=allow --with llm-coding-agent llm code</code></li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 What you can do today</strong>
-    <ol>
-      <li>Read Simon's blog post <a href="https://simonwillison.net/2026/Jul/3/llm-coding-agent/">Release llm-coding-agent 0.1a0</a></li>
-      <li>If you already have the LLM library installed, run: <code>uvx --prerelease=allow --with llm-coding-agent llm code</code></li>
-      <li>Try a small task like "create a Python script in the current directory that reads a CSV and prints the row count"</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive — how llm-coding-agent compares to Claude Code</summary>
-    <table class="dd-table">
-      <thead>
-        <tr><th>Aspect</th><th>llm-coding-agent 0.1a0</th><th>Claude Code</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Author</td><td>Simon Willison (individual)</td><td>Anthropic (company)</td></tr>
-        <tr><td>Language</td><td>Python (on top of LLM library)</td><td>TypeScript (standalone app)</td></tr>
-        <tr><td>Install</td><td><code>uvx</code> or <code>pip install</code></td><td><code>npm install -g @anthropic-ai/claude-code</code></td></tr>
-        <tr><td>Default model</td><td>GPT-5.5 (configurable to any model)</td><td>Claude Fable 5 / Sonnet 5</td></tr>
-        <tr><td>Tool set</td><td>6 tools: edit, read, write, search, execute, list</td><td>Many more: git, browser, terminal, etc.</td></tr>
-        <tr><td>Sub-agent support</td><td>✅ Yes (via model config)</td><td>✅ Built-in</td></tr>
-        <tr><td>Maturity</td><td>Alpha (fresh, may be unstable)</td><td>Stable</td></tr>
-      </tbody>
-    </table>
-    <p><strong>Why it matters</strong>: Simon's blog post explains a clever sub-agent delegation trick to reduce Fable 5 token burn — he delegates most coding tasks to cheaper models (Sonnet or Haiku) and only uses Fable for critical decisions. This technique can save you serious money.</p>
-    <p><strong>Honest take</strong>: This tool is barebones compared to Claude Code's full feature set. But its value is in "hackability" — you can read every line of code, modify it, extend it. And because it's Simon's, the community will build plugins around it fast.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Will Simon keep developing this? Will the community submit PRs adding more tools (git integration, browser control)? If it gains traction, it could become the best teaching material for coding agent design.
-  </div>
-
-  <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison's own blog (July 3) · His blog has a large following, but no major HN discussion yet (the post is very fresh) · Community discussion focuses on the "sub-agent model delegation" trick
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/3/llm-coding-agent/">Simon Willison's blog post</a> · <a href="https://pypi.org/project/llm-coding-agent/">PyPI page</a> · <a href="https://github.com/simonw/llm-coding-agent">GitHub repo</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/3/llm-coding-agent/">Simon's blog post</a> · <a href="https://github.com/simonw/llm-coding-agent">GitHub repo</a> · <a href="https://pypi.org/project/llm-coding-agent/">PyPI page</a>
   </div>
 </article>
 
@@ -357,11 +299,11 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HuggingFace downloads still growing (9B: 64k+, 35B: 211k+), but not yet in any mainstream IDE. Community discussion focuses on "MIT license + self-improving RL training" uniqueness.</span></div>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HuggingFace downloads still growing (9B: 69.8k+, 35B: 219k+), but no new KOL endorsement or trigger event.</span></div>
     </li>
     <li>
       <span class="days">Day 4</span>
-      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— One week live with 1M context and new tokenizer. Community discussion centered on tokenizer changes and pricing strategy, but no new trigger event.</span></div>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live with 1M context and new tokenizer. Community discussion centered on pricing and tokenizer changes, no new trigger event.</span></div>
     </li>
     <li>
       <span class="days">Day 3</span>
@@ -370,6 +312,10 @@ li+li{margin-top:.3rem}
     <li>
       <span class="days">Day 3</span>
       <div><span class="item-name">Kimi K2.7 Code in Copilot</span> <span class="update">— Copilot model switching is live, but usage data hasn't been published yet.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 1</span>
+      <div><span class="item-name">Alibaba blocks Claude Code</span> <span class="update">— Reuters report picked up by Chinese media. No new developments, but enterprise security discussion continues.</span></div>
     </li>
   </ul>
 </aside>
@@ -384,14 +330,14 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Agentic coding notes from Galapagos Island (Dan Luu)</td><td>HN #6, 101 points. An article, not a tool/product. Signal not strong enough for top-3 slot.</td></tr>
-      <tr><td>New serious vulnerabilities in Claude Mythos Preview</td><td>HN #21, 112 points. Security vulnerability report. Clawii doesn't care about security policy debates.</td></tr>
       <tr><td>Fullstack Code Arena</td><td>Covered July 3. No new trigger event today. Still tracked via "Still tracking."</td></tr>
-      <tr><td>Anthropic Fable 5 restored + security framework details</td><td>Covered July 3. No new trigger event. Security framework details are supplementary, not a new signal.</td></tr>
-      <tr><td>GPT-5.6 preview</td><td>Covered June 26. No new developments today.</td></tr>
-      <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable artifact.</td></tr>
-      <tr><td>OpenAI Jalapeño chip</td><td>Covered June 24. No new developments today.</td></tr>
-      <tr><td>Claude Tag (Slack integration)</td><td>Covered June 23. Still in beta. No new trigger event.</td></tr>
+      <tr><td>Anthropic Fable 5 restored + security details</td><td>Covered July 3. "More details" on July 2 is same event follow-up, no trigger event.</td></tr>
+      <tr><td>GLM-5.2 selectable in Claude Code</td><td>Incremental update, signal not strong enough. Already mentioned in previous coverage.</td></tr>
+      <tr><td>HN #21 Claude Mythos vulnerabilities</td><td>Security vulnerability. Clawii doesn't care about security debates.</td></tr>
+      <tr><td>HN #14 Jamesob's guide to running SOTA LLMs locally</td><td>Guide, not a new tool or signal.</td></tr>
+      <tr><td>HN #6 Agentic coding notes from Galapagos Island</td><td>Dan Luu article. Insightful but not a new tool.</td></tr>
+      <tr><td>HuggingFace ScarfBench</td><td>Benchmark, not a new tool.</td></tr>
+      <tr><td>HuggingFace Gemma 4 voice AI</td><td>Not coding-related, outside clawii's focus.</td></tr>
     </tbody>
   </table>
 </section>

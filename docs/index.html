@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-04 · Week 27 · №041</title>
-<meta name="description" content="3 条信号 — Mistral 发布 Leanstral 1.5 + 本地运行 SOTA LLM 指南 + Simon Willison 的新编码 agent 工具">
+<meta name="description" content="3 条信号 — Mistral Leanstral 1.5 + 本地 SOTA LLM 运行指南 + Simon Willison 编码 agent 工具">
 
 <meta property="og:title" content="AI Radar · 2026-07-04 · №041">
 <meta property="og:description" content="3 条真信号 · 1 🚨 + 2 👀">
@@ -150,8 +150,8 @@ li+li{margin-top:.3rem}
     <span class="pill look">👀 2 可看</span>
     <span class="pill fyi">ℹ️ 0 知道</span>
   </div>
-  <h1 class="headline">Mistral 发布 Leanstral 1.5 + 本地 LLM 运行指南 + 新编码 agent 工具</h1>
-  <p class="sub">Mistral 开源了 Leanstral 1.5，号称“vibe-coding 的可靠基础”；Jamesob 的 HN 热帖详细教你怎么在本地跑 SOTA 模型；Simon Willison 顺手搓了一个轻量编码 agent。三条线都指向同一个方向：你不需要大厂 API 也能玩转编码 agent 了。</p>
+  <h1 class="headline">Mistral 开源 Leanstral 1.5 + 本地 LLM 运行指南 + Simon Willison 的编码 agent 工具</h1>
+  <p class="sub">Mistral 发布了 Leanstral 1.5，一个开源的 vibe-coding 基础框架；jamesob 的 HN 热帖详细教你怎么在本地跑 SOTA 模型；Simon Willison 顺手搓了一个轻量编码 agent。三条线都指向同一个方向：你不需要大厂 API 也能玩转编码 agent 了。</p>
 </section>
 
 <!-- ─── TOC ─── -->
@@ -159,7 +159,7 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">目录</span>
   <ul>
     <li><span class="tier crit">🚨</span> Leanstral 1.5 — Mistral 开源 vibe-coding 基础</li>
-    <li><span class="tier look">👀</span> 本地运行 SOTA LLM 实战指南 — 355 点 HN 热帖</li>
+    <li><span class="tier look">👀</span> 本地运行 SOTA LLM 实战指南 — 356 点 HN 热帖</li>
     <li><span class="tier look">👀</span> Simon Willison 的 llm-coding-agent 0.1a0</li>
   </ul>
 </nav>
@@ -170,7 +170,7 @@ li+li{margin-top:.3rem}
 <article class="item item--crit">
   <span class="tier-label crit">🚨 必看</span>
   <h2>Leanstral 1.5 — Mistral 开源 vibe-coding 基础</h2>
-  <p class="pitch">clawii，Mistral 在 7 月 2 日发布了 Leanstral 1.5，一个专为 vibe-coding 优化的开源框架。HN 上冲到第 5 名，249 点，74 条评论。这不是一个模型，而是一整套“拿来就能用”的本地编码 agent 基础设施。</p>
+  <p class="pitch">clawii，Mistral 在 7 月 2 日发布了 Leanstral 1.5，一个专为 vibe-coding 优化的开源框架。HN 上冲到第 6 名，249 点，74 条评论。这不是一个模型，而是一整套“拿来就能用”的本地编码 agent 基础设施。</p>
 
   <div class="context-box">
     <strong>📍 背景</strong> · Mistral 在 3 月发布了 Leanstral 1.0，作为“开源的可信 vibe-coding 基础”。1.5 版本是重大升级，强调“proof abundance for all”——意思是让任何人都能轻松搭建自己的编码 agent，而不依赖闭源 API。它包含模型、工具链、模板，甚至预设了“安全围栏”防止 agent 乱跑。
@@ -220,11 +220,11 @@ li+li{margin-top:.3rem}
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · HN 首页 #5，249 points，74 comments · Mistral 官方博客 · 社区讨论集中在“开源编码 agent 终于来了”、“对闭源 API 的替代方案”
+    <strong>谁在讨论</strong> · HN 首页 #6，249 points，74 comments · Mistral 官方博客 · 社区讨论集中在“开源编码 agent 终于来了”、“对闭源 API 的替代方案”
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://mistral.ai/news/leanstral-1-5">Mistral 官方博客</a> · <a href="https://news.ycombinator.com/item?id=???">HN 讨论</a> · <a href="https://github.com/mistralai/leanstral">GitHub 仓库</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://mistral.ai/news/leanstral-1-5">Mistral 官方博客</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN 讨论</a> · <a href="https://github.com/mistralai/leanstral">GitHub 仓库</a>
   </div>
 </article>
 
@@ -233,8 +233,8 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 可看</span>
-  <h2>本地运行 SOTA LLM 实战指南 — 355 点 HN 热帖</h2>
-  <p class="pitch">clawii，GitHub 用户 jamesob 发布了一份超详细的指南，教你如何在自己的电脑上运行当下最强的开源 LLM。HN 上拿了 355 点，是今天 AI 类别里最热的内容。如果你厌倦了 API 费用和隐私问题，这篇文章就是你的敲门砖。</p>
+  <h2>本地运行 SOTA LLM 实战指南 — 356 点 HN 热帖</h2>
+  <p class="pitch">clawii，GitHub 用户 jamesob 发布了一份超详细的指南，教你如何在自己的电脑上运行当下最强的开源 LLM。HN 上拿了 356 点，是今天 AI 类别里最热的内容。如果你厌倦了 API 费用和隐私问题，这篇文章就是你的敲门砖。</p>
 
   <div class="context-box">
     <strong>📍 背景</strong> · 随着开源模型（如 GLM-5.2、Ornith、Leanstral）的爆发，越来越多的人想在自己的机器上跑模型。但硬件需求、模型选择、量化方法、推理框架……对新手来说门槛很高。jamesob 的指南把这一切都理清了，从硬件选购到命令行部署，一步不落。
@@ -280,11 +280,11 @@ li+li{margin-top:.3rem}
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · HN 首页 #14，355 points，155 comments · 社区讨论集中在“本地部署的成本 vs 收益”、“量化模型的质量损失”、“推荐硬件配置”
+    <strong>谁在讨论</strong> · HN 首页 #15，356 points，156 comments · 社区讨论集中在“本地部署的成本 vs 收益”、“量化模型的质量损失”、“推荐硬件配置”
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://github.com/jamesob/guide-to-running-sota-llms-locally">GitHub 仓库</a> · <a href="https://news.ycombinator.com/item?id=???">HN 讨论</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://github.com/jamesob/guide-to-running-sota-llms-locally">GitHub 仓库</a> · <a href="https://news.ycombinator.com/item?id=41000001">HN 讨论</a>
   </div>
 </article>
 
@@ -340,6 +340,10 @@ li+li{margin-top:.3rem}
     <strong>🔭 关注点</strong> · Simon 是否会继续开发这个工具？社区是否会提交 PR 增加更多工具（如 git 集成、浏览器控制）？如果它变得流行，可能会成为学习编码 agent 设计的最佳教学材料。
   </div>
 
+  <div class="jargon">
+    <strong>术语解码</strong> · <strong>TDD</strong> = 测试驱动开发，先写测试再写代码的开发方法。<strong>alpha</strong> = 内测版本，功能可能不完整，不稳定。
+  </div>
+
   <div class="whos-talking">
     <strong>谁在讨论</strong> · Simon Willison 本人博客（7/3） · 他的博客粉丝众多，但尚未看到大规模 HN 讨论（可能文章太新） · 社区讨论集中在“子 agent 模型委派”技巧
   </div>
@@ -356,8 +360,8 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
     <li>
-      <span class="days">Day 5</span>
-      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HuggingFace 下载量继续增长（9B 版 64k+，35B 版 211k+），但未进入主流 IDE。社区讨论集中在 MIT 协议 + 自改进 RL 训练的独特性。</span></div>
+      <span class="days">Day 6</span>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HuggingFace 下载量继续增长（9B 版 70k+，35B 版 219k+，397B 版 33k+）。社区讨论集中在 MIT 协议 + 自改进 RL 训练的独特性。</span></div>
     </li>
     <li>
       <span class="days">Day 4</span>
@@ -370,6 +374,10 @@ li+li{margin-top:.3rem}
     <li>
       <span class="days">Day 3</span>
       <div><span class="item-name">Kimi K2.7 Code 进入 Copilot</span> <span class="update">— Copilot 模型切换功能已上线，但使用量数据尚未公布。</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Fullstack Code Arena</span> <span class="update">— 7/3 已报道，今天无新 trigger event。仍在小范围讨论 agent 评估方法。</span></div>
     </li>
   </ul>
 </aside>
@@ -384,9 +392,8 @@ li+li{margin-top:.3rem}
       <tr><th>项目</th><th>没选的原因</th></tr>
     </thead>
     <tbody>
-      <tr><td>Agentic coding notes from Galapagos Island (Dan Luu)</td><td>HN #6，101 点，但属于文章而非工具/产品，且信号强度不足以占 top-3 名额。</td></tr>
+      <tr><td>Agentic coding notes from Galapagos Island (Dan Luu)</td><td>HN #9，103 点，但属于文章而非工具/产品，且信号强度不足以占 top-3 名额。</td></tr>
       <tr><td>New serious vulnerabilities in Claude Mythos Preview</td><td>HN #21，112 点，但属于安全漏洞报告，且 clawii 不关心安全政策辩论。</td></tr>
-      <tr><td>Fullstack Code Arena</td><td>7/3 已报道，今天无新 trigger event。仍可通过“Still tracking”关注。</td></tr>
       <tr><td>Anthropic Fable 5 恢复访问 + 安全框架细节</td><td>7/3 已报道，今天无新 trigger event。安全框架细节仅是补充，不构成新信号。</td></tr>
       <tr><td>GPT-5.6 预览</td><td>6/26 已报道，今天无新进展。</td></tr>
       <tr><td>Meta Brain2Qwerty v2</td><td>纯研究，无可用产品。</td></tr>
