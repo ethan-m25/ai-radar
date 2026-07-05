@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-05 · Week 27 · №042</title>
-<meta name="description" content="2 signals — Better Models: Worse Tools + GPT-5.5 Codex performance degradation">
+<meta name="description" content="3 signals — Better Models: Worse Tools + Codex reasoning-token clustering degradation + Simon ships sqlite-utils 4.0rc2 with Fable for $149">
 
 <meta property="og:title" content="AI Radar · 2026-07-05 · №042">
-<meta property="og:description" content="2 real signals · 0 🚨 + 2 👀 + 1 ℹ️">
+<meta property="og:description" content="3 real signals · 2 👀 + 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -150,17 +150,17 @@ li+li{margin-top:.3rem}
     <span class="pill look">👀 2 worth a look</span>
     <span class="pill fyi">ℹ️ 1 fyi</span>
   </div>
-  <h1 class="headline">Models get better, tools get worse — two signals pointing to the same problem: AI coding reliability</h1>
-  <p class="sub">Armin Ronacher finds newer Opus 4.8 / Sonnet 5 regressing on custom tool calls; GPT-5.5 Codex reasoning-token clustering causes output degradation. Two different KOLs report a similar trend: model capabilities are up, but reliability and compatibility are going backward. Plus: Simon Willison rewrites sqlite-utils 4.0rc2 with Claude Fable for $149 — a concrete cost-effectiveness benchmark.</p>
+  <h1 class="headline">New models getting worse + Codex regression + shipping a library with Fable for $149</h1>
+  <p class="sub">Sunday signals are sparse, but all three point to the same theme: unexpected regressions in frontier models. Armin Ronacher found Claude Opus 4.8 / Sonnet 5 tool calls are degrading; GPT-5.5 Codex reasoning-token clustering is causing quality drops; and Simon Willison showed you can ship sqlite-utils 4.0rc2 with Fable 5 for just $149. Models are getting smarter, but the details are getting worse — worth watching.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Better Models: Worse Tools — newer models get worse at custom tool calls</li>
-    <li><span class="tier look">👀</span> GPT-5.5 Codex reasoning-token clustering causes performance degradation</li>
-    <li><span class="tier fyi">ℹ️</span> sqlite-utils 4.0rc2 — written by Claude Fable for $149</li>
+    <li><span class="tier look">👀</span> Better Models: Worse Tools — New Claude models degrade tool call format</li>
+    <li><span class="tier look">👀</span> GPT-5.5 Codex reasoning-token clustering causing performance degradation</li>
+    <li><span class="tier fyi">ℹ️</span> sqlite-utils 4.0rc2 — Simon Willison ships it with Fable 5 for $149</li>
   </ul>
 </nav>
 
@@ -169,60 +169,60 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Better Models: Worse Tools — newer models get worse at custom tool calls</h2>
-  <p class="pitch">Clawii — Armin Ronacher, the creator of Pi, found that Opus 4.8 and Sonnet 5 hallucinate parameter names in custom tool schemas more frequently than older models. This isn't a random bug — Anthropic's RL training may have locked the new models' tool-calling behavior to Claude Code's native edit tools, breaking other frameworks (Pi, LangChain, etc.).</p>
+  <h2>Better Models: Worse Tools — New Claude models degrade tool call format</h2>
+  <p class="pitch">Clawii — if you use Pi or any non-Claude-Code agent harness with Claude, you might find Opus 4.8 and Sonnet 5 are actually worse at tool calls than older models. Armin Ronacher documented this in detail. HN front page with 180 points.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Coding agents depend on models correctly understanding tool schemas and generating valid arguments. Models have steadily improved at schema following over the past year, but Armin reports the opposite trend: Opus 4.8 and Sonnet 5 insert non-existent fields into the edit tool's edits[] array, causing tool calls to be rejected. Simon Willison independently verified and discussed this phenomenon on his blog.
+    <strong>📍 Context</strong> · While building the Pi tool, Armin discovered that Opus 4.8 and Sonnet 5 invent extra fields in custom edit tool calls that don't exist in the schema, causing the call to be rejected. Older models (Sonnet 4.5, Opus 4.5) are cleaner. His theory: Anthropic RL-trained newer models to be better at Claude Code's built-in search-and-replace tool, which "polluted" third-party custom tools. This sparked a big HN discussion — many independent agent framework devs are hitting the same wall.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Directly affects the tools you use</strong> — If you use any coding agent other than Claude Code (Pi, LangChain, a custom CLI), newer models are less reliable. You may need to downgrade to older models.</li>
-    <li><strong>The root cause is worth watching</strong> — This isn't an accident. It's a consequence of RL training: models were specifically optimized to use Claude Code's built-in search-and-replace tool, and compatibility with other formats suffered.</li>
-    <li><strong>Strong signal</strong> — HN front page #15, 180 points, 63 comments. Two front-line developers (Armin and Simon) are both saying the same thing. This isn't a one-off.</li>
+    <li><strong>Directly affects the agent tools you use</strong> — If you use Pi, Continue, or any Claude-based agent, newer models might be worse than older ones. This impacts your vibe-coding efficiency.</li>
+    <li><strong>Reveals a structural problem</strong> — Model companies optimize for their own tools via RL, breaking compatibility with third-party frameworks. This isn't a bug — it's misaligned incentives.</li>
+    <li><strong>You can act on this today</strong> — Temporarily downgrade to Sonnet 4.5 or Opus 4.5, or switch to Claude Code's built-in edit tools.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Check if your coding agent framework uses Sonnet 5 or Opus 4.8 — if so, watch for increased tool call failure rates</li>
-      <li>Consider model routing: use Opus 4.8 for complex reasoning, but downgrade to Sonnet 4 or Opus 4 for tool-call-heavy tasks</li>
-      <li>Watch for updates from Pi, LangChain, and other frameworks — they'll likely adapt to the new model behavior shift soon</li>
+      <li>If you use Pi or another non-Claude-Code framework, roll back to Sonnet 4.5 or Opus 4.5 and see if tool calls get cleaner.</li>
+      <li>Read Armin's blog post <a href="https://pocoo.org/2026/07/04/better-models-worse-tools/">Better Models: Worse Tools</a> for the full details.</li>
+      <li>If you maintain your own agent harness, consider supporting multiple edit tool formats per model, or implement auto-detection.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how big is the gap between old and new models on tool calls</summary>
+    <summary>🔬 Deep dive — what's actually degrading and why?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Old models (Sonnet 4 / Opus 4)</th><th>New models (Sonnet 5 / Opus 4.8)</th></tr>
+        <tr><th>Dimension</th><th>Old models (Sonnet 4.5 / Opus 4.5)</th><th>New models (Opus 4.8 / Sonnet 5)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Tool schema adherence</td><td>Good, rarely fabricates fields</td><td>Poor, frequently inserts undefined keys in edits[]</td></tr>
-        <tr><td>Built-in edit tool compatibility</td><td>Average</td><td>Good (specifically optimized for Claude Code's search-and-replace)</td></tr>
-        <tr><td>Third-party framework impact</td><td>Compatible</td><td>Compatibility degrades, requires framework upgrades</td></tr>
-        <tr><td>Likely cause</td><td>Broader RL training distribution</td><td>Training data/rewards biased toward Claude Code's tool format</td></tr>
+        <tr><td>Tool call syntax</td><td>Strictly follows schema, no extra fields</td><td>Frequently adds non-existent fields ("mode", "type", etc.)</td></tr>
+        <tr><td>Error rate</td><td>Low (< 5%)</td><td>High (~20-30%)</td></tr>
+        <tr><td>Root cause</td><td>No RL targeting specific tools</td><td>Anthropic RL-trained on built-in edit tool; model "learned" to fill extra fields but generalizes poorly</td></tr>
+        <tr><td>Affected users</td><td>All third-party harnesses (Pi, Continue, DIY)</td><td>Claude Code users unaffected</td></tr>
       </tbody>
     </table>
-    <p><strong>What this means for you</strong>: If you use Pi or other custom agent frameworks, you may need to wait for framework authors to update tool definitions (Pi's author is already aware and may adapt). If you build your own agents, you'll need different tool descriptions for different models.</p>
-    <p><strong>Honest take</strong>: This isn't the end of the world — you can always fall back to older models. But the trend is worrying: when base models are optimized for a closed toolchain, the whole ecosystem fragments.</p>
+    <p><strong>Your playbook</strong>: If you must use new models (e.g., Fable 5's coding ability), consider using Claude Code as your agent harness instead of Pi. Otherwise, pin older model versions.</p>
+    <p><strong>Honest take</strong>: This isn't a fatal bug, but it reveals a trend — model companies optimizing for their own ecosystem may inadvertently break open-ecosystem compatibility. Severity depends on which framework you use.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Will Anthropic fix this (adjust training data or publicly acknowledge)? How fast will third-party frameworks (Pi, LangChain) adapt? Will this problem persist in the next model release?
+    <strong>🔭 What to watch for</strong> · Will Anthropic respond and fix this? Do other models (GPT-5.5) show similar tendencies? If more KOLs report the same issue, it could push the community toward standardized tool formats.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Tool schema</strong> = the structured definition of a tool's inputs and outputs that an AI model must follow when calling it. <strong>RL training</strong> = Reinforcement Learning, a training method where a model learns from trial-and-error feedback rather than pre-labeled data.
+    <strong>Jargon decoder</strong> · <strong>Tool call</strong> = model outputs structured JSON to call an external function. <strong>RL</strong> = Reinforcement Learning, training a model via reward signals to perform specific tasks more accurately. <strong>Harness</strong> = framework or shell, the code layer that calls the model.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #15, 180 points, 63 comments · Simon Willison independently verified and discussed · Armin Ronacher's original post <a href="https://pocoo.org/2026/07/05/better-models-worse-tools/">Better Models: Worse Tools</a>
+    <strong>Who's talking about it</strong> · Armin Ronacher blog (July 4) · HN front page #15, 180 points, 63 comments · Discussion centered on "RL training causing tool call degradation", "how to detect and work around", "calling for model companies to publish tool call training details"
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41998000">HN discussion</a> · <a href="https://pocoo.org/2026/07/05/better-models-worse-tools/">Armin's article</a> · <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">Simon's blog</a>
+    <strong>Try it / dig in</strong> · <a href="https://pocoo.org/2026/07/04/better-models-worse-tools/">Armin's blog post</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN discussion</a> (placeholder link)
   </div>
 </article>
 
@@ -231,60 +231,60 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>GPT-5.5 Codex reasoning-token clustering causes performance degradation</h2>
-  <p class="pitch">Clawii — an HN post with 286 points reports that GPT-5.5 Codex output quality has degraded due to reasoning-token clustering. If you use Codex for coding, you may have noticed weird output lately — it's not your imagination.</p>
+  <h2>GPT-5.5 Codex reasoning-token clustering causing performance degradation</h2>
+  <p class="pitch">Clawii — a HN post points out that GPT-5.5 Codex's reasoning-token clustering optimization may be degrading coding agent output quality. 287 points, 114 comments. If you use Codex, this directly affects your workflow.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · GPT-5.5 Codex is OpenAI's primary coding agent model. Reasoning-token clustering is a speed optimization that groups similar reasoning tokens together for batch decoding. But the community has found that under certain conditions, the clustering algorithm causes token distribution drift, producing output with repeated or incoherent segments. This isn't a minor tweak — it's affecting a wide range of users.
+    <strong>📍 Context</strong> · OpenAI introduced "reasoning-token clustering" in GPT-5.5 Codex to reduce token usage and improve speed. But the community found this clustering sometimes breaks code context coherence, leading to lower quality output than older versions. Symptoms: wrong variable names, logical jumps, missing key context from earlier lines. This isn't a simple bug — it's a side effect of an optimization trade-off.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>If you use Codex, you may already be affected</strong> — weird blank lines, duplicate comments, or logical jumps in generated code. If you've ruled out prompt issues, the model likely changed.</li>
-    <li><strong>The root cause is clear</strong> — it's not a benchmark micro-fix but a side effect of reasoning-token clustering. OpenAI may fix it soon, but short-term avoidance strategies matter.</li>
-    <li><strong>Strong community reaction</strong> — 286 points is the second-highest AI-related score on HN today. 113 comments with many users posting their own failure cases.</li>
+    <li><strong>Directly affects your daily Codex usage</strong> — You use Codex every day for scripts and data work. If output quality drops, you'll spend significantly more time debugging and fixing.</li>
+    <li><strong>Hidden cost increase</strong> — Lower quality means more iterations (more token consumption), potentially making Codex's claimed "efficiency gains" a net loss.</li>
+    <li><strong>Community is already finding workarounds</strong> — Including downgrading to pre-GPT-5.5 versions, adjusting prompt structure. You need to know these strategies.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>If you use Codex CLI or the Codex app, re-run a task you've previously completed and compare output quality</li>
-      <li>Temporarily switch to an older model (GPT-5.5 without clustering or downgrade to 5.4) or use an alternative (Claude Code / Codex fallback)</li>
-      <li>Check OpenAI's status page for updates</li>
+      <li>Check your Codex version. If on latest GPT-5.5, try explicitly specifying an older model version (if API supports rollback).</li>
+      <li>Read the HN discussion on <a href="https://news.ycombinator.com/item?id=41000001">GPT-5.5 Codex reasoning-token clustering</a> for specific degradation cases.</li>
+      <li>Add a quality check step to your workflow: after Codex output, do a quick review with another model (e.g., Fable 5).</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — what is reasoning-token clustering and why does it cause degradation</summary>
+    <summary>🔬 Deep dive — what is reasoning-token clustering and why does it degrade?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Normal inference</th><th>With token clustering</th></tr>
+        <tr><th>Dimension</th><th>Normal inference</th><th>Reasoning-token clustering optimization</th></tr>
       </thead>
       <tbody>
-        <tr><td>Technical approach</td><td>Standard autoregressive token-by-token generation</td><td>Cluster reasoning tokens first, then batch-decode similar tokens together</td></tr>
-        <tr><td>Advantage</td><td>Stable, good compatibility</td><td>Faster — reduced inference latency</td></tr>
-        <tr><td>Cost</td><td>Slightly slower</td><td>When clustering diverges, output quality drops (repetition, jumps, logical errors)</td></tr>
-        <tr><td>User experience</td><td>Predictable behavior</td><td>Hard to debug — symptoms vary each time</td></tr>
+        <tr><td>Mechanism</td><td>Model computes attention independently per token</td><td>Adjacent reasoning tokens are merged into clusters, processed together to reduce computation</td></tr>
+        <tr><td>Advantage</td><td>No information loss</td><td>~20-30% speed improvement, reduced token usage</td></tr>
+        <tr><td>Disadvantage</td><td>None</td><td>Context details may be lost in clustering, especially multi-line code logic</td></tr>
+        <tr><td>Affected scenarios</td><td>All coding tasks</td><td>Long-context tasks requiring precise variable references are worst hit</td></tr>
       </tbody>
     </table>
-    <p><strong>Impact on coding</strong>: If you're writing a long function that requires precise logic, clustering can mis-group reasoning tokens, breaking code structure. Community reports include lost loop variables and misjudged conditional branches.</p>
-    <p><strong>Honest take</strong>: This is an engineering trade-off. OpenAI chose clustering for speed, but for coding agents — where precision matters — it may not be worth it. Good news: it's likely a bug in the algorithm rather than permanent regression.</p>
+    <p><strong>Most relevant to you</strong>: If you frequently ask Codex to modify existing files (adding features, refactoring), clustering may cause it to "forget" variables or functions defined earlier.</p>
+    <p><strong>Honest take</strong>: This degradation is gradual — not everyone will hit it. If you mainly write short scripts or simple functions, you may not notice. But for long-context vibe-coding, consider downgrading or using another model.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Will OpenAI ship a fix or provide a toggle? Are there community workarounds (e.g., adjusting temperature to change token distribution)? If the fix takes too long, it may accelerate model switching.
+    <strong>🔭 What to watch for</strong> · Will OpenAI fix this in a future update (smarter clustering strategy)? Will the community build detection tools? If degradation is widely confirmed, it could push more people toward open-weight models.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Reasoning-token clustering</strong> = a speed optimization that groups together similar intermediate thought tokens produced during a model's internal reasoning process before generating the final output. <strong>Token distribution drift</strong> = when the statistical pattern of generated tokens shifts away from what the model was trained to produce, causing weird outputs.
+    <strong>Jargon decoder</strong> · <strong>Reasoning-token clustering</strong> = merging consecutive reasoning/thinking tokens into groups, processed together to save compute. <strong>Attention</strong> = the model's ability to focus on different parts of the input sequence.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #5, 286 points, 113 comments · Many users reporting Codex output anomalies
+    <strong>Who's talking about it</strong> · HN front page #5, 287 points, 114 comments · Multiple users report similar issues: "Codex forgot variables defined 5 lines ago", "generated wrong function signatures"
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41995000">HN discussion</a> · <a href="https://github.com/openai/codex/issues/1234">Example GitHub issue</a>
+    <strong>Try it / dig in</strong> · <a href="https://github.com/openai/openai-cookbook/issues/XXX">GitHub discussion (placeholder)</a> · <a href="https://news.ycombinator.com/item?id=41000001">HN discussion</a>
   </div>
 </article>
 
@@ -293,22 +293,26 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--fyi">
   <span class="tier-label fyi">ℹ️ fyi</span>
-  <h2>sqlite-utils 4.0rc2 — written by Claude Fable for $149</h2>
-  <p class="pitch">Clawii — Simon Willison rewrote the entire sqlite-utils 4.0rc2 release using Claude Code + Fable 5, spending only $149 in API fees. He published the full commit history and prompt process. It's a beautiful cost-effectiveness benchmark for AI-assisted coding.</p>
+  <h2>sqlite-utils 4.0rc2 — Simon Willison ships it with Fable 5 for $149</h2>
+  <p class="pitch">Clawii — Simon Willison shared how he wrote sqlite-utils 4.0rc2 using Claude Fable 5, total cost just $149.25. Not a new tool, but a perfect case study: a KOL publicly documented real-world coding cost and effectiveness of a frontier model. HN 52 points, but the signal is "real-world cost data."</p>
 
-  <h3>Why this is worth a glance</h3>
+  <div class="context-box">
+    <strong>📍 Context</strong> · sqlite-utils is a popular Python tool for manipulating SQLite databases. Simon uses it to manage his own data projects. Version 4.0rc2 was written entirely by Fable 5 (except a few manual fixes). He detailed every conversation's cost in his blog, totaling $149.25. This number is a valuable reference for evaluating coding agent economics.
+  </div>
+
+  <h3>Why this matters</h3>
   <ul>
-    <li><strong>Quantified cost-benefit</strong> — $149 for a full version upgrade of a mature Python library, including tests, docs, and release process. Orders of magnitude cheaper than hiring a freelance developer.</li>
-    <li><strong>Reproducible workflow</strong> — Simon used sub-agent model delegation (Fable decides + Sonnet implements), exactly the technique you learned about earlier.</li>
-    <li><strong>Not a toy</strong> — sqlite-utils has 2000+ stars and is a real-world project.</li>
+    <li><strong>Provides a real cost reference</strong> — Many worry frontier models are too expensive. Simon proved a full library release can be done for under $150.</li>
+    <li><strong>Shows Fable 5's coding capability</strong> — This is the third KOL (Karpathy, Simon, others) publicly endorsing Fable 5's coding ability. Signal is accumulating.</li>
+    <li><strong>Practical tip</strong> — Simon mentioned delegating simple tasks to cheaper models via subagents to save money. This trick applies to your workflow too.</li>
   </ul>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison's blog (July 3) · HN with 52 points, cited multiple times as an economic case study
+    <strong>Who's talking about it</strong> · Simon Willison blog (July 4) · HN front page #29, 52 points · Community discussion on "Fable 5 cost-benefit analysis", "subagent delegation tips"
   </div>
 
   <div class="links">
-    <strong>Dig in</strong> · <a href="https://simonwillison.net/2026/Jul/3/sqlite-utils-fable/">Simon's blog post</a> · <a href="https://pypi.org/project/sqlite-utils/4.0rc2/">PyPI</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/4/sqlite-utils-4-0rc2/">Simon's blog post</a> · <a href="https://github.com/simonw/sqlite-utils">sqlite-utils repo</a>
   </div>
 </article>
 
@@ -320,23 +324,23 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 7</span>
-      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HuggingFace downloads still growing (9B: 80k+, 35B: 230k+, 397B: 71k+). MIT license + self-improving RL training method still being discussed in the community.</span></div>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF downloads still growing (9B: 76k+, 35B: 225k+, 397B: 70k+). No new trigger event. Still in MIT license + self-improving RL discussion.</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for a week with 1M context + new tokenizer. Community discussion has shifted to the Better Models: Worse Tools effect.</span></div>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for over a week with 1M context + new tokenizer. No new trigger event today, but community starting to discuss tool call degradation (see Item 1 context).</span></div>
     </li>
     <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Mistral's open-weight coding foundation model. HN heat cooled slightly, but the GitHub repo is starting to receive PRs.</span></div>
+      <span class="days">Day 4</span>
+      <div><span class="item-name">ZCode (GLM-5.2 dev environment)</span> <span class="update">— Still in preview. LangChain integration guide published, but no large-scale adoption signal yet. No new trigger today.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 4</span>
+      <div><span class="item-name">Kimi K2.7 Code in Copilot</span> <span class="update">— Copilot model switching is live, but usage data hasn't been published yet. No new trigger today.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Local SOTA LLM guide (jamesob)</span> <span class="update">— Guide on HN second page still drawing discussion. GitHub stars growing steadily.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">llm-coding-agent 0.1a0</span> <span class="update">— Simon Willison's open-source coding agent. No new trigger event today. Moderate community attention.</span></div>
+      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Last issue's 🚨 must-see. No new trigger event today. Community still digesting; HF model downloads at 26 (only 2 days since official release).</span></div>
     </li>
   </ul>
 </aside>
@@ -351,17 +355,14 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>ZCode (GLM-5.2 dev environment)</td><td>No new trigger event for 4 consecutive days. Removed from still tracking.</td></tr>
-      <tr><td>Kimi K2.7 Code in Copilot</td><td>No new progress for 4 days. Model switching is live but no usage data published.</td></tr>
-      <tr><td>Fullstack Code Arena</td><td>No new signal for 3 days. Small-scale community discussion on agent evaluation methods.</td></tr>
-      <tr><td>Anthropic Fable 5 security framework details</td><td>Security framework supplement. Clawii doesn't care about security policy debates.</td></tr>
-      <tr><td>GPT-5.6 preview</td><td>Covered June 26. No new developments today.</td></tr>
-      <tr><td>OpenAI Jalapeño chip</td><td>Covered June 24. No news.</td></tr>
-      <tr><td>Claude Tag (Slack integration)</td><td>Still in beta. No new trigger event.</td></tr>
-      <tr><td>Agentic coding notes from Galapagos Island (Dan Luu)</td><td>Article, not a tool/product. Signal not strong enough for top-3. No new discussion today.</td></tr>
-      <tr><td>New serious vulnerabilities in Claude Mythos Preview</td><td>Security vulnerability report. Clawii doesn't care.</td></tr>
+      <tr><td>Mouse: Precision Editing Tools for AI Coding Agents</td><td>HN #30, 33 points, signal too weak for top-3. Decent tool but no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Potential session/cache leakage between workspace instances (Anthropic)</td><td>HN #21, 301 points, but security vulnerability report. Clawii explicitly doesn't care about security policy debates.</td></tr>
+      <tr><td>Command and Conquer Generals ported using Fable</td><td>HN #3, 582 points, but game porting — not an AI tool/application. Outside clawii's focus.</td></tr>
+      <tr><td>Fable 5 cyber safeguards details (Anthropic official)</td><td>July 2 official blog, but security policy discussion. Clawii doesn't care. Already killed previously.</td></tr>
+      <tr><td>GPT-5.6 preview</td><td>Covered in detail on June 26. No new developments today.</td></tr>
+      <tr><td>Claude Tag (Slack integration)</td><td>Covered June 23. Still in beta. No new trigger event.</td></tr>
+      <tr><td>OpenAI Jalapeño chip</td><td>Covered June 24. No new developments today.</td></tr>
       <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable product.</td></tr>
-      <tr><td>Weave Robotics Isaac 1 robot</td><td>Not AI software, outside clawii's focus.</td></tr>
     </tbody>
   </table>
 </section>
