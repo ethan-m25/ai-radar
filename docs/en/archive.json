@@ -6,6 +6,20 @@
       "date": "2026-07-05",
       "weekday": "Sun",
       "week": 27,
+      "kind": "weekly",
+      "headline": "Open-source coding toolchain exploded — closed-source models showed unexpected regressions",
+      "summary": "21 daily signals, 6 🚨 — GLM-5.2 beat Claude on Semgrep security benchmarks (877 pts). Qwen 3.6 27B became the local dev sweet spot (953 pts). Claude Sonnet 5 la",
+      "counts": {
+        "crit": 6,
+        "look": 12,
+        "fyi": 1
+      },
+      "url": "weekly_2026-07-05.html"
+    },
+    {
+      "date": "2026-07-05",
+      "weekday": "Sun",
+      "week": 27,
       "issue": 42,
       "kind": "daily",
       "headline": "(no headline)",

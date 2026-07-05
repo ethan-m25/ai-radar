@@ -6,6 +6,20 @@
       "date": "2026-07-05",
       "weekday": "Sun",
       "week": 27,
+      "kind": "weekly",
+      "headline": "开源编码工具链全面爆发，闭源模型意外倒退",
+      "summary": "本周 21 条 daily 信号里出现了 6 个 🚨——GLM-5.2 在 Semgrep 安全基准上正面击败 Claude（877 分）、Qwen 3.6 27B 成为本地开发甜点（953 分）、Claude Sonnet 5 发布但 tokenizer 导致实际涨价 30%（1146 分）、Claude Code ",
+      "counts": {
+        "crit": 8,
+        "look": 11,
+        "fyi": 1
+      },
+      "url": "weekly_2026-07-05.html"
+    },
+    {
+      "date": "2026-07-05",
+      "weekday": "Sun",
+      "week": 27,
       "issue": 42,
       "kind": "daily",
       "headline": "(no headline)",

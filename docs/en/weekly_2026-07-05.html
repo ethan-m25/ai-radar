@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-07-05 · Week 27</title>
+<meta name="description" content="Week 27 — Open-source coding toolchain exploded: GLM-5.2 beat Claude on Semgrep, Qwen 3.6 27B became the local dev sweet spot, ZCode and Kimi K2.7 entered mainstream tools. Meanwhile closed-source models showed unexpected regressions.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 27">
+<meta property="og:description" content="21 daily signals · 6 🚨 · 11 👀 · 4 ℹ️ · 6 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 26ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 07 · 05 · WK 27 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <section class="cover">
+    <span class="kicker smallcaps">Week 27 · 2026-06-29 → 2026-07-05</span>
+    <h1 class="display headline">Open-source coding toolchain exploded — closed-source models showed unexpected regressions</h1>
+    <p class="lead">21 daily signals, 6 🚨 — GLM-5.2 beat Claude on Semgrep security benchmarks (877 pts). Qwen 3.6 27B became the local dev sweet spot (953 pts). Claude Sonnet 5 launched but its new tokenizer inflated English costs ~30% (1146 pts). Claude Code steganographic marking hit 2099 pts. ZCode and Kimi K2.7 entered mainstream tools. Leanstral 1.5 open-sourced. Then the weekend brought an anti-pattern: new models are getting worse at third-party tool calls.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> Open-source coding models and toolchains achieved "infrastructure-level" breakthroughs — GLM-5.2 beat a closed-source flagship on a professional security benchmark, Qwen 3.6 27B was validated as the local dev sweet spot, ZCode gave GLM-5.2 an official IDE, Kimi K2.7 entered GitHub Copilot, and Mistral open-sourced Leanstral 1.5. Meanwhile closed-source models showed unexpected regressions: Claude Opus 4.8 / Sonnet 5 tool call format degradation (Armin Ronacher), GPT-5.5 Codex reasoning-token clustering causing quality drops. Two lines converging: open-source is getting stronger, closed-source is getting more expensive with worse details. If you haven't started testing open-source alternatives, now is the time.
+    </div>
+
+    <div class="count-row">
+      <div class="total">21</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>6</strong>&nbsp;🚨 critical (highest single-week count — signal intensity was extreme)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>11</strong>&nbsp;👀 worth a look</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>4</strong>&nbsp;ℹ️ FYI</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 6 survived to weekly · 15 demoted / removed from tracking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🏆 THE 1 THING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">Open-source coding toolchain exploded — you no longer need to depend on closed-source APIs</h2>
+
+    <p>Six 🚨 signals this week, but when you connect the dots, a bigger pattern emerges: open-source coding toolchain crossed from "model" to "complete development environment." GLM-5.2 beat Claude on Semgrep security benchmarks (6/29, 877 pts) — the first time an open-source model beat a closed-source flagship on a professional third-party benchmark. Qwen 3.6 27B was validated as the local dev sweet spot (6/30, 953 pts) — near-flagship coding ability on an RTX 4090, fully offline. ZCode (7/2) gave GLM-5.2 an official IDE with BYOK and local deployment. Kimi K2.7 Code entered GitHub Copilot (7/2) — the first time Copilot supported a non-OpenAI/Anthropic open-source model. Leanstral 1.5 (7/4) open-sourced a complete vibe-coding framework. Add Jamesob's guide to running SOTA LLMs locally (7/4, 356 pts), and you now have a clear roadmap: model selection, hardware config, quantization method, IDE integration — all open-source.</p>
+
+    <p>For you, clawii: you've been using Claude Code and Codex for vibe coding. This week you saw Claude Sonnet 5's tokenizer inflate English costs ~30% (7/1, 1146 pts), Claude Code embedding steganographic markers in requests (7/1, 2099 pts), and Alibaba banning Claude Code citing "backdoor risks" (7/3). Closed-source models are getting more expensive, less transparent, and more likely to be blocked by enterprises. Meanwhile open-source alternatives — GLM-5.2 + ZCode, Qwen 3.6 27B + Ollama, Kimi K2.7 + Copilot — are getting good enough. Simon Willison shipped sqlite-utils 4.0rc2 with Fable 5 for $149 (7/5), but if you use local models, that cost drops to zero.</p>
+
+    <p><strong>If you only do one thing this week:</strong> Download the Qwen 3.6 27B GGUF (~16GB), run it locally with Ollama, then configure the Continue plugin so VS Code calls your local model. Spend an afternoon testing the 5 core tasks you normally do with Claude Code. If 3 or more work fully offline, you have a backup plan that depends on zero closed-source APIs. Then sign up for ZCode preview and compare GLM-5.2's performance. The Fable 5 you lost access to no longer just "has alternatives" — the alternatives are getting better, cheaper, and more controllable.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📈 TRENDS BUILDING -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Open-source coding models crossed from "close" to "beat" — first victory on a professional benchmark</div>
+      <p>GLM-5.2 beat Claude Opus 4.8 on Semgrep security benchmarks at 86.3% vs 81.7% (6/29, 877 pts) — the first time an open-source model beat a closed-source flagship on a professional third-party benchmark. Semgrep is not a model vendor — no incentive to favor either side. Combined with Qwen 3.6 27B being validated as the "sweet spot" for local development (6/30, 953 pts), open-source coding model quality has crossed the "good enough" threshold. This isn't a fluke — Ornith-1.0 (self-improving RL), LongCat-2.0 (1.6T MoE), and Leanstral 1.5 (complete framework) all gained community attention this week. The open-source ecosystem is moving from "single-point breakthrough" to "systematic competition."</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Coding agent toolchain moved from "single model" to "multi-model marketplace" — Copilot supports third-party open-source for the first time</div>
+      <p>Kimi K2.7 Code entering GitHub Copilot (7/2) is a milestone. It's the first time Copilot supports a non-OpenAI/Anthropic open-source model, signaling that Microsoft is serious about building a "model marketplace." ZCode (GLM-5.2 official IDE) and Leanstral 1.5 (Mistral's open-source framework) also launched this week, plus CursorBench 3.1 (7/2) adding cost-aware scoring. The competition has shifted from "whose model is stronger" to "whose ecosystem is more complete." For you: you're no longer locked into a single model vendor. You can switch to Kimi in Copilot, use Continue with local models in VS Code, or run GLM-5.2 in ZCode. Choice is back in your hands.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ Closed-source models showed "optimization side effects" — tool call degradation and reasoning clustering reveal misaligned incentives</div>
+      <p>Two weekend signals worth watching. Armin Ronacher documented that Claude Opus 4.8 and Sonnet 5 degrade tool call format in third-party agent frameworks (7/5, 180 pts). Root cause: Anthropic RL-trained on their built-in edit tool, and the model "learned" to fill extra fields that don't exist in third-party schemas. Meanwhile GPT-5.5 Codex's reasoning-token clustering optimization is causing coding quality drops (7/5, 287 pts). This isn't a bug — it's structural. Model companies optimizing for their own ecosystem inadvertently break open-ecosystem compatibility. If you use Pi, Continue, or any third-party framework calling Claude, pin older model versions (Sonnet 4.5 / Opus 4.5) for now.</p>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 💀 WHAT I CALLED WRONG -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">Two signals I elevated that didn't hold + one correction</h2>
+
+    <p><strong>LongCat-2.0 (6/30 👀, 161 pts)</strong> — I flagged the 1.6T total-parameter MoE model as worth watching. By week's end: team background still unknown, HuggingFace downloads at 115, zero independent KOL evaluations. 1.6T total params sounds impressive, but active params are only 48B, and context window degrades above 500K. Against more mature models like GLM-5.2, Qwen 3.6, and Ornith-1.0, LongCat-2.0 has no clear differentiation. Demoted to killed and removed from tracking.</p>
+
+    <p><strong>Claude Science (7/1 👀, 503 pts)</strong> — I thought Anthropic's vertical productization was worth noting. By week's end: zero follow-through. No pricing, no user feedback, no independent evaluation. As a product aimed at scientists, it's too far from your office-automation use case. Demoted to FYI and removed from core tracking.</p>
+
+    <p><strong>Correction: Claude Sonnet 5's "value" positioning</strong> — On 7/1, Anthropic positioned Sonnet 5 as "close to Opus 4.8 performance at lower prices." But Simon Willison's measurements showed the new tokenizer inflates English and code input by ~30%, effectively raising costs. Add the weekend's tool call degradation discovery, and Sonnet 5's "value" label needs recalibration. It's still a powerful model, but no longer an automatic recommendation. If you work primarily in Chinese, impact is minimal (token count barely changes). If you work in English or code, compare costs against Sonnet 4.5 before upgrading.</p>
+
+    <p><strong>Permanently removed from tracking (clean-up list):</strong> Apple Foundation Models (Day 14, no signal), OpenRouter Fusion API (Day 14, no signal), Lore version control system (Day 7, no signal), opencode (Day 35, no signal), DeepSeek Reasonix (Day 36, no signal), "Big 4 domino effect" (Day 34, no signal), Gemini 3.5 Flash (Day 33, no signal), "MCP is dead" debate (Day 29, no Anthropic response), MiMo Code open-source (Day 28, no signal), Cohere North Mini Code (Day 26, no signal). These were flagged in last week's wrap and are now formally dead.</p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 🔮 WATCH LIST -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Will Anthropic respond to the Claude Code steganographic marking controversy?</strong><br>
+      The 7/1 HN #1 (2099 pts, 606 comments) found Claude Code embedding steganographic markers in requests. As of Sunday, Anthropic hasn't publicly responded. If they release an official statement next week, two possible outcomes: explained as telemetry (signal downgrades), or confirmed with a promise to improve (signal continues). If silence continues, community distrust grows, potentially pushing users toward open-source alternatives.<br>
+      <span class="trigger">Trigger → Anthropic official blog post or HN response from an Anthropic employee</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Will Alibaba's Claude Code ban trigger a chain reaction?</strong><br>
+      Reuters reported 7/3 that Alibaba internally banned Claude Code citing "backdoor risks." If other large companies (Tencent, ByteDance, Huawei, or multinational China branches) follow suit, Claude Code's enterprise market takes a real hit. This could also accelerate ZCode and Leanstral 1.5 adoption in enterprise settings. Watch for similar ban notices from other companies.<br>
+      <span class="trigger">Trigger → A second major company publicly bans Claude Code, or Anthropic releases enterprise-grade security controls</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Will Qwen 3.6 27B get default-integrated into mainstream IDEs?</strong><br>
+      The 6/30 HN #1 (953 pts) positioned Qwen 3.6 27B as the "local dev sweet spot." If Cursor, VS Code (via Continue), or JetBrains list it as a recommended local model, ecosystem validation is confirmed. If a "Qwen 3.6 27B vs Claude Code local mode" comparison appears, worth watching. Also watch whether Ollama adds it to the default model list.<br>
+      <span class="trigger">Trigger → Cursor or Continue release notes mentioning Qwen 3.6 27B integration</span>
+    </div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- 📅 CALIBRATION METRICS -->
+  <!-- ================================================================== -->
+
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 27</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (Jun 29 – Jul 5)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>6 (GLM-5.2 beats Claude on Semgrep · Qwen 3.6 27B local sweet spot · Claude Sonnet 5 launch + tokenizer inflation · Claude Code steganographic marking · ZCode + Kimi K2.7 in Copilot · Leanstral 1.5 open-source)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>11 (Claude Code MRI reading · Ornith-1.0 · LongCat-2.0 · Claude Science · CursorBench 3.1 · Fullstack Code Arena · Fable 5 restored · Local LLM guide · Simon's llm-coding-agent · Better Models: Worse Tools · Codex reasoning clustering degradation)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>4 (sqlite-utils 4.0rc2 cost case study + 3 FYI-level entries)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>6 (🏆 open-source toolchain explosion · 📈 open-source beats closed-source · 📈 multi-model marketplace · 📈 closed-source optimization side effects · 💀 LongCat / Claude Science demoted · 💀 Sonnet 5 value correction)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>15 (LongCat-2.0 killed · Claude Science demoted to FYI · Apple Foundation Models dead · OpenRouter Fusion API dead · Lore dead · opencode dead · Reasonix dead · Big 4 dead · Gemini Flash dead · MCP dead · Cohere North Mini Code dead · + 4 previously flagged entries now confirmed dead)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~71% (high — signal explosion this week but many didn't hold; all 6 🚨 survived, but 👀-level items had high淘汰率)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~12–24 hours ahead on GLM-5.2 Semgrep benchmark (English HN 6/29, Chinese tech media 6/30); ~8 hours ahead on Claude Code steganographic marking (English HN 7/1 morning, Chinese ecosystem 7/1 evening); ~24 hours ahead on Alibaba ban (Reuters 7/3, Chinese media 7/4)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 27 · 2026-07-05 · 7 dailies · 21 items (6🚨 / 11👀 / 4ℹ️) · 6 survived · 15 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>

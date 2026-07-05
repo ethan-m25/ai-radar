@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-07-05 · Week 27</title>
+    <meta name="description" content="Week 27 Weekly Wrap —— 开源编码工具链全面爆发：GLM-5.2 获官方 IDE、Kimi 进 Copilot、Leanstral 开源、本地部署指南出炉；同时闭源模型出现意外倒退（tool call 退化、推理聚类问题）。">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 27">
+    <meta property="og:description" content="7 天 21 条 daily 信号 · 6 🚨 · 11 👀 · 4 ℹ️ · 6 条幸存进 weekly">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 26ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) {
+            animation-delay: 0.05s;
+        }
+        .weekly-section:nth-of-type(2) {
+            animation-delay: 0.15s;
+        }
+        .weekly-section:nth-of-type(3) {
+            animation-delay: 0.25s;
+        }
+        .weekly-section:nth-of-type(4) {
+            animation-delay: 0.35s;
+        }
+        .weekly-section:nth-of-type(5) {
+            animation-delay: 0.45s;
+        }
+        @keyframes rise {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">今日</a>
+                <a href="./archive.html" class="current">归档</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 07 · 05 · WK 27 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <section class="cover">
+            <span class="kicker smallcaps">Week 27 · 2026-06-29 → 2026-07-05</span>
+            <h1 class="display headline">开源编码工具链全面爆发，闭源模型意外倒退</h1>
+            <p class="lead">本周 21 条 daily 信号里出现了 6 个 🚨——GLM-5.2 在 Semgrep 安全基准上正面击败 Claude（877 分）、Qwen 3.6 27B 成为本地开发甜点（953 分）、Claude Sonnet 5 发布但 tokenizer 导致实际涨价 30%（1146 分）、Claude Code 隐写标记争议（2099 分）、ZCode 和 Kimi K2.7 进入主流工具链、Leanstral 1.5 开源。但周末出现了一个反直觉信号：新模型在 tool call 格式上反而退步了。</p>
+
+            <div class="summary-box">
+                <strong>本周一句话总结：</strong>开源编码模型和工具链在本周实现了"基础设施级"的突破——GLM-5.2 获得官方 IDE（ZCode）、Kimi K2.7 进入 GitHub Copilot、Qwen 3.6 27B 被验证为本地开发甜点、Mistral 开源 Leanstral 1.5。同时，闭源模型出现了意外倒退：Claude Opus 4.8/Sonnet 5 的 tool call 格式退化（Armin Ronacher 博客）、GPT-5.5 Codex 推理 token 聚类导致质量下降。两条线叠加：开源越来越强，闭源越来越贵且细节变差。如果你还没开始测试开源替代方案，现在是时候了。
+            </div>
+
+            <div class="count-row">
+                <div class="total">21</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>6</strong>&nbsp;🚨（本周信号强度极高——6 个 🚨 创单周新高）</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>11</strong>&nbsp;👀 worth a look</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>4</strong>&nbsp;ℹ️ FYI</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 6 条幸存进 weekly · 15 条降级离开跟踪</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 🏆 THE 1 THING -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 本周最重要的唯一一件事</div>
+            <h2 class="display">开源编码工具链全面爆发——你不再需要依赖闭源 API 了</h2>
+
+            <p>本周有 6 个 🚨 信号，但把它们串起来看，你会发现一个更重要的模式：开源编码工具链在本周完成了从"模型"到"完整开发环境"的跨越。GLM-5.2 在 Semgrep 安全基准上正面击败 Claude（6/29，877 分），这是开源模型第一次在专业第三方基准上压过闭源旗舰。Qwen 3.6 27B 被验证为本地开发甜点（6/30，953 分），在 RTX 4090 上跑出接近 GPT-5.5 的编码能力。ZCode（7/2）给 GLM-5.2 配了官方 IDE，支持 BYOK 和本地部署。Kimi K2.7 Code 进入 GitHub Copilot（7/2），这是 Copilot 第一次支持非 OpenAI/Anthropic 的开源模型。Leanstral 1.5（7/4）开源了完整的 vibe-coding 框架。加上 jamesob 的本地 LLM 运行指南（7/4，356 分），你现在有了一条清晰的路线图：从模型选择、硬件配置、量化方法到 IDE 集成，全部开源。</p>
+
+            <p>对你（clawii）来说，这意味着什么？你一直在用 Claude Code 和 Codex 做 vibe coding，但这两周你看到了：Claude Sonnet 5 的 tokenizer 导致实际涨价 30%（7/1，1146 分），Claude Code 被发现在请求中嵌入隐写标记（7/1，2099 分），Alibaba 以"后门风险"为由封禁 Claude Code（7/3）。闭源模型越来越贵、越来越不透明、越来越容易被企业封禁。而开源替代方案——GLM-5.2 + ZCode、Qwen 3.6 27B + Ollama、Kimi K2.7 + Copilot——正在变得足够好。Simon Willison 用 Fable 5 花 $149 写完 sqlite-utils 4.0rc2（7/5），但如果你用本地模型，这个成本可以降到零。</p>
+
+            <p><strong>如果本周只做一件事：</strong>下载 Qwen 3.6 27B GGUF（约 16GB），用 Ollama 在本地跑起来，然后配置 Continue 插件让 VS Code 调用本地模型。花一个下午测试你平时用 Claude Code 做的 5 个核心任务。如果 3 个以上可以完全离线完成，你就有了一个不依赖任何闭源 API 的备选方案。然后注册 ZCode 预览版，对比 GLM-5.2 的表现。你失去的 Fable 5 不再只是"有替代品"——替代品正在变得更好、更便宜、更可控。</p>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 📈 TRENDS BUILDING -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 正在成形的趋势</div>
+            <h2 class="display">三条在本周被确认或加速的方向</h2>
+
+            <!-- Trend 1 -->
+            <div class="trend-item">
+                <div class="trend-name">① 开源编码模型从"接近"到"击败"——专业基准上的首次胜利</div>
+                <p>GLM-5.2 在 Semgrep 安全基准上以 86.3% vs 81.7% 击败 Claude Opus 4.8（6/29，877 分），这是开源模型第一次在专业第三方基准上压过闭源旗舰。Semgrep 不是模型厂商，没有偏袒动机。加上 Qwen 3.6 27B 在本地开发场景被验证为"甜点模型"（6/30，953 分），开源编码模型的质量已经跨过了"够用"的门槛。这不是偶然——Ornith-1.0（自改进 RL 训练）、LongCat-2.0（1.6T MoE）、Leanstral 1.5（完整框架）在本周同时获得社区关注，说明开源生态正在从"单点突破"走向"系统化竞争"。</p>
+            </div>
+
+            <!-- Trend 2 -->
+            <div class="trend-item">
+                <div class="trend-name">② 编码 agent 工具链从"单模型"走向"多模型市场"——Copilot 首次支持第三方开源模型</div>
+                <p>Kimi K2.7 Code 进入 GitHub Copilot（7/2）是一个里程碑事件。这是 Copilot 第一次支持非 OpenAI/Anthropic 的开源模型，意味着微软在认真做"模型市场"。ZCode（GLM-5.2 官方 IDE）和 Leanstral 1.5（Mistral 开源框架）也在本周发布，加上 CursorBench 3.1（7/2）更新了成本感知评测标准，编码 agent 的竞争从"谁的模型更强"变成了"谁的生态更完整"。对你而言，这意味着你不再被锁定在单一模型供应商——你可以在 Copilot 里切换 Kimi，在 VS Code 里用 Continue 接本地模型，在 ZCode 里用 GLM-5.2。选择权回到了你手里。</p>
+            </div>
+
+            <!-- Trend 3 -->
+            <div class="trend-item">
+                <div class="trend-name">③ 闭源模型出现"优化副作用"——tool call 退化和推理聚类问题暴露了激励不一致</div>
+                <p>周末的两个信号值得警惕。Armin Ronacher 发现 Claude Opus 4.8 和 Sonnet 5 在第三方 agent 框架中的 tool call 格式退化（7/5，180 分），原因是 Anthropic 对内置编辑工具做了大量 RL 训练，导致模型"学会"填充额外字段，但泛化不佳。同时 GPT-5.5 Codex 的推理 token 聚类优化导致编码质量下降（7/5，287 分）。这不是 bug，是结构性问题——模型公司为自家工具做优化时，无意中破坏了开放生态的兼容性。如果你用 Pi、Continue 或其他第三方框架调用 Claude，建议暂时锁定旧模型版本（Sonnet 4.5 / Opus 4.5）。</p>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 💀 WHAT I CALLED WRONG -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 本周我叫错了 / 过度炒作的信号</div>
+            <h2 class="display">两条被我抬高但没撑住的信号 + 一条需要修正的判断</h2>
+
+            <p><strong>LongCat-2.0（6/30 👀，161 分）</strong> — 当时认为 1.6T 总参数的 MoE 模型值得关注，但到本周结束：团队背景仍然不明，HuggingFace 下载量仅 115，无任何 KOL 独立评测。1.6T 总参数听起来吓人，但激活参数只有 48B，且上下文窗口在 500K 以上时性能下降。在 GLM-5.2、Qwen 3.6、Ornith-1.0 等更成熟的模型面前，LongCat-2.0 没有足够的差异化优势。正式降级为 killed，移出跟踪。</p>
+
+            <p><strong>Claude Science（7/1 👀，503 分）</strong> — 当时认为 Anthropic 的垂直领域产品化值得关注，但到本周结束：没有任何后续动作。没有定价公布，没有用户反馈，没有独立评测。作为一个面向科学家的产品，它和你的办公场景距离太远。降级为 FYI，移出核心跟踪。</p>
+
+            <p><strong>需要修正的判断：Claude Sonnet 5 的"性价比"定位</strong> — 7/1 发布时，Anthropic 将其定位为"接近 Opus 4.8 的性能，更低的价格"。但 Simon Willison 发现新 tokenizer 导致英文和代码输入多消耗约 30% token，实际成本上升了 30%。加上周末发现的 tool call 退化问题，Sonnet 5 的"性价比"定位需要重新评估。它仍然是一个强大的模型，但不再是无脑推荐的选择。如果你主要用中文，影响较小（token 数几乎不变）；如果你主要用英文或代码，建议对比 Sonnet 4.5 的成本后再决定是否升级。</p>
+
+            <p><strong>已彻底移出跟踪的旧名单</strong> — Apple Foundation Models（Day 14 无信号）、OpenRouter Fusion API（Day 14 无信号）、Lore 版本控制系统（Day 7 无信号）、opencode（Day 35 无信号）、DeepSeek Reasonix（Day 36 无信号）、Big 4 多米诺效应（Day 34 无信号）、Gemini 3.5 Flash（Day 33 无信号）、MCP is dead 争论（Day 29 无回复）、MiMo Code 开源（Day 28 无信号）、Cohere North Mini Code（Day 26 无信号）。这些已在上周的 Weekly Wrap #26 中标注，本周正式确认死亡。</p>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 🔮 WATCH LIST -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 下周关注清单</div>
+            <h2 class="display">未来 7 天盯紧这三件事</h2>
+
+            <div class="watch-item">
+                <strong>① Anthropic 是否回应 Claude Code 隐写标记争议</strong><br>
+                7/1 的 HN 头条（2099 分，606 评论）发现 Claude Code 在请求中嵌入隐写标记。截至周末，Anthropic 尚未公开回应。如果下周 Anthropic 发布官方说明，可能有两种结果：解释为遥测技术（信号降级），或确认存在但承诺改进（信号持续）。如果继续沉默，社区不信任感会加剧，可能推动用户向开源替代方案迁移。<br>
+                <span class="trigger">触发 → Anthropic 官方 blog post 或 HN 上 Anthropic 员工的回应</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② Alibaba 封禁 Claude Code 是否会引发连锁反应</strong><br>
+                7/3 路透社报道 Alibaba 以"后门风险"为由内部封禁 Claude Code。如果其他大公司（腾讯、字节、华为、甚至跨国公司的中国分支）跟进，Claude Code 的企业市场将受重创。同时，这可能会加速 ZCode 和 Leanstral 1.5 在企业市场的采用。关注是否有其他公司发布类似的封禁通知。<br>
+                <span class="trigger">触发 → 第二家大公司公开封禁 Claude Code，或 Anthropic 推出企业级安全控制</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ Qwen 3.6 27B 是否会被主流 IDE 默认集成</strong><br>
+                6/30 的 HN 头条（953 分）将 Qwen 3.6 27B 定位为"本地开发甜点模型"。如果 Cursor、VS Code（通过 Continue）或 JetBrains 将其列为推荐本地模型，说明生态认可。如果出现"Qwen 3.6 27B vs Claude Code 本地模式"的对比评测，值得关注。同时关注 Ollama 是否将其加入默认模型列表。<br>
+                <span class="trigger">触发 → Cursor 或 Continue 发布 release notes 提及 Qwen 3.6 27B 集成</span>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- 📅 CALIBRATION METRICS -->
+        <!-- ================================================================== -->
+
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 校准指标 — Week 27</div>
+            <h2 class="display">本周数字</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>7 of 7 days（Jun 29 – Jul 5）</dd>
+
+                <dt>🚨 Items flagged</dt>
+                <dd>6（GLM-5.2 beats Claude · Qwen 3.6 27B 本地甜点 · Claude Sonnet 5 发布+涨价 · Claude Code 隐写标记 · ZCode + Kimi K2.7 进入 Copilot · Leanstral 1.5 开源）</dd>
+
+                <dt>👀 Items flagged</dt>
+                <dd>11（Claude Code MRI 解读 · Ornith-1.0 · LongCat-2.0 · Claude Science · CursorBench 3.1 · Fullstack Code Arena · Fable 5 恢复访问 · 本地 LLM 运行指南 · Simon 的 llm-coding-agent · Better Models: Worse Tools · Codex 推理聚类退化）</dd>
+
+                <dt>ℹ️ Items flagged</dt>
+                <dd>4（sqlite-utils 4.0rc2 成本案例 · 以及 3 个 FYI 级别条目）</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>6（🏆 开源工具链爆发 · 📈 开源模型击败闭源 · 📈 多模型市场形成 · 📈 闭源优化副作用 · 💀 LongCat / Claude Science 降级 · 💀 Sonnet 5 性价比修正）</dd>
+
+                <dt>Items demoted / removed from tracking</dt>
+                <dd>15（LongCat-2.0 降级 killed · Claude Science 降级 FYI · Apple Foundation Models 死亡 · OpenRouter Fusion API 死亡 · Lore 死亡 · opencode 死亡 · Reasonix 死亡 · Big 4 死亡 · Gemini Flash 死亡 · MCP 死亡 · Cohere North Mini Code 死亡 · 以及 4 个已在上周标注的旧条目）</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>~71%（较高——本周信号爆炸但很多没撑住；6 个 🚨 全部幸存，但 👀 级别条目淘汰率较高）</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>~12–24 小时 ahead on GLM-5.2 Semgrep 基准（英文 HN 6/29，中文科技媒体 6/30 开始跟进）；~8 小时 ahead on Claude Code 隐写标记（英文 HN 7/1 上午，中文圈 7/1 晚间开始讨论）；~24 小时 ahead on Alibaba 封禁（路透社 7/3，中文媒体 7/4 开始转载）</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                做你的 AI 虚拟朋友 — 每天 07:07 推送 · 周日 08:00 出 Weekly Wrap · 宁缺毋滥。
+            </p>
+            <p>
+                扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+            </p>
+            <p>
+                剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 27 · 2026-07-05 · 7 dailies · 21 items (6🚨 / 11👀 / 4ℹ️) · 6 survived · 15 demoted/removed
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
