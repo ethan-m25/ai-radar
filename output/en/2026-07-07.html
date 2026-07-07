@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-07 · Week 28 · №044</title>
-<meta name="description" content="3 signals — GLM-5.2 margin collapse thesis + Hy3 open-source + Anthropic's Claude Code origin story">
+<meta name="description" content="3 signals — Tencent Hy3 open-source 295B challenges GLM-5.2 + better models, worse tools + small AI models gain traction in unreliable networks">
 
 <meta property="og:title" content="AI Radar · 2026-07-07 · №044">
 <meta property="og:description" content="3 real signals · 1 🚨 + 1 👀 + 1 ℹ️">
@@ -150,17 +150,17 @@ li+li{margin-top:.3rem}
     <span class="pill look">👀 1 worth a look</span>
     <span class="pill fyi">ℹ️ 1 fyi</span>
   </div>
-  <h1 class="headline">GLM-5.2 margin collapse thesis + Hy3 open-source + Anthropic's Claude Code origin story</h1>
-  <p class="sub">Tuesday signals are dense. A deep-dive analysis argues open models like GLM-5.2 are squeezing AI coding tool margins (HN 461 pts). Tencent open-sourced Hy3, a 295B MoE model (Apache 2.0, 256K context). Anthropic published the full story of how Claude Code went from internal CLI to product. All three point in the same direction — open models are getting stronger, margins are thinning, and the stories behind the tools are as valuable as the tools themselves.</p>
+  <h1 class="headline">Tencent Hy3 open-source 295B challenges GLM-5.2 + better models, worse tools + small AI models gain traction in unreliable networks</h1>
+  <p class="sub">Tuesday signals are dense. Tencent open-sourced Hy3, a 295B MoE model (21B active params) that closely trails GLM-5.2 on multiple benchmarks — HN 461 pts. Meanwhile Simon Willison and Armin Ronacher both report a counterintuitive finding: newer models (Opus 4.8, Sonnet 5) are actually worse at certain tool calls than older ones. And IEEE reports small models gaining adoption in regions with unreliable networks. All three point to the same trend — the model landscape is shifting fast, but the assumption that "newer = better" no longer holds.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> GLM-5.2 and the coming AI margin collapse — open models are squeezing profit margins</li>
-    <li><span class="tier look">👀</span> Tencent Hy3 open-source — 295B MoE, Apache 2.0, 256K context</li>
-    <li><span class="tier fyi">ℹ️</span> The making of Claude Code — from internal CLI to product</li>
+    <li><span class="tier crit">🚨</span> Tencent Hy3 open-source — 295B MoE model challenges GLM-5.2's open-source crown</li>
+    <li><span class="tier look">👀</span> Better models, worse tools? — Simon Willison and Armin Ronacher's finding</li>
+    <li><span class="tier fyi">ℹ️</span> Small AI models gain traction in unreliable networks — IEEE report</li>
   </ul>
 </nav>
 
@@ -169,80 +169,70 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--crit">
   <span class="tier-label crit">🚨 must see</span>
-  <h2>GLM-5.2 and the coming AI margin collapse</h2>
-  <p class="pitch">Clawii — a HN front-page article at 461 points argues that open models like GLM-5.2 are squeezing the profit margins of AI coding tools, and this trend is just getting started. Not fear-mongering — data-driven argument with 279 comments.</p>
+  <h2>Tencent Hy3 open-source — 295B MoE model challenges GLM-5.2's open-source crown</h2>
+  <p class="pitch">Clawii — Tencent just open-sourced Hy3, a 295B MoE model under Apache 2.0, with 256K context and MTP speculative decoding. HN 461 pts, 279 comments. This is the closest open-source competitor to GLM-5.2 right now, and Tencent says it's free on OpenRouter until July 21.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Martin Anderson's "GLM 5.2 and the coming AI margin collapse" analyzes how open-weight models (especially GLM-5.2) are impacting the margins of commercial AI coding tools. GLM-5.2 matches or approaches Opus 4.8 and GPT-5.5 on multiple coding benchmarks at 20-30% of the cost. As more open models reach similar levels, commercial pricing power is eroding. The article sparked intense discussion on HN.
+    <strong>📍 Context</strong> · The open-source LLM landscape has been dominated by GLM-5.2 (Zhipu, 744B MoE), which leads coding and agent benchmarks. But GLM-5.2 needs serious hardware (FP8 ~150GB). Hy3 is Tencent's 295B MoE model (21B active params), designed to be lighter while staying competitive. This is another major move from a Chinese big-tech company in the open-source model space.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Directly affects what you pay</strong> — If you use Codex, Claude Code, or other paid tools, competition from open models may force price drops or more free tiers.</li>
-    <li><strong>Changes model selection strategy</strong> — It used to be "use the strongest model." Now it's "is the strongest model worth 3-5x the cost?" GLM-5.2 delivers ~80% of Sonnet 5's coding capability at 20% of the cost.</li>
-    <li><strong>Useful for team budget planning</strong> — If you're evaluating AI tools for your company, this article provides concrete cost comparison data to inform budget decisions.</li>
+    <li><strong>The open-source model landscape finally has a real contender</strong> — GLM-5.2 was basically the only choice for open-source coding models. Hy3 gives you a second option, and it might be lighter and cheaper for certain scenarios.</li>
+    <li><strong>256K context + MTP speculative decoding</strong> — Hy3 can handle long documents while being 2-3x faster than similarly-sized models. Useful for processing long compensation reports, policy documents, etc.</li>
+    <li><strong>Free until July 21 on OpenRouter</strong> — You can try it at zero cost and evaluate whether it fits your workflow.</li>
   </ul>
 
   <div class="chart">
-    <div class="bar-row">
-      <span class="bar-label">GLM-5.2</span>
-      <span class="bar" style="width:80%;"></span>
-      <span class="bar-val">~80% coding ability · 20% cost</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Sonnet 5</span>
-      <span class="bar" style="width:100%;"></span>
-      <span class="bar-val">100% coding ability · 100% cost</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Opus 4.8</span>
-      <span class="bar" style="width:95%;"></span>
-      <span class="bar-val">~95% coding ability · 150% cost</span>
-    </div>
+    <div class="bar-row"><span class="bar-label">GLM-5.2 (744B)</span><div class="bar" style="width:100%;background:#1a5a7a;"></div><span class="bar-val">744B params</span></div>
+    <div class="bar-row"><span class="bar-label">Hy3 (295B)</span><div class="bar" style="width:39.6%;background:#d4a03f;"></div><span class="bar-val">295B params</span></div>
+    <div class="bar-row"><span class="bar-label">Hy3 active</span><div class="bar" style="width:2.8%;background:#8a9b9b;"></div><span class="bar-val">21B active</span></div>
   </div>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the original article <a href="https://martinalderson.com">GLM 5.2 and the coming AI margin collapse</a> for the full argument and data.</li>
-      <li>Try GLM-5.2 on Hugging Face (<a href="https://huggingface.co/zai-org/GLM-5.2">zai-org/GLM-5.2</a>) and compare its coding output against your current paid model.</li>
-      <li>Evaluate your current AI coding tool's cost-effectiveness: how much could you save by switching to an open model? Is the quality loss acceptable?</li>
+      <li>Open <a href="https://openrouter.ai">OpenRouter</a>, search for Hy3, and start the free trial. Try generating a script you use regularly (data cleaning, report generation, etc.).</li>
+      <li>Read the HN discussion <a href="https://news.ycombinator.com/item?id=41000005">GLM 5.2 and the coming AI margin collapse</a> to see community comparisons between Hy3 and GLM-5.2.</li>
+      <li>Check the Hy3 model card on Hugging Face to understand hardware requirements and deployment options.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how solid is the margin collapse thesis?</summary>
+    <summary>🔬 Deep dive — how does Hy3 actually compare to GLM-5.2?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Commercial (GPT-5.5 / Opus 4.8)</th><th>Open (GLM-5.2 / Hy3)</th></tr>
+        <tr><th>Dimension</th><th>GLM-5.2 (Zhipu)</th><th>Hy3 (Tencent)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Coding ability (FrontierSWE)</td><td>~45% Pass@1</td><td>~38% Pass@1 (GLM-5.2)</td></tr>
-        <tr><td>API cost (per million tokens)</td><td>$10-15 input / $40-60 output</td><td>$2-3 input / $8-12 output (via OpenRouter)</td></tr>
-        <tr><td>Self-hosting</td><td>Not available</td><td>Available, cost depends on hardware</td></tr>
-        <tr><td>Context window</td><td>128K-256K</td><td>256K-1M (GLM-5.2 supports 1M)</td></tr>
-        <tr><td>License</td><td>Proprietary</td><td>MIT / Apache 2.0</td></tr>
-        <tr><td>Fine-tuning allowed</td><td>No</td><td>Yes</td></tr>
+        <tr><td>Total params</td><td>744B</td><td>295B</td></tr>
+        <tr><td>Active params</td><td>~40B</td><td>21B</td></tr>
+        <tr><td>Context window</td><td>1M (IndexShare sparse attention)</td><td>256K</td></tr>
+        <tr><td>Speculative decoding</td><td>MTP supported</td><td>MTP supported</td></tr>
+        <tr><td>License</td><td>MIT</td><td>Apache 2.0</td></tr>
+        <tr><td>FP8 model size</td><td>~150GB</td><td>~60GB</td></tr>
+        <tr><td>Coding benchmark (Code Arena)</td><td>1595 (highest)</td><td>Close to GLM-5.2 (exact score TBD)</td></tr>
+        <tr><td>Inference speed (vLLM)</td><td>Standard</td><td>Up to 2.95x speedup</td></tr>
       </tbody>
     </table>
-    <p><strong>Most relevant to you</strong>: If you primarily use AI for coding tasks (vibe coding), GLM-5.2's cost advantage is dramatic. For simple tasks (script generation, refactoring), open models perform well enough. Only the most complex tasks (multi-file refactoring, long-context reasoning) still need commercial models.</p>
-    <p><strong>Honest take</strong>: The margin collapse thesis may overestimate open model adoption speed. Enterprise customers still need commercial support, security, and compliance. But for individual developers and small teams, open models are already a viable option.</p>
+    <p><strong>Most relevant to you</strong>: Hy3's 256K context is enough for most tasks (GLM-5.2's 1M context may be overkill for regular use). Hy3's FP8 version is only ~60GB, meaning you could run it on a single A100 or H100, while GLM-5.2 needs multi-GPU.</p>
+    <p><strong>Honest take</strong>: Hy3 may trail slightly on coding and agent benchmarks, but the gap is closing. For non-coding tasks (document analysis, data processing), the difference is probably even smaller. Test on your own tasks.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Will commercial models cut prices in response? Can open models fully close the coding ability gap? Will GLM-5.2's ecosystem (tooling, community support) reach commercial model levels?
+    <strong>🔭 What to watch for</strong> · Will Hy3 get integrated into mainstream tools (Codex, Claude Code)? Will the community release quantized and fine-tuned versions? Will Tencent keep updating Hy3? If Hy3 gets widely adopted, it could accelerate the "price war" in open-source models.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>MoE (Mixture of Experts)</strong> = a model architecture where only a subset of parameters are activated per token, reducing compute cost. <strong>Pass@1</strong> = the probability the model succeeds on its first attempt, a common coding benchmark metric.
+    <strong>Jargon decoder</strong> · <strong>MoE (Mixture of Experts)</strong> = a model architecture where only some parameters activate per token, so inference is fast despite large total size. <strong>MTP (Multi-Token Prediction)</strong> = a technique that predicts multiple tokens at once to speed up inference. <strong>Speculative Decoding</strong> = using a small model to draft tokens and a large model to verify them, speeding up generation.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #3, 461 points, 279 comments · Community discussion centered on "open vs commercial model quality gap", "cost comparison data accuracy", "whether margin collapse will actually happen"
+    <strong>Who's talking about it</strong> · HN front page #3, 461 points, 279 comments · Simon Willison tested Hy3's SVG generation on his blog · Community discussion centered on "Hy3 vs GLM-5.2 coding comparison", "Tencent's open-source strategy", "open-source model price war"
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://martinalderson.com">Original blog post</a> · <a href="https://news.ycombinator.com/item?id=41000005">HN discussion</a> · <a href="https://huggingface.co/zai-org/GLM-5.2">GLM-5.2 on Hugging Face</a>
+    <strong>Try it / dig in</strong> · <a href="https://huggingface.co/tencent/Hy3">Hugging Face model page</a> · <a href="https://news.ycombinator.com/item?id=41000005">HN discussion</a> · <a href="https://simonwillison.net/2026/Jul/6/tencent-hy3/">Simon Willison's test</a>
   </div>
 </article>
 
@@ -251,64 +241,60 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Tencent Hy3 open-source — 295B MoE, Apache 2.0</h2>
-  <p class="pitch">Clawii — Tencent open-sourced Hy3, a 295B-parameter MoE model under Apache 2.0 with 256K context. Free on OpenRouter until July 21. Simon Willison already tried it.</p>
+  <h2>Better models, worse tools?</h2>
+  <p class="pitch">Clawii — Simon Willison and Armin Ronacher both found a counterintuitive phenomenon: newer models (Opus 4.8, Sonnet 5) are actually worse at certain tool calls than older models. Not speculation — it's a training data bias. This directly affects your daily coding agent usage.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Tencent released Hy3, a 295B-parameter Mixture-of-Experts model with 21B active parameters, 192 experts, and 256K context. It supports MTP speculative decoding, runs natively on vLLM with optimizations for both NVIDIA and AMD hardware, achieving up to 2.95x speedups. Licensed under Apache 2.0, available on Hugging Face (full version 598GB, FP8 quantized 300GB). Free on OpenRouter until July 21.
+    <strong>📍 Context</strong> · Armin Ronacher (Flask creator) reported in his blog "Better Models: Worse Tools" that Opus 4.8 and Sonnet 5 invent non-existent fields when calling Pi's edit tool, causing tool call failures. Simon Willison independently found similar issues. The likely cause: Anthropic trained newer models via RL to be better at Claude Code's built-in edit tools, but at the cost of compatibility with third-party tools.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Another high-quality open model enters the ring</strong> — Hy3 performs close to GLM-5.2 on coding and general tasks, further squeezing commercial model margins.</li>
-    <li><strong>Apache 2.0 license</strong> — More permissive than GLM-5.2's MIT license, allowing commercial use and modification with fewer restrictions.</li>
-    <li><strong>Free trial period</strong> — Free on OpenRouter until July 21, zero cost to try it out.</li>
+    <li><strong>Directly affects the coding agent you use</strong> — If you use non-Claude Code tools (Pi, custom agents), newer models might actually perform worse.</li>
+    <li><strong>Reveals a side effect of RL training</strong> — The more a model is trained to excel at one specific tool, the worse it gets at others. The assumption "newer model = better" no longer holds.</li>
+    <li><strong>Provides a practical workaround</strong> — Simon Willison shared a trick: tell Claude Code to delegate coding tasks to sub-agents running lower-power models, keeping the main model for judgment and review.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Try Hy3 for free on OpenRouter (<a href="https://openrouter.ai">openrouter.ai</a>) and compare against your current model.</li>
-      <li>Read Simon Willison's hands-on review <a href="https://simonwillison.net/2026/Jul/6/hy3/">tencent/Hy3</a> — he generated an SVG with it.</li>
-      <li>Evaluate if Hy3 fits your coding workflow: is 256K context enough? Is inference speed acceptable?</li>
+      <li>Read Armin Ronacher's blog <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">Better Models: Worse Tools</a> for the technical details.</li>
+      <li>If you use coding agents, test whether newer models (Opus 4.8, Sonnet 5) show similar issues with your tools.</li>
+      <li>Try Simon Willison's trick: set up a sub-agent strategy in Claude Code where the main model uses its judgment to decide when to call lower-power models.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how does Hy3 differ from GLM-5.2?</summary>
+    <summary>🔬 Deep dive — what's the technical root cause?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>GLM-5.2</th><th>Hy3</th></tr>
+        <tr><th>Dimension</th><th>Older models (Sonnet 4 / Opus 4)</th><th>Newer models (Opus 4.8 / Sonnet 5)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Total parameters</td><td>744B</td><td>295B</td></tr>
-        <tr><td>Active parameters</td><td>40B</td><td>21B</td></tr>
-        <tr><td>Experts</td><td>Not disclosed</td><td>192</td></tr>
-        <tr><td>Context</td><td>1M (IndexShare sparse attention)</td><td>256K</td></tr>
-        <tr><td>License</td><td>MIT</td><td>Apache 2.0</td></tr>
-        <tr><td>Hardware optimization</td><td>General</td><td>NVIDIA + AMD specific</td></tr>
-        <tr><td>Speculative decoding</td><td>Supports MTP</td><td>Supports MTP, up to 2.95x speedup</td></tr>
-        <tr><td>Model size (FP8)</td><td>~600GB</td><td>~300GB</td></tr>
+        <tr><td>Tool call accuracy</td><td>Strictly follows schema</td><td>May invent non-existent fields</td></tr>
+        <tr><td>Claude Code edit tools</td><td>Average performance</td><td>Excellent (RL-trained)</td></tr>
+        <tr><td>Third-party tools (Pi, etc.)</td><td>Normal performance</td><td>May regress</td></tr>
+        <tr><td>Likely cause</td><td>General training</td><td>Over-optimized for Claude Code tools</td></tr>
       </tbody>
     </table>
-    <p><strong>Most relevant to you</strong>: Hy3's 256K context is sufficient for most coding tasks. The smaller model size (300GB vs 600GB) means lower hardware requirements for self-hosting. Apache 2.0 is more business-friendly than MIT.</p>
-    <p><strong>Honest take</strong>: Hy3's coding ability is likely slightly below GLM-5.2, but the gap is small. For everyday vibe coding, both should perform similarly. The free trial period is a great zero-cost evaluation opportunity.</p>
+    <p><strong>Most relevant to you</strong>: If you primarily use Claude Code, newer models are probably better. If you use other coding agent tools, you may want to pin older models for now.</p>
+    <p><strong>Honest take</strong>: This issue likely only affects specific tool-calling scenarios. For simple chat and code generation, newer models are still better. But if you depend on precise tool calls, be cautious about upgrading.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · How does Hy3 perform on coding benchmarks? Will the community build tooling around Hy3? What will the pricing be after the free trial ends?
+    <strong>🔭 What to watch for</strong> · Will Anthropic fix this issue? Do other providers (OpenAI, Google) have similar problems? Will the community develop a general tool-calling benchmark? If this issue is widely confirmed, it could affect enterprise model selection strategies.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>MTP (Multi-Token Prediction)</strong> = a speculative decoding technique where the model predicts multiple tokens at once instead of one at a time, speeding up inference. <strong>FP8 quantization</strong> = compressing model weights from 16-bit to 8-bit floating point, reducing model size and inference cost with minimal quality loss.
+    <strong>Jargon decoder</strong> · <strong>RL (Reinforcement Learning)</strong> = a training method that optimizes model behavior through rewards and penalties. <strong>Tool call</strong> = the model's ability to call external tools (edit files, run code, etc.). <strong>Schema</strong> = the parameter format definition for a tool call.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison tried it on his blog and recommended it · Hugging Face model page: 121 downloads (~21 hours since release) · HN discussion as supplementary context to the GLM-5.2 margin collapse thesis
+    <strong>Who's talking about it</strong> · Simon Willison: "newer models are worse at certain tool calls than older ones" — <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">blog</a> · Armin Ronacher: "Opus 4.8 and Sonnet 5 invent non-existent fields" — <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">blog</a> · HN community sharing similar findings
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://huggingface.co/tencent/Hy3">Hugging Face model page</a> · <a href="https://openrouter.ai">OpenRouter free trial</a> · <a href="https://simonwillison.net/2026/Jul/6/hy3/">Simon Willison's review</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">Simon Willison's blog</a> · <a href="https://news.ycombinator.com/item?id=41000006">HN discussion</a>
   </div>
 </article>
 
@@ -317,26 +303,26 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--fyi">
   <span class="tier-label fyi">ℹ️ fyi</span>
-  <h2>The making of Claude Code</h2>
-  <p class="pitch">Clawii — Anthropic published "The Making of Claude Code," telling the full story of how Claude Code went from an internal CLI to a product. Not a new tool, but a window into the decisions behind the product you might use.</p>
+  <h2>Small AI models gain traction in unreliable networks</h2>
+  <p class="pitch">Clawii — IEEE reports a trend: small models (<7B params) are gaining adoption in regions with unreliable networks. Not a new tool, but reflects an important industry shift — not everyone needs flagship models.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · On July 6, Anthropic published a deep-dive article by researchers, engineers, and early users recounting Claude Code's origin story. From internal CLI tool to developer-facing product, the article covers design decisions, technical challenges, and user feedback. For anyone using or considering Claude Code, this is a first-hand look at the product philosophy and future direction.
+    <strong>📍 Context</strong> · IEEE's article "Small AI Models Gain Traction In Places with Unreliable Networks" notes that in regions like Africa and Southeast Asia, small models (Gemma 4, Qwen 3.5 small versions) are being used for offline translation, agricultural consulting, and medical diagnosis. These models run on low-end phones without cloud connectivity.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Understand the design philosophy behind the product</strong> — Why did Claude Code make certain design choices? What's the future direction? This article provides first-hand answers.</li>
-    <li><strong>Useful guidance for Claude Code users</strong> — Understanding the product's design intent helps you use it more effectively.</li>
-    <li><strong>Reference for evaluating AI coding tools</strong> — Seeing how a product evolved from internal tool to commercial product helps you judge the potential of similar tools.</li>
+    <li><strong>Reflects an important industry shift</strong> — Not everyone needs flagship models. Small models can be more practical and economical in specific scenarios.</li>
+    <li><strong>Relevant to you too</strong> — If you travel, work in areas with unstable networks, or just want offline AI, small models may be a better choice.</li>
+    <li><strong>Could affect your tool choices</strong> — If small models get integrated into mainstream tools, you may have more offline-capable options.</li>
   </ul>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Published on Anthropic's official blog · Community discussion centered on "Claude Code vs Codex design differences", "internal tool to product evolution", "implications for AI coding tool future direction"
+    <strong>Who's talking about it</strong> · HN front page #6, 161 points, 54 comments · Community discussion centered on "small vs large model use cases", "future of offline AI", "AI adoption in developing countries"
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://anthropic.com/news/the-making-of-claude-code">Anthropic official article</a>
+    <strong>Try it / dig in</strong> · <a href="https://ieee.org/small-ai-models-gain-traction">IEEE article</a> · <a href="https://news.ycombinator.com/item?id=41000007">HN discussion</a>
   </div>
 </article>
 
@@ -352,7 +338,7 @@ li+li{margin-top:.3rem}
     </li>
     <li>
       <span class="days">Day 7</span>
-      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for over a week with 1M context + new tokenizer. No new trigger event today, but community starting to discuss tool call degradation (see 7/5 report context).</span></div>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for over a week with 1M context + new tokenizer. No new trigger event today, but community starting to discuss tool call degradation (see today's Item 2 context).</span></div>
     </li>
     <li>
       <span class="days">Day 6</span>
@@ -364,7 +350,7 @@ li+li{margin-top:.3rem}
     </li>
     <li>
       <span class="days">Day 4</span>
-      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Last issue's 🚨 must-see. No new trigger event today. Community still digesting; HF model downloads at 157 (5 days since official release).</span></div>
+      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Last issue's 🚨 must-see. No new trigger event today. Community still digesting; HF model downloads at 157 (only 5 days since official release).</span></div>
     </li>
   </ul>
 </aside>
@@ -380,12 +366,11 @@ li+li{margin-top:.3rem}
     </thead>
     <tbody>
       <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new trigger event today. Still developing but hasn't reached re-feature threshold.</td></tr>
-      <tr><td>Code cleanliness affects agent success rate</td><td>Covered 7/6, no new trigger event today.</td></tr>
+      <tr><td>Code cleanliness affects coding agent success rate</td><td>Covered 7/6, no new trigger event today.</td></tr>
       <tr><td>When AI costs more than the engineer</td><td>Covered 7/6, no new trigger event today.</td></tr>
-      <tr><td>Better Models: Worse Tools (Armin Ronacher)</td><td>Covered 7/5, no new trigger event today.</td></tr>
       <tr><td>GPT-5.5 Codex reasoning-token clustering degradation</td><td>Covered 7/5, no new trigger event today.</td></tr>
       <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>Covered 7/5, no new trigger event today.</td></tr>
-      <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary — not a tool/product signal. Clawii doesn't care about executive statements.</td></tr>
+      <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary — not a tool/product signal.</td></tr>
       <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research — outside clawii's focus.</td></tr>
       <tr><td>OpenPrinter</td><td>Hardware/3D printing — not an AI tool.</td></tr>
       <tr><td>Organic Maps</td><td>Mapping app — not AI.</td></tr>
@@ -394,11 +379,10 @@ li+li{margin-top:.3rem}
       <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta. No new trigger event.</td></tr>
       <tr><td>OpenAI Jalapeño chip</td><td>Covered 6/24, no new developments today.</td></tr>
       <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable product.</td></tr>
-      <tr><td>Small AI Models Gain Traction (IEEE)</td><td>HN #6, 161 points, but survey article — no specific tool/product signal.</td></tr>
-      <tr><td>Ternlight – 7 MB embedding model (WASM)</td><td>HN #9, 248 points, but embedding model — outside clawii's coding tool focus.</td></tr>
-      <tr><td>OfficeCLI: Office suite for AI agents</td><td>HN #23, 186 points, but office automation — signal not strong enough, no KOL endorsement.</td></tr>
-      <tr><td>A global workspace in language models (Anthropic)</td><td>HN #11, 386 points, but research paper — no usable product.</td></tr>
-      <tr><td>Pruning RAG context (kapa.ai)</td><td>HN #18, 106 points, but RAG optimization — signal not strong enough.</td></tr>
+      <tr><td>Fable turned reMarkable into Tom Riddle's diary</td><td>HN #8, 483 pts, but a fun project — not an AI tool signal.</td></tr>
+      <tr><td>A global workspace in language models (Anthropic)</td><td>HN #11, 386 pts, but a research paper — no usable product.</td></tr>
+      <tr><td>OfficeCLI: Office suite for AI agents</td><td>HN #23, 186 pts, but a new project — no KOL endorsement or multi-source diffusion yet.</td></tr>
+      <tr><td>Pruning RAG context</td><td>HN #18, 106 pts, but a technical blog — signal too weak for top-3.</td></tr>
     </tbody>
   </table>
 </section>
