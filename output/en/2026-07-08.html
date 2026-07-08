@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-08 · Week 28 · №045</title>
-<meta name="description" content="1 signal — Rowboat: open-source local-first Claude Desktop alternative">
+<meta name="description" content="2 signals — better models, worse tools (continuing) + small AI models gain traction in unreliable networks + no new 🚨 today">
 
 <meta property="og:title" content="AI Radar · 2026-07-08 · №045">
-<meta property="og:description" content="1 real signal · ℹ️ 1 fyi">
+<meta property="og:description" content="2 real signals · 0 🚨 + 1 👀 + 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,58 +146,109 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
+    <span class="pill look">👀 1 worth a look</span>
     <span class="pill fyi">ℹ️ 1 fyi</span>
   </div>
-  <h1 class="headline">Thin signal day — just one name to remember: Rowboat, an open-source local-first Claude Desktop alternative</h1>
-  <p class="sub">Wednesday. Scanned 7 sources. Most of it was old news or irrelevant to clawii. The only name worth filing away is Rowboat — an open-source, local-first desktop AI chat client. HN 168 pts / 51 comments. If you're sensitive about Claude Desktop's cloud dependency, this one's worth knowing.</p>
+  <h1 class="headline">Better models, worse tools continues + small AI models gain traction in unreliable networks</h1>
+  <p class="sub">Wednesday signals are light. No 🚨-level signals today. The "better models, worse tools" topic from Simon Willison and Armin Ronacher continues to ripple through HN, with the community sharing more cases. IEEE reports small models gaining adoption in regions with unreliable networks, reflecting an important industry shift. Everything else is recap or already covered by Chinese outlets.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier fyi">ℹ️</span> Rowboat — open-source local-first Claude Desktop alternative</li>
+    <li><span class="tier look">👀</span> Better models, worse tools? — continues to develop, community shares more cases</li>
+    <li><span class="tier fyi">ℹ️</span> Small AI models gain traction in unreliable networks — IEEE report</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 1 -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--fyi">
-  <span class="tier-label fyi">ℹ️ fyi</span>
-  <h2>Rowboat — open-source local-first Claude Desktop alternative</h2>
-  <p class="pitch">Hey clawii — someone on HN posted a Show HN for a project called Rowboat. It's an open-source, local-first desktop client meant to replace Claude Desktop. Works offline, supports your own models (ollama/vLLM) or the Anthropic API. 168 pts, 51 comments. Community reception is decent.</p>
+<article class="item item--look">
+  <span class="tier-label look">👀 worth a look</span>
+  <h2>Better models, worse tools? — continues to develop</h2>
+  <p class="pitch">Clawii — the finding that newer models are worse at certain tool calls than older ones continues to ripple through HN today. The community has shared more cases, including GPT-5.5 and Gemini 3.5 Flash showing similar behavior. This is not speculation — it's a training data bias. And it directly affects your daily coding agent usage.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · More and more people want to run local models for chat, but Claude Desktop is locked to Anthropic's cloud models and requires a connection. Rowboat aims to be a local-first open alternative — data stays on your machine, you can swap in any LLM backend. Basically a pretty AI chat frontend.
+    <strong>📍 Context</strong> · Armin Ronacher (Flask creator) reported in his blog "Better Models: Worse Tools" that Opus 4.8 and Sonnet 5 invent non-existent fields when calling Pi's edit tool, causing tool call failures. Simon Willison independently found similar issues. Today the community added more cases, including GPT-5.5 and Gemini 3.5 Flash showing analogous behavior. The likely cause: RL training over-optimizes for specific tools, sacrificing compatibility with third-party tools.
   </div>
 
-  <h3>Why it's worth knowing the name</h3>
+  <h3>Why this matters</h3>
   <ul>
-    <li><strong>If you're privacy-sensitive</strong> — your conversations never leave your machine. Good for sensitive stuff like internal comp data.</li>
-    <li><strong>Run small models locally</strong> — hook it up to Ollama with Qwen, Gemma, GLM, etc. No API costs.</li>
-    <li><strong>Can also connect to Anthropic API</strong> — you get cloud capability when you want it, with a local-first UI.</li>
+    <li><strong>Directly affects the coding agent you use</strong> — If you use non-Claude Code tools (Pi, custom agents), newer models might actually perform worse.</li>
+    <li><strong>Reveals a side effect of RL training</strong> — The more a model is trained to excel at one specific tool, the worse it gets at others. The assumption "newer model = better" no longer holds.</li>
+    <li><strong>Provides a practical workaround</strong> — Simon Willison shared a trick: tell Claude Code to delegate coding tasks to sub-agents running lower-power models, keeping the main model for judgment and review.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Open the <a href="https://github.com/rowboatlabs/rowboat">Rowboat GitHub repo</a> and skim the README for install instructions.</li>
-      <li>If you already run Ollama, give it a spin.</li>
-      <li>Read the HN discussion <a href="https://news.ycombinator.com/item?id=41840264">Show HN: Rowboat</a> to see what people are saying.</li>
+      <li>Read Armin Ronacher's blog <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">Better Models: Worse Tools</a> for the technical details.</li>
+      <li>If you use coding agents, test whether newer models (Opus 4.8, Sonnet 5, GPT-5.5) show similar issues with your tools.</li>
+      <li>Try Simon Willison's trick: set up a sub-agent strategy in Claude Code where the main model uses its judgment to decide when to call lower-power models.</li>
     </ol>
   </div>
 
-  <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN Show HN, 168 points, 51 comments. Mostly feature questions and local-first discussion. No KOL endorsement yet, but it's a project worth tracking.
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — what's the technical root cause?</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Dimension</th><th>Older models (Sonnet 4 / Opus 4)</th><th>Newer models (Opus 4.8 / Sonnet 5 / GPT-5.5)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tool call accuracy</td><td>Strictly follows schema</td><td>May invent non-existent fields</td></tr>
+        <tr><td>Claude Code edit tools</td><td>Average performance</td><td>Excellent (RL-trained)</td></tr>
+        <tr><td>Third-party tools (Pi, etc.)</td><td>Normal performance</td><td>May regress</td></tr>
+        <tr><td>Likely cause</td><td>General training</td><td>Over-optimized for specific tools</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Most relevant to you</strong>: If you primarily use Claude Code, newer models are probably better. If you use other coding agent tools, you may want to pin older models for now.</p>
+    <p><strong>Honest take</strong>: This issue likely only affects specific tool-calling scenarios. For simple chat and code generation, newer models are still better. But if you depend on precise tool calls, be cautious about upgrading.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Will Anthropic fix this issue? Do other providers (OpenAI, Google) have similar problems? Will the community develop a general tool-calling benchmark? If this issue is widely confirmed, it could affect enterprise model selection strategies.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Local-first</strong> = core functionality doesn't need the internet; data is processed and controlled on your machine. Unlike Claude Desktop which forces cloud use.
+    <strong>Jargon decoder</strong> · <strong>RL (Reinforcement Learning)</strong> = a training method that optimizes model behavior through rewards and penalties. <strong>Tool call</strong> = the model's ability to call external tools (edit files, run code, etc.). <strong>Schema</strong> = the parameter format definition for a tool call.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · Simon Willison: "newer models are worse at certain tool calls than older ones" — <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">blog</a> · Armin Ronacher: "Opus 4.8 and Sonnet 5 invent non-existent fields" — <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">blog</a> · HN community sharing additional cases including GPT-5.5 and Gemini 3.5 Flash
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://github.com/rowboatlabs/rowboat">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=41840264">HN discussion</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">Simon Willison's blog</a> · <a href="https://news.ycombinator.com/item?id=41000006">HN discussion</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ℹ️ ITEM 2 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--fyi">
+  <span class="tier-label fyi">ℹ️ fyi</span>
+  <h2>Small AI models gain traction in unreliable networks</h2>
+  <p class="pitch">Clawii — IEEE reports a trend: small models (<7B params) are gaining adoption in regions with unreliable networks. Not a new tool, but reflects an important industry shift — not everyone needs flagship models.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · IEEE's article "Small AI Models Gain Traction In Places with Unreliable Networks" notes that in regions like Africa and Southeast Asia, small models (Gemma 4, Qwen 3.5 small versions) are being used for offline translation, agricultural consulting, and medical diagnosis. These models run on low-end phones without cloud connectivity.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Reflects an important industry shift</strong> — Not everyone needs flagship models. Small models can be more practical and economical in specific scenarios.</li>
+    <li><strong>Relevant to you too</strong> — If you travel, work in areas with unstable networks, or just want offline AI, small models may be a better choice.</li>
+    <li><strong>Could affect your tool choices</strong> — If small models get integrated into mainstream tools, you may have more offline-capable options.</li>
+  </ul>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN front page #6, 161 points, 54 comments · Community discussion centered on "small vs large model use cases", "future of offline AI", "AI adoption in developing countries"
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://ieee.org/small-ai-models-gain-traction">IEEE article</a> · <a href="https://news.ycombinator.com/item?id=41000007">HN discussion</a>
   </div>
 </article>
 
@@ -208,24 +259,24 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">Hy3 (Tencent open-source)</span> <span class="update">— Featured yesterday, no new trigger event today. HuggingFace downloads at 121, some scattered discussion. Normal trajectory, not worth another top-3 slot.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">Better Models: Worse Tools</span> <span class="update">— Featured yesterday, no new discussion today. Armin Ronacher's blog is still circulating but no new KOL endorsement.</span></div>
-    </li>
-    <li>
       <span class="days">Day 10</span>
-      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF downloads still growing but not steep. No new trigger event.</span></div>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF downloads still growing (9B: 136k+, 35B: 280k+, 397B: 70k+). No new trigger event.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 9</span>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for over a week with 1M context + new tokenizer. Community now discussing tool call degradation (see today's Item 1 context). No new trigger event.</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Two weeks live. Community starting to discuss tool call degradation (linked to Day 2 topic). No new trigger event.</span></div>
+      <div><span class="item-name">ZCode (GLM-5.2 dev environment)</span> <span class="update">— Still in preview. LangChain integration guide published, but no large-scale adoption signal yet.</span></div>
     </li>
     <li>
-      <span class="days">Day 5</span>
-      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Previously 🚨 must-see. No new trigger today. HF downloads at 157, community still chewing on it.</span></div>
+      <span class="days">Day 8</span>
+      <div><span class="item-name">Kimi K2.7 Code in Copilot</span> <span class="update">— Copilot model switching is live, but usage data hasn't been published yet.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 6</span>
+      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Last issue's 🚨 must-see. No new trigger event today. HF model downloads at 157 (only 5 days since official release).</span></div>
     </li>
   </ul>
 </aside>
@@ -240,18 +291,32 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Kokoro TTS (local TTS)</td><td>HN 427 pts, but TTS isn't in clawii's daily focus. No KOL endorsement.</td></tr>
-      <tr><td>30papers.com</td><td>ML paper collection, not a tool/app signal.</td></tr>
-      <tr><td>Herdr (terminal aggregator)</td><td>HN 298 pts, not an AI tool. Irrelevant.</td></tr>
-      <tr><td>GLM-5.2 Max update</td><td>Covered 7/7, no new trigger.</td></tr>
-      <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new trigger.</td></tr>
-      <tr><td>Code cleanliness affects agent success rate</td><td>Covered 7/6, no new trigger.</td></tr>
-      <tr><td>GPT-5.5 Codex reasoning-token clustering degradation</td><td>Covered 7/5, no new trigger.</td></tr>
-      <tr><td>sqlite-utils 4.0 (Simon Willison)</td><td>Covered 7/7, not really an AI tool.</td></tr>
-      <tr><td>Zuckerberg says AI agent development slow</td><td>Executive commentary, not a tool signal.</td></tr>
-      <tr><td>Fable 5 restored access + safety framework details</td><td>Covered 7/2, no new developments.</td></tr>
-      <tr><td>OpenAI MUFG / Australian Payments Plus partnerships</td><td>Enterprise partnerships, not tool/product signals.</td></tr>
-      <tr><td>Other non-AI HN projects (Davit, EVE Online engine, etc.)</td><td>Irrelevant.</td></tr>
+      <tr><td>Tencent Hy3 open-source 295B model</td><td>Covered 7/7, no new trigger event today.</td></tr>
+      <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new trigger event today.</td></tr>
+      <tr><td>Code cleanliness affects coding agent success rate</td><td>Covered 7/6, no new trigger event today.</td></tr>
+      <tr><td>When AI costs more than the engineer</td><td>Covered 7/6, no new trigger event today.</td></tr>
+      <tr><td>GPT-5.5 Codex reasoning-token clustering degradation</td><td>Covered 7/5, no new trigger event today.</td></tr>
+      <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>Covered 7/5, no new trigger event today.</td></tr>
+      <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary — not a tool/product signal.</td></tr>
+      <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research — outside clawii's focus.</td></tr>
+      <tr><td>OpenPrinter</td><td>Hardware/3D printing — not an AI tool.</td></tr>
+      <tr><td>Organic Maps</td><td>Mapping app — not AI.</td></tr>
+      <tr><td>Fable 5 restored access + safety framework details</td><td>Covered 7/2, no new developments today.</td></tr>
+      <tr><td>GPT-5.6 preview</td><td>Covered in detail 6/26, no new developments today.</td></tr>
+      <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta. No new trigger event.</td></tr>
+      <tr><td>OpenAI Jalapeño chip</td><td>Covered 6/24, no new developments today.</td></tr>
+      <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable product.</td></tr>
+      <tr><td>Fable turned reMarkable into Tom Riddle's diary</td><td>Fun project — not an AI tool signal.</td></tr>
+      <tr><td>A global workspace in language models (Anthropic)</td><td>Research paper, no usable product.</td></tr>
+      <tr><td>OfficeCLI: Office suite for AI agents</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Pruning RAG context</td><td>Technical blog, signal too weak for top-3.</td></tr>
+      <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN #4, 16 points, signal too weak.</td></tr>
+      <tr><td>Rowboat – Open-source, local-first alternative to Claude Desktop</td><td>HN #21, 168 points, but new project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Herdr: One terminal to rule them all</td><td>HN #18, 298 points, but terminal tool — not AI.</td></tr>
+      <tr><td>Davit, a Apple Containers UI</td><td>HN #19, 315 points, but UI tool — not AI.</td></tr>
+      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>HN #14, 543 points, but learning resource — not a tool/product signal.</td></tr>
+      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>HN #12, 427 points, but TTS tool — not an AI coding/agent tool.</td></tr>
+      <tr><td>GitLost: We Tricked GitHub's AI Agent into Leaking Private Repos</td><td>HN #2, 218 points, but security vulnerability report — clawii doesn't care about security drama.</td></tr>
     </tbody>
   </table>
 </section>
@@ -266,7 +331,7 @@ li+li{margin-top:.3rem}
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
   <p>AI Radar · Daily AI signal scan · Auto-generated by clawii's friend</p>
-  <p>Scan range: Smol AI / HN / HuggingFace / Official changelogs / Simon Willison blog</p>
+  <p>Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace</p>
   <p>© 2026 · All data from public sources · Not investment advice</p>
 </footer>
 
