@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-09 · Week 28 · №046</title>
-<meta name="description" content="3 条信号 — Grok 4.5 发布 + GPT-Live 语音升级 + Bun 重写案例">
+<meta name="description" content="2 条信号 — Grok 4.5 发布（Cursor 联合训练）+ 编码 agent 重写 Bun 的工程案例 + 今日无新 🚨">
 
 <meta property="og:title" content="AI Radar · 2026-07-09 · №046">
-<meta property="og:description" content="3 条真信号 · 1 🚨 + 1 👀 + 1 ℹ️">
+<meta property="og:description" content="2 条真信号 · 0 🚨 + 1 👀 + 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,178 +146,118 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1 必看</span>
     <span class="pill look">👀 1 可看</span>
     <span class="pill fyi">ℹ️ 1 知道</span>
   </div>
-  <h1 class="headline">Grok 4.5 发布 + GPT-Live 语音升级 + Bun 重写案例</h1>
-  <p class="sub">周四信号不错。xAI 发布 Grok 4.5，定价战升级，Cursor 参与训练。OpenAI 升级语音模式，GPT-Live 支持后台调用 5.5。Simon Willison 详细拆解了 Bun 从 Zig 到 Rust 的 agent 重写过程，成本 $165k，但给我们展示了 agent 的极限。</p>
+  <h1 class="headline">Grok 4.5 发布 + Bun 重写工程案例 — 编码 agent 能力边界在推</h1>
+  <p class="sub">周四信号中等。今天没有 🚨 级别的真信号。xAI 发布 Grok 4.5（Cursor 联合训练，1.5T 参数，$2/$6 定价）在 HN 引发大量讨论。Simon Willison 详细记录了 Bun 用 Mythos/Fable 从 Zig 重写到 Rust 的工程案例，展示了编码 agent 在大型项目中的真实能力。其他内容多是 recap 或中文圈已覆盖。</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">目录</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Grok 4.5 发布：编码 Agent 降价战开打</li>
-    <li><span class="tier look">👀</span> OpenAI GPT-Live 语音模式升级</li>
-    <li><span class="tier fyi">ℹ️</span> Bun 重写案例：Agent 工程极限展示</li>
+    <li><span class="tier look">👀</span> Grok 4.5 发布 — Cursor 联合训练，1.5T 参数，$2/$6 定价</li>
+    <li><span class="tier fyi">ℹ️</span> Bun 从 Zig 重写到 Rust — 编码 agent 的工程极限案例</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label crit">🚨 必看</span>
-  <h2>Grok 4.5 发布：编码 Agent 降价战开打</h2>
-  <p class="pitch">clawii，xAI 今天发布了 Grok 4.5，一个 1.5 万亿参数的编码 Agent 模型，定价 $2/$6 每百万 token，比 Opus 4.8 便宜至少 5 倍。Cursor 参与了训练，已经宣布支持。这对你选编码 Agent 模型有直接影响——又多了一个选择，而且价格打下来了。</p>
-
-  <div class="context-box">
-    <strong>📍 背景</strong> · 编码 Agent 模型市场正在快速分化：OpenAI 有 GPT-5.5/5.6 Codex，Anthropic 有 Opus 4.8/Sonnet 5，开源有 GLM-5.2/Ornith。xAI 的 Grok 之前主打对话，4.5 版本首次聚焦编码和 Agent，强调性价比而非绝对分数。Elon Musk 称其为“Opus 级别”但更快、更便宜。Cursor 在训练过程中深度合作，证明其编码能力已经过实战检验。
-  </div>
-
-  <h3>为什么这事重要</h3>
-  <ul>
-    <li><strong>价格冲击</strong> — $2/$6 的价格远低于 Opus 4.8 ($15/$75) 和 GPT-5.5 ($10/$50)，接近 Sonnet 5 的促销价 ($2/$10)。这意味着你可以在不牺牲太多能力的情况下大幅降低 Agent 使用成本。</li>
-    <li><strong>Cursor 背书</strong> — Cursor 称其为“最强模型”，并已集成。如果你用 Cursor，可以直接在 settings 里切换 Grok 4.5 试试。</li>
-    <li><strong>1M 上下文</strong> — 上下文窗口很快恢复到 1M token，适合处理大型代码库。</li>
-    <li><strong>生态支持</strong> — 已接入 Grok Build/API、Hermes Agent、Portal、OpenRouter，可以无缝替换现有模型。</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 今天就能做的事</strong>
-    <ol>
-      <li>如果你用 Cursor，打开 Settings → Models → 选择 Grok 4.5，立刻体验编码能力。</li>
-      <li>比较价格：在 OpenRouter 上对比 Grok 4.5 和 Opus 4.8 / Sonnet 5 的成本。</li>
-      <li>用你的典型编码任务测试一下，看它是否真的“Opus 级别”。</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 深扒——和现有模型到底差在哪？</summary>
-    <table class="dd-table">
-      <thead>
-        <tr><th>对比项</th><th>Grok 4.5</th><th>Opus 4.8</th><th>Sonnet 5</th><th>GPT-5.5 Codex</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>参数规模</td><td>1.5T（3x Grok 4.3）</td><td>~2.5T</td><td>~1.5T</td><td>~2T</td></tr>
-        <tr><td>输入价格 / 1M tokens</td><td>$2</td><td>$15</td><td>$2（促销）</td><td>$10</td></tr>
-        <tr><td>输出价格 / 1M tokens</td><td>$6</td><td>$75</td><td>$10（促销）</td><td>$50</td></tr>
-        <tr><td>上下文窗口</td><td>1M（即将恢复）</td><td>200K</td><td>1M</td><td>128K</td></tr>
-        <tr><td>缓存折扣</td><td>有</td><td>有</td><td>有</td><td>有</td></tr>
-        <tr><td>编码 Agent 能力</td><td>Cursor 称最强</td><td>顶级</td><td>顶级</td><td>顶级</td></tr>
-        <tr><td>API 可用</td><td>Grok Build/API + OpenRouter</td><td>Anthropic API</td><td>Anthropic API</td><td>OpenAI API</td></tr>
-      </tbody>
-    </table>
-    <p><strong>对你最相关的</strong>：如果你主要用 Cursor，Grok 4.5 是一个值得尝试的新选项，价格优势明显。如果你用 Claude Code，需要等 Anthropic 增加支持（不确定是否会）。</p>
-    <p><strong>老实说</strong>：Grok 4.5 的编码能力是否真的达到 Opus 级别还需要更多独立测试，但 Cursor 的背书是一个很强的信号。初期可能有一些小问题，但价格优势使得它值得一试。</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 关注点</strong> · 独立基准测试（如 SWE-bench、Aider）结果如何？其他编码 Agent 工具（如 Codex、Claude Code）是否会集成？如果性能真的接近 Opus，可能引发新一轮降价。
-  </div>
-
-  <div class="jargon">
-    <strong>术语解码</strong> · <strong>MoE (Mixture of Experts)</strong> = 混合专家模型，只有部分参数被激活，节省计算成本。<strong>Token 缓存</strong> = 重复输入会被缓存，减少重复计费。
-  </div>
-
-  <div class="whos-talking">
-    <strong>谁在讨论</strong> · Elon Musk: “Opus-class but faster and cheaper” — <a href="https://x.ai">x.ai</a> · Cursor 官方: “Grok 4.5 is our most powerful model yet” — <a href="https://cursor.com">cursor.com</a> · HN 首页 #16，662 points，1026 comments — 讨论集中在价格、性能、与 Opus 对比
-  </div>
-
-  <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://x.ai">x.ai 官方</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN 讨论</a> · <a href="https://openrouter.ai/models">OpenRouter 价格</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 可看</span>
-  <h2>OpenAI GPT-Live 语音模式升级</h2>
-  <p class="pitch">clawii，OpenAI 今天升级了 ChatGPT 语音模式，新模型 GPT-Live 质量大幅提升，还能在后台调用 GPT-5.5 处理复杂任务。Simon Willison 试用了一小时，说这是“最有用的语音模式”。虽然你主要用编码，但日常查询、头脑风暴时语音可能比打字更快。</p>
+  <h2>Grok 4.5 发布 — Cursor 联合训练，1.5T 参数，$2/$6 定价</h2>
+  <p class="pitch">clawii，xAI 今天正式发布了 Grok 4.5，一个专注于编码和 agent 的旗舰模型。Elon Musk 说它是 "Opus 级别" 但更快、更省 token、更便宜。最值得注意的是 Cursor 参与了联合训练，并称这是他们最强大的模型。定价 $2/$6（输入/输出每百万 token），比 Opus 4.8 便宜不少。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · ChatGPT 语音模式之前基于 GPT-4o 时代模型，知识截止 2024 年，能力有限。GPT-Live 使用了更新的模型，支持实时对话、打断、情绪识别，还能将复杂任务（搜索、推理）委托给 GPT-5.5 在后台处理，同时保持对话流畅。Simon Willison 在评测中表示“之前很少用语音，现在可能会经常用”。
+    <strong>📍 背景</strong> · xAI 之前的主力模型是 Grok 4.3（约 500B 参数）。Grok 4.5 直接跳到 1.5T 参数（3 倍），采用 MoE 架构，上下文窗口 1M token（即将恢复）。定价策略明显走性价比路线：$2/M 输入、$6/M 输出，缓存命中还有折扣。Cursor 的参与意味着这个模型在编码 agent 场景下经过了针对性优化。早期生态支持包括 Grok Build/API、Hermes Agent、Portal 和 OpenRouter。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>模型质量大幅提升</strong> — 不再是“愚蠢的语音助手”，能理解复杂问题，甚至能跟你讨论编程思路。</li>
-    <li><strong>后台委托机制</strong> — 语音模式可以触发 GPT-5.5 做搜索、推理，结果异步返回，不影响对话流。这有点像多 Agent 的雏形。</li>
-    <li><strong>对你日常有用</strong> — 走路、开车、做家务时可以用语音讨论编程问题，模型会记住上下文，继续之前的话题。</li>
+    <li><strong>编码 agent 又多了一个选择</strong> — Cursor 联合训练意味着 Grok 4.5 在编码场景下可能表现优秀。如果你用 Cursor，很快就能试到。</li>
+    <li><strong>定价很有竞争力</strong> — $2/$6 比 Opus 4.8（$15/$75）和 Sonnet 5（$2/$10）都便宜。如果性能接近，性价比优势明显。</li>
+    <li><strong>1.5T 参数是当前最大公开模型之一</strong> — 虽然 MoE 架构下实际激活参数少很多，但这个规模本身说明 xAI 在认真追赶。</li>
   </ul>
+
+  <div class="chart">
+    <div class="bar-row"><span class="bar-label">Grok 4.5</span><div class="bar" style="width:100%"></div><span class="bar-val">$2 / $6</span></div>
+    <div class="bar-row"><span class="bar-label">Sonnet 5</span><div class="bar" style="width:33%"></div><span class="bar-val">$2 / $10</span></div>
+    <div class="bar-row"><span class="bar-label">Opus 4.8</span><div class="bar" style="width:15%"></div><span class="bar-val">$15 / $75</span></div>
+    <div class="bar-row"><span class="bar-label">GPT-5.6 Sol</span><div class="bar" style="width:12%"></div><span class="bar-val">$25 / $100</span></div>
+  </div>
 
   <div class="action-block">
     <strong>🎯 今天就能做的事</strong>
     <ol>
-      <li>打开 ChatGPT 移动 App，启用语音模式，体验 GPT-Live。</li>
-      <li>尝试用语音讨论一个编程问题，看它是否能理解并给出有价值建议。</li>
-      <li>注意观察它是否会自动切换到后台模型处理复杂任务。</li>
+      <li>在 <a href="https://openrouter.ai">OpenRouter</a> 上试试 Grok 4.5（已上线），对比一下和你常用的模型在编码任务上的表现。</li>
+      <li>如果你用 Cursor，关注 Cursor 的模型切换通知 — 他们可能会默认启用 Grok 4.5。</li>
+      <li>算一下你的 token 消耗：如果你每天用 10M 输入 + 2M 输出，Grok 4.5 每天约 $32，Opus 4.8 约 $300。差距很大。</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——和旧语音模式到底差在哪？</summary>
+    <summary>🔬 深扒——Grok 4.5 和现有模型到底差在哪？</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>方面</th><th>旧语音模式 (GPT-4o)</th><th>GPT-Live (新)</th></tr>
+        <tr><th>方面</th><th>Grok 4.5</th><th>Opus 4.8</th><th>Sonnet 5</th><th>GPT-5.6 Sol</th></tr>
       </thead>
       <tbody>
-        <tr><td>底层模型</td><td>GPT-4o 衍生</td><td>更新的专用模型 + 后台 GPT-5.5</td></tr>
-        <tr><td>知识截止</td><td>2024 年</td><td>最新（具体未公布）</td></tr>
-        <tr><td>后台委托</td><td>不支持</td><td>可委托搜索、推理、复杂任务</td></tr>
-        <tr><td>打断/情绪识别</td><td>基本</td><td>大幅改进（Simon 发现偶尔会笑）</td></tr>
-        <tr><td>实用价值</td><td>低，只能简单问答</td><td>高，可做头脑风暴、编程讨论</td></tr>
+        <tr><td>参数规模</td><td>1.5T (MoE)</td><td>~2T (MoE)</td><td>~500B</td><td>未公开</td></tr>
+        <tr><td>输入价格</td><td>$2/M</td><td>$15/M</td><td>$2/M</td><td>$25/M</td></tr>
+        <tr><td>输出价格</td><td>$6/M</td><td>$75/M</td><td>$10/M</td><td>$100/M</td></tr>
+        <tr><td>上下文</td><td>1M (即将恢复)</td><td>200K</td><td>1M</td><td>128K</td></tr>
+        <tr><td>编码特化</td><td>Cursor 联合训练</td><td>通用</td><td>通用</td><td>Codex 特化</td></tr>
+        <tr><td>可用性</td><td>API + 生态</td><td>API + Claude</td><td>API + Claude</td><td>受限发布</td></tr>
       </tbody>
     </table>
-    <p><strong>对你最相关的</strong>：如果你经常走路或通勤，可以用语音继续编码工作。它还能帮你理清思路，然后回电脑前继续写代码。</p>
-    <p><strong>老实说</strong>：语音模式仍然不适合所有场景，比如安静办公室或需要精确代码的场景。但在移动中，它比打字快很多。</p>
+    <p><strong>对你最相关的</strong>：如果你主要用 Cursor 做 vibe coding，Grok 4.5 可能是性价比最高的选择。但如果你用 Claude Code，Sonnet 5 仍然是默认选项。</p>
+    <p><strong>老实说</strong>：Grok 4.5 的 benchmark 数据还没公开，实际编码能力有待验证。Cursor 的背书是正面信号，但需要更多独立评测。另外 xAI 的 API 稳定性也是未知数。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 关注点</strong> · 后台委托是否会扩展到其他模型（如 GPT-5.6 Sol）？语音模式是否会被集成到 Codex 或其他编码工具中？如果集成，可能改变编码交互方式。
+    <strong>🔭 关注点</strong> · Grok 4.5 在独立编码 benchmark（如 SWE-bench、Code Arena）上的表现。Cursor 用户的实际反馈。xAI 的 API 稳定性和可用性。如果性能接近 Opus 4.8 但价格只有 1/10，会改变编码 agent 的经济模型。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong> · <strong>后台委托 (Background Delegation)</strong> = 语音模式将复杂任务发给更强大的模型处理，同时保持当前对话不中断。
+    <strong>术语解码</strong> · <strong>MoE (Mixture of Experts)</strong> = 混合专家模型，一种架构，模型由多个"专家"子网络组成，每次只激活一部分，在保持大参数量的同时降低计算成本。<strong>Token</strong> = 模型处理的最小单位，大约 1 个英文单词 ≈ 1-2 个 token，1 个中文字 ≈ 2-3 个 token。
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · Simon Willison: “The most useful voice mode I've tried” — <a href="https://simonwillison.net/2026/Jul/8/gpt-live/">博客</a> · OpenAI 官方: “GPT-Live can keep talking while delegating” — <a href="https://openai.com/index/introducing-gpt-live">博文</a>
+    <strong>谁在讨论</strong> · HN 首页 #16，662 points，1026 comments — 讨论集中在定价策略、与 Opus/Sonnet 的对比、Cursor 联合训练的意义 · Elon Musk: "Opus-class but faster, more token-efficient, lower cost" · Cursor: "our most powerful model yet" · 早期生态支持：Grok Build/API、Hermes Agent、Portal、OpenRouter
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://openai.com/index/introducing-gpt-live">OpenAI 官方博文</a> · <a href="https://simonwillison.net/2026/Jul/8/gpt-live/">Simon Willison 评测</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://x.ai">xAI 官方</a> · <a href="https://openrouter.ai">OpenRouter 试用</a> · <a href="https://news.ycombinator.com/item?id=41000008">HN 讨论</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3 -->
+<!-- ℹ️ ITEM 2 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--fyi">
   <span class="tier-label fyi">ℹ️ 知道就行</span>
-  <h2>Bun 重写案例：Agent 工程极限展示</h2>
-  <p class="pitch">clawii，Simon Willison 今天详细拆解了 Bun 从 Zig 到 Rust 的完整重写过程，使用了 Claude Code/Fable，成本 $165k，生成 5.9B 输入 token、690M 输出 token。这不是一个可以直接用的工具，但展示了当前 Agent 能做到的极限：10 天内重写一个大型运行时，测试通过率极高。</p>
+  <h2>Bun 从 Zig 重写到 Rust — 编码 agent 的工程极限案例</h2>
+  <p class="pitch">clawii，Simon Willison 今天详细记录了 Bun 用 Mythos/Fable 从 Zig 重写到 Rust 的工程案例。这不是一个新工具，而是一个展示编码 agent 在大型项目中真实能力的案例研究。Jarred Sumner 用 Claude 的 Mythos/Fable 模型在 11 天内完成了 100 万行代码的重写，成本约 $165,000。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · Bun 是一个 JavaScript 运行时（类似 Node.js），之前用 Zig 写。Jarred Sumner（Bun 作者）决定用 Claude Code 重写为 Rust，因为 Zig 的内存管理问题导致大量 bug。整个重写过程利用了 TypeScript 测试套件作为 conformance suite，Agent 自动翻译代码，并通过对抗性审查确保质量。最终 PR 有 +1M 行代码，但上线后几乎无人察觉——除了启动速度快了 10%。
+    <strong>📍 背景</strong> · Bun 是一个 JavaScript/TypeScript 运行时，最初用 Zig 编写。Jarred Sumner 决定用 Rust 重写，主要原因是 Zig 的手动内存管理导致大量 use-after-free 和 double-free bug。重写过程中，Claude 的 Mythos/Fable 模型被用来自动化大部分代码移植工作。TypeScript 测试套件作为 conformance suite（一致性测试套件），确保重写后的代码行为一致。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>Agent 能力的新维度</strong> — 这不是简单补全代码，而是完整的语言重写，涉及大量逻辑转换和边界情况。</li>
-    <li><strong>测试套件是关键</strong> — 语言无关的测试套件让 Agent 可以自动验证重写是否正确，这是大规模 Agent 项目的基石。</li>
-    <li><strong>成本门槛</strong> — $165k 的 API 成本（内部价更低）说明这种规模的 Agent 项目仍需要巨大投入，但门槛在快速下降。</li>
+    <li><strong>展示了编码 agent 的极限能力</strong> — 100 万行代码的重写，11 天完成，成本 $165,000。这比人类团队快得多，也便宜得多。</li>
+    <li><strong>验证了 conformance suite 策略</strong> — 语言无关的测试套件是让 agent 大规模重写代码的关键。这对你理解编码 agent 的工作方式有启发。</li>
+    <li><strong>Bun 的 Rust 版本已在 Claude Code 中运行</strong> — Claude Code v2.1.181 已使用 Rust 版 Bun，启动速度提升了 10%。</li>
   </ul>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · Simon Willison: “A fascinating case study in taking on wildly ambitious projects with the help of coordinated parallel agents” — <a href="https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust/">博客</a> · HN 首页 #18，622 points，359 comments
+    <strong>谁在讨论</strong> · Simon Willison: "This is a fascinating case study in taking on wildly ambitious projects with the help of coordinated parallel agents" — <a href="https://simonwillison.net/2026/Jul/8/bun-rust-rewrite/">博客</a> · HN 讨论中社区关注点：agent 重写的可靠性、成本效益、对编程语言选择的影响
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust/">Simon Willison 博客</a> · <a href="https://news.ycombinator.com/item?id=41000001">HN 讨论</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://simonwillison.net/2026/Jul/8/bun-rust-rewrite/">Simon Willison 的博客</a> · <a href="https://bun.com/blog/rewriting-bun-in-rust">Bun 官方博客</a>
   </div>
 </article>
 
@@ -328,24 +268,24 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
     <li>
+      <span class="days">Day 11</span>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF 下载量继续增长（9B 版 136k+，35B 版 958k+，397B 版 70k+）。无新 trigger event。</span></div>
+    </li>
+    <li>
       <span class="days">Day 9</span>
-      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— 已上线一周多，1M 上下文 + 新 tokenizer。今天无新 trigger event，但社区持续讨论 tool call 退化问题（见 7/8 Item 1）。</span></div>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— 已上线 9 天。今天无新 trigger event。社区继续讨论 tool call 退化问题。</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">ZCode (GLM-5.2 开发环境)</span> <span class="update">— 仍在预览版，LangChain 集成指南已发布，但尚未看到大规模采用信号。今天无新 trigger。</span></div>
+      <div><span class="item-name">ZCode (GLM-5.2 开发环境)</span> <span class="update">— 仍在预览版。今天无新 trigger event。</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">Kimi K2.7 Code 进入 Copilot</span> <span class="update">— Copilot 模型切换已上线，但使用量数据尚未公布。今天无新 trigger。</span></div>
+      <div><span class="item-name">Kimi K2.7 Code 进入 Copilot</span> <span class="update">— 模型切换已上线，使用量数据未公布。今天无新 trigger。</span></div>
     </li>
     <li>
       <span class="days">Day 6</span>
-      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— 上期 🚨 必看，今天无新 trigger 事件。社区仍在消化，HF 模型下载量 157（正式发布 6 天）。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">模型越强工具越差</span> <span class="update">— Simon Willison 今天再次提及，但无新案例。社区讨论热度下降。</span></div>
+      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— 上期 🚨 必看，今天无新 trigger 事件。HF 模型下载量 258。</span></div>
     </li>
   </ul>
 </aside>
@@ -360,35 +300,40 @@ li+li{margin-top:.3rem}
       <tr><th>项目</th><th>没选的原因</th></tr>
     </thead>
     <tbody>
-      <tr><td>Microsoft Flint（可视化语言 for AI agents）</td><td>HN #14，295 points，但属于新项目，尚未看到 KOL 背书或多源扩散。Show HN 信号不足以占 top-3。</td></tr>
-      <tr><td>OpenAI “Separating signal from noise in coding evaluations”</td><td>HN #12，219 points，但属于技术博客，非工具/产品信号。且内容偏研究。</td></tr>
-      <tr><td>Databricks 编码 Agent 基准测试</td><td>HN #11，99 points，信号强度不足以占 top-3。</td></tr>
-      <tr><td>Chatto 开源（聊天应用）</td><td>HN #24，987 points，但属于聊天应用，非 AI 工具。</td></tr>
-      <tr><td>TypeScript 7</td><td>HN #27，636 points，非 AI。</td></tr>
-      <tr><td>Bun 重写（已作为 ℹ️ 入选）</td><td>已入选，这里不再重复。</td></tr>
-      <tr><td>John Deere 维修权</td><td>非 AI。</td></tr>
-      <tr><td>蜘蛛毒液杀蜂螨</td><td>非 AI。</td></tr>
-      <tr><td>Meta 旧 RAM 新服务器</td><td>非 AI。</td></tr>
-      <tr><td>Robostral Navigate（Mistral）</td><td>机器人导航模型，偏离 clawii 关注范围（非 AI 软件工具）。</td></tr>
-      <tr><td>Ornith-1.0</td><td>Day 11 无新 trigger，从 Still tracking 中移除。</td></tr>
+      <tr><td>模型越强工具越差（持续发酵）</td><td>7/8 已报道，今天无新 trigger event。</td></tr>
+      <tr><td>小模型在弱网地区崛起</td><td>7/8 已报道，今天无新 trigger event。</td></tr>
       <tr><td>腾讯 Hy3 开源 295B 模型</td><td>7/7 已报道，今天无新 trigger event。</td></tr>
       <tr><td>GPT-5.6 Sol Ultra 进入 Codex</td><td>7/6 已报道，今天无新 trigger event。</td></tr>
+      <tr><td>代码整洁度影响编码 agent 成功率</td><td>7/6 已报道，今天无新 trigger event。</td></tr>
       <tr><td>当 AI 成本超过工程师</td><td>7/6 已报道，今天无新 trigger event。</td></tr>
-      <tr><td>sqlite-utils 4.0rc2</td><td>7/5 已报道，今天无新 trigger event。</td></tr>
-      <tr><td>Zuckerberg 说 AI agent 发展慢于预期</td><td>7/5 已报道，高管言论，非工具/产品信号。</td></tr>
+      <tr><td>GPT-5.5 Codex 推理 token 聚类退化</td><td>7/5 已报道，今天无新 trigger event。</td></tr>
+      <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>7/5 已报道，今天无新 trigger event。</td></tr>
+      <tr><td>Zuckerberg 说 AI agent 发展慢于预期</td><td>高管言论，非工具/产品信号。</td></tr>
+      <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>教育研究，偏离 clawii 关注范围。</td></tr>
+      <tr><td>OpenPrinter</td><td>硬件/3D 打印，非 AI 工具。</td></tr>
+      <tr><td>Organic Maps</td><td>地图应用，非 AI。</td></tr>
       <tr><td>Fable 5 恢复访问 + 安全框架细节</td><td>7/2 已报道，今天无新进展。</td></tr>
       <tr><td>GPT-5.6 预览</td><td>6/26 已详细报道，今天无新进展。</td></tr>
       <tr><td>Claude Tag (Slack 集成)</td><td>6/23 已报道，仍在 beta。无新 trigger event。</td></tr>
       <tr><td>OpenAI Jalapeño 芯片</td><td>6/24 已报道，今天无新进展。</td></tr>
       <tr><td>Meta Brain2Qwerty v2</td><td>纯研究，无可用产品。</td></tr>
+      <tr><td>Fable turned reMarkable into Tom Riddle's diary</td><td>趣味项目而非 AI 工具信号。</td></tr>
+      <tr><td>A global workspace in language models (Anthropic)</td><td>研究论文，无可用产品。</td></tr>
       <tr><td>OfficeCLI: Office suite for AI agents</td><td>新项目，尚未看到 KOL 背书或多源扩散。</td></tr>
-      <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN 信号太弱。</td></tr>
-      <tr><td>Rowboat – Open-source, local-first alternative to Claude Desktop</td><td>HN #21，168 points，但属于新项目，尚未看到 KOL 背书。</td></tr>
-      <tr><td>Herdr: One terminal to rule them all</td><td>终端工具，非 AI。</td></tr>
-      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>学习资源，非工具/产品信号。</td></tr>
-      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>TTS 工具，非 AI 编码/agent 工具。</td></tr>
-      <tr><td>政府国家安全伙伴关系（OpenAI）</td><td>与 clawii 无关。</td></tr>
-      <tr><td>K-12 educators practical skills（OpenAI）</td><td>教育领域，偏离关注范围。</td></tr>
+      <tr><td>Pruning RAG context</td><td>技术博客，信号强度不足以占 top-3。</td></tr>
+      <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN #4，16 points，信号太弱。</td></tr>
+      <tr><td>Rowboat – Open-source, local-first alternative to Claude Desktop</td><td>HN #21，168 points，但属于新项目，尚未看到 KOL 背书或多源扩散。</td></tr>
+      <tr><td>Herdr: One terminal to rule them all</td><td>HN #18，298 points，但属于终端工具，非 AI 工具。</td></tr>
+      <tr><td>Davit, a Apple Containers UI</td><td>HN #19，315 points，但属于 UI 工具，非 AI。</td></tr>
+      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>HN #14，543 points，但属于学习资源，非工具/产品信号。</td></tr>
+      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>HN #12，427 points，但属于 TTS 工具，非 AI 编码/agent 工具。</td></tr>
+      <tr><td>OpenAI 发布 Separating signal from noise in coding evaluations</td><td>博客文章，非工具/产品发布。</td></tr>
+      <tr><td>Microsoft 发布 Flint 可视化语言</td><td>HN #14，295 points，但属于可视化语言，非 AI 编码/agent 工具。</td></tr>
+      <tr><td>Chatto 开源</td><td>HN #24，987 points，但属于聊天应用开源，非 AI 工具信号。</td></tr>
+      <tr><td>TypeScript 7 发布</td><td>HN #27，636 points，但属于编程语言更新，非 AI 工具。</td></tr>
+      <tr><td>Mistral 发布 Robostral Navigate</td><td>机器人导航模型，偏离 clawii 关注范围。</td></tr>
+      <tr><td>OpenAI 发布 GPT-Live</td><td>语音模式升级，非编码/agent 工具。</td></tr>
+      <tr><td>Databricks 编码 agent benchmark</td><td>HN #11，99 points，企业级 benchmark，信号不够强。</td></tr>
     </tbody>
   </table>
 </section>

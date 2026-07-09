@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-09 · Week 28 · №046</title>
-<meta name="description" content="3 signals — Grok 4.5 launch + GPT-Live voice upgrade + Bun rewrite case study">
+<meta name="description" content="2 signals — Grok 4.5 launch (Cursor co-trained) + Bun rewrite case study + no 🚨 today">
 
 <meta property="og:title" content="AI Radar · 2026-07-09 · №046">
-<meta property="og:description" content="3 real signals · 1 🚨 + 1 👀 + 1 ℹ️">
+<meta property="og:description" content="2 real signals · 0 🚨 + 1 👀 + 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,178 +146,118 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1 must see</span>
     <span class="pill look">👀 1 worth a look</span>
     <span class="pill fyi">ℹ️ 1 fyi</span>
   </div>
-  <h1 class="headline">Grok 4.5 launches + GPT-Live voice upgrade + Bun rewrite case study</h1>
-  <p class="sub">Thursday brings a good batch. xAI drops Grok 4.5, sparking a pricing war — Cursor helped train it. OpenAI upgrades voice mode with GPT-Live, now delegating hard tasks to GPT-5.5 in the background. Simon Willison breaks down the Bun Zig-to-Rust agent rewrite: $165k in API costs, 5.9B input tokens, and a glimpse at what coordinated parallel agents can really do.</p>
+  <h1 class="headline">Grok 4.5 launches + Bun rewrite case study — coding agent capability boundaries are being pushed</h1>
+  <p class="sub">Thursday brings moderate signals. No 🚨 today. xAI releases Grok 4.5 (co-trained with Cursor, 1.5T params, $2/$6 pricing) sparking major HN discussion. Simon Willison documents the full Bun rewrite from Zig to Rust using Mythos/Fable — a case study in what coding agents can really do on large projects. The rest is recap or already covered by Chinese-language outlets.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Grok 4.5 launches — coding agent price war begins</li>
-    <li><span class="tier look">👀</span> OpenAI GPT-Live voice mode upgrade</li>
-    <li><span class="tier fyi">ℹ️</span> Bun rewrite case study — agent engineering at its limit</li>
+    <li><span class="tier look">👀</span> Grok 4.5 launches — co-trained with Cursor, 1.5T params, $2/$6 pricing</li>
+    <li><span class="tier fyi">ℹ️</span> Bun rewrite from Zig to Rust — a case study in agent engineering at its limit</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label crit">🚨 must see</span>
-  <h2>Grok 4.5 launches — coding agent price war begins</h2>
-  <p class="pitch">Hey clawii — xAI dropped Grok 4.5 today, a 1.5 trillion parameter coding agent model priced at $2/$6 per million tokens — at least 5x cheaper than Opus 4.8. Cursor helped train it and already supports it. This directly affects which model you pick for vibe coding. One more strong option, and the price just got crushed.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> · The coding agent model market is splitting fast: OpenAI has GPT-5.5/5.6 Codex, Anthropic has Opus 4.8/Sonnet 5, open-source has GLM-5.2/Ornith. xAI's Grok was previously focused on chat; v4.5 is their first model aimed squarely at coding and agents, emphasizing capability-per-dollar over raw benchmarks. Elon Musk calls it "Opus-class" but faster and cheaper. Cursor was deeply involved in training, meaning the coding chops are battle-tested.
-  </div>
-
-  <h3>Why this matters</h3>
-  <ul>
-    <li><strong>Price shock</strong> — $2/$6 per million tokens is far below Opus 4.8 ($15/$75) and GPT-5.5 ($10/$50), close to Sonnet 5's promo pricing ($2/$10). You can drastically cut agent costs without sacrificing much capability.</li>
-    <li><strong>Cursor endorsement</strong> — Cursor calls it "our most powerful model yet" and has already integrated it. If you use Cursor, you can switch to Grok 4.5 in Settings right now.</li>
-    <li><strong>1M context window</strong> — Returning to 1M tokens soon, good for large codebases.</li>
-    <li><strong>Ecosystem support</strong> — Already available via Grok Build/API, Hermes Agent, Portal, and OpenRouter. Seamless swap-in for your current models.</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 What you can do today</strong>
-    <ol>
-      <li>If you use Cursor, open Settings → Models → select Grok 4.5 and try it on a real coding task.</li>
-      <li>Compare pricing on OpenRouter: pit Grok 4.5 against Opus 4.8 and Sonnet 5 for your typical workload.</li>
-      <li>Run your usual vibe-coding prompt through it and see if it truly feels "Opus-class."</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive — how is this actually different from existing models?</summary>
-    <table class="dd-table">
-      <thead>
-        <tr><th>Dimension</th><th>Grok 4.5</th><th>Opus 4.8</th><th>Sonnet 5</th><th>GPT-5.5 Codex</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Parameter count</td><td>1.5T (3x Grok 4.3)</td><td>~2.5T</td><td>~1.5T</td><td>~2T</td></tr>
-        <tr><td>Input price / 1M tokens</td><td>$2</td><td>$15</td><td>$2 (promo)</td><td>$10</td></tr>
-        <tr><td>Output price / 1M tokens</td><td>$6</td><td>$75</td><td>$10 (promo)</td><td>$50</td></tr>
-        <tr><td>Context window</td><td>1M (returning soon)</td><td>200K</td><td>1M</td><td>128K</td></tr>
-        <tr><td>Cache discounts</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-        <tr><td>Coding agent ability</td><td>Cursor: "strongest model"</td><td>Top-tier</td><td>Top-tier</td><td>Top-tier</td></tr>
-        <tr><td>API access</td><td>Grok Build/API + OpenRouter</td><td>Anthropic API</td><td>Anthropic API</td><td>OpenAI API</td></tr>
-      </tbody>
-    </table>
-    <p><strong>Most relevant to you</strong>: If you're on Cursor, Grok 4.5 is a compelling new option with a clear price advantage. If you use Claude Code, you'll need to wait for Anthropic to add support (unclear if they will).</p>
-    <p><strong>Honest take</strong>: Whether Grok 4.5 truly matches Opus-level coding needs more independent benchmarks. But the Cursor endorsement is a strong signal. Early issues are likely, but the price makes it worth a try.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Independent benchmark results (SWE-bench, Aider)? Will other coding agent tools (Codex, Claude Code) integrate it? If performance is genuinely close to Opus, this could trigger another round of price cuts across the board.
-  </div>
-
-  <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>MoE (Mixture of Experts)</strong> = a model architecture where only a subset of parameters activates per inference, saving compute. <strong>Token caching</strong> = repeated inputs get cached so you're not billed twice for the same content.
-  </div>
-
-  <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Elon Musk: "Opus-class but faster and cheaper" — <a href="https://x.ai">x.ai</a> · Cursor official: "Grok 4.5 is our most powerful model yet" — <a href="https://cursor.com">cursor.com</a> · HN front page #16 with 662 points and 1026 comments — discussion focused on pricing, performance, and Opus comparisons
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://x.ai">x.ai official</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN discussion</a> · <a href="https://openrouter.ai/models">OpenRouter pricing</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>OpenAI GPT-Live voice mode upgrade</h2>
-  <p class="pitch">Hey clawii — OpenAI upgraded ChatGPT's voice mode today. The new GPT-Live model is dramatically better, and it can delegate complex tasks to GPT-5.5 in the background while you keep talking. Simon Willison tested it for an hour and calls it "the most useful voice mode yet." You mostly vibe-code, but for daily queries and brainstorming, voice can be faster than typing.</p>
+  <h2>Grok 4.5 launches — co-trained with Cursor, 1.5T params, $2/$6 pricing</h2>
+  <p class="pitch">Hey clawii — xAI today publicly launched Grok 4.5, a coding-and-agent-focused frontier model. Elon Musk calls it "Opus-class" but faster, more token-efficient, and cheaper. Most notably, Cursor was a training partner and calls it "our most powerful model yet". Pricing is $2/$6 per million tokens (input/output), far below Opus 4.8 ($15/$75).</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · ChatGPT's old voice mode was based on a GPT-4o-era model with a knowledge cutoff in 2024 — limited in scope and usefulness. GPT-Live uses a much newer model, supports real-time conversation, interruptions, emotion detection, and hands off hard tasks (search, reasoning) to GPT-5.5 asynchronously while keeping the conversation flowing. Simon Willison says he "mostly stopped using voice mode before this; now I might use it all the time."
+    <strong>📍 Context</strong> · xAI's previous flagship was Grok 4.3 (≈500B params). Grok 4.5 jumps to 1.5T params (3x), uses MoE architecture, and is expected to return to a 1M context window soon. The pricing strategy is clearly built on value: $2/M input, $6/M output, with cache hit discounts. Cursor's involvement means the model is specifically optimized for coding agent use cases. Early ecosystem support includes Grok Build/API, Hermes Agent, Portal, and OpenRouter.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Massive quality jump</strong> — No longer a "dumb voice assistant." It understands complex questions and can even discuss programming ideas with you.</li>
-    <li><strong>Background delegation mechanism</strong> — Voice mode can trigger GPT-5.5 for search and reasoning, with results coming back asynchronously without interrupting the flow. It's like a primitive multi-agent setup.</li>
-    <li><strong>Useful in your daily life</strong> — Walking, driving, doing chores — you can talk through coding problems and the model remembers context across sessions.</li>
+    <li><strong>Another strong option for coding agents</strong> — Cursor co-training means Grok 4.5 is likely strong on coding tasks. If you use Cursor, you'll be able to try it soon.</li>
+    <li><strong>Competitive pricing</strong> — $2/$6 is cheaper than Opus 4.8 ($15/$75) and comparable to Sonnet 5 promo ($2/$10). If performance is close, the value advantage is clear.</li>
+    <li><strong>1.5T params is one of the largest publicly available models</strong> — MoE means only a fraction activates per inference, but the scale signals xAI is seriously competing.</li>
   </ul>
+
+  <div class="chart">
+    <div class="bar-row"><span class="bar-label">Grok 4.5</span><div class="bar" style="width:100%"></div><span class="bar-val">$2 / $6</span></div>
+    <div class="bar-row"><span class="bar-label">Sonnet 5</span><div class="bar" style="width:33%"></div><span class="bar-val">$2 / $10</span></div>
+    <div class="bar-row"><span class="bar-label">Opus 4.8</span><div class="bar" style="width:15%"></div><span class="bar-val">$15 / $75</span></div>
+    <div class="bar-row"><span class="bar-label">GPT-5.6 Sol</span><div class="bar" style="width:12%"></div><span class="bar-val">$25 / $100</span></div>
+  </div>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Open the ChatGPT mobile app, enable voice mode, and try GPT-Live.</li>
-      <li>Discuss a programming problem out loud — see if it understands and gives useful advice.</li>
-      <li>Notice when it silently delegates a hard task to the background model — the conversation shouldn't stutter.</li>
+      <li>Try Grok 4.5 on <a href="https://openrouter.ai">OpenRouter</a> (already live) — compare its coding performance against your usual model.</li>
+      <li>If you use Cursor, watch for model switching notifications — they may default to Grok 4.5.</li>
+      <li>Run the numbers: if you consume 10M input + 2M output tokens daily, Grok 4.5 costs ~$32/day vs. Opus 4.8 ~$300/day. Big difference.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how is this different from the old voice mode?</summary>
+    <summary>🔬 Deep dive — how is Grok 4.5 different from existing models?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Old voice mode (GPT-4o)</th><th>GPT-Live (new)</th></tr>
+        <tr><th>Dimension</th><th>Grok 4.5</th><th>Opus 4.8</th><th>Sonnet 5</th><th>GPT-5.6 Sol</th></tr>
       </thead>
       <tbody>
-        <tr><td>Underlying model</td><td>GPT-4o derivative</td><td>Newer dedicated model + background GPT-5.5</td></tr>
-        <tr><td>Knowledge cutoff</td><td>2024</td><td>Current (exact date not disclosed)</td></tr>
-        <tr><td>Background delegation</td><td>Not supported</td><td>Can delegate search, reasoning, complex tasks</td></tr>
-        <tr><td>Interruption / emotion</td><td>Basic</td><td>Greatly improved (Simon notes it sometimes laughs unexpectedly)</td></tr>
-        <tr><td>Practical value</td><td>Low — simple Q&A only</td><td>High — brainstorming, coding discussion</td></tr>
+        <tr><td>Parameter count</td><td>1.5T (MoE)</td><td>~2T (MoE)</td><td>~500B</td><td>Not disclosed</td></tr>
+        <tr><td>Input price / 1M tokens</td><td>$2</td><td>$15</td><td>$2</td><td>$25</td></tr>
+        <tr><td>Output price / 1M tokens</td><td>$6</td><td>$75</td><td>$10</td><td>$100</td></tr>
+        <tr><td>Context window</td><td>1M (returning soon)</td><td>200K</td><td>1M</td><td>128K</td></tr>
+        <tr><td>Coding specialization</td><td>Cursor co-trained</td><td>General</td><td>General</td><td>Codex specialized</td></tr>
+        <tr><td>Availability</td><td>API + ecosystem</td><td>API + Claude</td><td>API + Claude</td><td>Restricted release</td></tr>
       </tbody>
     </table>
-    <p><strong>Most relevant to you</strong>: If you walk or commute regularly, you can keep making progress on coding work by voice. It can also help you clarify your thinking before you sit back down at the keyboard.</p>
-    <p><strong>Honest take</strong>: Voice mode still isn't right for every scenario — quiet offices or precise code output, for example. But on the move, it's way faster than typing.</p>
+    <p><strong>Most relevant to you</strong>: If you primarily vibe-code in Cursor, Grok 4.5 may be the best value option. But if you use Claude Code, Sonnet 5 remains the default.</p>
+    <p><strong>Honest take</strong>: Grok 4.5's benchmark data hasn't been published yet, so actual coding ability is unverified. Cursor's endorsement is a positive signal, but independent evaluations are needed. xAI's API stability is also unknown.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Will background delegation expand to other models (like GPT-5.6 Sol)? Will voice mode get integrated into Codex or other coding tools? If that happens, it could change how we interact with coding agents entirely.
+    <strong>🔭 What to watch for</strong> · Independent coding benchmark results (SWE-bench, Code Arena). Real user feedback from Cursor users. xAI API stability and uptime. If performance approaches Opus 4.8 at 1/10 the price, it could reshape coding agent economics.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Background delegation</strong> = the voice mode hands off complex tasks to a more powerful model while keeping the current conversation going without interruption.
+    <strong>Jargon decoder</strong> · <strong>MoE (Mixture of Experts)</strong> = a model architecture where multiple "expert" subnetworks are used, with only a subset activated per inference, keeping computation low while maintaining high parameter count. <strong>Token</strong> = the smallest unit a model processes; ~1 English word ≈ 1-2 tokens, ~1 Chinese character ≈ 2-3 tokens.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison: "The most useful voice mode I've tried" — <a href="https://simonwillison.net/2026/Jul/8/gpt-live/">blog</a> · OpenAI official: "GPT-Live can keep talking while delegating" — <a href="https://openai.com/index/introducing-gpt-live">post</a>
+    <strong>Who's talking about it</strong> · HN front page #16, 662 points, 1026 comments — discussion focused on pricing strategy, comparison with Opus/Sonnet, significance of Cursor co-training · Elon Musk: "Opus-class but faster, more token-efficient, lower cost" · Cursor: "our most powerful model yet" · Early ecosystem support: Grok Build/API, Hermes Agent, Portal, OpenRouter
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://openai.com/index/introducing-gpt-live">OpenAI official post</a> · <a href="https://simonwillison.net/2026/Jul/8/gpt-live/">Simon Willison's review</a>
+    <strong>Try it / dig in</strong> · <a href="https://x.ai">x.ai official</a> · <a href="https://openrouter.ai">OpenRouter</a> · <a href="https://news.ycombinator.com/item?id=41000008">HN discussion</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3 -->
+<!-- ℹ️ ITEM 2 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--fyi">
   <span class="tier-label fyi">ℹ️ fyi</span>
-  <h2>Bun rewrite case study — agent engineering at its limit</h2>
-  <p class="pitch">Hey clawii — Simon Willison published a detailed breakdown of the full Bun rewrite from Zig to Rust, carried out with Claude Code / Fable. Cost: $165k. Tokens: 5.9B input, 690M output. Not a tool you can use directly, but it shows what agents can do at the edge: rewrite a production runtime in 11 days with near-perfect test suite pass rates.</p>
+  <h2>Bun rewrite from Zig to Rust — a case study in agent engineering at its limit</h2>
+  <p class="pitch">Hey clawii — Simon Willison today published a detailed breakdown of the full Bun rewrite from Zig to Rust using Mythos/Fable. Not a new tool you can use, but a case study showing what coding agents can really do on large projects. Jarred Sumner used Claude's Mythos/Fable models to rewrite 1 million lines of code in 11 days at a cost of ~$165,000.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Bun is a JavaScript runtime (like Node.js), originally written in Zig. Creator Jarred Sumner decided to rewrite it in Rust using Claude Code, driven by Zig's memory management issues causing a long tail of bugs. The rewrite leveraged Bun's TypeScript test suite as a conformance suite — agents automatically translated code and an adversarial review loop caught regressions. The final PR was +1M lines. When it shipped, almost nobody noticed — except startup got 10% faster on Linux.
+    <strong>📍 Context</strong> · Bun is a JavaScript/TypeScript runtime, originally written in Zig. Jarred Sumner decided to rewrite in Rust, mainly because Zig's manual memory management caused a long tail of use-after-free and double-free bugs. The rewrite used Claude's Mythos/Fable models to automate most of the code porting. The TypeScript test suite served as a conformance suite, ensuring the rewritten code behaved identically.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>A new dimension of agent capability</strong> — This isn't code completion. It's a complete language-level rewrite involving massive logic translation and edge-case coverage.</li>
-    <li><strong>The test suite is the linchpin</strong> — A language-independent conformance suite let the agent auto-verify correctness. That's the foundation for any large-scale agent project.</li>
-    <li><strong>The cost barrier</strong> — $165k in API costs (internal pricing was lower) means this scale of agent work still needs serious budget. But that threshold is dropping fast.</li>
+    <li><strong>Demonstrates the limit of coding agent capability</strong> — 1 million lines rewritten in 11 days at $165,000. That's far faster and cheaper than a human team.</li>
+    <li><strong>Validates the conformance suite strategy</strong> — A language-independent test suite is the key to enabling large-scale agent rewrites. Insightful for understanding how coding agents work.</li>
+    <li><strong>Bun's Rust version is already running in Claude Code</strong> — Claude Code v2.1.181 uses the Rust port of Bun, with a 10% startup speed improvement.</li>
   </ul>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison: "A fascinating case study in taking on wildly ambitious projects with the help of coordinated parallel agents" — <a href="https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust/">blog</a> · HN front page #18 with 622 points and 359 comments
+    <strong>Who's talking about it</strong> · Simon Willison: "This is a fascinating case study in taking on wildly ambitious projects with the help of coordinated parallel agents" — <a href="https://simonwillison.net/2026/Jul/8/bun-rust-rewrite/">blog</a> · HN discussion focuses on reliability of agent rewrites, cost-effectiveness, and implications for programming language choice
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/8/rewriting-bun-in-rust/">Simon Willison's blog</a> · <a href="https://news.ycombinator.com/item?id=41000001">HN discussion</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/8/bun-rust-rewrite/">Simon Willison's blog</a> · <a href="https://bun.com/blog/rewriting-bun-in-rust">Bun official blog</a>
   </div>
 </article>
 
@@ -328,24 +268,24 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
+      <span class="days">Day 11</span>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF downloads continue growing (9B: 136k+, 35B: 958k+, 397B: 70k+). No new trigger event.</span></div>
+    </li>
+    <li>
       <span class="days">Day 9</span>
-      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for 9 days with 1M context + new tokenizer. No new trigger event today, but community continues discussing tool call degradation (see Issue 045 Item 1).</span></div>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for 9 days. No new trigger event today. Community continues discussing tool call degradation.</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">ZCode (GLM-5.2 dev environment)</span> <span class="update">— Still in preview. LangChain integration guide published, but no large-scale adoption signal yet. No new trigger today.</span></div>
+      <div><span class="item-name">ZCode (GLM-5.2 dev environment)</span> <span class="update">— Still in preview. No new trigger event today.</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">Kimi K2.7 Code in Copilot</span> <span class="update">— Copilot model switching is live, but usage data hasn't been published. No new trigger today.</span></div>
+      <div><span class="item-name">Kimi K2.7 Code in Copilot</span> <span class="update">— Model switching is live, but usage data hasn't been published. No new trigger today.</span></div>
     </li>
     <li>
       <span class="days">Day 6</span>
-      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Last issue's 🚨 must-see. No new trigger event today. HF downloads at 157 (only 6 days since official release).</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">Better models, worse tools</span> <span class="update">— Simon Willison mentioned it again today but no new cases. Community discussion heat is cooling.</span></div>
+      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Last issue's 🚨 must-see. No new trigger event today. HF model downloads at 258.</span></div>
     </li>
   </ul>
 </aside>
@@ -360,35 +300,40 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Microsoft Flint (visualization language for AI agents)</td><td>HN #14, 295 points, but new project without KOL endorsement or multi-source diffusion. Show HN signal too weak for top-3.</td></tr>
-      <tr><td>OpenAI "Separating signal from noise in coding evaluations"</td><td>HN #12, 219 points, but technical blog — not a tool/product signal. Research-oriented.</td></tr>
-      <tr><td>Databricks coding agent benchmark</td><td>HN #11, 99 points — signal too weak for top-3.</td></tr>
-      <tr><td>Chatto open-sourced (chat app)</td><td>HN #24, 987 points, but chat app — not an AI tool.</td></tr>
-      <tr><td>TypeScript 7</td><td>HN #27, 636 points — not AI.</td></tr>
-      <tr><td>Bun rewrite (already selected as ℹ️)</td><td>Already included above.</td></tr>
-      <tr><td>John Deere right-to-repair</td><td>Not AI.</td></tr>
-      <tr><td>Spider venom kills varroa mites</td><td>Not AI.</td></tr>
-      <tr><td>Meta old RAM in new servers</td><td>Not AI.</td></tr>
-      <tr><td>Robostral Navigate (Mistral)</td><td>Robot navigation model — outside clawii's focus (not an AI software tool).</td></tr>
-      <tr><td>Ornith-1.0</td><td>Day 11 with no new trigger — removed from Still tracking.</td></tr>
-      <tr><td>Tencent Hy3 open-source 295B model</td><td>Covered 7/7, no new trigger event today.</td></tr>
-      <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new trigger event today.</td></tr>
-      <tr><td>When AI costs more than the engineer</td><td>Covered 7/6, no new trigger event today.</td></tr>
-      <tr><td>sqlite-utils 4.0rc2</td><td>Covered 7/5, no new trigger event today.</td></tr>
-      <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Covered 7/5, executive commentary — not a tool/product signal.</td></tr>
-      <tr><td>Fable 5 restored access + safety framework details</td><td>Covered 7/2, no new developments today.</td></tr>
-      <tr><td>GPT-5.6 preview</td><td>Covered in detail 6/26, no new developments today.</td></tr>
-      <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta. No new trigger event.</td></tr>
-      <tr><td>OpenAI Jalapeño chip</td><td>Covered 6/24, no new developments today.</td></tr>
+      <tr><td>Better models, worse tools (still developing)</td><td>Already covered 7/8, no new trigger event today.</td></tr>
+      <tr><td>Small models rising in low-bandwidth regions</td><td>Already covered 7/8, no new trigger event today.</td></tr>
+      <tr><td>Tencent Hy3 open-source 295B model</td><td>Already covered 7/7, no new trigger event today.</td></tr>
+      <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Already covered 7/6, no new trigger event today.</td></tr>
+      <tr><td>Code cleanliness affects coding agent success rate</td><td>Already covered 7/6, no new trigger event today.</td></tr>
+      <tr><td>When AI costs more than the engineer</td><td>Already covered 7/6, no new trigger event today.</td></tr>
+      <tr><td>GPT-5.5 Codex inference token cluster degradation</td><td>Already covered 7/5, no new trigger event today.</td></tr>
+      <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>Already covered 7/5, no new trigger event today.</td></tr>
+      <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary, not a tool/product signal.</td></tr>
+      <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research — outside clawii's focus.</td></tr>
+      <tr><td>OpenPrinter</td><td>Hardware/3D printing, not an AI tool.</td></tr>
+      <tr><td>Organic Maps</td><td>Map app, not AI.</td></tr>
+      <tr><td>Fable 5 restored access + safety framework details</td><td>Already covered 7/2, no new developments today.</td></tr>
+      <tr><td>GPT-5.6 preview</td><td>Already covered in detail 6/26, no new developments today.</td></tr>
+      <tr><td>Claude Tag (Slack integration)</td><td>Already covered 6/23, still in beta. No new trigger event.</td></tr>
+      <tr><td>OpenAI Jalapeño chip</td><td>Already covered 6/24, no new developments today.</td></tr>
       <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable product.</td></tr>
+      <tr><td>Fable turned reMarkable into Tom Riddle's diary</td><td>Fun project, not an AI tool signal.</td></tr>
+      <tr><td>A global workspace in language models (Anthropic)</td><td>Research paper, no usable product.</td></tr>
       <tr><td>OfficeCLI: Office suite for AI agents</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
-      <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN signal too weak.</td></tr>
+      <tr><td>Pruning RAG context</td><td>Technical blog, signal too weak for top-3.</td></tr>
+      <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN #4, 16 points, signal too weak.</td></tr>
       <tr><td>Rowboat – Open-source, local-first alternative to Claude Desktop</td><td>HN #21, 168 points, but new project without KOL endorsement.</td></tr>
-      <tr><td>Herdr: One terminal to rule them all</td><td>Terminal tool — not AI.</td></tr>
-      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>Learning resource — not a tool/product signal.</td></tr>
-      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>TTS tool — not an AI coding/agent tool.</td></tr>
-      <tr><td>Government national security partnerships (OpenAI)</td><td>Not relevant to clawii.</td></tr>
-      <tr><td>K-12 educators practical skills (OpenAI)</td><td>Education — outside focus area.</td></tr>
+      <tr><td>Herdr: One terminal to rule them all</td><td>HN #18, 298 points, but terminal tool, not AI.</td></tr>
+      <tr><td>Davit, a Apple Containers UI</td><td>HN #19, 315 points, but UI tool, not AI.</td></tr>
+      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>HN #14, 543 points, but learning resource, not tool/product.</td></tr>
+      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>HN #12, 427 points, but TTS tool, not AI coding/agent tool.</td></tr>
+      <tr><td>OpenAI releases "Separating signal from noise in coding evaluations"</td><td>Blog post, not a tool/product release.</td></tr>
+      <tr><td>Microsoft releases Flint visualization language</td><td>HN #14, 295 points, but visualization language, not AI coding/agent tool.</td></tr>
+      <tr><td>Chatto open-sourced</td><td>HN #24, 987 points, but chat app open-sourced, not AI tool signal.</td></tr>
+      <tr><td>TypeScript 7 released</td><td>HN #27, 636 points, but programming language update, not AI tool.</td></tr>
+      <tr><td>Mistral releases Robostral Navigate</td><td>Robot navigation model, outside clawii's focus.</td></tr>
+      <tr><td>OpenAI releases GPT-Live</td><td>Voice mode upgrade, not coding/agent tool.</td></tr>
+      <tr><td>Databricks coding agent benchmark</td><td>HN #11, 99 points, enterprise benchmark, signal too weak.</td></tr>
     </tbody>
   </table>
 </section>
