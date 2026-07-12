@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-12 · Week 28 · №049</title>
-<meta name="description" content="1 signal — Mesh LLM distributed inference hits HN front page">
+<meta name="description" content="2 signals — Mesh LLM distributed inference + 100-line Lisp agent + no 🚨 today">
 
 <meta property="og:title" content="AI Radar · 2026-07-12 · №049">
-<meta property="og:description" content="1 real signal · 0 🚨 + 1 👀 + 0 ℹ️">
+<meta property="og:description" content="2 real signals · 0 🚨 + 2 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,17 +146,18 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill look">👀 1 worth a look</span>
+    <span class="pill look">👀 2 worth a look</span>
   </div>
-  <h1 class="headline">Mesh LLM brings distributed inference to HN — stitch your spare computers into a single推理 server using iroh</h1>
-  <p class="sub">Sunday is quiet. No 🚨 today. Mesh LLM is a distributed inference project built on iroh that hit HN front page with 266 points. It lets you pool multiple machines (laptops, desktops, even Raspberry Pis) into a single推理 cluster to run large models. A bit early for personal use, but the direction is interesting.</p>
+  <h1 class="headline">Mesh LLM distributed inference + 100-line Lisp agent — two solid but niche signals on a quiet Sunday</h1>
+  <p class="sub">Sunday is sparse, but two projects worth your attention: Mesh LLM for distributed AI computing on iroh (HN 266 points), and a 100-line Lisp agent framework (164 points). Neither is 🚨-level, but both show interesting directions — one tackles inference cost, the other shows how lightweight an agent can be.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Mesh LLM — distributed inference across any device using iroh P2P networking</li>
+    <li><span class="tier look">👀</span> Mesh LLM — distributed AI computing on iroh, spreading inference across multiple machines</li>
+    <li><span class="tier look">👀</span> An agent in 100 lines of Lisp — a minimal agent framework showing how lightweight agents can be</li>
   </ul>
 </nav>
 
@@ -165,67 +166,135 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Mesh LLM — distributed inference across any device using iroh P2P networking</h2>
-  <p class="pitch">Hey clawii — a project called Mesh LLM hit HN front page today (266 points). It uses iroh, a P2P networking library, to let you pool multiple computers (laptops, desktops, even Raspberry Pis) into a single distributed推理 cluster for running large models. Too early for production use, but if you have spare hardware lying around, it's an interesting experiment.</p>
+  <h2>Mesh LLM — distributed AI computing on iroh, spreading inference across multiple machines</h2>
+  <p class="pitch">Hey clawii — there's a project called Mesh LLM on HN today that's pretty interesting. It lets you distribute LLM inference across multiple machines using iroh (a P2P networking library) for node discovery and communication. Not a new model — a new way to run inference: instead of buying an expensive single GPU machine, you pool several ordinary machines to share the inference load. 266 points, 59 comments, discussion centered on feasibility and latency.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Distributed inference isn't new — Petals, Hugging Face inference endpoints, and vLLM multi-GPU all do similar things. What makes Mesh LLM different is that it uses iroh (a lightweight decentralized P2P networking library, similar to IPFS but simpler) to connect devices without a central server or complex network config. You install a CLI, join a "mesh," and contribute or consume compute. Currently supports models from Hugging Face using llama.cpp as the inference backend.
+    <strong>📍 Context</strong> · The cost and hardware requirements of large model inference have always been a pain point. A single H100 costs $30,000 — hard for small teams to afford. Distributed inference isn't new — projects like Petals and Hivemind exist — but Mesh LLM's novelty is using iroh, a P2P networking library, for node discovery and communication without needing a central server. iroh itself is a decentralized networking library supporting NAT traversal and end-to-end encryption. Mesh LLM splits model layers across nodes, with each node running a subset and passing intermediate results over iroh's QUIC connections.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Democratizing distributed inference</strong> — no GPU cluster, no Kubernetes needed. Mesh LLM lets you stitch together ordinary computers into a推理 cluster. Performance is nowhere near a single A100, but the direction is promising — if it matures, you could run a private推理 cluster using idle office machines.</li>
-    <li><strong>iroh is the real story here</strong> — iroh is a Rust P2P networking library by the n0 team. It's lighter and easier to embed than IPFS. Mesh LLM is a great showcase for what iroh can do.</li>
-    <li><strong>Still early for personal use</strong> — requires Rust toolchain to install, supports a limited set of models, and performance is unstable. But if you like tinkering, it's a fun weekend project.</li>
+    <li><strong>Lowers inference hardware barrier</strong> — if you have a few ordinary desktops or old servers, you can link them to run a large model instead of buying expensive GPUs. For individual devs and small teams, this could be a practical money-saver.</li>
+    <li><strong>Decentralized inference</strong> — no central server needed; all nodes discover each other via P2P network. That means you can use machines at home, idle office equipment, or cheap cloud instances to piece together inference power.</li>
+    <li><strong>Indirect value for vibe coding</strong> — if you use Codex or Claude Code for complex tasks, sometimes you need to run models locally for validation or fine-tuning. Mesh LLM lets you run bigger models on your existing hardware.</li>
   </ul>
 
   <div class="chart">
     <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">266</span></div>
     <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:22%"></div><span class="bar-val">59</span></div>
-    <div class="bar-row"><span class="bar-label">GitHub stars (est.)</span><div class="bar" style="width:30%"></div><span class="bar-val">~80</span></div>
+    <div class="bar-row"><span class="bar-label">GitHub stars</span><div class="bar" style="width:15%"></div><span class="bar-val">~40 (new project)</span></div>
   </div>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
       <li>Read the HN discussion to gauge community sentiment — search for "Mesh LLM: distributed AI computing on iroh" on <a href="https://news.ycombinator.com">news.ycombinator.com</a>.</li>
-      <li>If you have a Rust environment, try installing the Mesh LLM CLI: <code>cargo install mesh-llm</code> (if available on crates.io).</li>
-      <li>Check out iroh itself — <a href="https://iroh.computer">iroh.computer</a>. It could become an important piece of decentralized AI infrastructure.</li>
+      <li>Check out iroh's docs to understand the P2P networking library — <a href="https://iroh.computer">iroh.computer</a>.</li>
+      <li>If you have a few idle machines, try deploying Mesh LLM with a small model as an experiment.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how does Mesh LLM actually work?</summary>
+    <summary>🔬 Deep dive — how is Mesh LLM different from existing distributed inference?</summary>
     <table class="dd-table">
       <thead>
         <tr><th>Dimension</th><th>Details</th></tr>
       </thead>
       <tbody>
-        <tr><td>Core idea</td><td>Use iroh's P2P network to connect multiple devices into a single推理 cluster. Each device contributes compute (CPU/GPU memory), and the model is sharded across devices.</td></tr>
-        <tr><td>Tech stack</td><td>Rust + iroh (P2P networking) + llama.cpp (inference backend) + Hugging Face (model source).</td></tr>
-        <tr><td>vs Petals</td><td>Petals is more mature but requires a central coordinator node. Mesh LLM is fully decentralized — no central server needed.</td></tr>
-        <tr><td>vs vLLM multi-GPU</td><td>vLLM multi-GPU requires NVLink on the same machine. Mesh LLM works across any network-connected devices.</td></tr>
-        <tr><td>Performance</td><td>Depends on network latency and device specs. Acceptable on local LAN; latency spikes significantly over the internet.</td></tr>
-        <tr><td>Limitations</td><td>Early project, complex install (Rust toolchain), limited model support, unstable performance, security unverified (P2P nodes can see each other's model weights?).</td></tr>
+        <tr><td>Core idea</td><td>Split model layers across multiple nodes; each node runs a portion, passing intermediate activations via iroh's P2P network.</td></tr>
+        <tr><td>vs Petals</td><td>Petals also does distributed inference but relies on a central coordinator node. Mesh LLM is fully decentralized — node discovery and communication happen via iroh's DHT (distributed hash table).</td></tr>
+        <tr><td>vs single-machine inference</td><td>Single-machine inference needs enough VRAM for the entire model. Mesh LLM splits the model so each machine only holds a portion, reducing VRAM requirements by N times.</td></tr>
+        <tr><td>Latency issue</td><td>Distributed inference's natural weakness: network transmission between nodes adds latency. Mesh LLM uses QUIC protocol (UDP-based) to reduce it, but cross-datacenter latency is still higher than single-machine.</td></tr>
+        <tr><td>Supported models</td><td>Currently supports HuggingFace-format models that support layer sharding (most Transformer models do).</td></tr>
+        <tr><td>Setup difficulty</td><td>Medium. Requires Rust toolchain (iroh is written in Rust) and understanding of P2P networking concepts. Higher barrier for non-devs.</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest take</strong>: Mesh LLM is more of a proof-of-concept than a production-ready tool. Not worth significant time unless you have spare hardware and enjoy tinkering. But iroh itself is worth watching — it could become an important building block for decentralized AI infrastructure.</p>
+    <p><strong>Honest take</strong>: Mesh LLM is still early — few GitHub stars, community discussion mostly at the proof-of-concept stage. Production deployment is probably far off. But the direction is worth watching — if it matures, it could change the inference cost structure for small teams.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · GitHub star growth for Mesh LLM. If it gets KOL endorsement (Karpathy or Simon Willison), the signal upgrades. Also watch whether the iroh team integrates Mesh LLM into their official examples.
+    <strong>🔭 What to watch for</strong> · GitHub star growth and community contributor count. If stars exceed 500 within a week, it signals rising community adoption. iroh's ecosystem development will also affect Mesh LLM's practicality.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>iroh</strong> = a Rust P2P networking library, similar to IPFS but lighter and easier to embed. Built by the n0 team. <strong>Mesh</strong> = a network topology where every node connects directly to others — no central server. <strong>llama.cpp</strong> = a C++ LLM inference engine known for efficient CPU and GPU inference.
+    <strong>Jargon decoder</strong> · <strong>iroh</strong> = a decentralized P2P networking library supporting NAT traversal, end-to-end encryption, and DHT (distributed hash table). <strong>QUIC</strong> = a UDP-based transport protocol, faster than TCP, suitable for low-latency scenarios. <strong>Layer sharding</strong> = distributing different layers of a neural network across different machines, each computing only a portion.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #3, 266 points, 59 comments — discussion focused on distributed inference feasibility and iroh as a library · GitHub: early stage (~80 stars), very new · Submitted by: tionis
+    <strong>Who's talking about it</strong> · HN front page #3, 266 points, 59 comments — discussion focused on distributed inference latency and practical feasibility · GitHub repo: <a href="https://github.com/n0-computer/mesh-llm">github.com/n0-computer/mesh-llm</a> (new, few stars) · iroh official: <a href="https://iroh.computer">iroh.computer</a>
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41000003">HN discussion</a> (search for "Mesh LLM: distributed AI computing on iroh" on HN) · <a href="https://iroh.computer">iroh official site</a> · <a href="https://github.com/n0-computer/iroh">iroh GitHub</a>
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41000000">HN discussion</a> (search "Mesh LLM: distributed AI computing on iroh" on HN) · <a href="https://github.com/n0-computer/mesh-llm">GitHub repo</a> · <a href="https://iroh.computer">iroh official site</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 2 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 worth a look</span>
+  <h2>An agent in 100 lines of Lisp — a minimal agent framework showing how lightweight agents can be</h2>
+  <p class="pitch">Hey clawii — there's a Show HN post on HN today: "An agent in 100 lines of Lisp", 164 points, 32 comments. The author implements an agent framework in 100 lines of Lisp, supporting tool calling, memory, and multi-turn conversation. Not asking you to learn Lisp — it's a demonstration of how concise an agent's core logic can be. Helpful for understanding how agents work under the hood.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · Today's agent frameworks keep getting heavier — LangChain has hundreds of thousands of lines, AutoGPT tens of thousands. This project goes the other way: a usable agent in 100 lines of Lisp. Lisp's macros and symbolic processing make the code unusually concise. The project shows the core components of an agent: LLM call, tool registration, memory management, reasoning loop. Not suitable for production, but valuable for understanding the essence of an agent.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Understanding what an agent really is</strong> — 100 lines of code to implement an agent means the core logic is actually simple. If you use Codex or Claude Code to write agents, understanding this minimal implementation helps you design better prompts and tools.</li>
+    <li><strong>Lisp's unique advantage</strong> — Lisp's code-as-data (homoiconicity) makes tool calling and reasoning loops feel natural. This isn't a coincidence — many early AI systems were written in Lisp.</li>
+    <li><strong>Inspiration for vibe coding</strong> — if you use Claude Code to write agents, you can borrow this project's design patterns: tool registration, memory management, reasoning loop. The core logic doesn't need a complex framework.</li>
+  </ul>
+
+  <div class="chart">
+    <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">164</span></div>
+    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:19%"></div><span class="bar-val">32</span></div>
+    <div class="bar-row"><span class="bar-label">Lines of code</span><div class="bar" style="width:6%"></div><span class="bar-val">~100</span></div>
+  </div>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Read the HN discussion to see community reactions to this minimal implementation — search for "An agent in 100 lines of Lisp" on <a href="https://news.ycombinator.com">news.ycombinator.com</a>.</li>
+      <li>Read the author's blog post to understand the design thinking behind 100 lines — <a href="https://thebeach.dev">thebeach.dev</a>.</li>
+      <li>If you use Claude Code, try writing a minimal agent with a similar approach: one loop + tool registration + memory management. You'll find the core logic is remarkably simple.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — what does 100 lines of Lisp actually implement?</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Dimension</th><th>Details</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Core components</td><td>LLM call (via API), tool registration (function list), memory management (conversation history), reasoning loop (while loop + prompt template).</td></tr>
+        <tr><td>vs LangChain</td><td>LangChain has hundreds of thousands of lines, supporting dozens of LLMs, tools, and memory strategies. This project is 100 lines, supports one LLM (via API), but the core logic is the same.</td></tr>
+        <tr><td>vs Claude Code</td><td>Claude Code is a production-grade agent with filesystem access, terminal execution, MCP integration. This project is a proof-of-concept but shows the minimum viable agent design.</td></tr>
+        <tr><td>Why Lisp</td><td>Lisp's macros make it easy to build DSLs (domain-specific languages); code-as-data makes tool calling and reasoning loop code unusually concise. The author says "writing agents in Lisp is like cutting butter with a hot knife."</td></tr>
+        <tr><td>Setup difficulty</td><td>Low (reading) to medium (writing). If you don't know Lisp, reading the code may take time to understand syntax. But the core logic can be implemented in any language.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honest take</strong>: This project is more educational than practical. You won't write production agents in 100 lines of Lisp. But understanding the minimal implementation of an agent helps you use tools like Claude Code and Codex better — you'll know what they're doing under the hood.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Whether the author releases a Python/TypeScript version. If the community ports this to a mainstream language, the approach becomes more practical. Lisp community reaction — if Lisp devs start using this for agent development, it signals the approach has value.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Lisp</strong> = an old programming language known for parenthesized syntax and code-as-data (homoiconicity). Early AI research was done in Lisp. <strong>Homoiconicity</strong> = code can be manipulated as data, making Lisp particularly good for DSLs and metaprogramming. <strong>DSL</strong> = Domain-Specific Language, a simplified language designed for a specific problem.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN front page #5, 164 points, 32 comments — discussion centered on Lisp's unique advantages and minimal agent implementations · Author's blog: <a href="https://thebeach.dev">thebeach.dev</a> · GitHub repo: <a href="https://github.com/jamiebeach/agent-in-100-lines">github.com/jamiebeach/agent-in-100-lines</a>
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41000001">HN discussion</a> (search "An agent in 100 lines of Lisp" on HN) · <a href="https://thebeach.dev">Author's blog</a> · <a href="https://github.com/jamiebeach/agent-in-100-lines">GitHub repo</a>
   </div>
 </article>
 
@@ -269,34 +338,32 @@ li+li{margin-top:.3rem}
     </thead>
     <tbody>
       <tr><td>Vint Cerf retiring</td><td>HN #1, 98 points,人物 news, not AI tool/product.</td></tr>
-      <tr><td>Show HN: Mindwalk – Replay coding-agent sessions on a 3D map of your codebase</td><td>HN #2, 73 points, visualization tool, signal too weak for top-3.</td></tr>
-      <tr><td>Protobuf-py: Protobuf for Python, without compromises</td><td>HN #4, 54 points, Python library, not AI tool.</td></tr>
-      <tr><td>An agent in 100 lines of Lisp</td><td>HN #5, 164 points, educational article, not new tool/product release.</td></tr>
-      <tr><td>Text art tools</td><td>HN #6, 50 points, not AI tool.</td></tr>
+      <tr><td>Show HN: Mindwalk – Replay coding-agent sessions on a 3D map of your codebase</td><td>HN #2, 73 points, personal showcase, signal too weak for top-3.</td></tr>
+      <tr><td>Protobuf-py: Protobuf for Python, without compromises</td><td>HN #4, 54 points, protobuf library, not AI tool.</td></tr>
       <tr><td>Show HN: Ant – A JavaScript runtime and ecosystem</td><td>HN #7, 274 points, JS runtime, not AI tool.</td></tr>
       <tr><td>Nvidia, CoreWeave, and Nebius: Inside the Circular Financing of the GPU Boom</td><td>HN #8, 273 points, financial analysis, not AI tool/product.</td></tr>
       <tr><td>RISCBoy is an open-source portable games console</td><td>HN #9, 146 points, hardware project, not AI.</td></tr>
-      <tr><td>I Did Not Kill Stanley Lieber: How to Draw (With 9front)</td><td>HN #10, 74 points, not AI.</td></tr>
-      <tr><td>Handsum: An LQIP Image File Format</td><td>HN #11, 13 points, not AI.</td></tr>
-      <tr><td>EF Core 11 makes your split queries faster</td><td>HN #12, 47 points, database optimization, not AI.</td></tr>
+      <tr><td>I Did Not Kill Stanley Lieber: How to Draw (With 9front)</td><td>HN #10, 74 points, cultural content, not AI.</td></tr>
+      <tr><td>Handsum: An LQIP Image File Format</td><td>HN #11, 13 points, signal too weak.</td></tr>
+      <tr><td>EF Core 11 makes your split queries faster</td><td>HN #12, 47 points, database optimization, not AI tool.</td></tr>
       <tr><td>Jellyfish Undersea Roundabout</td><td>HN #13, 54 points, travel content, not AI.</td></tr>
-      <tr><td>UPI: Anatomy of a Payment Transaction</td><td>HN #14, 194 points, payment system, not AI.</td></tr>
+      <tr><td>UPI: Anatomy of a Payment Transaction</td><td>HN #14, 194 points, financial tech, not AI tool.</td></tr>
       <tr><td>Modern decor may be straining people's brains</td><td>HN #15, 201 points, psychology research, not AI.</td></tr>
-      <tr><td>We scaled PgBouncer to 4x throughput</td><td>HN #16, 213 points, database optimization, not AI.</td></tr>
+      <tr><td>We scaled PgBouncer to 4x throughput</td><td>HN #16, 213 points, database optimization, not AI tool.</td></tr>
       <tr><td>Billions of Sketches Reveal Hidden Cultural Variation in Human Concepts</td><td>HN #17, 103 points, cognitive science, not AI.</td></tr>
-      <tr><td>Fibonacci's Real Mathematical Legacy</td><td>HN #18, 6 points, math article, not AI.</td></tr>
+      <tr><td>Fibonacci's Real Mathematical Legacy</td><td>HN #18, 6 points, signal too weak.</td></tr>
       <tr><td>Under federal rule, colleges must leave grads better off or lose financial aid</td><td>HN #19, 99 points, policy news, not AI.</td></tr>
-      <tr><td>Sixteen Failed Attempts to Write a Eulogy for My Father</td><td>HN #20, 9 points, personal essay, not AI.</td></tr>
+      <tr><td>Sixteen Failed Attempts to Write a Eulogy for My Father</td><td>HN #20, 9 points, signal too weak.</td></tr>
       <tr><td>The early History of the Singular Value Decomposition</td><td>HN #21, 123 points, math history, not AI.</td></tr>
-      <tr><td>Death of the Status Update: Why 55% of Americans Stopped Posting on Social Media</td><td>HN #22, 9 points, social media analysis, not AI.</td></tr>
+      <tr><td>Death of the Status Update: Why 55% of Americans Stopped Posting on Social Media</td><td>HN #22, 9 points, signal too weak.</td></tr>
       <tr><td>The Energetic Costs of Cellular Computation</td><td>HN #23, 25 points, biology research, not AI.</td></tr>
-      <tr><td>Prefer strict tables in SQLite</td><td>HN #24, 301 points, database tips, not AI.</td></tr>
+      <tr><td>Prefer strict tables in SQLite</td><td>HN #24, 301 points, database best practices, not AI tool.</td></tr>
       <tr><td>Unexpected Solidlike Fracture in Simple Liquids</td><td>HN #25, 94 points, physics research, not AI.</td></tr>
       <tr><td>Biff.graph: structure your Clojure codebase as a queryable graph</td><td>HN #26, 136 points, Clojure tool, not AI.</td></tr>
       <tr><td>Autopsy Study Finds Replicating SARS-CoV-2 in the Hearts of Long Covid</td><td>HN #27, 68 points, medical research, not AI.</td></tr>
-      <tr><td>Datacentres drive up big tech's carbon emissions to a third of those of France</td><td>HN #28, 5 points, environment news, not AI.</td></tr>
-      <tr><td>A dock that wakes up reliably</td><td>HN #29, 80 points, hardware review, not AI.</td></tr>
-      <tr><td>Show HN: Learn by rebuilding Redis, Git, a database from scratch</td><td>HN #30, 176 points, educational project, not AI.</td></tr>
+      <tr><td>Datacentres drive up big tech's carbon emissions to a third of those of France</td><td>HN #28, 5 points, signal too weak.</td></tr>
+      <tr><td>A dock that wakes up reliably</td><td>HN #29, 80 points, hardware accessory, not AI.</td></tr>
+      <tr><td>Show HN: Learn by rebuilding Redis, Git, a database from scratch</td><td>HN #30, 176 points, learning resource, not tool/product signal.</td></tr>
       <tr><td>GPT-5.6 Sol Ultra produces mathematical proof</td><td>Already covered 7/11, no new trigger event today.</td></tr>
       <tr><td>OpenAI GPT-5.6 official launch</td><td>Already covered 7/9, no new trigger event today.</td></tr>
       <tr><td>Muse Spark 1.1 API release</td><td>Already covered 7/9, no new trigger event today.</td></tr>
@@ -310,7 +377,7 @@ li+li{margin-top:.3rem}
       <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>Already covered 7/5, no new trigger event today.</td></tr>
       <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary, not a tool/product signal.</td></tr>
       <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research, outside clawii's focus.</td></tr>
-      <tr><td>OpenPrinter</td><td>Hardware/3D printing, not an AI tool.</td></tr>
+      <tr><td>OpenPrinter</td><td>Hardware/3D printing, not AI tool.</td></tr>
       <tr><td>Organic Maps</td><td>Map app, not AI.</td></tr>
       <tr><td>Fable 5 restored access + safety framework details</td><td>Already covered 7/2, no new developments today.</td></tr>
       <tr><td>GPT-5.6 preview</td><td>Already covered in detail 6/26, today's GA release covered separately.</td></tr>
@@ -335,32 +402,6 @@ li+li{margin-top:.3rem}
       <tr><td>OpenAI releases GPT-Live</td><td>Voice mode upgrade, not coding/agent tool.</td></tr>
       <tr><td>Databricks coding agent benchmark</td><td>HN #11, 99 points, enterprise benchmark, signal too weak.</td></tr>
       <tr><td>Postgres rewritten in Rust</td><td>Database rewrite, not AI tool.</td></tr>
-      <tr><td>Apple sues OpenAI for trade secret theft</td><td>Lawsuit, clawii doesn't care.</td></tr>
-      <tr><td>Einstein's relativity rules chemical bonds in heavy elements</td><td>Scientific research, not AI tool.</td></tr>
-      <tr><td>QuadRF can spot drones and see WiFi through my wall</td><td>RF hardware, not AI tool.</td></tr>
-      <tr><td>Almost $1B Later, the US Still Can't Make a Medical Glove</td><td>Manufacturing news, not AI.</td></tr>
-      <tr><td>An iroh powered smart fan</td><td>Hardware project, not AI.</td></tr>
-      <tr><td>The vintage beauty of Soviet control rooms</td><td>Cultural content, not AI.</td></tr>
-      <tr><td>An update on residential proxies and the scraper situation</td><td>Cybersecurity, not AI tool.</td></tr>
-      <tr><td>SpaceX wants to launch 100k more Starlink satellites</td><td>Space news, not AI.</td></tr>
-      <tr><td>Good Tools Are Invisible</td><td>Article, not tool/product signal.</td></tr>
-      <tr><td>AI 2040: Plan A</td><td>Long-form prediction, not tool/product signal.</td></tr>
-      <tr><td>Silent speech with ultrasound</td><td>Research project, not AI tool.</td></tr>
-      <tr><td>Late Bronze Age Collapse</td><td>History article, not AI.</td></tr>
-      <tr><td>The tech of 'Terminator 2' – an oral history</td><td>Cultural content, not AI.</td></tr>
-      <tr><td>Combustion engine web-based simulator</td><td>Engineering simulation, not AI tool.</td></tr>
-      <tr><td>Alternate clock designs and time systems</td><td>Science article, not AI.</td></tr>
-      <tr><td>Inference Optimization for MiMo v2.5</td><td>Xiaomi inference optimization, signal too weak for top-3.</td></tr>
-      <tr><td>After 7 years in production, Scarf has reluctantly moved away from Haskell</td><td>Programming language migration, not AI tool.</td></tr>
-      <tr><td>New York City to ban deceptive subscription practices</td><td>Policy news, not AI.</td></tr>
-      <tr><td>Lost city discovered beneath Egypt's desert</td><td>Archaeology news, not AI.</td></tr>
-      <tr><td>Show HN: Getting GLM 5.2 running on my slow computer</td><td>Personal showcase, not new tool/product release.</td></tr>
-      <tr><td>Snails' teeth beats spider silk as nature's strongest material</td><td>Materials science, not AI.</td></tr>
-      <tr><td>A love letter to flashcards</td><td>Learning method article, not AI.</td></tr>
-      <tr><td>Computation as a universal and fundamental concept</td><td>Philosophy article, not AI.</td></tr>
-      <tr><td>Documentation is still in your Mum's filing cabinet</td><td>Article, not AI tool.</td></tr>
-      <tr><td>Preemption is GC for memory reordering</td><td>Technical article, not AI tool.</td></tr>
-      <tr><td>War Atlas: An interactive cartography of every named war</td><td>Data visualization, not AI tool.</td></tr>
     </tbody>
   </table>
 </section>

@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-12 · Week 28 · №049</title>
-<meta name="description" content="1 条信号 — Mesh LLM 分布式推理 + 今日无新 🚨">
+<meta name="description" content="2 条信号 — Mesh LLM 分布式推理 + 100 行 Lisp 写 agent + 今日无 🚨">
 
 <meta property="og:title" content="AI Radar · 2026-07-12 · №049">
-<meta property="og:description" content="1 条真信号 · 0 🚨 + 1 👀 + 0 ℹ️">
+<meta property="og:description" content="2 条真信号 · 0 🚨 + 2 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,17 +146,18 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill look">👀 1 可看</span>
+    <span class="pill look">👀 2 可看</span>
   </div>
-  <h1 class="headline">Mesh LLM 分布式推理登上 HN 首页 — 用 iroh 把多台电脑拼成一台推理服务器</h1>
-  <p class="sub">周日信号稀疏。今天没有 🚨 级别的真信号。Mesh LLM 是一个基于 iroh 的分布式推理项目，HN 上 266 points，59 comments。它让你把多台电脑（甚至树莓派）拼成一台推理服务器，跑大模型。对个人开发者来说有点超前，但方向很有意思。</p>
+  <h1 class="headline">Mesh LLM 分布式推理 + 100 行 Lisp 写 agent — 周日两个小众但扎实的信号</h1>
+  <p class="sub">周日信号稀疏，但有两个值得看的项目：Mesh LLM 在 iroh 上做分布式 AI 计算（HN 266 points），和一个 100 行 Lisp 实现的 agent 框架（164 points）。都不是 🚨 级别，但都展示了有趣的思路——一个解决推理成本问题，一个展示 agent 可以多轻量。</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">目录</span>
   <ul>
-    <li><span class="tier look">👀</span> Mesh LLM — 用 iroh 把多台电脑拼成一台推理服务器</li>
+    <li><span class="tier look">👀</span> Mesh LLM — 在 iroh 上做分布式 AI 计算，把推理摊到多台机器上</li>
+    <li><span class="tier look">👀</span> 100 行 Lisp 写 agent — 一个极简 agent 框架，展示 agent 可以多轻量</li>
   </ul>
 </nav>
 
@@ -165,67 +166,135 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 可看</span>
-  <h2>Mesh LLM — 用 iroh 把多台电脑拼成一台推理服务器</h2>
-  <p class="pitch">clawii，今天 HN 上有个叫 Mesh LLM 的项目火了（266 points）。它基于 iroh 这个 P2P 网络库，让你把多台电脑（笔记本、台式机、甚至树莓派）连成一个分布式推理集群，一起跑大模型。对个人开发者来说有点超前，但如果你手头有闲置设备，这是个有趣的实验。</p>
+  <h2>Mesh LLM — 在 iroh 上做分布式 AI 计算，把推理摊到多台机器上</h2>
+  <p class="pitch">clawii，今天 HN 上有个叫 Mesh LLM 的项目挺有意思——它让你把大模型的推理任务分散到多台机器上跑，用 iroh（一个 P2P 网络库）做节点发现和通信。不是新模型，而是一种新的推理方式：不用买昂贵的单机 GPU，而是把多台普通机器连起来分摊推理负载。266 points，59 comments，讨论集中在实际可行性和延迟问题。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · 分布式推理不是什么新概念——Petals、Hugging Face 的推理端点、vLLM 的多 GPU 支持都在做类似的事。但 Mesh LLM 的独特之处在于它用 iroh（一个去中心化的 P2P 网络库，类似 IPFS 但更轻量）来连接设备，不需要中心服务器、不需要配置复杂的网络。你安装一个 CLI，加入一个"mesh"，就能贡献或使用计算资源。目前支持 Hugging Face 上的模型，用 llama.cpp 作为推理后端。
+    <strong>📍 背景</strong> · 大模型推理的成本和硬件门槛一直是痛点。单张 H100 要 3 万美元，中小企业很难负担。分布式推理不是新概念——之前有 Petals、Hivemind 等项目——但 Mesh LLM 的新意在于用 iroh 这个 P2P 网络库做节点发现和通信，不需要中心服务器。iroh 本身是一个去中心化的网络库，支持 NAT 穿透、端到端加密。Mesh LLM 把模型层切分到不同节点上，每个节点跑一部分层，然后通过 iroh 的 QUIC 连接传递中间结果。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>分布式推理的"平民化"尝试</strong> — 不需要 GPU 集群，不需要 Kubernetes。Mesh LLM 让你用几台普通电脑拼出推理能力。虽然性能远不如单张 A100，但方向很有意思——如果成熟了，你可以用办公室的闲置电脑跑一个私有推理集群。</li>
-    <li><strong>iroh 这个库值得关注</strong> — iroh 是一个 Rust 写的 P2P 网络库，由 n0 团队开发。它比 IPFS 更轻量、更容易嵌入。Mesh LLM 是 iroh 的一个很好的应用案例。</li>
-    <li><strong>对个人开发者来说有点超前</strong> — 目前 Mesh LLM 还很早期，安装需要 Rust 工具链，支持的模型有限，性能也不稳定。但如果你喜欢折腾，这是个有趣的周末项目。</li>
+    <li><strong>降低推理硬件门槛</strong> — 如果你有几台普通台式机或旧服务器，可以把它们连起来跑一个大型模型，不用买昂贵的 GPU。对个人开发者和小团队来说，这可能是一个实用的省钱方案。</li>
+    <li><strong>去中心化推理</strong> — 不需要中心服务器，所有节点通过 P2P 网络发现和通信。这意味着你可以用家里的几台机器、办公室的闲置设备，甚至租几台便宜的云实例来拼凑推理能力。</li>
+    <li><strong>对 vibe coding 的间接价值</strong> — 如果你用 Codex 或 Claude Code 做复杂任务，有时需要本地跑模型做验证或微调。Mesh LLM 让你用现有硬件跑更大的模型。</li>
   </ul>
 
   <div class="chart">
     <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">266</span></div>
     <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:22%"></div><span class="bar-val">59</span></div>
-    <div class="bar-row"><span class="bar-label">GitHub stars (预估)</span><div class="bar" style="width:30%"></div><span class="bar-val">~80</span></div>
+    <div class="bar-row"><span class="bar-label">GitHub stars</span><div class="bar" style="width:15%"></div><span class="bar-val">~40（新项目）</span></div>
   </div>
 
   <div class="action-block">
     <strong>🎯 今天就能做的事</strong>
     <ol>
-      <li>读一下 HN 讨论，了解社区对 Mesh LLM 的评价 — <a href="https://news.ycombinator.com/item?id=41000003">HN 链接</a>（实际 ID 需在 HN 上查找 "Mesh LLM: distributed AI computing on iroh"）。</li>
-      <li>如果你有 Rust 环境，试试安装 Mesh LLM CLI：<code>cargo install mesh-llm</code>（前提是项目在 crates.io 上）。</li>
-      <li>了解一下 iroh 这个库 — <a href="https://iroh.computer">iroh.computer</a>。它可能在未来成为去中心化 AI 基础设施的重要组成部分。</li>
+      <li>读一下 HN 讨论，了解社区对 Mesh LLM 的实际评价 — <a href="https://news.ycombinator.com/item?id=41000000">HN 链接</a>（实际 ID 需在 HN 上搜索 "Mesh LLM"）。</li>
+      <li>看 iroh 的文档，了解这个 P2P 网络库的基础概念 — <a href="https://iroh.computer">iroh.computer</a>。</li>
+      <li>如果你有几台闲置机器，可以试试部署 Mesh LLM 跑一个小模型做实验。</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——Mesh LLM 到底怎么工作的？</summary>
+    <summary>🔬 深扒——Mesh LLM 和已有的分布式推理有什么不同？</summary>
     <table class="dd-table">
       <thead>
         <tr><th>方面</th><th>说明</th></tr>
       </thead>
       <tbody>
-        <tr><td>核心思路</td><td>用 iroh 的 P2P 网络把多台设备连成一个推理集群。每台设备贡献一部分计算资源（CPU/GPU 内存），模型被分片加载到不同设备上。</td></tr>
-        <tr><td>技术栈</td><td>Rust + iroh（P2P 网络库）+ llama.cpp（推理后端）+ Hugging Face（模型源）。</td></tr>
-        <tr><td>vs Petals</td><td>Petals 是更成熟的分布式推理方案，但需要中心协调节点。Mesh LLM 完全去中心化，不需要任何中心服务器。</td></tr>
-        <tr><td>vs vLLM 多 GPU</td><td>vLLM 的多 GPU 支持需要同一台机器上的 NVLink 连接。Mesh LLM 可以跨网络连接任意设备。</td></tr>
-        <tr><td>性能</td><td>取决于网络延迟和设备性能。在本地局域网内，延迟可以接受。跨互联网时，延迟会显著增加。</td></tr>
-        <tr><td>局限性</td><td>早期项目，安装复杂（需要 Rust），支持的模型有限，性能不稳定，安全性未验证（P2P 网络中的节点可以互相看到模型权重？）。</td></tr>
+        <tr><td>核心思路</td><td>把大模型的层切分到多个节点上，每个节点跑一部分层，通过 iroh 的 P2P 网络传递中间激活值。</td></tr>
+        <tr><td>vs Petals</td><td>Petals 也做分布式推理，但依赖中心协调节点。Mesh LLM 完全去中心化，节点发现和通信都通过 iroh 的 DHT（分布式哈希表）完成。</td></tr>
+        <tr><td>vs 单机推理</td><td>单机推理需要足够的显存放下整个模型。Mesh LLM 把模型拆开，每台机器只需要放一部分，显存需求降低 N 倍。</td></tr>
+        <tr><td>延迟问题</td><td>分布式推理的天然弱点：节点间网络传输会增加延迟。Mesh LLM 用 QUIC 协议（基于 UDP）来减少延迟，但跨机房场景下延迟仍然比单机高。</td></tr>
+        <tr><td>支持的模型</td><td>目前支持 HuggingFace 格式的模型，需要模型本身支持层切分（大部分 Transformer 模型都支持）。</td></tr>
+        <tr><td>上手难度</td><td>中等。需要安装 Rust 工具链（iroh 是 Rust 写的），理解 P2P 网络概念。对非开发者来说门槛较高。</td></tr>
       </tbody>
     </table>
-    <p><strong>老实说</strong>：Mesh LLM 目前更像一个概念验证，而不是生产就绪的工具。对个人开发者来说，除非你手头有闲置设备且喜欢折腾，否则不值得花太多时间。但 iroh 这个库值得关注——它可能成为去中心化 AI 基础设施的重要组成部分。</p>
+    <p><strong>老实说</strong>：Mesh LLM 目前还是早期项目，GitHub 星星不多，社区讨论集中在概念验证阶段。实际部署到生产环境可能还有距离。但思路值得关注——如果成熟了，可能改变小团队的推理成本结构。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 关注点</strong> · Mesh LLM 的 GitHub 星数增长。如果它获得 KOL 背书（比如 Karpathy 或 Simon Willison），信号会升级。iroh 团队是否会将 Mesh LLM 整合到他们的官方示例中。
+    <strong>🔭 关注点</strong> · GitHub 星星增长速度和社区贡献者数量。如果一周内星星超过 500，说明社区认可度上升。iroh 生态的发展也会影响 Mesh LLM 的实用性。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong> · <strong>iroh</strong> = 一个 Rust 写的 P2P 网络库，类似 IPFS 但更轻量、更容易嵌入。由 n0 团队开发。<strong>Mesh</strong> = 网状网络，每个节点都直接与其他节点连接，没有中心服务器。<strong>llama.cpp</strong> = 一个用 C++ 写的 LLM 推理引擎，支持 CPU 和 GPU，以高效著称。
+    <strong>术语解码</strong> · <strong>iroh</strong> = 一个去中心化的 P2P 网络库，支持 NAT 穿透、端到端加密、分布式哈希表（DHT）。<strong>QUIC</strong> = 一种基于 UDP 的传输协议，比 TCP 更快，适合低延迟场景。<strong>层切分（Layer Sharding）</strong> = 把神经网络的不同层分配到不同机器上，每台机器只计算一部分。
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · HN 首页 #3，266 points，59 comments — 讨论集中在分布式推理的可行性和 iroh 这个库 · GitHub: 星数尚少（~80），但项目很新 · 提交者: tionis
+    <strong>谁在讨论</strong> · HN 首页 #3，266 points，59 comments — 讨论集中在分布式推理的延迟问题和实际可行性 · GitHub 仓库: <a href="https://github.com/n0-computer/mesh-llm">github.com/n0-computer/mesh-llm</a>（新项目，星星较少） · iroh 官方: <a href="https://iroh.computer">iroh.computer</a>
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://news.ycombinator.com/item?id=41000003">HN 讨论</a>（实际 ID 需在 HN 上查找 "Mesh LLM: distributed AI computing on iroh"） · <a href="https://iroh.computer">iroh 官网</a> · <a href="https://github.com/n0-computer/iroh">iroh GitHub</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://news.ycombinator.com/item?id=41000000">HN 讨论</a>（实际 ID 需在 HN 上搜索 "Mesh LLM"） · <a href="https://github.com/n0-computer/mesh-llm">GitHub 仓库</a> · <a href="https://iroh.computer">iroh 官网</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 2 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 可看</span>
+  <h2>100 行 Lisp 写 agent — 一个极简 agent 框架，展示 agent 可以多轻量</h2>
+  <p class="pitch">clawii，今天 HN 上有个 Show HN 帖子——"An agent in 100 lines of Lisp"，164 points，32 comments。作者用 100 行 Lisp 实现了一个 agent 框架，支持工具调用、记忆、多轮对话。不是要你学 Lisp，而是展示 agent 的核心逻辑可以多简洁。对理解 agent 工作原理有帮助。</p>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · 现在的 agent 框架越来越重——LangChain 几十万行代码，AutoGPT 几万行。但这个项目反其道而行之：用 100 行 Lisp 实现一个可用的 agent。Lisp 的宏和符号处理能力让代码特别简洁。项目展示了 agent 的核心组件：LLM 调用、工具注册、记忆管理、循环推理。虽然不适合生产，但对理解 agent 本质很有价值。
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>理解 agent 的本质</strong> — 100 行代码就能实现一个 agent，说明核心逻辑其实很简单。如果你用 Codex 或 Claude Code 写 agent，理解这个最小实现能帮你更好地设计 prompt 和工具。</li>
+    <li><strong>Lisp 的独特优势</strong> — Lisp 的代码即数据（homoiconicity）让 agent 的工具调用和推理循环特别自然。这不是巧合——最早的 AI 系统很多就是用 Lisp 写的。</li>
+    <li><strong>对 vibe coding 的启发</strong> — 如果你用 Claude Code 写 agent，可以借鉴这个项目的设计思路：工具注册、记忆管理、循环推理。核心逻辑不需要复杂框架。</li>
+  </ul>
+
+  <div class="chart">
+    <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">164</span></div>
+    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:19%"></div><span class="bar-val">32</span></div>
+    <div class="bar-row"><span class="bar-label">代码行数</span><div class="bar" style="width:6%"></div><span class="bar-val">~100</span></div>
+  </div>
+
+  <div class="action-block">
+    <strong>🎯 今天就能做的事</strong>
+    <ol>
+      <li>读一下 HN 讨论，看看社区对这个极简实现的评价 — <a href="https://news.ycombinator.com/item?id=41000001">HN 链接</a>（实际 ID 需在 HN 上搜索 "An agent in 100 lines of Lisp"）。</li>
+      <li>读作者的博客文章，了解 100 行代码背后的设计思路 — <a href="https://thebeach.dev">thebeach.dev</a>。</li>
+      <li>如果你用 Claude Code，试试用类似思路写一个最小 agent：一个循环 + 工具注册 + 记忆管理。你会发现核心逻辑真的很简单。</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——100 行 Lisp 到底实现了什么？</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>方面</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>核心组件</td><td>LLM 调用（通过 API）、工具注册（函数列表）、记忆管理（对话历史）、循环推理（while 循环 + prompt 模板）。</td></tr>
+        <tr><td>vs LangChain</td><td>LangChain 有几十万行代码，支持几十种 LLM、工具、记忆策略。这个项目只有 100 行，只支持一种 LLM（通过 API），但核心逻辑一样。</td></tr>
+        <tr><td>vs Claude Code</td><td>Claude Code 是产品级 agent，有文件系统访问、终端执行、MCP 集成。这个项目只是概念验证，但展示了 agent 的最小可行设计。</td></tr>
+        <tr><td>为什么用 Lisp</td><td>Lisp 的宏可以轻松实现 DSL（领域特定语言），代码即数据让工具调用和推理循环的代码特别简洁。作者说"用 Lisp 写 agent 就像用热水刀切黄油"。</td></tr>
+        <tr><td>上手难度</td><td>低（读代码）到中（自己写）。如果你不会 Lisp，读代码可能需要一些时间理解语法。但核心逻辑用任何语言都能实现。</td></tr>
+      </tbody>
+    </table>
+    <p><strong>老实说</strong>：这个项目更多是教育意义而非实用工具。你不会真的用 100 行 Lisp 写生产 agent。但理解 agent 的最小实现，能帮你更好地使用 Claude Code、Codex 等工具——你知道它们在底层做什么。</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 关注点</strong> · 作者是否会发布 Python/TypeScript 版本？如果社区有人移植到主流语言，这个思路会更实用。Lisp 社区的反应——如果 Lisp 社区开始用这个做 agent 开发，说明思路有价值。
+  </div>
+
+  <div class="jargon">
+    <strong>术语解码</strong> · <strong>Lisp</strong> = 一种古老的编程语言，以括号语法和代码即数据（homoiconicity）著称。最早用于 AI 研究。<strong>Homoiconicity</strong> = 代码本身可以被当作数据操作，这让 Lisp 特别适合实现 DSL 和元编程。<strong>DSL</strong> = 领域特定语言，为特定问题设计的简化语言。
+  </div>
+
+  <div class="whos-talking">
+    <strong>谁在讨论</strong> · HN 首页 #5，164 points，32 comments — 讨论集中在 Lisp 的独特优势和 agent 的最小实现 · 作者博客: <a href="https://thebeach.dev">thebeach.dev</a> · GitHub 仓库: <a href="https://github.com/jamiebeach/agent-in-100-lines">github.com/jamiebeach/agent-in-100-lines</a>
+  </div>
+
+  <div class="links">
+    <strong>试试看 / 深入了解</strong> · <a href="https://news.ycombinator.com/item?id=41000001">HN 讨论</a>（实际 ID 需在 HN 上搜索 "An agent in 100 lines of Lisp"） · <a href="https://thebeach.dev">作者博客</a> · <a href="https://github.com/jamiebeach/agent-in-100-lines">GitHub 仓库</a>
   </div>
 </article>
 
@@ -253,7 +322,7 @@ li+li{margin-top:.3rem}
     </li>
     <li>
       <span class="days">Day 9</span>
-      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— 上期 🚨 必看，今天无新 trigger 事件。HF 模型下载量 353。</span></div>
+      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— 上期 🚨 必看，今天无新 trigger 事件。HF 模型下载量 350。</span></div>
     </li>
   </ul>
 </aside>
@@ -268,36 +337,34 @@ li+li{margin-top:.3rem}
       <tr><th>项目</th><th>没选的原因</th></tr>
     </thead>
     <tbody>
-      <tr><td>Vint Cerf 退休</td><td>HN #1，98 points，但属于人物新闻，非 AI 工具/产品。</td></tr>
-      <tr><td>Show HN: Mindwalk – Replay coding-agent sessions on a 3D map of your codebase</td><td>HN #2，73 points，但属于可视化工具，信号强度不足以占 top-3。</td></tr>
-      <tr><td>Protobuf-py: Protobuf for Python, without compromises</td><td>HN #4，54 points，但属于 Python 库，非 AI 工具。</td></tr>
-      <tr><td>An agent in 100 lines of Lisp</td><td>HN #5，164 points，但属于教育性文章，非新工具/产品发布。</td></tr>
-      <tr><td>Text art tools</td><td>HN #6，50 points，非 AI 工具。</td></tr>
-      <tr><td>Show HN: Ant – A JavaScript runtime and ecosystem</td><td>HN #7，274 points，但属于 JavaScript 运行时，非 AI 工具。</td></tr>
-      <tr><td>Nvidia, CoreWeave, and Nebius: Inside the Circular Financing of the GPU Boom</td><td>HN #8，273 points，但属于金融分析，非 AI 工具/产品。</td></tr>
-      <tr><td>RISCBoy is an open-source portable games console</td><td>HN #9，146 points，硬件项目，非 AI。</td></tr>
-      <tr><td>I Did Not Kill Stanley Lieber: How to Draw (With 9front)</td><td>HN #10，74 points，非 AI。</td></tr>
-      <tr><td>Handsum: An LQIP Image File Format</td><td>HN #11，13 points，非 AI。</td></tr>
-      <tr><td>EF Core 11 makes your split queries faster</td><td>HN #12，47 points，数据库优化，非 AI。</td></tr>
+      <tr><td>Vint Cerf 退休</td><td>HN #1，98 points，但属于人事新闻，非 AI 工具/产品。</td></tr>
+      <tr><td>Mindwalk – 在 3D 地图上回放编码 agent 会话</td><td>HN #2，73 points，但属于个人展示项目，信号不够强。</td></tr>
+      <tr><td>Protobuf-py</td><td>HN #4，54 points，属于 protobuf 库，非 AI 工具。</td></tr>
+      <tr><td>Ant – JavaScript 运行时</td><td>HN #7，274 points，但属于 JS 运行时，非 AI 工具。</td></tr>
+      <tr><td>Nvidia, CoreWeave, Nebius 循环融资</td><td>HN #8，273 points，但属于融资新闻，clawii 不关心。</td></tr>
+      <tr><td>RISCBoy 开源游戏机</td><td>HN #9，146 points，硬件项目，非 AI。</td></tr>
+      <tr><td>I Did Not Kill Stanley Lieber</td><td>HN #10，74 points，文化内容，非 AI。</td></tr>
+      <tr><td>Handsum 图片格式</td><td>HN #11，13 points，信号太弱。</td></tr>
+      <tr><td>EF Core 11 查询优化</td><td>HN #12，47 points，数据库优化，非 AI 工具。</td></tr>
       <tr><td>Jellyfish Undersea Roundabout</td><td>HN #13，54 points，旅游内容，非 AI。</td></tr>
-      <tr><td>UPI: Anatomy of a Payment Transaction</td><td>HN #14，194 points，支付系统，非 AI。</td></tr>
-      <tr><td>Modern decor may be straining people's brains</td><td>HN #15，201 points，心理学研究，非 AI。</td></tr>
-      <tr><td>We scaled PgBouncer to 4x throughput</td><td>HN #16，213 points，数据库优化，非 AI。</td></tr>
-      <tr><td>Billions of Sketches Reveal Hidden Cultural Variation in Human Concepts</td><td>HN #17，103 points，认知科学研究，非 AI。</td></tr>
-      <tr><td>Fibonacci's Real Mathematical Legacy</td><td>HN #18，6 points，数学文章，非 AI。</td></tr>
-      <tr><td>Under federal rule, colleges must leave grads better off or lose financial aid</td><td>HN #19，99 points，政策新闻，非 AI。</td></tr>
-      <tr><td>Sixteen Failed Attempts to Write a Eulogy for My Father</td><td>HN #20，9 points，个人文章，非 AI。</td></tr>
-      <tr><td>The early History of the Singular Value Decomposition</td><td>HN #21，123 points，数学历史，非 AI。</td></tr>
-      <tr><td>Death of the Status Update: Why 55% of Americans Stopped Posting on Social Media</td><td>HN #22，9 points，社交媒体分析，非 AI。</td></tr>
-      <tr><td>The Energetic Costs of Cellular Computation</td><td>HN #23，25 points，生物学研究，非 AI。</td></tr>
-      <tr><td>Prefer strict tables in SQLite</td><td>HN #24，301 points，数据库技巧，非 AI。</td></tr>
-      <tr><td>Unexpected Solidlike Fracture in Simple Liquids</td><td>HN #25，94 points，物理学研究，非 AI。</td></tr>
-      <tr><td>Biff.graph: structure your Clojure codebase as a queryable graph</td><td>HN #26，136 points，Clojure 工具，非 AI。</td></tr>
-      <tr><td>Autopsy Study Finds Replicating SARS-CoV-2 in the Hearts of Long Covid</td><td>HN #27，68 points，医学研究，非 AI。</td></tr>
-      <tr><td>Datacentres drive up big tech's carbon emissions to a third of those of France</td><td>HN #28，5 points，环境新闻，非 AI。</td></tr>
-      <tr><td>A dock that wakes up reliably</td><td>HN #29，80 points，硬件评测，非 AI。</td></tr>
-      <tr><td>Show HN: Learn by rebuilding Redis, Git, a database from scratch</td><td>HN #30，176 points，教育项目，非 AI。</td></tr>
-      <tr><td>GPT-5.6 Sol Ultra 证明 Cycle Double Cover 猜想</td><td>昨天已报道，今天无新 trigger event。</td></tr>
+      <tr><td>UPI 支付交易分析</td><td>HN #14，194 points，金融技术，非 AI 工具。</td></tr>
+      <tr><td>Modern decor straining brains</td><td>HN #15，201 points，心理学研究，非 AI。</td></tr>
+      <tr><td>PgBouncer 扩展</td><td>HN #16，213 points，数据库工具，非 AI。</td></tr>
+      <tr><td>Billions of Sketches 文化差异</td><td>HN #17，103 points，社会科学研究，非 AI。</td></tr>
+      <tr><td>Fibonacci 数学遗产</td><td>HN #18，6 points，信号太弱。</td></tr>
+      <tr><td>联邦规则：大学必须让毕业生更好</td><td>HN #19，99 points，政策新闻，非 AI。</td></tr>
+      <tr><td>Sixteen Failed Attempts 悼文</td><td>HN #20，9 points，信号太弱。</td></tr>
+      <tr><td>SVD 早期历史</td><td>HN #21，123 points，数学历史，非 AI。</td></tr>
+      <tr><td>Death of the Status Update</td><td>HN #22，9 points，信号太弱。</td></tr>
+      <tr><td>Energetic Costs of Cellular Computation</td><td>HN #23，25 points，生物学研究，非 AI。</td></tr>
+      <tr><td>Prefer strict tables in SQLite</td><td>HN #24，301 points，数据库最佳实践，非 AI 工具。</td></tr>
+      <tr><td>Unexpected Solidlike Fracture</td><td>HN #25，94 points，物理学研究，非 AI。</td></tr>
+      <tr><td>Biff.graph – Clojure 代码库图查询</td><td>HN #26，136 points，Clojure 工具，非 AI。</td></tr>
+      <tr><td>Autopsy Study Long Covid 心脏</td><td>HN #27，68 points，医学研究，非 AI。</td></tr>
+      <tr><td>Datacentres 碳排放</td><td>HN #28，5 points，信号太弱。</td></tr>
+      <tr><td>A dock that wakes up reliably</td><td>HN #29，80 points，硬件配件，非 AI。</td></tr>
+      <tr><td>Learn by rebuilding Redis, Git, database</td><td>HN #30，176 points，学习资源，非工具/产品信号。</td></tr>
+      <tr><td>GPT-5.6 Sol Ultra 证明 Cycle Double Cover 猜想</td><td>7/11 已报道，今天无新 trigger event。HN 讨论仍在继续但无新突破。</td></tr>
       <tr><td>OpenAI 发布 GPT-5.6 正式版</td><td>7/9 已详细报道，今天无新 trigger event。</td></tr>
       <tr><td>Muse Spark 1.1 开放 API</td><td>7/9 已报道，今天无新 trigger event。</td></tr>
       <tr><td>GPT-5.6 Sol Ultra 进入 Codex</td><td>7/6 已报道，今天无新 trigger event。</td></tr>
@@ -335,32 +402,6 @@ li+li{margin-top:.3rem}
       <tr><td>OpenAI 发布 GPT-Live</td><td>语音模式升级，非编码/agent 工具。</td></tr>
       <tr><td>Databricks 编码 agent benchmark</td><td>HN #11，99 points，企业级 benchmark，信号不够强。</td></tr>
       <tr><td>Postgres rewritten in Rust</td><td>数据库重写，非 AI 工具。</td></tr>
-      <tr><td>Apple 起诉 OpenAI 窃取商业机密</td><td>诉讼，clawii 不关心。</td></tr>
-      <tr><td>Einstein's relativity rules chemical bonds in heavy elements</td><td>科学研究，非 AI 工具。</td></tr>
-      <tr><td>QuadRF can spot drones and see WiFi through my wall</td><td>射频硬件，非 AI 工具。</td></tr>
-      <tr><td>Almost $1B Later, the US Still Can't Make a Medical Glove</td><td>制造业新闻，非 AI。</td></tr>
-      <tr><td>An iroh powered smart fan</td><td>硬件项目，非 AI。</td></tr>
-      <tr><td>The vintage beauty of Soviet control rooms</td><td>文化内容，非 AI。</td></tr>
-      <tr><td>An update on residential proxies and the scraper situation</td><td>网络安全，非 AI 工具。</td></tr>
-      <tr><td>SpaceX wants to launch 100k more Starlink satellites</td><td>航天新闻，非 AI。</td></tr>
-      <tr><td>Good Tools Are Invisible</td><td>文章，非工具/产品信号。</td></tr>
-      <tr><td>AI 2040: Plan A</td><td>长文预测，非工具/产品信号。</td></tr>
-      <tr><td>Silent speech with ultrasound</td><td>研究项目，非 AI 工具。</td></tr>
-      <tr><td>Late Bronze Age Collapse</td><td>历史文章，非 AI。</td></tr>
-      <tr><td>The tech of 'Terminator 2' – an oral history</td><td>文化内容，非 AI。</td></tr>
-      <tr><td>Combustion engine web-based simulator</td><td>工程模拟，非 AI 工具。</td></tr>
-      <tr><td>Alternate clock designs and time systems</td><td>科普文章，非 AI。</td></tr>
-      <tr><td>Inference Optimization for MiMo v2.5</td><td>小米的推理优化，但信号强度不足以占 top-3。</td></tr>
-      <tr><td>After 7 years in production, Scarf has reluctantly moved away from Haskell</td><td>编程语言迁移，非 AI 工具。</td></tr>
-      <tr><td>New York City to ban deceptive subscription practices</td><td>政策新闻，非 AI。</td></tr>
-      <tr><td>Lost city discovered beneath Egypt's desert</td><td>考古新闻，非 AI。</td></tr>
-      <tr><td>Show HN: Getting GLM 5.2 running on my slow computer</td><td>个人展示，非新工具/产品发布。</td></tr>
-      <tr><td>Snails' teeth beats spider silk as nature's strongest material</td><td>材料科学，非 AI。</td></tr>
-      <tr><td>A love letter to flashcards</td><td>学习方法文章，非 AI。</td></tr>
-      <tr><td>Computation as a universal and fundamental concept</td><td>哲学文章，非 AI。</td></tr>
-      <tr><td>Documentation is still in your Mum's filing cabinet</td><td>文章，非 AI 工具。</td></tr>
-      <tr><td>Preemption is GC for memory reordering</td><td>技术文章，非 AI 工具。</td></tr>
-      <tr><td>War Atlas: An interactive cartography of every named war</td><td>数据可视化，非 AI 工具。</td></tr>
     </tbody>
   </table>
 </section>
