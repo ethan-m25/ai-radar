@@ -6,6 +6,20 @@
       "date": "2026-07-12",
       "weekday": "Sun",
       "week": 28,
+      "kind": "weekly",
+      "headline": "GPT-5.6 family officially arrives, open-source keeps chasing — newer models aren't always better",
+      "summary": "11 new signals this week with 2 🚨 — GPT-5.6 Sol Ultra enters Codex (7/6) and Tencent Hy3 295B open-source model challenges GLM-5.2 (7/7). Then GPT-5.6 full fami",
+      "counts": {
+        "crit": 2,
+        "look": 8,
+        "fyi": 5
+      },
+      "url": "weekly_2026-07-12.html"
+    },
+    {
+      "date": "2026-07-12",
+      "weekday": "Sun",
+      "week": 28,
       "issue": 49,
       "kind": "daily",
       "headline": "(no headline)",

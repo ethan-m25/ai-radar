@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-07-12 · Week 28</title>
+<meta name="description" content="Week 28 — GPT-5.6 family officially launched, open-source models kept chasing, but 'newer models aren't always better' became the week's most important takeaway.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 28">
+<meta property="og:description" content="11 new signals across 7 days · 2 🚨 · 7 👀 · 2 ℹ️ · 5 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 26ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 07 · 12 · WK 28 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <!-- ════════════ cover ════════════ -->
+  <section class="cover">
+    <span class="kicker smallcaps">Week 28 · 2026-07-06 → 2026-07-12</span>
+    <h1 class="display headline">GPT-5.6 family officially arrives, open-source keeps chasing — newer models aren't always better</h1>
+    <p class="lead">11 new signals this week with 2 🚨 — GPT-5.6 Sol Ultra enters Codex (7/6) and Tencent Hy3 295B open-source model challenges GLM-5.2 (7/7). Then GPT-5.6 full family GA (7/9), Grok 4.5 enters the arena (7/9), Sol Ultra produces a mathematical proof (7/11). But "Better Models: Worse Tools" kept rippling — Sonnet 5, Opus 4.8, even GPT-5.5 show tool call degradation. This was a week of more choices but harder decisions.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> GPT-5.6's full launch and open-source models' continued chase have turned the coding agent market into a real "value war" — you have more choices than ever, but every choice has hidden costs (tokenizer differences, tool compatibility, cache discounts). If you haven't planned a multi-model strategy yet, now is the time.
+    </div>
+
+    <div class="count-row">
+      <div class="total">11</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>2</strong>&nbsp;🚨 (GPT-5.6 enters Codex · Tencent Hy3 open-source)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>7</strong>&nbsp;👀 (code cleanliness · better models worse tools · Grok 4.5 · GPT-5.6 GA · Sol Ultra proof · Mesh LLM · 100-line Lisp agent)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>2</strong>&nbsp;ℹ️ (AI costs more than engineer · small models in low-bandwidth regions)</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 survived to weekly · 6 demoted / removed from tracking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">GPT-5.6's full launch and the multi-model competitive landscape — your coding tool just got a fundamental upgrade</h2>
+
+    <p>The core event chain this week was GPT-5.6 family moving from preview to general availability. Monday (7/6) Sol Ultra entered Codex — the tool you use every day suddenly got OpenAI's strongest flagship model. Thursday (7/9) OpenAI released the full three-tier pricing: Sol $5/$25 per million tokens, Terra $2/$10, Luna $1/$5, with a 90% cache read discount. Sam Altman called Sol "the best model we have ever produced," and Simon Willison's review showed it scoring close to Fable 5 on coding agent tasks at one-third the cost.</p>
+
+    <p>But simultaneously, Tencent Hy3 open-sourced (295B MoE, Apache 2.0) closely trails GLM-5.2 on multiple benchmarks (7/7), and xAI released Grok 4.5 (Cursor co-trained, $2/$6 pricing, 7/9). More competitors, lower pricing. More notably, Armin Ronacher and Simon Willison independently discovered the "Better Models: Worse Tools" phenomenon: Opus 4.8, Sonnet 5, and GPT-5.5 invent non-existent fields when calling third-party tools, causing call failures. Root cause: RL training over-optimized for specific tools (like Claude Code's built-in editor), sacrificing open-ecosystem compatibility.</p>
+
+    <p><strong>If you only do one thing this week:</strong> Log into Codex and confirm Sol Ultra is available. Then create a simple test script comparing Sol against your previous model (Sonnet 5 or Opus 4) on your daily tasks — data transformation, file refactoring, shell command generation. Note output quality and response speed. Also: if you use non-official agent frameworks (Pi, Continue, custom agents), pin older model versions for now and wait for Anthropic/OpenAI to fix the degradation issue.</p>
+  </section>
+
+  <!-- ════════════ 📈 TRENDS ════════════ -->
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Model selection economics — value-for-money replaces absolute performance as the primary decision factor</div>
+      <p>GPT-5.6's three-tier pricing (Luna $1/$5, Terra $2/$10, Sol $5/$25) plus 90% cache discount makes cost management a new skill. Compare: Opus 4.8 at $15/$75. If your daily usage is 10M input + 2M output, Sonnet 5 costs ~$40/day, Sol ~$100, Luna just $20. Meanwhile Hy3 is free on OpenRouter until July 21, and Grok 4.5 is 10x cheaper than Opus. This means you can dynamically switch models based on task complexity without being locked into a single vendor. Simon Willison's cost case study (shipping sqlite-utils 4.0rc2 with Fable 5 for $149) shows budgets can be dramatically compressed.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Open-source models keep closing the gap — decentralized coding agent choices are growing</div>
+      <p>Tencent Hy3 (295B MoE, 21B active) closely trails GLM-5.2 on coding and agent benchmarks, and FP8 only needs ~60GB (single A100). Combined with Qwen 3.6 27B validated as the local dev sweet spot, Ornith-1.0 self-improving RL, and Leanstral 1.5 complete framework, the open-source coding model ecosystem now has "replace closed-source" potential. Alibaba's Claude Code ban (last week) and the Claude Code steganographic marking controversy (last week) further pushed enterprise interest in open-source alternatives. Copilot already supports Kimi K2.7, ZCode gave GLM-5.2 an official IDE. Open-source is no longer just a "backup" — it's becoming a mainstream option.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ RL training side effects — newer models may regress in open ecosystems</div>
+      <p>Armin Ronacher's "Better Models: Worse Tools" revealed a structural problem: Anthropic RL-trained newer models to be better at Claude Code's built-in edit tools, but at the cost of inventing non-existent fields when calling third-party tools. Simon Willison independently confirmed the issue, and the community added that GPT-5.5 and Gemini 3.5 Flash show similar behavior. This reminds us that "upgrade = better" no longer holds. If you depend on precise tool calls (Pi, Continue, custom agents), pin older models (Sonnet 4.5 / Opus 4.5) until providers fix compatibility.</p>
+    </div>
+  </section>
+
+  <!-- ════════════ 💀 WRONG ════════════ -->
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">Two signals I over-elevated + one correction</h2>
+
+    <p><strong>Grok 4.5 launch (7/9 👀, 662 pts)</strong> — HN heat was high, but independent evaluations are scarce. Cursor's co-training endorsement is a positive signal, but benchmark data hasn't been published and API stability is unknown. The $2/$6 pricing is competitive, but "Opus-class" claims need verification. Keeping at 👀 is appropriate; no upgrade to 🚨. If SWE-bench scores or substantial user feedback appear next week, re-evaluate.</p>
+
+    <p><strong>GPT-5.6 Sol Ultra proves Cycle Double Cover Conjecture (7/11 👀, 465 pts)</strong> — An impressive capability demonstration, but limited impact on your daily work. The proof needs expert validation, and even if confirmed correct, it's evidence of frontier model reasoning ability, not a new tool. 👀 is the right ceiling.</p>
+
+    <p><strong>Correction: Code cleanliness affects coding agent success rate (7/6 👀)</strong> — The paper's controlled experiment design is sound, but the sample size is only ~100 tasks and only tested specific models. The conclusion aligns with intuition, but generalizability needs larger-scale replication studies. Before wider acceptance, it shouldn't be elevated to 🚨 or used to mandate team code cleanliness standards. Keeping at 👀, waiting for larger replication studies.</p>
+
+    <p><strong>Permanently removed from tracking (carried over from last week):</strong> Apple Foundation Models (Day 21, no signal), OpenRouter Fusion API (Day 21, no signal), Lore version control system (Day 14, no signal), opencode (Day 42, no signal), DeepSeek Reasonix (Day 43, no signal), "Big 4 domino effect" (Day 41, no signal), Gemini 3.5 Flash (Day 40, no signal), "MCP is dead" debate (Day 36, no response), MiMo Code open-source (Day 35, no signal), Cohere North Mini Code (Day 33, no signal). These were marked dead in Weekly Wrap #27 and are now formally confirmed as no longer tracked.</p>
+  </section>
+
+  <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① GPT-5.6 Sol's performance on independent coding benchmarks</strong><br>
+      OpenAI's own evaluations show it close to Fable 5, but third-party results are missing. If SWE-bench, Code Arena, or similar independent benchmarks release Sol's scores, it will directly affect your trust in Sol. Also watch Sol's tokenizer efficiency — Sonnet 5's tokenizer caused an effective 30% price increase; does Sol have similar issues?<br>
+      <span class="trigger">Trigger → SWE-bench publishes GPT-5.6 family scores, or a KOL releases a multi-model comparison</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Will Anthropic or OpenAI respond to the tool call degradation issue?</strong><br>
+      "Better Models: Worse Tools" has been circulating for a week, with neither company officially responding. If Anthropic releases a fix (Opus 4.9 or Sonnet 5.1), or OpenAI confirms GPT-5.6 doesn't have the same problem, the situation changes. If silence continues, users may proactively downgrade model versions, affecting new model adoption rates.<br>
+      <span class="trigger">Trigger → Anthropic changelog shows tool call fix entry, or official blog post addressing the issue</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Will Tencent Hy3 get integrated into mainstream coding tools?</strong><br>
+      After Hy3's open-source release, if Cursor, Continue, or Copilot start supporting it as an optional model, it signals ecosystem validation. Also watch for community fine-tuned and quantized versions (GGUF). If GitHub stars exceed 500 within a week and downloads exceed 5k, Hy3 could become the second open-source coding model benchmark after GLM-5.2.<br>
+      <span class="trigger">Trigger → Cursor or Continue release notes mention Hy3 integration, or HuggingFace downloads exceed 5000</span>
+    </div>
+  </section>
+
+  <!-- ════════════ 📅 CALIBRATION ════════════ -->
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 28</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (Jul 6 – Jul 12)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>2 (GPT-5.6 Sol Ultra enters Codex · Tencent Hy3 open-source challenges GLM-5.2)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>7 (code cleanliness affects agent · better models worse tools · Grok 4.5 launch · GPT-5.6 GA · Sol Ultra proof · Mesh LLM distributed inference · 100-line Lisp agent)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>2 (AI costs more than engineer · small models in low-bandwidth regions)</dd>
+
+      <dt>New signals total</dt>
+      <dd>11 (2🚨 + 7👀 + 2ℹ️)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>5 (🏆 GPT-5.6 launch & multi-model landscape · 📈 model selection economics · 📈 open-source closing gap · 📈 RL training side effects · 💀 Grok 4.5/Sol proof/code cleanliness correction)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>6 (Grok 4.5 downgraded from potential 🚨, kept at 👀 · Sol proof kept at 👀 · code cleanliness corrected · 3 old entries formally confirmed dead)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~55% (normal — signal intensity was moderate this week, most 👀 items didn't upgrade, a few needed correction)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~6–24 hours ahead on GPT-5.6 GA (English media 7/9 morning, Chinese tech media 7/9 evening); ~12 hours ahead on Hy3 open-source (English HN 7/7, Chinese ecosystem 7/8); ~8 hours ahead on Better Models Worse Tools (Simon Willison blog 7/4, Chinese tech blogs 7/5)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 28 · 2026-07-12 · 7 dailies · 11 new signals (2🚨 / 7👀 / 2ℹ️) · 5 survived · 6 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>

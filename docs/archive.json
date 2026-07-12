@@ -6,6 +6,20 @@
       "date": "2026-07-12",
       "weekday": "Sun",
       "week": 28,
+      "kind": "weekly",
+      "headline": "GPT-5.6 家族正式登场，开源继续追赶 —— 新模型不一定更好",
+      "summary": "本周 11 条新信号里出现了 2 个 🚨 —— GPT-5.6 Sol Ultra 进入 Codex（7/6）和 腾讯 Hy3 295B 开源模型冲击 GLM-5.2（7/7）。随后 GPT-5.6 完整系列正式发布（7/9）、Grok 4.5 入场（7/9）、Sol Ultra 证明数学猜想（7/11）。但与此同时，",
+      "counts": {
+        "crit": 2,
+        "look": 8,
+        "fyi": 5
+      },
+      "url": "weekly_2026-07-12.html"
+    },
+    {
+      "date": "2026-07-12",
+      "weekday": "Sun",
+      "week": 28,
       "issue": 49,
       "kind": "daily",
       "headline": "(no headline)",
