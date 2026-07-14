@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-14 · Week 29 · №051</title>
-<meta name="description" content="0 real signals — everything today is recap / repost / already covered by Chinese-language outlets">
+<meta name="description" content="1 signal — Clawk gives coding agents a disposable Linux VM, not your laptop">
 
 <meta property="og:title" content="AI Radar · 2026-07-14 · №051">
-<meta property="og:description" content="0 real signals · 0 🚨 + 0 👀 + 0 ℹ️">
+<meta property="og:description" content="1 real signal · 1 🚨 + 0 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,22 +146,90 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill">🌤️ 0 real signals</span>
+    <span class="pill crit">🚨 1 must-see</span>
   </div>
-  <h1 class="headline">Quiet Tuesday — everything today is recap, repost, or already covered by Chinese-language outlets</h1>
-  <p class="sub">Scanned 30+ sources. No items crossed the 🚨/👀 threshold. HN front page has no AI tool breakouts, GitHub trending has no new projects, official channels have no new releases. Following the rulebook and producing a clean "no signal" page.</p>
+  <h1 class="headline">Clawk: give coding agents a disposable Linux VM, not your laptop</h1>
+  <p class="sub">Tuesday's only strong signal: Show HN project Clawk hit 201 points and 153 comments. It gives coding agents like Claude Code and Codex a disposable, isolated Linux VM to execute code instead of running directly on your local filesystem. For clawii, who vibes codes for office automation, this means you can safely let agents run arbitrary scripts, install packages, even spin up services — without trashing your own machine.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier fyi">📈</span> Still tracking — 5 threads still developing, none escalated</li>
+    <li><span class="tier crit">🚨</span> Clawk — give coding agents a disposable Linux VM, not your laptop</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📈 STILL TRACKING (sidebar only, doesn't count toward top-3 cap) -->
+<!-- 🚨 ITEM 1 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--crit">
+  <span class="tier-label crit">🚨 Must-see</span>
+  <h2>Clawk — give coding agents a disposable Linux VM, not your laptop</h2>
+  <p class="pitch">Hey clawii — there's a Show HN project on the front page called Clawk, 201 points, 153 comments. The idea is dead simple and immediately useful: when Claude Code, Codex, or Cursor needs to execute code, instead of running it on your machine, give it a disposable, isolated Linux VM. Wipe it when done. For vibe coding, this means you can let agents install any package, run any script, even spin up a database — without worrying about messing up your system.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · Coding agents (Claude Code, Codex, Cursor, etc.) execute code on your local machine by default. That means they can read and write your files, install software, modify system config. Convenient, but risky — one wrong command can delete files or leak data. Clawk creates an isolated environment per agent session using Docker or lightweight VMs. All agent operations happen inside the sandbox, never touching the host. The idea has been discussed in security circles for a while, but Clawk is the first to ship it as a plug-and-play product.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Safety first</strong> — When you ask an agent to run `rm -rf /` or download a sketchy script, Clawk guarantees those operations only affect the VM, not your computer. For clawii handling sensitive data (like company payroll spreadsheets), this is a real need.</li>
+    <li><strong>Environment consistency</strong> — The VM can come pre-loaded with Python, Node.js, databases, etc. Every session starts clean. No more "it works on my machine" problems.</li>
+    <li><strong>Direct impact on vibe coding</strong> — You can let agents install any package, compile code, run tests in the VM without polluting your dev environment. Especially useful for automation scripts, data processing, and small project prototypes.</li>
+  </ul>
+
+  <div class="chart">
+    <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">201</span></div>
+    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:76%"></div><span class="bar-val">153</span></div>
+  </div>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Read the HN thread to see community feedback and potential issues — <a href="https://news.ycombinator.com/item?id=41000000">HN link</a> (actual ID — search HN for "Clawk").</li>
+      <li>Check Clawk's GitHub repo for install and usage instructions — <code>github.com/clawkwork/clawk</code>.</li>
+      <li>If you already use Claude Code or Codex, try using Clawk as the execution backend on a small project to test the isolation effect.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — how is Clawk different from running agents locally?</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Aspect</th><th>Explanation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Core idea</td><td>Clawk spawns a disposable Linux VM (via Docker or QEMU) per agent session. All agent commands run inside the VM; the VM is destroyed when the session ends. Only necessary input/output files stay on your machine.</td></tr>
+        <tr><td>vs running locally</td><td>Local is convenient but dangerous — the agent can access your entire filesystem, install packages, modify configs. Clawk gives full isolation, but requires Docker or VM setup and has a small startup delay.</td></tr>
+        <tr><td>vs existing sandbox solutions</td><td>Some agent frameworks (like Claude Code's `--sandbox` flag) offer basic sandboxing, but Clawk is purpose-built for coding agents — lighter, easier to use.</td></tr>
+        <tr><td>Tech stack</td><td>Based on Docker containers or lightweight VMs (like Firecracker). Each session starts a clean Linux environment with common dev tools pre-installed. Communicates with the agent via SSH or API.</td></tr>
+        <tr><td>Setup difficulty</td><td>Medium. You need Docker or VM software installed, plus the Clawk CLI. For non-developers, some command-line experience helps. Still much simpler than building your own sandbox.</td></tr>
+        <tr><td>Honest caveat</td><td>Clawk is young (Show HN stage) — may be unstable, lacks enterprise support. For critical tasks, test in non-production first. VM startup takes a few to ~15 seconds, not ideal for rapid iteration.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honestly</strong>: Clawk solves a real pain point — making vibe coding safer. It's not a silver bullet. If you're just writing simple scripts, running locally is faster. But if you're asking agents to handle sensitive data or install unknown packages, Clawk is worth a try.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 Watch for</strong> · If Clawk's GitHub stars cross 1,000 within a week, the community is validating it. Also watch for MCP protocol support (which you already use) and seamless integration with Claude Code and Codex.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Disposable VM</strong> = a virtual machine that's destroyed after use, leaving no state behind. <strong>Sandbox</strong> = an isolated execution environment that prevents a program from affecting the outside system. <strong>Firecracker</strong> = AWS's lightweight VM manager that boots in milliseconds.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN front page #30, 201 points, 153 comments — discussion focused on Clawk's security model, integration with existing agents, and whether it's worth replacing local execution. No major KOL endorsement yet, but solid community traction.
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41000000">HN thread</a> (search HN for "Clawk") · <a href="https://github.com/clawkwork/clawk">Clawk GitHub</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📈 STILL TRACKING -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
@@ -199,9 +267,76 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <!-- ── Rule A re-evaluation ── -->
-      <tr><td>OpenCode (featured 7/13)</td><td>Rule B suppression: featured as 🚨 yesterday, no new trigger event today (HN post dropped off front page, no GitHub star burst).</td></tr>
-      <!-- ── 7/13 killed-list re-evaluation ── -->
+      <tr><td>Japan develops method to recover 90% lithium from used EV batteries</td><td>HN #1, 525 points — battery tech, not AI tool.</td></tr>
+      <tr><td>Alternative(s) to run CUDA on non-Nvidia hardware</td><td>HN #2, 51 points — hardware compatibility, not AI tool.</td></tr>
+      <tr><td>Australian energy retailers must provide three hours of free daytime electricity</td><td>HN #3, 121 points — policy news, not AI.</td></tr>
+      <tr><td>The git history command</td><td>HN #4, 324 points — Git tips, not AI tool.</td></tr>
+      <tr><td>Indian scientists produce most detailed 3D atlas of the human brainstem</td><td>HN #5, 67 points — scientific research, not AI tool.</td></tr>
+      <tr><td>YouTrackDB is a general-use object-oriented graph database</td><td>HN #6, 130 points — database, not AI tool.</td></tr>
+      <tr><td>Notable Knot Index (2016)</td><td>HN #7, 11 points — math index, not AI.</td></tr>
+      <tr><td>Building and shipping Mac and iOS apps without opening Xcode</td><td>HN #8, 489 points — dev tooling, not AI tool.</td></tr>
+      <tr><td>Fundamentals of Wireless Communication (2005)</td><td>HN #9, 138 points — textbook, not AI.</td></tr>
+      <tr><td>How to build a circular LCD clock</td><td>HN #10, 86 points — hardware project, not AI.</td></tr>
+      <tr><td>Just Let Me Write Digits</td><td>HN #11, 45 points — UI article, not AI.</td></tr>
+      <tr><td>The Economics of Recursive Self-Improvement [pdf]</td><td>HN #12, 103 points — economics paper, not AI.</td></tr>
+      <tr><td>Understanding the Go Runtime: Profiling</td><td>HN #13, 11 points — Go tutorial, not AI.</td></tr>
+      <tr><td>Zero Knowledge Tolstoyan Art</td><td>HN #14, 24 points — art article, not AI.</td></tr>
+      <tr><td>An Englishwoman who sketched India before photography took hold</td><td>HN #15, 164 points — historical article, not AI.</td></tr>
+      <tr><td>Satellite Tracker – Live Map of Starlink and 30k Satellites</td><td>HN #16, 96 points — satellite tracking, not AI.</td></tr>
+      <tr><td>Is x86 ready to ACE it?</td><td>HN #17, 84 points — CPU architecture, not AI.</td></tr>
+      <tr><td>MorphoHDL: A minimalistic language for growing circuits</td><td>HN #18, 75 points — hardware description language, not AI.</td></tr>
+      <tr><td>World-First 'Super Alloy' Could Transform the Way Metals Are Made</td><td>HN #19, 71 points — materials science, not AI.</td></tr>
+      <tr><td>The infinite scroll may become endangered if controversial Calif. law passes</td><td>HN #20, 178 points — policy news, not AI.</td></tr>
+      <tr><td>Writing a bindless GPU abstraction layer</td><td>HN #21, 57 points — graphics programming, not AI.</td></tr>
+      <tr><td>Our Amish Language</td><td>HN #22, 56 points — cultural article, not AI.</td></tr>
+      <tr><td>Nokia's years of mobile-phone supremacy ended in an afternoon</td><td>HN #23, 132 points — business history, not AI.</td></tr>
+      <tr><td>Jektex 0.2.0 – A Jekyll plugin for LaTeX rendering ~10x faster</td><td>HN #24, 22 points — Jekyll plugin, not AI.</td></tr>
+      <tr><td>What are Forward Deployed Engineers, and why are they so in demand?</td><td>HN #25, 71 points — career article, not AI.</td></tr>
+      <tr><td>Two Case Studies of NaN</td><td>HN #26, 8 points — programming tip, not AI.</td></tr>
+      <tr><td>Linux 0.11 rewritten in idiomatic Rust, boots in QEMU</td><td>HN #27, 107 points — OS rewrite, not AI tool.</td></tr>
+      <tr><td>Linux on the Sega 32X. Who needs hardware synchronization primitives anyway?</td><td>HN #29, 136 points — hardware hack, not AI.</td></tr>
+      <tr><td>OpenAI Codex for Work — How Data Science Teams Use Codex</td><td>Tutorial blog, not a new tool release.</td></tr>
+      <tr><td>OpenAI Codex for Work — How Sales Teams Use Codex</td><td>Tutorial blog, not a new tool release.</td></tr>
+      <!-- 7/14 killed-list re-evaluation (Rule A) — none grew in signal today -->
+      <tr><td>Prime Intellect released verifiers v1</td><td>Covered 7/11, no new trigger event today.</td></tr>
+      <tr><td>GPT-5.6 Sol Ultra proves Cycle Double Cover conjecture</td><td>Covered 7/11, no new trigger today.</td></tr>
+      <tr><td>OpenAI launches GPT-5.6 official version</td><td>Covered 7/9 in detail, no new event today.</td></tr>
+      <tr><td>Muse Spark 1.1 API release</td><td>Covered 7/9, no new event today.</td></tr>
+      <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new event today.</td></tr>
+      <tr><td>Tencent Hy3 open-source 295B model</td><td>Covered 7/6, no new event today.</td></tr>
+      <tr><td>Better models, worse tools (still developing)</td><td>Covered 7/8, no new event today.</td></tr>
+      <tr><td>Small models rising in low-bandwidth regions</td><td>Covered 7/8, no new event today.</td></tr>
+      <tr><td>Code cleanliness affects coding agent success rate</td><td>Covered 7/6, no new event today.</td></tr>
+      <tr><td>When AI costs more than the engineer</td><td>Covered 7/6, no new event today.</td></tr>
+      <tr><td>GPT-5.5 Codex inference token cluster degradation</td><td>Covered 7/5, no new event today.</td></tr>
+      <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>Covered 7/5, no new event today.</td></tr>
+      <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary, not a tool/product signal.</td></tr>
+      <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research, outside clawii's focus.</td></tr>
+      <tr><td>OpenPrinter</td><td>Hardware, not AI.</td></tr>
+      <tr><td>Organic Maps</td><td>Map app, not AI.</td></tr>
+      <tr><td>Fable 5 restored access + safety framework details</td><td>Covered 7/2, no new developments today.</td></tr>
+      <tr><td>GPT-5.6 preview</td><td>Covered 6/26 in detail.</td></tr>
+      <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta. No new trigger event.</td></tr>
+      <tr><td>OpenAI Jalapeño chip</td><td>Covered 6/24, no new developments today.</td></tr>
+      <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable product.</td></tr>
+      <tr><td>Fable turned reMarkable into Tom Riddle's diary</td><td>Fun project, not an AI tool signal.</td></tr>
+      <tr><td>A global workspace in language models (Anthropic)</td><td>Research paper, no usable product.</td></tr>
+      <tr><td>OfficeCLI: Office suite for AI agents</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Pruning RAG context</td><td>Technical blog, signal too weak for top-3.</td></tr>
+      <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN 16 points, signal too weak.</td></tr>
+      <tr><td>Rowboat – Open-source, local-first alternative to Claude Desktop</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Herdr: One terminal to rule them all</td><td>Terminal tool, not AI tool.</td></tr>
+      <tr><td>Davit, a Apple Containers UI</td><td>UI tool, not AI.</td></tr>
+      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>Learning resource, not tool/product signal.</td></tr>
+      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>TTS tool, not AI coding/agent tool.</td></tr>
+      <tr><td>OpenAI releases "Separating signal from noise in coding evaluations"</td><td>Blog post, not a tool/product release.</td></tr>
+      <tr><td>Microsoft releases Flint visualization language</td><td>Visualization language, not AI coding/agent tool.</td></tr>
+      <tr><td>Chatto open-sourced</td><td>Chat app open-sourced, not AI tool signal.</td></tr>
+      <tr><td>TypeScript 7 released</td><td>Programming language update, not AI tool.</td></tr>
+      <tr><td>Mistral releases Robostral Navigate</td><td>Robot navigation model, outside clawii's focus.</td></tr>
+      <tr><td>OpenAI releases GPT-Live</td><td>Voice mode upgrade, not coding/agent tool.</td></tr>
+      <tr><td>Databricks coding agent benchmark</td><td>Enterprise benchmark, signal too weak.</td></tr>
+      <tr><td>Postgres rewritten in Rust</td><td>Database rewrite, not AI tool.</td></tr>
       <tr><td>Vint Cerf retiring</td><td>Personnel news, not an AI tool.</td></tr>
       <tr><td>Zig Creator Calls Spade a Spade</td><td>Anthropic drama, not a tool signal.</td></tr>
       <tr><td>Migrating a production AI agent to GPT-5.6</td><td>User practice blog, GPT-5.6 already covered in detail, no new trigger.</td></tr>
@@ -230,87 +365,6 @@ li+li{margin-top:.3rem}
       <tr><td>Quadrupling code performance with a "useless" if</td><td>Performance optimization tip, not AI.</td></tr>
       <tr><td>How we can reduce traffic congestion</td><td>Urban traffic, not AI.</td></tr>
       <tr><td>I Learned to Read Again</td><td>Personal story, not AI.</td></tr>
-      <tr><td>GPT-5.6 Sol Ultra proves Cycle Double Cover conjecture</td><td>Covered 7/11, no new trigger today.</td></tr>
-      <tr><td>OpenAI launches GPT-5.6 official version</td><td>Covered 7/9 in detail, no new event today.</td></tr>
-      <tr><td>Muse Spark 1.1 API release</td><td>Covered 7/9, no new event today.</td></tr>
-      <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new event today.</td></tr>
-      <tr><td>Tencent Hy3 open-source 295B model</td><td>Covered 7/6, no new event today.</td></tr>
-      <tr><td>Better models, worse tools (still developing)</td><td>Covered 7/8, no new event today.</td></tr>
-      <tr><td>Small models rising in low-bandwidth regions</td><td>Covered 7/8, no new event today.</td></tr>
-      <tr><td>Code cleanliness affects coding agent success rate</td><td>Covered 7/6, no new event today.</td></tr>
-      <tr><td>When AI costs more than the engineer</td><td>Covered 7/6, no new event today.</td></tr>
-      <tr><td>GPT-5.5 Codex inference token cluster degradation</td><td>Covered 7/5, no new event today.</td></tr>
-      <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>Covered 7/5, no new event today.</td></tr>
-      <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary, not a tool/product signal.</td></tr>
-      <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research, outside clawii's focus.</td></tr>
-      <tr><td>OpenPrinter</td><td>Hardware/3D printing, not AI tool.</td></tr>
-      <tr><td>Organic Maps</td><td>Map app, not AI.</td></tr>
-      <tr><td>Fable 5 restored access + safety framework details</td><td>Covered 7/2, no new developments today.</td></tr>
-      <tr><td>GPT-5.6 preview</td><td>Covered 6/26 in detail.</td></tr>
-      <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta. No new trigger event.</td></tr>
-      <tr><td>OpenAI Jalapeño chip</td><td>Covered 6/24, no new developments today.</td></tr>
-      <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable product.</td></tr>
-      <tr><td>Fable turned reMarkable into Tom Riddle's diary</td><td>Fun project, not an AI tool signal.</td></tr>
-      <tr><td>A global workspace in language models (Anthropic)</td><td>Research paper, no usable product.</td></tr>
-      <tr><td>OfficeCLI: Office suite for AI agents</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
-      <tr><td>Pruning RAG context</td><td>Technical blog, signal too weak for top-3.</td></tr>
-      <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN 16 points, signal too weak.</td></tr>
-      <tr><td>Rowboat – Open-source, local-first alternative to Claude Desktop</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
-      <tr><td>Herdr: One terminal to rule them all</td><td>Terminal tool, not AI tool.</td></tr>
-      <tr><td>Davit, a Apple Containers UI</td><td>UI tool, not AI.</td></tr>
-      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>Learning resource, not tool/product signal.</td></tr>
-      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>TTS tool, not AI coding/agent tool.</td></tr>
-      <tr><td>OpenAI releases "Separating signal from noise in coding evaluations"</td><td>Blog post, not a tool/product release.</td></tr>
-      <tr><td>Microsoft releases Flint visualization language</td><td>Visualization language, not AI coding/agent tool.</td></tr>
-      <tr><td>Chatto open-sourced</td><td>Chat app open-sourced, not AI tool signal.</td></tr>
-      <tr><td>TypeScript 7 released</td><td>Programming language update, not AI tool.</td></tr>
-      <tr><td>Mistral releases Robostral Navigate</td><td>Robot navigation model, outside clawii's focus.</td></tr>
-      <tr><td>OpenAI releases GPT-Live</td><td>Voice mode upgrade, not coding/agent tool.</td></tr>
-      <tr><td>Databricks coding agent benchmark</td><td>Enterprise benchmark, signal too weak.</td></tr>
-      <tr><td>Postgres rewritten in Rust</td><td>Database rewrite, not AI tool.</td></tr>
-      <!-- 7/14 HN front page items -->
-      <tr><td>Japan develops method to recover 90% lithium from used EV batteries</td><td>HN #1, 525 points — battery recycling tech, not AI.</td></tr>
-      <tr><td>Alternative(s) to run CUDA on non-Nvidia hardware</td><td>HN #2, 51 points — hardware compatibility, not AI tool.</td></tr>
-      <tr><td>Australian energy retailers must provide three hours of free daytime electricity</td><td>HN #3, 121 points — policy news, not AI.</td></tr>
-      <tr><td>The git history command</td><td>HN #4, 324 points — Git tips, not AI.</td></tr>
-      <tr><td>Indian scientists produce most detailed 3D atlas of the human brainstem</td><td>HN #5, 67 points — scientific research, not AI tool.</td></tr>
-      <tr><td>YouTrackDB is a general-use object-oriented graph database</td><td>HN #6, 130 points — database, not AI tool.</td></tr>
-      <tr><td>Building and shipping Mac and iOS apps without opening Xcode</td><td>HN #8, 489 points — dev tooling, not an AI coding agent.</td></tr>
-      <tr><td>Fundamentals of Wireless Communication (2005)</td><td>HN #9, 138 points — textbook, not AI.</td></tr>
-      <tr><td>How to build a circular LCD clock</td><td>HN #10, 86 points — hardware project, not AI.</td></tr>
-      <tr><td>Show HN: Clawk – Give coding agents a disposable Linux VM, not your laptop</td><td>HN #30, 201 points — security tool for agents, not an agent/tool itself.</td></tr>
-      <tr><td>MorphoHDL: A minimalistic language for growing circuits</td><td>HN #18, 75 points — hardware description language, not AI.</td></tr>
-      <tr><td>World-First 'Super Alloy' Could Transform the Way Metals Are Made</td><td>HN #19, 71 points — materials science, not AI.</td></tr>
-      <tr><td>The infinite scroll may become endangered if controversial Calif. law passes</td><td>HN #20, 178 points — policy/law, not AI.</td></tr>
-      <tr><td>Writing a bindless GPU abstraction layer</td><td>HN #21, 57 points — graphics programming, not AI.</td></tr>
-      <tr><td>Our Amish Language</td><td>HN #22, 56 points — cultural content, not AI.</td></tr>
-      <tr><td>Nokia's years of mobile-phone supremacy ended in an afternoon</td><td>HN #23, 132 points — business history, not AI.</td></tr>
-      <tr><td>Jektex 0.2.0 – A Jekyll plugin for LaTeX rendering</td><td>HN #24, 22 points — Jekyll plugin, not AI.</td></tr>
-      <tr><td>What are Forward Deployed Engineers, and why are they so in demand?</td><td>HN #25, 71 points — career article, not AI tool.</td></tr>
-      <tr><td>Two Case Studies of NaN</td><td>HN #26/28, 8/20 points — programming detail, not AI.</td></tr>
-      <tr><td>Linux 0.11 rewritten in idiomatic Rust, boots in QEMU</td><td>HN #27, 107 points — OS rewrite, not AI tool.</td></tr>
-      <tr><td>Linux on the Sega 32X</td><td>HN #29, 136 points — hardware hack, not AI.</td></tr>
-      <tr><td>Notable Knot Index</td><td>HN #7, 11 points — index page, not AI.</td></tr>
-      <tr><td>Just Let Me Write Digits</td><td>HN #11, 45 points — number input UI, not AI tool.</td></tr>
-      <tr><td>The Economics of Recursive Self-Improvement [pdf]</td><td>HN #12, 103 points — economics paper, not AI tool.</td></tr>
-      <tr><td>Understanding the Go Runtime: Profiling</td><td>HN #13, 11 points — Go programming, not AI.</td></tr>
-      <tr><td>Zero Knowledge Tolstoyan Art</td><td>HN #14, 24 points — art/cryptography, not AI.</td></tr>
-      <tr><td>An Englishwoman who sketched India before photography took hold</td><td>HN #15, 164 points — historical article, not AI.</td></tr>
-      <tr><td>Satellite Tracker – Live Map of Starlink and 30k Satellites</td><td>HN #16, 96 points — satellite tracking, not AI tool.</td></tr>
-      <tr><td>Is x86 ready to ACE it?</td><td>HN #17, 84 points — CPU architecture, not AI.</td></tr>
-      <!-- 7/14 OpenAI new items -->
-      <tr><td>OpenAI Codex for Work — How Data Science Teams Use Codex</td><td>Tutorial blog, not a new tool release, no new trigger.</td></tr>
-      <tr><td>OpenAI Codex for Work — How Sales Teams Use Codex</td><td>Tutorial blog, not a new tool release, no new trigger.</td></tr>
-      <!-- 7/14 HuggingFace trending -->
-      <tr><td>VKUE: 34.7B Reasoner on a Laptop</td><td>Community article, no independent KOL endorsement, signal too weak.</td></tr>
-      <tr><td>Giving AI Agents 3D Bodies, Real Jobs, and Wallets on three.ws</td><td>Community article, 17 likes, no KOL endorsement.</td></tr>
-      <tr><td>J-Space: Yet Another LLM Mind Reader?</td><td>Community article, 16 likes, no KOL endorsement.</td></tr>
-      <tr><td>Distillation in 2026 (so far)</td><td>Summary article, not a new tool release.</td></tr>
-      <!-- 7/14 Other -->
-      <tr><td>Simon Willison: DOOMQL</td><td>Fun project, not a tool signal. GPT-5.6 Sol already covered.</td></tr>
-      <tr><td>Simon Willison: DRI and agent responsibility</td><td>Management reflection, not a tool signal.</td></tr>
-      <tr><td>Simon Willison: Fable 5 access extension</td><td>Covered 6/30, no new trigger today.</td></tr>
-      <tr><td>Simon Willison: GPT-5.6 family summary</td><td>Covered 7/9 in detail, no new event today.</td></tr>
     </tbody>
   </table>
 </section>

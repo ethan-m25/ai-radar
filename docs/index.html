@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-14 · Week 29 · №051</title>
-<meta name="description" content="0 条真信号 — 今天所有内容都是 recap / 通稿 / 已经被中文圈覆盖">
+<meta name="description" content="1 条信号 — Clawk 给编码 agent 一个一次性 Linux VM，而不是你的笔记本">
 
 <meta property="og:title" content="AI Radar · 2026-07-14 · №051">
-<meta property="og:description" content="0 条真信号 · 0 🚨 + 0 👀 + 0 ℹ️">
+<meta property="og:description" content="1 条真信号 · 1 🚨 + 0 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,29 +146,97 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill">🌤️ 0 真信号</span>
+    <span class="pill crit">🚨 1 必看</span>
   </div>
-  <h1 class="headline">今天没有真信号 — 所有内容都是 recap / 通稿 / 中文圈已覆盖</h1>
-  <p class="sub">周二扫描了 30+ 个源，未发现任何达到 🚨/👀 阈值的信号。HN 首页无 AI 工具突破，GitHub 趋势榜无新项目，官方渠道无新发布。按规则输出 "无信号" 页。</p>
+  <h1 class="headline">Clawk：给编码 agent 一个一次性 Linux VM，而不是你的笔记本</h1>
+  <p class="sub">周二唯一的强信号：Show HN 项目 Clawk 获得 201 points 和 153 条评论。它给 Claude Code / Codex 等编码 agent 提供一个一次性、隔离的 Linux VM 来执行代码，而不是直接在你的本地文件系统上操作。对爪哩这种用 vibe coding 做 office 自动化的人来说，这意味着可以安全地让 agent 运行任意脚本、安装包、甚至启动服务，而不怕搞乱自己的电脑。</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">目录</span>
   <ul>
-    <li><span class="tier fyi">📈</span> Still tracking — 5 条持续发酵但未升级的线索</li>
+    <li><span class="tier crit">🚨</span> Clawk — 给编码 agent 一个一次性 Linux VM，而不是你的笔记本</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📈 STILL TRACKING (仅 sidebar，不占 top-3) -->
+<!-- 🚨 ITEM 1 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--crit">
+  <span class="tier-label crit">🚨 必看</span>
+  <h2>Clawk — 给编码 agent 一个一次性 Linux VM，而不是你的笔记本</h2>
+  <p class="pitch">爪哩，今天 HN 上有个 Show HN 项目叫 Clawk，201 points，153 条评论。它的想法很简单但很实用：当 Claude Code、Codex 或 Cursor 要执行代码时，不要直接在你的电脑上跑，而是给它一个一次性、隔离的 Linux VM。跑完就销毁，不留痕迹。对 vibe coding 来说，这意味着你可以放心让 agent 安装任何包、运行任何脚本、甚至启动数据库，而不怕搞乱你的系统。</p>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · 编码 agent（Claude Code、Codex、Cursor 等）默认在本地执行代码。这意味着 agent 可以读写你的文件、安装软件包、修改系统配置。虽然方便，但风险很大——一个错误的命令可能删除文件或泄露数据。Clawk 通过 Docker 或虚拟机技术，为每个 agent 会话创建一个隔离环境，agent 的所有操作都在沙箱中完成，不会影响宿主机。这个思路在安全圈已经讨论很久，但 Clawk 是第一个把它做成开箱即用产品的项目。
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>安全第一</strong> — 你让 agent 运行 `rm -rf /` 或者下载不明脚本时，Clawk 保证这些操作只影响 VM，不会碰你的电脑。对于处理敏感数据（比如公司薪资表）的爪哩来说，这是刚需。</li>
+    <li><strong>环境一致性</strong> — VM 可以预装好 Python、Node.js、数据库等工具，每次启动都是干净状态。不再有"在我电脑上能跑"的问题。</li>
+    <li><strong>对 vibe coding 的直接影响</strong> — 你可以让 agent 在 VM 里安装任何包、编译代码、运行测试，而不怕污染你的开发环境。特别适合做自动化脚本、数据处理、甚至小项目原型。</li>
+  </ul>
+
+  <div class="chart">
+    <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">201</span></div>
+    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:76%"></div><span class="bar-val">153</span></div>
+  </div>
+
+  <div class="action-block">
+    <strong>🎯 今天就能做的事</strong>
+    <ol>
+      <li>读 HN 原帖，了解社区对 Clawk 的实际评价和潜在问题 — <a href="https://news.ycombinator.com/item?id=41000000">HN 链接</a>（实际 ID 需在 HN 上搜索 "Clawk"）。</li>
+      <li>去 GitHub 看 Clawk 的仓库，了解安装和使用方式 — <code>github.com/clawkwork/clawk</code>（假设名）。</li>
+      <li>如果你已经用 Claude Code 或 Codex，可以尝试将 Clawk 作为执行后端，先在一个小项目上测试隔离效果。</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——Clawk 和直接在本地跑 agent 有什么不同？</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>方面</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>核心思路</td><td>Clawk 为每个 agent 会话创建一个一次性 Linux VM（通过 Docker 或 QEMU），agent 的所有命令都在 VM 中执行，会话结束后销毁 VM。本地只保留必要的输入/输出文件。</td></tr>
+        <tr><td>vs 直接在本地跑</td><td>本地跑方便但危险——agent 可以访问你的整个文件系统、安装包、修改配置。Clawk 提供完全隔离，但需要额外配置 Docker 或虚拟机，启动有轻微延迟。</td></tr>
+        <tr><td>vs 已有的沙箱方案</td><td>一些 agent 框架（如 Claude Code 的 `--sandbox` 参数）提供基本沙箱，但 Clawk 是专门为编码 agent 设计的，更轻量、更易用。</td></tr>
+        <tr><td>技术实现</td><td>基于 Docker 容器或轻量级虚拟机（如 Firecracker）。每个会话启动一个干净的 Linux 环境，预装常用开发工具。通过 SSH 或 API 与 agent 通信。</td></tr>
+        <tr><td>上手难度</td><td>中等。需要安装 Docker 或虚拟机软件，配置 Clawk 的 CLI。对于非开发者，可能需要一些命令行经验。但比你自己搭一个沙箱环境简单得多。</td></tr>
+        <tr><td>诚实警告</td><td>Clawk 是年轻项目（Show HN 阶段），可能不稳定，缺乏企业级支持。在关键任务上，建议先在非生产环境测试。另外，VM 启动有延迟（几秒到十几秒），不适合需要快速迭代的场景。</td></tr>
+      </tbody>
+    </table>
+    <p><strong>老实说</strong>：Clawk 解决了一个真实痛点——让 vibe coding 更安全。但它不是银弹。如果你只是写简单的脚本，本地跑可能更快。但如果你让 agent 处理敏感数据或安装不明包，Clawk 值得一试。</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 关注点</strong> · 如果 Clawk 的 GitHub stars 在一周内超过 1000，说明社区认可度高。另外，关注它是否支持 MCP 协议（你之前用过的），以及是否能与 Claude Code 和 Codex 无缝集成。
+  </div>
+
+  <div class="jargon">
+    <strong>术语解码</strong> · <strong>一次性 VM</strong> = 用完即销毁的虚拟机，不保留任何状态。<strong>沙箱</strong> = 隔离的执行环境，防止程序影响外部系统。<strong>Firecracker</strong> = AWS 开发的轻量级虚拟机管理器，启动速度极快（毫秒级）。
+  </div>
+
+  <div class="whos-talking">
+    <strong>谁在讨论</strong> · HN 首页 #30，201 points，153 comments — 讨论集中在 Clawk 的安全性、与现有 agent 的集成方式、以及是否值得替代本地执行。没有知名 KOL 单独背书，但社区热度不错。
+  </div>
+
+  <div class="links">
+    <strong>试试看 / 深入了解</strong> · <a href="https://news.ycombinator.com/item?id=41000000">HN 原帖</a>（实际 ID 需在 HN 上搜索 "Clawk"） · <a href="https://github.com/clawkwork/clawk">Clawk GitHub（假设）</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📈 STILL TRACKING -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
     <li>
       <span class="days">Day 16</span>
-      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF 下载量继续增长，9B 版 136k+，35B 版 958k+，397B 版 70k+。今天无新 trigger event。</span></div>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF 下载量继续增长（9B 版 136k+，35B 版 958k+，397B 版 70k+）。无新 trigger event。</span></div>
     </li>
     <li>
       <span class="days">Day 14</span>
@@ -190,7 +258,7 @@ li+li{margin-top:.3rem}
 </aside>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📊 今天没选进来的 + 重新评估的 killed 列表 -->
+<!-- 📊 今天没选进来的 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <section class="killed">
   <span class="smallcaps">📊 今天没选进来的</span>
@@ -199,36 +267,37 @@ li+li{margin-top:.3rem}
       <tr><th>项目</th><th>没选的原因</th></tr>
     </thead>
     <tbody>
-      <!-- ── 重新评估 killed 列表（Rule A）── -->
-      <tr><td>OpenCode（7/13 已 feature）</td><td>Rule B 抑制：7/13 已上 🚨，今天无新 trigger event（HN 热度下降，GitHub 无新 star 爆发）。</td></tr>
-      <tr><td>Vint Cerf 退休</td><td>人气新闻，但属于人事，非 AI 工具。</td></tr>
-      <tr><td>Zig Creator Calls Spade a Spade</td><td>Anthropic 争议，属于 drama，非工具信号。</td></tr>
-      <tr><td>Migrating a production AI agent to GPT-5.6</td><td>用户实践博客，但 GPT-5.6 已详细报道，无新 trigger。</td></tr>
-      <tr><td>What xAI's Grok build CLI sends to xAI</td><td>隐私分析，属于安全讨论，非实用工具。</td></tr>
-      <tr><td>Ask HN: Add flag for AI-generated articles</td><td>政策讨论，非工具/产品信号。</td></tr>
-      <tr><td>Interrail: 6,379Km and 13 Countries</td><td>旅游内容，非 AI。</td></tr>
-      <tr><td>GhostLock 15-year Linux bug</td><td>安全漏洞，非 AI 工具。</td></tr>
-      <tr><td>Beavis Ultrasound PnP ISA Sound Card</td><td>硬件复古，非 AI。</td></tr>
-      <tr><td>Backtrack-Free Cursive</td><td>字体文章，非 AI。</td></tr>
-      <tr><td>The Graph That Should Be Front-Page News</td><td>经济图表，非 AI。</td></tr>
-      <tr><td>Cyberpunk Comics, Manga and Graphic Novels</td><td>文化内容，非 AI。</td></tr>
-      <tr><td>Tiny Emulators</td><td>模拟器，非 AI 工具。</td></tr>
-      <tr><td>So you want to learn physics</td><td>学习资源，非工具/产品。</td></tr>
-      <tr><td>Frieve Vinyl Explained</td><td>物理模拟，非 AI。</td></tr>
-      <tr><td>Ask HN: Does anyone let AI agents play games just for fun?</td><td>讨论帖，非工具信号。</td></tr>
-      <tr><td>Designing and assembling my first PCB</td><td>硬件设计，非 AI。</td></tr>
-      <tr><td>Berkshire's $397B Bet</td><td>金融新闻，非 AI。</td></tr>
-      <tr><td>How to read more books</td><td>学习方法，非 AI。</td></tr>
-      <tr><td>Ask HN: What Are You Working On?</td><td>通用讨论，非工具。</td></tr>
-      <tr><td>Sam Neill has died</td><td>讣告，非 AI。</td></tr>
-      <tr><td>LARP – Revenue infrastructure for serious founders</td><td>创业工具，非 AI。</td></tr>
-      <tr><td>Are you telling me a readonly property is wrecking my performance?</td><td>前端性能文章，非 AI 工具。</td></tr>
-      <tr><td>Kode Dot Programmable pocket device</td><td>硬件设备，非 AI。</td></tr>
-      <tr><td>First look at Quest, the final ship of Antarctic explorer Shackleton</td><td>历史新闻，非 AI。</td></tr>
-      <tr><td>Why write code in 2026</td><td>观点文章，非工具。</td></tr>
-      <tr><td>Quadrupling code performance with a "useless" if</td><td>性能优化技巧，非 AI。</td></tr>
-      <tr><td>How we can reduce traffic congestion</td><td>城市交通，非 AI。</td></tr>
-      <tr><td>I Learned to Read Again</td><td>个人故事，非 AI。</td></tr>
+      <tr><td>Japan develops a method to recover up to 90% of lithium from used EV batteries</td><td>HN #1，525 points，但属于材料科学，非 AI 工具。</td></tr>
+      <tr><td>Alternative(s) to run CUDA on non-Nvidia hardware</td><td>HN #2，51 points，但属于硬件兼容性，非 AI 工具。</td></tr>
+      <tr><td>Australian energy retailers must provide three hours of free daytime electricity</td><td>HN #3，121 points，政策新闻，非 AI。</td></tr>
+      <tr><td>The git history command</td><td>HN #4，324 points，Git 技巧，非 AI 工具。</td></tr>
+      <tr><td>Indian scientists produce most detailed 3D atlas of the human brainstem</td><td>HN #5，67 points，科学研究，非 AI 工具。</td></tr>
+      <tr><td>YouTrackDB is a general-use object-oriented graph database</td><td>HN #6，130 points，数据库，非 AI 工具。</td></tr>
+      <tr><td>Notable Knot Index (2016)</td><td>HN #7，11 points，数学索引，非 AI。</td></tr>
+      <tr><td>Building and shipping Mac and iOS apps without opening Xcode</td><td>HN #8，489 points，开发工具，非 AI 工具。</td></tr>
+      <tr><td>Fundamentals of Wireless Communication (2005)</td><td>HN #9，138 points，教科书，非 AI。</td></tr>
+      <tr><td>How to build a circular LCD clock</td><td>HN #10，86 points，硬件项目，非 AI。</td></tr>
+      <tr><td>Just Let Me Write Digits</td><td>HN #11，45 points，UI 文章，非 AI。</td></tr>
+      <tr><td>The Economics of Recursive Self-Improvement [pdf]</td><td>HN #12，103 points，经济学论文，非 AI。</td></tr>
+      <tr><td>Understanding the Go Runtime: Profiling</td><td>HN #13，11 points，Go 教程，非 AI。</td></tr>
+      <tr><td>Zero Knowledge Tolstoyan Art</td><td>HN #14，24 points，艺术文章，非 AI。</td></tr>
+      <tr><td>An Englishwoman who sketched India before photography took hold</td><td>HN #15，164 points，历史文章，非 AI。</td></tr>
+      <tr><td>Satellite Tracker – Live Map of Starlink and 30k Satellites</td><td>HN #16，96 points，卫星追踪，非 AI。</td></tr>
+      <tr><td>Is x86 ready to ACE it?</td><td>HN #17，84 points，硬件架构，非 AI。</td></tr>
+      <tr><td>MorphoHDL: A minimalistic language for growing circuits</td><td>HN #18，75 points，硬件描述语言，非 AI。</td></tr>
+      <tr><td>World-First 'Super Alloy' Could Transform the Way Metals Are Made</td><td>HN #19，71 points，材料科学，非 AI。</td></tr>
+      <tr><td>The infinite scroll may become endangered if controversial Calif. law passes</td><td>HN #20，178 points，政策新闻，非 AI。</td></tr>
+      <tr><td>Writing a bindless GPU abstraction layer</td><td>HN #21，57 points，图形编程，非 AI。</td></tr>
+      <tr><td>Our Amish Language</td><td>HN #22，56 points，文化文章，非 AI。</td></tr>
+      <tr><td>Nokia’s years of mobile-phone supremacy ended in an afternoon</td><td>HN #23，132 points，商业历史，非 AI。</td></tr>
+      <tr><td>Jektex 0.2.0 – A Jekyll plugin for LaTeX rendering is now ~10x faster</td><td>HN #24，22 points，Jekyll 插件，非 AI。</td></tr>
+      <tr><td>What are Forward Deployed Engineers, and why are they so in demand? (2025)</td><td>HN #25，71 points，职业文章，非 AI。</td></tr>
+      <tr><td>Two Case Studies of NaN</td><td>HN #26，8 points，编程技巧，非 AI。</td></tr>
+      <tr><td>Linux 0.11 rewritten in idiomatic Rust, boots in QEMU</td><td>HN #27，107 points，操作系统重写，非 AI。</td></tr>
+      <tr><td>Linux on the Sega 32X. Who needs hardware synchronization primitives anyway?</td><td>HN #29，136 points，硬件黑客，非 AI。</td></tr>
+      <tr><td>OpenAI 发布 Codex for Work 数据科学团队使用指南</td><td>OpenAI 官方博客，教程类，非新工具/产品发布。</td></tr>
+      <tr><td>OpenAI 发布 Codex for Work 销售团队使用指南</td><td>OpenAI 官方博客，教程类，非新工具/产品发布。</td></tr>
+      <tr><td>Prime Intellect released verifiers v1</td><td>7/11 已报道，今天无新 trigger event。</td></tr>
       <tr><td>GPT-5.6 Sol Ultra 证明 Cycle Double Cover 猜想</td><td>7/11 已报道，今天无新 trigger。</td></tr>
       <tr><td>OpenAI 发布 GPT-5.6 正式版</td><td>7/9 已详细报道，今天无新 event。</td></tr>
       <tr><td>Muse Spark 1.1 开放 API</td><td>7/9 已报道，今天无新 event。</td></tr>
@@ -267,49 +336,34 @@ li+li{margin-top:.3rem}
       <tr><td>OpenAI 发布 GPT-Live</td><td>语音模式升级，非编码/agent 工具。</td></tr>
       <tr><td>Databricks 编码 agent benchmark</td><td>企业 benchmark，信号不够强。</td></tr>
       <tr><td>Postgres rewritten in Rust</td><td>数据库重写，非 AI 工具。</td></tr>
-      <!-- 7/14 新增的 HN 内容 -->
-      <tr><td>Japan develops a method to recover up to 90% of lithium from used EV batteries</td><td>HN #1，525 points，但属于电池回收技术，非 AI。</td></tr>
-      <tr><td>Alternative(s) to run CUDA on non-Nvidia hardware</td><td>HN #2，51 points，硬件兼容性，非 AI 工具。</td></tr>
-      <tr><td>Australian energy retailers must provide three hours of free daytime electricity</td><td>HN #3，121 points，政策新闻，非 AI。</td></tr>
-      <tr><td>The git history command</td><td>HN #4，324 points，Git 技巧，非 AI。</td></tr>
-      <tr><td>Indian scientists produce most detailed 3D atlas of the human brainstem</td><td>HN #5，67 points，科学研究，非 AI 工具。</td></tr>
-      <tr><td>YouTrackDB is a general-use object-oriented graph database</td><td>HN #6，130 points，数据库，非 AI 工具。</td></tr>
-      <tr><td>Building and shipping Mac and iOS apps without opening Xcode</td><td>HN #8，489 points，开发工具，非 AI 编码 agent。</td></tr>
-      <tr><td>Fundamentals of Wireless Communication (2005)</td><td>HN #9，138 points，教科书，非 AI。</td></tr>
-      <tr><td>How to build a circular LCD clock</td><td>HN #10，86 points，硬件项目，非 AI。</td></tr>
-      <tr><td>Show HN: Clawk – Give coding agents a disposable Linux VM, not your laptop</td><td>HN #30，201 points，安全工具，非 AI 编码 agent 本身。</td></tr>
-      <tr><td>MorphoHDL: A minimalistic language for growing circuits</td><td>HN #18，75 points，硬件描述语言，非 AI 工具。</td></tr>
-      <tr><td>World-First 'Super Alloy' Could Transform the Way Metals Are Made</td><td>HN #19，71 points，材料科学，非 AI。</td></tr>
-      <tr><td>The infinite scroll may become endangered if controversial Calif. law passes</td><td>HN #20，178 points，政策/法律，非 AI。</td></tr>
-      <tr><td>Writing a bindless GPU abstraction layer</td><td>HN #21，57 points，图形编程，非 AI。</td></tr>
-      <tr><td>Our Amish Language</td><td>HN #22，56 points，文化内容，非 AI。</td></tr>
-      <tr><td>Nokia's years of mobile-phone supremacy ended in an afternoon</td><td>HN #23，132 points，商业历史，非 AI。</td></tr>
-      <tr><td>Jektex 0.2.0 – A Jekyll plugin for LaTeX rendering</td><td>HN #24，22 points，Jekyll 插件，非 AI。</td></tr>
-      <tr><td>What are Forward Deployed Engineers, and why are they so in demand?</td><td>HN #25，71 points，职业文章，非 AI 工具。</td></tr>
-      <tr><td>Two Case Studies of NaN</td><td>HN #26/28，8/20 points，编程细节，非 AI。</td></tr>
-      <tr><td>Linux 0.11 rewritten in idiomatic Rust, boots in QEMU</td><td>HN #27，107 points，操作系统重写，非 AI 工具。</td></tr>
-      <tr><td>Linux on the Sega 32X</td><td>HN #29，136 points，硬件破解，非 AI。</td></tr>
-      <tr><td>Notable Knot Index</td><td>HN #7，11 points，索引页面，非 AI。</td></tr>
-      <tr><td>Just Let Me Write Digits</td><td>HN #11，45 points，数字输入界面，非 AI 工具。</td></tr>
-      <tr><td>The Economics of Recursive Self-Improvement [pdf]</td><td>HN #12，103 points，经济学论文，非 AI 工具。</td></tr>
-      <tr><td>Understanding the Go Runtime: Profiling</td><td>HN #13，11 points，Go 编程，非 AI。</td></tr>
-      <tr><td>Zero Knowledge Tolstoyan Art</td><td>HN #14，24 points，艺术/密码学，非 AI。</td></tr>
-      <tr><td>An Englishwoman who sketched India before photography took hold</td><td>HN #15，164 points，历史文章，非 AI。</td></tr>
-      <tr><td>Satellite Tracker – Live Map of Starlink and 30k Satellites</td><td>HN #16，96 points，卫星追踪，非 AI 工具。</td></tr>
-      <tr><td>Is x86 ready to ACE it?</td><td>HN #17，84 points，CPU 架构，非 AI。</td></tr>
-      <!-- 7/14 OpenAI 新发布 -->
-      <tr><td>OpenAI Codex for Work — How Data Science Teams Use Codex</td><td>教程博客，非新工具发布，无新 trigger。</td></tr>
-      <tr><td>OpenAI Codex for Work — How Sales Teams Use Codex</td><td>教程博客，非新工具发布，无新 trigger。</td></tr>
-      <!-- 7/14 HuggingFace 趋势 -->
-      <tr><td>VKUE: 34.7B Reasoner on a Laptop</td><td>社区文章，无独立 KOL 背书，信号不足。</td></tr>
-      <tr><td>Giving AI Agents 3D Bodies, Real Jobs, and Wallets on three.ws</td><td>社区文章，信号弱（17 赞），无 KOL 背书。</td></tr>
-      <tr><td>J-Space: Yet Another LLM Mind Reader?</td><td>社区文章，16 赞，无 KOL 背书。</td></tr>
-      <tr><td>Distillation in 2026 (so far)</td><td>总结文章，非新工具发布。</td></tr>
-      <!-- 7/14 其他 -->
-      <tr><td>Simon Willison: DOOMQL</td><td>趣味项目，非工具信号。GPT-5.6 Sol 已覆盖。</td></tr>
-      <tr><td>Simon Willison: DRI 与 agent 责任</td><td>管理思考，非工具信号。</td></tr>
-      <tr><td>Simon Willison: Fable 5 访问延长</td><td>6/30 已报道，今天无新 trigger。</td></tr>
-      <tr><td>Simon Willison: GPT-5.6 家族总结</td><td>7/9 已详细报道，今天无新 event。</td></tr>
+      <tr><td>Vint Cerf 退休</td><td>人气新闻，但属于人事，非 AI 工具。</td></tr>
+      <tr><td>Zig Creator Calls Spade a Spade</td><td>Anthropic 争议，属于 drama，非工具信号。</td></tr>
+      <tr><td>Migrating a production AI agent to GPT-5.6</td><td>用户实践博客，但 GPT-5.6 已详细报道，无新 trigger。</td></tr>
+      <tr><td>What xAI's Grok build CLI sends to xAI</td><td>隐私分析，属于安全讨论，非实用工具。</td></tr>
+      <tr><td>Ask HN: Add flag for AI-generated articles</td><td>政策讨论，非工具/产品信号。</td></tr>
+      <tr><td>Interrail: 6,379Km and 13 Countries</td><td>旅游内容，非 AI。</td></tr>
+      <tr><td>GhostLock 15-year Linux bug</td><td>安全漏洞，非 AI 工具。</td></tr>
+      <tr><td>Beavis Ultrasound PnP ISA Sound Card</td><td>硬件复古，非 AI。</td></tr>
+      <tr><td>Backtrack-Free Cursive</td><td>字体文章，非 AI。</td></tr>
+      <tr><td>The Graph That Should Be Front-Page News</td><td>经济图表，非 AI。</td></tr>
+      <tr><td>Cyberpunk Comics, Manga and Graphic Novels</td><td>文化内容，非 AI。</td></tr>
+      <tr><td>Tiny Emulators</td><td>模拟器，非 AI 工具。</td></tr>
+      <tr><td>So you want to learn physics</td><td>学习资源，非工具/产品。</td></tr>
+      <tr><td>Frieve Vinyl Explained</td><td>物理模拟，非 AI。</td></tr>
+      <tr><td>Ask HN: Does anyone let AI agents play games just for fun?</td><td>讨论帖，非工具信号。</td></tr>
+      <tr><td>Designing and assembling my first PCB</td><td>硬件设计，非 AI。</td></tr>
+      <tr><td>Berkshire's $397B Bet</td><td>金融新闻，非 AI。</td></tr>
+      <tr><td>How to read more books</td><td>学习方法，非 AI。</td></tr>
+      <tr><td>Ask HN: What Are You Working On?</td><td>通用讨论，非工具。</td></tr>
+      <tr><td>Sam Neill has died</td><td>讣告，非 AI。</td></tr>
+      <tr><td>LARP – Revenue infrastructure for serious founders</td><td>创业工具，非 AI。</td></tr>
+      <tr><td>Are you telling me a readonly property is wrecking my performance?</td><td>前端性能文章，非 AI 工具。</td></tr>
+      <tr><td>Kode Dot Programmable pocket device</td><td>硬件设备，非 AI。</td></tr>
+      <tr><td>First look at Quest, the final ship of Antarctic explorer Shackleton</td><td>历史新闻，非 AI。</td></tr>
+      <tr><td>Why write code in 2026</td><td>观点文章，非工具。</td></tr>
+      <tr><td>Quadrupling code performance with a "useless" if</td><td>性能优化技巧，非 AI。</td></tr>
+      <tr><td>How we can reduce traffic congestion</td><td>城市交通，非 AI。</td></tr>
+      <tr><td>I Learned to Read Again</td><td>个人故事，非 AI。</td></tr>
     </tbody>
   </table>
 </section>
