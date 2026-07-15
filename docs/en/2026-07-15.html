@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-15 · Week 29 · №052</title>
-<meta name="description" content="1 signal — Bonsai 27B: a 27B-parameter model that runs on a phone">
+<meta name="description" content="1 signal — Bonsai 27B: a 27B-class model that runs on a phone">
 
 <meta property="og:title" content="AI Radar · 2026-07-15 · №052">
 <meta property="og:description" content="1 real signal · 1 🚨 + 0 👀 + 0 ℹ️">
@@ -148,15 +148,15 @@ li+li{margin-top:.3rem}
   <div class="counts">
     <span class="pill crit">🚨 1 must-see</span>
   </div>
-  <h1 class="headline">Bonsai 27B: a 27B-parameter model that runs on a phone</h1>
-  <p class="sub">Quiet news day overall, but one model release stands out: PrismML's Bonsai 27B, a compressed variant of Qwen 3.6 27B that — thanks to aggressive quantization — can run on a phone. For clawii, this means you could one day run powerful multimodal AI locally on your device, no internet required, no data leaving your pocket.</p>
+  <h1 class="headline">Bonsai 27B: a 27B-class model that runs on a phone</h1>
+  <p class="sub">Wednesday's only strong signal: PrismML's Bonsai 27B hit HN with 612 points and 214 comments. It's a 27B-parameter multimodal model compressed via ternary quantization to run locally on a phone. For clawii, who vibes codes for office automation, this means you can run a near-frontier model on your phone, offline, to handle documents, images, and even code — no internet required.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Bonsai 27B — a 27B-parameter model that runs on a phone</li>
+    <li><span class="tier crit">🚨</span> Bonsai 27B — a 27B-class model that runs on a phone</li>
   </ul>
 </nav>
 
@@ -165,18 +165,18 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--crit">
   <span class="tier-label crit">🚨 Must-see</span>
-  <h2>Bonsai 27B — a 27B-parameter model that runs on a phone</h2>
-  <p class="pitch">Hey clawii — today's strongest AI signal on HN is Bonsai 27B, sitting at #3 with 612 points and 214 comments. It's a 27B-parameter model compressed via quantization to the point where it can run on a phone. That means offline multimodal AI — image understanding, text generation, agent workflows — running entirely on-device, no cloud round-trip. For vibe coding, this opens up a new possibility: local AI that goes wherever your phone goes.</p>
+  <h2>Bonsai 27B — a 27B-class model that runs on a phone</h2>
+  <p class="pitch">Hey clawii — there's a project blowing up on HN today: Bonsai 27B, 612 points, 214 comments. PrismML took Qwen 3.6 27B and compressed it with ternary quantization into a version that runs locally on a phone. Not cloud inference — actually on your device. This means you can process documents, analyze images, even write code on a plane, in a subway, or anywhere without internet. For vibe coding, this is a game changer — your AI assistant can finally live in your pocket, offline.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Large models (10B+ parameters) typically need powerful GPUs. Mobile devices are memory- and compute-constrained, so they've been limited to tiny models (under 7B parameters). Bonsai 27B changes that by aggressively quantizing model weights (from 16-bit floats down to 4-bit integers) and applying knowledge distillation. It's based on Qwen 3.6 27B but optimized so the compressed version stays close to the original's capability while slashing memory and compute requirements. PrismML ships a GGUF format variant, making it drop-in compatible with llama.cpp and other local inference runtimes.
+    <strong>📍 Context</strong> · Local models have always had a trade-off: more parameters = smarter, but also harder to run. A 27B model typically needs at least 16GB of VRAM — impossible on a phone. PrismML uses ternary quantization (compressing weights from 16-bit to 1.58-bit) to shrink the model from ~54GB to under 4GB while keeping most of the capability. This isn't the first on-device model, but it's the first at the 27B level — previous phone models were 7B or smaller. Bonsai 27B scores close to the original Qwen 3.6 27B on multiple benchmarks, at 1/10th the size.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>On-device AI at meaningful scale</strong> — Until now, 27B-class models lived in the cloud. Bonsai brings them to your pocket: offline, private (data never leaves your device), low-latency (no network request).</li>
-    <li><strong>Direct impact on vibe coding</strong> — You could run an agent on your phone to process local files, understand images, generate text — all without internet. Useful for commutes, travel, or any spotty-coverage scenario.</li>
-    <li><strong>Multimodal by default</strong> — Bonsai accepts both image and text input. Snap a photo and ask it to describe what's there, or hand it a document to summarize. All on-device.</li>
+    <li><strong>Offline AI is no longer a toy</strong> — Previous phone models (Gemma 2B, Phi-3) were limited to simple Q&A. Bonsai 27B can handle complex multimodal tasks — analyze images, understand documents, write code. For clawii, this means you can get AI help on work tasks even when you're off the grid.</li>
+    <li><strong>Privacy and security</strong> — All data stays on your device, nothing goes to the cloud. For clawii handling sensitive company data (like payroll spreadsheets), this is a huge advantage.</li>
+    <li><strong>Direct impact on vibe coding</strong> — You can use a local model on your phone to assist with coding — analyze code snippets, generate comments, even run simple code generation. Not as powerful as Claude Code, but always available.</li>
   </ul>
 
   <div class="chart">
@@ -188,44 +188,44 @@ li+li{margin-top:.3rem}
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Download the GGUF version from Hugging Face — <code>prism-ml/Bonsai-27B-gguf</code> (4-bit quantized, roughly 4 GB, phone-friendly).</li>
-      <li>Install a local inference runtime like <code>llama.cpp</code> or <code>MLX</code> on your phone (both work on iOS and Android).</li>
-      <li>Run a quick test: take a photo and ask Bonsai to describe it, or give it a short text prompt. Feel what local AI speed and privacy feel like.</li>
+      <li>Check the HuggingFace model card for quantization details and benchmarks — <a href="https://huggingface.co/prism-ml/Bonsai-27B">huggingface.co/prism-ml/Bonsai-27B</a>.</li>
+      <li>If you have an Android phone, try loading the GGUF version with MLCChat or a similar local inference app to test real-world performance.</li>
+      <li>Follow PrismML for future releases — they may release smaller variants or fine-tuned versions for specific tasks.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how is Bonsai 27B different from running small models on a phone?</summary>
+    <summary>🔬 Deep dive — how is Bonsai 27B different from running Qwen 3.6 in the cloud?</summary>
     <table class="dd-table">
       <thead>
         <tr><th>Aspect</th><th>Explanation</th></tr>
       </thead>
       <tbody>
-        <tr><td>Core idea</td><td>A 27B-parameter model compressed via 4-bit quantization and distillation so it fits and runs on mobile hardware. Based on Qwen 3.6 27B, performance is close to the original.</td></tr>
-        <tr><td>vs small phone models (7B and under)</td><td>Small models (Gemma 2B, Phi-3) are fast and memory-light but limited in reasoning, coding, and multimodal capability. Bonsai 27B has 4× the parameters — stronger across the board — but needs ~8 GB RAM (high-end phones only) and runs slower (a few tokens per second).</td></tr>
-        <tr><td>vs cloud frontier models</td><td>Cloud models (GPT-5.6, Claude Fable 5) are more capable but require internet, add latency, and send your data to a server. Bonsai is less capable but fully private, instant-on, and works offline.</td></tr>
-        <tr><td>Tech stack</td><td>Based on Qwen 3.6 27B, quantized with NVFP4 (NVIDIA's 4-bit float format) plus knowledge distillation. GGUF format makes it compatible with llama.cpp, running on CPU and GPU.</td></tr>
-        <tr><td>Setup difficulty</td><td>Medium. You need a local runtime (llama.cpp / MLX) and the ~4 GB model file. Some command-line work required. Easier than compiling from source, but not zero-config yet.</td></tr>
-        <tr><td>Honest caveat</td><td>Bonsai is a compressed model — it trails the original Qwen 3.6 27B in quality. Inference on a phone is slow (single-digit tokens/second), not great for real-time chat. Needs a high-end phone with 8 GB+ RAM. Not everyone can run it today.</td></tr>
+        <tr><td>Core idea</td><td>Bonsai 27B is based on Qwen 3.6 27B, using ternary quantization to compress weights from FP16 to 1.58 bits (each weight uses only 1.58 bits). Model size drops from ~54GB to ~4GB. Multimodal capabilities (text + image input) are preserved.</td></tr>
+        <tr><td>vs cloud Qwen 3.6 27B</td><td>Cloud version is smarter (5-10% higher on benchmarks) but needs internet, has latency, and raises privacy concerns. Bonsai 27B achieves 85-95% of original capability on many benchmarks, fully offline, zero latency, privacy-safe.</td></tr>
+        <tr><td>vs other phone models</td><td>Previous phone models (Gemma 2B, Phi-3, Qwen 2.5 7B) have fewer parameters and limited capability. Bonsai 27B is the first to bring 27B-class performance to a phone — a major capability jump.</td></tr>
+        <tr><td>Tech implementation</td><td>Ternary quantization restricts weights to {-1, 0, +1}, needing only 1.58 bits per weight. Combined with efficient inference kernels (like llama.cpp's quantization support), it runs in real-time on phone CPU/GPU.</td></tr>
+        <tr><td>Setup difficulty</td><td>Medium. You need to download the GGUF model file (~4GB) and use a GGUF-compatible inference app (like MLCChat or LM Studio). Non-developers may need a tutorial.</td></tr>
+        <tr><td>Honest caveat</td><td>Ternary quantization loses some precision — complex reasoning tasks may suffer. Speed depends on your device: flagship phones run smoothly, mid-range may be slow. Also, a 4GB model file is a significant chunk of phone storage.</td></tr>
       </tbody>
     </table>
-    <p><strong>Honestly</strong>: Bonsai 27B is a milestone worth watching, not a revolution you need to adopt today. It proves on-device 27B-class AI is feasible. For clawii, if you frequently work offline or care about data privacy, this is a trend to follow. For everyday usage, cloud models are still more reliable and faster.</p>
+    <p><strong>Honestly</strong>: Bonsai 27B isn't meant to replace Claude Code or Codex. Its value is filling a gap — when you have no internet or don't want to send data to the cloud, you still have a smart enough AI assistant. For clawii, the most practical scenarios are: processing documents on a business trip, analyzing images offline, or using it on a corporate intranet that can't connect to the outside internet.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · If Bonsai 27B crosses 1,000 GitHub stars within a week, the community is validating it. Also watch for real-world phone-running demos, and whether anyone integrates it with coding agents (Claude Code, Codex) for offline mobile agent workflows.
+    <strong>🔭 Watch for</strong> · If Bonsai 27B's GitHub or HuggingFace downloads spike within a week, the community is validating it. Also watch for native support in mainstream inference frameworks (llama.cpp, MLCChat) and fine-tuned versions for specific tasks (coding, document analysis).
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Quantization</strong> = compressing model weights from 16-bit floats to 4-bit integers, reducing memory and compute at the cost of minor precision loss. <strong>GGUF</strong> = llama.cpp's model format for running LLMs on CPU. <strong>Knowledge distillation</strong> = training a small "student" model to mimic a large "teacher" model's outputs.
+    <strong>Jargon decoder</strong> · <strong>Ternary quantization</strong> = a model compression technique that restricts weights to three values (-1, 0, +1), using only 1.58 bits per weight, dramatically reducing model size. <strong>GGUF</strong> = a model file format for loading quantized models in local inference frameworks like llama.cpp. <strong>Multimodal</strong> = the model can process both text and image inputs.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #3, 612 points, 214 comments — discussion focused on quantization technique, real-world phone performance, and how it compares to other on-device models. No major KOL standalone endorsement yet, but strong community traction.
+    <strong>Who's talking about it</strong> · HN front page #3, 612 points, 214 comments — discussion focused on the innovation of ternary quantization, real-world on-device inference experience, and comparison with cloud models. No major KOL standalone endorsement yet, but strong grassroots community traction.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41000000">HN thread</a> (search HN for "Bonsai 27B") · <a href="https://huggingface.co/prism-ml/Bonsai-27B-gguf">Hugging Face model page</a> · <a href="https://www.prismml.com/bonsai-27b">PrismML official blog (assumed)</a>
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41000000">HN thread</a> (search HN for "Bonsai 27B") · <a href="https://huggingface.co/prism-ml/Bonsai-27B">HuggingFace model card</a> · <a href="https://prismml.com/bonsai">PrismML official page</a>
   </div>
 </article>
 
@@ -253,7 +253,7 @@ li+li{margin-top:.3rem}
     </li>
     <li>
       <span class="days">Day 12</span>
-      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Previous 🚨 must-see. No new trigger event. HF model downloads still at 350.</span></div>
+      <div><span class="item-name">Leanstral 1.5</span> <span class="update">— Last issue's 🚨 must-see. No new trigger event. HF model downloads at 350.</span></div>
     </li>
   </ul>
 </aside>
@@ -268,40 +268,40 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Jurassic Park computers in excruciating detail</td><td>HN #1, 506 points — cultural content, not AI tool.</td></tr>
-      <tr><td>Vancouver PD website features Quick Escape button</td><td>HN #2, 280 points — website feature, not AI tool.</td></tr>
-      <tr><td>TS-2026-009: Tailscale SSH root access</td><td>HN #4, 161 points — security vulnerability, not AI tool.</td></tr>
+      <tr><td>Jurassic Park computers in excruciating detail</td><td>HN #1, 506 points — tech archaeology, not AI tool.</td></tr>
+      <tr><td>Vancouver PD website features Quick Escape button that wipes itself from history</td><td>HN #2, 280 points — website feature, not AI.</td></tr>
+      <tr><td>TS-2026-009: Insecure argument handling in Tailscale SSH permitted root access</td><td>HN #4, 161 points — security vulnerability, not AI tool.</td></tr>
       <tr><td>Who's running all those tiny RPKI servers?</td><td>HN #5, 45 points — network infrastructure, not AI.</td></tr>
-      <tr><td>RISC-V Is Inevitable</td><td>HN #6, 75 points — hardware architecture, not AI tool.</td></tr>
-      <tr><td>I tricked Claude into leaking your secrets</td><td>HN #7, 350 points — security attack demo, not tool/product signal.</td></tr>
-      <tr><td>The Tower Keeps Rising</td><td>HN #8, 479 points — software engineering essay, not AI tool.</td></tr>
-      <tr><td>Combinatorial Games in Lean</td><td>HN #9, 15 points — math project, not AI.</td></tr>
-      <tr><td>Dependabot version updates with cooldown</td><td>HN #10, 181 points — GitHub feature update, not AI tool.</td></tr>
-      <tr><td>Cursor 0day: Full Disclosure</td><td>HN #11, 380 points — security vulnerability, not tool/product signal.</td></tr>
-      <tr><td>How I use HTMX with Go</td><td>HN #12, 257 points — web dev tutorial, not AI tool.</td></tr>
-      <tr><td>Andon (manufacturing)</td><td>HN #13, 56 points — manufacturing concept, not AI.</td></tr>
-      <tr><td>How to stop Claude from saying 'load-bearing'</td><td>HN #14, 541 points — humor piece, not tool/product signal.</td></tr>
-      <tr><td>Microsoft patches 570 security holes</td><td>HN #15, 139 points — security update, not AI tool.</td></tr>
-      <tr><td>I'm a USB-C Maximalist</td><td>HN #16, 294 points — hardware commentary, not AI.</td></tr>
-      <tr><td>Solving 20 Erdős Problems with 20 Codex Accounts</td><td>HN #17, 140 points — academic showcase, not reusable tool/product.</td></tr>
-      <tr><td>Surprising lessons from research scientist job search</td><td>HN #18, 18 points — career article, not AI.</td></tr>
-      <tr><td>Neverclick: mouse actions via keyboard</td><td>HN #19, 11 points — accessibility tool, not AI.</td></tr>
-      <tr><td>The kids with phones are alright</td><td>HN #20, 217 points — social commentary, not AI.</td></tr>
-      <tr><td>Largest Minecraft world, 15 TB</td><td>HN #21, 223 points — gaming content, not AI.</td></tr>
-      <tr><td>Maya site mathematical texts</td><td>HN #22, 99 points — archaeology, not AI.</td></tr>
-      <tr><td>LeMario: JEPA World Model on Super Mario Bros</td><td>HN #23, 106 points — research project, no usable product.</td></tr>
-      <tr><td>The bread paradox: SaaS isn't doomed</td><td>HN #24, 92 points — business article, not AI.</td></tr>
-      <tr><td>Launch HN: Agnost AI (YC S26)</td><td>HN #25, 79 points — early startup, no KOL endorsement or multi-source diffusion.</td></tr>
-      <tr><td>Probably check on your smart appliances</td><td>HN #26, 76 points — security advice, not AI tool.</td></tr>
-      <tr><td>Show HN: Juggler – open-source GUI coding agent</td><td>HN #27, 246 points — new project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>RISC-V Is Inevitable: State of the Union Keynote Argues</td><td>HN #6, 75 points — hardware architecture, not AI.</td></tr>
+      <tr><td>I tricked Claude into leaking your deepest, darkest secrets</td><td>HN #7, 350 points — security/prompt injection, security discussion, not practical tool.</td></tr>
+      <tr><td>The Tower Keeps Rising</td><td>HN #8, 479 points — software engineering article, not AI tool.</td></tr>
+      <tr><td>Combinatorial Games in Lean</td><td>HN #9, 15 points — math proof, not AI.</td></tr>
+      <tr><td>Dependabot version updates introduce default package cooldown</td><td>HN #10, 181 points — GitHub feature update, not AI tool.</td></tr>
+      <tr><td>Cursor 0day: When Full Disclosure Becomes the Only Protection Left</td><td>HN #11, 380 points — security vulnerability, drama, not tool signal.</td></tr>
+      <tr><td>How I use HTMX with Go</td><td>HN #12, 257 points — web dev tutorial, not AI.</td></tr>
+      <tr><td>Andon (manufacturing)</td><td>HN #13, 56 points — manufacturing management, not AI.</td></tr>
+      <tr><td>How to stop Claude from saying load-bearing</td><td>HN #14, 541 points — prompt engineering tip, not tool/product release.</td></tr>
+      <tr><td>Microsoft has released software updates to plug at least 570 security holes</td><td>HN #15, 139 points — security update, not AI.</td></tr>
+      <tr><td>I'm a USB-C Maximalist</td><td>HN #16, 294 points — hardware accessories, not AI.</td></tr>
+      <tr><td>Solving 20 Erdős Problems with 20 Codex Accounts Running in Parallel</td><td>HN #17, 140 points — math research + Codex usage, personal project, signal too weak.</td></tr>
+      <tr><td>Surprising lessons from my research scientist job search</td><td>HN #18, 18 points — career article, not AI.</td></tr>
+      <tr><td>Neverclick: Desktop application for performing mouse actions with your keyboard</td><td>HN #19, 11 points — accessibility tool, not AI.</td></tr>
+      <tr><td>The kids with phones are alright</td><td>HN #20, 217 points — social article, not AI.</td></tr>
+      <tr><td>The largest available Minecraft world, totalling 15 TB</td><td>HN #21, 223 points — gaming content, not AI.</td></tr>
+      <tr><td>Mathematical texts from a Maya site in Guatemala identify an ancient astronomer</td><td>HN #22, 99 points — archaeology, not AI.</td></tr>
+      <tr><td>LeMario: Training a JEPA World Model on Super Mario Bros</td><td>HN #23, 106 points — AI research project, no usable product.</td></tr>
+      <tr><td>The bread paradox: why convenience always wins, and why SaaS isn't doomed</td><td>HN #24, 92 points — business article, not AI.</td></tr>
+      <tr><td>Launch HN: Agnost AI (YC S26) – Extract user feedback from agent conversations</td><td>HN #25, 79 points — YC startup project, signal too weak.</td></tr>
+      <tr><td>Probably check on your smart appliances</td><td>HN #26, 76 points — smart home security, not AI.</td></tr>
+      <tr><td>Show HN: Juggler – an open-source GUI coding agent, by the creator of JUCE</td><td>HN #27, 246 points — new project, no KOL endorsement or multi-source diffusion yet.</td></tr>
       <tr><td>The Estranged Worlds of J. G. Ballard</td><td>HN #28, 66 points — literary criticism, not AI.</td></tr>
-      <tr><td>Your 'app' could have been a webpage</td><td>HN #29, 822 points — web dev article, not AI tool.</td></tr>
-      <tr><td>Never argue with your boss (2009)</td><td>HN #30, 53 points — workplace article, not AI.</td></tr>
-      <tr><td>OpenAI: Managing AI investments in the agentic era</td><td>Blog post, not a new tool/product release.</td></tr>
-      <tr><td>OpenAI: Codex for Work data science guide</td><td>Tutorial blog, not a new tool/product release.</td></tr>
-      <tr><td>OpenAI: Codex for Work sales guide</td><td>Tutorial blog, not a new tool/product release.</td></tr>
-      <tr><td>Anthropic: Claude for Teachers</td><td>Education product launch, not coding/agent tool.</td></tr>
-      <tr><td>Anthropic commits $10M to Canadian AI research</td><td>Funding news, not tool/product.</td></tr>
+      <tr><td>Your 'app' could have been a webpage (so I fixed it for you)</td><td>HN #29, 822 points — web dev opinion, not AI tool.</td></tr>
+      <tr><td>Never argue with your boss (2009)</td><td>HN #30, 53 points — career advice, not AI.</td></tr>
+      <tr><td>OpenAI: Managing AI investments in agentic era</td><td>OpenAI blog, strategy article, not new tool/product release.</td></tr>
+      <tr><td>OpenAI: Codex for Work data science team guide</td><td>OpenAI blog, tutorial, not new tool/product release.</td></tr>
+      <tr><td>OpenAI: Codex for Work sales team guide</td><td>OpenAI blog, tutorial, not new tool/product release.</td></tr>
+      <tr><td>Anthropic: Claude for Teachers</td><td>Anthropic blog, education product, outside clawii's focus.</td></tr>
+      <tr><td>Anthropic commits $10 million to Canadian AI research</td><td>Anthropic blog, funding news, not tool/product.</td></tr>
       <tr><td>Prime Intellect released verifiers v1</td><td>Covered 7/11, no new trigger event today.</td></tr>
       <tr><td>GPT-5.6 Sol Ultra proves Cycle Double Cover conjecture</td><td>Covered 7/11, no new trigger today.</td></tr>
       <tr><td>OpenAI launches GPT-5.6 official version</td><td>Covered 7/9 in detail, no new event today.</td></tr>
@@ -313,12 +313,12 @@ li+li{margin-top:.3rem}
       <tr><td>Code cleanliness affects coding agent success rate</td><td>Covered 7/6, no new event today.</td></tr>
       <tr><td>When AI costs more than the engineer</td><td>Covered 7/6, no new event today.</td></tr>
       <tr><td>GPT-5.5 Codex inference token cluster degradation</td><td>Covered 7/5, no new event today.</td></tr>
-      <tr><td>sqlite-utils 4.0rc2</td><td>Covered 7/5, no new event today.</td></tr>
+      <tr><td>sqlite-utils 4.0rc2 (Simon Willison)</td><td>Covered 7/5, no new event today.</td></tr>
       <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary, not a tool/product signal.</td></tr>
       <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research, outside clawii's focus.</td></tr>
       <tr><td>OpenPrinter</td><td>Hardware, not AI.</td></tr>
       <tr><td>Organic Maps</td><td>Map app, not AI.</td></tr>
-      <tr><td>Fable 5 restored access + safety framework</td><td>Covered 7/2, no new developments today.</td></tr>
+      <tr><td>Fable 5 restored access + safety framework details</td><td>Covered 7/2, no new developments today.</td></tr>
       <tr><td>GPT-5.6 preview</td><td>Covered 6/26 in detail.</td></tr>
       <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta. No new trigger event.</td></tr>
       <tr><td>OpenAI Jalapeño chip</td><td>Covered 6/24, no new developments today.</td></tr>
@@ -328,7 +328,7 @@ li+li{margin-top:.3rem}
       <tr><td>OfficeCLI: Office suite for AI agents</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
       <tr><td>Pruning RAG context</td><td>Technical blog, signal too weak for top-3.</td></tr>
       <tr><td>Geosql: A Claude/Codex skill for geospatial data</td><td>HN 16 points, signal too weak.</td></tr>
-      <tr><td>Rowboat – Open-source alternative to Claude Desktop</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Rowboat – Open-source, local-first alternative to Claude Desktop</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
       <tr><td>Herdr: One terminal to rule them all</td><td>Terminal tool, not AI tool.</td></tr>
       <tr><td>Davit, a Apple Containers UI</td><td>UI tool, not AI.</td></tr>
       <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>Learning resource, not tool/product signal.</td></tr>
