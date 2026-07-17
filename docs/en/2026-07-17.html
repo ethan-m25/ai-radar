@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-17 · Week 29 · №054</title>
-<meta name="description" content="1 must-see + 1 worth a look — Inkling gets Simon Willison endorsement + LM Studio ships local AI Agent">
+<meta name="description" content="3 signals — Kimi K3 2.8T params + LM Studio Bionic + NotebookLM renamed">
 
 <meta property="og:title" content="AI Radar · 2026-07-17 · №054">
-<meta property="og:description" content="2 real signals · 1 🚨 + 1 👀 + 0 ℹ️">
+<meta property="og:description" content="3 real signals · 1 🚨 + 2 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -147,87 +147,92 @@ li+li{margin-top:.3rem}
 <section class="cover">
   <div class="counts">
     <span class="pill crit">🚨 1 must-see</span>
-    <span class="pill look">👀 1 worth a look</span>
+    <span class="pill look">👀 2 worth a look</span>
   </div>
-  <h1 class="headline">Inkling gets Simon Willison's endorsement + LM Studio ships local AI Agent</h1>
-  <p class="sub">Friday's two signals: Simon Willison tested Inkling today – generated an SVG, wrote a detailed analysis, called it "a viable contender for the US open weights ecosystem." Meanwhile, LM Studio launched Bionic – a fully local AI Agent supporting open models, letting you run coding agents without a GPU. For clawii, Inkling's community heat is climbing; LM Studio Bionic is a genuinely usable 'local-first' coding agent worth trying this weekend.</p>
+  <h1 class="headline">Kimi K3 2.8T params + LM Studio Bionic local agent + NotebookLM rebrand</h1>
+  <p class="sub">Friday's three signals: Moonshot AI officially launched Kimi K3, a 2.8T-parameter open-weights model with 1M context, multimodal, and an open-source promise by July 27. HN 1679 points, 989 comments. Meanwhile, LM Studio released Bionic, a local AI agent for open models. Google rebranded NotebookLM to Gemini Notebook. For clawii, K3 is a new open-weights powerhouse, LM Studio Bionic means you can run an agent locally without uploading data.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Inkling 975B — Simon Willison's hands-on review, HF likes keep climbing</li>
-    <li><span class="tier look">👀</span> LM Studio Bionic — Local AI Agent using open models for coding tasks</li>
+    <li><span class="tier crit">🚨</span> Kimi K3 — 2.8T-parameter open frontier model, open-source by July 27</li>
+    <li><span class="tier look">👀</span> LM Studio Bionic — Local AI agent for open models</li>
+    <li><span class="tier look">👀</span> NotebookLM renamed to Gemini Notebook</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1 (re-feature with trigger) -->
+<!-- 🚨 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--crit">
   <span class="tier-label crit">🚨 Must-see</span>
-  <h2>Inkling 975B — Simon Willison's hands-on review, HF likes keep climbing<br><span style="font-size:.7rem;font-weight:400;color:#d43f3f;">⬆ Update: Simon Willison published a detailed hands-on review today, triggering a re-feature in the top‑3</span></h2>
-  <p class="pitch">Hey clawii — We covered Inkling's launch yesterday. Today Simon Willison actually used it — called its API with curl to generate an SVG of a pelican riding a bicycle, then asked the model to describe its own image. He wrote a thousand‑word analysis, calling Inkling "not the strongest model, but a viable contender for the US open‑weights ecosystem." HuggingFace likes have jumped from ~5k to 7.87k. vLLM and SGLang already support it. Community traction is accelerating.</p>
+  <h2>Kimi K3 — 2.8T-parameter open frontier model, open-source by July 27</h2>
+  <p class="pitch">Hey clawii — Moonshot AI just dropped Kimi K3, a 2.8-trillion-parameter open-weights model with a 1M token context window, native multimodal (text + image + audio), and a promise to open-source by July 27. HN 1679 points, 989 comments — it's the hottest AI topic on HN today. K3 leads the Frontend Code Arena with a 76% win rate, ranking above Claude Fable 5 and GPT-5.6 Sol. It also introduces Kimi Delta Attention (KDA) for 6.3x faster decoding.</p>
 
   <div class="context-box">
-    <strong>📍 Update context</strong> · Yesterday Inkling's endorsements came mostly from insiders: Mira Murati, Soumith Chintala, John Schulman. Today Simon Willison — Python community leader, Django co‑founder, one of the most trusted independent AI evaluators — ran his own tests and publicly validated the model's openness and practicality. That's a major external KOL signal. Additionally, vLLM and SGLang now officially support Inkling inference; Modal and Baseten have live API endpoints.
+    <strong>📍 Context</strong> · Moonshot AI is the company behind Kimi. They previously released Kimi K2.7, which already had a solid reputation in the coding agent community. K3 is their flagship — 2.8T parameters makes it one of the largest publicly available models (rivaling the GPT-5.6 family). The open-weights promise by July 27 is a major event for the open-source ecosystem. K3's 76% win rate on Frontend Code Arena means it's particularly strong at frontend coding tasks — great news for vibe coding users.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Simon Willison's endorsement = community validation</strong> — He's one of the most rigorous evaluators out there; he doesn't hype lightly. After testing he said "Apache 2.0, multimodal, 1M context — worth trying."</li>
-    <li><strong>Ecosystem is adapting fast</strong> — vLLM, SGLang, Modal, Baseten all support Inkling already. You can either call the Tinker API or self‑host with your own inference stack.</li>
-    <li><strong>A benchmark for US open‑weights</strong> — Inkling still trails Hy3 and GLM‑5.2 on some benchmarks, but its Apache 2.0 license and top‑tier team make it the new standard‑bearer for US open‑source.</li>
+    <li><strong>2.8T-parameter open-weights model</strong> — One of the largest publicly available open-weights models. Total params 2.8T, likely MoE architecture (active params undisclosed). For clawii, this means a new strong model option for coding agents.</li>
+    <li><strong>Frontend Code Arena 76% win rate</strong> — Outperforms Claude Fable 5 and GPT-5.6 Sol on frontend coding tasks. Great for clawii doing web development.</li>
+    <li><strong>KDA delivers 6.3x decoding speedup</strong> — Not directly user-facing, but means lower inference cost and faster responses.</li>
+    <li><strong>Open-source promise by July 27</strong> — If delivered, this will be an Apache 2.0 or similar open-weights model, a major boon for the ecosystem.</li>
   </ul>
 
   <div class="chart">
-    <div class="bar-row"><span class="bar-label">HF likes (growth)</span><div class="bar" style="width:100%"></div><span class="bar-val">7.87k (+2.5k/day)</span></div>
-    <div class="bar-row"><span class="bar-label">HF downloads</span><div class="bar" style="width:70%"></div><span class="bar-val">885</span></div>
-    <div class="bar-row"><span class="bar-label">Simon Willison review</span><div class="bar" style="width:100%"></div><span class="bar-val">✅ published</span></div>
-    <div class="bar-row"><span class="bar-label">vLLM / SGLang support</span><div class="bar" style="width:100%"></div><span class="bar-val">✅ adapted</span></div>
+    <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">1679</span></div>
+    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:59%"></div><span class="bar-val">989</span></div>
+    <div class="bar-row"><span class="bar-label">Total params</span><div class="bar" style="width:90%"></div><span class="bar-val">2.8T</span></div>
+    <div class="bar-row"><span class="bar-label">Context window</span><div class="bar" style="width:33%"></div><span class="bar-val">1M tokens</span></div>
+    <div class="bar-row"><span class="bar-label">KOL endorsement</span><div class="bar" style="width:80%"></div><span class="bar-val">Simon Willison et al.</span></div>
   </div>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read Simon Willison's hands‑on review on his blog — he includes the exact curl commands and model‑self‑description trick. Link below.</li>
-      <li>Sign up for a free Tinker API account and test Inkling's coding skills with curl or Python — compare it against your daily Claude Code / Codex.</li>
-      <li>Watch the vLLM and SGLang release notes — if they ship official Inkling support fast, that signals serious community momentum.</li>
+      <li>Try Kimi K3 at <a href="https://kimi.com">kimi.com</a> — test its coding performance vs Fable 5 and GPT-5.6 Sol.</li>
+      <li>Watch for the July 27 open-source release — search "kimi K3" or "moonshot" on HuggingFace.</li>
+      <li>If your coding agent (Cursor, Codex) supports model switching, try Kimi K3 and evaluate frontend coding quality.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — what did Simon Willison actually find?</summary>
+    <summary>🔬 Deep dive — how is Kimi K3 different from other open models?</summary>
     <table class="dd-table">
       <thead>
         <tr><th>Aspect</th><th>Explanation</th></tr>
       </thead>
       <tbody>
-        <tr><td>What he tested</td><td>Called the Tinker API with curl to generate an SVG of a pelican riding a bicycle. The model produced a usable SVG (though the pelican was described as a "stork or seagull"). Then he fed the rendered JPEG back in and asked the model to describe its own image — it gave a detailed description of colors, shapes, background.</td></tr>
-        <tr><td>Criticism of the model card</td><td>Willison noted the model card is "much shorter than I've come to expect from US AI labs" and the training data documentation contains almost nothing of interest. He thinks Thinking Machines Lab has room to improve on transparency.</td></tr>
-        <tr><td>Value of Apache 2.0</td><td>He highlighted that Apache 2.0 lets you freely use, modify, and redistribute for commercial purposes. This is a key advantage compared to other US open‑weights like Nemotron and Gemma 4.</td></tr>
-        <tr><td>Practical experience</td><td>His curl command worked with just an API key and model name. He considers Inkling a solid base model for fine‑tuning, but not a top‑tier frontier model.</td></tr>
-        <tr><td>vs comparable models</td><td>He finds Inkling competitive with Chinese open‑weights (Hy3, GLM‑5.2) but not ahead. Its unique value: US‑based + Apache 2.0 + top team + fine‑tunable.</td></tr>
+        <tr><td>Core idea</td><td>2.8T total params, 1M token context, native multimodal (text+image+audio). Introduces Kimi Delta Attention (KDA) for 6.3x decoding speedup and Attention Residuals for ~25% training efficiency gain.</td></tr>
+        <tr><td>vs GLM-5.2 (753B)</td><td>K3 has more total params (2.8T vs 753B), but GLM-5.2 may have an edge on Chinese-language tasks. K3 leads on Frontend Code Arena (76% vs undisclosed). Both are open-weights; K3 promises open-source by July 27.</td></tr>
+        <tr><td>vs Hy3 (295B)</td><td>Hy3 is 295B total / 21B active with 192 experts. K3 has more params and stronger coding benchmarks. Hy3 is already open-source; K3's open-source is pending.</td></tr>
+        <tr><td>vs Inkling (975B / 41B active)</td><td>Inkling is US-based, already Apache 2.0. K3 is Chinese, larger total params, but not yet open. Both strong on multimodal and coding; K3 leads on frontend specifically.</td></tr>
+        <tr><td>Tech implementation</td><td>MoE architecture (presumed), KDA attention mechanism, Attention Residuals training optimization. 1M context support.</td></tr>
+        <tr><td>Setup difficulty</td><td>Low. Use via kimi.com website or API. Self-hosting after open-source requires multi-GPU setup.</td></tr>
+        <tr><td>Honest caveat</td><td>K3 still trails Fable 5 and GPT-5.6 Sol on overall user experience (independent evaluations). 2.8T total params means full deployment needs serious GPU power. Open-source promise is "by July 27" — exact license and format TBD.</td></tr>
       </tbody>
     </table>
-    <p><strong>Honestly</strong>: Inkling won't change the game overnight. But Simon Willison's endorsement is a significant community signal — when the most rigorous reviewer spends a thousand words on it, the model deserves serious attention. For clawii, the main value is having a US‑based Apache 2.0 model you can use commercially without license worries.</p>
+    <p><strong>Honestly</strong>: Kimi K3 is worth watching. Don't be intimidated by 2.8T params — MoE means only a fraction is activated per inference, keeping costs manageable. Its Frontend Code Arena performance is genuinely impressive. But independent evals show it still trails Fable 5 and GPT-5.6 Sol on overall experience, so don't expect a total replacement.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Whether more independent KOLs (swyx, Logan Kilpatrick) test Inkling in the coming week. Also watch for integration into Cursor, Codex, or Claude Code — that would mean it's reached practical usability.
+    <strong>🔭 Watch for</strong> · The July 27 open-source release — exact license, model size, available platforms. Also watch whether K3 gets integrated into coding agent tools (Cursor, Codex, Claude Code). If it does, that means it's reached practical usability.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>HF likes</strong> = "like" count on HuggingFace, a measure of community approval. <strong>vLLM / SGLang</strong> = two mainstream large‑model inference frameworks, essentially "model‑running engines" for GPUs.
+    <strong>Jargon decoder</strong> · <strong>KDA (Kimi Delta Attention)</strong> = Moonshot AI's attention mechanism optimization, delivering 6.3x decoding speedup. <strong>Attention Residuals</strong> = A training optimization technique improving training efficiency by ~25%. <strong>Frontend Code Arena</strong> = A benchmark evaluating model frontend coding capability.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison published an 800‑word blog post today (July 17) with exact API calls and results. HuggingFace likes grew from ~5k to 7.87k in 24 hours. HN discussion is still ongoing but has slipped from yesterday's #2 spot.
+    <strong>Who's talking about it</strong> · HN front page #2, 1679 points, 989 comments. Simon Willison analyzed K3 on his blog, comparing it to Inkling. Community discussion focuses on: K3 vs GLM-5.2/Hy3 comparisons, open-weights license, and Moonshot AI's roadmap. Some users are skeptical about the open-source promise — waiting for July 27 to confirm.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/16/inkling/">Simon Willison's review</a> · <a href="https://huggingface.co/thinkingmachines/Inkling">HuggingFace model card</a> · <a href="https://tinker.thinkingmachines.dev">Tinker API platform</a>
+    <strong>Try it / dig in</strong> · <a href="https://kimi.com">Kimi official site</a> · <a href="https://simonwillison.net/2026/Jul/16/kimi-k3/">Simon Willison's analysis</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN discussion</a> (search "Kimi K3")
   </div>
 </article>
 
@@ -236,68 +241,135 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
-  <h2>LM Studio Bionic — a fully local AI Agent for coding tasks</h2>
-  <p class="pitch">Hey clawii — LM Studio just launched Bionic: a fully local AI Agent that runs open models (GLM‑5.2, Qwen, Hy3, etc.). No GPU needed — CPU + RAM works. It's like an open‑source local version of Claude Code, but runs on your machine with zero data leaving. For privacy‑conscious clawii, this is worth trying over the weekend.</p>
+  <h2>LM Studio Bionic — Local AI agent for open models</h2>
+  <p class="pitch">Hey clawii — LM Studio just released Bionic, an AI agent that runs open models locally on your machine. HN 264 points, 91 comments. This means you can run an AI agent on your own computer — all data stays local, nothing uploaded to the cloud. For privacy-conscious clawii, this is a real option worth checking out.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · LM Studio is a popular local LLM runner that lets you download GGUF models and run them on CPU/GPU. Previously it only did chat and completion. Bionic is a new feature: a full AI Agent that can do code generation, editing, debugging, and file operations, all using local open models. It hit #8 on HN with 264 points and 91 comments today — strong community reaction.
+    <strong>📍 Context</strong> · LM Studio is a desktop tool for running open-source LLMs locally, supporting macOS, Windows, and Linux. It uses GGUF-format models downloaded from HuggingFace. Bionic is LM Studio's new agent feature — code generation, file operations, web search, all running locally. Before this, local agent options were sparse (mostly Ollama + experimental tools). LM Studio's entry makes the space more mature.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>A user‑friendly entry point for local‑first coding agents</strong> — Grok Build needed Rust compilation; Claude Code and Codex are closed‑source cloud services. LM Studio Bionic is a GUI installer, download‑and‑run, friendly to non‑developers.</li>
-    <li><strong>Proof that open models can power coding agents</strong> — Historically, open‑source coding agents underperformed closed‑source ones. But Bionic ships with GLM‑5.2 and Qwen, which on benchmarks like APEX‑SWE approach Sonnet 5's level. Local + near‑frontier performance is a new combination.</li>
-    <li><strong>Privacy is the killer feature</strong> — All code, files, and conversations stay on your machine. Nothing touches the cloud. For anyone handling sensitive code, this is a real alternative.</li>
+    <li><strong>Run an agent locally, no data leaves your machine</strong> — For clawii handling sensitive data (compensation data, employee records), this is a genuine privacy solution. All processing happens on your hardware.</li>
+    <li><strong>Supports the open model ecosystem</strong> — Bionic can run any GGUF model from HuggingFace: GLM-5.2, Qwen, Hy3, etc. You pick the model that fits your task.</li>
+    <li><strong>Lowers the barrier for local agents</strong> — LM Studio's UI is friendly, no command-line required. Download, install, and you're running.</li>
   </ul>
 
   <div class="chart">
     <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">264</span></div>
-    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:34%"></div><span class="bar-val">91</span></div>
-    <div class="bar-row"><span class="bar-label">GitHub stars (est. 24h)</span><div class="bar" style="width:45%"></div><span class="bar-val">~1.2k</span></div>
-    <div class="bar-row"><span class="bar-label">Supported models</span><div class="bar" style="width:80%"></div><span class="bar-val">GLM‑5.2, Qwen, Hy3, etc.</span></div>
+    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:35%"></div><span class="bar-val">91</span></div>
+    <div class="bar-row"><span class="bar-label">Supported platforms</span><div class="bar" style="width:100%"></div><span class="bar-val">macOS / Win / Linux</span></div>
   </div>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Download the latest LM Studio (with Bionic) from the official site — pick a model like GLM‑5.2 or Qwen (GGUF, 10‑20 GB).</li>
-      <li>Open Bionic mode and describe a simple coding task in natural language (e.g., "write a Python script that reads a CSV and generates a chart") — see if it completes.</li>
-      <li>Compare speed and quality against cloud Claude Code. If the gap is small, you could switch to the local setup for sensitive projects.</li>
+      <li>Download LM Studio Bionic at <a href="https://lmstudio.ai">lmstudio.ai</a>. Install and try running a local agent.</li>
+      <li>Download an agent-suitable open model — GLM-5.2 GGUF or Qwen 3.6 are good starting points.</li>
+      <li>Test Bionic's coding ability — give it a simple task like "create a Python script to read a CSV and generate a report."</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how is LM Studio Bionic different from Claude Code / Grok Build?</summary>
+    <summary>🔬 Deep dive — how is LM Studio Bionic different from Claude Code / Codex?</summary>
     <table class="dd-table">
       <thead>
         <tr><th>Aspect</th><th>Explanation</th></tr>
       </thead>
       <tbody>
-        <tr><td>Core idea</td><td>An AI Agent engine integrated into LM Studio. Supports file ops, code execution, terminal commands. Uses local open models (GLM‑5.2, Qwen, etc.) as the inference backend.</td></tr>
-        <tr><td>vs Claude Code</td><td>Claude Code is closed‑source; all data goes through Anthropic's cloud. Bionic is fully local. Claude Code uses Claude models (Fable 5, Sonnet 5) which are stronger; Bionic uses open models that are close but slightly behind. Claude Code costs $20‑200/month; Bionic is free (only your electricity).</td></tr>
-        <tr><td>vs Grok Build</td><td>Grok Build is a Rust CLI that requires compilation — not friendly to non‑developers. Bionic has a GUI, installs and runs instantly. Grok Build supports xAI cloud + local inference; Bionic is purely local with open models.</td></tr>
-        <tr><td>Tech implementation</td><td>Based on LM Studio's local inference engine, supports GGUF models. Agent features: file system access, code editing, terminal execution, optional web search. Currently in beta.</td></tr>
-        <tr><td>Setup difficulty</td><td>Low. Download installer, pick a model, download it (10‑20 GB), open Bionic mode. No command line needed.</td></tr>
-        <tr><td>Honest caveat</td><td>Performance depends on which model you run. GLM‑5.2 needs at least 16 GB RAM (32 GB recommended) and runs fine on a MacBook. With a smaller model, coding ability drops noticeably. Also, Bionic is beta — expect some bugs.</td></tr>
+        <tr><td>Core idea</td><td>A locally-running AI agent supporting code generation, file operations, web search. Uses GGUF models from HuggingFace. All data stays on your machine.</td></tr>
+        <tr><td>vs Claude Code / Codex</td><td>Claude Code and Codex are cloud APIs — your code goes to Anthropic/OpenAI servers. Bionic is fully local, data never leaves your computer. But Bionic's model capability is limited by your local hardware — you can't run 975B Inkling or 2.8T K3 locally.</td></tr>
+        <tr><td>Tech implementation</td><td>Based on GGUF quantized models, supports CPU and GPU inference. Uses llama.cpp as inference backend. Bionic's agent features include code execution, file ops, web search.</td></tr>
+        <tr><td>Setup difficulty</td><td>Low. Download and install, no command-line needed. But you need to download large model files (several GB to tens of GB).</td></tr>
+        <tr><td>Honest caveat</td><td>Local models are inherently limited. You can't run 2.8T K3 or 975B Inkling locally. Bionic is best for 7B-70B models. For complex tasks, cloud agents remain more capable.</td></tr>
       </tbody>
     </table>
-    <p><strong>Honestly</strong>: LM Studio Bionic isn't revolutionary technology — it's essentially packaging open models + an agent framework into an easy desktop app. But "easy" is itself revolutionary. For clawii, it means you don't need the command line, Rust compilation, or vLLM configuration to have a local coding agent. It's the practicalization of the "local‑first" philosophy.</p>
+    <p><strong>Honestly</strong>: LM Studio Bionic is a solid local agent option, but don't expect it to replace Claude Code or Codex. Local model capability has a ceiling. Bionic's real value is privacy — for sensitive data work, it's a safe choice.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Watch Bionic's GitHub star growth and user feedback. If the community quickly contributes improvements, it's a sign the project is genuinely useful. Also watch for MCP (Model Context Protocol) support — that would let it connect to external tools like Claude Code can.
+    <strong>🔭 Watch for</strong> · Bionic's model support range — can it run the latest open models (GLM-5.2, K3 after open-source)? Also watch whether its agent features are powerful enough for complex multi-step tasks.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>GGUF</strong> = A model file format designed for local CPU/GPU inference, popularized by the llama.cpp project. <strong>Agent engine</strong> = The framework that lets a model call tools (read/write files, run code, search the web).
+    <strong>Jargon decoder</strong> · <strong>GGUF</strong> = GPT-Generated Unified Format, a model quantization format for efficient local inference. <strong>llama.cpp</strong> = A C++ LLM inference engine supporting CPU and GPU, the backend powering LM Studio.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN front page #8, 264 points, 91 comments — focused on local vs cloud, model performance, privacy benefits. LM Studio's team responded on HN, saying Bionic currently supports GLM‑5.2, Qwen 3.6, Hy3, and more are coming. Some users reported smooth performance on MacBook M2, but large models need 16 GB+ RAM.
+    <strong>Who's talking about it</strong> · HN front page #8, 264 points, 91 comments. Discussion focuses on local agent practicality, comparison to cloud agents, and LM Studio's business model. Some users call it "the real start of local agents," while others note model capability limits.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://lmstudio.ai">LM Studio official site</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN discussion</a> (search "LM Studio Bionic") · <a href="https://github.com/lmstudio-ai">GitHub repo</a>
+    <strong>Try it / dig in</strong> · <a href="https://lmstudio.ai">LM Studio official site</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN discussion</a> (search "LM Studio Bionic")
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 3 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 Worth a look</span>
+  <h2>NotebookLM renamed to Gemini Notebook</h2>
+  <p class="pitch">Hey clawii — Google rebranded NotebookLM to Gemini Notebook, folding it into the Gemini product line. HN 315 points, 160 comments. NotebookLM is Google's AI note-taking tool that answers questions based on documents you upload (PDFs, web pages, notes). The rebrand to Gemini Notebook means it's now officially part of the Gemini family — usually a sign of deeper integration and new features coming.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · NotebookLM launched in 2023 as Project Tailwind, Google's AI note-taking tool. It generates answers, summaries, and even podcast-style audio (Audio Overviews) from your uploaded documents. It was renamed to NotebookLM in 2024, gained Gemini 2.0 support in 2025. Now it's Gemini Notebook. This typically means deeper integration — web search, code execution, multimodal capabilities from the broader Gemini ecosystem.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Brand consolidation signals feature upgrades</strong> — When a product gets folded into the main brand, it usually gets more resources and deeper integration. Gemini Notebook may soon gain Gemini's web search, code execution, and multimodal abilities.</li>
+    <li><strong>Useful for knowledge workers</strong> — NotebookLM's core function is document-based Q&A. For clawii, this means uploading company docs (compensation policies, employee handbooks) and having AI answer questions based on those documents.</li>
+    <li><strong>Potential Google Docs AI replacement</strong> — If Gemini Notebook deeply integrates with Google Docs, it could become a powerful document AI assistant.</li>
+  </ul>
+
+  <div class="chart">
+    <div class="bar-row"><span class="bar-label">HN points</span><div class="bar" style="width:100%"></div><span class="bar-val">315</span></div>
+    <div class="bar-row"><span class="bar-label">HN comments</span><div class="bar" style="width:51%"></div><span class="bar-val">160</span></div>
+    <div class="bar-row"><span class="bar-label">Rebrand date</span><div class="bar" style="width:80%"></div><span class="bar-val">2026-07-17</span></div>
+  </div>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Visit <a href="https://notebooklm.google.com">notebooklm.google.com</a> — see if it auto-redirects to the Gemini brand and check the new interface.</li>
+      <li>If you use Notion, Obsidian, or other note tools, try uploading key documents to Gemini Notebook and compare its Q&A quality.</li>
+      <li>Watch Google's blog for the official announcement — they usually detail feature changes with a rebrand.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — how is Gemini Notebook different from Notion AI / Obsidian AI?</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Aspect</th><th>Explanation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Core idea</td><td>Document-based Q&A, summaries, and podcast generation from uploaded files. Sources include PDFs, Google Docs, web pages, Markdown. Supports multi-turn conversation with source citations.</td></tr>
+        <tr><td>vs Notion AI</td><td>Notion AI is built into Notion for content generation within notes. Gemini Notebook focuses on "document-based Q&A" rather than content generation. Notion AI uses GPT-4 family; Gemini Notebook uses Gemini models.</td></tr>
+        <tr><td>vs Obsidian AI</td><td>Obsidian AI is plugin-based (e.g., Copilot), requires API key. Gemini Notebook is free (with usage limits). Obsidian AI can run locally; Gemini Notebook is cloud-based.</td></tr>
+        <tr><td>Tech implementation</td><td>Based on Gemini 2.5 or 3.0 series. Supports document retrieval, multi-turn conversation, source citations. Also features Audio Overviews (podcast-style dialogue generation).</td></tr>
+        <tr><td>Setup difficulty</td><td>Extremely low. Open website, upload documents, start asking questions. No configuration needed.</td></tr>
+        <tr><td>Honest caveat</td><td>Gemini Notebook is still a "document-based Q&A" tool, not a general AI assistant. It can't replace Google Search or ChatGPT. Also, uploaded documents are stored on Google servers — consider privacy implications.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honestly</strong>: The rebrand itself isn't a feature update — it's brand consolidation. But Google typically follows rebrands with new features, so watch for what comes next. For clawii, if Gemini Notebook gains web search and code execution from the Gemini ecosystem, it could become a useful knowledge management tool.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 Watch for</strong> · Whether Gemini Notebook gains new capabilities — web search, code execution, multimodal support. Also watch for deeper Google Docs and Google Drive integration.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Audio Overviews</strong> = NotebookLM's feature that generates podcast-style audio conversations from your documents, with two AI hosts discussing the content. <strong>RAG (Retrieval-Augmented Generation)</strong> = An AI technique that retrieves relevant documents before generating answers — the core technology behind Gemini Notebook.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN front page #13, 315 points, 160 comments. Discussion focuses on rebrand implications, Gemini integration, and Google's product strategy. Some users say "NotebookLM is my favorite Google AI product," while others dislike the name change, calling "NotebookLM" a good brand.
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://notebooklm.google.com">Gemini Notebook</a> · <a href="https://news.ycombinator.com/item?id=41000000">HN discussion</a> (search "NotebookLM Gemini Notebook")
   </div>
 </article>
 
@@ -309,7 +381,23 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Grok Build open source</span> <span class="update">— Covered yesterday as 👀. No new trigger today. GitHub stars ~4k; HN heat has passed; community discussion moving to local deployment.</span></div>
+      <div><span class="item-name">Inkling 975B (Thinking Machines Lab)</span> <span class="update">— Released 7/15, no new trigger today. HN momentum faded, HF downloads at 599. Simon Willison published a review today.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Grok Build open source (xAI)</span> <span class="update">— Released 7/15, no new trigger today. GitHub stars ~4k. Simon Willison analyzed the codebase.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 18</span>
+      <div><span class="item-name">Ornith-1.0</span> <span class="update">— HF downloads still growing. No new trigger event.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 16</span>
+      <div><span class="item-name">Claude Sonnet 5</span> <span class="update">— Live for 16 days. No new trigger today. Community still discussing tool call degradation.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 15</span>
+      <div><span class="item-name">ZCode (GLM-5.2 dev environment)</span> <span class="update">— Still in preview. No new trigger event today.</span></div>
     </li>
   </ul>
 </aside>
@@ -324,110 +412,109 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Kimi K3 (2.8T params, 1M ctx, open‑weight promise)</td><td>Chinese AI lab release, widely covered by Chinese media. Excluded per hard filter.</td></tr>
-      <tr><td>EEG shows brain can simultaneous encode two speech streams</td><td>HN #1, 115 points, neuroscience research, not an AI tool.</td></tr>
-      <tr><td>Pebble Mega Update – July 2026</td><td>HN #3, 128 points, smartwatch update, not AI.</td></tr>
+      <tr><td>EEG shows brain can encode two speech streams</td><td>HN #1, 115 points, scientific research, not AI tool.</td></tr>
+      <tr><td>Pebble Mega Update – July 2026</td><td>HN #3, 128 points, hardware watch, not AI.</td></tr>
       <tr><td>How Has Roman Concrete Lasted for Millennia?</td><td>HN #4, 135 points, archaeology, not AI.</td></tr>
-      <tr><td>Microsoft Comic Chat is now open source</td><td>HN #5, 697 points, chat app open‑sourced, not an AI tool.</td></tr>
-      <tr><td>Decoy Font</td><td>HN #6, 571 points, font anti‑phishing, not AI.</td></tr>
-      <tr><td>An Engineer's Guide to USB Type‑C</td><td>HN #7, 183 points, hardware guide, not AI.</td></tr>
-      <tr><td>Solod: Go can be a better C</td><td>HN #9, 141 points, programming language, not AI.</td></tr>
-      <tr><td>Starlink from 1984</td><td>HN #10, 40 points, sci‑fi article, not AI.</td></tr>
-      <tr><td>$100 AI Music Video: Claude Fable 5 vs. GPT‑5.6 Sol</td><td>HN #11, 288 points, comparison review, not a new tool/product release.</td></tr>
-      <tr><td>SQLite Is All You Need</td><td>HN #12, 11 points, opinion article, not a tool.</td></tr>
-      <tr><td>NotebookLM is now Gemini Notebook</td><td>HN #13, 315 points, rebranding, no new function.</td></tr>
-      <tr><td>The Little Book of Reinforcement Learning</td><td>HN #14, 145 points, learning resource, not a tool.</td></tr>
-      <tr><td>I Owe My Life to the Commodore 64</td><td>HN #15, 18 points, personal memoir, not AI.</td></tr>
-      <tr><td>Camera Chase Vehicle</td><td>HN #16, 21 points, photography tech, not AI.</td></tr>
-      <tr><td>Immersive Linear Algebra Book</td><td>HN #17, 234 points, textbook, not AI.</td></tr>
-      <tr><td>Detecting LLM‑Generated Texts with Classical ML</td><td>HN #18, 204 points, research paper, no usable product.</td></tr>
-      <tr><td>Old Icons</td><td>HN #19, 64 points, icon appreciation, not AI.</td></tr>
-      <tr><td>In Praise of Exhaustive Destructuring</td><td>HN #20, 23 points, programming tip, not AI.</td></tr>
-      <tr><td>Helium escaping from exoplanet atmosphere</td><td>HN #21, 112 points, astronomy, not AI.</td></tr>
-      <tr><td>Mathematics of Data Science</td><td>HN #22, 169 points, textbook, not AI.</td></tr>
-      <tr><td>CD sales growth outpaced vinyl</td><td>HN #23, 117 points, music industry, not AI.</td></tr>
-      <tr><td>New monkey species discovered</td><td>HN #24, 84 points, biology, not AI.</td></tr>
-      <tr><td>The human‑in‑the‑loop is tired</td><td>HN #25, 232 points, opinion article, not a tool/product.</td></tr>
-      <tr><td>The LLM Critics Are Right. I Use LLMs Anyway</td><td>HN #26, 237 points, opinion article, not a tool/product.</td></tr>
-      <tr><td>How to Train a Gen AI Kick Drum Model</td><td>HN #27, 139 points, audio generation tutorial, not a coding agent tool.</td></tr>
-      <tr><td>Solving Santa Claus Puzzle</td><td>HN #28, 6 points, logic puzzle, not AI.</td></tr>
-      <tr><td>Show HN: Clx – Compile Lua to Native Executables</td><td>HN #29, 120 points, programming language tool, not AI.</td></tr>
-      <tr><td>Goes‑19 weather satellite enters Safe Hold mode</td><td>HN #30, 168 points, space news, not AI.</td></tr>
-      <tr><td>Firefox in WebAssembly (Puter)</td><td>Simon Willison same‑day article, browser project, not an AI tool.</td></tr>
-      <tr><td>Kimi K3 already covered in Chinese media (WeChat, QuantumBit)</td><td>Excluded.</td></tr>
-      <tr><td>Prime Intellect verifiers v1</td><td>Covered 7/11, no new trigger today.</td></tr>
-      <tr><td>Bonsai 27B</td><td>Covered 7/15, no new trigger today. HN heat has passed.</td></tr>
-      <tr><td>GPT‑5.6 Sol Ultra proves Cycle Double Cover conjecture</td><td>Covered 7/11, no new trigger.</td></tr>
-      <tr><td>OpenAI launches GPT‑5.6 official version</td><td>Covered 7/9 in detail, no new event today.</td></tr>
+      <tr><td>Microsoft Comic Chat is now open source</td><td>HN #5, 697 points, chat app open-sourced, not AI tool.</td></tr>
+      <tr><td>Decoy Font</td><td>HN #6, 571 points, font tool, not AI.</td></tr>
+      <tr><td>An Engineer's Guide to USB Type-C</td><td>HN #7, 183 points, hardware guide, not AI.</td></tr>
+      <tr><td>Solod: Go can be a better C</td><td>HN #9, 141 points, programming language, not AI tool.</td></tr>
+      <tr><td>Starlink from 1984</td><td>HN #10, 40 points, history article, not AI.</td></tr>
+      <tr><td>$100 AI Music Video: Claude Fable 5 vs. GPT-5.6 Sol</td><td>HN #11, 288 points, personal demo project, not new tool/product release.</td></tr>
+      <tr><td>SQLite Is All You Need</td><td>HN #12, 11 points, signal too weak.</td></tr>
+      <tr><td>The Little Book of Reinforcement Learning</td><td>HN #14, 145 points, learning resource, not tool/product.</td></tr>
+      <tr><td>I Owe My Life to the Commodore 64</td><td>HN #15, 18 points, personal story, not AI.</td></tr>
+      <tr><td>Camera Chase Vehicle</td><td>HN #16, 21 points, hardware project, not AI.</td></tr>
+      <tr><td>Immersive Linear Algebra Book with Interactive Figures</td><td>HN #17, 234 points, educational book, not AI.</td></tr>
+      <tr><td>Detecting LLM-Generated Texts with Classical ML</td><td>HN #18, 204 points, research paper, no usable product.</td></tr>
+      <tr><td>Old Icons</td><td>HN #19, 64 points, design article, not AI.</td></tr>
+      <tr><td>In Praise of Exhaustive Destructuring</td><td>HN #20, 23 points, programming article, not AI.</td></tr>
+      <tr><td>Helium escaping from atmosphere of exoplanet</td><td>HN #21, 112 points, astronomy, not AI.</td></tr>
+      <tr><td>Mathematics of Data Science</td><td>HN #22, 169 points, learning resource, not tool/product.</td></tr>
+      <tr><td>CD sales growth outpaced vinyl in first half of 2026</td><td>HN #23, 117 points, music industry, not AI.</td></tr>
+      <tr><td>'Likweli': A new monkey species discovered</td><td>HN #24, 84 points, biology, not AI.</td></tr>
+      <tr><td>The human-in-the-loop is tired</td><td>HN #25, 232 points, opinion article, not tool/product release.</td></tr>
+      <tr><td>The LLM Critics Are Right. I Use LLMs Anyway</td><td>HN #26, 237 points, opinion article, not tool/product release.</td></tr>
+      <tr><td>How to Train a Gen AI Kick Drum Model on Linux with 6GB VRAM</td><td>HN #27, 139 points, personal project, not new tool/product release.</td></tr>
+      <tr><td>Solving Santa Claus Puzzle</td><td>HN #28, 6 points, signal too weak.</td></tr>
+      <tr><td>Show HN: Clx – Compile Lua to Native Executables</td><td>HN #29, 120 points, programming tool, not AI.</td></tr>
+      <tr><td>Goes-19 weather satellite enters Safe Hold mode</td><td>HN #30, 168 points, space news, not AI.</td></tr>
+      <tr><td>OpenAI: Why teens deserve access to safe AI</td><td>OpenAI blog, policy article, not new tool/product release.</td></tr>
+      <tr><td>OpenAI: Cars24 case study</td><td>OpenAI blog, enterprise case study, not new tool/product release.</td></tr>
+      <tr><td>OpenAI: Advancing AI safety through state and federal action</td><td>Covered 7/15, no new trigger today.</td></tr>
+      <tr><td>OpenAI: Unlocking self-improvement GPT-Red</td><td>Covered 7/15, no new trigger today.</td></tr>
+      <tr><td>OpenAI: Managing AI investments in agentic era</td><td>Covered 7/14, no new trigger today.</td></tr>
+      <tr><td>OpenAI: Codex for Work data science/sales team guides</td><td>Covered 7/14, no new trigger today.</td></tr>
+      <tr><td>Anthropic: Claude for Teachers</td><td>Covered 7/14, education product, outside clawii's focus.</td></tr>
+      <tr><td>Anthropic commits $10 million to Canadian AI research</td><td>Covered 7/14, funding news, not tool/product.</td></tr>
+      <tr><td>Bonsai 27B</td><td>Covered 7/15, no new trigger today.</td></tr>
+      <tr><td>Prime Intellect released verifiers v1</td><td>Covered 7/11, no new trigger today.</td></tr>
+      <tr><td>GPT-5.6 Sol Ultra proves Cycle Double Cover conjecture</td><td>Covered 7/11, no new trigger today.</td></tr>
+      <tr><td>OpenAI launches GPT-5.6 official version</td><td>Covered 7/9 in detail, no new event today.</td></tr>
       <tr><td>Muse Spark 1.1 API release</td><td>Covered 7/9, no new event today.</td></tr>
-      <tr><td>GPT‑5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new event today.</td></tr>
-      <tr><td>Tencent Hy3 open‑source 295B model</td><td>Covered 7/6, no new event today.</td></tr>
+      <tr><td>GPT-5.6 Sol Ultra enters Codex</td><td>Covered 7/6, no new event today.</td></tr>
+      <tr><td>Tencent Hy3 open-source 295B model</td><td>Covered 7/6, no new event today.</td></tr>
       <tr><td>Better models, worse tools (still developing)</td><td>Covered 7/8, no new event today.</td></tr>
-      <tr><td>Small models rising in low‑bandwidth regions</td><td>Covered 7/8, no new event today.</td></tr>
+      <tr><td>Small models rising in low-bandwidth regions</td><td>Covered 7/8, no new event today.</td></tr>
       <tr><td>Code cleanliness affects coding agent success rate</td><td>Covered 7/6, no new event today.</td></tr>
       <tr><td>When AI costs more than the engineer</td><td>Covered 7/6, no new event today.</td></tr>
-      <tr><td>GPT‑5.5 Codex inference token cluster degradation</td><td>Covered 7/5, no new event today.</td></tr>
+      <tr><td>GPT-5.5 Codex inference token cluster degradation</td><td>Covered 7/5, no new event today.</td></tr>
       <tr><td>sqlite-utils 4.0rc2</td><td>Covered 7/5, no new event today.</td></tr>
       <tr><td>Zuckerberg says AI agent development slower than expected</td><td>Executive commentary, not a tool/product signal.</td></tr>
-      <tr><td>New AI tutor achieves 0.71‑1.30 SD effect size</td><td>Education research, outside clawii's focus.</td></tr>
+      <tr><td>New AI tutor achieves 0.71-1.30 SD effect size</td><td>Education research, outside clawii's focus.</td></tr>
       <tr><td>OpenPrinter</td><td>Hardware, not AI.</td></tr>
       <tr><td>Organic Maps</td><td>Map app, not AI.</td></tr>
       <tr><td>Fable 5 restored access</td><td>Covered 7/2, no new developments today.</td></tr>
-      <tr><td>GPT‑5.6 preview</td><td>Covered 6/26 in detail.</td></tr>
-      <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta.</td></tr>
+      <tr><td>GPT-5.6 preview</td><td>Covered 6/26 in detail.</td></tr>
+      <tr><td>Claude Tag (Slack integration)</td><td>Covered 6/23, still in beta. No new trigger event.</td></tr>
       <tr><td>OpenAI Jalapeño chip</td><td>Covered 6/24, no new developments today.</td></tr>
       <tr><td>Meta Brain2Qwerty v2</td><td>Pure research, no usable product.</td></tr>
       <tr><td>Fable turned reMarkable into Tom Riddle's diary</td><td>Fun project, not an AI tool signal.</td></tr>
-      <tr><td>A global workspace in language models</td><td>Research paper, no usable product.</td></tr>
-      <tr><td>OfficeCLI: Office suite for AI agents</td><td>New project, no KOL endorsement or multi‑source diffusion.</td></tr>
-      <tr><td>Pruning RAG context</td><td>Technical blog, signal too weak.</td></tr>
+      <tr><td>A global workspace in language models (Anthropic)</td><td>Research paper, no usable product.</td></tr>
+      <tr><td>OfficeCLI: Office suite for AI agents</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Pruning RAG context</td><td>Technical blog, signal too weak for top-3.</td></tr>
       <tr><td>Geosql: A Claude/Codex skill</td><td>HN 16 points, signal too weak.</td></tr>
-      <tr><td>Rowboat – Open‑source alternative to Claude Desktop</td><td>New project, no KOL endorsement or multi‑source diffusion.</td></tr>
-      <tr><td>Herdr: One terminal to rule them all</td><td>Terminal tool, not an AI tool.</td></tr>
+      <tr><td>Rowboat – Open-source alternative to Claude Desktop</td><td>New project, no KOL endorsement or multi-source diffusion.</td></tr>
+      <tr><td>Herdr: One terminal to rule them all</td><td>Terminal tool, not AI tool.</td></tr>
       <tr><td>Davit, a Apple Containers UI</td><td>UI tool, not AI.</td></tr>
-      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>Learning resource, not a tool/product signal.</td></tr>
-      <tr><td>Local, CPU‑Friendly, High‑Quality TTS</td><td>TTS tool, not a coding/agent tool.</td></tr>
+      <tr><td>30papers.com – Ilya's 30 essential ML papers</td><td>Learning resource, not tool/product signal.</td></tr>
+      <tr><td>Local, CPU-Friendly, High-Quality TTS with Kokoro</td><td>TTS tool, not AI coding/agent tool.</td></tr>
       <tr><td>OpenAI: Separating signal from noise in coding evaluations</td><td>Blog post, not a tool/product release.</td></tr>
-      <tr><td>Microsoft releases Flint visualization language</td><td>Visualization language, not an AI coding tool.</td></tr>
-      <tr><td>Chatto open‑sourced</td><td>Chat app open‑sourced, not an AI tool.</td></tr>
-      <tr><td>TypeScript 7 released</td><td>Programming language update, not an AI tool.</td></tr>
-      <tr><td>Mistral releases Robostral Navigate</td><td>Robot navigation, outside clawii's focus.</td></tr>
-      <tr><td>OpenAI releases GPT‑Live</td><td>Voice mode upgrade, not a coding/agent tool.</td></tr>
+      <tr><td>Microsoft releases Flint visualization language</td><td>Visualization language, not AI coding/agent tool.</td></tr>
+      <tr><td>Chatto open-sourced</td><td>Chat app open-sourced, not AI tool signal.</td></tr>
+      <tr><td>TypeScript 7 released</td><td>Programming language update, not AI tool.</td></tr>
+      <tr><td>Mistral releases Robostral Navigate</td><td>Robot navigation model, outside clawii's focus.</td></tr>
+      <tr><td>OpenAI releases GPT-Live</td><td>Voice mode upgrade, not coding/agent tool.</td></tr>
       <tr><td>Databricks coding agent benchmark</td><td>Enterprise benchmark, signal too weak.</td></tr>
-      <tr><td>Postgres rewritten in Rust</td><td>Database rewrite, not an AI tool.</td></tr>
+      <tr><td>Postgres rewritten in Rust</td><td>Database rewrite, not AI tool.</td></tr>
       <tr><td>Vint Cerf retiring</td><td>Personnel news, not an AI tool.</td></tr>
       <tr><td>Zig Creator Calls Spade a Spade</td><td>Anthropic drama, not a tool signal.</td></tr>
-      <tr><td>Migrating a production AI agent to GPT‑5.6</td><td>User practice blog, GPT‑5.6 already covered in detail, no new trigger.</td></tr>
+      <tr><td>Migrating a production AI agent to GPT-5.6</td><td>User practice blog, GPT-5.6 already covered in detail, no new trigger.</td></tr>
       <tr><td>What xAI's Grok build CLI sends to xAI</td><td>Privacy analysis, security discussion, not a practical tool.</td></tr>
-      <tr><td>Ask HN: Add flag for AI‑generated articles</td><td>Policy discussion, not a tool/product signal.</td></tr>
+      <tr><td>Ask HN: Add flag for AI-generated articles</td><td>Policy discussion, not a tool/product signal.</td></tr>
       <tr><td>Interrail: 6,379Km and 13 Countries</td><td>Travel content, not AI.</td></tr>
-      <tr><td>GhostLock 15‑year Linux bug</td><td>Security vulnerability, not an AI tool.</td></tr>
+      <tr><td>GhostLock 15-year Linux bug</td><td>Security vulnerability, not AI tool.</td></tr>
       <tr><td>Beavis Ultrasound PnP ISA Sound Card</td><td>Hardware retro, not AI.</td></tr>
-      <tr><td>Backtrack‑Free Cursive</td><td>Font article, not AI.</td></tr>
-      <tr><td>The Graph That Should Be Front‑Page News</td><td>Economic chart, not AI.</td></tr>
+      <tr><td>Backtrack-Free Cursive</td><td>Font article, not AI.</td></tr>
+      <tr><td>The Graph That Should Be Front-Page News</td><td>Economic chart, not AI.</td></tr>
       <tr><td>Cyberpunk Comics, Manga and Graphic Novels</td><td>Cultural content, not AI.</td></tr>
-      <tr><td>Tiny Emulators</td><td>Emulators, not an AI tool.</td></tr>
-      <tr><td>So you want to learn physics</td><td>Learning resource, not a tool/product.</td></tr>
+      <tr><td>Tiny Emulators</td><td>Emulators, not AI tool.</td></tr>
+      <tr><td>So you want to learn physics</td><td>Learning resource, not tool/product.</td></tr>
       <tr><td>Frieve Vinyl Explained</td><td>Physics simulation, not AI.</td></tr>
-      <tr><td>Ask HN: Does anyone let AI agents play games just for fun?</td><td>Discussion thread, not a tool signal.</td></tr>
+      <tr><td>Ask HN: Does anyone let AI agents play games just for fun?</td><td>Discussion thread, not tool signal.</td></tr>
       <tr><td>Designing and assembling my first PCB</td><td>Hardware design, not AI.</td></tr>
       <tr><td>Berkshire's $397B Bet</td><td>Financial news, not AI.</td></tr>
       <tr><td>How to read more books</td><td>Learning method, not AI.</td></tr>
-      <tr><td>Ask HN: What Are You Working On?</td><td>General discussion, not a tool.</td></tr>
+      <tr><td>Ask HN: What Are You Working On?</td><td>General discussion, not tool.</td></tr>
       <tr><td>Sam Neill has died</td><td>Obituary, not AI.</td></tr>
       <tr><td>LARP – Revenue infrastructure for serious founders</td><td>Startup tool, not AI.</td></tr>
-      <tr><td>Are you telling me a readonly property is wrecking my performance?</td><td>Frontend performance article, not an AI tool.</td></tr>
+      <tr><td>Are you telling me a readonly property is wrecking my performance?</td><td>Frontend performance article, not AI tool.</td></tr>
       <tr><td>Kode Dot Programmable pocket device</td><td>Hardware device, not AI.</td></tr>
       <tr><td>First look at Quest, the final ship of Antarctic explorer Shackleton</td><td>History news, not AI.</td></tr>
-      <tr><td>Why write code in 2026</td><td>Opinion article, not a tool.</td></tr>
+      <tr><td>Why write code in 2026</td><td>Opinion article, not tool.</td></tr>
       <tr><td>Quadrupling code performance with a "useless" if</td><td>Performance optimization tip, not AI.</td></tr>
       <tr><td>How we can reduce traffic congestion</td><td>Urban traffic, not AI.</td></tr>
       <tr><td>I Learned to Read Again</td><td>Personal story, not AI.</td></tr>
-      <tr><td>Ornith‑1.0</td><td>In still tracking 18 days with no movement; removed.</td></tr>
-      <tr><td>Claude Sonnet 5</td><td>In still tracking 16 days with no movement; removed.</td></tr>
-      <tr><td>ZCode (GLM‑5.2 dev environment)</td><td>In still tracking 15 days with no movement; removed.</td></tr>
-      <tr><td>Kimi K2.7 Code in Copilot</td><td>In still tracking 15 days with no movement; removed.</td></tr>
-      <tr><td>Leanstral 1.5</td><td>In still tracking 13 days with no movement; removed.</td></tr>
     </tbody>
   </table>
 </section>
