@@ -6,6 +6,20 @@
       "date": "2026-07-19",
       "weekday": "Sun",
       "week": 29,
+      "kind": "weekly",
+      "headline": "开放权重模型三强争霸，编码 agent 迎来开源浪潮",
+      "summary": "本周 13 条新信号里出现了 5 个 🚨 —— Inkling 975B 成为美国最强开放权重模型（7/16）、Kimi K3 以 2.8T 参数登顶 Frontend Code Arena（7/17）、Grok Build 开源 84 万行 Rust 代码（7/16）、Fable 5 保留订阅让步（7/18）、Qwe",
+      "counts": {
+        "crit": 5,
+        "look": 6,
+        "fyi": 1
+      },
+      "url": "weekly_2026-07-19.html"
+    },
+    {
+      "date": "2026-07-19",
+      "weekday": "Sun",
+      "week": 29,
       "issue": 56,
       "kind": "daily",
       "headline": "(no headline)",

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-07-19 · Week 29</title>
+<meta name="description" content="Week 29 — Open-weight models go three-way: Inkling, Kimi K3, and Qwen 3.8 all land in one week. Coding agents have never had more choice — or more hidden costs.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 29">
+<meta property="og:description" content="13 new signals across 7 days · 5 🚨 · 7 👀 · 1 ℹ️ · 5 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 26ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 07 · 19 · WK 29 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <!-- ════════════ COVER ════════════ -->
+  <section class="cover">
+    <span class="kicker smallcaps">Week 29 · 2026-07-13 → 2026-07-19</span>
+    <h1 class="display headline">Open-weight models go three-way: Inkling, Kimi K3, and Qwen 3.8 all in one week</h1>
+    <p class="lead">13 new signals this week with 5 🚨 — Inkling 975B becomes the strongest US open-weights model (7/16), Kimi K3 tops Frontend Code Arena with 76% win rate (7/17), Grok Build open-sources 844k lines of Rust (7/16), Fable 5 gets permanently added to subscriptions under competitive pressure (7/18), and Qwen 3.8 Max preview lands (7/19). Meanwhile OpenCode, Clawk, and Bonsai 27B brought tool-level innovations. This was the week open-weight models stopped being a backup plan and became a mainstream option.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> Open-weight models went three-way (Inkling · Kimi K3 · Qwen 3.8) in a single week, Grok Build's open-source release gave you a real coding agent alternative, and Fable 5's permanent subscription inclusion proved competition works. But every choice has hidden costs — model compatibility, tool degradation, and deployment complexity. You need a multi-model strategy starting now.
+    </div>
+
+    <div class="count-row">
+      <div class="total">13</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>5</strong>&nbsp;🚨 (OpenCode · Clawk · Bonsai 27B · Inkling 975B · Kimi K3)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>7</strong>&nbsp;👀 (Grok Build open source · LM Studio Bionic · NotebookLM rebrand · Fable 5 permanent · Qwen 3.8 · Claude Code switches to Bun · local speech recognition tools)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ (Transcribe.cpp + Moonshine local speech recognition)</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 survived to weekly · 8 demoted / removed from tracking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">Open-weight model trio — Inkling, Kimi K3, and Qwen 3.8 all land in seven days</h2>
+
+    <p>The core event chain this week was the density of open-weight model releases. Thursday (7/16) Thinking Machines Lab — founded by Mira Murati, Soumith Chintala, John Schulman, and Lilian Weng — released Inkling 975B (41B active, Apache 2.0, 1M context, multimodal) to 1009 HN points. Friday (7/17) Moonshot AI dropped Kimi K3: 2.8T total parameters, 1M context, 76% win rate on Frontend Code Arena (beating Fable 5 and GPT-5.6 Sol), with an open-source promise by July 27. HN 1679 points, 989 comments. Sunday (7/19) Alibaba released the Qwen 3.8 Max preview, promising open-weight soon. Three models, three different strengths, but one direction: open-weight models are closing the gap with closed-source frontiers.</p>
+
+    <p>Simultaneously, the coding agent ecosystem went open-source. xAI open-sourced Grok Build's 844k lines of Rust under Apache 2.0 (7/16), giving you a fully auditable, local-first alternative to Claude Code and Codex. OpenCode demonstrated 7k token overhead vs Claude Code's 33k (7/13). Clawk offered disposable Linux VM sandboxes for agent execution (7/14). LM Studio Bionic made local open-model agents accessible with a GUI (7/17). And Fable 5's permanent inclusion in subscriptions (7/18) — driven by competition from GPT-5.6 Sol and Kimi K3 — means you can now rely on Anthropic's best model without worrying it'll disappear.</p>
+
+    <p><strong>If you only do one thing this week:</strong> Go to kimi.com or qwencloud.com and try Kimi K3 or Qwen 3.8 Max on a coding task you do daily. Compare the output quality and response speed against your current model (Fable 5 or GPT-5.6 Sol). Then visit github.com/xai-org/grok-build and scan the repo — understanding how 844k lines of Rust power a coding agent will help you judge which tools are worth integrating into your own workflow. Also run <code>claude --version</code> to confirm your Claude Code has updated to the Bun runtime — the startup speed improvement is immediate.</p>
+  </section>
+
+  <!-- ════════════ 📈 TRENDS ════════════ -->
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Open-weight models are closing the gap — the closed-source moat is narrowing</div>
+      <p>Inkling (US, Apache 2.0, 975B total / 41B active), Kimi K3 (China, 2.8T MoE, open-weight by July 27), and Qwen 3.8 (China, open-weight promised) all landed within a week. Each approaches or exceeds closed-source models (Fable 5, GPT-5.6 Sol) on specific benchmarks. Inkling's KOL lineup — Mira Murati, Soumith Chintala, John Schulman, Lilian Weng — signals that the US is no longer absent from open-weight competition. Kimi K3 leads Frontend Code Arena with a 76% win rate. For coding agent users, this means you'll soon have near-frontier capability at a fraction of the cost. But note: Inkling's 975B total params means only 41B are active per inference (MoE), and Kimi K3's 2.8T is also MoE — actual inference costs are manageable.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Coding agents are going open-source and multi-vendor — you have real alternatives now</div>
+      <p>Grok Build's 844k lines of Rust (Apache 2.0), OpenCode's 4x token savings vs Claude Code, Clawk's disposable VM sandbox, and LM Studio Bionic's local agent GUI — all in one week. These aren't toys: Grok Build includes tool implementations ported from Codex and OpenCode with proper attribution. OpenCode's token savings have been community-validated. With Alibaba banning Claude Code (last week) and the steganographic marking controversy still fresh, enterprise interest in open-source alternatives is growing. Copilot already supports Kimi K2.7, and ZCode gave GLM-5.2 an official IDE. Open-source coding agents are becoming a mainstream option, not just a backup.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ Local AI went from "it runs" to "it's usable" — offline scenarios are no longer a compromise</div>
+      <p>Bonsai 27B compressed a 27B-class model to 4GB via ternary quantization, running on a phone (7/15). LM Studio Bionic gave local agents a GUI (7/17). Transcribe.cpp and Moonshine brought local speech recognition to under 500KB (7/19). Three milestones in one week. For clawii handling sensitive data (compensation, employee records), this means you can process documents, analyze images, and transcribe meetings entirely offline. Bonsai's ternary quantization technique — reducing weights to 1.58 bits — could become the standard for future local models. The capability gap with cloud is still there, but it's narrowing fast.</p>
+    </div>
+  </section>
+
+  <!-- ════════════ 💀 WRONG ════════════ -->
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">Eight signals demoted, three judgment corrections</h2>
+
+    <p><strong>OpenCode demoted (7/13 🚨 → removed, Day 6 no follow-up signal)</strong> — Monday's 604 HN points were strong, but by the weekend there were no follow-up evaluations, GitHub star growth stalled, and no KOL independently endorsed it. The 4x token saving concept is valuable, but the project itself lacks momentum. Demoted from tracking. The concept is worth remembering, not the tool.</p>
+
+    <p><strong>Clawk demoted (7/14 🚨 → removed, Day 5 no follow-up signal)</strong> — Tuesday's 201 HN points didn't translate into sustained attention. No KOL review, no significant GitHub growth. The disposable VM sandbox idea is good, but the project is too early. Not tracking.</p>
+
+    <p><strong>Bonsai 27B demoted (7/15 🚨 → ℹ️, Day 4 no follow-up signal)</strong> — Wednesday's 612 HN points were impressive, and ternary quantization is genuinely interesting. But HuggingFace downloads were only 296 — the community hasn't adopted it. The technique is worth watching, but as a product it's premature. Demoted to ℹ️, not tracking.</p>
+
+    <p><strong>LM Studio Bionic demoted (7/17 👀 → removed, Day 2 no follow-up signal)</strong> — Released Friday, no new evaluations or reports by Sunday. The local agent direction is correct, but Bionic's maturity is unproven. Not tracking until more user feedback emerges.</p>
+
+    <p><strong>NotebookLM → Gemini Notebook rebrand demoted (7/17 👀 → removed, Day 2 no follow-up signal)</strong> — A rebrand without feature changes. No new capabilities announced. Watching for actual feature integration, but not tracking as a signal.</p>
+
+    <p><strong>Claude Code switches to Bun (7/19 👀 → keep 👀, pending verification)</strong> — Reported Sunday, Simon Willison's blog got 55 points. Bun is indeed faster, but Claude Code's main latency is model inference, not runtime startup. Keeping at 👀, waiting for user feedback on whether the change is noticeable.</p>
+
+    <p><strong>Qwen 3.8 Max preview (7/19 👀 → keep 👀, pending verification)</strong> — Just released Sunday, HN 207 points. No benchmarks yet, no open-weight date. Keeping at 👀, waiting for the July 27 Kimi K3 open-source event and Qwen 3.8's independent benchmarks.</p>
+
+    <p><strong>Speech recognition tools (Transcribe.cpp + Moonshine, 7/19 ℹ️ → keep ℹ️)</strong> — Limited impact on coding agent workflows. Keeping at ℹ️. If they integrate with agent tools later, can upgrade to 👀.</p>
+
+    <p><strong>Permanently removed from tracking (carried over from last week):</strong> Apple Foundation Models (Day 28, no signal), OpenRouter Fusion API (Day 28, no signal), Lore version control system (Day 21, no signal), DeepSeek Reasonix (Day 50, no signal), "Big 4 domino effect" (Day 48, no signal), Gemini 3.5 Flash (Day 47, no signal), "MCP is dead" debate (Day 43, no response), MiMo Code open-source (Day 42, no signal), Cohere North Mini Code (Day 40, no signal). These were marked dead in Weekly Wrap #28 and are now formally confirmed as no longer tracked.</p>
+  </section>
+
+  <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Will Kimi K3 actually open-source on July 27 as promised?</strong><br>
+      Moonshot AI committed to open-sourcing Kimi K3 by July 27. This is the biggest question mark of the coming week. If it lands under Apache 2.0 or a similarly permissive license, it becomes the largest open-weight model available (2.8T params). Watch for the license, model size variants, and supported platforms (HuggingFace, etc.). If it's delayed or the license changes, it will damage community trust in Moonshot AI.<br>
+      <span class="trigger">Trigger → Kimi K3 weights appear on HuggingFace on July 27, or an official delay announcement</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Qwen 3.8 Max independent benchmarks and open-weight timeline</strong><br>
+      Alibaba promised open-weight for Qwen 3.8 but didn't give a date. If independent benchmarks (SWE-bench, Coding Arena) appear this week, they'll help judge whether it's worth waiting for. Also watch for the context window size — if it hits 1M, it directly competes with Kimi K3 and Inkling.<br>
+      <span class="trigger">Trigger → Independent benchmark publication, or Alibaba announces a concrete open-weight date</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Will Anthropic or OpenAI respond to the tool call degradation issue, and how does Fable 5's 50% limit feel in practice?</strong><br>
+      "Better Models: Worse Tools" has been circulating for two weeks with no official response from either company. If Anthropic releases a fix (Opus 4.9 or Sonnet 5.1) or OpenAI confirms GPT-5.6 doesn't have the same issue, the situation changes. Meanwhile, Fable 5's permanent subscription inclusion goes live July 20 — the 50% limit on Max plans will be tested immediately. If users report it's insufficient, Anthropic may need to adjust again.<br>
+      <span class="trigger">Trigger → Anthropic changelog shows a tool call fix, or community reports Fable 5 limits are a bottleneck</span>
+    </div>
+  </section>
+
+  <!-- ════════════ 📅 CALIBRATION ════════════ -->
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 29</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (Jul 13 – Jul 19)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>5 (OpenCode · Clawk · Bonsai 27B · Inkling 975B · Kimi K3)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>7 (Grok Build open source · LM Studio Bionic · NotebookLM rebrand · Fable 5 permanent · Qwen 3.8 · Claude Code switches to Bun · local speech recognition)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>1 (Transcribe.cpp + Moonshine local speech recognition)</dd>
+
+      <dt>New signals total</dt>
+      <dd>13 (5🚨 + 7👀 + 1ℹ️)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>5 (🏆 open-weight model trio · 📈 open-weight closing the gap · 📈 coding agents going open-source · 📈 local AI becoming usable · 💀 eight demotions/corrections)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>8 (OpenCode · Clawk · Bonsai 27B → ℹ️ · LM Studio Bionic · NotebookLM rebrand · 3 old entries formally confirmed dead)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~62% (high — signal density was high but quality was uneven; multiple 🚨-level projects lacked follow-up momentum, suggesting a stricter initial filter is needed)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~6–24 hours ahead on Inkling (English media 7/16 morning, Chinese tech media 7/16 evening); ~12 hours ahead on Kimi K3 (English HN 7/17, Chinese ecosystem 7/17 evening); ~8 hours ahead on Grok Build open-source (Simon Willison analysis 7/16, Chinese tech blogs 7/17); ~4 hours ahead on Qwen 3.8 (Sunday release, Chinese media will cover Monday)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 29 · 2026-07-19 · 7 dailies · 13 new signals (5🚨 / 7👀 / 1ℹ️) · 5 survived · 8 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>

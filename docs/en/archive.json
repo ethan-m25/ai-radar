@@ -6,6 +6,20 @@
       "date": "2026-07-19",
       "weekday": "Sun",
       "week": 29,
+      "kind": "weekly",
+      "headline": "Open-weight models go three-way: Inkling, Kimi K3, and Qwen 3.8 all in one week",
+      "summary": "13 new signals this week with 5 🚨 — Inkling 975B becomes the strongest US open-weights model (7/16), Kimi K3 tops Frontend Code Arena with 76% win rate (7/17), ",
+      "counts": {
+        "crit": 6,
+        "look": 5,
+        "fyi": 1
+      },
+      "url": "weekly_2026-07-19.html"
+    },
+    {
+      "date": "2026-07-19",
+      "weekday": "Sun",
+      "week": 29,
       "issue": 56,
       "kind": "daily",
       "headline": "(no headline)",
