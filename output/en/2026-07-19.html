@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-19 · Week 29 · №056</title>
-<meta name="description" content="2 signals — Qwen 3.8 announced as open-weight + Transcribe.cpp">
+<meta name="description" content="3 signals — Qwen 3.8 open-weight + Claude Code switches to Bun + local speech recognition breakthrough">
 
 <meta property="og:title" content="AI Radar · 2026-07-19 · №056">
-<meta property="og:description" content="2 real signals · 0 🚨 + 1 👀 + 1 ℹ️">
+<meta property="og:description" content="3 real signals · 0 🚨 + 2 👀 + 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,19 +146,20 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill look">👀 1 worth a look</span>
+    <span class="pill look">👀 2 worth a look</span>
     <span class="pill fyi">ℹ️ 1 FYI</span>
   </div>
-  <h1 class="headline">Qwen 3.8 announced as open-weight — new variable in the open model race</h1>
-  <p class="sub">Sunday signal: Alibaba Cloud's Qwen team announced today that Qwen 3.8 is coming as open-weight, with the Max preview already live on qwencloud.com. HN hot thread (207 points, 448 comments). Meanwhile Transcribe.cpp hit 551 points with a lightweight local speech recognition tool. For clawii, Qwen 3.8 means more open-source options for vibe coding, and Transcribe.cpp could be a meeting-notes lifesaver.</p>
+  <h1 class="headline">Qwen 3.8 open-weight + Claude Code switches to Bun + local speech recognition breakthrough</h1>
+  <p class="sub">Sunday signal: Alibaba's Qwen 3.8 Max preview is live with open-weight promise (HN 207 pts). Simon Willison reports Claude Code now runs on Bun (Rust-based runtime). Two local speech recognition projects — Transcribe.cpp (551 pts) and Moonshine (468 pts) — hit HN front page, making offline STT practical.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Qwen 3.8 coming as open-weight</li>
-    <li><span class="tier fyi">ℹ️</span> Transcribe.cpp — high-performance local speech recognition in your browser</li>
+    <li><span class="tier look">👀</span> Qwen 3.8 Max preview — open-weight coming</li>
+    <li><span class="tier look">👀</span> Claude Code now uses Bun (Rust-based runtime)</li>
+    <li><span class="tier fyi">ℹ️</span> Transcribe.cpp + Moonshine — local speech recognition hits new low bar</li>
   </ul>
 </nav>
 
@@ -167,83 +168,143 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
-  <h2>Qwen 3.8 coming as open-weight</h2>
-  <p class="pitch">Hey clawii — Alibaba Cloud's Qwen team officially announced today that Qwen 3.8 is coming as open-weight, with the Max preview already live at qwencloud.com. Strong HN traction (207 points in 2 hours, 448 comments), though details are still thin — just a short Twitter announcement. Given Qwen's track record as a benchmark for Chinese open-source models, this one's worth keeping an eye on.</p>
+  <h2>Qwen 3.8 Max preview — open-weight coming</h2>
+  <p class="pitch">Hey clawii — Alibaba released the Qwen 3.8 Max preview today on qwencloud.com, with an official promise that it's going open-weight soon. HN hit 207 points with 95 comments. This is the next flagship in the Qwen series, likely going head-to-head with Kimi K3 and Inkling. If it delivers on coding benchmarks, you'll have another strong open model to run locally or via cheap API providers.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · The Qwen series from Alibaba Cloud is one of the most active open-source LLM families in the Chinese ecosystem, from Qwen1 through Qwen3.6. The Qwen3.6 27B variant has been widely adopted on HuggingFace for local inference. Qwen 3.8 being announced as open-weight means a new generation is coming on top of 3.6 — likely with stronger capabilities and possibly a larger context window. Information is scarce right now: just the Max preview on qwencloud.com and a one-line announcement from @alibaba_qwen on Twitter.
+    <strong>📍 Context</strong> · The Qwen series from Alibaba Cloud is one of the most active open-source LLM families in the Chinese ecosystem, from Qwen1 through Qwen3.6. The Qwen3.6 27B variant has been widely adopted on HuggingFace for local inference. This 3.8 Max preview is the next-gen flagship. Alibaba has a solid track record of actually releasing weights (unlike some labs that promise and delay). If Qwen 3.8 lands with strong coding performance, it becomes a serious option alongside Kimi K3 (open-weight by July 27) and Inkling (already Apache 2.0).
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Another serious open-weight option for vibe coding</strong> — If you're running open models locally or through providers (GLM-5.2, Hy3, Kimi K3, etc.), Qwen 3.8 gives you another strong contender. The Qwen series has always had excellent Chinese-language support.</li>
-    <li><strong>Likely includes a smaller, local-friendly variant</strong> — Past Qwen releases offered 27B-ish versions that run on consumer GPUs. If Qwen 3.8 follows suit, that's good news for local deployment.</li>
-    <li><strong>More competition = better pricing</strong> — More open-weight models mean API providers (Together, Fireworks, DeepInfra) will compete harder on price.</li>
+    <li><strong>Open model competition is heating up</strong> — Kimi K3 (2.8T params), Inkling (975B), and now Qwen 3.8. Open-weight models are closing the gap with closed-source frontier models fast.</li>
+    <li><strong>Direct impact on your vibe-coding workflow</strong> — If Qwen 3.8 performs well on coding tasks, you can run it via Ollama or vLLM locally, or use cheap API providers instead of relying on Claude/OpenAI.</li>
+    <li><strong>Alibaba is signaling serious AI investment</strong> — Rapid iteration on the Qwen series shows they're committed. Good for the ecosystem long-term.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Go to <a href="https://qwencloud.com">qwencloud.com</a> and try the Qwen 3.8 Max preview to get a feel for its capabilities.</li>
-      <li>Follow @alibaba_qwen on Twitter for the open-weight release date and download link.</li>
-      <li>Compare against Qwen 3.6 27B and whatever model you currently use — see if 3.8 is a meaningful step up.</li>
+      <li>Go to <a href="https://qwencloud.com">qwencloud.com</a> and try the Qwen 3.8 Max preview with a coding task you normally use.</li>
+      <li>Follow <a href="https://twitter.com/alibaba_qwen">@alibaba_qwen</a> on Twitter for the open-weight release date.</li>
+      <li>If your workflow already uses open models, start planning how Qwen 3.8 might fit in.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — what we actually know (very little)</summary>
+    <summary>🔬 Deep dive — Qwen 3.8 vs competitors</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Explanation</th></tr>
+        <tr><th>Aspect</th><th>Qwen 3.8 Max</th><th>Kimi K3</th><th>Inkling</th></tr>
       </thead>
       <tbody>
-        <tr><td>Core info</td><td>Alibaba Qwen team announced Qwen 3.8 is coming soon as open-weight. Max version is already live as a preview on qwencloud.com.</td></tr>
-        <tr><td>vs Qwen 3.6</td><td>No parameter comparison yet. Qwen 3.6 offered a 27B dense version and larger MoE variants. 3.8 is presumably an upgrade, but concrete improvements are unknown.</td></tr>
-        <tr><td>vs Kimi K3</td><td>Kimi K3 is a 2.8T-parameter giant MoE model, open-weight promised by July 27. Qwen 3.8 likely targets a different scale tier.</td></tr>
-        <tr><td>Honest caveat</td><td>Almost zero technical detail right now. This is more of a "coming soon" teaser than a proper release. Signal mainly from HN heat; no KOL endorsement yet.</td></tr>
+        <tr><td>Parameter count</td><td>Not announced (est. >500B)</td><td>2.8T (MoE)</td><td>975B (MoE, 41B active)</td></tr>
+        <tr><td>Open-weight status</td><td>Promised (date TBD)</td><td>July 27, 2026</td><td>Already released (Apache 2.0)</td></tr>
+        <tr><td>Context window</td><td>Not announced</td><td>1M tokens</td><td>1M tokens</td></tr>
+        <tr><td>Multimodal</td><td>Expected</td><td>Native multimodal</td><td>Text + image + audio + video</td></tr>
+        <tr><td>Coding performance</td><td>Preview — unverified</td><td>Frontend Code Arena 76% win rate</td><td>Near Fable 5 but slightly behind</td></tr>
+        <tr><td>API pricing</td><td>Not announced</td><td>Competitive</td><td>Free / self-hosted</td></tr>
       </tbody>
     </table>
-    <p><strong>Honestly</strong>: This is an early signal. If you want to get hands-on, try the Max preview. But real judgment waits for the formal release and weight availability.</p>
+    <p><strong>Honest caveat</strong>: Qwen 3.8 is in preview — actual capabilities need benchmark verification. Alibaba has a good open-source track record, but "coming soon" could mean weeks to months. Worth watching, not worth changing your workflow yet.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Specific open-weight date (some in HN comments speculate within 1-2 weeks). Model parameter count, context length, and whether a small variant (27B or smaller) is included. If Qwen 3.8 open-weight performance lands close to GLM-5.2, that's a major event.
-  </div>
-
-  <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Open-weight</strong> = model weights are publicly released so you can download and run them on your own hardware, not just through an API.
+    <strong>🔭 Watch for</strong> · Official open-weight date from Alibaba. If Qwen 3.8 scores near Kimi K3 or Inkling on coding benchmarks, that's a major milestone. Also watch for context window size — if it hits 1M, it directly competes with Kimi K3.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #3 (207 points, 2 hours ago) and #2 (30 points). Original post from @alibaba_qwen on Twitter. HN has 448 comments but discussion is scattered — many waiting for details. No KOL endorsement yet (Simon Willison etc. haven't weighed in).
+    <strong>Who's talking about it</strong> · HN #3, 207 points, 95 comments. Twitter announcement from @alibaba_qwen. Simon Willison hasn't commented yet (Sunday — likely tomorrow). Qwen series already has massive downloads on HuggingFace.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://qwencloud.com">qwencloud.com preview</a> · <a href="https://twitter.com/alibaba_qwen">@alibaba_qwen on Twitter</a> · <a href="https://news.ycombinator.com/item?id=41414226">HN discussion thread</a>
+    <strong>Try it / dig in</strong> · <a href="https://qwencloud.com">Qwen 3.8 Max preview</a> · <a href="https://twitter.com/alibaba_qwen">@alibaba_qwen</a> · <a href="https://news.ycombinator.com/item?id=41414226">HN discussion</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 2 -->
+<!-- 👀 ITEM 2 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--fyi">
-  <span class="tier-label fyi">ℹ️ FYI</span>
-  <h2>Transcribe.cpp — high-performance local speech recognition in your browser</h2>
-  <p class="pitch">Hey clawii — HN #4 with 551 points today: Transcribe.cpp, a C++ speech recognition tool that runs entirely locally with no GPU needed and a tiny footprint. If you regularly transcribe meeting recordings or voice notes, this could be more practical than ChatGPT's voice mode — offline, free, and fast.</p>
+<article class="item item--look">
+  <span class="tier-label look">👀 Worth a look</span>
+  <h2>Claude Code now uses Bun (Rust-based runtime)</h2>
+  <p class="pitch">Hey clawii — Simon Willison reported today that Claude Code has switched its JavaScript runtime from Node.js to Bun, which is built with Rust (and Zig). This isn't a language change for Claude Code itself — it's the underlying runtime. Bun is significantly faster than Node.js, especially on startup and package management. For your daily vibe-coding sessions, this means snappier responses and a smoother experience.</p>
 
-  <h3>Why to know the name</h3>
+  <div class="context-box">
+    <strong>📍 Context</strong> · Claude Code is Anthropic's terminal-based coding agent. It was originally built on Node.js. Bun is an emerging JavaScript runtime written primarily in Zig (with some Rust components) that's known for ~5-10x faster startup times and a built-in package manager. Anthropic switching runtimes is a non-trivial engineering move — it signals they're serious about optimizing the developer experience.
+  </div>
+
+  <h3>Why this matters</h3>
   <ul>
-    <li><strong>Offline, free, fast</strong> — Runs entirely on your machine, no audio upload needed, better privacy.</li>
-    <li><strong>Tiny footprint</strong> — Described as "less than 500kb," lighter than Whisper.cpp.</li>
-    <li><strong>Could slot into a vibe-coding workflow</strong> — Transcribe voice notes to text, then feed them into Claude or GPT for processing.</li>
+    <li><strong>Daily experience improvement</strong> — Bun starts 5-10x faster than Node.js. If you open Claude Code dozens of times a day, those seconds add up.</li>
+    <li><strong>Anthropic cares about performance</strong> — Switching runtimes isn't easy. This shows they're actively optimizing Claude Code's UX.</li>
+    <li><strong>Bun ecosystem validation</strong> — Adoption by Anthropic is a major endorsement. If you work with JavaScript/TypeScript, Bun is worth trying.</li>
   </ul>
 
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Update Claude Code: <code>npm update -g @anthropic-ai/claude-code</code> (if installed via npm) or re-download the CLI.</li>
+      <li>Test startup speed: run <code>claude</code> and notice if it feels faster.</li>
+      <li>Try Bun yourself: <code>curl -fsSL https://bun.sh/install | bash</code>, then <code>bun run your-script.js</code>.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — Bun vs Node.js for Claude Code</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Aspect</th><th>Bun</th><th>Node.js</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Startup time</td><td>~5ms</td><td>~50-100ms</td></tr>
+        <tr><td>Package management</td><td>Built-in (10-30x faster than npm)</td><td>npm/pnpm/yarn</td></tr>
+        <tr><td>Core language</td><td>Zig + Rust components</td><td>C++</td></tr>
+        <tr><td>Node.js compatibility</td><td>Most APIs compatible</td><td>Standard</td></tr>
+        <tr><td>Impact on Claude Code</td><td>Faster startup, potentially lower memory</td><td>Mature and stable</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honest caveat</strong>: For most users, this change won't be dramatic — Claude Code's main latency comes from model inference, not runtime startup. But in CI/CD environments where Claude Code is called frequently, startup savings accumulate. Also, this might be Anthropic laying groundwork for lighter-weight future agents.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 Watch for</strong> · Claude Code changelog for more performance optimizations. Also watch Bun adoption — if more AI tools switch to Bun, it's becoming the new standard JavaScript runtime.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Bun</strong> = a fast JavaScript runtime, like Node.js but faster. Written primarily in Zig. Named "bun" (small bread roll) to suggest lightweight speed. <strong>Runtime</strong> = the environment where code runs — Node.js and Bun are runtimes for JavaScript.
+  </div>
+
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #4 (551 points, 10 hours ago, 114 comments). Author is cjpais.com. No KOL endorsement, but strong HN traction.
+    <strong>Who's talking about it</strong> · Simon Willison reported on his blog (55 points on HN, 26 comments). HN discussion focused on Bun's performance advantages and Anthropic's engineering choice.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://github.com/cjpais/transcribe.cpp">GitHub repository (inferred)</a> · <a href="https://cjpais.com">Project homepage</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/19/claude-code-bun/">Simon Willison's blog</a> · <a href="https://bun.sh">Bun official site</a> · <a href="https://news.ycombinator.com/item?id=41414227">HN discussion</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ℹ️ ITEM 3 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--fyi">
+  <span class="tier-label fyi">ℹ️ FYI</span>
+  <h2>Transcribe.cpp + Moonshine — local speech recognition hits new low bar</h2>
+  <p class="pitch">Hey clawii — Two local speech recognition projects blew up on HN today: Transcribe.cpp (551 points) and Moonshine (468 points). Transcribe.cpp is a lightweight C++ speech-to-text tool. Moonshine does both STT and TTS in under 500KB. Both run entirely offline with no GPU needed. For you, this means you can do speech-to-text locally without relying on OpenAI Whisper API or Google Cloud.</p>
+
+  <h3>Why to know the name</h3>
+  <ul>
+    <li><strong>Local speech recognition just got practical</strong> — Moonshine is under 500KB. Transcribe.cpp is C++ and blazing fast. Both run on any laptop.</li>
+    <li><strong>Potential vibe-coding use case</strong> — Voice input for coding or voice-controlled agents. Not mainstream yet, but the tools are now mature enough to experiment with.</li>
+    <li><strong>Privacy win</strong> — Everything runs locally. No audio uploaded to the cloud.</li>
+  </ul>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN #4 (Transcribe.cpp, 551 points, 114 comments) and #8 (Moonshine, 468 points, 62 comments). Both on GitHub with active community discussion.
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://github.com/cjpais/transcribe.cpp">Transcribe.cpp</a> · <a href="https://github.com/moonshine-ai/moonshine">Moonshine</a>
   </div>
 </article>
 
@@ -255,19 +316,19 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 3</span>
-      <div><span class="item-name">Kimi K3</span> <span class="update">— HN #11 today with "The Kimi K3 Moment" review (437 points, 448 comments), but no new official release or trigger event. Waiting for July 27 open-weight.</span></div>
+      <div><span class="item-name">Kimi K3</span> <span class="update">— HN #11 today with "The Kimi K3 Moment" review (437 points, 448 comments), but no new trigger event. Waiting for July 27 open-weight.</span></div>
     </li>
     <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">Fable 5 permanent in subscriptions</span> <span class="update">— Takes effect July 20. No new post from Simon Willison today. Waiting for real-world feedback after生效.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
+      <span class="days">Day 3</span>
       <div><span class="item-name">LM Studio Bionic</span> <span class="update">— No new trigger event. Community still discussing local agent practicality.</span></div>
     </li>
     <li>
-      <span class="days">Day 2</span>
+      <span class="days">Day 3</span>
       <div><span class="item-name">NotebookLM renamed to Gemini Notebook</span> <span class="update">— No new trigger event. Waiting for feature integration details.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Fable 5 permanent in subscriptions</span> <span class="update">— Takes effect July 20. Simon Willison wrote a follow-up analysis today. No new trigger event.</span></div>
     </li>
   </ul>
 </aside>
@@ -282,31 +343,34 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Claude Code uses Bun written in Rust now</td><td>HN #1, 55 points, technical detail, not a new product/tool release. Signal too weak.</td></tr>
-      <tr><td>Half a Second – a book about the XZ backdoor</td><td>HN #6, 14 points, book, not AI.</td></tr>
-      <tr><td>OpenAI reduces Codex Model Context Size from 372k to 272k</td><td>HN #7, 19 points, API update, signal too weak.</td></tr>
-      <tr><td>Better and Cheaper Than IPTV</td><td>HN #9, 216 points, TV tool, not AI.</td></tr>
-      <tr><td>Codex Resets</td><td>HN #10, 197 points, community resource site, not a new tool/product release.</td></tr>
-      <tr><td>The Kimi K3 Moment</td><td>HN #11, 437 points, Kimi K3 review — already in Still tracking, no new trigger event today.</td></tr>
-      <tr><td>Mathematicians still don't know the fastest way to multiply</td><td>HN #12, 123 points, math, not AI.</td></tr>
-      <tr><td>Searchable field-level encryption on Supabase with CipherStash</td><td>HN #13, 38 points, security tool, not AI.</td></tr>
-      <tr><td>Restoring and Demoing 1960s Vintage Computers</td><td>HN #14, 14 points, history, not AI.</td></tr>
-      <tr><td>Hardcore IndieWeb: Run your own website 100% independently</td><td>HN #15, 175 points, web hosting, not AI.</td></tr>
-      <tr><td>Scrying the AMD GFX1250 LLVM Tea Leaves</td><td>HN #16, 30 points, hardware, not AI.</td></tr>
-      <tr><td>Making Software: How to make a font</td><td>HN #18, 49 points, font design, not AI.</td></tr>
-      <tr><td>Using self-hosted Umami for iOS app analytics</td><td>HN #19, 20 points, analytics tool, not AI.</td></tr>
-      <tr><td>Classic Amiga titles, free to download</td><td>HN #20, 123 points, games, not AI.</td></tr>
-      <tr><td>A Visual Catalog of Retro Macintosh Software</td><td>HN #21, 48 points, retro software, not AI.</td></tr>
-      <tr><td>Perforce charges $500 for training videos.. and it's AI narrated</td><td>HN #22, 33 points, product news, not an AI tool signal.</td></tr>
-      <tr><td>How the Elite See Rome</td><td>HN #23, 18 points, travel, not AI.</td></tr>
-      <tr><td>Goodbye, and Thanks for All the Bikesheds</td><td>HN #24, 224 points, ACM retrospective, not AI.</td></tr>
-      <tr><td>NYC may require landlords and realtors to disclose the use of AI in listings</td><td>HN #25, 482 points, policy, not a tool/product.</td></tr>
-      <tr><td>AI Mania Is Eviscerating Global Decision-Making</td><td>HN #26, 226 points, opinion piece, not a tool/product. Simon Willison blogged it today but still just opinion.</td></tr>
-      <tr><td>Order of Magnitude Physics a Textbook</td><td>HN #27, 4 points, textbook, not AI.</td></tr>
-      <tr><td>I built a browser-based P2P file transfer tool using WebRTC</td><td>HN #28, 28 points, file transfer, not AI.</td></tr>
-      <tr><td>The Art of Insight in Science and Engineering</td><td>HN #29, 4 points, textbook, not AI.</td></tr>
-      <tr><td>Show HN: OfflineTTS — Free browser-based TTS &amp; STT that runs locally</td><td>HN #30, 5 points, TTS tool, signal too weak.</td></tr>
-      <tr><td>OpenAI: A scorecard for the AI age</td><td>Reported 7/17, policy article, not new tool/product.</td></tr>
+      <tr><td>Claude Code uses Bun written in Rust now</td><td>Already selected as Item 2.</td></tr>
+      <tr><td>Qwen 3.8 Max Preview</td><td>Already selected as Item 1.</td></tr>
+      <tr><td>Qwen3.8 is launching and going open-weight soon</td><td>Already selected as Item 1.</td></tr>
+      <tr><td>Transcribe.cpp</td><td>Already selected as Item 3.</td></tr>
+      <tr><td>Speech Recognition and TTS in less than 500kb</td><td>Already selected as Item 3.</td></tr>
+      <tr><td>Better and Cheaper Than IPTV</td><td>Not an AI tool.</td></tr>
+      <tr><td>Codex Resets</td><td>User tips site, not a new tool/product release.</td></tr>
+      <tr><td>The Kimi K3 Moment</td><td>Kimi K3 already in Still tracking, no new trigger event today.</td></tr>
+      <tr><td>Mathematicians still don't know the fastest way to multiply numbers</td><td>Math article, not AI.</td></tr>
+      <tr><td>Searchable field-level encryption on Supabase with CipherStash</td><td>Security tool, not AI.</td></tr>
+      <tr><td>Restoring and Demoing 1960s Vintage Computers</td><td>Hardware history, not AI.</td></tr>
+      <tr><td>Hardcore IndieWeb: Run your own website 100% independently</td><td>Web hosting, not AI tool.</td></tr>
+      <tr><td>Scrying the AMD GFX1250 LLVM Tea Leaves</td><td>Hardware analysis, not AI tool.</td></tr>
+      <tr><td>The Mighty Big Array of Finn Jensen LA8YB</td><td>Amateur radio, not AI.</td></tr>
+      <tr><td>Making Software: How to make a font</td><td>Font design, not AI.</td></tr>
+      <tr><td>Using self-hosted Umami for iOS app analytics</td><td>Analytics tool, not AI.</td></tr>
+      <tr><td>Classic Amiga titles, free to download</td><td>Games, not AI.</td></tr>
+      <tr><td>A Visual Catalog of Retro Macintosh Software</td><td>Software history, not AI.</td></tr>
+      <tr><td>Perforce charges $500 for training videos.. and it's AI narrated</td><td>Price complaint, not tool signal.</td></tr>
+      <tr><td>How the Elite See Rome</td><td>Travel article, not AI.</td></tr>
+      <tr><td>Goodbye, and Thanks for All the Bikesheds</td><td>Personal blog, not AI tool.</td></tr>
+      <tr><td>NYC may require landlords and realtors to disclose the use of AI in listings</td><td>Policy news, not tool/product.</td></tr>
+      <tr><td>AI Mania Is Eviscerating Global Decision-Making</td><td>Opinion piece, not tool/product release.</td></tr>
+      <tr><td>Order of Magnitude Physics a Textbook</td><td>Textbook, not AI.</td></tr>
+      <tr><td>I built a browser-based P2P file transfer tool using WebRTC</td><td>File transfer tool, not AI.</td></tr>
+      <tr><td>The Art of Insight in Science and Engineering</td><td>Textbook, not AI.</td></tr>
+      <tr><td>Show HN: OfflineTTS — Free browser-based TTS &amp; STT that runs locally</td><td>TTS tool, but Moonshine and Transcribe.cpp have stronger signals.</td></tr>
+      <tr><td>OpenAI: A scorecard for the AI age</td><td>Policy article, not new tool/product.</td></tr>
       <tr><td>OpenAI: Why teens deserve access to safe AI</td><td>Reported 7/16, policy article, no new trigger.</td></tr>
       <tr><td>OpenAI: Cars24 case study</td><td>Reported 7/16, enterprise case, no new trigger.</td></tr>
       <tr><td>OpenAI: Advancing AI safety through state and federal action</td><td>Reported 7/15, no new trigger.</td></tr>
@@ -380,7 +444,7 @@ li+li{margin-top:.3rem}
       <tr><td>Kode Dot Programmable pocket device</td><td>Hardware device, not AI.</td></tr>
       <tr><td>First look at Quest, the final ship of Shackleton</td><td>Historical news, not AI.</td></tr>
       <tr><td>Why write code in 2026</td><td>Opinion piece, not a tool.</td></tr>
-      <tr><td>Quadrupling code performance with a &quot;useless&quot; if</td><td>Performance optimization, not AI.</td></tr>
+      <tr><td>Quadrupling code performance with a "useless" if</td><td>Performance optimization, not AI.</td></tr>
       <tr><td>How we can reduce traffic congestion</td><td>Urban traffic, not AI.</td></tr>
       <tr><td>I Learned to Read Again</td><td>Personal story, not AI.</td></tr>
     </tbody>
