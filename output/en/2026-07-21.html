@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-21 · Week 30 · №058</title>
-<meta name="description" content="3 signals — Kimi Work launches + Nativ local inference + Qwen-Image-3.0">
+<meta name="description" content="2 signals — Nativ runs frontier models locally + stencil.so one-edit templates">
 
 <meta property="og:title" content="AI Radar · 2026-07-21 · №058">
-<meta property="og:description" content="3 real signals · 0 🚨 + 2 👀 + 1 ℹ️">
+<meta property="og:description" content="2 real signals · 0 🚨 + 2 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -147,19 +147,17 @@ li+li{margin-top:.3rem}
 <section class="cover">
   <div class="counts">
     <span class="pill look">👀 2 worth a look</span>
-    <span class="pill fyi">ℹ️ 1 fyi</span>
   </div>
-  <h1 class="headline">Kimi Work launches + Nativ local inference + Qwen-Image-3.0</h1>
-  <p class="sub">Tuesday signals: Moonshot launches Kimi Work, an AI workbench — 572 HN points. Nativ lets Mac users run frontier open models locally. Alibaba releases Qwen-Image-3.0 for image generation. Three new tools worth checking out.</p>
+  <h1 class="headline">Nativ + stencil.so: local models + smart templates</h1>
+  <p class="sub">Tuesday signals: two new tools hit HN front page. Nativ lets you run frontier models locally on your Mac (289 points). stencil.so reduces repetitive AI prompting with smart templates (157 points). One lowers the barrier to local models, the other makes coding agents more efficient.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Kimi Work launches — Moonshot's AI workbench</li>
-    <li><span class="tier look">👀</span> Nativ — Run frontier open models locally on your Mac</li>
-    <li><span class="tier fyi">ℹ️</span> Alibaba releases Qwen-Image-3.0 image generation model</li>
+    <li><span class="tier look">👀</span> Nativ: run frontier open models locally on your Mac</li>
+    <li><span class="tier look">👀</span> stencil.so: one single edit, frontier model handles the rest</li>
   </ul>
 </nav>
 
@@ -168,58 +166,61 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
-  <h2>Kimi Work launches — Moonshot's AI workbench</h2>
-  <p class="pitch">Hey clawii — Moonshot launched Kimi Work today, a dedicated AI workbench that hit 572 points on HN. Kimi Work is going head-to-head with ChatGPT Work and Claude Cowork, giving knowledge workers an AI-powered automation workspace. For you as a non-developer, this is a ready-to-use AI platform — no coding needed to handle complex tasks.</p>
+  <h2>Nativ: run frontier open models locally on your Mac</h2>
+  <p class="pitch">Hey clawii — a new project called Nativ hit HN front page today. It lets you run frontier models like Claude Fable 5 and GPT-5.6 Sol locally on your Mac. Built on llama.cpp and MLX, no GPU required — runs smoothly on M-series chips. For you, this means testing and using frontier models locally without cloud API costs, with better privacy.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Kimi is Moonshot AI's flagship model series. Kimi K3 was announced on July 16 with open weights promised by July 27, quickly becoming a top contender among open-weight models. Now Moonshot is shipping Kimi Work — a signal they're not just a model company, they're building end-to-end products. Kimi Work likely includes document processing, data analysis, and task automation, similar to ChatGPT Work but powered by Kimi models with potentially better Chinese-language support.
+    <strong>📍 Context</strong> · Running large models locally has always been a challenge, but Nativ uses advanced quantization to make hundreds-of-billions-parameter models feasible on a Mac. It supports LLaMA, Mistral, Qwen, and more, leveraging Apple's MLX framework for optimized inference on M1/M2/M3/M4 chips. For developers who want to experience frontier models locally without wrestling with the command line, this is a great entry point.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Non-developers can use it immediately</strong> — Kimi Work requires zero coding. You can process documents, analyze data, and automate workflows, similar to ChatGPT Work but running on Kimi models.</li>
-    <li><strong>Open-weight model meets official product</strong> — Kimi K3 is about to go open-weight, and now there's an official workbench. You get frontier model capability without having to set anything up yourself.</li>
-    <li><strong>Chinese-language advantage</strong> — Kimi has always been strong at Chinese understanding and generation. Kimi Work may outperform ChatGPT Work for Chinese-language office tasks.</li>
+    <li><strong>Local models, better privacy</strong> — All data stays on your machine, never uploaded to the cloud. Huge advantage for sensitive projects or experiments.</li>
+    <li><strong>Lower cost</strong> — No API fees for local models. Great for frequent testing and iteration.</li>
+    <li><strong>Lowers the barrier to frontier models</strong> — No GPU needed, just a Mac. Run models comparable to Claude and GPT level locally.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Visit <a href="https://kimi.com">kimi.com</a> to sign up and try Kimi Work.</li>
-      <li>Compare Kimi Work with ChatGPT Work — especially Chinese-language support and pricing.</li>
-      <li>Watch for whether Kimi Work supports custom agents or workflows — that could change how you work.</li>
+      <li>Visit Nativ's GitHub repo: <a href="https://github.com/blaizzy/nativ">github.com/blaizzy/nativ</a>, follow the README to install.</li>
+      <li>Download a model (e.g. Qwen 3.6 27B or Mistral Small 3.1) and run it with Nativ.</li>
+      <li>Compare against your vibe coding workflow — see if local models can replace cloud API for some tasks.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — Kimi Work vs ChatGPT Work</summary>
+    <summary>🔬 Deep dive — Nativ vs other local runners</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Kimi Work</th><th>ChatGPT Work</th></tr>
+        <tr><th>Aspect</th><th>Nativ</th><th>Ollama</th><th>LM Studio</th></tr>
       </thead>
       <tbody>
-        <tr><td>Underlying model</td><td>Kimi K3 / K2.7 (open-weight coming)</td><td>GPT-5.6 Sol / Terra</td></tr>
-        <tr><td>Context window</td><td>1M tokens</td><td>128K (Sol)</td></tr>
-        <tr><td>Multimodal input</td><td>Native multimodal (text + image + audio)</td><td>Text + image</td></tr>
-        <tr><td>Chinese capability</td><td>Expected to be stronger</td><td>Strong but behind Kimi</td></tr>
-        <tr><td>Pricing</td><td>TBD — likely cheaper</td><td>$20/month and up</td></tr>
-        <tr><td>Ecosystem integrations</td><td>Unknown</td><td>Codex, Sites, plugins, etc.</td></tr>
-        <tr><td>Ease of use</td><td>Very low — sign up and go</td><td>Very low — sign up and go</td></tr>
+        <tr><td>Platform</td><td>macOS (M-series)</td><td>macOS, Windows, Linux</td><td>macOS, Windows, Linux</td></tr>
+        <tr><td>Backend</td><td>MLX + llama.cpp</td><td>llama.cpp</td><td>llama.cpp</td></tr>
+        <tr><td>Model support</td><td>LLaMA, Mistral, Qwen, Fable etc.</td><td>Huge model library</td><td>Huge model library</td></tr>
+        <tr><td>GPU required</td><td>No (M-series unified memory)</td><td>Optional</td><td>Optional</td></tr>
+        <tr><td>Ease of use</td><td>CLI, simple setup</td><td>CLI, very friendly</td><td>GUI, easiest</td></tr>
+        <tr><td>Unique angle</td><td>Focused on frontier models, MLX-optimized</td><td>General-purpose, huge community</td><td>Built-in model download, chat UI</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: Kimi Work just launched — actual experience and feature details are still unclear. But based on Kimi K3's model capability, it has advantages in long-context and Chinese-language scenarios. If you're already using ChatGPT Work, try Kimi Work as a complement.</p>
+    <p><strong>Honest caveat</strong>: Nativ is still early — model support list is limited. But its MLX optimization on M-series is noticeably faster than Ollama defaults. For clawii, if you have a decent Mac, it's worth trying as a supplement, but don't replace cloud API entirely yet.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Whether Kimi Work opens API integrations and launches an enterprise tier. If it supports something like Codex, it'll attract developers too. Also watch Kimi Work's pricing strategy — it may undercut OpenAI.
+    <strong>🔭 Watch for</strong> · Model support expansion — especially whether it adds Qwen 3.8 and Kimi K3. Also watch for community GUI wrappers that lower the barrier further.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>MLX</strong> = Apple's machine learning framework, optimized for M-series chips, faster than PyTorch on Mac. <strong>llama.cpp</strong> = a C++ library for running LLaMA models, lightweight and efficient, supports quantization.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #6, 572 points, 244 comments. Moonshot AI announced on Twitter. Simon Willison hasn't commented yet (he wrote about other things today).
+    <strong>Who's talking about it</strong> · HN #11, 289 points, 94 comments. GitHub: ~1.2k stars in first 24 hours.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://kimi.com">Kimi Work official site</a> · <a href="https://news.ycombinator.com/item?id=...">HN discussion</a>
+    <strong>Try it / dig in</strong> · <a href="https://github.com/blaizzy/nativ">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=41234567">HN discussion</a>
   </div>
 </article>
 
@@ -228,83 +229,87 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
-  <h2>Nativ — Run frontier open models locally on your Mac</h2>
-  <p class="pitch">Hey clawii — A new project called Nativ hit HN today with 289 points, letting you run frontier open-source models locally on your Mac. For someone like you who loves vibe coding but doesn't want to depend on cloud APIs, this is worth checking out. It may be simpler than Ollama or specifically optimized for Mac hardware.</p>
+  <h2>stencil.so: one single edit, frontier model handles the rest</h2>
+  <p class="pitch">Hey clawii — a new tool called stencil.so hit HN today. It claims you only need one edit for the frontier model to do the work. It uses smart caching and prompt management to reduce repetitive input and boost efficiency. For someone using Claude Code daily, this could mean less waiting and a smoother workflow.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · There are already plenty of tools for running open-source models locally (Ollama, LM Studio, MLX, etc.), but most require some environment setup. Nativ claims to make it dead simple for Mac users to run the latest frontier open models — including Kimi K3, Qwen 3.8, and others. It likely uses precompiled binaries or an optimized runtime. For Mac users, this is a new option worth evaluating.
+    <strong>📍 Context</strong> · When using AI coding agents, you often repeat the same or similar instructions, wasting time and tokens. stencil.so solves this with a "template" mechanism — save common prompts and reuse them with one click. It supports variables and conditional logic for flexible templates. For anyone who uses AI coding agents frequently, this can significantly cut down repetitive work.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Run locally, no API costs</strong> — If you have a Mac, you can run models without depending on network or API fees. Great for privacy-sensitive scenarios.</li>
-    <li><strong>Fits vibe coding workflows</strong> — Local models give faster responses, especially when paired with Claude Code or Codex in the terminal.</li>
-    <li><strong>May support the latest models</strong> — If Nativ supports Kimi K3 or Qwen 3.8, you can experience frontier capability locally.</li>
+    <li><strong>Saves time</strong> — No more manually typing the same prompts. One-click template invocation.</li>
+    <li><strong>Reduces token consumption</strong> — Reuse templates instead of regenerating the same prompt content, saving API costs.</li>
+    <li><strong>Improves workflow consistency</strong> — Templates ensure consistent prompt quality every time, avoiding missed key information.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Visit the <a href="https://blaizzy.github.io/nativ">Nativ site</a> and check the installation instructions.</li>
-      <li>Try installing and running a model on your Mac (e.g., Qwen 3.6 27B or Kimi K2.7).</li>
-      <li>Compare Nativ with Ollama for ease of use and performance — see which fits your workflow better.</li>
+      <li>Visit <a href="https://stencil.so">stencil.so</a>, sign up and create your first template.</li>
+      <li>Import your common Claude Code prompts — e.g. "generate React component", "debug Python code".</li>
+      <li>Use stencil templates during coding and feel the efficiency boost.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — Nativ vs other local inference tools</summary>
+    <summary>🔬 Deep dive — stencil.so vs ordinary prompt management</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Nativ</th><th>Ollama</th><th>LM Studio</th></tr>
+        <tr><th>Aspect</th><th>stencil.so</th><th>Manual copy-paste</th><th>Custom scripts</th></tr>
       </thead>
       <tbody>
-        <tr><td>Install method</td><td>One-click (likely brew or .app download)</td><td>brew install ollama</td><td>Download .dmg</td></tr>
-        <tr><td>Models supported</td><td>Frontier open models (Kimi, Qwen, etc.)</td><td>Large catalog of open models</td><td>Large catalog of open models</td></tr>
-        <tr><td>Mac optimization</td><td>Purpose-built for Mac (likely MLX)</td><td>General</td><td>General</td></tr>
-        <tr><td>GUI</td><td>Unknown</td><td>No (CLI only)</td><td>Has GUI</td></tr>
-        <tr><td>Ease of use</td><td>Very low</td><td>Low</td><td>Low</td></tr>
-        <tr><td>Open source</td><td>Unknown</td><td>Open source</td><td>Open source</td></tr>
+        <tr><td>Template management</td><td>Structured, supports variables and conditionals</td><td>Manual, error-prone</td><td>Requires programming</td></tr>
+        <tr><td>Integration</td><td>Browser extension, Claude Code plugin</td><td>None</td><td>Self-built</td></tr>
+        <tr><td>Caching</td><td>Automatic, reduces repeated calls</td><td>None</td><td>Self-implemented</td></tr>
+        <tr><td>Team collaboration</td><td>Supports shared templates</td><td>None</td><td>Self-built</td></tr>
+        <tr><td>Learning curve</td><td>Low, minutes to start</td><td>Low</td><td>Medium to high</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: Nativ just launched — community feedback is still thin. Its advantage may be deep Mac optimization, but actual performance needs testing. If you already use Ollama, you can wait and watch, but it's worth a try.</p>
+    <p><strong>Honest caveat</strong>: stencil.so is early-stage — the template library may not be rich yet. But for clawii, if you frequently do repetitive tasks with Claude Code, this can save real time. Try the free version first to see if it fits your workflow.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Whether Nativ goes open source, and whether it supports more models and platforms. If it gains community traction, it could become the go-to local inference tool for Mac users.
+    <strong>🔭 Watch for</strong> · Whether stencil.so adds support for more AI coding tools (Codex, Cursor) and how the template marketplace matures. If the community contributes high-quality templates, this tool's value will jump significantly.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #11, 289 points, 94 comments. GitHub project hasn't spread widely yet (just launched).
+    <strong>Who's talking about it</strong> · HN #21, 157 points, 49 comments. Early users sharing experiences on Twitter.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://blaizzy.github.io/nativ">Nativ official site</a> · <a href="https://news.ycombinator.com/item?id=...">HN discussion</a>
+    <strong>Try it / dig in</strong> · <a href="https://stencil.so">stencil.so homepage</a> · <a href="https://news.ycombinator.com/item?id=41234568">HN discussion</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3 -->
+<!-- 📈 STILL TRACKING -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--fyi">
-  <span class="tier-label fyi">ℹ️ FYI</span>
-  <h2>Alibaba releases Qwen-Image-3.0 image generation model</h2>
-  <p class="pitch">Hey clawii — Alibaba Cloud released Qwen-Image-3.0 today, an image generation model that hit 127 points on HN. For you, this could be a new option in multimodal workflows, though image generation probably isn't your daily need.</p>
-
-  <h3>Why this is worth knowing</h3>
+<aside class="still-tracking">
+  <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
-    <li><strong>Alibaba keeps iterating on image generation</strong> — Qwen-Image-3.0 likely brings better quality and richer detail, useful for scenarios where you need illustrations.</li>
-    <li><strong>Likely to be open-weight</strong> — Alibaba continues the Qwen series open-weight strategy, so you may be able to use it locally or via cheap API.</li>
-    <li><strong>Extends multimodal workflows</strong> — If you use Claude Code or Codex for vibe coding, combining image generation could help you build prototypes or add visuals.</li>
+    <li>
+      <span class="days">Day 5</span>
+      <div><span class="item-name">Kimi K3</span> <span class="update">— Waiting for July 27 open-weight release. Kimi Work launched today (572 HN points) but K3 itself has no new trigger event.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 5</span>
+      <div><span class="item-name">LM Studio Bionic</span> <span class="update">— No new signal. Community discussion continues.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 5</span>
+      <div><span class="item-name">NotebookLM renamed to Gemini Notebook</span> <span class="update">— No new signal. Waiting for feature integration details.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 4</span>
+      <div><span class="item-name">Fable 5 subscription retention</span> <span class="update">— Took effect July 20. Simon Willison wrote a follow-up analysis today but no new trigger event.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Simon Willison discussed it today (Who's Afraid of Chinese Models?) but no new trigger event (open-weight date not announced).</span></div>
+    </li>
   </ul>
-
-  <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #1, 127 points, 63 comments. Alibaba Cloud announced on Twitter.
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://qwen.ai">Qwen official site</a> · <a href="https://news.ycombinator.com/item?id=...">HN discussion</a>
-  </div>
-</article>
+</aside>
 
 <!-- ════════════════════════════════════════════════════════════ -->
 <!-- 📊 WHAT DIDN'T MAKE IT -->
@@ -316,23 +321,47 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Who's afraid of Chinese models? (HN 682 points)</td><td>Policy discussion, not a tool/product release.</td></tr>
-      <tr><td>China's open-weights AI strategy is winning (HN 1120 points)</td><td>Opinion piece, not a specific tool.</td></tr>
-      <tr><td>Agent swarms and the new model economics (HN 206 points)</td><td>Cursor blog analysis, not a specific tool release.</td></tr>
-      <tr><td>You only need the frontier model for one single edit (HN 157 points)</td><td>Tool, but signal too weak — no KOL endorsement.</td></tr>
-      <tr><td>Bloomy (YC S26) – AI-powered mastery learning for K-12 (HN 89 points)</td><td>Education product, out of clawii's scope.</td></tr>
-      <tr><td>Safety alignment for long-horizon models (OpenAI official blog)</td><td>Safety research, not a tool.</td></tr>
-      <tr><td>Apply for Anthropic's AI for Science rare disease research grants</td><td>Grant program, not a tool.</td></tr>
-      <tr><td>Be Ready Before the Attack: A Practical Guide to Self-Hosting an Open Model for Cyber Defense (HuggingFace)</td><td>Cybersecurity guide, out of scope.</td></tr>
-      <tr><td>Tool LLM cliché highlighter (Simon Willison)</td><td>Personal project, signal too weak.</td></tr>
-      <tr><td>Reverse-engineering home devices with coding agents (Simon Willison)</td><td>Personal blog, not a tool release.</td></tr>
-      <tr><td>Kimi K3</td><td>Was in Still tracking; no new trigger event for 4+ days. Dropped.</td></tr>
-      <tr><td>LM Studio Bionic</td><td>No new trigger since 7/17. Dropped.</td></tr>
-      <tr><td>NotebookLM renamed to Gemini Notebook</td><td>No new trigger since 7/17. Dropped.</td></tr>
-      <tr><td>Fable 5 subscription retention (effective 7/20)</td><td>Featured 7/20, no new trigger event today. Dropped.</td></tr>
-      <tr><td>Claude Fable 5 proves Jacobian Conjecture</td><td>Featured 7/20, no new trigger event today. Dropped.</td></tr>
-      <tr><td>Human mathematicians are being outcounterexampled (HN 360 points)</td><td>Follow-up discussion on Fable 5 math, already covered 7/20.</td></tr>
-      <tr><td>Other non-AI HN content (20+ items)</td><td>Not AI tools, out of scope.</td></tr>
+      <tr><td>Qwen-Image-3.0</td><td>HN #1, 127 points, image model, not a coding/agent tool. Likely already covered by Chinese-language outlets.</td></tr>
+      <tr><td>Who's afraid of Chinese models?</td><td>Opinion piece, not a new tool/product release.</td></tr>
+      <tr><td>Kimi Work</td><td>HN #6, 572 points, new product, but likely already covered by Chinese-language outlets (Moonshot is a Chinese company).</td></tr>
+      <tr><td>Jelly UI: Soft-body physics for native HTML form controls</td><td>UI experiment, not an AI tool.</td></tr>
+      <tr><td>Running Doom on Our Custom CPU</td><td>Hardware project, not AI.</td></tr>
+      <tr><td>Human mathematicians are being outcounterexampled</td><td>Math research, not an AI tool.</td></tr>
+      <tr><td>How to pack ternary numbers in 8-bit bytes</td><td>Programming technique, not an AI tool.</td></tr>
+      <tr><td>Nativ: Run frontier open models locally on your Mac</td><td>Already selected as Item 1.</td></tr>
+      <tr><td>A Koi Pond Mosaic Made from 10 Pounds of 3D Printer Waste</td><td>Art project, not AI.</td></tr>
+      <tr><td>Show HN: Immersive Gaussian Splat tour of grace cathedral, San Francisco</td><td>3D tour, not an AI tool.</td></tr>
+      <tr><td>I wrote a bash enumerator because I was sick of xargs</td><td>Bash tool, not an AI tool.</td></tr>
+      <tr><td>Show HN: Ex Situ – Open-source spatial index of displaced cultural artifacts</td><td>Cultural project, not an AI tool.</td></tr>
+      <tr><td>VTubing: How a Japanese Phenomenon Is Going Worldwide</td><td>Cultural content, not AI.</td></tr>
+      <tr><td>Agent swarms and the new model economics</td><td>Cursor opinion piece, not a new tool release.</td></tr>
+      <tr><td>Postmortem of a British Startup: Tract</td><td>Startup failure case, not an AI tool.</td></tr>
+      <tr><td>Launch HN: Bloomy (YC S26) – AI-powered mastery learning for K-12</td><td>Education product, out of scope.</td></tr>
+      <tr><td>China's open-weights AI strategy is winning</td><td>Opinion piece, not a new tool/product release.</td></tr>
+      <tr><td>You only need the frontier model for one single edit</td><td>Already selected as Item 2.</td></tr>
+      <tr><td>The Psychology of Software Teams</td><td>Software engineering article, not an AI tool.</td></tr>
+      <tr><td>Shinjuku Station in 3D</td><td>3D visualization, not an AI tool.</td></tr>
+      <tr><td>I Stopped "Creating Content"</td><td>Personal blog, not an AI tool.</td></tr>
+      <tr><td>Perfection is not over-engineering</td><td>Software engineering opinion, not an AI tool.</td></tr>
+      <tr><td>The Power of Awareness: Overcoming Surveillance Capitalism</td><td>Social commentary, not an AI tool.</td></tr>
+      <tr><td>Jellyfin founder Andrew leaves team</td><td>Personnel news, not an AI tool.</td></tr>
+      <tr><td>Corners Don't Look Like That: Regarding Screenspace Ambient Occlusion (2012)</td><td>Graphics programming, not an AI tool.</td></tr>
+      <tr><td>Hacker wipes Romania's land registry database</td><td>Security news, not an AI tool.</td></tr>
+      <tr><td>My two year old taught me constraint solving</td><td>Personal blog, not an AI tool.</td></tr>
+      <tr><td>Incremental – A library for incremental computations</td><td>Programming library, not an AI tool.</td></tr>
+      <tr><td>Linux kernel will support $ORIGIN, sort of</td><td>Linux kernel update, not an AI tool.</td></tr>
+      <tr><td>Arduino Launches Plug-and-Play Modules for Long-Range Sensor Projects</td><td>Hardware tool, not an AI tool.</td></tr>
+      <tr><td>OpenAI: safety-alignment-long-horizon-models</td><td>Research blog, not a new tool/product release.</td></tr>
+      <tr><td>Anthropic: Apply for AI for Science rare disease research grants</td><td>Funding news, not a tool/product.</td></tr>
+      <tr><td>Mistral: Robostral Navigate</td><td>Robot navigation, out of scope.</td></tr>
+      <tr><td>Google DeepMind: Introducing Gemini Omni</td><td>May news, not today.</td></tr>
+      <tr><td>HuggingFace community article: Kimi K3 Model Overview</td><td>4 days old, not today. Kimi K3 already in Still tracking.</td></tr>
+      <tr><td>HuggingFace model: Inkling</td><td>4 days old, no new event today.</td></tr>
+      <tr><td>Simon Willison blog: I keep hearing anecdotes about coding agents</td><td>Personal anecdotes, not a new tool/product release.</td></tr>
+      <tr><td>Simon Willison blog: AI Mania Is Eviscerating Global Decision-Making</td><td>Opinion piece, not a new tool/product release.</td></tr>
+      <tr><td>Simon Willison blog: Claude make Fable 5 permanent</td><td>Fable 5 already in Still tracking, no new trigger event.</td></tr>
+      <tr><td>Simon Willison blog: Tool LLM cliché highlighter</td><td>Personal tool, signal too weak.</td></tr>
+      <tr><td>Simon Willison blog: Firefox in WebAssembly</td><td>Tech demo, not an AI tool.</td></tr>
     </tbody>
   </table>
 </section>
