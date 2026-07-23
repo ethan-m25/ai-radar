@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-23 · Week 30 · №060</title>
-<meta name="description" content="3 signals — POCKET model runs on iPhone + GigaToken speeds up tokenization + Cactus Hybrid calibration">
+<meta name="description" content="2 signals — GigaToken 1000x tokenization speedup + Cactus Hybrid confidence calibration">
 
 <meta property="og:title" content="AI Radar · 2026-07-23 · №060">
-<meta property="og:description" content="3 real signals · 0 🚨 + 2 👀 + 1 ℹ️">
+<meta property="og:description" content="2 real signals · 0 🚨 + 1 👀 + 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,20 +146,19 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill look">👀 2 worth a look</span>
+    <span class="pill look">👀 1 worth a look</span>
     <span class="pill fyi">ℹ️ 1 FYI</span>
   </div>
-  <h1 class="headline">POCKET model runs on iPhone + GigaToken speeds up tokenization + Cactus Hybrid calibration</h1>
-  <p class="sub">Thursday signals: HuggingFace community releases POCKET, a 35B-parameter model that runs on iPhone; HN hotspot GigaToken claims 1000x tokenization speedup; Cactus Hybrid teaches Gemma 4 to recognize when it's wrong.</p>
+  <h1 class="headline">GigaToken 1000x speedup + Cactus confidence calibration</h1>
+  <p class="sub">Thursday signals: GigaToken claims 1000x tokenization speedup, could reshape inference costs if adopted by mainstream engines; Cactus Hybrid teaches Gemma 4 to express uncertainty, with practical value for vibe coding.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> POCKET: 35B-parameter model runs on iPhone</li>
-    <li><span class="tier look">👀</span> GigaToken: Claims 1000x language model tokenization speedup</li>
-    <li><span class="tier fyi">ℹ️</span> Cactus Hybrid: Teaches Gemma 4 to know when it's wrong</li>
+    <li><span class="tier look">👀</span> GigaToken — 1000x faster language model tokenization</li>
+    <li><span class="tier fyi">ℹ️</span> Cactus Hybrid — Teaches Gemma 4 to know when it's wrong</li>
   </ul>
 </nav>
 
@@ -168,148 +167,102 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
-  <h2>POCKET: 35B-parameter model runs on iPhone</h2>
-  <p class="pitch">Hey clawii — there's an interesting HuggingFace community article today about POCKET, a 35B-parameter model that claims to run on an iPhone, and even on a PC with no GPU. If you've been waiting for a powerful model that runs locally on your phone, this might be the answer.</p>
+  <h2>GigaToken — 1000x faster language model tokenization</h2>
+  <p class="pitch">Hey clawii — the hottest AI project on HN today is GigaToken, a tokenizer that claims to be 1000x faster than existing solutions. Tokenization is the first step in every LLM request. If this speedup is real, it means every AI tool you use — from Claude Code to ChatGPT — could become cheaper and faster. Worth opening this weekend.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Local AI inference has always been limited by model size and hardware. Tools like LM Studio, MLX, and Nativ make it possible to run models on Mac and PC, but mobile devices have lacked large-parameter models. POCKET, released by the FINAL-Bench team, claims 35B parameters running on iPhone without a GPU. Is this achieved through extreme quantization and architecture optimization? Information is limited, but the direction is worth watching.
+    <strong>📍 Context</strong> · Tokenization is the process of splitting text into the small units (tokens) that an AI model can process. Every time you send a request to Claude or GPT, tokenization happens first. Existing tokenizers like Hugging Face's and OpenAI's tiktoken are already fast, but GigaToken claims a 1000x speedup using a novel algorithm. If adopted by mainstream inference engines like vLLM or llama.cpp, inference costs across the industry could drop.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>35B parameters on a phone</strong> — If true, this is a major breakthrough for local inference. You could run a model with near GPT-3.5 capability offline on your iPhone, with better privacy and speed.</li>
-    <li><strong>No GPU required</strong> — For users without high-end graphics cards, POCKET can run on a regular PC, dramatically lowering the barrier.</li>
-    <li><strong>Open-source potential</strong> — The model is published on HuggingFace, likely open-weight, so you could self-host or fine-tune it.</li>
+    <li><strong>Tokenization is a fixed cost on every request</strong> — Whether you're using Claude Code to write code or chatting with ChatGPT, every request goes through tokenization first. A 1000x speedup means lower latency and lower cost.</li>
+    <li><strong>Long-context scenarios benefit most</strong> — When processing 1M-token contexts with Kimi K3 or 200K with Fable 5, tokenization time becomes a noticeable part of the experience. GigaToken makes long contexts feel snappy.</li>
+    <li><strong>If adopted by mainstream engines, the impact is huge</strong> — Just like Flash Attention changed training efficiency, a faster tokenizer could reshape inference efficiency. Watch whether vLLM or llama.cpp integrate it.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the HuggingFace community article: <a href="https://huggingface.co/blog">huggingface.co/blog</a> — search for "POCKET"</li>
-      <li>If the model weights are available, try running it locally or on your iPhone.</li>
-      <li>Compare against whatever local model you currently use (e.g., in LM Studio) to see if POCKET actually works.</li>
+      <li>Open the GigaToken GitHub repo: <a href="https://github.com/marcelroed/gigatoken">github.com/marcelroed/gigatoken</a></li>
+      <li>If there's a pip install option, run a benchmark on your own machine comparing it to your current tokenizer.</li>
+      <li>Watch vLLM and llama.cpp issues and PRs to see if anyone submits integration code for GigaToken.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — POCKET vs other local models</summary>
+    <summary>🔬 Deep dive — GigaToken vs existing tokenizers</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>POCKET</th><th>Typical LM Studio model</th><th>Nativ (MLX)</th></tr>
+        <tr><th>Aspect</th><th>GigaToken</th><th>Hugging Face Tokenizers</th><th>OpenAI tiktoken</th></tr>
       </thead>
       <tbody>
-        <tr><td>Parameters</td><td>35B (claimed)</td><td>Usually 7B–13B</td><td>7B–70B</td></tr>
-        <tr><td>Runs on</td><td>iPhone + PC (no GPU)</td><td>PC (needs GPU or Apple Silicon)</td><td>Mac (Apple Silicon)</td></tr>
-        <tr><td>GPU required</td><td>No</td><td>Sometimes</td><td>Apple Silicon required</td></tr>
-        <tr><td>Open-source</td><td>On HuggingFace</td><td>Open models</td><td>Open models</td></tr>
-        <tr><td>Performance</td><td>Unknown (claims 35B)</td><td>Depends on model</td><td>Depends on model</td></tr>
-        <tr><td>Setup difficulty</td><td>Unknown</td><td>Easy (LM Studio GUI)</td><td>Medium (CLI needed)</td></tr>
+        <tr><td>Claimed speed</td><td>1000x faster</td><td>Baseline (1x)</td><td>~2-5x vs HF</td></tr>
+        <tr><td>Implementation language</td><td>Rust (likely)</td><td>Rust + Python binding</td><td>Rust + Python binding</td></tr>
+        <tr><td>Compatibility</td><td>Needs adaptation to existing models</td><td>Universal</td><td>OpenAI models only</td></tr>
+        <tr><td>Open source</td><td>Yes (GitHub)</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Ecosystem integration</td><td>New project, none yet</td><td>vLLM, HF, almost everything</td><td>OpenAI API</td></tr>
+        <tr><td>Best use case</td><td>High-frequency inference, long context</td><td>General purpose</td><td>OpenAI API calls</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: This is just one community article with no independent third-party evaluation yet. Running 35B parameters on an iPhone would require extreme quantization (possibly 2-bit or 1-bit), which significantly impacts quality. Keep expectations tempered, but it's worth watching for follow-up validation.</p>
+    <p><strong>Honest caveat</strong>: 1000x is a big number — it needs independent verification. Tokenization typically accounts for only 1-5% of total inference time, so even a 1000x speedup might only improve end-to-end latency by a few percentage points. But in long-context scenarios (100K+ tokens), tokenization takes a larger share, so the benefit is more noticeable. Also, ecosystem integration takes time — you probably won't feel the change directly in the short term.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Whether third-party benchmarks appear, and whether the model weights actually run smoothly on an iPhone. If POCKET is validated, it could reshape the local AI landscape.
+    <strong>🔭 Watch for</strong> · The key signal is whether vLLM or llama.cpp starts integrating GigaToken. If a mainstream inference engine adopts it within a month, this project goes from 👀 to 🚨. Also watch the HN discussion for any performance replication comments.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Quantization</strong> = Reducing model parameters from high precision (e.g., 16-bit) to lower precision (e.g., 4-bit, 2-bit) to shrink model size and compute requirements, at the cost of some accuracy.
+    <strong>Jargon decoder</strong> · <strong>Tokenization</strong> = The process of splitting text into the small units (tokens) that an AI model can process. For example, "Hello world" might become ["Hello", " world"]. <strong>Inference engine</strong> = Software that runs AI models to make predictions, like vLLM, llama.cpp, or TensorRT-LLM.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HuggingFace community article (about 7 hours ago), author FINAL-Bench. No KOL discussion or HN traction yet.
+    <strong>Who's talking about it</strong> · HN #5, 521 points, 110 comments. GitHub repo: marcelroed/gigatoken.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://huggingface.co/blog">HuggingFace blog (search "POCKET")</a> · <a href="https://huggingface.co/FINAL-Bench">FINAL-Bench team</a>
+    <strong>Try it / dig in</strong> · <a href="https://github.com/marcelroed/gigatoken">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=123459">HN discussion</a> (placeholder link)
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--look">
-  <span class="tier-label look">👀 Worth a look</span>
-  <h2>GigaToken: Claims 1000x language model tokenization speedup</h2>
-  <p class="pitch">Hey clawii — there's a project on HN today called GigaToken that claims to be 1000x faster than conventional tokenization. Since you use AI for coding all the time, tokenization happens on every request — faster tokenization means quicker responses and lower costs.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> · Tokenization is the process of splitting text into tokens that a model can process. It's the first step in the LLM inference pipeline, typically using BPE or WordPiece algorithms. GigaToken is a new open-source library claiming 1000x speedup through optimized algorithms and parallelization. It hit #5 on HN with 521 points and 110 comments, showing strong community interest.
-  </div>
-
-  <h3>Why this matters</h3>
-  <ul>
-    <li><strong>Direct inference speed boost</strong> — Tokenization is one of the bottlenecks in LLM inference. A 1000x speedup means time-to-first-token (TTFT) drops dramatically, which matters for real-time interactive scenarios.</li>
-    <li><strong>Lower API costs</strong> — Faster tokenization means fewer compute resources consumed, potentially reducing usage costs.</li>
-    <li><strong>Open source</strong> — The project is on GitHub, so you could integrate it into your own toolchain, or benefit if it gets adopted by tools like Codex or Claude Code.</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 What you can do today</strong>
-    <ol>
-      <li>Check the GitHub repo: <a href="https://github.com/marcelroed/GigaToken">github.com/marcelroed/GigaToken</a></li>
-      <li>Read the README to understand the speedup mechanism and how to use it.</li>
-      <li>If you run models locally, try swapping in the GigaToken tokenizer to see if it's compatible.</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive — GigaToken vs traditional tokenization</summary>
-    <table class="dd-table">
-      <thead>
-        <tr><th>Aspect</th><th>GigaToken</th><th>Traditional tokenization (e.g., HuggingFace tokenizers)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Claimed speedup</td><td>1000x</td><td>1x (baseline)</td></tr>
-        <tr><td>Algorithm</td><td>Not yet disclosed (likely hash-based or parallelized)</td><td>BPE / WordPiece</td></tr>
-        <tr><td>Language support</td><td>General-purpose for language models</td><td>Multilingual</td></tr>
-        <tr><td>Open source</td><td>MIT or similar</td><td>Various</td></tr>
-        <tr><td>Integration difficulty</td><td>Requires swapping tokenizer</td><td>Standard integration</td></tr>
-        <tr><td>Community validation</td><td>HN 521 pts, but not widely validated yet</td><td>Widely used</td></tr>
-      </tbody>
-    </table>
-    <p><strong>Honest caveat</strong>: 1000x sounds extreme — there may be optimizations that only apply under specific conditions. We need to see real benchmarks. But even a 10x speedup would be worth paying attention to. For non-developers, this library probably won't be used directly, but it could get integrated into mainstream tools down the line.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Whether GigaToken gets integrated into major inference frameworks (vLLM, llama.cpp, etc.) and whether independent benchmarks confirm the claims.
-  </div>
-
-  <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Tokenization</strong> = The process of splitting text into the smallest units (tokens) that an AI model can process. <strong>BPE</strong> = Byte Pair Encoding, a common tokenization algorithm.
-  </div>
-
-  <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #5, 521 points, 110 comments. Author: marcelroed. No standalone KOL endorsement yet.
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://github.com/marcelroed/GigaToken">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=123459">HN discussion</a> (placeholder)
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3 -->
+<!-- ℹ️ ITEM 2 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--fyi">
   <span class="tier-label fyi">ℹ️ FYI</span>
-  <h2>Cactus Hybrid: Teaches Gemma 4 to know when it's wrong</h2>
-  <p class="pitch">Hey clawii — there's a Show HN project called Cactus Hybrid that teaches Gemma 4 to recognize when it might be wrong. Not a huge score, but the direction is interesting — making models more reliable.</p>
+  <h2>Cactus Hybrid — Teaches Gemma 4 to know when it's wrong</h2>
+  <p class="pitch">Hey clawii — there's a Show HN project today called Cactus Hybrid that adds a "confidence detector" layer on top of Gemma 4 — the model can tell you how sure it is about its answer. For your vibe coding workflow, this means when the AI says "I'm confident" you can trust it more, and when it hesitates you should double-check. Not revolutionary, but practical.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Model calibration is about making AI aware of its own uncertainty. Cactus Hybrid fine-tunes Gemma 4 or adds a confidence prediction head so the model can signal "I don't know" alongside its output. This can reduce hallucination risk.
+    <strong>📍 Context</strong> · Large language models have a notorious problem: they don't know when they're making things up. Cactus Hybrid trains a small classifier on top of Gemma 4 that analyzes the model's internal state to judge how confident it is in its output. The project is open-source on GitHub and can run locally.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Reduces hallucinations</strong> — If the model knows it's uncertain, it can tell you "I'm not sure" instead of making something up.</li>
-    <li><strong>Open-source project</strong> — On GitHub, you could try integrating it into your own agent.</li>
-    <li><strong>Trend signal</strong> — Calibration is becoming a key component of agent safety.</li>
+    <li><strong>Solves the "overconfidence" problem</strong> — Models often deliver correct answers and completely wrong ones with the same confident tone. Cactus Hybrid lets you know when to trust the output.</li>
+    <li><strong>Especially useful for vibe coding</strong> — When you ask an AI to write code, if it says "I'm not sure this code is correct," you know to test more. If it says "I'm very confident," you can use it with more peace of mind.</li>
+    <li><strong>Open-source and self-hostable</strong> — The project is open source and can run locally with no API fees.</li>
   </ul>
 
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Open the GitHub repo: <a href="https://github.com/cactus-compute/cactus-hybrid">github.com/cactus-compute/cactus-hybrid</a></li>
+      <li>If there's a demo page, try uploading a few prompts to see the confidence scores in action.</li>
+      <li>Think about your own vibe coding workflow: have you ever been burned by an AI's overconfidence? Could this tool help?</li>
+    </ol>
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Confidence calibration</strong> = Making a model's confidence level match its actual accuracy. For example, when the model says "90% confident," it should actually be right about 90% of the time. <strong>Gemma 4</strong> = Google's open-source model family, 31B parameters, multimodal capable.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN #16, 148 points, 31 comments. Show HN project.
+  </div>
+
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://github.com/cactus-compute/cactus-hybrid">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=123460">HN discussion</a> (placeholder)
+    <strong>Try it / dig in</strong> · <a href="https://github.com/cactus-compute/cactus-hybrid">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=123460">HN discussion</a> (placeholder link)
   </div>
 </article>
 
@@ -321,23 +274,11 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 7</span>
-      <div><span class="item-name">Kimi K3 open-weight countdown</span> <span class="update">— 4 days until July 27 open-weight release. HN had some distillation controversy discussion today, but no new benchmarks or trigger events.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 6</span>
-      <div><span class="item-name">Fable 5 subscription retention</span> <span class="update">— Took effect July 20. Simon Willison wrote a follow-up analysis today (July 22), but no new trigger event.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">OpenAI security incident</span> <span class="update">— Simon Willison published a long-form analysis (July 22, 23:51). Story continues to develop.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">Gemini 3.6 Flash family</span> <span class="update">— Google DeepMind blog reconfirmed the release. No new trigger event.</span></div>
+      <div><span class="item-name">Kimi K3 open-weight countdown</span> <span class="update">— 4 days until July 27 open-weight release. No new trigger event today, but the Fireworks benchmark report (670 HN points) is still developing.</span></div>
     </li>
     <li>
       <span class="days">Day 4</span>
-      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Simon Willison discussed it July 20. No new trigger event.</span></div>
+      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— No new developments since Simon Willison's July 20 discussion. Waiting for an open-weight release date.</span></div>
     </li>
   </ul>
 </aside>
@@ -352,29 +293,33 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Terence Tao's ChatGPT conversation (HN #2, 905 points)</td><td>Scientific research application, but not a new tool/model release, and likely already covered by Chinese media.</td></tr>
-      <tr><td>Show HN: Bento – Entire PowerPoint in one HTML file (HN #6, 862 points)</td><td>Not an AI tool — presentation tool.</td></tr>
-      <tr><td>Are AI labs pelicanmaxxing? (HN #10, 561 points)</td><td>Fun AI evaluation article, not a tool signal.</td></tr>
-      <tr><td>Businesses with ugly AI menu redesigns (HN #23, 312 points)</td><td>Opinion piece, not a new tool release.</td></tr>
-      <tr><td>Nobody knows what a used GPU cluster is worth (HN #25, 238 points)</td><td>Industry analysis, not a new tool/product.</td></tr>
-      <tr><td>Protecting our FLOSS commons from LLMs (HN #15, 82 points)</td><td>Policy advocacy, not a tool.</td></tr>
-      <tr><td>ANSI escape injection in MCP servers (HN #7, 23 points)</td><td>Security vulnerability, but weak signal and not a new tool.</td></tr>
-      <tr><td>OpenAI Presence launch</td><td>Enterprise product, not a new tool/model, weak signal.</td></tr>
-      <tr><td>OpenAI infrastructure partnership news</td><td>Infrastructure news, not a tool/model.</td></tr>
-      <tr><td>Anthropic Economic Research Fund</td><td>Funding news, not a tool/product.</td></tr>
-      <tr><td>Anthropic $20M donation</td><td>Funding news, not a tool/product.</td></tr>
-      <tr><td>Google DeepMind Genesis Mission grant</td><td>Funding news, not a tool/product.</td></tr>
-      <tr><td>POCKET model (already selected)</td><td>Already included as Item 1.</td></tr>
-      <tr><td>GigaToken (already selected)</td><td>Already included as Item 2.</td></tr>
-      <tr><td>OpenAI security incident (already in Still tracking)</td><td>Featured yesterday, no new trigger event today.</td></tr>
-      <tr><td>Gemini 3.6 Flash family (already in Still tracking)</td><td>Featured yesterday, no new trigger event today.</td></tr>
-      <tr><td>Kimi K3 distillation controversy (Smol AI mention)</td><td>Policy/legal controversy, drama, not a tool signal.</td></tr>
-      <tr><td>HuggingFace community article: Be Ready Before the Attack</td><td>Security guide, not a new tool/product release.</td></tr>
-      <tr><td>Simon Willison: Nativ local models</td><td>Covered July 21, no new trigger event today.</td></tr>
-      <tr><td>Simon Willison: Claude Code interview</td><td>Interview transcript, not a new tool/product release.</td></tr>
-      <tr><td>Simon Willison: coding agent anecdotes</td><td>Personal anecdotes, not a new tool/product release.</td></tr>
-      <tr><td>Simon Willison: Who's Afraid of Chinese Models?</td><td>Opinion piece, not a new tool/product release.</td></tr>
-      <tr><td>Simon Willison: AI Mania opinion</td><td>Opinion piece, not a new tool/product release.</td></tr>
+      <tr><td>Terence Tao's ChatGPT conversation on Jacobian Conjecture</td><td>HN #2, 905 points, but mathematical research discussion, not a new tool/product release.</td></tr>
+      <tr><td>Are AI labs pelicanmaxxing?</td><td>HN #10, 561 points, fun evaluation piece, not a tool signal.</td></tr>
+      <tr><td>Bento — Entire PowerPoint in one HTML file</td><td>HN #6, 862 points, not an AI tool.</td></tr>
+      <tr><td>Quality non-fiction books are the antithesis of AI slop</td><td>HN #4, 381 points, opinion piece, not a tool.</td></tr>
+      <tr><td>Everyone should know SIMD</td><td>HN #8, 454 points, programming tutorial, not an AI tool.</td></tr>
+      <tr><td>So Reddit has decided that plain HTML is unsafe</td><td>HN #12, 491 points, not AI.</td></tr>
+      <tr><td>EU fines Google €890M</td><td>HN #13, 20 points, legal news, not AI tool.</td></tr>
+      <tr><td>Protecting our FLOSS commons from LLMs</td><td>HN #15, 82 points, policy discussion, not a tool.</td></tr>
+      <tr><td>The startup's Postgres survival guide</td><td>HN #17, 421 points, database article, not AI tool.</td></tr>
+      <tr><td>Nobody knows what a used GPU cluster is worth</td><td>HN #25, 238 points, market analysis, not a tool.</td></tr>
+      <tr><td>Back to Kagi</td><td>HN #27, 282 points, search engine, not AI tool.</td></tr>
+      <tr><td>John C. Dvorak has died</td><td>HN #21, 770 points, obituary, not AI.</td></tr>
+      <tr><td>Businesses with ugly AI menu redesigns</td><td>HN #23, 312 points, opinion piece, not a tool.</td></tr>
+      <tr><td>ANSI escape injection in MCP servers</td><td>HN #7, 23 points, security vulnerability, signal too weak.</td></tr>
+      <tr><td>POCKET: 35B model on iPhone</td><td>HuggingFace blog post, only 9 reactions, signal too weak.</td></tr>
+      <tr><td>OpenAI: Building AI infrastructure with Effingham County</td><td>Infrastructure news, not a new tool/model release.</td></tr>
+      <tr><td>OpenAI: How news organizations are using AI</td><td>Case study, not a new tool/product release.</td></tr>
+      <tr><td>OpenAI: Introducing OpenAI Presence</td><td>Enterprise product, not a new tool/model release.</td></tr>
+      <tr><td>Anthropic: Economic Futures Research Fund research agenda</td><td>Economic research, not a tool/product.</td></tr>
+      <tr><td>Anthropic: Ask Claude about the Anthropic Economic Index</td><td>Product feature update, but not a new tool/model release.</td></tr>
+      <tr><td>Google DeepMind: Gemini 3.6 Flash family</td><td>Already covered in detail on July 22, no new trigger event today.</td></tr>
+      <tr><td>Google DeepMind: Gemini 3.5 Flash Cyber</td><td>Already covered in detail on July 22, no new trigger event today.</td></tr>
+      <tr><td>Security incident (OpenAI + Hugging Face)</td><td>Already covered as Item 1 on July 22, no new trigger event today.</td></tr>
+      <tr><td>Kimi K3 benchmarks on Fireworks</td><td>Already covered as Item 2 on July 22, no new trigger event today.</td></tr>
+      <tr><td>LM Studio Bionic</td><td>7 days with no movement, removed from Still tracking.</td></tr>
+      <tr><td>NotebookLM → Gemini Notebook</td><td>7 days with no movement, removed from Still tracking.</td></tr>
+      <tr><td>Fable 5 subscription retention</td><td>6 days with no movement, removed from Still tracking.</td></tr>
     </tbody>
   </table>
 </section>
@@ -389,7 +334,7 @@ li+li{margin-top:.3rem}
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
   <p>AI Radar · Daily AI signal scan · Auto-generated by clawii's friend</p>
-  <p>Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace</p>
+  <p>Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace / Google DeepMind</p>
   <p>© 2026 · All data from public sources · Not investment advice</p>
 </footer>
 
