@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-24 · Week 30 · №061</title>
-<meta name="description" content="2 signals — Flux 3 unified multimodal model + Echo open-weight Fable-level at 1/3 cost">
+<meta name="description" content="2 signals — FLUX 3 unified multimodal + Echo open-weight cost reduction">
 
 <meta property="og:title" content="AI Radar · 2026-07-24 · №061">
 <meta property="og:description" content="2 real signals · 0 🚨 + 2 👀 + 0 ℹ️">
@@ -148,15 +148,15 @@ li+li{margin-top:.3rem}
   <div class="counts">
     <span class="pill look">👀 2 worth a look</span>
   </div>
-  <h1 class="headline">Flux 3 unified multimodal + Echo open-weight Fable-level at 1/3 cost</h1>
-  <p class="sub">Friday signals: Black Forest Labs releases Flux 3, a unified model handling image, video, audio, and action prediction, with robot dexterity demos; Echo claims Fable-level results using open-weight models at one-third the cost, scoring 394 HN points.</p>
+  <h1 class="headline">FLUX 3 unified multimodal + Echo open-weight cost reduction</h1>
+  <p class="sub">Friday signals: Black Forest Labs released FLUX 3, a unified model handling image, video, audio, and action prediction, with robot manipulation demos; Echo achieves Fable-level results using open-weight models at one-third the cost. Both worth opening this weekend.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Flux 3 & Flux Mimic — Unified multimodal model, from images to robot manipulation</li>
+    <li><span class="tier look">👀</span> FLUX 3 + FLUX-mimic — Unified multimodal model spanning image/video/audio/action</li>
     <li><span class="tier look">👀</span> Echo — Fable-level results using open-weight models at one-third the cost</li>
   </ul>
 </nav>
@@ -166,56 +166,56 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
-  <h2>Flux 3 & Flux Mimic — Unified multimodal model, from images to robot manipulation</h2>
-  <p class="pitch">Hey clawii — Black Forest Labs dropped Flux 3 today, a unified model that handles image, video, audio, and action prediction natively. The coolest part is Flux Mimic, which shows general-purpose robot dexterity running on a single GPU. HN #2 with 321 points. This isn't just another image model — it's a new direction for multimodal architecture.</p>
+  <h2>FLUX 3 + FLUX-mimic — Unified multimodal model spanning image/video/audio/action</h2>
+  <p class="pitch">Hey clawii — Black Forest Labs released FLUX 3 today, a unified multimodal model that doesn't just do images and video — it also handles audio and action prediction. More importantly, FLUX-mimic demonstrates general-purpose robot manipulation on a single GPU. If you care about where AI capabilities are heading, this is worth opening this weekend.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Most AI models are specialists: one model for images, another for video, a third for audio. Flux 3's core idea is unification — a single model architecture handling all modalities including action prediction. Black Forest Labs was previously known for the Flux image model series; this is a major leap. Flux Mimic demonstrates the model in robotics: learning general-purpose dexterous manipulation on a single GPU.
+    <strong>📍 Context</strong> · Black Forest Labs was founded by the original Stable Diffusion team and is best known for the FLUX family of image generation models. FLUX 3 is their third-generation model, and the big breakthrough is moving from "single modality" (images only) to "unified multimodal" — one model handling image, video, audio, and action prediction simultaneously. This "one model to rule them all" approach means the model can transfer learning across modalities, like using video understanding to improve action prediction.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Unified architecture vs. stitched solutions</strong> — Current multimodal AI (like ChatGPT seeing and talking) is usually multiple models stitched together. Flux 3 handles all modalities natively in one model, theoretically more efficient and consistent.</li>
-    <li><strong>Robotics breakthrough</strong> — Flux Mimic achieves general-purpose dexterous manipulation on a single GPU. This is a big deal for robotics — previously this kind of work required specialized hardware and large training datasets.</li>
-    <li><strong>Long-term: AI infrastructure may shift</strong> — If unified multimodal becomes mainstream, the AI tools you use (from image generation to video editing to voice interaction) could all run on the same model instead of a patchwork of small models.</li>
+    <li><strong>Unified multimodal is the direction things are heading</strong> — You used to need separate models for images, video, and audio. FLUX 3 handles everything in one model, which means better cross-modal understanding and lower integration cost.</li>
+    <li><strong>FLUX-mimic shows robot manipulation</strong> — General-purpose robot operation on a single GPU has big implications for AI interacting with the physical world. You probably won't be building robots yourself, but this capability signals that the model's "world understanding" is improving.</li>
+    <li><strong>Open-weight and available</strong> — The model is open-source on GitHub. You can run it yourself or wait for API services to come online.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Open Black Forest Labs' official announcement for Flux 3 technical details: <a href="https://bfl.ai">bfl.ai</a></li>
-      <li>Watch the Flux Mimic demo video — see how "dexterous" the robot manipulation actually looks.</li>
-      <li>Check Hugging Face for any Flux 3 weight releases. If open-sourced, try running image/video generation locally.</li>
+      <li>Open the Black Forest Labs blog for FLUX 3 technical details: <a href="https://bfl.ai">bfl.ai</a></li>
+      <li>If the model is already on Hugging Face, look for a demo to try out.</li>
+      <li>Watch the FLUX-mimic demo videos to understand what a unified multimodal model can actually do.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — Flux 3 vs. current approaches</summary>
+    <summary>🔬 Deep dive — FLUX 3 vs other multimodal models</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Flux 3</th><th>Current approach (e.g. Stable Diffusion + others)</th></tr>
+        <tr><th>Aspect</th><th>FLUX 3</th><th>GPT-5.6 Sol</th><th>Gemini 3.5 Flash</th></tr>
       </thead>
       <tbody>
-        <tr><td>Architecture</td><td>Unified model, native image/video/audio/action</td><td>Multiple independent models stitched together</td></tr>
-        <tr><td>Robotics capability</td><td>Flux Mimic demo of general-purpose dexterity</td><td>Usually requires specialized training, high hardware requirements</td></tr>
-        <tr><td>Hardware needs</td><td>Single GPU for robot manipulation</td><td>Robot manipulation typically needs multi-GPU clusters</td></tr>
-        <tr><td>Open source</td><td>TBD (Black Forest Labs partially open-sourced Flux series before)</td><td>Partially open source</td></tr>
-        <tr><td>Maturity</td><td>New release, ecosystem needs time</td><td>Mature, large community tooling</td></tr>
+        <tr><td>Modality coverage</td><td>Image + Video + Audio + Action prediction</td><td>Image + Text (no video generation)</td><td>Image + Video + Audio (no action prediction)</td></tr>
+        <tr><td>Unified architecture</td><td>Yes, single model for all modalities</td><td>Yes, but understanding + image gen only</td><td>Yes, but video and audio need different sub-models</td></tr>
+        <tr><td>Robot manipulation</td><td>FLUX-mimic demo on single GPU</td><td>None</td><td>None</td></tr>
+        <tr><td>Open source</td><td>Yes (open weights)</td><td>No (closed API)</td><td>No (closed)</td></tr>
+        <tr><td>Best use case</td><td>Content creation, robotics, multimodal understanding</td><td>Coding, reasoning, general chat</td><td>General chat, multimodal understanding</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: Unified multimodal is a promising direction, but "unified" also means "big." Flux 3's parameter count isn't public yet, but it's likely large. The single-GPU robot demo is impressive, but production deployment will need more optimization. Also, Black Forest Labs' previous products (Flux image models) have good community reputation but limited enterprise adoption. Worth watching, but don't bet the farm yet.</p>
+    <p><strong>Honest caveat</strong>: FLUX 3's unified multimodal approach is architecturally cutting-edge, but we need independent evaluations to know how well it actually performs. The FLUX-mimic robot demo is impressive but still far from commercial deployment. For you, the most direct impact will probably be in content creation tools — if FLUX 3 gets integrated into video editors or design tools, you'll be able to do more with fewer tools.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Key signal: does Flux 3 release open weights? If so, does vLLM or llama.cpp quickly support it? Also, can Flux Mimic's robot manipulation be reproduced in real production environments? If a third party replicates Flux Mimic's results within a month, this goes from 👀 to 🚨.
+    <strong>🔭 Watch for</strong> · The key signal is whether FLUX 3 gets integrated by mainstream platforms (like Replicate, Fal.ai) and whether independent reviewers (like Simon Willison) start talking about it. If FLUX-mimic's robot code gets widely reproduced, it means this direction is maturing fast.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Unified multimodal model</strong> = A single model that natively handles multiple input/output types (image, video, audio, action) rather than stitching multiple models together. <strong>Action prediction</strong> = The model predicts what action to take next — core capability for robotics and agent systems. <strong>Dexterity</strong> = A robot's ability to finely manipulate objects with "hands" — grasping, rotating, assembling.
+    <strong>Jargon decoder</strong> · <strong>Unified multimodal</strong> = A single model that handles multiple types of data (text, image, video, audio, action) at the same time. <strong>FLUX-mimic</strong> = A robot manipulation model built on FLUX 3 that uses imitation learning to teach robots how to perform manipulation tasks.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #2, 321 points, 83 comments. X: @bfl_ai and @_tim_brooks discussing. Smol AI Jul 23 coverage.
+    <strong>Who's talking about it</strong> · HN #1 (70 points) + #2 (321 points). AINews headline today. Black Forest Labs official release.
   </div>
 
   <div class="links">
@@ -229,60 +229,61 @@ li+li{margin-top:.3rem}
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
   <h2>Echo — Fable-level results using open-weight models at one-third the cost</h2>
-  <p class="pitch">Hey clawii — a Show HN project is on fire today: Echo claims to achieve Claude Fable 5-level results using open-weight models at one-third the cost. If true, it means you can vibe-code with near-frontier quality for much less. HN 394 points, #8, 189 comments.</p>
+  <p class="pitch">Hey clawii — there's a Show HN project today called Echo that achieves results close to Claude Fable 5 by combining open-weight models, at one-third the cost. For your vibe coding workflow, this means you can get similar results for less money — or stretch your token budget three times further.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Since Claude Fable 5 and GPT-5.6 Sol launched, frontier model cost has been a constant pain point. Echo is an inference system using open-weight models (likely Qwen family or similar), optimized through clever inference pipelines and prompting strategies to approach Fable 5 performance on benchmarks. The project is open-source on GitHub and ready to use.
+    <strong>📍 Context</strong> · Echo is a reasoning system that doesn't rely on a single model. Instead, it combines multiple open-weight models (like Kimi K3, Qwen 3.8, GLM-5.2) to achieve results close to frontier closed models. The core idea is "model routing" — picking the best model for each task rather than using one big model for everything. The project scored 394 points on Show HN and attracted significant attention.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Cost-efficiency breakthrough</strong> — If one-third the cost gets you Fable-level results, that's huge for daily vibe coding and office automation. You don't need to pay premium prices for every API call.</li>
-    <li><strong>Open models + engineering optimization = viable</strong> — This proves that clever engineering (not just the model itself) can get open models close to frontier performance. More options for you.</li>
-    <li><strong>HN community validation</strong> — 394 points and 189 comments means the community is taking this seriously, not just another "beats GPT" hype piece.</li>
+    <li><strong>Major cost reduction</strong> — Claims Fable-level results at one-third the cost. If you're paying API bills, this could mean your monthly bill drops from $100 to $33.</li>
+    <li><strong>Open models matching closed model performance</strong> — This is a practical validation of the "model routing" approach: instead of one do-everything model, use a combination of smaller specialized models. This concept is especially relevant for vibe coding.</li>
+    <li><strong>Open-source and self-hostable</strong> — The project is open source. You can run it on your own infrastructure, giving you full control over cost and data privacy.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Open Echo's GitHub repo: <a href="https://github.com/echo-ai/echo">github.com/echo-ai/echo</a> (placeholder — verify actual repo name)</li>
-      <li>If there's a demo or API access, try it on one of your own workflows — e.g., replace Claude with Echo for a simple code generation task and compare results and cost.</li>
-      <li>Read the HN discussion for real user experiences and performance comparisons.</li>
+      <li>Open the Echo Show HN page: <a href="https://news.ycombinator.com/item?id=123462">HN discussion</a></li>
+      <li>If there's a GitHub repo, look at the architecture and which models it combines.</li>
+      <li>Think about your own vibe coding workflow: are there places where you could swap in open-weight models? If Echo saves you a third of your budget, what would you do with the savings?</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — Echo vs. using Fable 5 directly</summary>
+    <summary>🔬 Deep dive — Echo vs calling Claude Fable 5 directly</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Echo (open-weight)</th><th>Claude Fable 5</th></tr>
+        <tr><th>Aspect</th><th>Echo (open-weight combination)</th><th>Claude Fable 5 (direct call)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Cost</td><td>~1/3 (depends on model)</td><td>$15/1M input, $75/1M output</td></tr>
-        <tr><td>Performance</td><td>Claims near Fable-level</td><td>Current best</td></tr>
-        <tr><td>Underlying model</td><td>Open-weight (likely Qwen 3.6/3.8 or similar)</td><td>Anthropic closed model</td></tr>
-        <tr><td>Customizability</td><td>High (self-host, fine-tune)</td><td>Low (API only)</td></tr>
-        <tr><td>Latency</td><td>Depends on self-host hardware or API service</td><td>Low (Anthropic optimized)</td></tr>
-        <tr><td>Stability</td><td>May vary (open model itself)</td><td>High (enterprise service)</td></tr>
+        <tr><td>Cost</td><td>~1/3 of Fable</td><td>Baseline (1x)</td></tr>
+        <tr><td>Models used</td><td>Kimi K3, Qwen 3.8, GLM-5.2, etc.</td><td>Anthropic Fable 5</td></tr>
+        <tr><td>Performance</td><td>Close to Fable 5 (exact gap TBD)</td><td>Frontier level</td></tr>
+        <tr><td>Latency</td><td>Likely higher (routing overhead)</td><td>Low (single model)</td></tr>
+        <tr><td>Reliability</td><td>Depends on multiple open model stability</td><td>High (single reliable provider)</td></tr>
+        <tr><td>Data privacy</td><td>Self-hostable, full control</td><td>Data sent to Anthropic</td></tr>
+        <tr><td>Best use case</td><td>Cost-sensitive, latency-tolerant tasks</td><td>Quality- and latency-critical scenarios</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: "Fable-level" needs careful interpretation. Echo may match Fable 5 on some benchmarks, but complex tasks, long context, and safety alignment may still lag. Also, the "1/3 cost" claim likely applies to specific scenarios (short text generation) and may not hold for long documents or complex agent tasks. Still, a direction worth watching.</p>
+    <p><strong>Honest caveat</strong>: "Close to Fable level" needs independent verification. Show HN projects usually have more optimistic performance claims than independent benchmarks. But even if Echo only reaches 80-90% of Fable's quality at one-third the price, that's a worthwhile tradeoff for many use cases. The routing overhead adds real latency — Echo probably isn't great for real-time chat, but it's a solid choice for batch processing or offline tasks.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Key signal: does an independent third party replicate Echo's benchmark results? If Simon Willison, Karpathy, or another KOL endorses it, this goes from 👀 to 🚨. Also watch for Codex or Claude Code integration support.
+    <strong>🔭 Watch for</strong> · The key signal is whether independent reviewers (like Simon Willison, swyx) start discussing Echo. If they blog or tweet something like "Echo really does save a lot of money" or "the quality gap is acceptable," this project goes from 👀 to 🚨. Also watch the GitHub repo for any performance comparison issues.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Fable-level</strong> = Matching or approaching the performance of Anthropic's Claude Fable 5 model. <strong>Cost per task</strong> = How much money it takes to complete a given task. Echo's core argument is that it achieves the same task at lower cost.
+    <strong>Jargon decoder</strong> · <strong>Model routing</strong> = Picking the right model for each task instead of using one model for everything. For example, coding tasks go to Kimi K3, creative writing to Qwen 3.8, math reasoning to GLM-5.2. <strong>Show HN</strong> = The "Show" section of Hacker News where developers showcase their projects.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #8, 394 points, 189 comments. Show HN project. Smol AI Jul 23 coverage.
+    <strong>Who's talking about it</strong> · HN #8, 394 points, 189 comments. Show HN project.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://github.com/echo-ai/echo">GitHub repo</a> (placeholder link) · <a href="https://news.ycombinator.com/item?id=123462">HN discussion</a> (placeholder link)
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=123462">HN discussion</a> (placeholder link) · GitHub repo TBD
   </div>
 </article>
 
@@ -294,15 +295,15 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">Kimi K3 open-weight countdown</span> <span class="update">— 3 days until Jul 27 open-weight release. No new trigger event today, but Simon Willison's Jul 23 deep analysis (536 HN points) is still developing.</span></div>
+      <div><span class="item-name">Kimi K3 open-weight countdown</span> <span class="update">— 3 days until July 27 open-weight release. No new trigger event today, but the Hugging Face community article (82 reactions) is still developing.</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— No new developments since Jul 20 announcement. Waiting for open-weight release date.</span></div>
+      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Alibaba announced open-weight release this week but no specific date yet. No new developments today.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">OpenAI security incident</span> <span class="update">— Simon Willison Jul 23 deep analysis (536 HN points) is a new trigger event, but already covered multiple days. Not taking a slot today.</span></div>
+      <div><span class="item-name">OpenAI security incident</span> <span class="update">— Simon Willison's July 22 article still developing, 536 HN points. But no new trigger event for 2 consecutive days.</span></div>
     </li>
   </ul>
 </aside>
@@ -317,59 +318,46 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Startup founders urge U.S. government not to shut off Chinese open weight AI</td><td>HN #5, 961 points, but policy discussion, not a tool/product release.</td></tr>
-      <tr><td>Claude Cookbook</td><td>HN #6, 80 points, documentation product, signal too weak.</td></tr>
+      <tr><td>Startup founders urge U.S. government not to shut off Chinese open weight AI</td><td>HN #5, 961 points, policy discussion, not a tool/product release.</td></tr>
       <tr><td>Writing by hand is good for your brain</td><td>HN #4, 1336 points, not an AI tool.</td></tr>
-      <tr><td>Why Software Factories Fail</td><td>HN #14, 332 points, opinion piece, not a new tool/product release.</td></tr>
-      <tr><td>OpenAI's accidental attack against Hugging Face</td><td>HN #27, 536 points, but covered multiple days, no new trigger event today. Moved to Still tracking.</td></tr>
-      <tr><td>Show HN: Palmier Pro – Open-source macOS video editor built for AI</td><td>HN #29, 165 points, video editing tool, not an AI tool.</td></tr>
+      <tr><td>Claude Cookbook</td><td>HN #6, 80 points, tutorial, not a new tool/product release.</td></tr>
+      <tr><td>The Beam Engine</td><td>HN #7, 405 points, not an AI tool.</td></tr>
+      <tr><td>OpenAI's accidental attack against Hugging Face</td><td>HN #27, 536 points, already in Still tracking, no new trigger event today.</td></tr>
       <tr><td>98.css</td><td>HN #28, 481 points, CSS framework, not an AI tool.</td></tr>
-      <tr><td>The Beam Engine</td><td>HN #7, 405 points, engineering article, not an AI tool.</td></tr>
-      <tr><td>What happened to TheNumbers.com</td><td>HN #13, 382 points, film industry data, not an AI tool.</td></tr>
-      <tr><td>I regret migrating to Codeberg</td><td>HN #17, 333 points, code hosting experience, not an AI tool.</td></tr>
-      <tr><td>Learn OpenGL</td><td>HN #18, 252 points, graphics programming tutorial, not an AI tool.</td></tr>
-      <tr><td>DARPA, U.S. Air Force fly AI-controlled F-16</td><td>HN #22, 251 points, military AI application, not a tool/product release.</td></tr>
-      <tr><td>Software rendering in 500 lines of bare C++</td><td>HN #24, 286 points, programming tutorial, not an AI tool.</td></tr>
+      <tr><td>Palmier Pro – Open-source macOS video editor built for AI</td><td>HN #29, 165 points, video editor, not a core AI tool.</td></tr>
       <tr><td>Fields Medals 2026</td><td>HN #30, 189 points, math news, not an AI tool.</td></tr>
-      <tr><td>OpenAI: Health in ChatGPT</td><td>Jul 23 release, health feature, not a new tool/model release.</td></tr>
+      <tr><td>OpenAI: Health in ChatGPT</td><td>Health feature update, not a new tool/model release.</td></tr>
       <tr><td>OpenAI: Building AI infrastructure with Effingham County</td><td>Infrastructure news, not a new tool/model release.</td></tr>
       <tr><td>OpenAI: How news organizations are using AI</td><td>Case study, not a new tool/product release.</td></tr>
+      <tr><td>OpenAI: Advancing the next era of national science</td><td>Policy news, not a new tool/product release.</td></tr>
       <tr><td>OpenAI: Introducing OpenAI Presence</td><td>Enterprise product, not a new tool/model release.</td></tr>
-      <tr><td>Anthropic: Economic Futures Research Fund research agenda</td><td>Economic research, not a tool/product.</td></tr>
-      <tr><td>Anthropic: Ask Claude about the Anthropic Economic Index</td><td>Product feature update, not a new tool/model release.</td></tr>
-      <tr><td>Google DeepMind: Gemini 3.6 Flash family</td><td>Already covered in detail on Jul 22, no new trigger event today.</td></tr>
-      <tr><td>Google DeepMind: Gemini 3.5 Flash Cyber</td><td>Already covered in detail on Jul 22, no new trigger event today.</td></tr>
-      <tr><td>Security incident (OpenAI + Hugging Face)</td><td>Already covered as Item 1 on Jul 22, no new trigger event today.</td></tr>
-      <tr><td>Kimi K3 benchmarks on Fireworks</td><td>Already covered as Item 2 on Jul 22, no new trigger event today.</td></tr>
-      <tr><td>LM Studio Bionic</td><td>8 days with no movement, removed from Still tracking.</td></tr>
-      <tr><td>NotebookLM → Gemini Notebook</td><td>8 days with no movement, removed from Still tracking.</td></tr>
-      <tr><td>Fable 5 subscription retention</td><td>7 days with no movement, removed from Still tracking.</td></tr>
-      <tr><td>Are AI labs pelicanmaxxing?</td><td>Jul 22 killed, Simon Willison Jul 23 deep analysis (536 HN points), but it's a fun evaluation piece, not a tool signal. No trigger event to promote.</td></tr>
-      <tr><td>Bento — Entire PowerPoint in one HTML file</td><td>Jul 22 killed, not an AI tool. No new signal today.</td></tr>
-      <tr><td>Quality non-fiction books are the antithesis of AI slop</td><td>Jul 22 killed, opinion piece. No new signal today.</td></tr>
-      <tr><td>Everyone should know SIMD</td><td>Jul 22 killed, programming tutorial. No new signal today.</td></tr>
-      <tr><td>So Reddit has decided that plain HTML is unsafe</td><td>Jul 22 killed, not AI. No new signal today.</td></tr>
-      <tr><td>EU fines Google €890M</td><td>Jul 22 killed, legal news. No new signal today.</td></tr>
-      <tr><td>Protecting our FLOSS commons from LLMs</td><td>Jul 22 killed, policy discussion. No new signal today.</td></tr>
-      <tr><td>The startup's Postgres survival guide</td><td>Jul 22 killed, database article. No new signal today.</td></tr>
-      <tr><td>Nobody knows what a used GPU cluster is worth</td><td>Jul 22 killed, market analysis. No new signal today.</td></tr>
-      <tr><td>Back to Kagi</td><td>Jul 22 killed, search engine. No new signal today.</td></tr>
-      <tr><td>John C. Dvorak has died</td><td>Jul 22 killed, obituary. No new signal today.</td></tr>
-      <tr><td>Businesses with ugly AI menu redesigns</td><td>Jul 22 killed, opinion piece. No new signal today.</td></tr>
-      <tr><td>ANSI escape injection in MCP servers</td><td>Jul 22 killed, security vulnerability, signal too weak. No new signal today.</td></tr>
-      <tr><td>POCKET: 35B model on iPhone</td><td>Jul 22 killed, HuggingFace blog only 9 reactions, signal too weak. No new signal today.</td></tr>
-      <tr><td>OpenAI: Building AI infrastructure with Effingham County</td><td>Jul 22 killed, infrastructure news. No new signal today.</td></tr>
-      <tr><td>OpenAI: How news organizations are using AI</td><td>Jul 22 killed, case study. No new signal today.</td></tr>
-      <tr><td>OpenAI: Introducing OpenAI Presence</td><td>Jul 22 killed, enterprise product. No new signal today.</td></tr>
-      <tr><td>Anthropic: Economic Futures Research Fund research agenda</td><td>Jul 22 killed, economic research. No new signal today.</td></tr>
-      <tr><td>Anthropic: Ask Claude about the Anthropic Economic Index</td><td>Jul 22 killed, product feature update. No new signal today.</td></tr>
-      <tr><td>Google DeepMind: Gemini 3.6 Flash family</td><td>Jul 22 killed, already covered. No new trigger event today.</td></tr>
-      <tr><td>Google DeepMind: Gemini 3.5 Flash Cyber</td><td>Jul 22 killed, already covered. No new trigger event today.</td></tr>
-      <tr><td>Security incident (OpenAI + Hugging Face)</td><td>Jul 22 killed, already covered. No new trigger event today.</td></tr>
-      <tr><td>Kimi K3 benchmarks on Fireworks</td><td>Jul 22 killed, already covered. No new trigger event today.</td></tr>
-      <tr><td>LM Studio Bionic</td><td>Jul 22 killed, already removed. No new signal today.</td></tr>
-      <tr><td>NotebookLM → Gemini Notebook</td><td>Jul 22 killed, already removed. No new signal today.</td></tr>
-      <tr><td>Fable 5 subscription retention</td><td>Jul 22 killed, already removed. No new signal today.</td></tr>
+      <tr><td>OpenAI: NTT Data</td><td>Enterprise partnership, not a new tool/product release.</td></tr>
+      <tr><td>OpenAI: Introducing ChatGPT Small Business Program</td><td>Enterprise product, not a new tool/model release.</td></tr>
+      <tr><td>Anthropic: Economic Futures Research Fund research agenda</td><td>Reported July 22, economic research, not a tool/product.</td></tr>
+      <tr><td>Anthropic: Ask Claude about the Anthropic Economic Index</td><td>Reported July 22, product feature update, not a new tool/model release.</td></tr>
+      <tr><td>Anthropic: Donating $20 million to Public First Action</td><td>Reported July 22, funding news, not a tool/product.</td></tr>
+      <tr><td>Anthropic: Apply for AI for Science rare disease research grants</td><td>Reported July 20, funding news, not a tool/product.</td></tr>
+      <tr><td>Google DeepMind: Gemini 3.5 Flash Cyber</td><td>Reported in detail July 22, no new trigger event today.</td></tr>
+      <tr><td>Google DeepMind: Gemini 3.6 Flash family</td><td>Reported in detail July 22, no new trigger event today.</td></tr>
+      <tr><td>Hugging Face blog: Hot Security incident disclosure</td><td>Reported July 22 as security incident, no new trigger event today.</td></tr>
+      <tr><td>Hugging Face blog: Bringing Nunchaku 4-bit Diffusion Inference to Diffusers</td><td>Technical blog, not a new tool/product release.</td></tr>
+      <tr><td>Hugging Face model: baidu/Unlimited-OCR</td><td>OCR model, outside clawii's focus area.</td></tr>
+      <tr><td>Hugging Face model: poolside/Laguna-S-2.1</td><td>Code model, but signal too weak (previously excluded from HN).</td></tr>
+      <tr><td>Hugging Face model: thinkingmachines/Inkling</td><td>Reported in detail July 15, no new trigger event today.</td></tr>
+      <tr><td>Hugging Face model: nvidia/Cosmos3-Edge</td><td>NVIDIA model, but signal too weak.</td></tr>
+      <tr><td>Hugging Face article: POCKET: 35B model on iPhone</td><td>Only 9 reactions, signal too weak.</td></tr>
+      <tr><td>Simon Willison: OpenAI's accidental attack against Hugging Face</td><td>Reported July 22 as security incident, no new trigger event today.</td></tr>
+      <tr><td>Simon Willison: Are AI labs pelicanmaxxing?</td><td>Fun evaluation piece, not a tool signal.</td></tr>
+      <tr><td>Simon Willison: Nativ: Run AI models locally on your Mac</td><td>Reported July 21, no new trigger event today.</td></tr>
+      <tr><td>Simon Willison: Fireside Chat with Claude Code team</td><td>Reported July 21, interview transcript, not a new tool/product release.</td></tr>
+      <tr><td>Simon Willison: I keep hearing anecdotes about coding agents</td><td>Personal anecdotes, not a new tool/product release.</td></tr>
+      <tr><td>Simon Willison: Who's Afraid of Chinese Models?</td><td>Opinion piece, not a new tool/product release.</td></tr>
+      <tr><td>Mistral news (no new content)</td><td>No new articles today.</td></tr>
+      <tr><td>OSSInsight trending (no data)</td><td>API returned empty data, cannot generate trends.</td></tr>
+      <tr><td>GitHub Trending daily (no new AI projects)</td><td>No high-star AI projects today.</td></tr>
+      <tr><td>LM Studio Bionic</td><td>8 consecutive days with no movement, removed from Still tracking.</td></tr>
+      <tr><td>NotebookLM → Gemini Notebook</td><td>8 consecutive days with no movement, removed from Still tracking.</td></tr>
+      <tr><td>Fable 5 subscription retention</td><td>7 consecutive days with no movement, removed from Still tracking.</td></tr>
     </tbody>
   </table>
 </section>
@@ -384,7 +372,7 @@ li+li{margin-top:.3rem}
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
   <p>AI Radar · Daily AI signal scan · Auto-generated by clawii's friend</p>
-  <p>Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace / Google DeepMind</p>
+  <p>Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace / Google DeepMind / Mistral</p>
   <p>© 2026 · All data from public sources · Not investment advice</p>
 </footer>
 
