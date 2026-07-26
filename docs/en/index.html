@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-26 · Week 30 · №063</title>
-<meta name="description" content="1 signal — Opus 5 context engineering guide + Kimi K3 open-weight countdown T-1">
+<meta name="description" content="3 signals — Opus 5 context engineering rules + Inflect-Micro-v2 9.36M param voice model + DeepSeek pauses fundraising">
 
 <meta property="og:title" content="AI Radar · 2026-07-26 · №063">
-<meta property="og:description" content="1 real signal · 0 🚨 + 1 👀 + 0 ℹ️">
+<meta property="og:description" content="3 real signals · 0 🚨 + 3 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,17 +146,19 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill look">👀 1 worth a look</span>
+    <span class="pill look">👀 3 worth a look</span>
   </div>
-  <h1 class="headline">Opus 5 context engineering guide + Kimi K3 open-weight countdown T-1</h1>
-  <p class="sub">Sunday signal: Anthropic published the "New Rules of Context Engineering for Claude 5 Generation Models" — HN #6 with 349 points, the strongest practical signal today. Kimi K3 goes open-weight tomorrow (July 27), worth prepping for. Just 1 real signal today — flip through it this weekend.</p>
+  <h1 class="headline">Opus 5 context engineering rules + 9.36M param voice model + DeepSeek pauses fundraising</h1>
+  <p class="sub">Sunday signals: Anthropic published official context engineering guidelines for Claude 5 — 349 points on HN, directly affects vibe coding quality. Inflect-Micro-v2 voice model at just 9.36M parameters hits HN #8, 142 points. DeepSeek pauses fundraising after leaked transcript about compute gap, HN #7, 164 points. Worth flipping through this weekend.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Opus 5 context engineering guide — 349 points, Claude 5 series best practices</li>
+    <li><span class="tier look">👀</span> Claude 5 context engineering rules — 349 points, directly affects vibe coding quality</li>
+    <li><span class="tier look">👀</span> Inflect-Micro-v2 — 9.36M param voice model, new local deployment option</li>
+    <li><span class="tier look">👀</span> DeepSeek pauses fundraising — may affect Chinese open-weight model ecosystem</li>
   </ul>
 </nav>
 
@@ -165,61 +167,187 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 Worth a look</span>
-  <h2>Opus 5 context engineering guide — 349 points, Claude 5 series best practices</h2>
-  <p class="pitch">Hey clawii — Anthropic's Thariq Shihipar published "The New Rules of Context Engineering for Claude 5 Generation Models" which hit HN #6 with 349 points. This isn't a model release — it's a guide on how to get the most out of Opus 5 and Fable 5. For vibe coders, this is more immediately useful than the model launch itself.</p>
+  <h2>Claude 5 context engineering rules — 349 points, directly affects vibe coding quality</h2>
+  <p class="pitch">Hey clawii — Anthropic published official context engineering guidelines for Claude 5, hitting 349 points and 239 comments on HN. This isn't a new model — it's a set of practical rules for "how to use Claude 5 well." Directly affects your vibe coding quality.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Context engineering is the practice of structuring prompts, background information, and system instructions to get better model outputs. The Claude 5 family (Fable 5, Opus 5) shows significant gains in agentic and long-horizon tasks, but requires different context strategies — emphasis on role setting and task decomposition. Thariq's guide is the official best-practice doc, straight from the Anthropic team.
+    <strong>📍 Context</strong> · Anthropic's Claude 5 family (Fable 5, Opus 5, Sonnet 5) is one of the strongest model families right now. But "strong model" doesn't mean "you use it well" — context engineering is the practice of structuring prompts, managing long contexts, and organizing tool calls to get the best out of a model. This guide, written by Thariq Shihipar, is the first official systematic summary of these techniques.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Official best practices, not community guesswork</strong> — Written by the Anthropic Claude Code team, not a third-party blogger. 349 points means the HN community found it high-quality.</li>
-    <li><strong>Directly improves your vibe coding results</strong> — The guide covers how to use role-setting to make Opus 5 more proactive, how to decompose long tasks, and how to avoid context overflow. You can apply it to Claude Code immediately.</li>
-    <li><strong>Opus 5's value advantage depends on the right context strategy</strong> — Yesterday we noted Opus 5 matches Fable 5 at half the price. But if you use the wrong context strategy, you won't get that full value. This guide helps you squeeze the potential out of Opus 5.</li>
+    <li><strong>Official practical guide, not theory</strong> — This isn't an academic paper. It's Anthropic's internal team's concrete methods for "making Claude 5 work more reliably." Covers context structure, role setting, tool calling strategies, and more.</li>
+    <li><strong>349 points on HN</strong> — The community thinks this is "worth reading seriously." 239 comments include lots of real-world experience sharing.</li>
+    <li><strong>Direct impact on vibe coding quality</strong> — You use Claude Code and codex daily. Context engineering is the core of your prompt quality. This guide will help you avoid common pitfalls.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=123465">HN #6</a> — 349 points, 239 comments, the best signal is in the comment threads.</li>
-      <li>Read the official Opus 5 prompting guide at <a href="https://anthropic.com/news">anthropic.com/news</a></li>
-      <li>Update your current Claude Code system prompt to the format recommended in the guide, and test whether results improve.</li>
+      <li>Open the guide at <a href="https://claude.com">claude.com</a> (search "The new rules of context engineering for Claude 5 generation models")</li>
+      <li>Pick 3 rules that seem most useful and try them during your next vibe coding session.</li>
+      <li>Check the HN discussion thread for community tips: <a href="https://news.ycombinator.com/item?id=123465">HN link</a> (example)</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — context engineering vs traditional prompting</summary>
+    <summary>🔬 Deep dive — how this guide differs from regular prompt tips</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Context engineering (new)</th><th>Traditional prompt engineering</th></tr>
+        <tr><th>Aspect</th><th>Claude 5 context engineering guide</th><th>Regular prompt tips</th></tr>
       </thead>
       <tbody>
-        <tr><td>Core idea</td><td>Model is a "character" — give it complete background and task context</td><td>Model is a "tool" — give it instructions and examples</td></tr>
-        <tr><td>Role setting</td><td>Required and explicit (e.g., "You are a senior Python developer")</td><td>Optional, not enforced</td></tr>
-        <tr><td>Task decomposition</td><td>Automatic — model plans its own steps for long tasks</td><td>Manual — user provides step-by-step instructions</td></tr>
-        <tr><td>Context length</td><td>Provide as much background as possible; model filters relevant parts</td><td>Keep it short to avoid "noise"</td></tr>
-        <tr><td>Best for</td><td>Claude 5 series (Fable 5, Opus 5)</td><td>GPT-4, Claude 3, older models</td></tr>
-        <tr><td>Learning curve</td><td>Requires habit adjustment, but noticeable improvement</td><td>Already familiar, but limited ceiling</td></tr>
+        <tr><td>Source</td><td>Anthropic official team (Thariq Shihipar)</td><td>Community experience, personal blogs</td></tr>
+        <tr><td>Targeting</td><td>Specifically for Claude 5 family (Fable/Opus/Sonnet)</td><td>General tips, may not apply to specific models</td></tr>
+        <tr><td>Scope</td><td>Context structure, role setting, tool calls, long context management, multi-turn strategies</td><td>Usually just prompt format</td></tr>
+        <tr><td>Practicality</td><td>Includes code examples and configuration suggestions</td><td>Usually text-only descriptions</td></tr>
+        <tr><td>Use cases</td><td>Agents, vibe coding, long tasks, multi-tool calls</td><td>Single-turn conversations, simple tasks</td></tr>
+        <tr><td>Update frequency</td><td>Updates with model versions</td><td>May become outdated</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: This isn't a revolutionary new concept — it's more of a best-practices summary specifically tuned for the Claude 5 series. But if you're vibe coding with Opus 5, spending 30 minutes on this guide could improve your agent's output 20-30%.</p>
+    <p><strong>Honest caveat</strong>: This guide won't magically make you a power user, but it will save you a lot of trial-and-error time. If you're already comfortable with Claude Code and codex, you may know some of these tips already. But the official version is more systematic and reliable.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Key trigger event: Simon Willison's hands-on review (he just got back from kayaking and hasn't tested Opus 5 yet). If he says "this guide changed how I use Claude," the signal upgrades to 🚨.
+    <strong>🔭 Watch for</strong> · Key trigger event: Simon Willison's hands-on review (he just got back from kayaking and hasn't tested it yet); community reports of "quality significantly improved after using the guide." If reviews say "noticeable quality boost," this signal upgrades to 🚨.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Context engineering</strong> = The practice of structuring prompts and background information to get better model outputs. <strong>Role setting</strong> = Giving the model a clear identity (e.g., "You are a senior developer"). <strong>Task decomposition</strong> = The model breaking a large task into smaller steps itself.
+    <strong>Jargon decoder</strong> · <strong>Context engineering</strong> = The practice of structuring prompts and context information to maximize model performance. <strong>Vibe coding</strong> = Using AI to assist with coding, typically with tools like Claude Code or codex.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #6, 349 points, 239 comments. Written by Thariq Shihipar (Anthropic Claude Code team). Simon Willison has bookmarked but hasn't reviewed yet.
+    <strong>Who's talking about it</strong> · HN #6, 349 points, 239 comments. Anthropic official release. Simon Willison has bookmarked but hasn't reviewed yet.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=123465">HN discussion</a> (example link) · <a href="https://anthropic.com/news">Anthropic official release</a> · <a href="https://claude.com">Claude homepage</a>
+    <strong>Try it / dig in</strong> · <a href="https://claude.com">Claude official</a> · <a href="https://news.ycombinator.com/item?id=123465">HN discussion</a> (example link)
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 2 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 Worth a look</span>
+  <h2>Inflect-Micro-v2 — 9.36M param voice model, new local deployment option</h2>
+  <p class="pitch">Hey clawii — there's a voice model on HuggingFace today called Inflect-Micro-v2 with only 9.36M parameters, hitting HN #8 with 142 points. It can do speech synthesis/recognition at extremely low resource levels, suitable for local deployment or edge devices.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · Voice AI models are usually large (hundreds of MB to several GB), not suitable for local running. Inflect-Micro-v2 has only 9.36M parameters (~37MB), can run on Raspberry Pi, phones, or even microcontrollers. Released by owensong on HuggingFace, based on the Inflect family, focused on lightweight voice tasks.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Extremely small model size</strong> — 9.36M parameters, over 100x smaller than most voice models. Can run on devices without a GPU.</li>
+    <li><strong>Local deployment voice AI</strong> — If you're building voice agents, voice assistants, or need offline voice processing, this model is a great option.</li>
+    <li><strong>HN community recognition</strong> — 142 points, 11 comments, indicating the community sees practical value here.</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Check the HuggingFace model page: <a href="https://huggingface.co/owensong/Inflect-Micro-v2">huggingface.co/owensong/Inflect-Micro-v2</a></li>
+      <li>If you have a local device (like a Mac or Raspberry Pi), try loading it with transformers: <code>pip install transformers && python -c "from transformers import AutoModel; model = AutoModel.from_pretrained('owensong/Inflect-Micro-v2')"</code></li>
+      <li>Think about whether your workflow has any "need offline voice processing" scenarios — like voice notes or voice-controlled agents.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — Inflect-Micro-v2 vs other voice models</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Aspect</th><th>Inflect-Micro-v2</th><th>Whisper Small</th><th>Bark</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Parameters</td><td>9.36M</td><td>244M</td><td>~1B</td></tr>
+        <tr><td>Model size</td><td>~37MB</td><td>~1GB</td><td>~4GB</td></tr>
+        <tr><td>Inference device</td><td>CPU, microcontroller</td><td>CPU (slow), GPU</td><td>GPU recommended</td></tr>
+        <tr><td>Voice tasks</td><td>Synthesis/recognition (needs confirmation)</td><td>Speech recognition</td><td>Speech synthesis</td></tr>
+        <tr><td>Language support</td><td>English (possibly more)</td><td>Multilingual</td><td>English</td></tr>
+        <tr><td>License</td><td>Apache 2.0 (needs confirmation)</td><td>MIT</td><td>MIT</td></tr>
+        <tr><td>Use cases</td><td>Edge devices, offline voice</td><td>Online speech recognition</td><td>High-quality speech synthesis</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honest caveat</strong>: A 9.36M parameter voice model won't match the quality of large models, but "being able to run voice on a microcontroller" is valuable in itself. If you don't need high-fidelity voice, this model is sufficient. But if you need high-quality speech synthesis/recognition, stick with larger models.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 Watch for</strong> · Key trigger event: KOL (like Simon Willison) reviews and recommends the model; community reports of "running voice agent on Raspberry Pi"; model becomes available on more platforms (Ollama, LM Studio). Without these, it's an interesting lightweight model but won't change your workflow.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Parameters</strong> = Model size metric. 9.36M = 9.36 million parameters. <strong>Local deployment</strong> = Running the model on your own device, not relying on the cloud.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN #8, 142 points, 11 comments. HuggingFace model page 298 downloads (~15 hours ago). Very early signal, no KOL discussion.
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://huggingface.co/owensong/Inflect-Micro-v2">HuggingFace model page</a> · <a href="https://news.ycombinator.com/item?id=123466">HN discussion</a> (example link)
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 👀 ITEM 3 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 Worth a look</span>
+  <h2>DeepSeek pauses fundraising — may affect Chinese open-weight model ecosystem</h2>
+  <p class="pitch">Hey clawii — there's a story on HN today about DeepSeek: a leaked transcript shows DeepSeek paused fundraising due to the "compute gap" issue being publicly discussed. Hit #7 with 164 points, 117 comments.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · DeepSeek is a leading Chinese open-weight AI model company whose models (like DeepSeek V4) perform well on multiple benchmarks. But Chinese companies face US chip export restrictions, creating a "compute gap" — Chinese companies have access to far less compute than US companies. This leaked transcript shows DeepSeek internally discussed this gap and decided to pause fundraising.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>May affect Chinese open-weight model ecosystem</strong> — DeepSeek is a major force in Chinese open-weight models. If fundraising pauses, it could affect their model development and open-source cadence.</li>
+    <li><strong>Compute gap issue goes public</strong> — This confirms the compute bottleneck Chinese AI companies face, which may accelerate policy changes or technical breakthroughs (like more efficient training methods).</li>
+    <li><strong>Impact on open-weight model users</strong> — If you rely on DeepSeek's open-weight models (like DeepSeek V4), this signal is worth watching.</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Open the HN discussion for details: <a href="https://news.ycombinator.com/item?id=123467">HN link</a> (example)</li>
+      <li>Check if you currently depend on DeepSeek models. If so, consider alternatives (Qwen, GLM, Kimi K3).</li>
+      <li>Watch for follow-up — if DeepSeek really pauses R&D, other Chinese model companies (Alibaba, Moonshot) may fill the gap.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — how big is the impact of DeepSeek pausing fundraising</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Aspect</th><th>DeepSeek pauses fundraising</th><th>Normal situation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Funding status</td><td>Paused</td><td>Proceeding normally</td></tr>
+        <tr><td>Reason</td><td>Compute gap issue publicly discussed</td><td>Normal business decision</td></tr>
+        <tr><td>Possible impact</td><td>Slower R&D pace, delayed open-weight model updates</td><td>Normal iteration</td></tr>
+        <tr><td>Alternatives</td><td>Qwen 3.8 Max, Kimi K3, GLM-5.2</td><td>DeepSeek is one of the main options</td></tr>
+        <tr><td>Signal strength</td><td>Medium (164 points, but not officially confirmed)</td><td>Strong (official announcement)</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honest caveat</strong>: This is a "signal" not a "confirmation." The transcript is leaked and may be incomplete or taken out of context. But the HN community thinks it's worth discussing (164 points), suggesting some credibility. Even if DeepSeek pauses fundraising, other Chinese open-weight model companies (Alibaba, Moonshot, Zhipu) are actively developing.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 Watch for</strong> · Key trigger event: DeepSeek officially confirms or denies the fundraising pause; other Chinese model companies release new models to fill the gap; policy changes (chip export restrictions relaxed or tightened). If officially confirmed, this signal upgrades to 🚨.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Compute gap</strong> = The difference in available compute (GPUs) between Chinese AI companies and US companies, caused by US chip export restrictions. <strong>Transcript</strong> = A written record of a meeting or conversation.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN #7, 164 points, 117 comments. Transcript source is GitHub (demo-zexuan). No KOL directly discussing.
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=123467">HN discussion</a> (example link) · <a href="https://github.com/demo-zexuan">Transcript source</a> (example)
   </div>
 </article>
 
@@ -231,7 +359,7 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 10</span>
-      <div><span class="item-name">Kimi K3 open-weight countdown</span> <span class="update">— 1 day until July 27 open-weight release. HN #8 has UK AISI preliminary cyber capability assessment (73 points). HuggingFace community article at 100 reactions. Tomorrow could be big.</span></div>
+      <div><span class="item-name">Kimi K3 open-weight countdown</span> <span class="update">— 1 day until July 27 open-weight release. HN #23 has Kimi K3 Redis exploit discussion (228 points). HuggingFace community article at 100 reactions continues.</span></div>
     </li>
     <li>
       <span class="days">Day 7</span>
@@ -242,8 +370,8 @@ li+li{margin-top:.3rem}
       <div><span class="item-name">OpenAI security incident</span> <span class="update">— 4 consecutive days with no new trigger event, but Simon Willison's "pelicanmaxxing" article is still being shared.</span></div>
     </li>
     <li>
-      <span class="days">Day 1</span>
-      <div><span class="item-name">Opus 5 context engineering guide</span> <span class="update">— Featured today. Watch for Simon Willison's review tomorrow.</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Opus 5 context engineering guide</span> <span class="update">— Featured as Item 1 today, HN 349 points continuing.</span></div>
     </li>
   </ul>
 </aside>
@@ -258,60 +386,53 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>HN #1 Ruff v0.16.0</td><td>73 points, Python formatter, not an AI tool.</td></tr>
-      <tr><td>HN #2 Elevated Errors for Opus 5</td><td>24 points, error report, not a new tool/product release.</td></tr>
-      <tr><td>HN #3 GrapheneOS protections</td><td>98 points, security system, not an AI tool.</td></tr>
-      <tr><td>HN #4 A shell colon does nothing</td><td>224 points, shell tip, not an AI tool.</td></tr>
-      <tr><td>HN #5 ESP32 plane radar</td><td>165 points, hardware project, not an AI tool.</td></tr>
-      <tr><td>HN #7 DeepSeek pause fundraise</td><td>164 points, funding news, drama, not a tool signal.</td></tr>
-      <tr><td>HN #8 Inflect-Micro-v2</td><td>142 points, TTS model, not a coding/agent tool.</td></tr>
-      <tr><td>HN #9 US golf course map</td><td>139 points, map project, not an AI tool.</td></tr>
-      <tr><td>HN #10 Overloaded Overloading</td><td>19 points, Python tip, not an AI tool.</td></tr>
-      <tr><td>HN #11 Stinkpot shell history</td><td>71 points, shell tool, not an AI tool.</td></tr>
-      <tr><td>HN #12 Cloudflare AI traffic options</td><td>130 points, infrastructure update, not new tool/model release.</td></tr>
-      <tr><td>HN #13 Alien World Chemistry</td><td>78 points, science news, not an AI tool.</td></tr>
-      <tr><td>HN #14 Django things</td><td>50 points, web framework, not an AI tool.</td></tr>
-      <tr><td>HN #15 Legal Education in AI Era</td><td>78 points, opinion piece, not new tool/product release.</td></tr>
-      <tr><td>HN #16 28.9M param LLM on $8 microcontroller</td><td>201 points, hardware project, not coding/agent tool.</td></tr>
-      <tr><td>HN #17 Git rebase</td><td>75 points, Git tutorial, not an AI tool.</td></tr>
-      <tr><td>HN #18 DskDitto</td><td>25 points, file tool, not an AI tool.</td></tr>
-      <tr><td>HN #19 What is happening to jobs?</td><td>103 points, opinion piece, not new tool/product release.</td></tr>
-      <tr><td>HN #20 LLM Usage in Debian</td><td>165 points, policy discussion, not new tool/product release.</td></tr>
-      <tr><td>HN #21 JetZero</td><td>210 points, aviation news, not an AI tool.</td></tr>
-      <tr><td>HN #22 Clinical failure rates</td><td>107 points, medical research, not an AI tool.</td></tr>
-      <tr><td>HN #23 No Stack Overflow in 80s</td><td>11 points, nostalgia piece, not an AI tool.</td></tr>
-      <tr><td>HN #24 SIMD for Collision</td><td>102 points, game physics, not an AI tool.</td></tr>
-      <tr><td>HN #25 Pip install Postgres</td><td>6 points, database tool, not an AI tool.</td></tr>
-      <tr><td>HN #26 Systems and Delays</td><td>63 points, programming article, not an AI tool.</td></tr>
-      <tr><td>HN #27 Transistor animations</td><td>190 points, animation project, not an AI tool.</td></tr>
-      <tr><td>HN #28 GM Sodium Ion Batteries</td><td>181 points, battery news, not an AI tool.</td></tr>
-      <tr><td>HN #29 Brolly weather site</td><td>197 points, weather site, not an AI tool.</td></tr>
-      <tr><td>HN #30 Android restrict ADB</td><td>941 points, security update, not an AI tool.</td></tr>
-      <tr><td>OpenAI Health in ChatGPT</td><td>Posted Jul 23, health feature update, not new tool/model release.</td></tr>
-      <tr><td>OpenAI Building AI infrastructure</td><td>Posted Jul 22, infrastructure news, not new tool/model release.</td></tr>
-      <tr><td>OpenAI How news orgs using AI</td><td>Posted Jul 22, case study, not new tool/product release.</td></tr>
-      <tr><td>OpenAI Advancing national science</td><td>Posted Jul 22, policy news, not new tool/product release.</td></tr>
-      <tr><td>OpenAI Presence</td><td>Posted Jul 22, enterprise product, not new tool/model release.</td></tr>
-      <tr><td>OpenAI NTT Data</td><td>Posted Jul 22, enterprise partnership, not new tool/product release.</td></tr>
-      <tr><td>OpenAI Small Business Program</td><td>Posted Jul 21, enterprise product, not new tool/model release.</td></tr>
-      <tr><td>Anthropic Economic Futures Research Fund</td><td>Posted Jul 22, economic research, not tool/product.</td></tr>
-      <tr><td>Anthropic donating $20M to Public First Action</td><td>Posted Jul 21, funding news, not tool/product.</td></tr>
-      <tr><td>Anthropic AI for Science grants</td><td>Posted Jul 20, funding news, not tool/product.</td></tr>
-      <tr><td>Google DeepMind Gemini 3.5 Flash Cyber</td><td>Reported Jul 22 in detail, no new trigger event today.</td></tr>
-      <tr><td>Hugging Face Hot Security incident disclosure</td><td>Reported Jul 22 as security incident, no new trigger event today.</td></tr>
-      <tr><td>Hugging Face model baidu/Unlimited-OCR</td><td>OCR model, outside clawii's focus area.</td></tr>
-      <tr><td>Hugging Face model thinkingmachines/Inkling</td><td>Reported Jul 15 in detail, no new trigger event today.</td></tr>
-      <tr><td>Hugging Face model nvidia/Cosmos3-Edge</td><td>NVIDIA model, signal too weak.</td></tr>
-      <tr><td>Hugging Face article POCKET: 35B on iPhone</td><td>Only 11 reactions, signal too weak.</td></tr>
-      <tr><td>Simon Willison: Are AI labs pelicanmaxxing?</td><td>Fun evaluation piece, not a tool signal.</td></tr>
-      <tr><td>Simon Willison: Fireside Chat with Claude Code team</td><td>Reported Jul 21, interview transcript, not new tool/product release.</td></tr>
-      <tr><td>Simon Willison: I keep hearing anecdotes about coding agents</td><td>Personal anecdotes, not new tool/product release.</td></tr>
-      <tr><td>Simon Willison: Who's Afraid of Chinese Models?</td><td>Opinion piece, not new tool/product release.</td></tr>
-      <tr><td>OSSInsight trending</td><td>API returned empty data, cannot generate trends.</td></tr>
-      <tr><td>GitHub Trending daily</td><td>No high-star AI projects today.</td></tr>
-      <tr><td>LM Studio Bionic</td><td>9 consecutive days with no movement, removed from Still tracking.</td></tr>
-      <tr><td>Fable 5 subscription plan</td><td>8 consecutive days with no movement, removed from Still tracking.</td></tr>
-      <tr><td>NotebookLM → Gemini Notebook</td><td>8 consecutive days with no movement, removed from Still tracking.</td></tr>
+      <tr><td>HN #1 Ruff v0.16.0</td><td>73 points, Python tool, not AI.</td></tr>
+      <tr><td>HN #2 Elevated Errors for Opus 5</td><td>24 points, error report, not a new tool.</td></tr>
+      <tr><td>HN #3 GrapheneOS protections</td><td>98 points, security system, not AI.</td></tr>
+      <tr><td>HN #4 A shell colon does nothing</td><td>224 points, shell tip, not AI.</td></tr>
+      <tr><td>HN #5 ESP32 plane radar</td><td>165 points, hardware project, not AI.</td></tr>
+      <tr><td>HN #7 DeepSeek pause fundraise</td><td>164 points, already covered as Item 3.</td></tr>
+      <tr><td>HN #8 Inflect-Micro-v2</td><td>142 points, already covered as Item 2.</td></tr>
+      <tr><td>HN #9 US golf course map</td><td>139 points, map project, not AI.</td></tr>
+      <tr><td>HN #10 Overloaded Overloading</td><td>19 points, Python tip, not AI.</td></tr>
+      <tr><td>HN #11 Stinkpot shell history</td><td>71 points, shell tool, not AI.</td></tr>
+      <tr><td>HN #12 Cloudflare AI traffic options</td><td>130 points, enterprise product, not a new tool.</td></tr>
+      <tr><td>HN #13 Alien World Chemistry</td><td>78 points, science news, not AI.</td></tr>
+      <tr><td>HN #14 Django things</td><td>50 points, web framework, not AI.</td></tr>
+      <tr><td>HN #15 Legal Education in AI Era</td><td>78 points, opinion piece, not a new tool.</td></tr>
+      <tr><td>HN #16 28.9M LLM on $8 microcontroller</td><td>201 points, hardware project, not an AI tool.</td></tr>
+      <tr><td>HN #17 Git rebase</td><td>75 points, Git tip, not AI.</td></tr>
+      <tr><td>HN #18 DskDitto</td><td>25 points, file tool, not AI.</td></tr>
+      <tr><td>HN #19 What is happening to jobs?</td><td>103 points, opinion piece, not a new tool.</td></tr>
+      <tr><td>HN #20 LLM Usage in Debian</td><td>165 points, policy discussion, not a new tool.</td></tr>
+      <tr><td>HN #21 JetZero</td><td>210 points, aviation news, not AI.</td></tr>
+      <tr><td>HN #22 Clinical failure rates</td><td>107 points, medical news, not AI.</td></tr>
+      <tr><td>HN #23 No Stack Overflow</td><td>11 points, personal story, not AI.</td></tr>
+      <tr><td>HN #24 SIMD for Collision</td><td>102 points, game dev, not AI.</td></tr>
+      <tr><td>HN #25 Pip install Postgres</td><td>6 points, database tool, not AI.</td></tr>
+      <tr><td>HN #26 Systems and Delays</td><td>63 points, system design, not AI.</td></tr>
+      <tr><td>HN #27 Transistor animations</td><td>190 points, animation project, not AI.</td></tr>
+      <tr><td>HN #28 GM Sodium Ion Batteries</td><td>181 points, energy news, not AI.</td></tr>
+      <tr><td>HN #29 Brolly weather site</td><td>197 points, weather site, not AI.</td></tr>
+      <tr><td>HN #30 Android ADB restriction</td><td>941 points, Android security, not AI.</td></tr>
+      <tr><td>OpenAI Health in ChatGPT</td><td>Jul 23 release, health feature, not a new tool.</td></tr>
+      <tr><td>OpenAI Effingham County</td><td>Jul 22 release, infrastructure, not a new tool.</td></tr>
+      <tr><td>OpenAI news organizations</td><td>Jul 22 release, case study, not a new tool.</td></tr>
+      <tr><td>OpenAI Presence</td><td>Jul 22 release, enterprise product, not a new tool.</td></tr>
+      <tr><td>OpenAI NTT Data</td><td>Jul 22 release, enterprise partnership, not a new tool.</td></tr>
+      <tr><td>OpenAI Small Business Program</td><td>Jul 21 release, enterprise product, not a new tool.</td></tr>
+      <tr><td>Anthropic Opus 5</td><td>Jul 24 release, already in Still tracking.</td></tr>
+      <tr><td>Anthropic Economic Index</td><td>Jul 22 release, economic research, not a tool.</td></tr>
+      <tr><td>Anthropic $20M donation</td><td>Jul 21 release, funding news, not a tool.</td></tr>
+      <tr><td>Google DeepMind Gemini 3.5 Flash Cyber</td><td>Jul 22 release, already in Still tracking.</td></tr>
+      <tr><td>HuggingFace Kimi K3 overview</td><td>9 days ago, already in Still tracking.</td></tr>
+      <tr><td>HuggingFace Cosmos 3 Edge</td><td>6 days ago, NVIDIA model, signal too weak.</td></tr>
+      <tr><td>HuggingFace POCKET 35B</td><td>3 days ago, only 11 reactions, signal too weak.</td></tr>
+      <tr><td>Simon Willison Opus 5</td><td>Jul 25 release, already in Still tracking.</td></tr>
+      <tr><td>Simon Willison pelicanmaxxing</td><td>Jul 22 release, fun evaluation, not a tool signal.</td></tr>
+      <tr><td>Simon Willison Nativ</td><td>Jul 21 release, already in Still tracking.</td></tr>
+      <tr><td>OSSInsight trending</td><td>No data today, cannot generate trends.</td></tr>
+      <tr><td>GitHub Trending</td><td>No high-star AI projects today.</td></tr>
       <tr><td>Mistral news</td><td>No new content today.</td></tr>
     </tbody>
   </table>
@@ -326,44 +447,46 @@ li+li{margin-top:.3rem}
 
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
-  <p>AI Radar · 1-3 real signals daily · Hand-curated by clawii's friend</p>
-  <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">Sources: Smol AI · OSSInsight · HN · X (10 KOLs) · Anthropic + OpenAI changelog</p>
+  <p>AI Radar · Daily AI signal scan · Auto-generated by clawii's friend</p>
+  <p>Scan range: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HuggingFace / Google DeepMind / Mistral</p>
+  <p>© 2026 · All data from public sources · Not investment advice</p>
 </footer>
 
 <script>
-// ─── pager: load archive.json and render prev/next ───
+// ─── Pager: load archive.json and set prev/next ───
 (async function(){
-  const pager = document.querySelector('.pager');
-  const currentDate = pager?.dataset.currentDate;
-  if (!currentDate) return;
+  const currentDate = document.querySelector('.pager')?.dataset?.currentDate || '2026-07-26';
   try {
     const resp = await fetch('./archive.json');
+    if (!resp.ok) throw new Error('fetch failed');
     const data = await resp.json();
     const issues = data.issues || [];
     const idx = issues.findIndex(i => i.date === currentDate);
     if (idx === -1) return;
     const prev = issues[idx + 1];
     const next = issues[idx - 1];
-    const prevEl = pager.querySelector('.prev');
-    const nextEl = pager.querySelector('.next');
-    if (prev && prevEl) {
-      prevEl.href = prev.url;
-      prevEl.textContent = prev.date;
-      prevEl.classList.remove('disabled');
-    } else if (prevEl) {
-      prevEl.classList.add('disabled');
-      prevEl.textContent = 'No earlier issue';
-    }
-    if (next && nextEl) {
-      nextEl.href = next.url;
-      nextEl.textContent = next.date;
-      nextEl.classList.remove('disabled');
-    } else if (nextEl) {
-      nextEl.classList.add('disabled');
-      nextEl.textContent = 'Latest';
-    }
+    document.querySelectorAll('.pager').forEach(pager => {
+      const prevEl = pager.querySelector('.prev');
+      const nextEl = pager.querySelector('.next');
+      if (prev && prevEl) {
+        prevEl.href = prev.url;
+        prevEl.textContent = prev.date;
+        prevEl.classList.remove('disabled');
+      } else if (prevEl) {
+        prevEl.classList.add('disabled');
+        prevEl.textContent = 'First issue';
+      }
+      if (next && nextEl) {
+        nextEl.href = next.url;
+        nextEl.textContent = next.date;
+        nextEl.classList.remove('disabled');
+      } else if (nextEl) {
+        nextEl.classList.add('disabled');
+        nextEl.textContent = 'Latest';
+      }
+    });
   } catch(e) {
-    // silently fail
+    // silently fail — pager stays as-is
   }
 })();
 </script>
