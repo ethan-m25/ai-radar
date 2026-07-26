@@ -6,6 +6,20 @@
       "date": "2026-07-26",
       "weekday": "Sun",
       "week": 30,
+      "kind": "weekly",
+      "headline": "The model value war erupted — your coding agent bill is about to be cut in half",
+      "summary": "15 new signals this week with 0 🚨 (second straight week without a critical signal — quality is thinning). But Opus 5 hits #1 at half the price of Fable 5 (7/25)",
+      "counts": {
+        "crit": 1,
+        "look": 14,
+        "fyi": 1
+      },
+      "url": "weekly_2026-07-26.html"
+    },
+    {
+      "date": "2026-07-26",
+      "weekday": "Sun",
+      "week": 30,
       "issue": 63,
       "kind": "daily",
       "headline": "(no headline)",

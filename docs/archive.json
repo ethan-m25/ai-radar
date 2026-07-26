@@ -6,6 +6,20 @@
       "date": "2026-07-26",
       "weekday": "Sun",
       "week": 30,
+      "kind": "weekly",
+      "headline": "模型性价比之战全面爆发，你的编码 agent 成本即将腰斩",
+      "summary": "本周 15 条新信号里出现了 0 个 🚨（连续两周无 🚨，信号质量在下降），但 Opus 5 半价逼近 Fable 5（7/25）、Kimi K3 明天开源（7/27 倒计时）、Echo 用开源模型组合达到 Fable 级别效果且成本仅三分之一（7/24）——三条信号指向同一个方向：模型成本正在快速下降，但选择也开始变",
+      "counts": {
+        "crit": 0,
+        "look": 13,
+        "fyi": 2
+      },
+      "url": "weekly_2026-07-26.html"
+    },
+    {
+      "date": "2026-07-26",
+      "weekday": "Sun",
+      "week": 30,
       "issue": 63,
       "kind": "daily",
       "headline": "(no headline)",
