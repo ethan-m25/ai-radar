@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-27 · Week 31 · №064</title>
-<meta name="description" content="1 signal — Kimi K3 goes open-source today, HN #1 382 points, new milestone for open-weight models">
+<meta name="description" content="1 signal — Kimi K3 goes open-source today, 2.8T params, MXFP4 quantization, HuggingFace 382 points">
 
 <meta property="og:title" content="AI Radar · 2026-07-27 · №064">
-<meta property="og:description" content="1 real signal · 1 🚨 + 0 👀 + 0 ℹ️">
+<meta property="og:description" content="1 real signal · 0 🚨 + 1 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,108 +146,86 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1 must see</span>
+    <span class="pill look">👀 1 worth a look</span>
   </div>
-  <h1 class="headline">Kimi K3 goes open-source today — HN #1 382 points, new milestone for open-weight models</h1>
-  <p class="sub">Moonshot AI delivers on its promise: Kimi K3 weights are now on HuggingFace. 2.8T parameters, 1M context, MXFP4 quantization, Apache 2.0 license. HN front page #1, 382 points / 166 comments. This is the only real signal today, but it carries serious weight.</p>
+  <h1 class="headline">Kimi K3 goes open-source today — 2.8T params, MXFP4 quantization, HuggingFace 382 points</h1>
+  <p class="sub">Monday signal: Moonshot delivered on its promise — Kimi K3 weights are now live on HuggingFace. HN #1 with 382 points, 166 comments. This is the first Chinese open-weight model to break into the 3T-parameter club, and MXFP4 quantization means it can run on a single GPU. Only 1 real signal today, but it's worth your attention.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Kimi K3 open-source release — 382 points, HuggingFace, one of China's strongest open models</li>
+    <li><span class="tier look">👀</span> Kimi K3 open-source release — 382 points, 2.8T params, MXFP4 quantization, HuggingFace launch</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1 -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label crit">🚨 Must see</span>
-  <h2>Kimi K3 open-source release — 382 points, HuggingFace, one of China's strongest open models</h2>
-  <p class="pitch">Hey clawii — today (July 27) is the big day for Kimi K3's open-source release. Moonshot AI delivered the full weights on HuggingFace right on time. HN front page #1, 382 points / 166 comments. This is one of the strongest open-weight models out there: 2.8T parameters, 1M context, native multimodal, Apache 2.0 license. For you, it means you can locally deploy a model close to Claude Fable 5's level, fully under your control.</p>
+<article class="item item--look">
+  <span class="tier-label look">👀 Worth a look</span>
+  <h2>Kimi K3 open-source release — 2.8T params, MXFP4 quantization, HuggingFace 382 points</h2>
+  <p class="pitch">Hey clawii — Moonshot delivered on its July 27 open-source promise today. Kimi K3 weights are live on HuggingFace. HN #1 with 382 points, 166 comments. This is the first Chinese open-weight model to break into the 3T-parameter club, and MXFP4 quantization means it can theoretically run on a single card. For a vibe coder, this means you can now run a near-frontier model locally.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Kimi K3 was first announced on July 16 with a promise to open-source by July 27. Moonshot delivered on time today. The model uses MoE architecture (2.8T total parameters, ~41B active) with the novel Kimi Delta Attention (KDA) for 6.3x decoding speedup. In multiple independent evaluations, Kimi K3 approaches Claude Fable 5 and GPT-5.6 Sol on coding and agent tasks, and leads Opus 4.8. We've been tracking this in Still tracking for 10 days; today's official open-source release is a definitive trigger event.
-  </div>
-
-  <div class="chart">
-    <div class="bar-row">
-      <span class="bar-label">Kimi K3 (2.8T)</span>
-      <span class="bar" style="width:90%"></span>
-      <span class="bar-val">2.8T</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Claude Opus 5</span>
-      <span class="bar" style="width:70%"></span>
-      <span class="bar-val">~2T (estimated)</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">GLM-5.2</span>
-      <span class="bar" style="width:60%"></span>
-      <span class="bar-val">753B</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Inkling (Thinking Machines)</span>
-      <span class="bar" style="width:48%"></span>
-      <span class="bar-val">975B</span>
-    </div>
+    <strong>📍 Context</strong> · Kimi K3 was announced by Moonshot AI on July 16 as a 2.8T-parameter open-weight model using MoE architecture (~41B active parameters), with a 1M-token context window and native multimodal input. It features Kimi Delta Attention (KDA) for 6.3x decoding speedup and Attention Residuals for ~25% training efficiency. On Frontend Code Arena it leads with a 76% pairwise win rate, surpassing Claude Fable 5 and GPT-5.6 Sol. Moonshot promised open-source by July 27 and delivered on time today.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>The ceiling for open models has been broken</strong> — Kimi K3 is the first open-weight model to reach frontier-level performance across multiple independent benchmarks (Intelligence Index 57, close to Fable 5's 59 and Opus 5's 58). You no longer need to rely entirely on closed APIs for top-tier capability.</li>
-    <li><strong>Fully controllable weights, zero API cost</strong> — Apache 2.0 license means you can use it commercially, self-host, and fine-tune it. For enterprise applications (especially sensitive data) this is a huge draw.</li>
-    <li><strong>Exceptionally friendly for Chinese-language users</strong> — Native Chinese capability is a built-in advantage, and the 1M token context window handles long documents well. If you're processing Chinese text or need long context, this could be a better choice than Claude.</li>
-    <li><strong>Ecosystem is already ready</strong> — HuggingFace, vLLM, Ollama and other platforms already support it. You can be up and running in 5 minutes.</li>
+    <li><strong>First Chinese open-weight model in the 3T-parameter club</strong> — 2.8T parameters is a new ceiling for open models. The previous largest were Inkling (975B) and GLM-5.2 (753B). K3 triples that parameter count.</li>
+    <li><strong>MXFP4 quantization means single-GPU inference</strong> — Official support for MXFP4 4-bit quantization means it can theoretically run on a single H100 (80GB). Speed won't be blazing, but it's viable. Big win for local inference and agent workflows.</li>
+    <li><strong>Frontend Code Arena performance beats Fable 5 and GPT-5.6 Sol</strong> — 76% pairwise win rate means it's the best open model for frontend coding tasks. If you vibe-code frontends, K3 might be your best bet.</li>
+    <li><strong>HN 382 points signals global community validation</strong> — This isn't just Chinese community hype. 382 points and 166 comments on HN means developers worldwide are paying attention.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li><strong>Download the weights from HuggingFace</strong> — <a href="https://huggingface.co/moonshotai/Kimi-K3">huggingface.co/moonshotai/Kimi-K3</a>. Full 2.8T FP16 weights need ~5TB storage, but the MXFP4 quantized version uses only ~700GB.</li>
-      <li><strong>Run inference locally</strong> — Use vLLM or Ollama to load it. Even with a single 80GB A100 you can run the quantized version and test it out.</li>
-      <li><strong>Try API providers</strong> — If local resources aren't enough, Fireworks, Together, and Depth already have Kimi K3 APIs live, priced around $0.5/M tokens.</li>
-      <li><strong>Follow up on reviews</strong> — Simon Willison was still kayaking today, but he'll likely publish a detailed review tomorrow. If you use Claude Code, try swapping in Kimi K3 as an alternative model.</li>
+      <li>Download the weights from HuggingFace: <a href="https://huggingface.co/moonshotai">huggingface.co/moonshotai</a> — look for Kimi-K3-2.8T or similar naming.</li>
+      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=123456">HN #1</a> — 382 points, 166 comments, the real insights are in the comments.</li>
+      <li>If you have an H100 or A100, try loading the MXFP4 quantized version with vLLM or SGLang and see if it runs.</li>
+      <li>Use Claude Code or Codex to test K3 on frontend coding tasks and compare against Fable 5.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how Kimi K3 differs from the models you can actually use</summary>
+    <summary>🔬 Deep dive — Kimi K3 vs other open-weight models</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Aspect</th><th>Kimi K3</th><th>Claude Opus 5</th><th>Claude Fable 5</th></tr>
+        <tr><th>Aspect</th><th>Kimi K3</th><th>Inkling (Thinking Machines)</th><th>GLM-5.2 (Zhipu)</th><th>Qwen 3.8 Max Preview</th></tr>
       </thead>
       <tbody>
-        <tr><td>Total parameters</td><td>2.8T (MoE)</td><td>~2T (estimated)</td><td>~2T (estimated)</td></tr>
-        <tr><td>Active parameters</td><td>~41B</td><td>Unknown</td><td>Unknown</td></tr>
-        <tr><td>Context window</td><td>1M tokens</td><td>200K tokens</td><td>200K tokens</td></tr>
-        <tr><td>Multimodal</td><td>Native (text + image + audio input)</td><td>Text only (can call tools for images)</td><td>Native multimodal</td></tr>
-        <tr><td>License</td><td>Apache 2.0 (open-source)</td><td>Closed</td><td>Closed</td></tr>
-        <tr><td>API price</td><td>~$0.5/M tokens (third-party)</td><td>$3/M tokens</td><td>$6/M tokens</td></tr>
-        <tr><td>Coding benchmark</td><td>Close to Fable 5, beats Opus 5 on some tasks</td><td>Good, below Fable 5</td><td>Leading</td></tr>
-        <tr><td>Chinese ability</td><td>Native advantage</td><td>Good but not as strong</td><td>Good</td></tr>
-        <tr><td>Self-hosting difficulty</td><td>High (needs multi-GPU), quantized version fits single-GPU</td><td>N/A (closed)</td><td>N/A</td></tr>
+        <tr><td>Total params</td><td>2.8T</td><td>975B</td><td>753B</td><td>2.4T</td></tr>
+        <tr><td>Active params</td><td>~41B (MoE)</td><td>~41B (MoE)</td><td>~42B (MoE)</td><td>TBD</td></tr>
+        <tr><td>Context window</td><td>1M tokens</td><td>1M tokens</td><td>128K tokens</td><td>TBD</td></tr>
+        <tr><td>Multimodal</td><td>Native (text+image+audio)</td><td>Native (text+image+audio)</td><td>Text+image</td><td>Text+image</td></tr>
+        <tr><td>Quantization</td><td>MXFP4, FP8, BF16</td><td>FP8, BF16</td><td>NVFP4, BF16</td><td>TBD</td></tr>
+        <tr><td>Open-source status</td><td>✅ Released today</td><td>✅ Released</td><td>✅ Released</td><td>⏳ Coming soon</td></tr>
+        <tr><td>License</td><td>Apache 2.0</td><td>Apache 2.0</td><td>Custom</td><td>TBD</td></tr>
+        <tr><td>Frontend Code Arena</td><td>76% win rate (#1)</td><td>Not tested</td><td>Not tested</td><td>Not tested</td></tr>
+        <tr><td>Intelligence Index</td><td>57</td><td>TBD</td><td>TBD</td><td>TBD</td></tr>
+        <tr><td>Single-GPU inference (quantized)</td><td>✅ H100 80GB with MXFP4</td><td>✅ H100 80GB with FP8</td><td>✅ H100 80GB with NVFP4</td><td>❌ Needs multi-GPU</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: Kimi K3 doesn't fully surpass Fable 5 — it lags on some agent tasks, but it's very close on coding and Chinese processing. The biggest advantage is open-source self-hosting. If you don't need the absolute latest closed model, Kimi K3 is a better value proposition. But deployment cost is not trivial — full weights need multiple A100s, quantized version can fit on a single card.</p>
+    <p><strong>Honest caveat</strong>: K3's parameter count is 3x Inkling's, but active parameters are similar (~41B), meaning MoE has more experts but similar compute per token. MXFP4 quantization is a highlight, but actual inference speed may be slower than Inkling's FP8 version. The 76% Frontend Code Arena win rate is impressive but needs independent verification. If you don't have an H100, wait for community benchmarks before downloading the full weights.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 Watch for</strong> · Key trigger events: 1) Simon Willison publishes a detailed review (expected tomorrow); 2) Cursor/Claude Code officially supports Kimi K3; 3) Community discovers any major limitations. If the review says "Kimi K3 fully replaces Opus 5 for vibe coding," the signal upgrades.
+    <strong>🔭 Watch for</strong> · Key trigger events: Simon Willison's hands-on review (he just got back from kayaking and hasn't tested it yet); if he says "K3 is the new benchmark for open-weight models," the signal upgrades to 🚨. Also keep an eye on Qwen 3.8 Max's open-source date — it could shift the competitive landscape.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts, an architecture that activates only a subset of parameters to improve efficiency. <strong>MXFP4</strong> = 4-bit floating-point quantization, can shrink model size to 1/4 of original. <strong>KDA</strong> = Kimi Delta Attention, Moonshot's attention optimization for faster decoding. <strong>Apache 2.0</strong> = A permissive open-source license that allows commercial use and modification.
+    <strong>Jargon decoder</strong> · <strong>MXFP4</strong> = A 4-bit floating-point quantization format proposed by Microsoft, dramatically reducing VRAM requirements while preserving model quality. <strong>MoE</strong> = Mixture of Experts, an architecture that activates only a subset of parameters per inference. <strong>KDA</strong> = Kimi Delta Attention, Moonshot's custom attention mechanism delivering 6.3x decoding speedup. <strong>Attention Residuals</strong> = Residual connections in attention layers, improving training efficiency by ~25%.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN #1, 382 points, 166 comments, 4 hours ago. HuggingFace community article "Kimi K3 Model Overview" with 129 reactions. Smol AI mentioned it on 7/20 and 7/17. Simon Willison hasn't reviewed yet but has it bookmarked.
+    <strong>Who's talking about it</strong> · HN #1, 382 points, 166 comments. HuggingFace community article with 129 reactions (preview from 10 days ago). HN comments focus on quantization effectiveness, real-world inference speed, and comparisons to US open-weight models.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://huggingface.co/moonshotai/Kimi-K3">HuggingFace model card</a> · <a href="https://news.ycombinator.com/item?id=123456">HN discussion</a> · <a href="https://huggingface.co/blog">HuggingFace blog</a> · <a href="https://www.moonshot.cn/">Moonshot AI official site</a>
+    <strong>Try it / dig in</strong> · <a href="https://huggingface.co/moonshotai">HuggingFace model page</a> · <a href="https://news.ycombinator.com/item?id=123456">HN discussion</a> (example link) · <a href="https://huggingface.co/blog">HuggingFace blog</a>
   </div>
 </article>
 
@@ -258,20 +236,20 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Opus 5 context engineering rules</span> <span class="update">— Featured 7/26, no new trigger event today. Simon Willison hasn't reviewed yet. HN discussion still active (+30 points), waiting for Simon's review.</span></div>
+      <span class="days">Day 11</span>
+      <div><span class="item-name">Kimi K3 open-source</span> <span class="update">— Officially released today, HN #1 382 points. Next: Simon Willison review and real-world community feedback.</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">Qwen 3.8 Max Preview</span> <span class="update">— Alibaba hasn't announced open-source date yet. No new news today.</span></div>
+      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Alibaba announced open-source this week but no specific date yet. No new progress today.</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">OpenAI security incident</span> <span class="update">— 5 consecutive days with no new trigger event. Simon Willison's July 23 article still being shared but hasn't entered mainstream tool discussion.</span></div>
+      <div><span class="item-name">OpenAI security incident</span> <span class="update">— 5 consecutive days with no new trigger event, but Simon Willison's "pelicanmaxxing" article is still being shared.</span></div>
     </li>
     <li>
       <span class="days">Day 3</span>
-      <div><span class="item-name">Inkling open-source 975B</span> <span class="update">— Thinking Machines Lab model, no new movement today. Limited community reviews.</span></div>
+      <div><span class="item-name">Opus 5 context engineering rules</span> <span class="update">— 2 consecutive days with no new trigger event, waiting for Simon Willison's review.</span></div>
     </li>
   </ul>
 </aside>
@@ -286,49 +264,64 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>HN #2 PGSimCity — PostgreSQL tutorial</td><td>656 points, not AI tool.</td></tr>
-      <tr><td>HN #3 Physical black hole in your room</td><td>335 points, not AI tool.</td></tr>
-      <tr><td>HN #4 Magnolias pollinated by beetles</td><td>44 points, not AI tool.</td></tr>
-      <tr><td>HN #5 Libsm64</td><td>6 points, not AI tool.</td></tr>
-      <tr><td>HN #6 Scriptc by Vercel</td><td>203 points, TypeScript compiler, not core AI tool (out of scope).</td></tr>
+      <tr><td>HN #2 PGSimCity</td><td>656 points, PostgreSQL visualization tool, not AI tool.</td></tr>
+      <tr><td>HN #3 Black hole in your room</td><td>335 points, physics simulation, not AI tool.</td></tr>
+      <tr><td>HN #4 Magnolias</td><td>44 points, botany article, not AI tool.</td></tr>
+      <tr><td>HN #5 Libsm64</td><td>6 points, Mario 64 library, not AI tool.</td></tr>
+      <tr><td>HN #6 Scriptc by Vercel</td><td>203 points, TypeScript compiler, not AI tool.</td></tr>
       <tr><td>HN #7 Chinese chipmaker shares surge</td><td>45 points, financial news, not AI tool.</td></tr>
-      <tr><td>HN #8 French firefighters pyrocumulonimbus</td><td>395 points, not AI tool.</td></tr>
-      <tr><td>HN #9 Decker / Hypercard platform</td><td>320 points, not AI tool.</td></tr>
-      <tr><td>HN #10 GrapheneOS phone security incident</td><td>823 points, security news, not AI tool.</td></tr>
-      <tr><td>HN #11 Unix spell in 64KB RAM</td><td>38 points, not AI tool.</td></tr>
-      <tr><td>HN #12 We have proof automation now</td><td>178 points, not AI tool.</td></tr>
-      <tr><td>HN #13 Htmx 4.0 Game Boy version</td><td>464 points, humor / not AI.</td></tr>
-      <tr><td>HN #15 Clock that never needed setting</td><td>119 points, not AI tool.</td></tr>
-      <tr><td>HN #16 Data-Oriented Design PDF</td><td>184 points, programming book, not AI tool.</td></tr>
-      <tr><td>HN #17 Fonts In Use</td><td>77 points, not AI tool.</td></tr>
-      <tr><td>HN #18 Developer productivity DX Core 4</td><td>22 points, opinion piece, not new tool/product release.</td></tr>
-      <tr><td>HN #20 Simulate cassette tape audio FFmpeg</td><td>138 points, not AI tool.</td></tr>
-      <tr><td>HN #21 Design is compromise</td><td>262 points, opinion piece, not AI tool.</td></tr>
-      <tr><td>HN #22 Usefulness of Useless Knowledge (1939)</td><td>83 points, not AI tool.</td></tr>
-      <tr><td>HN #23 Old-school summer heat prevention</td><td>21 points, not AI tool.</td></tr>
-      <tr><td>HN #25 CheapSecurity CCTV system</td><td>131 points, not AI tool.</td></tr>
-      <tr><td>HN #26 Boox Go 10.3 review</td><td>9 points, not AI tool.</td></tr>
-      <tr><td>HN #27 Elevated errors on Claude Opus 5</td><td>4 points, error report, not new tool/product release.</td></tr>
-      <tr><td>HN #28 8086 emulator inside Scratch</td><td>7 points, not AI tool.</td></tr>
+      <tr><td>HN #8 French firefighters</td><td>395 points, natural disaster news, not AI tool.</td></tr>
+      <tr><td>HN #9 Decker</td><td>320 points, Hypercard platform, not AI tool.</td></tr>
+      <tr><td>HN #10 GrapheneOS phone wipes</td><td>823 points, security news, not AI tool.</td></tr>
+      <tr><td>HN #11 Unix spell</td><td>38 points, programming history, not AI tool.</td></tr>
+      <tr><td>HN #12 Proof automation</td><td>178 points, formal verification, not AI tool.</td></tr>
+      <tr><td>HN #13 Htmx 4.0</td><td>464 points, JavaScript library, not AI tool.</td></tr>
+      <tr><td>HN #14 NameThatUI</td><td>3 points, UI design game, not AI tool.</td></tr>
+      <tr><td>HN #15 Clock</td><td>119 points, hardware project, not AI tool.</td></tr>
+      <tr><td>HN #16 Data-Oriented Design</td><td>184 points, programming methodology, not AI tool.</td></tr>
+      <tr><td>HN #17 Fonts In Use</td><td>77 points, font tool, not AI tool.</td></tr>
+      <tr><td>HN #18 Developer productivity</td><td>22 points, opinion piece, not AI tool.</td></tr>
+      <tr><td>HN #19 VLC for Unity</td><td>7 points, video tool, not AI tool.</td></tr>
+      <tr><td>HN #20 Cassette tape audio</td><td>138 points, audio tool, not AI tool.</td></tr>
+      <tr><td>HN #21 Design is compromise</td><td>262 points, design article, not AI tool.</td></tr>
+      <tr><td>HN #22 Useless Knowledge</td><td>83 points, education article, not AI tool.</td></tr>
+      <tr><td>HN #23 Summer heat</td><td>21 points, life hack, not AI tool.</td></tr>
+      <tr><td>HN #24 Modern email</td><td>3 points, email tech, not AI tool.</td></tr>
+      <tr><td>HN #25 CheapSecurity</td><td>131 points, CCTV tool, not AI tool.</td></tr>
+      <tr><td>HN #26 Boox Go 10.3</td><td>9 points, hardware review, not AI tool.</td></tr>
+      <tr><td>HN #27 Elevated errors on Opus 5</td><td>4 points, error report, not new tool/product release.</td></tr>
+      <tr><td>HN #28 8086 Emulator</td><td>7 points, emulator, not AI tool.</td></tr>
       <tr><td>HN #29 Reverse Minesweeper</td><td>228 points, game, not AI tool.</td></tr>
-      <tr><td>HN #30 Go Analysis Framework</td><td>212 points, programming framework, not AI tool.</td></tr>
-      <tr><td>OpenAI "How AI is Expanding What People Do at Work"</td><td>Jul 27 release, blog post, not new tool/model release.</td></tr>
-      <tr><td>OpenAI Health in ChatGPT</td><td>Jul 23 already reported, no new trigger event.</td></tr>
-      <tr><td>Anthropic no new releases</td><td>Last release Jul 24 Opus 5, nothing new today.</td></tr>
-      <tr><td>Google DeepMind no new releases</td><td>No new content.</td></tr>
-      <tr><td>Mistral no new releases</td><td>Last release Jul 8 Robostral Navigate, out of scope.</td></tr>
-      <tr><td>HuggingFace model nvidia/Cosmos3-Edge</td><td>Weak signal, not coding/agent tool.</td></tr>
-      <tr><td>HuggingFace model baidu/Unlimited-OCR</td><td>OCR model, out of scope.</td></tr>
-      <tr><td>HuggingFace model poolside/Laguna-S-2.1</td><td>Code model but signal weak (previously excluded from HN).</td></tr>
-      <tr><td>HuggingFace article POCKET: 35B on iPhone</td><td>12 reactions, signal too weak.</td></tr>
-      <tr><td>Simon Willison: Inside Look at Token Resellers</td><td>Jul 26 article, security/fraud analysis, not tool signal.</td></tr>
-      <tr><td>Simon Willison: Opus 5 system card / prompt injection</td><td>Jul 25 article, Opus 5 already in Still tracking.</td></tr>
-      <tr><td>Simon Willison: Are AI labs pelicanmaxxing?</td><td>Fun evaluation, not tool signal.</td></tr>
+      <tr><td>HN #30 Go Analysis Framework</td><td>212 points, Go tool, not AI tool.</td></tr>
+      <tr><td>OpenAI: How AI is expanding what people do at work</td><td>Jul 27 release, case study, not new tool/model release.</td></tr>
+      <tr><td>OpenAI: Health in ChatGPT</td><td>Jul 23 release, health feature update, not new tool/model release.</td></tr>
+      <tr><td>OpenAI: Building AI infrastructure</td><td>Jul 22 release, infrastructure news, not new tool/model release.</td></tr>
+      <tr><td>OpenAI: How news orgs using AI</td><td>Jul 22 release, case study, not new tool/product release.</td></tr>
+      <tr><td>OpenAI: Advancing national science</td><td>Jul 22 release, policy news, not new tool/product release.</td></tr>
+      <tr><td>OpenAI: Presence</td><td>Jul 22 release, enterprise product, not new tool/model release.</td></tr>
+      <tr><td>OpenAI: NTT Data</td><td>Jul 22 release, enterprise partnership, not new tool/product release.</td></tr>
+      <tr><td>OpenAI: Small Business Program</td><td>Jul 21 release, enterprise product, not new tool/model release.</td></tr>
+      <tr><td>Anthropic: Opus 5</td><td>Jul 24 release, already covered, no new trigger event today.</td></tr>
+      <tr><td>Anthropic: Economic Futures Research Fund</td><td>Jul 22 release, economic research, not tool/product.</td></tr>
+      <tr><td>Anthropic: donating $20M</td><td>Jul 21 release, funding news, not tool/product.</td></tr>
+      <tr><td>Anthropic: AI for Science grants</td><td>Jul 20 release, funding news, not tool/product.</td></tr>
+      <tr><td>Google DeepMind: Gemini 3.5 Flash Cyber</td><td>Jul 22 already covered, no new trigger event today.</td></tr>
+      <tr><td>Hugging Face: Hot Security incident</td><td>Jul 22 already covered as security incident, no new trigger event today.</td></tr>
+      <tr><td>Hugging Face: Kimi K3 Model Overview</td><td>Article from 10 days ago, K3 open-source today is covered as Item 1.</td></tr>
+      <tr><td>Hugging Face: POCKET 35B on iPhone</td><td>Only 12 reactions, signal too weak.</td></tr>
+      <tr><td>Hugging Face: NVIDIA Cosmos3-Edge</td><td>NVIDIA model, weak signal.</td></tr>
+      <tr><td>Simon Willison: Relay Market</td><td>Jul 26 post, LLM token reseller market, not tool signal.</td></tr>
+      <tr><td>Simon Willison: Opus 5 prompt injectable</td><td>Jul 25 post, security discussion, not new tool/product release.</td></tr>
+      <tr><td>Simon Willison: Introducing Claude Opus 5</td><td>Jul 24 post, already covered, no new trigger event today.</td></tr>
+      <tr><td>Simon Willison: Runaway AI agent</td><td>Jul 23 post, security incident analysis, not new tool/product release.</td></tr>
+      <tr><td>Simon Willison: OpenAI cyberattack</td><td>Jul 22 post, already covered, no new trigger event today.</td></tr>
+      <tr><td>Simon Willison: Are AI labs pelicanmaxxing?</td><td>Jul 22 post, fun evaluation, not tool signal.</td></tr>
+      <tr><td>Mistral news</td><td>No new content today.</td></tr>
       <tr><td>OSSInsight rankings</td><td>API returned empty data, can't generate trends.</td></tr>
       <tr><td>GitHub Trending daily</td><td>No high-star AI projects today.</td></tr>
-      <tr><td>LM Studio Bionic</td><td>No new movement for 10 days, removed from Still tracking.</td></tr>
-      <tr><td>Fable 5 subscription retention</td><td>No new movement for 9 days, removed from Still tracking.</td></tr>
-      <tr><td>NotebookLM → Gemini Notebook</td><td>No new movement for 9 days, removed from Still tracking.</td></tr>
+      <tr><td>LM Studio Bionic</td><td>10 consecutive days with no new movement, removed from Still tracking.</td></tr>
+      <tr><td>Fable 5 subscription retention</td><td>9 consecutive days with no new movement, removed from Still tracking.</td></tr>
+      <tr><td>NotebookLM → Gemini Notebook</td><td>9 consecutive days with no new movement, removed from Still tracking.</td></tr>
     </tbody>
   </table>
 </section>

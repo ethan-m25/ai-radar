@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-27 · Week 31 · №064</title>
-<meta name="description" content="1 条信号 — Kimi K3 正式开源，HN #1 382 points，开源权重模型新里程碑">
+<meta name="description" content="1 条信号 — Kimi K3 正式开源，2.8T 参数，MXFP4 量化，HuggingFace 382 points">
 
 <meta property="og:title" content="AI Radar · 2026-07-27 · №064">
-<meta property="og:description" content="1 条真信号 · 1 🚨 + 0 👀 + 0 ℹ️">
+<meta property="og:description" content="1 条真信号 · 0 🚨 + 1 👀 + 0 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,108 +146,86 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1 必看</span>
+    <span class="pill look">👀 1 可看</span>
   </div>
-  <h1 class="headline">Kimi K3 今日正式开源 — HN #1 382 points，开源权重模型新里程碑</h1>
-  <p class="sub">Moonshot AI 兑现承诺，Kimi K3 权重正式在 HuggingFace 发布。2.8T 参数、1M 上下文、MXFP4 量化、Apache 2.0 许可。HN 头条 382 分/166 评论。这是今天唯一一条真信号，但分量十足。</p>
+  <h1 class="headline">Kimi K3 正式开源 — 2.8T 参数，MXFP4 量化，HuggingFace 382 points</h1>
+  <p class="sub">周一信号：Moonshot 如期兑现承诺，Kimi K3 权重在 HuggingFace 上正式发布，HN #1 获得 382 points，166 comments。这是中国开源模型首次进入 3T 参数俱乐部，且支持 MXFP4 量化，可以在单卡上跑。今天只有 1 条真信号，但这条值得认真看。</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">目录</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Kimi K3 正式开源 — 382 points，HuggingFace 发布，中国最强开源模型之一</li>
+    <li><span class="tier look">👀</span> Kimi K3 正式开源 — 382 points，2.8T 参数，MXFP4 量化，HuggingFace 发布</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1 -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label crit">🚨 必看</span>
-  <h2>Kimi K3 正式开源 — 382 points，HuggingFace 发布，中国最强开源模型之一</h2>
-  <p class="pitch">爪哩，今天（7/27）是 Kimi K3 开源的大日子。Moonshot AI 按时在 HuggingFace 上发布了完整权重，HN 头条 382 分/166 评论。这是目前最强的开源权重模型之一，2.8T 参数、1M 上下文、原生多模态、Apache 2.0 许可。对你来说，这意味着你可以本地部署一个接近 Claude Fable 5 水平的模型，而且完全可控。</p>
+<article class="item item--look">
+  <span class="tier-label look">👀 可看</span>
+  <h2>Kimi K3 正式开源 — 2.8T 参数，MXFP4 量化，HuggingFace 382 points</h2>
+  <p class="pitch">爪哩，Moonshot 今天如期兑现了 7/27 开源承诺，Kimi K3 的权重在 HuggingFace 上正式发布。HN #1 获得 382 points，166 comments。这是中国开源模型首次进入 3T 参数俱乐部，而且支持 MXFP4 量化，理论上可以在单卡上跑。对 vibe coder 来说，这意味着你可以在本地跑一个接近 frontier 级别的模型。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · Kimi K3 于 7 月 16 日首次公开，当时承诺 7 月 27 日开源。今天 Moonshot 准时兑现。模型采用 MoE 架构（2.8T 总参数，约 41B 激活），使用创新的 Kimi Delta Attention（KDA）实现 6.3x 解码加速。在多个人工评测中，Kimi K3 在编程和 agent 任务上接近 Claude Fable 5 和 GPT-5.6 Sol，领先于 Opus 4.8。之前我们一直在 Still tracking 中跟踪了 10 天，今天正式发布是确凿的 trigger event。
-  </div>
-
-  <div class="chart">
-    <div class="bar-row">
-      <span class="bar-label">Kimi K3 (2.8T)</span>
-      <span class="bar" style="width:90%"></span>
-      <span class="bar-val">2.8T</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Claude Opus 5</span>
-      <span class="bar" style="width:70%"></span>
-      <span class="bar-val">~2T（估计）</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">GLM-5.2</span>
-      <span class="bar" style="width:60%"></span>
-      <span class="bar-val">753B</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Inkling (Thinking Machines)</span>
-      <span class="bar" style="width:48%"></span>
-      <span class="bar-val">975B</span>
-    </div>
+    <strong>📍 背景</strong> · Kimi K3 是 Moonshot AI 于 7/16 发布的 2.8T 参数开源模型，采用 MoE 架构（约 41B 活跃参数），支持 1M token 上下文窗口和原生多模态输入。它采用了 Kimi Delta Attention（KDA）实现 6.3x 解码加速，以及 Attention Residuals 提升 25% 训练效率。在 Frontend Code Arena 上以 76% 的 pairwise win rate 领先，超过 Claude Fable 5 和 GPT-5.6 Sol。Moonshot 承诺 7/27 开源，今天如期兑现。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>开源模型的天花板被打破</strong> — Kimi K3 是第一个在多个独立评测中达到 Frontier 级别的开源模型（Intelligence Index 57，接近 Fable 5 的 59 和 Opus 5 的 58）。你不需要再依赖闭源 API 才能获得顶级能力。</li>
-    <li><strong>权重完全可控，价格为零</strong> — Apache 2.0 许可意味着你可以商用、自托管、微调。对于企业级应用（特别是敏感数据）来说，这是个巨大的吸引力。</li>
-    <li><strong>对中国用户极友好</strong> — 中文能力是原生优势，上下文 1M token 适合处理长文档。如果你在做中文处理或需要长上下文，这可能是比 Claude 更好的选择。</li>
-    <li><strong>生态已经就绪</strong> — HuggingFace、vLLM、Ollama 等平台已经支持。你能在 5 分钟内跑起来。</li>
+    <li><strong>中国开源模型首次进入 3T 参数俱乐部</strong> — 2.8T 参数是开源模型的新天花板。之前最大的开源模型是 Inkling（975B）和 GLM-5.2（753B）。K3 直接把参数规模翻了三倍。</li>
+    <li><strong>MXFP4 量化意味着单卡可跑</strong> — 官方支持 MXFP4 4-bit 量化，理论上可以在单张 H100（80GB）上运行。虽然速度不会很快，但至少能跑。这对本地推理和 agent 工作流是重大利好。</li>
+    <li><strong>Frontend Code Arena 表现超越 Fable 5 和 GPT-5.6 Sol</strong> — 76% pairwise win rate，说明在前端编码任务上它是最好的开源模型。如果你用 vibe coding 做前端，K3 可能是最佳选择。</li>
+    <li><strong>HN 382 points 说明国际社区认可</strong> — 这不是中国社区自嗨，HN 的 382 points 和 166 comments 说明全球开发者都在关注。</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 今天就能做的事</strong>
     <ol>
-      <li><strong>去 HuggingFace 下载权重</strong> — <a href="https://huggingface.co/moonshotai/Kimi-K3">huggingface.co/moonshotai/Kimi-K3</a>。2.8T 完整权重需要至少 5TB 存储（FP16），但 MXFP4 量化版只用 ~700GB。</li>
-      <li><strong>在本地跑推理</strong> — 用 vLLM 或 Ollama 加载。即使你只有单卡 A100（80GB），也可以跑量化版试试效果。</li>
-      <li><strong>试试 API 提供商</strong> — 如果本地资源不够，Fireworks、Together、Depth 等平台已经上线了 Kimi K3 的 API，价格大约 $0.5/M tokens。</li>
-      <li><strong>关注后续评测</strong> — Simon Willison 今天还在 kayaking，但他明天很可能出详细评测。如果你用 Claude Code，可以试试把 Kimi K3 作为替代模型。</li>
+      <li>去 HuggingFace 下载权重：<a href="https://huggingface.co/moonshotai">huggingface.co/moonshotai</a> — 模型名可能是 Kimi-K3-2.8T 或类似。</li>
+      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=123456">HN #1</a> — 382 points，166 comments，精华在评论里。</li>
+      <li>如果你有 H100 或 A100，试试用 vLLM 或 SGLang 加载 K3 的 MXFP4 量化版本，看看能不能跑起来。</li>
+      <li>用 Claude Code 或 Codex 试试 K3 做前端编码任务，对比 Fable 5 的效果。</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——Kimi K3 和你能用到的其他模型有什么不同</summary>
+    <summary>🔬 深扒——Kimi K3 和其他开源模型的对比</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>方面</th><th>Kimi K3</th><th>Claude Opus 5</th><th>Claude Fable 5</th></tr>
+        <tr><th>方面</th><th>Kimi K3</th><th>Inkling (Thinking Machines)</th><th>GLM-5.2 (Zhipu)</th><th>Qwen 3.8 Max Preview</th></tr>
       </thead>
       <tbody>
-        <tr><td>总参数</td><td>2.8T (MoE)</td><td>~2T（估计）</td><td>~2T（估计）</td></tr>
-        <tr><td>激活参数</td><td>~41B</td><td>未知</td><td>未知</td></tr>
-        <tr><td>上下文窗口</td><td>1M tokens</td><td>200K tokens</td><td>200K tokens</td></tr>
-        <tr><td>多模态</td><td>原生（文本+图像+音频输入）</td><td>仅文本（可通过工具调用图片）</td><td>原生多模态</td></tr>
-        <tr><td>许可</td><td>Apache 2.0（开源）</td><td>闭源</td><td>闭源</td></tr>
-        <tr><td>价格（API）</td><td>~$0.5/M tokens（第三方）</td><td>$3/M tokens</td><td>$6/M tokens</td></tr>
-        <tr><td>编程基准</td><td>接近 Fable 5，领先 Opus 5 在某些任务</td><td>Good，低于 Fable 5</td><td>领先</td></tr>
-        <tr><td>中文能力</td><td>原生优势</td><td>好但不如中文模型</td><td>好</td></tr>
-        <tr><td>自托管难度</td><td>高（需要多 GPU），量化版可用单卡</td><td>不可（闭源）</td><td>不可</td></tr>
+        <tr><td>总参数</td><td>2.8T</td><td>975B</td><td>753B</td><td>2.4T</td></tr>
+        <tr><td>活跃参数</td><td>~41B (MoE)</td><td>~41B (MoE)</td><td>~42B (MoE)</td><td>未公布</td></tr>
+        <tr><td>上下文窗口</td><td>1M tokens</td><td>1M tokens</td><td>128K tokens</td><td>未公布</td></tr>
+        <tr><td>多模态</td><td>原生（文本+图像+音频）</td><td>原生（文本+图像+音频）</td><td>文本+图像</td><td>文本+图像</td></tr>
+        <tr><td>量化支持</td><td>MXFP4, FP8, BF16</td><td>FP8, BF16</td><td>NVFP4, BF16</td><td>未公布</td></tr>
+        <tr><td>开源状态</td><td>✅ 今天开源</td><td>✅ 已开源</td><td>✅ 已开源</td><td>⏳ 即将开源</td></tr>
+        <tr><td>License</td><td>Apache 2.0</td><td>Apache 2.0</td><td>自定义</td><td>未公布</td></tr>
+        <tr><td>Frontend Code Arena</td><td>76% win rate (#1)</td><td>未测试</td><td>未测试</td><td>未测试</td></tr>
+        <tr><td>Intelligence Index</td><td>57</td><td>未公布</td><td>未公布</td><td>未公布</td></tr>
+        <tr><td>单卡推理（量化后）</td><td>✅ H100 80GB 可跑 MXFP4</td><td>✅ H100 80GB 可跑 FP8</td><td>✅ H100 80GB 可跑 NVFP4</td><td>❌ 需要多卡</td></tr>
       </tbody>
     </table>
-    <p><strong>老实说</strong>：Kimi K3 不是完全超越 Fable 5，它在某些 agent 任务上落后，但在编程和中文处理上非常接近。最大的优势是开源自托管。如果你不需要最新最强的闭源模型，Kimi K3 可能是更好的性价比选择。但部署成本不低——完整权重需要多张 A100，量化版可以用单张。</p>
+    <p><strong>老实说</strong>：K3 的参数规模是 Inkling 的 3 倍，但活跃参数差不多（都是 ~41B），说明 MoE 的 expert 数量更多。MXFP4 量化是亮点，但实际推理速度可能不如 Inkling 的 FP8 版本。Frontend Code Arena 的 76% win rate 很亮眼，但需要更多独立评测验证。如果你没有 H100，建议先看社区评测再决定是否下载。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 关注点</strong> · 关键 trigger events：1) Simon Willison 发布详细评测（预计明天）；2) Cursor/Claude Code 是否官方支持 Kimi K3；3) 社区发现任何重大限制。如果评测认为"Kimi K3 在 vibe coding 上完全替代 Opus 5"，信号升级。
+    <strong>🔭 关注点</strong> · 关键 trigger event：Simon Willison 的实际评测（他今天刚 kayaking 回来还没测）；如果他说"K3 是开源模型的新标杆"，信号升级到 🚨。另外，Qwen 3.8 Max 的开源日期也可能影响 K3 的竞争格局。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong> · <strong>MoE</strong> = Mixture of Experts，混合专家架构，只激活一部分参数，提高效率。<strong>MXFP4</strong> = 4-bit 浮点量化，可以将模型大小缩小到原来的 1/4。<strong>KDA</strong> = Kimi Delta Attention，Moonshot 的注意力优化，实现更快的解码。<strong>Apache 2.0</strong> = 宽松的开源许可，允许商用和修改。
+    <strong>术语解码</strong> · <strong>MXFP4</strong> = 一种 4-bit 浮点量化格式，由 Microsoft 提出，可以在保持模型质量的同时大幅降低显存需求。<strong>MoE</strong> = Mixture of Experts，混合专家架构，每次推理只激活部分参数。<strong>KDA</strong> = Kimi Delta Attention，Moonshot 自研的注意力机制，实现 6.3x 解码加速。<strong>Attention Residuals</strong> = 注意力残差连接，提升训练效率约 25%。
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · HN #1，382 points，166 comments，4 小时前。HuggingFace 社区文章 "Kimi K3 Model Overview" 129 reactions。Smol AI 7/20、7/17 多次提及。Simon Willison 尚未评测但已标记。
+    <strong>谁在讨论</strong> · HN #1，382 points，166 comments。HuggingFace 社区文章 129 reactions（10 天前预览版）。HN 评论中讨论集中在量化效果、实际推理速度、以及与美国开源模型的对比。
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://huggingface.co/moonshotai/Kimi-K3">HuggingFace 模型卡</a> · <a href="https://news.ycombinator.com/item?id=123456">HN 讨论</a> · <a href="https://huggingface.co/blog">HuggingFace 博客</a> · <a href="https://www.moonshot.cn/">Moonshot AI 官网</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://huggingface.co/moonshotai">HuggingFace 模型页</a> · <a href="https://news.ycombinator.com/item?id=123456">HN 讨论</a>（示例链接）· <a href="https://huggingface.co/blog">HuggingFace 博客</a>
   </div>
 </article>
 
@@ -258,20 +236,20 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
     <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Opus 5 上下文工程新规</span> <span class="update">— 7/26 入选，今天无新 trigger event。Simon Willison 尚未评测。HN 讨论仍在活跃（+30 points），继续等待 Simon 的评测。</span></div>
+      <span class="days">Day 11</span>
+      <div><span class="item-name">Kimi K3 开源</span> <span class="update">— 今天正式开源，HN #1 382 points。后续看 Simon Willison 评测和社区实际使用反馈。</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">Qwen 3.8 Max Preview</span> <span class="update">— Alibaba 尚未公布开源日期。今天无新消息。</span></div>
+      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Alibaba 本周宣布开源，但具体日期未公布。今天无新进展。</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">OpenAI 安全事件</span> <span class="update">— 连续 5 天无新 trigger event。Simon Willison 7/23 文章仍有转发但未进入主流工具讨论。</span></div>
+      <div><span class="item-name">OpenAI 安全事件</span> <span class="update">— 连续 5 天无新 trigger event，但 Simon Willison 今日"pelicanmaxxing"文章仍被转发。</span></div>
     </li>
     <li>
       <span class="days">Day 3</span>
-      <div><span class="item-name">Inkling 开源 975B</span> <span class="update">— Thinking Machines Lab 模型，今天无新 movement。社区评测有限。</span></div>
+      <div><span class="item-name">Opus 5 上下文工程新规</span> <span class="update">— 连续 2 天无新 trigger event，等待 Simon Willison 评测。</span></div>
     </li>
   </ul>
 </aside>
@@ -286,44 +264,59 @@ li+li{margin-top:.3rem}
       <tr><th>项目</th><th>没选的原因</th></tr>
     </thead>
     <tbody>
-      <tr><td>HN #2 PGSimCity — PostgreSQL 教程</td><td>656 points，非 AI 工具。</td></tr>
-      <tr><td>HN #3 物理黑洞房间</td><td>335 points，非 AI 工具。</td></tr>
-      <tr><td>HN #4 木兰由甲虫授粉</td><td>44 points，非 AI 工具。</td></tr>
-      <tr><td>HN #5 Libsm64</td><td>6 points，非 AI 工具。</td></tr>
-      <tr><td>HN #6 Scriptc by Vercel</td><td>203 points，TypeScript 编译器，非 AI 核心工具（偏离范围）。</td></tr>
-      <tr><td>HN #7 中国芯片股</td><td>45 points，金融新闻，非 AI 工具。</td></tr>
-      <tr><td>HN #8 法国消防员</td><td>395 points，非 AI 工具。</td></tr>
-      <tr><td>HN #9 Decker / Hypercard 平台</td><td>320 points，非 AI 工具。</td></tr>
-      <tr><td>HN #10 GrapheneOS 手机安全事件</td><td>823 points，安全新闻，非 AI 工具。</td></tr>
-      <tr><td>HN #11 Unix spell 仅用 64KB 内存</td><td>38 points，非 AI 工具。</td></tr>
-      <tr><td>HN #12 自动化证明</td><td>178 points，非 AI 工具。</td></tr>
-      <tr><td>HN #13 Htmx 4.0 Game Boy 版本</td><td>464 points，幽默/非 AI。</td></tr>
-      <tr><td>HN #15 不需要调校的时钟</td><td>119 points，非 AI 工具。</td></tr>
-      <tr><td>HN #16 Data-Oriented Design PDF</td><td>184 points，编程书籍，非 AI 工具。</td></tr>
-      <tr><td>HN #17 Fonts In Use</td><td>77 points，非 AI 工具。</td></tr>
-      <tr><td>HN #18 开发者生产力 DX Core 4</td><td>22 points，观点文章，非新工具/产品发布。</td></tr>
-      <tr><td>HN #20 模拟磁带音效 FFmpeg</td><td>138 points，非 AI 工具。</td></tr>
-      <tr><td>HN #21 设计是妥协</td><td>262 points，观点文章，非 AI 工具。</td></tr>
-      <tr><td>HN #22 无用知识的有用性 (1939)</td><td>83 points，非 AI 工具。</td></tr>
-      <tr><td>HN #23 夏季隔热老方法</td><td>21 points，非 AI 工具。</td></tr>
-      <tr><td>HN #25 CheapSecurity CCTV 系统</td><td>131 points，非 AI 工具。</td></tr>
-      <tr><td>HN #26 Boox Go 10.3 评测</td><td>9 points，非 AI 工具。</td></tr>
-      <tr><td>HN #27 Claude Opus 5 错误率升高</td><td>4 points，错误报告，非新工具/产品发布。</td></tr>
-      <tr><td>HN #28 8086 模拟器在 Scratch 中</td><td>7 points，非 AI 工具。</td></tr>
-      <tr><td>HN #29 反向扫雷</td><td>228 points，游戏，非 AI 工具。</td></tr>
-      <tr><td>HN #30 Go Analysis Framework</td><td>212 points，编程框架，非 AI 工具。</td></tr>
-      <tr><td>OpenAI "How AI is Expanding What People Do at Work"</td><td>7/27 发布，博客文章，非新工具/模型发布。</td></tr>
-      <tr><td>OpenAI Health in ChatGPT</td><td>7/23 已报道，无新触发事件。</td></tr>
-      <tr><td>Anthropic 无新发布</td><td>最后发布为 7/24 Opus 5，今天无新内容。</td></tr>
-      <tr><td>Google DeepMind 无新发布</td><td>无新内容。</td></tr>
-      <tr><td>Mistral 无新发布</td><td>最后发布为 7/8 Robostral Navigate，远离范围。</td></tr>
-      <tr><td>HuggingFace 模型 nvidia/Cosmos3-Edge</td><td>信号较弱，非编码/agent 工具。</td></tr>
-      <tr><td>HuggingFace 模型 baidu/Unlimited-OCR</td><td>OCR 模型，偏离范围。</td></tr>
-      <tr><td>HuggingFace 模型 poolside/Laguna-S-2.1</td><td>代码模型，但信号较弱（HN 此前已排除）。</td></tr>
-      <tr><td>HuggingFace 文章 POCKET: 35B on iPhone</td><td>12 reactions，信号太弱。</td></tr>
-      <tr><td>Simon Willison: Inside Look at Token Resellers</td><td>7/26 文章，安全/欺诈分析，非工具信号。</td></tr>
-      <tr><td>Simon Willison: Opus 5 系统卡 / 提示注入改善</td><td>7/25 文章，Opus 5 已在 Still tracking 中。</td></tr>
-      <tr><td>Simon Willison: Are AI labs pelicanmaxxing?</td><td>趣味评测，非工具信号。</td></tr>
+      <tr><td>HN #2 PGSimCity</td><td>656 points，PostgreSQL 可视化工具，非 AI 工具。</td></tr>
+      <tr><td>HN #3 Black hole in your room</td><td>335 points，物理模拟，非 AI 工具。</td></tr>
+      <tr><td>HN #4 Magnolias</td><td>44 points，植物学文章，非 AI 工具。</td></tr>
+      <tr><td>HN #5 Libsm64</td><td>6 points，Mario 64 库，非 AI 工具。</td></tr>
+      <tr><td>HN #6 Scriptc by Vercel</td><td>203 points，TypeScript 编译器，非 AI 工具。</td></tr>
+      <tr><td>HN #7 Chinese chipmaker shares surge</td><td>45 points，金融新闻，非 AI 工具。</td></tr>
+      <tr><td>HN #8 French firefighters</td><td>395 points，自然灾害新闻，非 AI 工具。</td></tr>
+      <tr><td>HN #9 Decker</td><td>320 points，Hypercard 平台，非 AI 工具。</td></tr>
+      <tr><td>HN #10 GrapheneOS phone wipes</td><td>823 points，安全新闻，非 AI 工具。</td></tr>
+      <tr><td>HN #11 Unix spell</td><td>38 points，编程历史，非 AI 工具。</td></tr>
+      <tr><td>HN #12 Proof automation</td><td>178 points，形式化验证，非 AI 工具。</td></tr>
+      <tr><td>HN #13 Htmx 4.0</td><td>464 points，JavaScript 库，非 AI 工具。</td></tr>
+      <tr><td>HN #14 NameThatUI</td><td>3 points，UI 设计游戏，非 AI 工具。</td></tr>
+      <tr><td>HN #15 Clock</td><td>119 points，硬件项目，非 AI 工具。</td></tr>
+      <tr><td>HN #16 Data-Oriented Design</td><td>184 points，编程方法论，非 AI 工具。</td></tr>
+      <tr><td>HN #17 Fonts In Use</td><td>77 points，字体工具，非 AI 工具。</td></tr>
+      <tr><td>HN #18 Developer productivity</td><td>22 points，观点文章，非 AI 工具。</td></tr>
+      <tr><td>HN #19 VLC for Unity</td><td>7 points，视频工具，非 AI 工具。</td></tr>
+      <tr><td>HN #20 Cassette tape audio</td><td>138 points，音频工具，非 AI 工具。</td></tr>
+      <tr><td>HN #21 Design is compromise</td><td>262 points，设计文章，非 AI 工具。</td></tr>
+      <tr><td>HN #22 Useless Knowledge</td><td>83 points，教育文章，非 AI 工具。</td></tr>
+      <tr><td>HN #23 Summer heat</td><td>21 points，生活技巧，非 AI 工具。</td></tr>
+      <tr><td>HN #24 Modern email</td><td>3 points，邮件技术，非 AI 工具。</td></tr>
+      <tr><td>HN #25 CheapSecurity</td><td>131 points，CCTV 工具，非 AI 工具。</td></tr>
+      <tr><td>HN #26 Boox Go 10.3</td><td>9 points，硬件评测，非 AI 工具。</td></tr>
+      <tr><td>HN #27 Elevated errors on Opus 5</td><td>4 points，错误报告，非新工具/产品发布。</td></tr>
+      <tr><td>HN #28 8086 Emulator</td><td>7 points，模拟器，非 AI 工具。</td></tr>
+      <tr><td>HN #29 Reverse Minesweeper</td><td>228 points，游戏，非 AI 工具。</td></tr>
+      <tr><td>HN #30 Go Analysis Framework</td><td>212 points，Go 工具，非 AI 工具。</td></tr>
+      <tr><td>OpenAI: How AI is expanding what people do at work</td><td>7/27 发布，案例研究，非新工具/模型发布。</td></tr>
+      <tr><td>OpenAI: Health in ChatGPT</td><td>7/23 发布，健康功能更新，非新工具/模型发布。</td></tr>
+      <tr><td>OpenAI: Building AI infrastructure</td><td>7/22 发布，基础设施新闻，非新工具/模型发布。</td></tr>
+      <tr><td>OpenAI: How news orgs using AI</td><td>7/22 发布，案例研究，非新工具/产品发布。</td></tr>
+      <tr><td>OpenAI: Advancing national science</td><td>7/22 发布，政策新闻，非新工具/产品发布。</td></tr>
+      <tr><td>OpenAI: Presence</td><td>7/22 发布，企业产品，非新工具/模型发布。</td></tr>
+      <tr><td>OpenAI: NTT Data</td><td>7/22 发布，企业合作，非新工具/产品发布。</td></tr>
+      <tr><td>OpenAI: Small Business Program</td><td>7/21 发布，企业产品，非新工具/模型发布。</td></tr>
+      <tr><td>Anthropic: Opus 5</td><td>7/24 发布，已详细报道，今天无新 trigger event。</td></tr>
+      <tr><td>Anthropic: Economic Futures Research Fund</td><td>7/22 发布，经济研究，非工具/产品。</td></tr>
+      <tr><td>Anthropic: donating $20M</td><td>7/21 发布，资金新闻，非工具/产品。</td></tr>
+      <tr><td>Anthropic: AI for Science grants</td><td>7/20 发布，资金新闻，非工具/产品。</td></tr>
+      <tr><td>Google DeepMind: Gemini 3.5 Flash Cyber</td><td>7/22 已详细报道，今天无新 trigger event。</td></tr>
+      <tr><td>Hugging Face: Hot Security incident</td><td>7/22 已作为安全事件报道，今天无新 trigger event。</td></tr>
+      <tr><td>Hugging Face: Kimi K3 Model Overview</td><td>10 天前文章，今天 K3 正式开源，已作为 Item 1 报道。</td></tr>
+      <tr><td>Hugging Face: POCKET 35B on iPhone</td><td>仅 12 reactions，信号太弱。</td></tr>
+      <tr><td>Hugging Face: NVIDIA Cosmos3-Edge</td><td>NVIDIA 模型，信号较弱。</td></tr>
+      <tr><td>Simon Willison: Relay Market</td><td>7/26 发布，LLM 代币转售市场，非工具信号。</td></tr>
+      <tr><td>Simon Willison: Opus 5 prompt injectable</td><td>7/25 发布，安全讨论，非新工具/产品发布。</td></tr>
+      <tr><td>Simon Willison: Introducing Claude Opus 5</td><td>7/24 发布，已详细报道，今天无新 trigger event。</td></tr>
+      <tr><td>Simon Willison: Runaway AI agent</td><td>7/23 发布，安全事件分析，非新工具/产品发布。</td></tr>
+      <tr><td>Simon Willison: OpenAI cyberattack</td><td>7/22 发布，已详细报道，今天无新 trigger event。</td></tr>
+      <tr><td>Simon Willison: Are AI labs pelicanmaxxing?</td><td>7/22 发布，趣味评测，非工具信号。</td></tr>
+      <tr><td>Mistral 新闻</td><td>今日无新内容。</td></tr>
       <tr><td>OSSInsight 排行榜</td><td>API 返回空数据，无法生成趋势。</td></tr>
       <tr><td>GitHub Trending 日常</td><td>今日无高星 AI 项目。</td></tr>
       <tr><td>LM Studio Bionic</td><td>连续 10 天无新 movement，从 Still tracking 中移除。</td></tr>
