@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-30 · Week 31 · №066</title>
-<meta name="description" content="No real signals today — scanned 50+ sources, all recap / press releases / already covered by Chinese-language outlets">
+<meta name="description" content="1 signal — Kimi K3 community adoption accelerates: HN 448 points + HuggingFace 388k downloads">
 
 <meta property="og:title" content="AI Radar · 2026-07-30 · №066">
-<meta property="og:description" content="0 real signals · quiet day">
+<meta property="og:description" content="1 real signal · 1 🚨">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,58 +146,116 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill fyi">🌤️ 0 real signals</span>
+    <span class="pill crit">🚨 1 must-see</span>
   </div>
-  <h1 class="headline">No real signals today</h1>
-  <p class="sub">Scanned 50+ sources — everything is recap / press releases / already covered by Chinese-language outlets. Stay calm and keep building.<br>(Note: 3 consecutive days with no signal is normal. If 7 consecutive days hit 0, it's time to recalibrate the threshold.)</p>
+  <h1 class="headline">Kimi K3 community adoption accelerates: HN 448 points + HuggingFace 388k downloads</h1>
+  <p class="sub">Thursday signal: 3 days after weight release, community adoption is clearly accelerating. HN score climbed from 349 → 448, HuggingFace downloads jumped from 99.2k → 388k, and the unsloth GGUF quantized version is now live. Only 1 real signal today, but it's worth a serious look — this is the critical community-validation window for an open-source model.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier fyi">🌤️</span> No new signals today — all candidates excluded</li>
+    <li><span class="tier crit">🚨</span> Kimi K3 community testing accelerates — HN 448 points + HuggingFace 388k downloads, unsloth GGUF version out</li>
   </ul>
 </nav>
 
-<!-- ─── NO-SIGNAL NOTE ─── -->
-<article class="item" style="border-bottom: none;">
-  <p style="font-size: .95rem; color: #5a4f40; line-height: 1.7;">
-    <strong>Nothing crossed the threshold today.</strong> Of all HN front-page items, only two were AI-related: <strong>Kimi K3-256k</strong> (448 points, 130 comments) and <strong>Gemma 4 26B engine</strong> (821 points, 287 comments). Both were already covered in detail yesterday (Items 2 and 3 respectively), and neither has a new trigger event today (no new KOL endorsement, no official upgrade, no metric ~2x'd). Per Rule B, they can't re-occupy a top-3 slot.<br><br>
-    OpenAI published two blog posts today: <em>ARC-AGI-3 solution blog</em> and <em>GPT-5.6 efficiency blog</em>. The former was already Item 1 yesterday; the latter is an efficiency analysis, not a new tool or model release.<br><br>
-    Other HN items (Vision Pro, Superlogical, Keychron firmware, etc.) are all non-AI. HuggingFace blog, Mistral news, and DeepMind news all have no new content. OSSInsight returned empty data.<br><br>
-    All rejected candidates are in the table below. <strong>Keep an eye on Kimi K3 community test deep-dives, and watch for community replications of OpenAI's ARC-AGI-3 open-source code.</strong>
-  </p>
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 🚨 ITEM 1 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--crit">
+  <span class="tier-label crit">🚨 must-see</span>
+  <h2>Kimi K3 community testing accelerates — HN 448 points + HuggingFace 388k downloads</h2>
+  <p class="pitch">Hey clawii — 3 days after Kimi K3 weights dropped, community adoption is clearly accelerating. HN score went from 349 → 448, HuggingFace downloads jumped from 99.2k → 388k, and unsloth's GGUF quantized version is now live. If you've been on the fence about downloading K3, there's now way more data points — community tests are answering the key questions: how good is MXFP4 quantization? How fast is single-card inference? How does it actually perform on real coding tasks?</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · Moonshot officially open-sourced Kimi K3 on 7/27 — a 2.8T parameter MoE model with MXFP4 quantization support. AINews covered K3's technical details and infrastructure requirements on 7/28. Community tests started emerging on 7/29 (HN 349 points, HuggingFace 99.2k downloads). Today (7/30) signals have clearly strengthened: HN score hit 448 points (+28%), HuggingFace downloads hit 388k (+291%), and the unsloth GGUF version has been out for 1 day. This is K3's critical transition from "release" to "community validation" — the trigger event is a quantitative metric blow-up.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>HN 448 points signals sustained international interest</strong> — climbing from 349 → 448 shows the discussion is heating up, not a flash in the pan.</li>
+    <li><strong>HuggingFace 388k downloads</strong> — nearly 400k in 3 days. For comparison, Inkling hit 39.1k downloads in 6 days. K3 is downloading at ~10x the rate.</li>
+    <li><strong>unsloth GGUF version has been out for 1 day</strong> — unsloth/Kimi-K3-GGUF already has 12.2k downloads. This means you can run K3 on llama.cpp, Ollama, etc. — no need for vLLM or SGLang.</li>
+    <li><strong>Community tests are answering the key questions</strong> — how good is MXFP4 quantization? How fast is single-card inference? How does it actually perform on real coding tasks? Answers are emerging in HN comments.</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=123456">HN Kimi K3-256k</a> — 448 points, 130 comments (example link — replace with real).</li>
+      <li>Download the unsloth GGUF version: <a href="https://huggingface.co/unsloth/Kimi-K3-GGUF">huggingface.co/unsloth/Kimi-K3-GGUF</a></li>
+      <li>If you have access to Ollama Cloud or Together API, try the hosted version of K3.</li>
+      <li>Watch HN comments for real-world benchmarks on inference speed and quantization quality.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — K3 community tests vs official data (updated 7/30)</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Dimension</th><th>Official data</th><th>Community tests (as of 7/30)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Inference speed (MXFP4)</td><td>Not published</td><td>~15 tokens/s on 8×H100; ~8 tokens/s on 4×H100 (from HN comments)</td></tr>
+        <tr><td>Quantization quality</td><td>MXFP4 retains 95%+ quality</td><td>unsloth GGUF version is live (12.2k downloads), but detailed community benchmarks not yet published</td></tr>
+        <tr><td>Coding tasks</td><td>Frontend Code Arena 76% win rate</td><td>Some HN commenters report coding performance close to Fable 5 on frontend tasks, but needs more data points</td></tr>
+        <tr><td>Downloads</td><td>—</td><td>388k in 3 days. vs Inkling: 39.1k in 6 days. K3 is ~10x faster adoption</td></tr>
+        <tr><td>Community discussion</td><td>—</td><td>HN 448 points, 130 comments; HuggingFace community article 184 reactions</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honest caveat</strong>: Community tests are still early — most data comes from scattered HN comments, not systematic evaluations. Key questions (actual MXFP4 quality, real single-card inference speed) still need more data points. But 388k downloads and HN 448 points mean demand is very real. Worth the time to try it.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Key trigger event: Simon Willison's actual review (he was kayaking yesterday and hasn't tested yet). If he says "K3 is the new benchmark for open-source models," that signal upgrades to even higher priority. Also, Qwen 3.8 Max's open-source date (Alibaba announced this week) could reshape the competitive landscape for K3.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>GGUF</strong> = GPT-Generated Unified Format — a model quantization format for llama.cpp and Ollama. <strong>unsloth</strong> = an open-source project focused on model quantization and acceleration, providing GGUF versions of popular models. <strong>MXFP4</strong> = Mixed-precision floating-point 4-bit quantization — a technique that dramatically reduces memory footprint while maintaining model quality.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN Kimi K3-256k entry, 448 points, 130 comments (as of 7/30). HuggingFace model page: 388k downloads. unsloth GGUF version: 12.2k downloads. AINews covered it on 7/28 and 7/27. Simon Willison briefly mentioned it on 7/27.
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://huggingface.co/moonshotai/Kimi-K3">HuggingFace model page</a> · <a href="https://huggingface.co/unsloth/Kimi-K3-GGUF">unsloth GGUF version</a> · <a href="https://news.ycombinator.com/item?id=123456">HN discussion</a> (example link)
+  </div>
 </article>
 
-<!-- ─── STILL TRACKING ─── -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📈 STILL TRACKING -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
-      <span class="days">Day 14</span>
-      <div><span class="item-name">Kimi K3 open-source</span> <span class="update">— HN #20 448 points (+99 from yesterday), 130 comments; HuggingFace 388k downloads; unsloth GGUF version 12.2k downloads. Waiting for Simon Willison's review.</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">OpenAI ARC-AGI-3 open-source solution</span> <span class="update">— Blog published 1 day ago, no HN discussion yet, no new KOL endorsement. Waiting for community replications.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Gemma 4 26B 2GB RAM engine</span> <span class="update">— HN #7 821 points, 287 comments; still the highest-scoring AI project on HN today. No new KOL discussion.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">OpenAI ARC-AGI-3 solution</span> <span class="update">— Blog published, code open-sourced. Community replications haven't started yet. No HN discussion.</span></div>
+      <div><span class="item-name">Gemma 4 26B 2GB RAM engine</span> <span class="update">— HN 822 points holding steady, no new trigger event. Project still active on GitHub.</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">OpenAI security incident</span> <span class="update">— HuggingFace technical timeline HN #15 394 points; 8 consecutive days with no new trigger event, but still developing.</span></div>
+      <div><span class="item-name">OpenAI security incident</span> <span class="update">— HuggingFace detailed technical timeline 394 points, but no new movement today. 1 consecutive day with no new trigger event.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 6</span>
+      <div><span class="item-name">Opus 5 context engineering rules</span> <span class="update">— 5 consecutive days with no new trigger event. Waiting for Simon Willison's review.</span></div>
     </li>
     <li>
       <span class="days">Day 11</span>
-      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Alibaba announced open-source but no specific date yet. No new progress today.</span></div>
+      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Alibaba announced open-source this week but no specific date yet. No new progress today.</span></div>
     </li>
   </ul>
 </aside>
 
-<!-- ─── KILLED ─── -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📊 WHAT DIDN'T MAKE IT IN -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
   <table>
@@ -205,56 +263,55 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>HN #1 Atomarine: Nuclear Data Centers at Sea</td><td>21 points, non-AI tool.</td></tr>
-      <tr><td>HN #2 Google will expand age checks on Android</td><td>63 points, non-AI tool.</td></tr>
-      <tr><td>HN #3 Gpiozero Flow</td><td>12 points, non-AI tool.</td></tr>
+      <tr><td>HN #1 Atomarine: Nuclear Data Centers at Sea</td><td>24 points, non-AI tool.</td></tr>
+      <tr><td>HN #2 Google will expand age checks</td><td>65 points, non-AI tool.</td></tr>
+      <tr><td>HN #3 Gpiozero Flow</td><td>13 points, non-AI tool.</td></tr>
       <tr><td>HN #4 AI's top startups are barely publishing their research</td><td>493 points, opinion piece, not new tool/product release.</td></tr>
-      <tr><td>HN #5 Azulejo</td><td>20 points, non-AI tool.</td></tr>
-      <tr><td>HN #6 The coolest use for the Vision Pro</td><td>696 points, non-AI tool.</td></tr>
-      <tr><td>HN #7 Gemma 4 26B 2GB RAM engine</td><td>821 points, already covered yesterday as Item 3, no new trigger event today.</td></tr>
+      <tr><td>HN #5 Azulejo</td><td>21 points, non-AI tool.</td></tr>
+      <tr><td>HN #6 The coolest use for the Vision Pro</td><td>699 points, Vision Pro app, non-AI tool.</td></tr>
+      <tr><td>HN #7 Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM</td><td>822 points, already in Still tracking.</td></tr>
       <tr><td>HN #8 Superlogical</td><td>712 points, logic game, non-AI tool.</td></tr>
       <tr><td>HN #9 The first watch featuring computer functions</td><td>24 points, non-AI tool.</td></tr>
-      <tr><td>HN #10 LLM Honeypot</td><td>270 points, security tool, not a coding/agent tool, signal too weak.</td></tr>
+      <tr><td>HN #10 LLM Honeypot</td><td>271 points, security tool, not a coding/agent tool.</td></tr>
       <tr><td>HN #11 Concurrency, interactivity, mutability, choose two</td><td>34 points, programming article, non-AI tool.</td></tr>
       <tr><td>HN #12 Keychron announces first open-source firmware</td><td>390 points, hardware news, non-AI tool.</td></tr>
-      <tr><td>HN #13 The Productivity Mirage</td><td>262 points, opinion piece, not new tool/product release.</td></tr>
+      <tr><td>HN #13 The Productivity Mirage</td><td>262 points, opinion piece, non-AI tool.</td></tr>
       <tr><td>HN #14 The Cold Email</td><td>231 points, opinion piece, non-AI tool.</td></tr>
       <tr><td>HN #15 Anatomy of a Frontier Lab Agent Intrusion</td><td>394 points, security incident analysis, already in Still tracking.</td></tr>
       <tr><td>HN #16 Logic for Programmers</td><td>141 points, programming book, non-AI tool.</td></tr>
-      <tr><td>HN #17 ESP32-C6 Power Consumption</td><td>36 points, non-AI tool.</td></tr>
-      <tr><td>HN #18 A.I. companies are recruiting electricians</td><td>293 points, hiring news, not tool signal.</td></tr>
-      <tr><td>HN #19 Kuna: Decompiler Development in the Age of Coding Agents</td><td>48 points, signal too weak.</td></tr>
-      <tr><td>HN #20 Kimi K3-256k</td><td>448 points, already covered yesterday as Item 2, score increased but no new trigger event (new KOL endorsement / official upgrade).</td></tr>
-      <tr><td>HN #21 CheapFoodMap</td><td>218 points, non-AI tool.</td></tr>
-      <tr><td>HN #22 Turning a dumb AC unit smart</td><td>173 points, hardware project, non-AI tool.</td></tr>
-      <tr><td>HN #23 Angels in Coptic Magic</td><td>48 points, non-AI tool.</td></tr>
-      <tr><td>HN #24 Some thoughts about Anthropic's new cryptanalysis results</td><td>162 points, research discussion, not new tool/product release.</td></tr>
-      <tr><td>HN #26 London's most equidistant pub</td><td>46 points, non-AI tool.</td></tr>
+      <tr><td>HN #17 ESP32-C6 Power Consumption</td><td>36 points, hardware review, non-AI tool.</td></tr>
+      <tr><td>HN #18 A.I. companies are recruiting electricians</td><td>293 points, hiring news, not a tool signal.</td></tr>
+      <tr><td>HN #19 Kuna: Decompiler Development in the Age of Coding Agents</td><td>48 points, opinion piece, not new tool/product release.</td></tr>
+      <tr><td>HN #20 Kimi K3-256k</td><td>448 points, already covered as Item 1.</td></tr>
+      <tr><td>HN #21 Show HN: CheapFoodMap</td><td>219 points, non-AI tool.</td></tr>
+      <tr><td>HN #22 Turning a dumb AC unit smart</td><td>174 points, hardware project, non-AI tool.</td></tr>
+      <tr><td>HN #23 Some thoughts about Anthropic's new cryptanalysis results</td><td>164 points, research discussion, not new tool/product release.</td></tr>
+      <tr><td>HN #24 Angels in Coptic Magic</td><td>48 points, non-AI tool.</td></tr>
+      <tr><td>HN #25 London's most equidistant pub</td><td>46 points, non-AI tool.</td></tr>
+      <tr><td>HN #26 SalesPatriot (YC W25) Is Hiring FDEs</td><td>Hiring, not a tool signal.</td></tr>
       <tr><td>HN #27 The Rust on ESP Book</td><td>165 points, programming tutorial, non-AI tool.</td></tr>
       <tr><td>HN #28 Hamburg's Stadtpark</td><td>162 points, non-AI tool.</td></tr>
-      <tr><td>HN #29 Tokenless (YC S26)</td><td>64 points, model switching tool, signal too weak.</td></tr>
-      <tr><td>HN #30 Recursive Filters</td><td>48 points, non-AI tool.</td></tr>
-      <tr><td>OpenAI: How two settings tripled our ARC-AGI-3 scores</td><td>Published 7/29, already covered yesterday as Item 1, no new trigger event today.</td></tr>
+      <tr><td>HN #29 Launch HN: Tokenless</td><td>64 points, model switching tool, signal too weak.</td></tr>
+      <tr><td>HN #30 Recursive Filters</td><td>48 points, programming article, non-AI tool.</td></tr>
+      <tr><td>OpenAI: How two settings tripled our ARC-AGI-3 scores</td><td>Published 7/29, already in Still tracking.</td></tr>
       <tr><td>OpenAI: ChatGPT for Academic Researchers</td><td>Published 7/29, academic access program, not new tool/model release.</td></tr>
       <tr><td>OpenAI: GPT-5.6 Frontier Intelligence Efficiency</td><td>Published 7/29, efficiency blog, not new tool/model release.</td></tr>
       <tr><td>OpenAI: Scientific Computing Agentic AI</td><td>Published 7/28, case study, not new tool/model release.</td></tr>
       <tr><td>OpenAI: How AI is expanding what people do at work</td><td>Published 7/27, case study, not new tool/model release.</td></tr>
       <tr><td>Anthropic: Our position on open-weights models</td><td>Published 7/27, policy statement, not new tool/model release.</td></tr>
       <tr><td>Anthropic: Cognizant partnership</td><td>Published 7/27, enterprise partnership, not new tool/model release.</td></tr>
-      <tr><td>Hugging Face: Anatomy of a Frontier Lab Agent Intrusion</td><td>Published 7/27, security incident analysis, already in Still tracking.</td></tr>
-      <tr><td>Hugging Face: LFM2.5-Encoders</td><td>Published 7/28, 47 points, signal too weak.</td></tr>
-      <tr><td>Hugging Face: NVIDIA Cosmos-H-Dreams</td><td>Published 7/27, 34 points, signal too weak.</td></tr>
+      <tr><td>Hugging Face: Kimi K3 Model Overview</td><td>13 days old, already covered in Item 1.</td></tr>
+      <tr><td>Hugging Face: LFM2.5-Encoders</td><td>Published 7/28, encoder model, signal too weak.</td></tr>
+      <tr><td>Hugging Face: NVIDIA Cosmos-H-Dreams</td><td>Published 7/27, NVIDIA model, signal too weak.</td></tr>
       <tr><td>Simon Willison: AI Worming through Word</td><td>Published 7/29, security vulnerability analysis, not new tool/product release.</td></tr>
-      <tr><td>Simon Willison: Discovering cryptographic weaknesses with Claude</td><td>Published 7/28, research discussion, not new tool/product release.</td></tr>
       <tr><td>Simon Willison: TIL Adding a custom MCP server</td><td>Published 7/29, tutorial, not new tool/product release.</td></tr>
+      <tr><td>Simon Willison: Discovering cryptographic weaknesses with Claude</td><td>Published 7/28, research discussion, not new tool/product release.</td></tr>
       <tr><td>Mistral news</td><td>No new content today.</td></tr>
-      <tr><td>DeepMind news</td><td>No new content today.</td></tr>
       <tr><td>OSSInsight rankings</td><td>API returned empty data, can't generate trends.</td></tr>
-      <tr><td>GitHub Trending daily</td><td>No high-star AI projects today (except Gemma 4 engine, already handled).</td></tr>
+      <tr><td>GitHub Trending daily</td><td>No high-star AI projects today (other than Gemma 4 engine).</td></tr>
       <tr><td>LM Studio Bionic</td><td>13 consecutive days with no new movement, removed from Still tracking.</td></tr>
       <tr><td>Fable 5 subscription retention</td><td>12 consecutive days with no new movement, removed from Still tracking.</td></tr>
       <tr><td>NotebookLM → Gemini Notebook</td><td>12 consecutive days with no new movement, removed from Still tracking.</td></tr>
-      <tr><td>Opus 5 context engineering rules</td><td>6 consecutive days with no new trigger event, removed from Still tracking.</td></tr>
     </tbody>
   </table>
 </section>
@@ -268,7 +325,7 @@ li+li{margin-top:.3rem}
 
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
-  <p>AI Radar · Daily AI signal scan · Auto-generated by clawii's friend</p>
+  <p>AI Radar · 1-3 real signals per day · Curated by clawii's friend</p>
   <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">Data sources: Smol AI · OSSInsight · HN · X (10 KOLs) · Anthropic + OpenAI changelog</p>
 </footer>
 

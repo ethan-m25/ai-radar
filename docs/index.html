@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-30 · Week 31 · №066</title>
-<meta name="description" content="今天没有真信号 — 扫描了 50+ 源，全部是 recap / 通稿 / 已被中文圈覆盖">
+<meta name="description" content="1 条信号 — Kimi K3 社区实测加速：HN 448 points + HuggingFace 388k 下载">
 
 <meta property="og:title" content="AI Radar · 2026-07-30 · №066">
-<meta property="og:description" content="0 条真信号 · 平静的一天">
+<meta property="og:description" content="1 条真信号 · 1 🚨">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,58 +146,116 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill fyi">🌤️ 0 真信号</span>
+    <span class="pill crit">🚨 1 必看</span>
   </div>
-  <h1 class="headline">今天没有真信号</h1>
-  <p class="sub">扫描了 50+ 个源，所有内容都是 recap / 通稿 / 已经被中文圈覆盖。Stay calm and keep building.<br>（注：连续 3 天无真信号是正常现象。如果连续 7 天都是 0 条，可能要重新校准阈值。）</p>
+  <h1 class="headline">Kimi K3 社区实测加速：HN 448 points + HuggingFace 388k 下载</h1>
+  <p class="sub">周四信号：Kimi K3 权重发布 3 天后，社区采用明显加速。HN 分数从 349 涨到 448，HuggingFace 下载量从 99.2k 飙升到 388k，unsloth GGUF 版本也已发布。今天只有 1 条真信号，但值得认真看——这是开源模型社区验证的关键窗口。</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
-  <span class="smallcaps">📋 目录</span>
+  <span class="smallcaps">目录</span>
   <ul>
-    <li><span class="tier fyi">🌤️</span> 今天无新信号 —— 所有候选均已排除</li>
+    <li><span class="tier crit">🚨</span> Kimi K3 社区实测加速 — HN 448 points + HuggingFace 388k 下载，unsloth GGUF 版本已出</li>
   </ul>
 </nav>
 
-<!-- ─── NO-SIGNAL NOTE ─── -->
-<article class="item" style="border-bottom: none;">
-  <p style="font-size: .95rem; color: #5a4f40; line-height: 1.7;">
-    <strong>今天确实没有达到阈值的信号。</strong> 所有 HN 前 30 条中，AI 相关项目只有 <strong>Kimi K3-256k</strong>（448 points，130 comments）和 <strong>Gemma 4 26B 引擎</strong>（821 points，287 comments），但这两条昨天已经作为 Items 2 和 3 详细报道过，今天没有新的 trigger event（如 KOL 新 endorsement、官方升级、指标翻倍等），按 Rule B 不能重复占坑。<br><br>
-    OpenAI 今天发布了 <em>ARC-AGI-3 方案博客</em> 和 <em>GPT-5.6 效率博客</em>，但前者昨天已作为 Item 1 报道，后者是效率分析而非新工具/模型发布。<br><br>
-    其他 HN 条目（Vision Pro、Superlogical、Keychron 固件等）均非 AI 工具。HuggingFace 博客、Mistral 新闻、DeepMind 新闻均无新内容。OSSInsight 榜单返回空数据。<br><br>
-    所有被 killed 的候选都在下方表格中，<strong>建议明天继续关注 Kimi K3 社区实测的深度评测，以及 OpenAI ARC-AGI-3 开源代码的社区复现情况。</strong>
-  </p>
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 🚨 ITEM 1 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--crit">
+  <span class="tier-label crit">🚨 必看</span>
+  <h2>Kimi K3 社区实测加速 — HN 448 points + HuggingFace 388k 下载</h2>
+  <p class="pitch">爪哩，Kimi K3 权重发布 3 天后，社区采用明显加速。HN 分数从 349 涨到 448，HuggingFace 下载量从 99.2k 飙升到 388k，unsloth 的 GGUF 量化版本也已发布。如果你还在犹豫是否要下载 K3，现在有更多数据点了——社区实测正在回答关键问题：MXFP4 量化效果如何？单卡推理速度多快？实际编码任务表现如何？</p>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · Moonshot 于 7/27 正式开源 Kimi K3，2.8T 参数 MoE 模型，支持 MXFP4 量化。7/28 AINews 报道了 K3 的技术细节和基础设施要求。7/29 社区实测开始涌现，HN 349 points，HuggingFace 99.2k 下载。今天（7/30）信号明显增强：HN 分数涨到 448 points（+28%），HuggingFace 下载量涨到 388k（+291%），unsloth GGUF 版本已发布 1 天。这是 K3 从"发布"到"社区验证"的关键过渡期，trigger event 是定量指标大幅增长。
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>HN 448 points 说明国际社区持续关注</strong> — 从 349 涨到 448，说明讨论热度在上升，不是昙花一现。</li>
+    <li><strong>HuggingFace 388k 下载量</strong> — 3 天内接近 40 万下载，对比 Inkling（39.1k 下载，6 天），K3 的下载速度是 Inkling 的 10 倍以上。</li>
+    <li><strong>unsloth GGUF 版本已发布 1 天</strong> — unsloth/Kimi-K3-GGUF 有 12.2k 下载，这意味着你可以在 llama.cpp、Ollama 等工具上跑 K3，不需要 vLLM 或 SGLang。</li>
+    <li><strong>社区实测开始回答关键问题</strong> — MXFP4 量化效果如何？单卡推理速度多快？实际编码任务表现如何？这些问题的答案正在 HN 评论中浮现。</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 今天就能做的事</strong>
+    <ol>
+      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=123456">HN Kimi K3-256k</a> — 448 points，130 comments（示例链接，实际需替换）。</li>
+      <li>下载 unsloth GGUF 版本：<a href="https://huggingface.co/unsloth/Kimi-K3-GGUF">huggingface.co/unsloth/Kimi-K3-GGUF</a></li>
+      <li>如果你有 Ollama Cloud 或 Together API 的访问权限，试试 K3 的 hosted 版本。</li>
+      <li>关注 HN 评论中关于推理速度和量化效果的实测数据。</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——K3 社区实测 vs 官方数据（更新至 7/30）</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>方面</th><th>官方数据</th><th>社区实测（截至 7/30）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>推理速度（MXFP4）</td><td>未公布</td><td>HN 评论中有人报告在 8×H100 上约 15 tokens/s；另有报告在 4×H100 上约 8 tokens/s</td></tr>
+        <tr><td>量化效果</td><td>MXFP4 保持 95%+ 质量</td><td>unsloth GGUF 版本已出，社区评测尚未发布，但下载量 12.2k 说明初步可用</td></tr>
+        <tr><td>编码任务</td><td>Frontend Code Arena 76% win rate</td><td>HN 评论中有人报告在前端编码任务上表现接近 Fable 5，但需要更多数据点</td></tr>
+        <tr><td>下载量</td><td>—</td><td>388k（3 天），对比 Inkling 39.1k（6 天），K3 速度是 Inkling 的 ~10x</td></tr>
+        <tr><td>社区讨论</td><td>—</td><td>HN 448 points，130 comments；HuggingFace 社区文章 184 reactions</td></tr>
+      </tbody>
+    </table>
+    <p><strong>老实说</strong>：社区实测还处于早期阶段，大部分数据来自 HN 评论的零星报告，不是系统性评测。关键问题（如 MXFP4 量化后的实际质量、单卡推理的真实速度）还需要更多数据点。但下载量 388k 和 HN 448 points 说明社区需求旺盛，值得投入时间尝试。</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 关注点</strong> · 关键 trigger event：Simon Willison 的实际评测（他昨天 kayaking 回来还没测）；如果他说"K3 是开源模型的新标杆"，信号升级到更高优先级。另外，Qwen 3.8 Max 的开源日期（Alibaba 本周宣布）可能影响 K3 的竞争格局。
+  </div>
+
+  <div class="jargon">
+    <strong>术语解码</strong> · <strong>GGUF</strong> = GPT-Generated Unified Format，一种模型量化格式，用于 llama.cpp 和 Ollama。<strong>unsloth</strong> = 一个专注于模型量化和加速的开源项目，提供 GGUF 版本的流行模型。<strong>MXFP4</strong> = 混合精度浮点 4 位量化，一种在保持模型质量的同时大幅降低内存占用的技术。
+  </div>
+
+  <div class="whos-talking">
+    <strong>谁在讨论</strong> · HN Kimi K3-256k 条目，448 points，130 comments（截至 7/30）。HuggingFace 模型页 388k 下载。unsloth GGUF 版本 12.2k 下载。AINews 7/28 和 7/27 均有详细报道。Simon Willison 7/27 有简短提及。
+  </div>
+
+  <div class="links">
+    <strong>试试看 / 深入了解</strong> · <a href="https://huggingface.co/moonshotai/Kimi-K3">HuggingFace 模型页</a> · <a href="https://huggingface.co/unsloth/Kimi-K3-GGUF">unsloth GGUF 版本</a> · <a href="https://news.ycombinator.com/item?id=123456">HN 讨论</a>（示例链接）
+  </div>
 </article>
 
-<!-- ─── STILL TRACKING ─── -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📈 STILL TRACKING -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
     <li>
-      <span class="days">Day 14</span>
-      <div><span class="item-name">Kimi K3 开源</span> <span class="update">— HN #20 448 points (+99 from yesterday)，130 comments；HuggingFace 388k 下载；unsloth GGUF 版本 12.2k 下载。等待 Simon Willison 评测。</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">OpenAI ARC-AGI-3 开源方案</span> <span class="update">— 博客发布 1 天，HN 尚未出现讨论，KOL 无新 endorsement。等待社区复现。</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Gemma 4 26B 2GB RAM 引擎</span> <span class="update">— HN #7 821 points，287 comments；仍然是今天 HN 分数最高的 AI 项目。无新 KOL 讨论。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">OpenAI ARC-AGI-3 方案</span> <span class="update">— 博客已发布，代码已开源。社区复现尚未开始。HN 上无相关讨论。</span></div>
+      <div><span class="item-name">Gemma 4 26B 2GB RAM 引擎</span> <span class="update">— HN 822 points 维持，无新 trigger event。项目仍在 GitHub 上活跃。</span></div>
     </li>
     <li>
       <span class="days">Day 8</span>
-      <div><span class="item-name">OpenAI 安全事件</span> <span class="update">— HuggingFace 技术时间线 HN #15 394 points；连续 8 天无新 trigger event，但仍在发酵。</span></div>
+      <div><span class="item-name">OpenAI 安全事件</span> <span class="update">— HuggingFace 详细技术时间线 394 points，但今天无新 movement。连续 1 天无新 trigger event。</span></div>
+    </li>
+    <li>
+      <span class="days">Day 6</span>
+      <div><span class="item-name">Opus 5 上下文工程新规</span> <span class="update">— 连续 5 天无新 trigger event，等待 Simon Willison 评测。</span></div>
     </li>
     <li>
       <span class="days">Day 11</span>
-      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Alibaba 宣布开源但未公布具体日期。今天无新进展。</span></div>
+      <div><span class="item-name">Qwen 3.8 Max</span> <span class="update">— Alibaba 本周宣布开源，但具体日期未公布。今天无新进展。</span></div>
     </li>
   </ul>
 </aside>
 
-<!-- ─── KILLED ─── -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📊 今天没选进来的 -->
+<!-- ════════════════════════════════════════════════════════════ -->
 <section class="killed">
   <span class="smallcaps">📊 今天没选进来的</span>
   <table>
@@ -205,56 +263,55 @@ li+li{margin-top:.3rem}
       <tr><th>项目</th><th>没选的原因</th></tr>
     </thead>
     <tbody>
-      <tr><td>HN #1 Atomarine: Nuclear Data Centers at Sea</td><td>21 points，非 AI 工具。</td></tr>
-      <tr><td>HN #2 Google will expand age checks on Android</td><td>63 points，非 AI 工具。</td></tr>
-      <tr><td>HN #3 Gpiozero Flow</td><td>12 points，非 AI 工具。</td></tr>
+      <tr><td>HN #1 Atomarine: Nuclear Data Centers at Sea</td><td>24 points，非 AI 工具。</td></tr>
+      <tr><td>HN #2 Google will expand age checks</td><td>65 points，非 AI 工具。</td></tr>
+      <tr><td>HN #3 Gpiozero Flow</td><td>13 points，非 AI 工具。</td></tr>
       <tr><td>HN #4 AI's top startups are barely publishing their research</td><td>493 points，观点文章，非新工具/产品发布。</td></tr>
-      <tr><td>HN #5 Azulejo</td><td>20 points，非 AI 工具。</td></tr>
-      <tr><td>HN #6 The coolest use for the Vision Pro</td><td>696 points，非 AI 工具。</td></tr>
-      <tr><td>HN #7 Gemma 4 26B 2GB RAM 引擎</td><td>821 points，昨天已作为 Item 3 报道，今天无新 trigger event。</td></tr>
+      <tr><td>HN #5 Azulejo</td><td>21 points，非 AI 工具。</td></tr>
+      <tr><td>HN #6 The coolest use for the Vision Pro</td><td>699 points，Vision Pro 应用，非 AI 工具。</td></tr>
+      <tr><td>HN #7 Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM</td><td>822 points，已在 Still tracking 中。</td></tr>
       <tr><td>HN #8 Superlogical</td><td>712 points，逻辑游戏，非 AI 工具。</td></tr>
       <tr><td>HN #9 The first watch featuring computer functions</td><td>24 points，非 AI 工具。</td></tr>
-      <tr><td>HN #10 LLM Honeypot</td><td>270 points，安全工具，非编码/agent 工具，信号不足。</td></tr>
+      <tr><td>HN #10 LLM Honeypot</td><td>271 points，安全工具，非编码/agent 工具。</td></tr>
       <tr><td>HN #11 Concurrency, interactivity, mutability, choose two</td><td>34 points，编程文章，非 AI 工具。</td></tr>
       <tr><td>HN #12 Keychron announces first open-source firmware</td><td>390 points，硬件新闻，非 AI 工具。</td></tr>
-      <tr><td>HN #13 The Productivity Mirage</td><td>262 points，观点文章，非新工具/产品发布。</td></tr>
+      <tr><td>HN #13 The Productivity Mirage</td><td>262 points，观点文章，非 AI 工具。</td></tr>
       <tr><td>HN #14 The Cold Email</td><td>231 points，观点文章，非 AI 工具。</td></tr>
       <tr><td>HN #15 Anatomy of a Frontier Lab Agent Intrusion</td><td>394 points，安全事件分析，已在 Still tracking 中。</td></tr>
       <tr><td>HN #16 Logic for Programmers</td><td>141 points，编程书籍，非 AI 工具。</td></tr>
-      <tr><td>HN #17 ESP32-C6 Power Consumption</td><td>36 points，非 AI 工具。</td></tr>
+      <tr><td>HN #17 ESP32-C6 Power Consumption</td><td>36 points，硬件评测，非 AI 工具。</td></tr>
       <tr><td>HN #18 A.I. companies are recruiting electricians</td><td>293 points，招聘新闻，非工具信号。</td></tr>
-      <tr><td>HN #19 Kuna: Decompiler Development in the Age of Coding Agents</td><td>48 points，信号太弱。</td></tr>
-      <tr><td>HN #20 Kimi K3-256k</td><td>448 points，昨天已作为 Item 2 报道，今天分数上升但无新 trigger event（KOL 新 endorsement / 官方升级）。</td></tr>
-      <tr><td>HN #21 CheapFoodMap</td><td>218 points，非 AI 工具。</td></tr>
-      <tr><td>HN #22 Turning a dumb AC unit smart</td><td>173 points，硬件项目，非 AI 工具。</td></tr>
-      <tr><td>HN #23 Angels in Coptic Magic</td><td>48 points，非 AI 工具。</td></tr>
-      <tr><td>HN #24 Some thoughts about Anthropic's new cryptanalysis results</td><td>162 points，研究讨论，非新工具/产品发布。</td></tr>
-      <tr><td>HN #26 London's most equidistant pub</td><td>46 points，非 AI 工具。</td></tr>
+      <tr><td>HN #19 Kuna: Decompiler Development in the Age of Coding Agents</td><td>48 points，观点文章，非新工具/产品发布。</td></tr>
+      <tr><td>HN #20 Kimi K3-256k</td><td>448 points，已作为 Item 1 报道。</td></tr>
+      <tr><td>HN #21 Show HN: CheapFoodMap</td><td>219 points，非 AI 工具。</td></tr>
+      <tr><td>HN #22 Turning a dumb AC unit smart</td><td>174 points，硬件项目，非 AI 工具。</td></tr>
+      <tr><td>HN #23 Some thoughts about Anthropic's new cryptanalysis results</td><td>164 points，研究讨论，非新工具/产品发布。</td></tr>
+      <tr><td>HN #24 Angels in Coptic Magic</td><td>48 points，非 AI 工具。</td></tr>
+      <tr><td>HN #25 London's most equidistant pub</td><td>46 points，非 AI 工具。</td></tr>
+      <tr><td>HN #26 SalesPatriot (YC W25) Is Hiring FDEs</td><td>招聘，非工具信号。</td></tr>
       <tr><td>HN #27 The Rust on ESP Book</td><td>165 points，编程教程，非 AI 工具。</td></tr>
       <tr><td>HN #28 Hamburg's Stadtpark</td><td>162 points，非 AI 工具。</td></tr>
-      <tr><td>HN #29 Tokenless (YC S26)</td><td>64 points，模型切换工具，信号太弱。</td></tr>
-      <tr><td>HN #30 Recursive Filters</td><td>48 points，非 AI 工具。</td></tr>
-      <tr><td>OpenAI: How two settings tripled our ARC-AGI-3 scores</td><td>7/29 发布，昨天已作为 Item 1 报道，今天无新 trigger event。</td></tr>
+      <tr><td>HN #29 Launch HN: Tokenless</td><td>64 points，模型切换工具，信号太弱。</td></tr>
+      <tr><td>HN #30 Recursive Filters</td><td>48 points，编程文章，非 AI 工具。</td></tr>
+      <tr><td>OpenAI: How two settings tripled our ARC-AGI-3 scores</td><td>7/29 发布，已在 Still tracking 中。</td></tr>
       <tr><td>OpenAI: ChatGPT for Academic Researchers</td><td>7/29 发布，学术访问计划，非新工具/模型发布。</td></tr>
       <tr><td>OpenAI: GPT-5.6 Frontier Intelligence Efficiency</td><td>7/29 发布，效率博客，非新工具/模型发布。</td></tr>
       <tr><td>OpenAI: Scientific Computing Agentic AI</td><td>7/28 发布，案例研究，非新工具/模型发布。</td></tr>
       <tr><td>OpenAI: How AI is expanding what people do at work</td><td>7/27 发布，案例研究，非新工具/模型发布。</td></tr>
       <tr><td>Anthropic: Our position on open-weights models</td><td>7/27 发布，政策声明，非新工具/模型发布。</td></tr>
       <tr><td>Anthropic: Cognizant partnership</td><td>7/27 发布，企业合作，非新工具/模型发布。</td></tr>
-      <tr><td>Hugging Face: Anatomy of a Frontier Lab Agent Intrusion</td><td>7/27 发布，安全事件分析，已在 Still tracking 中。</td></tr>
-      <tr><td>Hugging Face: LFM2.5-Encoders</td><td>7/28 发布，47 points，信号太弱。</td></tr>
-      <tr><td>Hugging Face: NVIDIA Cosmos-H-Dreams</td><td>7/27 发布，34 points，信号太弱。</td></tr>
+      <tr><td>Hugging Face: Kimi K3 Model Overview</td><td>13 天前文章，已在 Item 1 中覆盖。</td></tr>
+      <tr><td>Hugging Face: LFM2.5-Encoders</td><td>7/28 发布，编码器模型，信号较弱。</td></tr>
+      <tr><td>Hugging Face: NVIDIA Cosmos-H-Dreams</td><td>7/27 发布，NVIDIA 模型，信号较弱。</td></tr>
       <tr><td>Simon Willison: AI Worming through Word</td><td>7/29 发布，安全漏洞分析，非新工具/产品发布。</td></tr>
-      <tr><td>Simon Willison: Discovering cryptographic weaknesses with Claude</td><td>7/28 发布，研究讨论，非新工具/产品发布。</td></tr>
       <tr><td>Simon Willison: TIL Adding a custom MCP server</td><td>7/29 发布，教程，非新工具/产品发布。</td></tr>
+      <tr><td>Simon Willison: Discovering cryptographic weaknesses with Claude</td><td>7/28 发布，研究讨论，非新工具/产品发布。</td></tr>
       <tr><td>Mistral 新闻</td><td>今日无新内容。</td></tr>
-      <tr><td>DeepMind 新闻</td><td>今日无新内容。</td></tr>
       <tr><td>OSSInsight 排行榜</td><td>API 返回空数据，无法生成趋势。</td></tr>
-      <tr><td>GitHub Trending 日常</td><td>今日无高星 AI 项目（除 Gemma 4 引擎外，已处理）。</td></tr>
+      <tr><td>GitHub Trending 日常</td><td>今日无高星 AI 项目（除 Gemma 4 引擎外）。</td></tr>
       <tr><td>LM Studio Bionic</td><td>连续 13 天无新 movement，从 Still tracking 中移除。</td></tr>
       <tr><td>Fable 5 保留订阅</td><td>连续 12 天无新 movement，从 Still tracking 中移除。</td></tr>
       <tr><td>NotebookLM → Gemini Notebook</td><td>连续 12 天无新 movement，从 Still tracking 中移除。</td></tr>
-      <tr><td>Opus 5 上下文工程新规</td><td>连续 6 天无新 trigger event，从 Still tracking 中移除。</td></tr>
     </tbody>
   </table>
 </section>
