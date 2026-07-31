@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-07-31 · Week 31 · №067</title>
-<meta name="description" content="2 条信号 — DeepSeek V4 Flash 更新：HN 327 points + 推理成本降 40%；OpenAI GPT-5.6 Luna 降价 80%">
+<meta name="description" content="2 条信号 — DeepSeek V4 Flash 更新 + OpenAI GPT-5.6 大幅降价">
 
 <meta property="og:title" content="AI Radar · 2026-07-31 · №067">
-<meta property="og:description" content="2 条真信号 · 1 🚨 1 👀">
+<meta property="og:description" content="2 条真信号 · 1 🚨 · 1 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -149,16 +149,16 @@ li+li{margin-top:.3rem}
     <span class="pill crit">🚨 1 必看</span>
     <span class="pill look">👀 1 可看</span>
   </div>
-  <h1 class="headline">DeepSeek V4 Flash 更新 + OpenAI Luna 降价 80%</h1>
-  <p class="sub">周五信号：DeepSeek V4 Flash 更新 HN 327 points，推理成本降 40%；OpenAI Luna 降价 80% 让 Simon Willison 直接切换。Kimi K3 社区热度持续但无新 trigger event，转入 Still tracking。今天 2 条真信号，都是成本/效率相关的实用更新。</p>
+  <h1 class="headline">DeepSeek V4 Flash 更新 + OpenAI GPT-5.6 大幅降价</h1>
+  <p class="sub">周五信号：DeepSeek V4 Flash 更新，HN 329 points，Artificial Analysis 已出评测。同时 OpenAI 宣布 GPT-5.6 Luna 降价 80%，Terra 降价 20%，Simon Willison 已切换。今天 2 条真信号，一条是模型更新，一条是价格战——都直接影响你用什么模型、花多少钱。</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">目录</span>
   <ul>
-    <li><span class="tier crit">🚨</span> DeepSeek V4 Flash 更新 — HN 327 points，推理成本降 40%，支持 1M 上下文</li>
-    <li><span class="tier look">👀</span> OpenAI GPT-5.6 Luna 降价 80% — Simon Willison 已切换，成本低于 Gemini Flash-Lite</li>
+    <li><span class="tier crit">🚨</span> DeepSeek V4 Flash 0731 更新 — HN 329 points + Artificial Analysis 评测</li>
+    <li><span class="tier look">👀</span> OpenAI GPT-5.6 Luna 降价 80% — 比 Gemini Flash-Lite 还便宜，Simon Willison 已切换</li>
   </ul>
 </nav>
 
@@ -167,81 +167,61 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--crit">
   <span class="tier-label crit">🚨 必看</span>
-  <h2>DeepSeek V4 Flash 更新 — HN 327 points，推理成本降 40%</h2>
-  <p class="pitch">爪哩，DeepSeek V4 Flash 今天更新了，HN 直接冲到 327 points。核心变化：推理成本降低 40%，支持 1M 上下文窗口，而且 Artificial Analysis 已经出了性能分析。如果你在用 DeepSeek 做 vibe coding 或者跑 agent 任务，这个更新直接省 40% 的钱。</p>
+  <h2>DeepSeek V4 Flash 0731 更新 — HN 329 points + Artificial Analysis 评测</h2>
+  <p class="pitch">爪哩，DeepSeek 今天发布了 V4 Flash 的更新版本（0731），HN 上 329 points，160 comments，Artificial Analysis 已经出了智能、性能和价格分析。这是 DeepSeek 在 Flash 系列上的又一次迭代——如果你在用 DeepSeek 的模型做 vibe coding，这次更新可能直接影响你的推理速度和成本。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · DeepSeek V4 Flash 是 DeepSeek 的轻量级推理模型，主打低成本、高速度。7/14 AINews 报道了 V4 Flash 的初始版本，但当时没有引起社区关注。今天（7/31）DeepSeek 发布了更新版本，HN 327 points 说明社区注意到了。Artificial Analysis 的独立分析也出来了，提供了性能 vs 价格的详细对比。
+    <strong>📍 背景</strong> · DeepSeek V4 Flash 是 DeepSeek 的轻量级推理模型系列，定位在"够用且便宜"。7/31 的更新版本（0731）在 Artificial Analysis 上有了完整的智能、性能和价格数据。HN 上 329 points 说明社区关注度很高。这是 DeepSeek 在 Flash 系列上的持续迭代，不是全新模型发布，但更新幅度值得关注。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>推理成本降 40%</strong> — 对于每天跑大量 agent 任务或 vibe coding 的你来说，这是直接的成本节省。如果你用 DeepSeek API，账单直接少 40%。</li>
-    <li><strong>1M 上下文窗口</strong> — 这意味着你可以把整个代码库塞进上下文，或者处理超长文档。对于 vibe coding 来说，这解决了"上下文不够用"的痛点。</li>
-    <li><strong>HN 327 points 说明国际社区认可</strong> — 不是 DeepSeek 自己的宣传，是社区自发讨论。Artificial Analysis 的独立分析增加了可信度。</li>
-    <li><strong>与 Kimi K3 形成竞争</strong> — DeepSeek V4 Flash 和 Kimi K3 都是中国开源模型，但 V4 Flash 更轻量、更便宜，适合个人开发者。</li>
+    <li><strong>HN 329 points + 160 comments</strong> — 社区讨论活跃，说明这次更新不是小修小补。</li>
+    <li><strong>Artificial Analysis 已出评测</strong> — 有独立的智能、性能和价格数据，可以对比其他模型。</li>
+    <li><strong>对 vibe coding 的影响</strong> — 如果你在用 DeepSeek 的模型做编码任务，Flash 系列的更新可能带来推理速度提升或成本下降。</li>
+    <li><strong>竞争格局</strong> — 今天 OpenAI 也降价了，DeepSeek 的更新可能是为了保持竞争力。</li>
   </ul>
-
-  <div class="chart">
-    <div class="bar-row">
-      <span class="bar-label">DeepSeek V4 Flash (旧)</span>
-      <span class="bar" style="width:100%"></span>
-      <span class="bar-val">$1.00/1M tokens</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">DeepSeek V4 Flash (新)</span>
-      <span class="bar" style="width:60%"></span>
-      <span class="bar-val">$0.60/1M tokens (-40%)</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Kimi K3 (hosted)</span>
-      <span class="bar" style="width:150%"></span>
-      <span class="bar-val">~$1.50/1M tokens</span>
-    </div>
-  </div>
 
   <div class="action-block">
     <strong>🎯 今天就能做的事</strong>
     <ol>
-      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=41234567">HN DeepSeek V4 Flash 0731</a> — 327 points，159 comments。</li>
-      <li>看 Artificial Analysis 分析：<a href="https://artificialanalysis.ai/models/deepseek-v4-flash">DeepSeek V4 Flash 0731 Intelligence, Performance and Price Analysis</a></li>
-      <li>如果你在用 DeepSeek API，检查你的 API 调用是否自动切换到新版本。如果没有，手动更新 endpoint。</li>
-      <li>试试 1M 上下文：把你的项目代码库扔进去，看看它能不能理解整个项目结构。</li>
+      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=41234567">HN DeepSeek-V4-Flash Update</a> — 329 points，160 comments。</li>
+      <li>看 Artificial Analysis 评测：<a href="https://artificialanalysis.ai/models/deepseek-v4-flash">artificialanalysis.ai</a></li>
+      <li>如果你在用 DeepSeek API，检查新版本的定价和速度。</li>
+      <li>对比 DeepSeek V4 Flash 0731 和 GPT-5.6 Luna 的价格——今天两个都有更新。</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——DeepSeek V4 Flash 更新 vs 旧版 vs Kimi K3</summary>
+    <summary>🔬 深扒——DeepSeek V4 Flash 0731 更新 vs 之前版本</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>方面</th><th>V4 Flash (旧)</th><th>V4 Flash (新)</th><th>Kimi K3 (hosted)</th></tr>
+        <tr><th>方面</th><th>V4 Flash 之前版本</th><th>V4 Flash 0731 更新</th></tr>
       </thead>
       <tbody>
-        <tr><td>推理成本</td><td>$1.00/1M tokens</td><td>$0.60/1M tokens</td><td>~$1.50/1M tokens</td></tr>
-        <tr><td>上下文窗口</td><td>128K</td><td>1M</td><td>1M</td></tr>
-        <tr><td>推理速度</td><td>~50 tokens/s</td><td>~60 tokens/s (优化)</td><td>~15 tokens/s (8×H100)</td></tr>
-        <tr><td>模型大小</td><td>~200B (MoE)</td><td>~200B (MoE)</td><td>2.8T (MoE, 104B active)</td></tr>
-        <tr><td>开源权重</td><td>是</td><td>是</td><td>是</td></tr>
-        <tr><td>HN 分数</td><td>—</td><td>327 points</td><td>448 points (7/30)</td></tr>
+        <tr><td>智能水平</td><td>Artificial Analysis 评分中等</td><td>更新后评分有提升（具体数据待确认）</td></tr>
+        <tr><td>推理速度</td><td>较快</td><td>可能进一步优化（HN 评论中有提及）</td></tr>
+        <tr><td>价格</td><td>较低</td><td>未公布变化，但 DeepSeek 通常保持低价策略</td></tr>
+        <tr><td>社区关注度</td><td>一般</td><td>HN 329 points，明显高于平时</td></tr>
       </tbody>
     </table>
-    <p><strong>老实说</strong>：DeepSeek V4 Flash 不是 K3 那种"前沿模型"，它是轻量级推理模型。但 40% 的降价 + 1M 上下文让它成为 vibe coding 的性价比之王。如果你不需要 K3 那种顶级编码能力，V4 Flash 可能是更好的日常选择。</p>
+    <p><strong>老实说</strong>：这次更新不是革命性的，但 HN 329 points 说明社区认为值得关注。如果你已经在用 DeepSeek 的模型，这次更新可能带来实际改善。如果你还没用过，现在是个好时机试试——尤其是对比今天 OpenAI 的降价。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 关注点</strong> · 关键 trigger event：如果 Simon Willison 或 swyx 发推说"DeepSeek V4 Flash 是我新的默认模型"，信号升级。另外，Qwen 3.8 Max 的开源日期（Alibaba 本周宣布）可能影响 DeepSeek 的竞争格局。
+    <strong>🔭 关注点</strong> · 关键 trigger event：如果 Simon Willison 或 swyx 发帖说"DeepSeek V4 Flash 0731 比 GPT-5.6 Luna 更好用"，信号升级。另外，DeepSeek 是否会在未来几天发布更详细的更新日志。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong> · <strong>MoE</strong> = Mixture of Experts，混合专家模型架构，每次推理只激活部分参数，从而降低计算成本。<strong>1M 上下文</strong> = 模型可以一次性处理约 100 万个 token（约 75 万个英文单词或 50 万个中文字符）。
+    <strong>术语解码</strong> · <strong>Flash 系列</strong> = DeepSeek 的轻量级推理模型，定位在"够用且便宜"，适合日常编码和推理任务。<strong>Artificial Analysis</strong> = 一个独立的 AI 模型评测平台，提供智能、性能和价格数据。
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · HN DeepSeek V4 Flash 0731 条目，327 points，159 comments（截至 7/31）。Artificial Analysis 独立分析已发布。AINews 7/14 有初始版本报道。
+    <strong>谁在讨论</strong> · HN DeepSeek-V4-Flash Update 条目，329 points，160 comments（截至 7/31）。Artificial Analysis 已出评测。AINews 7/31 有提及。
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://deepseek.com/">DeepSeek 官网</a> · <a href="https://artificialanalysis.ai/models/deepseek-v4-flash">Artificial Analysis 分析</a> · <a href="https://news.ycombinator.com/item?id=41234567">HN 讨论</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://news.ycombinator.com/item?id=41234567">HN 讨论</a> · <a href="https://artificialanalysis.ai/models/deepseek-v4-flash">Artificial Analysis 评测</a> · <a href="https://deepseek.com">DeepSeek 官网</a>
   </div>
 </article>
 
@@ -250,85 +230,62 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 可看</span>
-  <h2>OpenAI GPT-5.6 Luna 降价 80% — Simon Willison 已切换</h2>
-  <p class="pitch">爪哩，OpenAI 今天把 GPT-5.6 Luna 的价格砍了 80%，从 $1.00/1M tokens 降到 $0.20/1M tokens。Simon Willison 已经把他的 agent.datasette.io 从 Gemini Flash-Lite 切换到了 Luna。这意味着你现在可以用 OpenAI 的价格跑以前 Gemini 级别的成本。</p>
+  <h2>OpenAI GPT-5.6 Luna 降价 80% — 比 Gemini Flash-Lite 还便宜，Simon Willison 已切换</h2>
+  <p class="pitch">爪哩，OpenAI 今天宣布 GPT-5.6 Luna 降价 80%，Terra 降价 20%。Luna 现在 $0.20/百万输入 tokens，比 Google 的 Gemini 3.1 Flash-Lite（$0.25）还便宜。Simon Willison 已经把他的 agent.datasette.io 从 Gemini Flash-Lite 切换到了 Luna。这不是新模型发布，但价格变化可能直接影响你选哪个模型做 vibe coding。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · GPT-5.6 Luna 是 OpenAI 的轻量级模型，定位是低成本、高速度。7/30 OpenAI 发布了价格更新，Luna 降价 80%，Terra 降价 20%。Simon Willison 7/30 发博文说他把 agent.datasette.io 从 Gemini 3.1 Flash-Lite 切换到了 Luna，因为 Luna 现在更便宜。今天（7/31）HN 尚未出现大规模讨论，但 Simon Willison 的 endorsement 是强信号。
+    <strong>📍 背景</strong> · OpenAI 于 7/30 宣布 GPT-5.6 Luna 降价 80%（从 $1.00 降到 $0.20/百万输入 tokens），Terra 降价 20%。同时推出了更快的 Sol Fast 层级（价格翻倍但延迟降低 2.5 倍）。Simon Willison 在 7/30 的博客中确认已将自己的 demo 站点从 Gemini Flash-Lite 切换到 Luna。这不是新模型发布，但价格变化可能改变模型选择格局。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>Luna 现在比 Gemini Flash-Lite 还便宜</strong> — $0.20/1M tokens vs Gemini 3.1 Flash-Lite 的 $0.25/1M tokens。这是 OpenAI 第一次在价格上低于 Google 的同类产品。</li>
-    <li><strong>Simon Willison 已切换</strong> — 他是 AI 社区最受信任的评测者之一。他说"Luna 现在是我默认的轻量模型"，这比任何官方宣传都有说服力。</li>
-    <li><strong>对 vibe coding 的影响</strong> — 如果你用 OpenAI API 做 vibe coding，Luna 降价意味着你可以跑更多实验而不心疼钱。或者你可以把 Luna 作为 Claude Code 的 fallback 模型。</li>
-    <li><strong>价格战信号</strong> — OpenAI 主动降价 80% 说明他们感受到了来自 DeepSeek、Kimi K3 等开源模型的竞争压力。这对用户是好事。</li>
+    <li><strong>Luna 现在比 Gemini Flash-Lite 还便宜</strong> — $0.20 vs $0.25/百万输入 tokens，而且 Luna 是 GPT-5.6 系列，智能水平更高。</li>
+    <li><strong>Simon Willison 已切换</strong> — 他把 agent.datasette.io 从 Gemini Flash-Lite 换到了 Luna，说明 Luna 在性价比上已经胜出。</li>
+    <li><strong>对 vibe coding 的影响</strong> — 如果你在用 API 做编码任务，Luna 降价后可能成为新的默认选择。</li>
+    <li><strong>竞争格局</strong> — 今天 DeepSeek 也更新了 V4 Flash，价格战正在加剧。</li>
   </ul>
-
-  <div class="chart">
-    <div class="bar-row">
-      <span class="bar-label">GPT-5.6 Luna (旧)</span>
-      <span class="bar" style="width:100%"></span>
-      <span class="bar-val">$1.00/1M tokens</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">GPT-5.6 Luna (新)</span>
-      <span class="bar" style="width:20%"></span>
-      <span class="bar-val">$0.20/1M tokens (-80%)</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Gemini 3.1 Flash-Lite</span>
-      <span class="bar" style="width:25%"></span>
-      <span class="bar-val">$0.25/1M tokens</span>
-    </div>
-    <div class="bar-row">
-      <span class="bar-label">Claude Haiku 4.5</span>
-      <span class="bar" style="width:100%"></span>
-      <span class="bar-val">$1.00/1M tokens</span>
-    </div>
-  </div>
 
   <div class="action-block">
     <strong>🎯 今天就能做的事</strong>
     <ol>
-      <li>看 Simon Willison 的博文：<a href="https://simonwillison.net/2026/Jul/30/gpt-5-6-luna/">Advancing the price-performance frontier with GPT‑5.6</a></li>
-      <li>检查你的 OpenAI API 调用：如果你在用 GPT-5.6 Terra 或 Haiku，考虑切换到 Luna 来降低成本。</li>
-      <li>试试 Luna 的编码能力：用 vibe coding 跑一个中等规模的项目，看看 Luna 是否满足你的需求。</li>
-      <li>关注 OpenAI 的官方博客：<a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6">Advancing the price-performance frontier with GPT-5.6</a></li>
+      <li>看 Simon Willison 的博客：<a href="https://simonwillison.net/2026/Jul/30/gpt-5-6-pricing/">Advancing the price-performance frontier with GPT‑5.6</a></li>
+      <li>检查你的 OpenAI API 账单——如果你在用 Luna，成本可能已经大幅下降。</li>
+      <li>对比 Luna 和 DeepSeek V4 Flash 的价格——今天两个都有更新。</li>
+      <li>如果你在用 Gemini Flash-Lite，考虑切换到 Luna。</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——Luna 降价 vs 竞争对手价格对比</summary>
+    <summary>🔬 深扒——GPT-5.6 Luna 降价后的价格对比</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>模型</th><th>输入价格 (/1M tokens)</th><th>输出价格 (/1M tokens)</th><th>上下文</th></tr>
+        <tr><th>模型</th><th>输入价格（/百万 tokens）</th><th>输出价格（/百万 tokens）</th></tr>
       </thead>
       <tbody>
-        <tr><td>GPT-5.6 Luna (新)</td><td>$0.20</td><td>$1.20</td><td>128K</td></tr>
-        <tr><td>GPT-5.6 Luna (旧)</td><td>$1.00</td><td>$4.00</td><td>128K</td></tr>
-        <tr><td>Gemini 3.1 Flash-Lite</td><td>$0.25</td><td>$1.50</td><td>1M</td></tr>
-        <tr><td>Claude Haiku 4.5</td><td>$1.00</td><td>$5.00</td><td>200K</td></tr>
-        <tr><td>DeepSeek V4 Flash (新)</td><td>$0.60</td><td>$2.40</td><td>1M</td></tr>
+        <tr><td>GPT-5.6 Luna（降价后）</td><td>$0.20</td><td>$1.20</td></tr>
+        <tr><td>GPT-5.6 Luna（降价前）</td><td>$1.00</td><td>$4.00</td></tr>
+        <tr><td>Gemini 3.1 Flash-Lite</td><td>$0.25</td><td>$1.50</td></tr>
+        <tr><td>Claude Haiku 4.5</td><td>$1.00</td><td>$5.00</td></tr>
+        <tr><td>DeepSeek V4 Flash</td><td>约 $0.15（估算）</td><td>约 $0.60（估算）</td></tr>
       </tbody>
     </table>
-    <p><strong>老实说</strong>：Luna 降价 80% 是好事，但要注意：Luna 的上下文只有 128K，而 Gemini Flash-Lite 有 1M。如果你需要处理长文档，Gemini 可能还是更好的选择。另外，Luna 的编码能力不如 GPT-5.6 Sol 或 Claude Opus 5，但对于日常 vibe coding 来说足够了。</p>
+    <p><strong>老实说</strong>：降价 80% 是巨大的，但 Luna 的智能水平低于 Terra 和 Sol。如果你需要高质量输出，可能还是得用 Terra 或 Sol。但对于日常 vibe coding 和简单任务，Luna 现在可能是性价比最高的选择。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 关注点</strong> · 关键 trigger event：如果 HN 出现 Luna 降价的大规模讨论（>300 points），或者更多 KOL 像 Simon Willison 一样切换，信号升级。另外，Anthropic 是否会跟进降价？如果 Haiku 也降价，那才是真正的价格战。
+    <strong>🔭 关注点</strong> · 关键 trigger event：如果 Anthropic 也降价应对，或者 Google 跟进降价，信号升级。另外，Simon Willison 是否会发布更详细的 Luna vs Gemini Flash-Lite 对比评测。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong> · <strong>GPT-5.6 Luna</strong> = OpenAI 的轻量级模型，定位是低成本、高速度。Luna、Terra、Sol 是 GPT-5.6 系列的三个变体，Luna 最小最便宜，Sol 最大最强。<strong>1M tokens</strong> = 约 75 万个英文单词。
+    <strong>术语解码</strong> · <strong>Luna / Terra / Sol</strong> = OpenAI GPT-5.6 系列的三个层级：Luna（最便宜，适合简单任务）、Terra（中等，适合大多数任务）、Sol（最强，适合复杂任务）。<strong>Flash-Lite</strong> = Google Gemini 的轻量级版本，定位在低成本推理。
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · Simon Willison 7/30 博文详细分析。OpenAI 官方博客 7/30 发布。AINews 7/30 有报道。HN 尚未出现大规模讨论（截至 7/31 上午）。
+    <strong>谁在讨论</strong> · Simon Willison 博客 7/30 发布。AINews 7/30 有详细报道。OpenAI 官方博客 7/30 发布。
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6">OpenAI 官方博客</a> · <a href="https://simonwillison.net/2026/Jul/30/gpt-5-6-luna/">Simon Willison 博文</a> · <a href="https://platform.openai.com/docs/models/gpt-5-6">OpenAI 模型文档</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://simonwillison.net/2026/Jul/30/gpt-5-6-pricing/">Simon Willison 博客</a> · <a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6">OpenAI 官方博客</a> · <a href="https://platform.openai.com">OpenAI API 定价页</a>
   </div>
 </article>
 
@@ -339,12 +296,12 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
   <ul>
     <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Kimi K3 社区采用</span> <span class="update">— HN 448 points 维持，HuggingFace 下载 493k（+27%），unsloth GGUF 36.2k 下载。无新 trigger event，但下载量持续增长。</span></div>
+      <span class="days">Day 3</span>
+      <div><span class="item-name">Kimi K3 社区实测</span> <span class="update">— HuggingFace 下载量 493k（+27%），unsloth GGUF 版本 36.2k 下载。HN 448 points 维持。无新 trigger event。</span></div>
     </li>
     <li>
       <span class="days">Day 3</span>
-      <div><span class="item-name">OpenAI ARC-AGI-3 开源方案</span> <span class="update">— 博客发布 3 天，HN 尚未出现讨论，KOL 无新 endorsement。等待社区复现。</span></div>
+      <div><span class="item-name">OpenAI ARC-AGI-3 开源方案</span> <span class="update">— 博客发布 2 天，HN 尚未出现讨论，KOL 无新 endorsement。等待社区复现。</span></div>
     </li>
     <li>
       <span class="days">Day 3</span>
@@ -371,19 +328,19 @@ li+li{margin-top:.3rem}
       <tr><th>项目</th><th>没选的原因</th></tr>
     </thead>
     <tbody>
-      <tr><td>HN #1 The session you cannot take with you</td><td>399 points，非 AI 工具。</td></tr>
-      <tr><td>HN #2 Google fixed more Chrome bugs in June than over the past two years, thanks to AI</td><td>118 points，Chrome 安全更新，非新工具/模型发布。</td></tr>
+      <tr><td>HN #1 The session you cannot take with you</td><td>400 points，非 AI 工具。</td></tr>
+      <tr><td>HN #2 Google fixed more Chrome bugs in June than over the past two years, thanks to AI</td><td>121 points，Chrome 安全更新，非新工具/模型发布。</td></tr>
       <tr><td>HN #3 JEP 401: Value Objects (Preview) merged to OpenJDK master</td><td>130 points，Java 语言特性，非 AI 工具。</td></tr>
-      <tr><td>HN #4 DeepSeek-V4-Flash Update</td><td>327 points，已作为 Item 1 报道。</td></tr>
-      <tr><td>HN #5 DeepSeek V4 Flash 0731 Intelligence, Performance and Price Analysis</td><td>30 points，已作为 Item 1 的补充链接。</td></tr>
-      <tr><td>HN #6 Show HN: Gander, an Android file viewer</td><td>81 points，非 AI 工具。</td></tr>
-      <tr><td>HN #7 Stacked PRs are now live on GitHub</td><td>666 points，GitHub 功能更新，非 AI 工具。</td></tr>
-      <tr><td>HN #8 I flagged two research papers for fake authors</td><td>217 points，学术诚信，非 AI 工具。</td></tr>
+      <tr><td>HN #4 DeepSeek V4 Flash 0731 Intelligence, Performance and Price Analysis</td><td>32 points，已作为 Item 1 报道。</td></tr>
+      <tr><td>HN #5 DeepSeek-V4-Flash Update</td><td>329 points，已作为 Item 1 报道。</td></tr>
+      <tr><td>HN #6 Show HN: Gander, an Android file viewer that asks for no permissions at all</td><td>82 points，非 AI 工具。</td></tr>
+      <tr><td>HN #7 Stacked PRs are now live on GitHub</td><td>667 points，GitHub 功能更新，非 AI 工具。</td></tr>
+      <tr><td>HN #8 I flagged two research papers for fake authors and both were accepted as orals</td><td>217 points，学术诚信，非 AI 工具。</td></tr>
       <tr><td>HN #9 Gemini Robotics 2 brings whole body intelligence to robots</td><td>568 points，机器人模型，偏离 clawii 关注范围。</td></tr>
       <tr><td>HN #10 Show HN: What should the GUI for AI agents look like?</td><td>68 points，观点讨论，非新工具/产品发布。</td></tr>
-      <tr><td>HN #11 The mean means nothing: data visualization to debug a latency problem</td><td>52 points，编程文章，非 AI 工具。</td></tr>
-      <tr><td>HN #12 Where USB Memory Sticks are Born (2013)</td><td>59 points，非 AI 工具。</td></tr>
-      <tr><td>HN #13 Read this before you buy that TV streaming stick</td><td>724 points，非 AI 工具。</td></tr>
+      <tr><td>HN #11 The mean means nothing: data visualization to debug a latency problem</td><td>53 points，编程文章，非 AI 工具。</td></tr>
+      <tr><td>HN #12 Where USB Memory Sticks are Born (2013)</td><td>61 points，非 AI 工具。</td></tr>
+      <tr><td>HN #13 Read this before you buy that TV streaming stick</td><td>725 points，消费电子，非 AI 工具。</td></tr>
       <tr><td>HN #14 The Religion of Speed</td><td>174 points，观点文章，非 AI 工具。</td></tr>
       <tr><td>HN #15 Obfuscation (Part II): Diamond IO</td><td>7 points，非 AI 工具。</td></tr>
       <tr><td>HN #16 Simulating TCP loss and congestion in browser using Go/WASM</td><td>31 points，非 AI 工具。</td></tr>
@@ -391,20 +348,20 @@ li+li{margin-top:.3rem}
       <tr><td>HN #18 IMAX vs. IMAX 70mm</td><td>5 points，非 AI 工具。</td></tr>
       <tr><td>HN #19 The Economic Benefit of Refactoring</td><td>246 points，编程文章，非 AI 工具。</td></tr>
       <tr><td>HN #20 GCC steering committee announces AI policy</td><td>304 points，政策讨论，非新工具/产品发布。</td></tr>
-      <tr><td>HN #21 Bad Apple but It's Traceroute</td><td>122 points，趣味项目，非 AI 工具。</td></tr>
-      <tr><td>HN #22 The AI Aesthetic</td><td>314 points，观点文章，非新工具/产品发布。</td></tr>
-      <tr><td>HN #23 Memo-1: A 6502 computer built from scratch</td><td>79 points，硬件项目，非 AI 工具。</td></tr>
+      <tr><td>HN #21 Bad Apple but It's Traceroute</td><td>122 points，非 AI 工具。</td></tr>
+      <tr><td>HN #22 Memo-1: A 6502 computer built from scratch</td><td>80 points，非 AI 工具。</td></tr>
+      <tr><td>HN #23 The AI Aesthetic</td><td>315 points，观点文章，非新工具/产品发布。</td></tr>
       <tr><td>HN #24 UEFA and its national associations will not participate in FIFA competitions</td><td>1065 points，体育新闻，非 AI 工具。</td></tr>
       <tr><td>HN #25 CodePen 2.0</td><td>169 points，前端工具，非 AI 核心工具。</td></tr>
       <tr><td>HN #26 The lost civic life of movie rental stores</td><td>175 points，非 AI 工具。</td></tr>
       <tr><td>HN #27 Physicists Solve a Muon Mystery</td><td>220 points，物理新闻，非 AI 工具。</td></tr>
-      <tr><td>HN #28 Rune 1.1: adds Python, an Emacs editor, a symbol index and is now free</td><td>82 points，编程工具，非 AI 工具。</td></tr>
-      <tr><td>HN #29 Saber-toothed cats became inbred</td><td>61 points，古生物学，非 AI 工具。</td></tr>
-      <tr><td>HN #30 Show HN: Distilling DeepSeek into GPT-OSS doesn't transfer censorship</td><td>131 points，模型蒸馏项目，信号较弱（非新模型/工具发布）。</td></tr>
-      <tr><td>OpenAI: Advancing responsible AI across Europe</td><td>7/31 发布，政策新闻，非新工具/模型发布。</td></tr>
-      <tr><td>OpenAI: Unive</td><td>7/31 发布，内容不明确，无法判断。</td></tr>
+      <tr><td>HN #28 Rune 1.1: adds Python, an Emacs editor, a symbol index and is now free</td><td>82 points，编程工具，非 AI 核心工具。</td></tr>
+      <tr><td>HN #29 Saber-toothed cats became inbred</td><td>61 points，非 AI 工具。</td></tr>
+      <tr><td>HN #30 Show HN: Distilling DeepSeek into GPT-OSS doesn't transfer censorship</td><td>131 points，蒸馏实验，信号较弱。</td></tr>
+      <tr><td>OpenAI: Advancing responsible AI across Europe</td><td>7/31 发布，政策声明，非新工具/模型发布。</td></tr>
+      <tr><td>OpenAI: Unive</td><td>7/31 发布，内容不明确，非新工具/模型发布。</td></tr>
       <tr><td>OpenAI: Advancing the price-performance frontier with GPT-5.6</td><td>7/30 发布，已作为 Item 2 报道。</td></tr>
-      <tr><td>OpenAI: Avatarin</td><td>7/30 发布，企业合作案例，非新工具/模型发布。</td></tr>
+      <tr><td>OpenAI: Avatarin</td><td>7/30 发布，企业案例，非新工具/模型发布。</td></tr>
       <tr><td>OpenAI: How two settings tripled our ARC-AGI-3 scores</td><td>7/29 发布，已在 Still tracking 中。</td></tr>
       <tr><td>OpenAI: ChatGPT for Academic Researchers</td><td>7/29 发布，学术访问计划，非新工具/模型发布。</td></tr>
       <tr><td>OpenAI: GPT-5.6 Frontier Intelligence Efficiency</td><td>7/29 发布，效率博客，非新工具/模型发布。</td></tr>
@@ -414,11 +371,15 @@ li+li{margin-top:.3rem}
       <tr><td>Anthropic: Our position on open-weights models</td><td>7/27 发布，政策声明，非新工具/模型发布。</td></tr>
       <tr><td>Anthropic: Cognizant partnership</td><td>7/27 发布，企业合作，非新工具/模型发布。</td></tr>
       <tr><td>Google DeepMind: Gemini Robotics 2</td><td>7/31 发布，机器人模型，偏离 clawii 关注范围。</td></tr>
-      <tr><td>Hugging Face: mDenseOn with the mLateOn</td><td>21 小时前发布，检索模型，信号较弱。</td></tr>
-      <tr><td>Hugging Face: VisionPsy-Nano</td><td>2 天前发布，视觉语言模型，信号较弱。</td></tr>
+      <tr><td>Google DeepMind: Gemini Robotics ER 2</td><td>7/31 发布，机器人模型，偏离 clawii 关注范围。</td></tr>
+      <tr><td>Hugging Face: Kimi K3 Model Overview</td><td>14 天前文章，已在 Still tracking 中。</td></tr>
+      <tr><td>Hugging Face: mDenseOn with the mLateOn</td><td>约 21 小时前发布，检索模型，信号较弱。</td></tr>
+      <tr><td>Hugging Face: VisionPsy-Nano</td><td>2 天前发布，设备端 VLM，信号较弱。</td></tr>
       <tr><td>Hugging Face: FLUX 3 Model Overview</td><td>7 天前发布，已在 Still tracking 中。</td></tr>
+      <tr><td>Hugging Face: ECMWF's AI forecasting model</td><td>3 天前发布，天气模型，偏离 clawii 关注范围。</td></tr>
+      <tr><td>Simon Willison: Advancing the price-performance frontier with GPT-5.6</td><td>7/30 发布，已作为 Item 2 报道。</td></tr>
       <tr><td>Simon Willison: Investigating three real-world incidents in our cybersecurity evaluations</td><td>7/30 发布，安全事件分析，非新工具/产品发布。</td></tr>
-      <tr><td>Simon Willison: The writing assignments I give my students are gym tasks</td><td>7/30 发布，教育观点，非工具信号。</td></tr>
+      <tr><td>Simon Willison: The writing assignments I give my students are gym tasks</td><td>7/30 发布，观点文章，非新工具/产品发布。</td></tr>
       <tr><td>Simon Willison: AI Worming through Word</td><td>7/29 发布，安全漏洞分析，非新工具/产品发布。</td></tr>
       <tr><td>Simon Willison: TIL Adding a custom MCP server</td><td>7/29 发布，教程，非新工具/产品发布。</td></tr>
       <tr><td>Mistral 新闻</td><td>今日无新内容。</td></tr>
