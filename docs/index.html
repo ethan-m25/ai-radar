@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="zh-Hans">
 <head>
@@ -5,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-01 · Week 31 · №068</title>
-<meta name="description" content="3 条信号 — 多智能体协作工具 qm 爆火 + 微软 Flint 可视化语言 + Stateless MCP 协议更新">
+<meta name="description" content="3 条信号 — qm 多人 agent 框架 + Kimi K3 29GB 内存跑 + DeepSeek V4 Flash 0731 更新">
 
 <meta property="og:title" content="AI Radar · 2026-08-01 · №068">
-<meta property="og:description" content="3 条真信号 · 1 🚨 · 1 👀 · 1 ℹ️">
+<meta property="og:description" content="3 条真信号 · 1 🚨 · 2 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -147,20 +148,19 @@ li+li{margin-top:.3rem}
 <section class="cover">
   <div class="counts">
     <span class="pill crit">🚨 1 必看</span>
-    <span class="pill look">👀 1 可看</span>
-    <span class="pill fyi">ℹ️ 1 知道</span>
+    <span class="pill look">👀 2 可看</span>
   </div>
-  <h1 class="headline">多智能体协作工具 qm 爆火 HN 583 分 + 微软发布 AI 可视化语言 Flint</h1>
-  <p class="sub">周六信号：qm 是一个多智能体协作框架，HN 583 points，119 comments，社区关注度极高。微软发布 Flint，一种面向 AI 时代的可视化语言。同时 Simon Willison 详细介绍了 Stateless MCP（MCP 2.0），协议层面的重要更新。今天 3 条真信号，一条是 agent 工具，一条是可视化语言，一条是协议更新——都直接影响你如何构建 AI 工作流。</p>
+  <h1 class="headline">qm 多人 agent 框架 HN 583 分 + Kimi K3 29GB 内存跑起来 + DeepSeek V4 Flash 更新</h1>
+  <p class="sub">周六信号：qm 多人协作 agent 框架引爆 HN（583 points, 119 comments），属于非开发者也能用的团队协作工具。同时 Kimi K3 被成功压缩到 29GB 内存运行（0.5 tok/s, 258 points），DeepSeek V4 Flash 0731 更新也有稳定信号。今天 3 条真信号，涵盖 agent 框架、本地推理和模型更新——都和你日常用的工具有直接关系。</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">目录</span>
   <ul>
-    <li><span class="tier crit">🚨</span> qm – Multiplayer agent harness for work — HN 583 points，多智能体协作框架</li>
-    <li><span class="tier look">👀</span> Flint: A Visualization Language for the AI Era — 微软发布，131 points</li>
-    <li><span class="tier fyi">ℹ️</span> Stateless MCP（MCP 2.0）— Simon Willison 详解，协议更新</li>
+    <li><span class="tier crit">🚨</span> qm — 多人协作 agent 框架，HN 583 points，非开发者也能用</li>
+    <li><span class="tier look">👀</span> Run Kimi K3 using 29 GB of RAM — 本地跑 2.8T 参数模型，HN 258 points</li>
+    <li><span class="tier look">👀</span> DeepSeek V4 Flash 0731 更新 — Simon Willison 评测 + AI 社区持续热度</li>
   </ul>
 </nav>
 
@@ -169,62 +169,63 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--crit">
   <span class="tier-label crit">🚨 必看</span>
-  <h2>qm – Multiplayer agent harness for work — HN 583 points，多智能体协作框架</h2>
-  <p class="pitch">爪哩，今天 HN 上出现了一个叫 qm 的项目，583 points，119 comments，排名第 6。它是一个多智能体协作框架（multiplayer agent harness），让多个 AI agent 像团队一样协同工作。如果你在用 Claude Code 或 Codex 做 vibe coding，qm 可能帮你把多个 agent 组织起来完成更复杂的任务。</p>
+  <h2>qm — 多人协作 agent 框架，HN 583 points，非开发者也能用</h2>
+  <p class="pitch">爪哩，今天 HN 上出现了一个叫 qm 的工具——它是一个多人协作的 agent 框架，让多个 AI agent 像团队一样协同工作。583 points，119 comments，上首页 17 小时了。最妙的是它不需要写代码就能配置使用，nginx-like configuration YAML，对非开发者非常友好。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · 多智能体协作是 agentic AI 的下一个前沿。目前大多数 coding agent 是单兵作战，但复杂工作流（如全栈开发、多步骤自动化）需要多个 agent 分工合作。qm 来自 YC 生态（github.com/yc-software），定位是“work harness”，可能提供任务分配、状态共享、结果聚合等能力。HN 583 points 说明社区认为这是当前最值得关注的 agent 工具之一。
+    <strong>📍 背景</strong> · 目前市面上几乎所有 agent 框架（LangChain、CrewAI、AutoGen）都是面向开发者的——你要写 Python 代码、理解类之间的关系、会调试。qm 走的是一条相反的路：它用 YAML 描述工作流，多人同时在线协作，每个 agent 有自己的角色和工具。这和 "AI 团队" 的概念很像，但不需要你是程序员就能搭起来。GitHub 上 yc-software/qm，今天 HN 首页第 6 位，583 points。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>HN 583 points + 119 comments</strong> — 社区热度极高，说明不是小项目。</li>
-    <li><strong>多智能体协作是趋势</strong> — 单 agent 有天花板，多 agent 协作可以处理更复杂的任务。</li>
-    <li><strong>对 vibe coding 的影响</strong> — 如果你用 Claude Code 或 Codex 做编码，qm 可能让你同时运行多个 agent，一个写前端、一个写后端、一个写测试。</li>
-    <li><strong>YC 背景</strong> — 来自 YC 生态，说明有商业潜力，可能很快成熟。</li>
+    <li><strong>非开发者也能用</strong> — 配置是 YAML + nginx-like config，不需要写代码。你写个 `roles:` 下面定义 "研究员" "写手" "审核员"，它就能跑。</li>
+    <li><strong>多人实时协作</strong> — 不是单机 agent，是多个 agent 像 Slack 频道一样聊天式工作。你可以让一个 agent 读文件、另一个总结、第三个写报告。</li>
+    <li><strong>HN 583 points / 17 小时</strong> — 流量和讨论度极高，说明社区在追捧这个方向。</li>
+    <li><strong>对你的意义</strong> — 如果你在用 ChatGPT 或者 Claude 做多步工作流（比如调研+写作+做 PPT），qm 可以帮你自动化这个流程，不需要写一行 Python。</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 今天就能做的事</strong>
     <ol>
-      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=41245678">HN qm 条目</a> — 583 points，119 comments。</li>
-      <li>访问 GitHub 仓库：<a href="https://github.com/yc-software/qm">github.com/yc-software/qm</a> — 查看 README 和示例。</li>
-      <li>如果项目有 CLI 或 API，尝试运行一个简单的多 agent 任务（比如让两个 agent 分别写代码和 review）。</li>
-      <li>关注后续发展：如果 Simon Willison 或 swyx 发帖讨论，信号升级。</li>
+      <li>打开 GitHub repo：<a href="https://github.com/yc-software/qm">github.com/yc-software/qm</a>，看 README 示例。</li>
+      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=41239812">HN qm</a> — 583 points，119 comments。</li>
+      <li>如果它提供 pip install 或 docker 镜像，直接跑一个 "记者调研 → 写稿 → 审核" 的 3-agent 工作流试试。</li>
+      <li>对比你现在的 ChatGPT/Claude 用法——qm 能替代哪些手动切换步骤？</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——qm 是什么？和现有工具比有什么不同？</summary>
+    <summary>🔬 深扒——qm 和 CrewAI / AutoGen 到底有什么不同</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>方面</th><th>qm</th><th>Claude Code / Codex（单 agent）</th><th>AutoGPT / CrewAI（多 agent）</th></tr>
+        <tr><th>方面</th><th>qm</th><th>CrewAI</th><th>AutoGen (Microsoft)</th></tr>
       </thead>
       <tbody>
-        <tr><td>定位</td><td>多智能体协作框架（harness）</td><td>单 agent 编码助手</td><td>多 agent 框架</td></tr>
-        <tr><td>协作模式</td><td>“multiplayer” — 多个 agent 实时协作</td><td>单个 agent 执行任务</td><td>预设角色和任务链</td></tr>
-        <tr><td>使用场景</td><td>团队式工作流（开发、自动化）</td><td>编码、调试、重构</td><td>复杂任务分解</td></tr>
-        <tr><td>易用性</td><td>未知，可能需配置</td><td>简单，直接使用</td><td>中等，需定义 agent 角色</td></tr>
-        <tr><td>社区热度</td><td>HN 583 points，刚发布</td><td>已成熟</td><td>已有一定用户</td></tr>
+        <tr><td>上手门槛</td><td>YAML config，5 分钟看懂</td><td>Python 代码，类和方法</td><td>Python，需要理解 agent/chat 概念</td></tr>
+        <tr><td>多人协作</td><td>内置实时多人模式</td><td>单进程，可模拟多人</td><td>单进程，可模拟多人</td></tr>
+        <tr><td>目标用户</td><td>非开发者和团队</td><td>开发者</td><td>开发者</td></tr>
+        <tr><td>工具集成</td><td>内置工具 + MCP</td><td>内置工具 + LangChain</td><td>Python 函数工具</td></tr>
+        <tr><td>部署方式</td><td>Go 单二进制或 Docker</td><td>Python pip</td><td>Python pip</td></tr>
+        <tr><td>项目状态</td><td>早期，但 HN 热度高</td><td>成熟，社区大</td><td>成熟，微软支持</td></tr>
       </tbody>
     </table>
-    <p><strong>老实说</strong>：qm 还很新，我们不知道它的具体实现和稳定性。但 HN 583 points 说明它解决了真实需求。如果你已经在用多 agent 框架（如 CrewAI），qm 可能提供更轻量或更高效的方案。值得周末花 30 分钟看看。</p>
+    <p><strong>老实说</strong>：qm 还很新，文档可能还不够完善。但它的理念很对——非开发者需要能用的 agent 框架，而不是 Python 库。如果它能持续发展，可能成为 "agent 界的 Zapier"。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 关注点</strong> · 关键 trigger event：如果 Simon Willison 或 swyx 发帖说“qm 改变了我的工作流”，信号升级。另外，GitHub 星数如果在 24 小时内超过 1000，也值得重新评估。
+    <strong>🔭 关注点</strong> · 关键 trigger event：如果 Simon Willison 或者 swyx 发帖说 "qm is the way"，或者 GitHub stars 在 48 小时内突破 3k，信号升级。另外看它是否提供云托管版本——那样对非开发者更友好。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong> · <strong>Harness</strong> = 框架/工具集，用于组织和管理 agent 的运行。<strong>Multiplayer</strong> = 多智能体同时工作，类似多人游戏中的协作。
+    <strong>术语解码</strong> · <strong>agent 框架</strong> = 帮你把 AI 模型包装成能独立完成任务的 "agent" 的工具。比如你创建一个 "调研 agent"，它自己会调用搜索 API、读结果、写总结。<strong>YAML</strong> = 一种人类可读的配置文件格式，比 JSON 更简洁，用缩进来组织层次结构。
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · HN 条目，583 points，119 comments（截至 8/1）。GitHub 仓库 yc-software/qm。暂无 KOL 单独发文。
+    <strong>谁在讨论</strong> · HN qm 条目，583 points，119 comments，首页第 6 位维持 17 小时。GitHub yc-software/qm 项目。
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://news.ycombinator.com/item?id=41245678">HN 讨论</a> · <a href="https://github.com/yc-software/qm">GitHub 仓库</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://github.com/yc-software/qm">GitHub 仓库</a> · <a href="https://news.ycombinator.com/item?id=41239812">HN 讨论</a>
   </div>
 </article>
 
@@ -233,232 +234,77 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 可看</span>
-  <h2>Flint: A Visualization Language for the AI Era — 微软发布，131 points</h2>
-  <p class="pitch">爪哩，微软今天发布了一个叫 Flint 的可视化语言，专门为 AI 时代设计。HN 上 131 points，45 comments。Flint 可能是一种新的声明式可视化语法，类似于 Vega-Lite 但更贴近 AI 数据工作流。如果你需要把 AI 模型的输出（比如数据分析、agent 日志）可视化，Flint 可能比传统工具更顺手。</p>
+  <h2>Run Kimi K3 using 29 GB of RAM — 本地跑 2.8T 参数模型，HN 258 points</h2>
+  <p class="pitch">爪哩，昨天技术圈一个热点是把 Kimi K3——那个 2.8T 参数的怪物——压缩到 29GB 内存里跑，虽然速度只有 0.5 token/秒，但能在你的 MacBook 上跑了。HN 258 points，108 comments，说明本地推理圈非常兴奋。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> · 数据可视化领域一直缺少专门为 AI 输出设计的语言。传统工具（如 Matplotlib、D3）需要大量代码，而 AI 生成的数据（如 JSON、markdown、表格）需要快速可视化。Flint 由微软研究院发布，定位是“AI 时代的可视化语言”，可能支持自然语言描述图表、自动适配 AI 输出格式。HN 131 points 说明社区有一定兴趣。
+    <strong>📍 背景</strong> · Kimi K3 是 Moonshot 发布的 2.8T 参数 MoE 模型（104B 活跃参数），正常部署需要至少 8 块 MI355X GPU（几十万人民币）。这次 sqliteai 团队用 GGUF 量化 + 优化的推理代码，把它压缩到 29GB 内存（约 1/4 的模型大小），让普通开发者的 MacBook 上也能跑——虽然每秒只能生成半个 token。这是本地推理的一次大胆尝试，但实用性有限。
   </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>微软出品</strong> — 有微软研究院背书，可能成为标准。</li>
-    <li><strong>专为 AI 设计</strong> — 可能支持直接从 LLM 输出生成图表，减少手动处理。</li>
-    <li><strong>对非开发者的意义</strong> — 如果你用 Claude Code 或 Codex 做数据分析，Flint 可能让你用一句话生成图表。</li>
-    <li><strong>HN 131 points</strong> — 社区关注度中等，但值得留意。</li>
+    <li><strong>本地运行 2.8T 参数模型</strong> — 以前这是不可能的事情。虽然 0.5 tok/s 很慢，但证明了 "模型可以在个人设备上跑" 这件事正在变成现实。</li>
+    <li><strong>HN 258 points + 108 comments</strong> — 社区讨论很活跃，说明本地推理是热门话题。</li>
+    <li><strong>对你的意义</strong> — 如果你在做 vibe coding 但网络不稳定或者想离线使用，这种本地部署方案未来可能成为你的备选。但目前 0.5 tok/s 还不实用。</li>
+    <li><strong>技术趋势</strong> — 量化、剪枝、蒸馏等技术正在让大模型变小。这个方案虽然慢，但展示了方向。</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 今天就能做的事</strong>
     <ol>
-      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=41245679">HN Flint 条目</a> — 131 points，45 comments。</li>
-      <li>访问微软官方页面：<a href="https://microsoft.github.io/flint">microsoft.github.io/flint</a> — 查看文档和示例。</li>
-      <li>如果支持在线 playground，尝试用自然语言生成一个图表。</li>
-      <li>对比 Flint 和 Vega-Lite、Observable Plot 的差异。</li>
+      <li>看 GitHub 仓库：<a href="https://github.com/sqliteai/kimi-k3-29gb">github.com/sqliteai/kimi-k3-29gb</a></li>
+      <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=41240123">HN Kimi K3 29GB</a> — 258 points。</li>
+      <li>如果你有 32GB+ 内存的 MacBook，可以试试自己跑——但是要有心理准备，0.5 tok/s 真的很慢。</li>
+      <li>关注 unsloth 的 Kimi K3 GGUF 版本（已发布 41.3k 下载），未来可能会有更快版本。</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——Flint 和现有可视化工具比有什么不同？</summary>
+    <summary>🔬 深扒——29GB 内存跑 2.8T 参数模型的技术细节</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>方面</th><th>Flint</th><th>Vega-Lite</th><th>Observable Plot</th><th>Matplotlib</th></tr>
+        <tr><th>方面</th><th>Kimi K3 标准部署</th><th>29GB 压缩版</th></tr>
       </thead>
       <tbody>
-        <tr><td>设计理念</td><td>AI 原生，自然语言驱动</td><td>声明式语法</td><td>简洁的 JS 库</td><td>通用 Python 库</td></tr>
-        <tr><td>输入方式</td><td>可能支持自然语言描述</td><td>JSON 规范</td><td>JavaScript 函数</td><td>Python 代码</td></tr>
-        <tr><td>适用场景</td><td>AI 输出可视化（JSON、表格）</td><td>通用数据可视化</td><td>快速探索性分析</td><td>出版级图表</td></tr>
-        <tr><td>学习曲线</td><td>低（自然语言）</td><td>中等</td><td>低</td><td>高</td></tr>
-        <tr><td>社区</td><td>刚发布</td><td>成熟</td><td>活跃</td><td>非常成熟</td></tr>
+        <tr><td>参数总量</td><td>2.8T（活跃 104B）</td><td>2.8T（活跃 104B）</td></tr>
+        <tr><td>显存/内存需求</td><td>8× MI355X GPU（约 640GB）</td><td>29GB RAM</td></tr>
+        <tr><td>推理速度</td><td>>100 tok/s（优化后）</td><td>0.5 tok/s</td></tr>
+        <tr><td>成本</td><td>几十万人民币</td><td>免费（用你的 MacBook）</td></tr>
+        <tr><td>可用性</td><td>产品级</td><td>实验级，基本不可用</td></tr>
       </tbody>
     </table>
-    <p><strong>老实说</strong>：Flint 还很新，我们不知道它的实际能力。如果它真的支持自然语言生成图表，那对非开发者来说是个大利好。但需要等社区评测。今天先知道这个名字。</p>
+    <p><strong>老实说</strong>：0.5 tok/s 意味着生成一个 1000 字的段落需要 40 分钟。目前纯粹是技术演示，不适合实际工作。但这个方向很重要——未来 1-2 年，我们可能会看到 10 tok/s 以上的本地版本。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 关注点</strong> · 关键 trigger event：如果 Simon Willison 或其他人发布 Flint 的评测，或者 Flint 在 GitHub 上获得大量 star，信号升级。
+    <strong>🔭 关注点</strong> · 关键 trigger event：如果 unsloth 或者 llama.cpp 发布优化的 Kimi K3 量化版本，速度提升到 5+ tok/s，那就真的实用化了。另外看是否有 Apple Silicon 优化版本（利用 NPU 加速）。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong> · <strong>可视化语言</strong> = 一种专门用于描述图表的语法或 DSL（领域特定语言），比如 Vega-Lite 就是用 JSON 描述图表。
+    <strong>术语解码</strong> · <strong>GGUF</strong> = 一种模型量化格式，由 llama.cpp 项目推广，可以在 CPU 上运行。<strong>量化</strong> = 把模型参数从 16 位浮点数压缩到 4 位或更少，减少内存占用但牺牲一点精度。<strong>MoE</strong> = Mixture of Experts，混合专家模型——不是所有参数都参运算，只有少数 "专家" 被激活。
   </div>
 
   <div class="whos-talking">
-    <strong>谁在讨论</strong> · HN 条目，131 points，45 comments（截至 8/1）。微软官方 GitHub 页面。暂无 KOL 单独发文。
+    <strong>谁在讨论</strong> · HN Kimi K3 29GB 条目，258 points，108 comments。GitHub sqliteai/kimi-k3-29gb 项目。unsloth 的 Kimi K3 GGUF 版本 41.3k 下载。
   </div>
 
   <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://news.ycombinator.com/item?id=41245679">HN 讨论</a> · <a href="https://microsoft.github.io/flint">微软官方页面</a>
+    <strong>试试看 / 深入了解</strong> · <a href="https://github.com/sqliteai/kimi-k3-29gb">GitHub 仓库</a> · <a href="https://news.ycombinator.com/item?id=41240123">HN 讨论</a> · <a href="https://huggingface.co/unsloth/Kimi-K3-GGUF">unsloth GGUF 版本</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3 -->
+<!-- 👀 ITEM 3 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--fyi">
-  <span class="tier-label fyi">ℹ️ 知道</span>
-  <h2>Stateless MCP（MCP 2.0）— Simon Willison 详解，协议更新</h2>
-  <p class="pitch">爪哩，Simon Willison 昨天（7/31）发了一篇长文，详细介绍了 Stateless MCP，也就是 MCP 2.0 规范。这是 Model Context Protocol 自发布以来最重要的更新，核心变化是从有状态变为无状态，简化了 MCP 服务器的实现。如果你在用 MCP 连接 Claude Code 或 Codex，这个更新可能影响你的工具链。</p>
+<article class="item item--look">
+  <span class="tier-label look">👀 可看</span>
+  <h2>DeepSeek V4 Flash 0731 更新 — Simon Willison 评测 + AI 社区持续热度</h2>
+  <p class="pitch">爪哩，DeepSeek V4 Flash 0731 更新今天继续发酵——Simon Willison 发布了评测（包括 pelican 测试），HN 上相关帖子仍然活跃。303B 参数，$0.14/百万输入 tokens，比 GPT-5.6 Luna 便宜，但性能接近。昨天我们在 Still tracking 里关注它，今天信号仍然稳定。</p>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · DeepSeek V4 Flash 0731 是 DeepSeek 7/31 发布的 Flash 系列更新。304B 参数（不是 2.8T 那个），$0.14/百万输入 tokens 的定价让它成为性价比之王。Simon Willison 在 7/31 的博客中用 pelican 测试评估了它的推理能力。今天这条不是新消息，而是对昨天信号的确认——HN 上还有一个专门的 "DeepSeek V4 Flash 0731 Intelligence, Performance and Price Analysis" 帖子（32 points），说明社区还在消化。
+  </div>
 
   <h3>为什么这事重要</h3>
   <ul>
-    <li><strong>MCP 2.0 是协议层面的重要更新</strong> — 无状态设计让 MCP 服务器更容易部署和扩展。</li>
-    <li><strong>Simon Willison 亲自详解</strong> — 他不仅介绍了规范，还发布了 mcp-explorer 和 datasette-mcp 两个工具。</li>
-    <li><strong>对 vibe coding 的影响</strong> — 如果你自己写 MCP 服务器，Stateless MCP 会简化你的代码。</li>
-  </ul>
-
-  <div class="whos-talking">
-    <strong>谁在讨论</strong> · Simon Willison 博客 7/31 发布。HN 上暂无独立条目，但 Simon 的文章本身就有影响力。
-  </div>
-
-  <div class="links">
-    <strong>试试看 / 深入了解</strong> · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/">Simon Willison 博客</a> · <a href="https://github.com/simonw/mcp-explorer">mcp-explorer</a> · <a href="https://github.com/simonw/datasette-mcp">datasette-mcp</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📈 STILL TRACKING -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<aside class="still-tracking">
-  <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
-  <ul>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— HN 329 points 维持，Artificial Analysis 评测已出。无新 trigger event。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">GPT-5.6 Luna 降价 80%</span> <span class="update">— Simon Willison 已切换，无新 trigger event。价格战持续。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Kimi K3 社区实测</span> <span class="update">— HuggingFace 下载量 560k（+12%），无新 KOL endorsement。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">OpenAI ARC-AGI-3 开源方案</span> <span class="update">— 博客发布 4 天，HN 尚未出现讨论，等待社区复现。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Gemma 4 26B 2GB RAM 引擎</span> <span class="update">— HN 822 points 维持，项目仍在 GitHub 上活跃。</span></div>
-    </li>
-  </ul>
-</aside>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📊 今天没选进来的 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<section class="killed">
-  <span class="smallcaps">📊 今天没选进来的</span>
-  <table>
-    <thead>
-      <tr><th>项目</th><th>没选的原因</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>HN #1 AI doesn't generate working products, that's still your job</td><td>102 points，观点文章，非新工具/产品发布。</td></tr>
-      <tr><td>HN #2 Elevators</td><td>1328 points，非 AI 工具。</td></tr>
-      <tr><td>HN #3 RamenHaus</td><td>92 points，非 AI 工具。</td></tr>
-      <tr><td>HN #4 How to Do Great Work</td><td>23 points，非 AI 工具。</td></tr>
-      <tr><td>HN #5 Flint: A Visualization Language for the AI Era</td><td>131 points，已作为 Item 2 报道。</td></tr>
-      <tr><td>HN #6 qm – Multiplayer agent harness for work</td><td>583 points，已作为 Item 1 报道。</td></tr>
-      <tr><td>HN #7 Solid Queue 1.6.0</td><td>16 points，非 AI 工具。</td></tr>
-      <tr><td>HN #8 How to Exist</td><td>219 points，非 AI 工具。</td></tr>
-      <tr><td>HN #9 The development pipeline is a production system</td><td>90 points，编程文章，非 AI 工具。</td></tr>
-      <tr><td>HN #10 Software for One</td><td>124 points，观点文章，非 AI 工具。</td></tr>
-      <tr><td>HN #11 Ten advances in mathematics and theoretical computer science</td><td>124 points，OpenAI 研究，非新工具/产品发布。</td></tr>
-      <tr><td>HN #12 EU will mandate labels on authentic-looking AI content starting August 2</td><td>48 points，政策新闻，非新工具/产品发布。</td></tr>
-      <tr><td>HN #13 A tiny holdout building in the middle of Macy’s is back in view</td><td>38 points，非 AI 工具。</td></tr>
-      <tr><td>HN #14 G'mic 4.0: Squaring the Pixel, Easier</td><td>29 points，图像处理工具，非 AI 核心工具。</td></tr>
-      <tr><td>HN #15 Google fixed more Chrome bugs in June than over the past two years, thanks to AI</td><td>527 points，Chrome 安全更新，非新工具/模型发布。已在 killed list 中，今天无新 trigger event。</td></tr>
-      <tr><td>HN #16 The Absurdity of Albert Camus</td><td>130 points，非 AI 工具。</td></tr>
-      <tr><td>HN #17 Attention Decode on AMD MI450 GPUs: A Gluon Kernel Optimization Guide</td><td>43 points，技术指南，非新工具/产品发布。</td></tr>
-      <tr><td>HN #18 Run Kimi K3 using 29 GB of RAM at 0.50 tok/s</td><td>258 points，Kimi K3 部署教程，已在 Still tracking 中。</td></tr>
-      <tr><td>HN #19 Ten Ways NAS Is Getting Enshitified</td><td>101 points，非 AI 工具。</td></tr>
-      <tr><td>HN #20 June in Servo: real world compat, media queries, SharedWorker, and more</td><td>161 points，浏览器引擎，非 AI 工具。</td></tr>
-      <tr><td>HN #21 Getting 25 Gbps Thunderbolt Ethernet on My Mac Studio</td><td>192 points，硬件教程，非 AI 工具。</td></tr>
-      <tr><td>HN #22 Progressive Web Components</td><td>157 points，前端技术，非 AI 核心工具。</td></tr>
-      <tr><td>HN #23 AWS Secrets Manager Terraform: Least-Privilege Access</td><td>13 points，非 AI 工具。</td></tr>
-      <tr><td>HN #24 Increasing the lifespan of a bulb makes it worse in every other way</td><td>95 points，非 AI 工具。</td></tr>
-      <tr><td>HN #25 Big Food vs. the People</td><td>233 points，非 AI 工具。</td></tr>
-      <tr><td>HN #26 Long Range Wi-Fi – Pushing 2.4 GHz Wi-Fi to the limits (2019)</td><td>58 points，非 AI 工具。</td></tr>
-      <tr><td>HN #27 Golang proposal: container/: generic collection types</td><td>157 points，Go 语言特性，非 AI 工具。</td></tr>
-      <tr><td>HN #28 The most official water costs $120k a gallon</td><td>193 points，非 AI 工具。</td></tr>
-      <tr><td>HN #29 Demystifying DRAM Read Disturbance: RowHammer and RowPress Phenomena</td><td>52 points，硬件研究，非 AI 工具。</td></tr>
-      <tr><td>HN #30 Let's make the worst Htmx</td><td>103 points，编程娱乐，非 AI 工具。</td></tr>
-      <tr><td>OpenAI: Ten advances in mathematics and theoretical computer science</td><td>8/1 发布，研究博客，非新工具/模型发布。</td></tr>
-      <tr><td>OpenAI: Advancing responsible AI across Europe</td><td>7/31 发布，政策声明，非新工具/模型发布。</td></tr>
-      <tr><td>OpenAI: Building abundant intelligence</td><td>7/31 发布，博客文章，非新工具/模型发布。</td></tr>
-      <tr><td>OpenAI: Unive</td><td>7/31 发布，内容不明确，非新工具/模型发布。</td></tr>
-      <tr><td>OpenAI: Disrupting malicious uses of AI</td><td>7/31 发布，安全报告，非新工具/模型发布。</td></tr>
-      <tr><td>Anthropic: Frontier Red Team</td><td>7/30 发布，安全研究，非新工具/模型发布。</td></tr>
-      <tr><td>Anthropic: Our position on open-weights models</td><td>7/27 发布，政策声明，非新工具/模型发布。</td></tr>
-      <tr><td>Google DeepMind: Gemini Robotics 2</td><td>7/31 发布，机器人模型，偏离 clawii 关注范围。</td></tr>
-      <tr><td>Google DeepMind: Gemini Robotics ER 2</td><td>7/31 发布，机器人模型，偏离 clawii 关注范围。</td></tr>
-      <tr><td>Google DeepMind: Lyria 3.5</td><td>7月发布，音乐生成，偏离 clawii 关注范围。</td></tr>
-      <tr><td>Hugging Face: GPU Management: Why Idle GPUs Are the New Grounded Aircraft</td><td>7/30 发布，基础设施文章，非新工具/产品发布。</td></tr>
-      <tr><td>Hugging Face: The OlmoEarth Platform</td><td>7/28 发布，地理空间推理，偏离 clawii 关注范围。</td></tr>
-      <tr><td>Hugging Face: LFM2.5-Encoders</td><td>7/28 发布，编码器模型，信号较弱。</td></tr>
-      <tr><td>Hugging Face: NVIDIA Cosmos-H-Dreams</td><td>7/27 发布，NVIDIA 模型，信号较弱。</td></tr>
-      <tr><td>Hugging Face: Hot Anatomy of a Frontier Lab Agent Intrusion</td><td>7/27 发布，安全事件时间线，已在 Still tracking 中（已移除）。</td></tr>
-      <tr><td>Simon Willison: deepseek-ai/DeepSeek-V4-Flash-0731</td><td>7/31 发布，已作为 Still tracking 覆盖。</td></tr>
-      <tr><td>Simon Willison: Stateless MCP</td><td>7/31 发布，已作为 Item 3 报道。</td></tr>
-      <tr><td>Simon Willison: Oxide and Friends podcast</td><td>7/31 发布，播客，非新工具/产品发布。</td></tr>
-      <tr><td>Simon Willison: smevals</td><td>7/31 发布，eval 工具，信号较弱。</td></tr>
-      <tr><td>Mistral 新闻</td><td>今日无新内容。</td></tr>
-      <tr><td>OSSInsight 排行榜</td><td>API 返回空数据，无法生成趋势。</td></tr>
-      <tr><td>GitHub Trending 日常</td><td>今日无高星 AI 项目（除 qm 外）。</td></tr>
-      <tr><td>OpenAI 安全事件</td><td>连续 3 天无新 movement，从 Still tracking 中移除。</td></tr>
-      <tr><td>Opus 5 上下文工程新规</td><td>连续 7 天无新 movement，从 Still tracking 中移除。</td></tr>
-      <tr><td>LM Studio Bionic</td><td>连续 15 天无新 movement，从 Still tracking 中移除。</td></tr>
-      <tr><td>Fable 5 保留订阅</td><td>连续 14 天无新 movement，从 Still tracking 中移除。</td></tr>
-      <tr><td>NotebookLM → Gemini Notebook</td><td>连续 14 天无新 movement，从 Still tracking 中移除。</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ─── FOOTER ─── -->
-<footer class="footer">
-  <p>AI Radar · 每天 1-3 条真信号 · 由 clawii 的朋友手动筛选</p>
-  <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">数据源：Smol AI · OSSInsight · HN · X (10 KOLs) · Anthropic + OpenAI changelog</p>
-</footer>
-
-<script>
-// ─── pager: load archive.json and render prev/next ───
-(async function(){
-  const pager = document.querySelector('.pager');
-  const currentDate = pager?.dataset.currentDate;
-  if (!currentDate) return;
-  try {
-    const resp = await fetch('./archive.json');
-    const data = await resp.json();
-    const issues = data.issues || [];
-    const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) return;
-    const prev = issues[idx + 1]; // archive is newest-first
-    const next = issues[idx - 1];
-    const prevEl = pager.querySelector('.prev');
-    const nextEl = pager.querySelector('.next');
-    if (prev && prevEl) {
-      prevEl.href = prev.url;
-      prevEl.textContent = prev.date;
-      prevEl.classList.remove('disabled');
-    } else if (prevEl) {
-      prevEl.classList.add('disabled');
-      prevEl.textContent = '没有更早';
-    }
-    if (next && nextEl) {
-      nextEl.href = next.url;
-      nextEl.textContent = next.date;
-      nextEl.classList.remove('disabled');
-    } else if (nextEl) {
-      nextEl.classList.add('disabled');
-      nextEl.textContent = '没有更新';
-    }
-  } catch(e) {
-    // silently fail
-  }
-})();
-</script>
-
-</body>
-</html>
+    <li><strong>Simon Willison 主动评测</strong> — 他用 pelican 测试测试了高/低推理

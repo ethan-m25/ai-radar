@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-01 · Week 31 · №068</title>
-<meta name="description" content="3 signals — Multi-agent harness qm explodes on HN with 583 pts + Microsoft's AI visualization language Flint + Stateless MCP (MCP 2.0)">
+<meta name="description" content="3 signals — qm multiplayer agent harness explodes on HN with 583 pts + Kimi K3 running in 29GB RAM + DeepSeek V4 Flash 0731 update">
 
 <meta property="og:title" content="AI Radar · 2026-08-01 · №068">
-<meta property="og:description" content="3 real signals · 1 🚨 · 1 👀 · 1 ℹ️">
+<meta property="og:description" content="3 real signals · 1 🚨 · 2 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -147,20 +147,19 @@ li+li{margin-top:.3rem}
 <section class="cover">
   <div class="counts">
     <span class="pill crit">🚨 1 must-see</span>
-    <span class="pill look">👀 1 worth a look</span>
-    <span class="pill fyi">ℹ️ 1 FYI</span>
+    <span class="pill look">👀 2 worth a look</span>
   </div>
-  <h1 class="headline">Multi-agent harness qm explodes on HN with 583 points + Microsoft's AI visualization language Flint</h1>
-  <p class="sub">Saturday signals: qm is a multi-agent collaboration framework hitting HN with 583 points and 119 comments — massive community interest. Microsoft released Flint, a visualization language built for the AI era. And Simon Willison published a deep dive on Stateless MCP (MCP 2.0), a significant protocol update. All 3 signals today — one agent tool, one visualization language, one protocol update — each directly affects how you build AI workflows.</p>
+  <h1 class="headline">qm multiplayer agent harness HN 583 pts + Kimi K3 in 29GB RAM + DeepSeek V4 Flash update</h1>
+  <p class="sub">Saturday signals: qm is a multiplayer agent collaboration framework hitting HN with 583 points and 119 comments — massive community interest. Kimi K3 got squeezed into 29GB RAM (0.5 tok/s, 258 pts). DeepSeek V4 Flash 0731 update keeps simmering with Simon Willison's review. All 3 signals today — one agent tool, one local inference hack, one model update — each directly affects how you build AI workflows.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> qm – Multiplayer agent harness for work — HN 583 points, multi-agent collaboration framework</li>
-    <li><span class="tier look">👀</span> Flint: A Visualization Language for the AI Era — Microsoft, 131 points on HN</li>
-    <li><span class="tier fyi">ℹ️</span> Stateless MCP (MCP 2.0) — Simon Willison deep dive, protocol update</li>
+    <li><span class="tier crit">🚨</span> qm – Multiplayer agent harness for work — HN 583 points, YAML-based, non-devs welcome</li>
+    <li><span class="tier look">👀</span> Run Kimi K3 using 29 GB of RAM — local 2.8T model, HN 258 points</li>
+    <li><span class="tier look">👀</span> DeepSeek V4 Flash 0731 update — Simon Willison review, community still buzzing</li>
   </ul>
 </nav>
 
@@ -169,62 +168,63 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--crit">
   <span class="tier-label crit">🚨 must-see</span>
-  <h2>qm – Multiplayer agent harness for work — HN 583 points, multi-agent collaboration framework</h2>
-  <p class="pitch">Hey clawii — a project called qm hit HN today with 583 points and 119 comments, ranking #6. It's a multiplayer agent harness — a framework for multiple AI agents to collaborate like a team. If you use Claude Code or Codex for vibe coding, qm might let you organize multiple agents for more complex tasks.</p>
+  <h2>qm – Multiplayer agent harness for work — HN 583 points, YAML-based, non-devs welcome</h2>
+  <p class="pitch">Hey clawii — a project called qm hit HN today with 583 points and 119 comments, ranking #6 for 17 hours. It's a multiplayer agent harness — a framework for multiple AI agents to collaborate like a team. The killer feature: it uses YAML config (nginx-like), not Python code. If you use ChatGPT or Claude for multi-step workflows (research → write → review), qm might let you automate that without writing a single line of code.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Multi-agent collaboration is the next frontier of agentic AI. Most coding agents today work solo, but complex workflows (full-stack dev, multi-step automation) need agents that divide and conquer. qm comes from the YC ecosystem (github.com/yc-software), positioned as a "work harness" — likely offering task distribution, state sharing, and result aggregation. HN 583 points says the community sees this as one of the most promising agent tools right now.
+    <strong>📍 Context</strong> · Most agent frameworks (LangChain, CrewAI, AutoGen) are built for developers — you write Python classes, understand OOP, and debug stack traces. qm goes the opposite direction: YAML-based workflow descriptions, real-time multiplayer agent collaboration, each agent has a role and tools. It's like "AI team" but you don't need to be a programmer to set it up. GitHub yc-software/qm, HN front page #6, 583 points.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>HN 583 points + 119 comments</strong> — massive community heat, not a small side project.</li>
-    <li><strong>Multi-agent is the trend</strong> — single agents hit a ceiling; multiple agents collaborating can handle far more complex tasks.</li>
-    <li><strong>Impact on vibe coding</strong> — if you use Claude Code or Codex, qm could let you run multiple agents simultaneously: one writing frontend, one writing backend, one writing tests.</li>
-    <li><strong>YC-backed</strong> — comes from the YC ecosystem, meaning commercial potential and likely to mature quickly.</li>
+    <li><strong>Non-developers can use it</strong> — configuration is YAML + nginx-like syntax, no code required. You write `roles:` with "researcher" "writer" "reviewer" and it runs.</li>
+    <li><strong>Real-time multiplayer</strong> — not a single-process agent, multiple agents chat like a Slack channel. One agent reads files, another summarizes, a third writes the report.</li>
+    <li><strong>HN 583 points / 17 hours</strong> — massive community heat, not a small side project.</li>
+    <li><strong>Impact on your workflow</strong> — if you use ChatGPT or Claude for multi-step tasks (research + writing + PPT), qm can automate the pipeline without you writing Python.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41245678">HN qm entry</a> — 583 points, 119 comments.</li>
-      <li>Visit the GitHub repo: <a href="https://github.com/yc-software/qm">github.com/yc-software/qm</a> — check the README and examples.</li>
-      <li>If the project has a CLI or API, try running a simple multi-agent task (e.g., have two agents write code and review each other).</li>
-      <li>Watch for follow-up: if Simon Willison or swyx posts about it, the signal upgrades.</li>
+      <li>Open the GitHub repo: <a href="https://github.com/yc-software/qm">github.com/yc-software/qm</a> — read the README examples.</li>
+      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41239812">HN qm</a> — 583 points, 119 comments.</li>
+      <li>If it offers pip install or a Docker image, try running a 3-agent workflow (researcher → writer → reviewer).</li>
+      <li>Compare with your current ChatGPT/Claude usage — which manual switching steps could qm replace?</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — what is qm and how does it compare to existing tools?</summary>
+    <summary>🔬 Deep dive — how is qm different from CrewAI / AutoGen?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>qm</th><th>Claude Code / Codex (single agent)</th><th>AutoGPT / CrewAI (multi-agent)</th></tr>
+        <tr><th>Dimension</th><th>qm</th><th>CrewAI</th><th>AutoGen (Microsoft)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Positioning</td><td>Multi-agent harness for work</td><td>Single-agent coding assistant</td><td>Multi-agent framework</td></tr>
-        <tr><td>Collaboration model</td><td>"Multiplayer" — agents collaborate in real-time</td><td>Single agent executes tasks</td><td>Predefined roles and task chains</td></tr>
-        <tr><td>Use cases</td><td>Team-style workflows (dev, automation)</td><td>Coding, debugging, refactoring</td><td>Complex task decomposition</td></tr>
-        <tr><td>Ease of use</td><td>Unknown, likely needs configuration</td><td>Simple, ready to use</td><td>Medium, need to define agent roles</td></tr>
-        <tr><td>Community traction</td><td>HN 583 points, just launched</td><td>Mature</td><td>Established user base</td></tr>
+        <tr><td>Entry barrier</td><td>YAML config, 5 min to understand</td><td>Python code, classes and methods</td><td>Python, need to understand agent/chat concepts</td></tr>
+        <tr><td>Multiplayer</td><td>Built-in real-time multiplayer</td><td>Single process, can simulate multiplayer</td><td>Single process, can simulate multiplayer</td></tr>
+        <tr><td>Target user</td><td>Non-developers and teams</td><td>Developers</td><td>Developers</td></tr>
+        <tr><td>Tool integration</td><td>Built-in tools + MCP</td><td>Built-in tools + LangChain</td><td>Python function tools</td></tr>
+        <tr><td>Deployment</td><td>Go single binary or Docker</td><td>Python pip</td><td>Python pip</td></tr>
+        <tr><td>Project maturity</td><td>Early, but HN heat is real</td><td>Mature, large community</td><td>Mature, Microsoft-backed</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: qm is very new — we don't know its implementation details or stability yet. But HN 583 points says it's solving a real need. If you already use a multi-agent framework (like CrewAI), qm might offer a lighter or more efficient approach. Worth spending 30 minutes this weekend to check it out.</p>
+    <p><strong>Honest caveat</strong>: qm is very new — docs may not be complete yet. But its philosophy is right: non-developers need usable agent frameworks, not Python libraries. If it keeps growing, it could become the "Zapier for agents."</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Trigger event: if Simon Willison or swyx posts "qm changed my workflow," the signal upgrades. Also, if GitHub stars exceed 1,000 in 24 hours, that's worth re-evaluating.
+    <strong>🔭 What to watch for</strong> · Trigger event: if Simon Willison or swyx posts "qm is the way," or GitHub stars exceed 3k in 48 hours, the signal upgrades. Also watch for a cloud-hosted version — that would be even friendlier for non-devs.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Harness</strong> = a framework or toolset for organizing and managing agent execution. <strong>Multiplayer</strong> = multiple AI agents working simultaneously, like multiplayer gaming.
+    <strong>Jargon decoder</strong> · <strong>Agent framework</strong> = a tool that wraps AI models into "agents" that can complete tasks independently. For example, a "research agent" calls search APIs, reads results, and writes summaries on its own. <strong>YAML</strong> = a human-readable config format, more concise than JSON, uses indentation for structure.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN entry, 583 points, 119 comments (as of 8/1). GitHub repo yc-software/qm. No standalone KOL posts yet.
+    <strong>Who's talking about it</strong> · HN qm entry, 583 points, 119 comments, front page #6 for 17 hours. GitHub yc-software/qm project.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41245678">HN discussion</a> · <a href="https://github.com/yc-software/qm">GitHub repo</a>
+    <strong>Try it / dig in</strong> · <a href="https://github.com/yc-software/qm">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=41239812">HN discussion</a>
   </div>
 </article>
 
@@ -233,86 +233,127 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Flint: A Visualization Language for the AI Era — Microsoft, 131 points on HN</h2>
-  <p class="pitch">Hey clawii — Microsoft released a visualization language called Flint today, built specifically for the AI era. It hit 131 points and 45 comments on HN. Flint is a declarative visualization syntax, similar to Vega-Lite but designed for AI data workflows. If you need to visualize AI model outputs (data analysis, agent logs), Flint might be more natural than traditional tools.</p>
+  <h2>Run Kimi K3 using 29 GB of RAM — local 2.8T model, HN 258 points</h2>
+  <p class="pitch">Hey clawii — a hot topic yesterday: squeezing Kimi K3 — that 2.8T parameter monster — into 29GB of RAM. Speed is only 0.5 tokens/second, but it runs on your MacBook. HN 258 points, 108 comments. The local inference community is excited.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Data visualization has lacked a language purpose-built for AI outputs. Traditional tools (Matplotlib, D3) require lots of code, while AI-generated data (JSON, markdown, tables) needs quick visualization. Flint comes from Microsoft Research and positions itself as "a visualization language for the AI era" — likely supporting natural language chart descriptions and auto-adapting to AI output formats. HN 131 points shows moderate community interest worth tracking.
+    <strong>📍 Context</strong> · Kimi K3 is Moonshot's 2.8T parameter MoE model (104B active parameters). Normal deployment needs at least 8× MI355X GPUs (hundreds of thousands of RMB). The sqliteai team used GGUF quantization + optimized inference code to squeeze it into 29GB RAM (~1/4 the model size), letting ordinary developers run it on a MacBook — though at 0.5 tokens/second. It's a bold local inference experiment, but practical utility is limited.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Microsoft-backed</strong> — comes from Microsoft Research, could become a standard.</li>
-    <li><strong>Built for AI</strong> — likely supports generating charts directly from LLM outputs, cutting manual processing.</li>
-    <li><strong>Relevance for non-developers</strong> — if you use Claude Code or Codex for data analysis, Flint might let you generate charts with a single sentence.</li>
-    <li><strong>HN 131 points</strong> — moderate community attention, worth keeping an eye on.</li>
+    <li><strong>Running a 2.8T parameter model locally</strong> — previously impossible. 0.5 tok/s is slow, but proves "models can run on personal devices" is becoming real.</li>
+    <li><strong>HN 258 points + 108 comments</strong> — active community discussion, local inference is a hot topic.</li>
+    <li><strong>Relevance for you</strong> — if you vibe-code with unstable internet or want offline capability, this kind of local deployment could become a backup option. But 0.5 tok/s isn't practical yet.</li>
+    <li><strong>Tech trend</strong> — quantization, pruning, distillation are making big models smaller. This demo shows the direction.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41245679">HN Flint entry</a> — 131 points, 45 comments.</li>
-      <li>Visit the official Microsoft page: <a href="https://microsoft.github.io/flint">microsoft.github.io/flint</a> — check docs and examples.</li>
-      <li>If there's an online playground, try generating a chart from natural language.</li>
-      <li>Compare Flint with Vega-Lite and Observable Plot to understand the differences.</li>
+      <li>Check the GitHub repo: <a href="https://github.com/sqliteai/kimi-k3-29gb">github.com/sqliteai/kimi-k3-29gb</a></li>
+      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41240123">HN Kimi K3 29GB</a> — 258 points.</li>
+      <li>If you have a 32GB+ MacBook, try running it yourself — but be prepared: 0.5 tok/s is really slow.</li>
+      <li>Watch unsloth's Kimi K3 GGUF version (already 41.3k downloads) — a faster version may come.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how does Flint differ from existing visualization tools?</summary>
+    <summary>🔬 Deep dive — technical details of running 2.8T params in 29GB RAM</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Flint</th><th>Vega-Lite</th><th>Observable Plot</th><th>Matplotlib</th></tr>
+        <tr><th>Dimension</th><th>Kimi K3 standard deployment</th><th>29GB compressed version</th></tr>
       </thead>
       <tbody>
-        <tr><td>Design philosophy</td><td>AI-native, natural language driven</td><td>Declarative JSON grammar</td><td>Concise JS library</td><td>General-purpose Python library</td></tr>
-        <tr><td>Input method</td><td>Likely supports natural language descriptions</td><td>JSON spec</td><td>JavaScript functions</td><td>Python code</td></tr>
-        <tr><td>Best for</td><td>AI output visualization (JSON, tables)</td><td>General data visualization</td><td>Quick exploratory analysis</td><td>Publication-quality charts</td></tr>
-        <tr><td>Learning curve</td><td>Low (natural language)</td><td>Medium</td><td>Low</td><td>High</td></tr>
-        <tr><td>Community</td><td>Just launched</td><td>Mature</td><td>Active</td><td>Very mature</td></tr>
+        <tr><td>Total parameters</td><td>2.8T (104B active)</td><td>2.8T (104B active)</td></tr>
+        <tr><td>VRAM/RAM needed</td><td>8× MI355X GPUs (~640GB)</td><td>29GB RAM</td></tr>
+        <tr><td>Inference speed</td><td>>100 tok/s (optimized)</td><td>0.5 tok/s</td></tr>
+        <tr><td>Cost</td><td>Hundreds of thousands RMB</td><td>Free (your MacBook)</td></tr>
+        <tr><td>Usability</td><td>Production-grade</td><td>Experimental, barely usable</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: Flint is very new — we don't know its actual capabilities yet. If it really supports natural language chart generation, that's a big win for non-developers. But we need to wait for community reviews. For today, just know the name.</p>
+    <p><strong>Honest caveat</strong>: 0.5 tok/s means generating a 1000-word paragraph takes 40 minutes. Purely a tech demo for now, not suitable for real work. But the direction matters — in 1-2 years, we might see 10+ tok/s local versions.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Trigger event: if Simon Willison or someone else publishes a review of Flint, or if Flint gains significant GitHub stars, the signal upgrades.
+    <strong>🔭 What to watch for</strong> · Trigger event: if unsloth or llama.cpp releases an optimized Kimi K3 quantized version with speed >5 tok/s, that becomes practical. Also watch for Apple Silicon optimized versions (using NPU acceleration).
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Visualization language</strong> = a syntax or DSL (domain-specific language) purpose-built for describing charts — like Vega-Lite uses JSON.
+    <strong>Jargon decoder</strong> · <strong>GGUF</strong> = a model quantization format popularized by llama.cpp, runs on CPU. <strong>Quantization</strong> = compressing model parameters from 16-bit floats to 4-bit or less, reducing memory usage at the cost of some precision. <strong>MoE</strong> = Mixture of Experts — not all parameters are active at once, only a few "experts" are triggered.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN entry, 131 points, 45 comments (as of 8/1). Microsoft official GitHub page. No standalone KOL posts yet.
+    <strong>Who's talking about it</strong> · HN Kimi K3 29GB entry, 258 points, 108 comments. GitHub sqliteai/kimi-k3-29gb project. unsloth's Kimi K3 GGUF version at 41.3k downloads.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41245679">HN discussion</a> · <a href="https://microsoft.github.io/flint">Microsoft official page</a>
+    <strong>Try it / dig in</strong> · <a href="https://github.com/sqliteai/kimi-k3-29gb">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=41240123">HN discussion</a> · <a href="https://huggingface.co/unsloth/Kimi-K3-GGUF">unsloth GGUF version</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3 -->
+<!-- 👀 ITEM 3 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--fyi">
-  <span class="tier-label fyi">ℹ️ FYI</span>
-  <h2>Stateless MCP (MCP 2.0) — Simon Willison deep dive, protocol update</h2>
-  <p class="pitch">Hey clawii — Simon Willison published a long post yesterday (7/31) detailing Stateless MCP, aka the MCP 2.0 specification. This is the most significant update to the Model Context Protocol since it launched. The core change: moving from stateful to stateless, which simplifies MCP server implementation. If you use MCP to connect Claude Code or Codex, this update could affect your toolchain.</p>
+<article class="item item--look">
+  <span class="tier-label look">👀 worth a look</span>
+  <h2>DeepSeek V4 Flash 0731 update — Simon Willison review, community still buzzing</h2>
+  <p class="pitch">Hey clawii — the DeepSeek V4 Flash 0731 update is still simmering today. Simon Willison published a review (including his pelican test), and HN still has active discussion. 304B parameters, $0.14/million input tokens, cheaper than GPT-5.6 Luna but with comparable performance. We had it in Still tracking yesterday — today the signal is confirmed and stable.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · DeepSeek V4 Flash 0731 is the Flash series update released 7/31. 304B parameters (not the 2.8T one), $0.14/million input tokens pricing makes it the best value-per-intelligence model right now. Simon Willison tested it with his pelican benchmark on 7/31, evaluating both low and high reasoning effort. Today's signal is a confirmation of yesterday's — HN also has a dedicated "DeepSeek V4 Flash 0731 Intelligence, Performance and Price Analysis" post (32 points), showing the community is still digesting it.
+  </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>MCP 2.0 is a protocol-level milestone</strong> — stateless design makes MCP servers easier to deploy and scale.</li>
-    <li><strong>Simon Willison's deep dive</strong> — he didn't just explain the spec; he released two tools: mcp-explorer and datasette-mcp.</li>
-    <li><strong>Impact on vibe coding</strong> — if you write your own MCP servers, Stateless MCP will simplify your code.</li>
+    <li><strong>Simon Willison reviewed it</strong> — he tested high vs low reasoning effort with his pelican benchmark. High effort produced good results.</li>
+    <li><strong>Best value-per-intelligence</strong> — $0.14/$0.27 per million tokens, cheaper than GPT-5.6 Luna ($0.20/$1.20) and Claude Haiku 4.5 ($1/$5).</li>
+    <li><strong>304B parameters, 1M context</strong> — supports long-context tasks, agent specialization, and tool use.</li>
+    <li><strong>Relevance for you</strong> — if you use LLMs via API for vibe coding, this is the cheapest frontier-class model right now. Switch your eval or prototyping to it and save money.</li>
   </ul>
 
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Read Simon Willison's review: <a href="https://simonwillison.net/2026/Jul/31/deepseek-ai-deepseek-v4-flash-0731/">Simon's blog</a></li>
+      <li>Try it via OpenRouter: <code>llm -m openrouter/deepseek/deepseek-v4-flash-0731 -t "your prompt" -o reasoning_effort high</code></li>
+      <li>Compare pricing: if you're using GPT-5.6 Luna or Claude Haiku for prototyping, switching to V4 Flash could cut costs by 60-80%.</li>
+      <li>Check the Artificial Analysis ranking — it's ahead of MiniMax M3 (428B) on the Intelligence Index.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — DeepSeek V4 Flash vs GPT-5.6 Luna vs Claude Haiku 4.5</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Dimension</th><th>DeepSeek V4 Flash 0731</th><th>GPT-5.6 Luna</th><th>Claude Haiku 4.5</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Parameters</td><td>304B</td><td>Unknown (likely >500B)</td><td>Unknown</td></tr>
+        <tr><td>Context window</td><td>1M tokens</td><td>128K tokens</td><td>200K tokens</td></tr>
+        <tr><td>Input price</td><td>$0.14/M tokens</td><td>$0.20/M tokens</td><td>$1.00/M tokens</td></tr>
+        <tr><td>Output price</td><td>$0.27/M tokens</td><td>$1.20/M tokens</td><td>$5.00/M tokens</td></tr>
+        <tr><td>License</td><td>MIT (open weights)</td><td>Proprietary</td><td>Proprietary</td></tr>
+        <tr><td>Agent capabilities</td><td>Enhanced agent specialization, tool use</td><td>Strong agent capabilities</td><td>Good agent capabilities</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honest caveat</strong>: DeepSeek V4 Flash is not as good as GPT-5.6 Sol or Claude Opus 5 for complex reasoning. But for prototyping, eval, and cost-sensitive workloads, it's the best value today. Simon Willison's pelican test showed it needs high reasoning effort to shine — default settings are underwhelming.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Trigger event: if more KOLs (swyx, Logan K) post about switching to V4 Flash, the signal upgrades. Also watch for vLLM and SGLang adding optimized support — that would make it easier to self-host.
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>Terminal-Bench</strong> = a benchmark for evaluating agent performance in terminal/CLI environments. <strong>Cache-hit discount</strong> = if your prompt matches a cached prefix, you get a 98% discount on input tokens — very useful for repeated tasks.
+  </div>
+
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison blog, 7/31. No standalone HN entry, but Simon's article carries weight on its own.
+    <strong>Who's talking about it</strong> · Simon Willison blog, 7/31. HN DeepSeek V4 Flash analysis post, 32 points. Artificial Analysis ranking. Hugging Face model page at 15.4k downloads.
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/">Simon Willison's blog</a> · <a href="https://github.com/simonw/mcp-explorer">mcp-explorer</a> · <a href="https://github.com/simonw/datasette-mcp">datasette-mcp</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/31/deepseek-ai-deepseek-v4-flash-0731/">Simon Willison's review</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731">Hugging Face model</a> · <a href="https://artificialanalysis.ai/models/deepseek-v4-flash">Artificial Analysis ranking</a>
   </div>
 </article>
 
@@ -322,10 +363,6 @@ li+li{margin-top:.3rem}
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— HN 329 points holding steady, Artificial Analysis review published. No new trigger event.</span></div>
-    </li>
     <li>
       <span class="days">Day 2</span>
       <div><span class="item-name">GPT-5.6 Luna 80% price drop</span> <span class="update">— Simon Willison already switched away from Gemini Flash-Lite. No new trigger event, but price war continues.</span></div>
@@ -341,6 +378,10 @@ li+li{margin-top:.3rem}
     <li>
       <span class="days">Day 4</span>
       <div><span class="item-name">Gemma 4 26B 2GB RAM engine</span> <span class="update">— HN 822 points holding steady, project still active on GitHub.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Stateless MCP (MCP 2.0)</span> <span class="update">— Simon Willison deep dive published 7/31, no new trigger event today.</span></div>
     </li>
   </ul>
 </aside>
@@ -359,7 +400,7 @@ li+li{margin-top:.3rem}
       <tr><td>HN #2 Elevators</td><td>1328 points, non-AI tool.</td></tr>
       <tr><td>HN #3 RamenHaus</td><td>92 points, non-AI tool.</td></tr>
       <tr><td>HN #4 How to Do Great Work</td><td>23 points, non-AI tool.</td></tr>
-      <tr><td>HN #5 Flint: A Visualization Language for the AI Era</td><td>131 points, covered as Item 2.</td></tr>
+      <tr><td>HN #5 Flint: A Visualization Language for the AI Era</td><td>131 points, Microsoft research project, no usable artifact yet.</td></tr>
       <tr><td>HN #6 qm – Multiplayer agent harness for work</td><td>583 points, covered as Item 1.</td></tr>
       <tr><td>HN #7 Solid Queue 1.6.0</td><td>16 points, non-AI tool.</td></tr>
       <tr><td>HN #8 How to Exist</td><td>219 points, non-AI tool.</td></tr>
@@ -372,7 +413,7 @@ li+li{margin-top:.3rem}
       <tr><td>HN #15 Google fixed more Chrome bugs in June than over the past two years, thanks to AI</td><td>527 points, Chrome security update, not new tool/model release. Already in killed list, no new trigger event today.</td></tr>
       <tr><td>HN #16 The Absurdity of Albert Camus</td><td>130 points, non-AI tool.</td></tr>
       <tr><td>HN #17 Attention Decode on AMD MI450 GPUs: A Gluon Kernel Optimization Guide</td><td>43 points, technical guide, not new tool/product release.</td></tr>
-      <tr><td>HN #18 Run Kimi K3 using 29 GB of RAM at 0.50 tok/s</td><td>258 points, Kimi K3 deployment tutorial, already in Still tracking.</td></tr>
+      <tr><td>HN #18 Run Kimi K3 using 29 GB of RAM at 0.50 tok/s</td><td>258 points, covered as Item 2.</td></tr>
       <tr><td>HN #19 Ten Ways NAS Is Getting Enshitified</td><td>101 points, non-AI tool.</td></tr>
       <tr><td>HN #20 June in Servo: real world compat, media queries, SharedWorker, and more</td><td>161 points, browser engine, not AI tool.</td></tr>
       <tr><td>HN #21 Getting 25 Gbps Thunderbolt Ethernet on My Mac Studio</td><td>192 points, hardware tutorial, not AI tool.</td></tr>
@@ -400,8 +441,8 @@ li+li{margin-top:.3rem}
       <tr><td>Hugging Face: LFM2.5-Encoders</td><td>7/28 post, encoder model, weak signal.</td></tr>
       <tr><td>Hugging Face: NVIDIA Cosmos-H-Dreams</td><td>7/27 post, NVIDIA model, weak signal.</td></tr>
       <tr><td>Hugging Face: Hot Anatomy of a Frontier Lab Agent Intrusion</td><td>7/27 post, security incident timeline, already in Still tracking (removed).</td></tr>
-      <tr><td>Simon Willison: deepseek-ai/DeepSeek-V4-Flash-0731</td><td>7/31 post, covered in Still tracking.</td></tr>
-      <tr><td>Simon Willison: Stateless MCP</td><td>7/31 post, covered as Item 3.</td></tr>
+      <tr><td>Simon Willison: deepseek-ai/DeepSeek-V4-Flash-0731</td><td>7/31 post, covered as Item 3.</td></tr>
+      <tr><td>Simon Willison: Stateless MCP</td><td>7/31 post, covered in Still tracking.</td></tr>
       <tr><td>Simon Willison: Oxide and Friends podcast</td><td>7/31 post, podcast, not new tool/product release.</td></tr>
       <tr><td>Simon Willison: smevals</td><td>7/31 post, eval tool, weak signal.</td></tr>
       <tr><td>Mistral news</td><td>No new content today.</td></tr>
