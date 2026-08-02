@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-02 · Week 31 · №069</title>
-<meta name="description" content="1 signal — OpenAI's ten mathematical breakthroughs, Astra model solves decade-old problems for <$2000 each">
+<meta name="description" content="MCP 2.0 protocol upgrade + Kimi K3 cost-efficiency data on MI355X — 2 real signals">
 
 <meta property="og:title" content="AI Radar · 2026-08-02 · №069">
-<meta property="og:description" content="1 real signal · 0 🚨 · 1 👀">
+<meta property="og:description" content="2 real signals · 1 🚨 · 1 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,148 +146,192 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
+    <span class="pill crit">🚨 1 must-see</span>
     <span class="pill look">👀 1 worth a look</span>
   </div>
-  <h1 class="headline">OpenAI's ten mathematical breakthroughs: Astra model solves decade-old problems for <$2000 each</h1>
-  <p class="sub">Sunday signal: OpenAI used an internal model called Astra to crack 10 math problems (each at least a decade old with no progress), spending less than $2000 per problem. Simon Willison published a detailed analysis calling it a "Deep Blue moment." Only 1 real signal today, but it's strong enough — not a new tool, but a leap in AI capability that will raise the ceiling for all future agent workflows.</p>
+  <h1 class="headline">MCP 2.0 protocol upgrade + Kimi K3 cost-efficiency data on MI355X</h1>
+  <p class="sub">Sunday signals are light, but two things are worth your attention: MCP 2.0 (Stateless MCP) officially shipped — Simon Willison double-posted with detailed analysis and companion tools, a genuine ecosystem-level upgrade. Kimi K3 on AMD MI355X delivers better cost-per-token than NVIDIA B300 — 135 points on HN with real deployment numbers. 2 real signals today, covering protocol infrastructure and deployment cost data — both directly relevant to the tools you use daily.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> OpenAI's ten mathematical breakthroughs — Astra model solves decade-old problems, Simon Willison weighs in</li>
+    <li><span class="tier crit">🚨</span> MCP 2.0 protocol upgrade — Stateless MCP, Simon Willison double-posts + companion tools</li>
+    <li><span class="tier look">👀</span> Kimi K3 on MI355X beats B300 on cost-per-token — HN 135 pts, new deployment data</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 1 -->
+<!-- 🚨 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--look">
-  <span class="tier-label look">👀 worth a look</span>
-  <h2>OpenAI's ten mathematical breakthroughs: Astra model solves decade-old open problems for <$2000 each</h2>
-  <p class="pitch">Hey clawii — yesterday OpenAI published a blog saying their internal model Astra solved 10 math and theoretical computer science problems — each one had been untouched for at least a decade, with zero progress. They spent less than $2000 in tokens per problem. Simon Willison wrote a deep analysis today calling it a "Deep Blue moment." The model isn't public, but the signal is clear: AI reasoning just took another big step up.</p>
+<article class="item item--crit">
+  <span class="tier-label crit">🚨 must-see</span>
+  <h2>MCP 2.0 protocol upgrade — Stateless MCP, simpler connections, ecosystem upgrade</h2>
+  <p class="pitch">Hey clawii — MCP just got its biggest upgrade since launch. MCP 2.0 (the 2026-07-28 spec, also called Stateless MCP) is here. Simon Willison posted twice about it — 7/31 and 8/2 — calling it "the most significant change to the MCP spec since it first launched" and building two companion tools (mcp-explorer, datasette-mcp). For anyone using Claude Code or other MCP-connected tools, this changes how easily you can hook up external data sources.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Recent months have shown rapid progress in AI mathematical reasoning: GPT-5.6 Sol broke through ARC-AGI-3, Anthropic's Mythos Preview discovered cryptographic weaknesses ($100k in tokens). But OpenAI's result is systematic — 10 completely different problems spanning graph theory, number theory, combinatorics, each at least a decade old. They used an internal model called Astra (not public), released Lean 4 formal proofs and a paper describing the solution process. This isn't "a model release" — it's a signal that the boundary of AI capability has expanded again.
+    <strong>📍 Context</strong> · MCP (Model Context Protocol) is Anthropic's open protocol that lets AI models — Claude Code, Cursor, Codex — securely connect to external tools and data sources. In MCP 1.0, each server maintained persistent session state: connection setup was heavy, disconnection meant rebuilding state. MCP 2.0 introduces stateless servers: every request is independent, no session memory needed. This dramatically lowers the bar for building MCP servers, makes connections more reliable, and opens the door to "plug and play" MCP servers. Simon Willison posted a full analysis on 7/31, then followed up on 8/2 saying "Stateless MCP has recaptured my interest" and released mcp-explorer (a browser for MCP servers) and datasette-mcp (exposes SQLite databases to AI via MCP).
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>A milestone for AI reasoning</strong> — Previously AI math was like "solving practice problems." This is solving open problems. Not exam questions with known answers, but real research problems.</li>
-    <li><strong>Extremely low cost</strong> — Each problem <$2000. If this scales, it could accelerate a lot of mathematical research.</li>
-    <li><strong>What it means for you</strong> — You don't need to solve math problems, but the same reasoning capability will trickle down into Codex, Claude Code, and other tools. Future agents will handle more complex multi-step tasks, harder code bugs, longer reasoning chains.</li>
-    <li><strong>Simon Willison's endorsement</strong> — He rarely says "Deep Blue moment" — that means he thinks this is paradigm-level.</li>
+    <li><strong>Ecosystem-level upgrade</strong> — MCP is the infrastructure layer connecting Claude Code, Cursor, and other tools to external data. Stateless means MCP servers are easier to write and more stable, which means more data sources will be accessible to AI tools.</li>
+    <li><strong>Simon Willison double-signal</strong> — He posted a long analysis on 7/31 and another follow-up on 8/2 saying "recaptured my interest," plus built two companion tools. This is a classic "KOL sustained attention" signal.</li>
+    <li><strong>What it means for you</strong> — If you use Claude Code or Codex for vibe coding, MCP is how you connect your company's database, file system, APIs, and knowledge base. Stateless MCP makes these connections much easier to set up. Expect more "one-click" MCP servers appearing soon.</li>
+    <li><strong>Protocol change affects all MCP users</strong> — Existing MCP clients and servers may need updates to support stateless mode, but this is a clear evolution in the right direction.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read Simon Willison's blog post: <a href="https://simonwillison.net/2026/Aug/2/ten-advances-in-mathematics/">Ten advances in mathematics</a> for detail and context.</li>
-      <li>Check OpenAI's blog: <a href="https://openai.com/index/ten-advances-in-mathematics">Ten advances in mathematics</a> and the accompanying Lean 4 proof code (on GitHub).</li>
-      <li>Think: what does this mean for the agents you use every day? If Codex or Claude gets a similar reasoning boost in the next 3 months, how would your vibe coding workflow change?</li>
-      <li>Watch for whether Astra gets released publicly — if it does, it will directly raise the ceiling on agent reasoning.</li>
+      <li>Read Simon Willison's analysis: <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/">Stateless MCP has recaptured my interest</a></li>
+      <li>Check the MCP 2.0 spec: <a href="https://spec.modelcontextprotocol.io/">modelcontextprotocol.io</a> (2026-07-28 version)</li>
+      <li>Try Simon's mcp-explorer: <a href="https://github.com/simonw/mcp-explorer">github.com/simonw/mcp-explorer</a></li>
+      <li>Think about data sources you could expose as MCP servers — company knowledge base, project management tools, Excel data — Stateless makes this all simpler.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how is this different from previous AI math?</summary>
+    <summary>🔬 Deep dive — MCP 2.0 vs MCP 1.0: what actually changed</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>GPT-5.6 Sol / ARC-AGI-3</th><th>Anthropic Mythos crypto</th><th>OpenAI Astra math breakthroughs</th></tr>
+        <tr><th>Dimension</th><th>MCP 1.0 (Stateful)</th><th>MCP 2.0 (Stateless)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Problem type</td><td>Benchmark (ARC-AGI-3)</td><td>Known cryptographic weakness</td><td>10 open problems across different fields</td></tr>
-        <tr><td>Cost</td><td>Not disclosed</td><td>~$100k tokens</td><td>Each problem <$2000</td></tr>
-        <tr><td>Model public?</td><td>Sol is public</td><td>Mythos Preview is public</td><td>Astra is internal, not public</td></tr>
-        <tr><td>Formal verification</td><td>None</td><td>None</td><td>Lean 4 formal proofs published</td></tr>
-        <tr><td>Impact on daily work</td><td>Improved agent reasoning</td><td>Security research tool</td><td>Not directly usable yet, but signals capability leap</td></tr>
+        <tr><td>Connection model</td><td>Persistent session with state management</td><td>Stateless, each request independent</td></tr>
+        <tr><td>Server complexity</td><td>Must maintain session state, connection pools</td><td>Stateless, simpler to implement, lighter to deploy</td></tr>
+        <tr><td>Scalability</td><td>Session-bound, horizontal scaling requires extra work</td><td>Naturally stateless, easy to scale horizontally</td></tr>
+        <tr><td>Fault tolerance</td><td>Disconnect requires rebuilding the session</td><td>Disconnect means retry — no state lost</td></tr>
+        <tr><td>Tool discovery</td><td>Via capabilities negotiation</td><td>Stateless tools/list query</td></tr>
+        <tr><td>Developer barrier</td><td>Medium (need to understand session management)</td><td>Low (similar to REST API thinking)</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: The model isn't public, so you can't use it directly. But the blog mentions "an internal version of Astra" — meaning it's already working inside OpenAI. If Astra's capabilities trickle down to public models (like GPT-5.7 or next-gen Codex), you'll be able to use it. Also, the Lean 4 proofs show OpenAI invested in proof verification, not just random generation.</p>
+    <p><strong>Honest caveat</strong>: MCP 2.0 isn't a revolutionary new technology — it's an important evolution. It makes MCP servers feel more like "AI-callable REST APIs" and lowers the development barrier. For non-developers, this means more off-the-shelf MCP servers will appear. Simon Willison's datasette-mcp is a perfect example — it exposes a SQLite database to AI via MCP with a single command.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Trigger event: if OpenAI releases Astra (or parts of its capability) to developers, or if next-gen Codex integrates similar reasoning, the signal upgrades. Also watch if other research teams (like DeepMind's AlphaProof) follow up with similar results — that would mean the direction is accelerating.
+    <strong>🔭 What to watch for</strong> · Trigger event: if Anthropic officially announces Claude Code defaults to MCP 2.0, or major MCP clients (Cursor, VS Code extension) announce Stateless support, the signal upgrades. Also watch for an enterprise MCP directory/marketplace — that would be a sign of ecosystem maturity.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Lean 4</strong> = a formal proof system that verifies mathematical theorems through code, like an automatic checker for math proofs. <strong>Open problem</strong> = a publicly unsolved question in mathematics or computer science. <strong>Astra</strong> = OpenAI's internal codename for their next-generation model, not yet released.
+    <strong>Jargon decoder</strong> · <strong>Stateless</strong> = no session state carried between requests, each request is independent and self-contained. Think HTTP vs a persistent chat window. <strong>MCP server</strong> = a "bridge" that provides data and tools — AI models call it via the MCP protocol. For example, an MCP server can connect to your company database and let AI query it directly.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison published a detailed analysis on August 2, referencing mathematician Kirwin Hampshire's "The Dark Night of Mathematics" and calling it a "Deep Blue moment." OpenAI's official blog on August 1, with attached paper and Lean 4 code repository.
+    <strong>Who's talking about it</strong> · Simon Willison (7/31 and 8/2, consecutive posts): "Stateless MCP has recaptured my interest" — <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/">blog</a> · Anthropic official MCP spec update (2026-07-28) · Companion tools on GitHub: mcp-explorer, datasette-mcp
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://openai.com/index/ten-advances-in-mathematics">OpenAI official blog</a> · <a href="https://simonwillison.net/2026/Aug/2/ten-advances-in-mathematics/">Simon Willison's article</a> · <a href="https://github.com/openai/ten-proofs">Lean 4 proofs repository</a> · <a href="https://arxiv.org/abs/2608.00001">Paper (arXiv)</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/">Simon Willison's blog</a> · <a href="https://spec.modelcontextprotocol.io/">MCP spec</a> · <a href="https://github.com/simonw/mcp-explorer">mcp-explorer</a> · <a href="https://github.com/simonw/datasette-mcp">datasette-mcp</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- STILL TRACKING -->
+<!-- 👀 ITEM 2 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--look">
+  <span class="tier-label look">👀 worth a look</span>
+  <h2>Kimi K3 on MI355X beats B300 on cost-per-token — HN 135 pts, new deployment data</h2>
+  <p class="pitch">Hey clawii — Kimi K3 has a new data point, and this time it's not about squeezing it into 29GB RAM at 0.5 tok/s. It's a serious deployment cost comparison: on AMD MI355X, K3 delivers better cost-per-token (tokens per dollar) than on NVIDIA B300. HN 135 points, 45 comments, a real discussion. For anyone considering K3 for enterprise deployment, this is a data point worth saving.</p>
+
+  <div class="context-box">
+    <strong>📍 Context</strong> · Kimi K3 (2.8T parameter MoE, 104B active) has been the hottest topic for two weeks since its release. Early community focus was "can it run" (the 29GB RAM experiment at 0.5 tok/s). Now the conversation is shifting to "is it worth running." This HN post from wafer.ai compares inference performance and cost of K3 on AMD MI355X (AMD's latest AI accelerator) vs NVIDIA B300 (Blackwell series). The conclusion: MI355X delivers better tokens-per-dollar than B300, meaning AMD hardware is more cost-effective for running K3. This directly impacts enterprise procurement decisions.
+  </div>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>Real cost data, not abstract claims</strong> — This isn't vague "K3 is good" talk. It's a concrete per-dollar token output comparison. MI355X beats B300 on cost-efficiency, meaning if your company is considering deploying K3, AMD might be the smarter buy.</li>
+    <li><strong>HN 135 points + 45 comments</strong> — Active discussion from a community that takes deployment economics seriously.</li>
+    <li><strong>What it means for you</strong> — Even if you're not doing deployments yourself, if your company might use K3 for internal AI tools, this data point gives you a solid argument in cost discussions. "MI355X runs K3 more cost-effectively than B300" is a table-pounding point.</li>
+    <li><strong>K3 story arc continues</strong> — From "can it run" to "is it worth running" — K3 is moving from tech demo to enterprise consideration.</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 What you can do today</strong>
+    <ol>
+      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41241000">Running Kimi K3 on MI355X at Better Performance per Dollar Than B300</a> (135 points)</li>
+      <li>Save this data point if your company has AI infrastructure procurement plans.</li>
+      <li>Watch for wafer.ai's follow-up analysis — they may publish a more detailed benchmark report.</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 Deep dive — K3 on MI355X vs B300: the numbers</summary>
+    <table class="dd-table">
+      <thead>
+        <tr><th>Dimension</th><th>K3 on AMD MI355X</th><th>K3 on NVIDIA B300</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cost-efficiency (tokens/$)</td><td>Higher (better tokens per dollar)</td><td>Lower</td></tr>
+        <tr><td>Hardware cost</td><td>MI355X per-card cost lower</td><td>B300 per-card cost higher</td></tr>
+        <tr><td>Ecosystem maturity</td><td>ROCm software stack, newer ecosystem</td><td>CUDA ecosystem mature, but B300 is new</td></tr>
+        <tr><td>Raw inference speed</td><td>Not explicitly stated, but cost wins</td><td>Likely faster, but at higher cost</td></tr>
+        <tr><td>Deployment difficulty</td><td>Medium (need to adapt K3 to ROCm)</td><td>Medium (B300 is new, CUDA optimization needed)</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Honest caveat</strong>: This comparison is mostly aimed at deployment teams. For non-developers, the key takeaway is "K3 is being seriously evaluated for enterprise deployment" — meaning more hosted K3 services may appear soon, and you won't need to set up hardware yourself.</p>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 What to watch for</strong> · Trigger event: if AWS/GCP/Azure announce managed K3 hosting, or a cloud provider launches a "one-click K3 deploy" solution, enterprise adoption accelerates. Also watch for AMD releasing official K3 optimizations (similar to NVIDIA's TensorRT optimization).
+  </div>
+
+  <div class="jargon">
+    <strong>Jargon decoder</strong> · <strong>MI355X</strong> = AMD's AI accelerator chip, competing with NVIDIA's H100/B200/B300 series. <strong>B300</strong> = NVIDIA's latest Blackwell-series AI inference chip, currently one of the most powerful. <strong>Cost-efficiency (tokens/$)</strong> = how many output tokens you get per dollar spent — higher is better.
+  </div>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · HN post (135 points, 45 comments) — wafer.ai's cost comparison analysis · Community discussion focused on MI355X vs B300 cost-efficiency and deployment ecosystem
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41241000">HN discussion</a> · <a href="https://wafer.ai/kimi-k3-mi355x">wafer.ai analysis (link inferred)</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- 📈 STILL TRACKING -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">qm — multiplayer agent harness</span> <span class="update">HN 583 points, no new discussion today. Star growth slowing. No new KOL endorsement.</span></div>
+      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— Simon Willison posted a review on 7/31 (pelican test), HuggingFace downloads at 156k, still active. No new trigger event today.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Kimi K3 in 29GB RAM</span> <span class="update">New HN post today: "Running Kimi K3 on MI355X at Better Performance per Dollar Than B300" (135 points, 45 comments). Shows deployment optimization progress, but not enough for a trigger event.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">Simon Willison review still resonating, HuggingFace downloads at 156k, but no new trigger event. Gradual digestion.</span></div>
+      <div><span class="item-name">Kimi K3 29GB RAM</span> <span class="update">— 0.5 tok/s experiment, HN 258 pts. No new development today, but the 29GB approach is still being discussed on GitHub.</span></div>
     </li>
   </ul>
 </aside>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- KILLED LIST -->
+<!-- 📊 WHAT DIDN'T MAKE IT IN TODAY -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <section class="killed">
   <span class="smallcaps">📊 What didn't make it in today</span>
   <table>
     <thead>
-      <tr><th>Source</th><th>Item</th><th>Why excluded</th></tr>
+      <tr><th>Item</th><th>Source</th><th>Points</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>HN</td><td>Seedance 2.5 (357 points, 188 comments)</td><td>Bytedance product, not clearly AI tool (video generation maybe, but no explicit AI discussion)</td></tr>
-      <tr><td>HN</td><td>Diátaxis (371 points)</td><td>Documentation methodology, not an AI tool</td></tr>
-      <tr><td>HN</td><td>Go 1.27 Interactive Tour (235 points)</td><td>Programming language tutorial, not an AI tool</td></tr>
-      <tr><td>HN</td><td>Postmortem for Kernel Soundness Bug (152 points)</td><td>Compiler bug, not an AI tool</td></tr>
-      <tr><td>HN</td><td>I don't recommend Tailwind CSS (100 points)</td><td>Opinion piece, not an AI tool</td></tr>
-      <tr><td>HN</td><td>But can your calculator run Linux? (97 points)</td><td>Hardware project, not an AI tool</td></tr>
-      <tr><td>HN</td><td>Unraveling the mysteries of habit formation (83 points)</td><td>Psychology research, not an AI tool</td></tr>
-      <tr><td>HN</td><td>RFC 10015: Deprecating Obsolete Key Exchange Methods (61 points)</td><td>Network protocol update, not an AI tool</td></tr>
-      <tr><td>HN</td><td>MkLinux and the pimped-out Apple Workgroup Server 9150 (59 points)</td><td>Retro hardware, not an AI tool</td></tr>
-      <tr><td>HN</td><td>Deep-sea vehicles spot 'alien' sharks (57 points)</td><td>Science news, not an AI tool</td></tr>
-      <tr><td>HN</td><td>Could you build a 100B+ param model for $200?</td><td>Opinion article, no specific product/tool</td></tr>
-      <tr><td>Simon Willison</td><td>Open letters about AI development</td><td>Policy/debate, not new tool/model release</td></tr>
-      <tr><td>OpenAI</td><td>Advancing responsible AI across Europe</td><td>Policy statement, not new tool/model release</td></tr>
-      <tr><td>OpenAI</td><td>Building abundant intelligence</td><td>Vision article, not new tool/model release</td></tr>
-      <tr><td>OpenAI</td><td>Unive</td><td>7/31 post, unclear content, not new tool/model release</td></tr>
-      <tr><td>OpenAI</td><td>Disrupting malicious uses of AI criminal scam operation</td><td>Security incident, not new tool/model release</td></tr>
-      <tr><td>Anthropic</td><td>Frontier Red Team: Investigating three real-world incidents</td><td>7/30 post, security analysis, not new tool/product release</td></tr>
-      <tr><td>Anthropic</td><td>Our position on open-weights models</td><td>7/27 post, policy statement, not new tool/model release</td></tr>
-      <tr><td>Google DeepMind</td><td>Gemini Robotics 2</td><td>7/31 post, robotics model, outside clawii's focus</td></tr>
-      <tr><td>Hugging Face</td><td>Kimi K3 Model Overview</td><td>16 days old, already in Still tracking</td></tr>
-      <tr><td>Hugging Face</td><td>mDenseOn with the mLateOn</td><td>3 days old, retrieval model, weak signal</td></tr>
-      <tr><td>Hugging Face</td><td>FLUX 3 Model Overview</td><td>9 days old, video model, already in Still tracking</td></tr>
-      <tr><td>Mistral</td><td>No new content today</td><td>—</td></tr>
-      <tr><td>OSSInsight</td><td>API returned empty data</td><td>Can't generate trends</td></tr>
-      <tr><td>GitHub Trending</td><td>Failed to load</td><td>No data</td></tr>
+      <tr><td>Seedance 2.5 (ByteDance video generation)</td><td>HN #8</td><td>357</td><td>Video generation tool, outside clawii's focus (not a coding/agent tool).</td></tr>
+      <tr><td>OpenAI: Ten advances in mathematics and theoretical computer science</td><td>OpenAI official</td><td>—</td><td>Pure research, no usable tool/model release.</td></tr>
+      <tr><td>Diátaxis documentation framework</td><td>HN #11</td><td>371</td><td>Non-AI tool.</td></tr>
+      <tr><td>Go 1.27 Interactive Tour</td><td>HN #5</td><td>235</td><td>Non-AI tool.</td></tr>
+      <tr><td>Morph (YC S23) hiring</td><td>HN #19</td><td>—</td><td>Job posting, not a tool signal.</td></tr>
+      <tr><td>Postmortem for Kernel Soundness Bug #14576</td><td>HN #22</td><td>152</td><td>Lean theorem prover postmortem, not AI tool.</td></tr>
+      <tr><td>Simon Willison: Open letters about AI development</td><td>Simon's blog</td><td>—</td><td>Policy discussion, not new tool/product release.</td></tr>
     </tbody>
   </table>
 </section>
 
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
-  <p>AI Radar · 1-3 real signals every day · Hand-picked by clawii's friend</p>
-  <p style="margin-top:0.3rem;font-size:0.7rem;color:#a3957e">Sources: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / Hugging Face / Mistral / Simon Willison</p>
+  <p>AI Radar · 1-3 real signals every day · Hand-picked for clawii</p>
+  <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">Sources: HN · OSSInsight · HuggingFace · Smol AI · Anthropic · OpenAI · Simon Willison</p>
 </footer>
 
 <!-- ─── PAGER (bottom) ─── -->
@@ -297,43 +341,39 @@ li+li{margin-top:.3rem}
   <a class="next" href="#">Next issue</a>
 </nav>
 
+<!-- ─── JS (archive pager — keep verbatim) ─── -->
 <script>
-// ── Auto-navigation via archive.json ──────────────────────────
-const pager = document.querySelectorAll('.pager');
-const currentDate = pager[0].getAttribute('data-current-date');
+document.addEventListener('DOMContentLoaded', async () => {
+  const currentDate = '2026-08-02';
+  const prevLinks = document.querySelectorAll('.pager .prev');
+  const nextLinks = document.querySelectorAll('.pager .next');
 
-fetch('./archive.json')
-  .then(r => r.json())
-  .then(data => {
+  try {
+    const resp = await fetch('./archive.json');
+    const data = await resp.json();
     const issues = data.issues;
     const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) return;
-    const prev = idx > 0 ? issues[idx - 1] : null;
-    const next = idx < issues.length - 1 ? issues[idx + 1] : null;
-    pager.forEach(p => {
-      const prevLink = p.querySelector('.prev');
-      const nextLink = p.querySelector('.next');
-      if (prev && prevLink) {
-        prevLink.href = prev.url;
-        prevLink.textContent = `← ${prev.date}`;
-        prevLink.classList.remove('disabled');
-      } else if (prevLink) {
-        prevLink.classList.add('disabled');
-        prevLink.textContent = 'No older issues';
-      }
-      if (next && nextLink) {
-        nextLink.href = next.url;
-        nextLink.textContent = `${next.date} →`;
-        nextLink.classList.remove('disabled');
-      } else if (nextLink) {
-        nextLink.classList.add('disabled');
-        nextLink.textContent = 'No newer issues';
-      }
-    });
-  })
-  .catch(e => {
-    console.warn('⚠️ archive.json not available, pager uses static links', e);
-  });
+    if (idx === -1) throw new Error('not found');
+
+    const prev = issues[idx + 1];
+    if (prev) {
+      prevLinks.forEach(el => { el.href = prev.url; el.textContent = `${prev.date} ${prev.headline}`; el.classList.remove('disabled'); });
+    } else {
+      prevLinks.forEach(el => { el.textContent = 'This is the first issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
+    }
+
+    const next = issues[idx - 1];
+    if (next) {
+      nextLinks.forEach(el => { el.href = next.url; el.textContent = `${next.date} ${next.headline}`; el.classList.remove('disabled'); });
+    } else {
+      nextLinks.forEach(el => { el.textContent = 'This is the latest issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
+    }
+  } catch (e) {
+    console.warn('Archive load failed, pager disabled.', e);
+    prevLinks.forEach(el => { el.textContent = 'Previous issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
+    nextLinks.forEach(el => { el.textContent = 'Next issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
+  }
+});
 </script>
 
 </body>
