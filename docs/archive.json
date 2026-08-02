@@ -6,6 +6,20 @@
       "date": "2026-08-02",
       "weekday": "Sun",
       "week": 31,
+      "kind": "weekly",
+      "headline": "Kimi K3 从开源到社区验证：这周开源模型不再是纸上谈兵",
+      "summary": "本周 12 条新信号里出现了 5 个 🚨，是近几周信号最密集的一周。Kimi K3 从 7/27 开源到 8/2 的 MI355X 性价比对比，完整经历了一条 \"发布 → 社区实测 → 加速采用 → 部署验证\" 的路径。同时 agent 框架 qm 引爆 HN（583 分）、MCP 2.0 协议进化、OpenAI 降价",
+      "counts": {
+        "crit": 5,
+        "look": 6,
+        "fyi": 1
+      },
+      "url": "weekly_2026-08-02.html"
+    },
+    {
+      "date": "2026-08-02",
+      "weekday": "Sun",
+      "week": 31,
       "issue": 69,
       "kind": "daily",
       "headline": "(no headline)",

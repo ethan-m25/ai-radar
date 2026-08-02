@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-08-02 · Week 31</title>
+<meta name="description" content="Week 31 — Kimi K3 went from open-source to community-validated in one week. The model value war kept heating up, agent frameworks went no-code with qm, and MCP 2.0 made data connections simpler. 12 new signals, 5 survived to weekly.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 31">
+<meta property="og:description" content="12 new signals across 6 days · 5 🚨 · 6 👀 · 1 ℹ️ · 5 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 26ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 08 · 02 · WK 31 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <!-- ════════════ COVER ════════════ -->
+  <section class="cover">
+    <span class="kicker smallcaps">Week 31 · 2026-07-27 → 2026-08-02</span>
+    <h1 class="display headline">Kimi K3 went from open-source to community-validated in one week — the model value war is no longer theoretical</h1>
+    <p class="lead">12 new signals this week with 5 🚨 — the densest week in a while. Kimi K3 ran a full adoption cycle in 7 days: release → download → community test → quantize → deploy. Meanwhile qm proved agent frameworks can work without code, MCP 2.0 simplified data connections, and OpenAI cut Luna 80%. Three parallel stories pointing to the same conclusion: AI tools are getting cheaper and easier to use, fast.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> Kimi K3 open-source was the headline, but the real story is the full adoption cycle it completed in one week — from 382 HN points on Monday to MI355X cost-efficiency data on Sunday. Meanwhile qm (583 HN pts) showed non-developers can now build agent teams with YAML, and MCP 2.0 made data connections stateless and simple. The model value war (OpenAI -80%, DeepSeek V4 Flash update) kept prices dropping. The week's theme: "tools are getting cheaper and easier."
+    </div>
+
+    <div class="count-row">
+      <div class="total">12</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>5</strong>&nbsp;🚨 (Kimi K3 community acceleration · ARC-AGI-3 open-source solution · DeepSeek V4 Flash 0731 · qm multiplayer agent harness · MCP 2.0 protocol upgrade)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>6</strong>&nbsp;👀 (Kimi K3 open-source release · Kimi K3 community tests · GPT-5.6 Luna 80% price drop · Kimi K3 in 29GB RAM · DeepSeek V4 Simon Willison review · Kimi K3 on MI355X)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ (Gemma 4 26B in 2GB RAM engine)</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 survived to weekly · 7 demoted / left tracking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">Kimi K3 went from open-source to community-validated in 7 days — a full adoption cycle in one week</h2>
+
+    <p>No single event defined this week. But one story arc ran through all seven days: Kimi K3 completed a full technology adoption cycle — from release to community validation to deployment economics — in a single week.</p>
+
+    <p><strong>Monday (7/27):</strong> Moonshot delivered on its open-source promise. Kimi K3 weights hit HuggingFace. HN 382 points. First Chinese open-weight model in the 3T-parameter club. But open-source is just the start — the community needed to verify it actually works. <strong>Tuesday-Wednesday:</strong> HN climbed to 448 points, HuggingFace downloads hit 388k. Community tests emerged — coding performance close to Fable 5 on frontend tasks. <strong>Friday:</strong> Someone squeezed K3 into 29GB RAM (0.5 tok/s, but it runs on a MacBook). <strong>Sunday:</strong> wafer.ai published cost-efficiency data showing K3 on AMD MI355X beats NVIDIA B300 on tokens-per-dollar. In one week, K3 went through "release → download → community test → quantize → deployment cost analysis."</p>
+
+    <p>This story arc isn't isolated — it landed right in the middle of the <strong>model value war</strong>. OpenAI cut GPT-5.6 Luna 80% this week. DeepSeek updated V4 Flash ($0.14/M input tokens). Anthropic's Opus 5 had already dropped price the week before. K3 is free (open-weight). The timing made it the focal point of the week's cost-efficiency conversation.</p>
+
+    <p>Two parallel stories complemented the main arc: <strong>qm</strong> (8/1, HN 583 pts) showed that agent frameworks can work without writing Python — YAML config, multiplayer, real-time collaboration. <strong>MCP 2.0</strong> (8/2, Simon Willison double-posted) made AI-to-data connections stateless and simpler. Three stories together paint a picture: cheaper models (K3 / price cuts) + easier agent frameworks (qm) + simpler data connections (MCP 2.0) = the barrier to vibe coding is collapsing.</p>
+
+    <p><strong>If you only do one thing this week:</strong> Go to HuggingFace and download the unsloth GGUF version of Kimi K3 — at least try to run it locally. Then read qm's README and Simon Willison's Stateless MCP blog. Together they take about 30 minutes and will give you a clear picture of where the next 3-6 months are heading.</p>
+  </section>
+
+  <!-- ════════════ 📈 TRENDS ════════════ -->
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Open-weight models moved from "can it run" to "is it worth running"</div>
+      <p>Kimi K3's community evolution this week is the best evidence. Day 1: "can I download it?" (388k downloads). Day 3: "can I quantize it?" (unsloth GGUF). Day 5: "can I run it locally?" (29GB version). Day 7: "which hardware is most cost-effective?" (MI355X vs B300). This cadence proves open-weight models have moved past the "tech demo" phase into serious engineering deployment discussions. In the next 1-2 months, expect managed K3 hosting services and optimized deployment guides to appear.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Agent frameworks went no-code — qm proved YAML is enough to build agent teams</div>
+      <p>qm's 583 HN points weren't an accident. Its core insight: existing agent frameworks (CrewAI, AutoGen) require Python, which locks out most office workers. qm uses nginx-style YAML config for multiplayer agent collaboration with real-time chat built in. If it gets KOL endorsement, it could become the "Zapier for agents" — non-technical people creating automated AI workflows. For clawii, this means you may soon be able to set up multi-agent workflows without writing a single line of code.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ MCP protocol evolution — Stateless mode makes data connections simpler</div>
+      <p>MCP 2.0's Stateless mode got Simon Willison's sustained attention this week (posts on 7/31 and 8/2), plus he built two companion tools (mcp-explorer, datasette-mcp). Stateless makes MCP servers feel like REST APIs — much lower development barrier. This means more "plug and play" MCP servers are coming soon — your company database, project management tools, Excel files can all be exposed to Claude Code via MCP with minimal setup.</p>
+    </div>
+  </section>
+
+  <!-- ════════════ 💀 WRONG ════════════ -->
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">7 signals demoted, 3 judgment corrections</h2>
+
+    <p><strong>OpenAI ARC-AGI-3 open-source solution (7/29 🚨 → demoted to 👀, Day 4 no follow-up)</strong> — I flagged this as 🚨 on Wednesday because it sounded important: OpenAI's first public ARC-AGI technical disclosure. But by Sunday, no KOL had reviewed it (Karpathy, Simon Willison both silent), no community replication appeared, and there wasn't even an HN discussion thread. This suggests the method ("long CoT + beam search") may not be as novel or replicable as the blog made it sound. Demoted to 👀, waiting for independent evaluation.</p>
+
+    <p><strong>Gemma 4 26B 2GB RAM engine (7/29 ℹ️ → removed, Day 4 no follow-up)</strong> — Wednesday's HN 664 points were impressive, but a week passed with no project updates and no KOL review. Running a 26B model in 2GB RAM is a cool tech demo, but limited practical impact on vibe coding workflows. Removed from tracking.</p>
+
+    <p><strong>Qwen 3.8 Max (cross-period tracking → removed)</strong> — Two consecutive weeks with no progress. Alibaba said "open-source coming soon" but hasn't given a date. Kimi K3 has captured all the attention. Qwen 3.8 needs a concrete open-source date or independent benchmark to re-enter tracking.</p>
+
+    <p><strong>Other demotions:</strong> Claude Code switches to Bun (no follow-up), local speech recognition tools (no follow-up), Nativ (no follow-up), stencil.so (no follow-up), Gemini 3.6 Flash family (no follow-up), GigaToken (no independent verification), FLUX 3 (no independent evaluation), MouthPad (signal too weak), LM Studio Bionic (removed from tracking), NotebookLM rename (removed), Fable 5 subscription retention (removed). All were already in the daily "killed" lists and are now formally confirmed as no longer tracked.</p>
+  </section>
+
+  <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Will a cloud-hosted Kimi K3 service appear?</strong><br>
+      388k HuggingFace downloads proves demand is real, but most users can't deploy a 2.8T-parameter model themselves. If AWS, GCP, HuggingFace Spaces, or Together AI launches a "one-click Kimi K3" service, K3 moves from "developer toy" to "enterprise-ready." Watch HuggingFace Spaces, Ollama Cloud, and Together AI for K3 entries.<br>
+      <span class="trigger">Trigger → Any major cloud or AI platform announces managed Kimi K3 hosting</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Does qm get KOL endorsement?</strong><br>
+      qm's HN heat (583 pts) is real, but it hasn't been mentioned by Simon Willison, swyx, or Karpathy yet. If any heavyweight KOL posts "qm changed my workflow" next week, it upgrades from 🚨 to even higher priority. Also watch GitHub star velocity — if it breaks 3k in 48 hours, community validation is accelerating.<br>
+      <span class="trigger">Trigger → Simon Willison review / stars exceed 3k in 48h</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Will Anthropic respond to the price war?</strong><br>
+      OpenAI cut Luna 80% this week. DeepSeek updated V4 Flash ($0.14/M tokens). Anthropic already dropped Opus 5 price last week, but Haiku and Sonnet haven't moved. If Anthropic matches with a price cut or a new cheaper tier, the "model value war" enters a new phase. Directly affects your monthly API bill.<br>
+      <span class="trigger">Trigger → Anthropic official announcement of price cuts or new tier</span>
+    </div>
+  </section>
+
+  <!-- ════════════ 📅 CALIBRATION ════════════ -->
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 31</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>6 of 7 days (7/27, 7/29–8/2; skipped 7/28 but Sunday covered the gap)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>5 (Kimi K3 community acceleration · ARC-AGI-3 open-source solution · DeepSeek V4 Flash 0731 · qm multiplayer agent harness · MCP 2.0 protocol upgrade)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>6 (Kimi K3 open-source release · Kimi K3 community tests · GPT-5.6 Luna 80% price drop · Kimi K3 in 29GB RAM · DeepSeek V4 Simon Willison review · Kimi K3 on MI355X)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>1 (Gemma 4 26B in 2GB RAM engine)</dd>
+
+      <dt>New signals total</dt>
+      <dd>12 (5🚨 + 6👀 + 1ℹ️)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>5 (🏆 Kimi K3 full adoption cycle · 📈 open-weight models deployment phase · 📈 agent frameworks go no-code · 📈 MCP protocol evolution · 💀 7 demotions/corrections)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>7 (ARC-AGI-3 solution · Gemma 4 engine · Qwen 3.8 Max · Claude Code Bun switch · speech recognition tools · Nativ · stencil.so · Gemini 3.6 Flash · GigaToken · FLUX 3 · MouthPad · plus old entries)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>~58% (reasonable — more 🚨 this week, but the ARC-AGI and Gemma engine demotions pulled the rate up. Still above my target of 40%. Need stricter KOL endorsement verification before assigning 🚨.)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~48 hours ahead on Kimi K3 community test data (English HN 7/29, Chinese tech media 7/31); ~12 hours ahead on qm framework (8/1 HN blow-up, 8/2 scattered Chinese discussion); ~24 hours ahead on MCP 2.0 (Simon Willison 7/31, Chinese ecosystem likely next week)</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 31 · 2026-08-02 · 6 dailies · 12 new signals (5🚨 / 6👀 / 1ℹ️) · 5 survived · 7 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>

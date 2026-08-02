@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-08-02 · Week 31</title>
+    <meta name="description" content="Week 31 周报 —— Kimi K3 从开源到社区验证，模型性价比大战持续升温，agent 框架与 MCP 协议同步进化。">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 31">
+    <meta property="og:description" content="7 天 12 条新信号 · 5 🚨 · 6 👀 · 1 ℹ️ · 跨周期追踪 4 条 · 5 条幸存进 weekly">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 26ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+        .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+        .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+        .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+        .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+        @keyframes rise {
+            to { opacity: 1; transform: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section { opacity: 1; transform: none; animation: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">今日</a>
+                <a href="./archive.html" class="current">归档</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 08 · 02 · WK 31 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <!-- ════════════ COVER ════════════ -->
+        <section class="cover">
+            <span class="kicker smallcaps">Week 31 · 2026-07-27 → 2026-08-02</span>
+            <h1 class="display headline">Kimi K3 从开源到社区验证：这周开源模型不再是纸上谈兵</h1>
+            <p class="lead">本周 12 条新信号里出现了 5 个 🚨，是近几周信号最密集的一周。Kimi K3 从 7/27 开源到 8/2 的 MI355X 性价比对比，完整经历了一条 "发布 → 社区实测 → 加速采用 → 部署验证" 的路径。同时 agent 框架 qm 引爆 HN（583 分）、MCP 2.0 协议进化、OpenAI 降价 80%——三条平行故事都在说同一件事：AI 工具的门槛在快速降低。</p>
+
+            <div class="summary-box">
+                <strong>本周一句话总结：</strong>Kimi K3 开源引爆了本周最大的故事线——从权重发布到 HuggingFace 388k 下载再到 29GB 本地运行，社区用一周时间验证了一个 2.8T 参数模型的可落地性。同时 qm 框架让非开发者也能搭建 agent 团队，MCP 2.0 降低数据连接门槛，OpenAI 与 DeepSeek 打起了价格战。本周的底色是 "工具变得更便宜、更容易用"。
+            </div>
+
+            <div class="count-row">
+                <div class="total">12</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>5</strong>&nbsp;🚨（Kimi K3 社区加速 · ARC-AGI-3 开源方案 · DeepSeek V4 Flash · qm 多人 agent · MCP 2.0）</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>6</strong>&nbsp;👀（Kimi K3 开源 · Kimi K3 实测 · GPT-5.6 降价 · Kimi K3 29GB · DeepSeek V4 Simon 评测 · Kimi K3 MI355X）</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️（Gemma 4 26B 2GB RAM 引擎）</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 条幸存进 weekly · 7 条降级离开跟踪</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 本周最重要的唯一一件事</div>
+            <h2 class="display">Kimi K3 从开源到社区验证：一条完整的技术采用曲线在一周内走完</h2>
+
+            <p>本周没有哪一个单独的事件是孤立的，但有一条清晰的故事线贯穿了整整七天：Kimi K3 从一个 7/16 发布的模型，变成了这周社区实际验证的 "可行的开源替代方案"。</p>
+
+            <p><strong>周一（7/27）</strong> Moonshot 按承诺开源了 K3 权重，HN 382 分。这是中国开源模型首次进入 3T 参数俱乐部。但开源只是开始——社区需要验证它是不是真的能用。周二 HN 349 分，HuggingFace 99.2k 下载；周三 HN 448 分，下载量飙到 388k；周五有人把 K3 压缩到 29GB 内存跑（虽然只有 0.5 tok/s）；周日又有了在 AMD MI355X 上性价比超 B300 的部署数据。一周之内，一个模型走完了 "发布 → 下载 → 实测 → 量化 → 部署优化" 的整个链条。</p>
+
+            <p>这条故事线不是孤立的——它正好撞上了另一个大趋势：<strong>模型性价比大战</strong>。OpenAI 这周把 GPT-5.6 Luna 降价 80%，DeepSeek 更新了 V4 Flash，Anthropic 的 Opus 5 也在前一周降价。Kimi K3 的开源正好赶上了 "大家都在降价" 的时间窗口，而且它免费——这使得它成为这周性价比讨论的焦点。</p>
+
+            <p>另外两条故事线与这条主线平行但互补：<strong>qm 框架</strong>（8/1，HN 583 分）让非开发者也能用 YAML 搭建多人 agent 工作流，<strong>MCP 2.0</strong>（8/2，Simon Willison 连续发文）让 AI 连接外部数据变得更简单。这三件事合在一起，勾勒出一个未来：更便宜的模型（Kimi K3 / 降价 API） + 更容易搭建的 agent 框架（qm） + 更简单的数据连接（MCP 2.0）= vibe coding 的门槛正在快速消失。</p>
+
+            <p><strong>如果本周只做一件事：</strong>去 HuggingFace 下载 unsloth 的 Kimi K3 GGUF 版本，在你的本地环境试试能不能跑（至少体验一下）。然后去看看 qm 的 README 和 Simon Willison 的 Stateless MCP 博客——这两件事加起来不到 30 分钟，但会让你对接下来 3-6 个月的趋势有一个清晰的判断。</p>
+        </section>
+
+        <!-- ════════════ 📈 TRENDS ════════════ -->
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 正在成形的趋势</div>
+            <h2 class="display">三条在本周被确认或加速的方向</h2>
+
+            <div class="trend-item">
+                <div class="trend-name">① 开源模型从 "能不能跑" 进入 "跑得值不值" 阶段</div>
+                <p>Kimi K3 这周的社区演进是最好的证据。第一天大家关心的是 "能下载吗"（388k 下载），第三天是 "能量化吗"（unsloth GGUF），第五天是 "能本地跑吗"（29GB 版本），第七天是 "用哪个硬件最划算"（MI355X 性价比）。这个节奏说明开源模型已经过了 "技术演示" 阶段，进入了严肃的工程部署讨论。接下来 1-2 个月，你会看到更多关于 K3 的托管服务和优化方案。</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">② Agent 框架的 "非开发者化"——qm 证明了 YAML 也能搭 agent 团队</div>
+                <p>qm 在 HN 上获得 583 分不是偶然。它的核心洞察是：现有 agent 框架（CrewAI、AutoGen）都需要写 Python，这让大多数办公用户望而却步。qm 用 nginx 风格的 YAML 配置实现了多人 agent 协作，并且内置了实时协作功能。如果它获得 KOL 背书，可能成为 "agent 界的 Zapier"——非技术人员也能创建自动化工作流。对 clawii 来说，这意味着未来你可能不需要写代码就能让多个 AI agent 为你工作。</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">③ MCP 协议进化：Stateless 模式让数据连接更简单</div>
+                <p>MCP 2.0 的 Stateless 模式在本周获得 Simon Willison 的连续背书（7/31 和 8/2 两次发文），他甚至还自己写了 mcp-explorer 和 datasette-mcp 两个配套工具。Stateless 让 MCP 服务器更像 REST API，降低了搭建门槛。这意味着很快会有更多 "即插即用" 的 MCP 服务器出现——你的公司数据库、项目管理工具、Excel 文件都可以通过 MCP 被 Claude Code 直接调用。</p>
+            </div>
+        </section>
+
+        <!-- ════════════ 💀 WRONG ════════════ -->
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 本周我叫错了 / 过度炒作的信号</div>
+            <h2 class="display">7 条信号被降级，3 条需要坦白承认叫错</h2>
+
+            <p><strong>OpenAI ARC-AGI-3 开源方案（7/29 🚨 → 降级为 👀，Day 4 无后续信号）</strong> — 周三我把这个列为 🚨，因为它听起来很重要：OpenAI 首次公开 ARC-AGI 技术细节。但到周日为止，没有 KOL 评测（Karpathy、Simon Willison 都没提），没有社区复现，HN 上甚至没有讨论帖。这说明这个方案可能没那么容易复现，或者社区觉得 "长 CoT + beam search" 并不是新东西。降级为 👀，等待独立评测。</p>
+
+            <p><strong>Gemma 4 26B 2GB RAM 引擎（7/29 ℹ️ → 降级，Day 4 无后续）</strong> — 周三 HN 664 分热度很高，但一周过去项目没有后续更新，也没有 KOL 评测。让 Gemma 4 26B 在 2GB RAM 跑是一个很酷的技术演示，但对 vibe coding 的实际影响有限。从 ℹ️ 降级为不再跟踪。</p>
+
+            <p><strong>Qwen 3.8 Max（跨周期跟踪 → 降级）</strong> — 连续两周无新进展。阿里说 "即将开源" 但没有给出具体日期。Kimi K3 已经抢走了所有注意力。如果 Qwen 3.8 想回到跟踪列表，需要公布具体开源日期或独立 benchmark。</p>
+
+            <p><strong>其他降级</strong> — Claude Code 换 Bun（无后续）、语音识别工具（无后续）、Nativ（无后续）、stencil.so（无后续）、Gemini 3.6 Flash（无后续）、GigaToken（无独立验证）、FLUX 3（无独立评测）、MouthPad（信号太弱）、LM Studio Bionic（已从跟踪移除）、NotebookLM 更名（已移除）、Fable 5 保留订阅（已移除）。这些都已经在 daily 的 "killed" 列表中标注，本周正式确认降级。</p>
+        </section>
+
+        <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 下周关注清单</div>
+            <h2 class="display">未来 7 天盯紧这三件事</h2>
+
+            <div class="watch-item">
+                <strong>① Kimi K3 是否会出现云托管服务</strong><br>
+                社区下载量 388k 说明需求很旺盛，但大部分用户没有能力自己部署一个 2.8T 参数的模型。如果 AWS、GCP、或者 HuggingFace 推出 "一键部署 Kimi K3" 服务，K3 将从 "开发者玩具" 变成 "企业级可用方案"。关注 HuggingFace Spaces、Ollama Cloud、Together AI 是否有 K3 入口。<br>
+                <span class="trigger">触发 → 任何主流云厂商或 AI 平台宣布托管 Kimi K3</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② qm 能否获得 KOL 背书</strong><br>
+                qm 的 HN 热度很高（583 分），但还没被 Simon Willison、swyx、或 Karpathy 提及。如果下周有任何一个重量级 KOL 发文说 "qm 改变了我的工作流"，它就会从 🚨 升级到更高的优先级。同时关注 GitHub stars 增长速度——如果 48 小时内突破 3k，说明社区认可度在加速。<br>
+                <span class="trigger">触发 → Simon Willison 评测 / stars 48h 超 3k</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ OpenAI 降价后 Anthropic 是否会跟进</strong><br>
+                本周 OpenAI 把 GPT-5.6 Luna 降价 80%，DeepSeek 更新了 V4 Flash（$0.14/百万 tokens）。Anthropic 的 Opus 5 在前一周已经降价了，但 Haiku 和 Sonnet 还没有调整。如果 Anthropic 跟进降价，或者推出一个更便宜的 tier，那 "模型性价比之战" 将进入新阶段。直接影响你每个月的 API 账单。<br>
+                <span class="trigger">触发 → Anthropic 官方宣布降价或新 tier</span>
+            </div>
+        </section>
+
+        <!-- ════════════ 📅 CALIBRATION ════════════ -->
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 校准指标 — Week 31</div>
+            <h2 class="display">本周数字</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>6 of 7 days（7/27, 7/29-8/2，缺少 7/28 但周日补上）</dd>
+
+                <dt>🚨 Items flagged</dt>
+                <dd>5（Kimi K3 社区加速 · ARC-AGI-3 开源方案 · DeepSeek V4 Flash · qm 多人 agent · MCP 2.0）</dd>
+
+                <dt>👀 Items flagged</dt>
+                <dd>6（Kimi K3 开源 · Kimi K3 实测 · GPT-5.6 降价 · Kimi K3 29GB · DeepSeek V4 Simon 评测 · Kimi K3 MI355X）</dd>
+
+                <dt>ℹ️ Items flagged</dt>
+                <dd>1（Gemma 4 26B 2GB RAM 引擎）</dd>
+
+                <dt>New signals total</dt>
+                <dd>12（5🚨 + 6👀 + 1ℹ️）</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>5（🏆 Kimi K3 完整故事线 · 📈 开源模型部署阶段 · 📈 Agent 框架非开发者化 · 📈 MCP 协议进化 · 💀 7 条降级修正）</dd>
+
+                <dt>Items demoted / removed from tracking</dt>
+                <dd>7（ARC-AGI-3 方案 · Gemma 4 引擎 · Qwen 3.8 Max · Claude Code 换 Bun · 语音识别工具 · Nativ · stencil.so · Gemini 3.6 Flash · GigaToken · FLUX 3 · MouthPad · 以及旧条目）</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>~58%（合理——本周 🚨 较多，但因为 Arc-AGI 方案和 Gemma 引擎的降级，整体仍高于我期望的 40% 以下。下周需要更严格地验证 KOL 背书再给 🚨。）</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>~48 小时 ahead on Kimi K3 社区实测数据（英文社区 7/29 开始涌现下载量和 HN 讨论，中文科技媒体 7/31 才开始集中报道）；~12 小时 ahead on qm 框架（8/1 HN 爆发，8/2 中文圈零星讨论）；~24 小时 ahead on MCP 2.0（Simon Willison 7/31 发文，中文圈可能下周才注意到）</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                做你的 AI 虚拟朋友 — 每天 07:07 推送 · 周日 08:00 出 Weekly Wrap · 宁缺毋滥。
+            </p>
+            <p>
+                扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+            </p>
+            <p>
+                剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 31 · 2026-08-02 · 6 dailies · 12 new signals (5🚨 / 6👀 / 1ℹ️) · 5 survived · 7 demoted/removed
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
