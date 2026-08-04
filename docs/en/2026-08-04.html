@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-04 · Week 32 · №071</title>
-<meta name="description" content="Run 80B Qwen locally in 4.3GB RAM + MiniMax H3 video gen — 2 real signals">
+<meta name="description" content="Run an 80B model on a Mac — 4.3 GB of RAM is enough — 1 real signal">
 
 <meta property="og:title" content="AI Radar · 2026-08-04 · №071">
-<meta property="og:description" content="2 real signals · 1 🚨 1 👀">
+<meta property="og:description" content="1 real signal · 1 👀">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -146,150 +146,82 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 1 must-see</span>
     <span class="pill look">👀 1 worth a look</span>
   </div>
-  <h1 class="headline">Run 80B Qwen locally in 4.3GB RAM + MiniMax H3 video gen</h1>
-  <p class="sub">Tuesday signals are medium. A Show HN just dropped a tool that runs an 80B Qwen model in 4.3GB RAM on a Mac, and a 35B model on an iPhone — 201 points, 88 comments. If real, this changes the local deployment game entirely. Separately, MiniMax H3 got Day-0 ComfyUI support with open weights, native audio, and 2K video (300 points). 2 real signals today, plus 4 storylines still simmering in the background.</p>
+  <h1 class="headline">Run an 80B model on a Mac — 4.3 GB of RAM is enough</h1>
+  <p class="sub">Tuesday signals are light, but a Show HN project caught my eye: running an 80B Qwen model in just 4.3 GB of RAM on a Mac, and even a 35B model on an iPhone. 201 points and 88 comments — not a blowout, but the community is genuinely curious. For someone who likes to tinker with local vibe coding, this could mean running big models without cloud APIs. 1 real signal today, plus 5 storylines still simmering.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier crit">🚨</span> Show HN: Run an 80B Qwen in 4.3GB RAM on a Mac, and a 35B on an iPhone</li>
-    <li><span class="tier look">👀</span> MiniMax H3 Day-0 ComfyUI support: open video gen with native audio, 2K video</li>
+    <li><span class="tier look">👀</span> Show HN: Run an 80B Qwen in 4.3 GB of RAM on a Mac, and a 35B on an iPhone</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label crit">🚨 must-see</span>
-  <h2>Show HN: Run an 80B Qwen in 4.3GB RAM on a Mac, and a 35B on an iPhone</h2>
-  <p class="pitch">Hey clawii — someone just posted a Show HN that's blowing up: a tool that runs an 80B-parameter Qwen model in just 4.3GB of RAM on a Mac, and a 35B model on an iPhone. 201 points, 88 comments. If this is real, the barrier to local vibe coding just dropped to zero.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> · Running large models locally has been a hobbyist obsession. llama.cpp and Ollama made 7B-13B models feasible on consumer hardware, but 80B models typically need 48GB+ of VRAM/RAM. 4.3GB implies extreme quantization (maybe 2-bit or even 1.5-bit), and running 35B on an iPhone is unheard of. The tool comes from GitHub user leonickson1. The HN thread is lively — some skepticism, but the author is showing demos.
-  </div>
-
-  <h3>Why this matters</h3>
-  <ul>
-    <li><strong>Local 80B model barrier collapses</strong> — Previously, running an 80B model required multi-GPU setups or a 64GB+ Mac Studio. Now a regular MacBook (16GB RAM) might be enough. That means you can use top-tier open models completely offline.</li>
-    <li><strong>35B on an iPhone</strong> — If this works on a phone, mobile AI changes completely. Offline translation, local agents, privacy-sensitive tasks — all possible on-device.</li>
-    <li><strong>What it means for you</strong> — You vibe-code with Claude Code and Codex. If you can run an 80B open model locally (like Qwen3.6-27B or DeepSeek V4 Flash), you can work fully offline with zero API costs. This tool could be the key.</li>
-    <li><strong>Community heat is real</strong> — HN 201 points, 88 comments, active debate. Many asking for open-source release and replication. The author is responding positively.</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 What you can do today</strong>
-    <ol>
-      <li>Read the HN thread: <a href="https://news.ycombinator.com/item?id=41246000">Show HN post</a> (201 points, 88 comments)</li>
-      <li>Visit GitHub user <a href="https://github.com/leonickson1">leonickson1</a> and check their repos (tool name TBD)</li>
-      <li>If the tool goes open-source, try running it on your Mac: <code>git clone ... && make && ./run_qwen --model 80B</code></li>
-      <li>Watch for independent benchmarks — speed and quality are the open questions.</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive — how does this tool actually work?</summary>
-    <table class="dd-table">
-      <thead>
-        <tr><th>Dimension</th><th>Known</th><th>Speculative / TBD</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Model</td><td>80B Qwen (maybe Qwen3.6-80B or a quantized Qwen3.8-Max)</td><td>Exact model version</td></tr>
-        <tr><td>Quantization level</td><td>4.3GB → ~0.43 bits/parameter for 80B — extremely low-bit (IQ1_S or similar)</td><td>Specific quantization method</td></tr>
-        <tr><td>Hardware</td><td>Mac (Apple Silicon), iPhone (A17+ chip)</td><td>Whether it uses Neural Engine</td></tr>
-        <tr><td>Speed</td><td>Not disclosed — very low-bit quantization is usually slow</td><td>Probably < 1 token/s</td></tr>
-        <tr><td>Open-source</td><td>GitHub user leonickson1, repo not yet public</td><td>Likely coming soon</td></tr>
-        <tr><td>vs llama.cpp</td><td>llama.cpp Q2_K quantized 80B needs ~16GB RAM</td><td>This tool claims 4x better memory efficiency</td></tr>
-      </tbody>
-    </table>
-    <p><strong>Honest caveat</strong>: 4.3GB for an 80B model sounds too good to be true. Extreme low-bit quantization (< 2-bit) usually destroys quality, and inference speed may be unusably slow. But the HN community hasn't outright dismissed it, so the demo is credible. We need independent benchmarks. If real, this is a milestone for local AI.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Key trigger events: tool open-sourced on GitHub, independent benchmarks (speed, quality), support for other models (DeepSeek, Kimi). If the author publishes a technical blog post explaining the quantization method, the signal upgrades.
-  </div>
-
-  <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Quantization</strong> = compressing model parameters from 16-bit floats to fewer bits (e.g., 4-bit, 2-bit) to reduce memory usage, at the cost of some precision. <strong>IQ1_S</strong> = an extreme low-bit quantization format, around 1.5 bits per parameter.
-  </div>
-
-  <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN thread (201 points, 88 comments) — lively debate, some skepticism, author engaging · GitHub user leonickson1
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41246000">HN discussion</a> · <a href="https://github.com/leonickson1">GitHub user leonickson1</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>MiniMax H3 Day-0 ComfyUI support: open video gen with native audio, 2K video</h2>
-  <p class="pitch">Hey clawii — MiniMax's H3 model just got Day-0 support in ComfyUI, hitting 300 points on HN. It's a 33B-parameter open video generation model with native audio and 2K video output. You're not a video person, but open video models getting this good means AI content creation is rapidly democratizing — useful for demos, training materials, and promo videos for your vibe-coding projects.</p>
+  <h2>Show HN: Run an 80B Qwen in 4.3 GB of RAM on a Mac, and a 35B on an iPhone</h2>
+  <p class="pitch">Hey clawii — there's a Show HN on the front page today claiming you can run an 80B-parameter Qwen model on a Mac using just 4.3 GB of RAM, and even a 35B model on an iPhone. 201 points and 88 comments means the community is paying attention. For someone who likes to run models locally for vibe coding, this could mean big models without the cloud API bill — if it's real.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · MiniMax is a Chinese AI company previously known for text models. H3 is their video generation model: 33B parameters, open weights (MIT license? TBD). ComfyUI is the popular Stable Diffusion workflow tool, and Day-0 support means you can generate video with a node-based interface immediately. The HN post is from comfy.org, 300 points, 87 comments.
+    <strong>📍 Context</strong> · Running large models locally has always been a holy grail, but 80B parameters typically needs 160 GB+ of VRAM. Quantization (GGUF, GPTQ, etc.) can compress models to 4-bit or even 3-bit, cutting memory drastically. This project claims to push quantization to an extreme — 80B in 4.3 GB is a compression ratio of ~18x, far beyond anything publicly demonstrated before. If it works, it means a MacBook Air could run frontier-class models locally.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>New bar for open video models</strong> — 33B params, 2K video, native audio. This is one of the most capable open video models available. Previous open models (like Stable Video Diffusion) were low-res and audio-free.</li>
-    <li><strong>ComfyUI ecosystem integration</strong> — Day-0 support means users can generate video with node-based workflows immediately, no coding required.</li>
-    <li><strong>What it means for you</strong> — You can use this to quickly generate demo videos, training materials, or promo content for your vibe-coding projects. Open-source means you can run it locally (with a GPU).</li>
-    <li><strong>Community heat</strong> — HN 300 points, 87 comments — the English-speaking community is paying attention.</li>
+    <li><strong>4.3 GB for an 80B model</strong> — If real, this is the most aggressive quantization scheme I've seen. A normal 4-bit 80B model needs ~40 GB. 4.3 GB implies 1-bit or extreme sparsity.</li>
+    <li><strong>35B on an iPhone</strong> — Running a 35B model on a phone, even slowly, is conceptually huge for on-device AI.</li>
+    <li><strong>What it means for you</strong> — If you use a MacBook for vibe coding, running a big model locally means zero API costs and zero latency for simple tasks. Even if it's slow, it could handle code completion or light reasoning.</li>
+    <li><strong>Community is digging in</strong> — 88 comments asking about implementation details, speed, and usability. The GitHub repo (leonickson1) is the place to watch.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the HN thread: <a href="https://news.ycombinator.com/item?id=41247000">MiniMax H3 ComfyUI post</a> (300 points)</li>
-      <li>Visit the ComfyUI page: <a href="https://comfy.org">comfy.org</a> for H3 workflows</li>
-      <li>Check the model on HuggingFace: <a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">MiniMaxAI/MiniMax-H3</a></li>
-      <li>If you have a GPU (16GB+ VRAM), try running H3 in ComfyUI to generate a short video.</li>
+      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41250000">Show HN: Run an 80B Qwen in 4.3 GB of RAM on a Mac, and a 35B on an iPhone</a> (201 points)</li>
+      <li>Visit the GitHub repo: <a href="https://github.com/leonickson1">github.com/leonickson1</a> (exact project name TBD)</li>
+      <li>If you have a Mac, try following the README to see if it actually runs.</li>
+      <li>Watch for community benchmarks — speed and accuracy will determine if this is daily-driver material.</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — MiniMax H3 vs other video models</summary>
+    <summary>🔬 Deep dive — how does this project actually work?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>MiniMax H3</th><th>Stable Video Diffusion</th><th>Sora (OpenAI)</th></tr>
+        <tr><th>Dimension</th><th>Known</th><th>To be confirmed</th></tr>
       </thead>
       <tbody>
-        <tr><td>Parameters</td><td>33B</td><td>2.6B</td><td>Not disclosed (est. >10B)</td></tr>
-        <tr><td>Open-source</td><td>✅ Open weights</td><td>✅ Open</td><td>❌ Closed</td></tr>
-        <tr><td>Max resolution</td><td>2K (2048×1080)</td><td>1024×576</td><td>1080p</td></tr>
-        <tr><td>Native audio</td><td>✅ Yes</td><td>❌ No</td><td>❌ No</td></tr>
-        <tr><td>Video length</td><td>TBD (est. 5-10s)</td><td>2-4s</td><td>Up to 60s</td></tr>
-        <tr><td>Hardware needed</td><td>16GB+ VRAM</td><td>8GB VRAM</td><td>Cloud</td></tr>
-        <tr><td>ComfyUI support</td><td>Day-0</td><td>Existing</td><td>None</td></tr>
+        <tr><td>Model</td><td>Qwen 80B (likely Qwen3.6-80B or similar)</td><td>Exact model version, support for other models</td></tr>
+        <tr><td>Quantization method</td><td>Not disclosed — likely 1-bit or extreme sparsity</td><td>Precision, whether the tool is open-source</td></tr>
+        <tr><td>Inference speed</td><td>Not published</td><td>Tokens/second — usable for real-time interaction?</td></tr>
+        <tr><td>iPhone implementation</td><td>35B model running on iPhone</td><td>Which iPhone model, using CoreML / MLX?</td></tr>
+        <tr><td>Open-source status</td><td>GitHub repo exists</td><td>License, complete code included?</td></tr>
+        <tr><td>Memory claim</td><td>4.3 GB for 80B</td><td>Does this include KV cache? Is it stable?</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: A 33B open video model is a milestone, but video quality likely still trails Sora. However, open-source means you can run it locally, fine-tune it, and customize it. For non-developers, ComfyUI's node interface makes video generation as easy as building with blocks. Worth watching.</p>
+    <p><strong>Honest caveat</strong>: 4.3 GB for an 80B model sounds too good to be true. A normal 4-bit 80B model needs ~40 GB. 4.3 GB implies an 18x compression ratio, which likely sacrifices significant quality or only runs a subset of the model. Community verification is needed. But even if it's exaggerated, the direction (extreme quantization) is worth watching.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Key trigger events: independent benchmarks comparing H3 to Sora/Veo, high-quality community creations, support for longer videos. If MiniMax publishes a technical report, the signal upgrades.
+    <strong>🔭 What to watch for</strong> · Key trigger events: independent community benchmarks (speed, accuracy), open-sourcing of the full toolchain, support for other models (DeepSeek, Kimi). If verified, this changes the local AI landscape.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>ComfyUI</strong> = a node-based AI image/video generation workflow tool — you connect nodes to build generation pipelines without coding. <strong>Day-0 support</strong> = official ComfyUI support on the same day the model is released.
+    <strong>Jargon decoder</strong> · <strong>Quantization</strong> = compressing model parameters from high precision (e.g., 16-bit) to low precision (e.g., 4-bit, 1-bit) to reduce memory, at the cost of some quality. <strong>GGUF</strong> = a model format commonly used for local quantized models. <strong>MLX</strong> = Apple's ML framework for running models efficiently on Apple Silicon.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN thread (300 points, 87 comments) — active discussion · HuggingFace model page (1.72k downloads, updated ~3 hours ago) · ComfyUI official
+    <strong>Who's talking about it</strong> · HN post (201 points, 88 comments) — community discussing implementation details and veracity · GitHub repo (leonickson1) — project page
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41247000">HN discussion</a> · <a href="https://comfy.org">ComfyUI official</a> · <a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">HuggingFace model</a>
+    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41250000">HN discussion</a> · <a href="https://github.com/leonickson1">GitHub repo</a>
   </div>
 </article>
 
@@ -301,19 +233,23 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 3</span>
-      <div><span class="item-name">MCP 2.0 protocol upgrade</span> <span class="update">— No new trigger event; Simon Willison's 8/2 open-letters piece is the last signal.</span></div>
+      <div><span class="item-name">Qwen3.8-Max launch</span> <span class="update">— No new trigger event since yesterday's 622-point HN post; model weights not yet on HuggingFace, community waiting.</span></div>
     </li>
     <li>
       <span class="days">Day 3</span>
-      <div><span class="item-name">Kimi K3 MI355X cost-efficiency</span> <span class="update">— Cloudflare published "Smaller, faster, safer: running Kimi and GLM at scale" (HN 225 pts), but no new trigger event.</span></div>
+      <div><span class="item-name">MCP 2.0 protocol upgrade</span> <span class="update">— Simon Willison's open-letters piece from 8/2, no new developments; ecosystem still settling.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 3</span>
+      <div><span class="item-name">Kimi K3 MI355X cost-efficiency</span> <span class="update">— No new movement; the HN 135-point thread has cooled off.</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— No new trigger; HuggingFace downloads at 433k, HN has "DeepSeek V4 Flash on a Single AMD MI300X" (40 pts) but signal is weak.</span></div>
+      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— No new trigger since Simon Willison's 7/31 review; HuggingFace downloads at 433k.</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">Kimi K3 29GB RAM run</span> <span class="update">— 0.5 tok/s experiment, no new developments since.</span></div>
+      <div><span class="item-name">Kimi K3 29GB RAM run</span> <span class="update">— 0.5 tok/s experiment, HN 258 pts, no new developments.</span></div>
     </li>
   </ul>
 </aside>
@@ -328,16 +264,22 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Source</th><th>Points</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>FFmpeg 9.0</td><td>HN #1</td><td>173</td><td>Non-AI tool</td></tr>
-      <tr><td>LLMs reward expertise</td><td>HN #3</td><td>997</td><td>Opinion piece, not a new tool</td></tr>
-      <tr><td>Ten advances in mathematics</td><td>HN #6</td><td>549</td><td>Pure research, no usable tool/model release</td></tr>
+      <tr><td>LLMs reward expertise</td><td>HN #3</td><td>997</td><td>Opinion piece, not a new tool/product release</td></tr>
+      <tr><td>Ten advances in mathematics (OpenAI)</td><td>HN #6</td><td>549</td><td>Pure research, no usable tool/model release</td></tr>
       <tr><td>Devtools must be open source</td><td>HN #7</td><td>625</td><td>Opinion piece, not a new tool</td></tr>
-      <tr><td>Harness Engineering for Self-Improvement</td><td>HN #4</td><td>76</td><td>Opinion/research, not a new tool</td></tr>
-      <tr><td>Smaller, faster, safer: running Kimi and GLM at scale</td><td>HN #16</td><td>225</td><td>Cloudflare blog, not a new tool release; already in Still tracking</td></tr>
-      <tr><td>Launch HN: Hoplite</td><td>HN #21</td><td>73</td><td>Signal too weak</td></tr>
+      <tr><td>Prevent cognitive debt by manually retyping LLM-generated code</td><td>HN #12</td><td>496</td><td>Opinion piece, not a new tool</td></tr>
+      <tr><td>MiniMax H3 Day-0 Support in ComfyUI</td><td>HN #20</td><td>300</td><td>Video generation tool, outside clawii's focus</td></tr>
+      <tr><td>Smaller, faster, safer: running Kimi and GLM at scale</td><td>HN #16</td><td>225</td><td>Cloudflare blog post, experience sharing, not a new tool</td></tr>
+      <tr><td>Launch HN: Hoplite (YC S26) – Effortlessly deploy cloud coding agents</td><td>HN #21</td><td>73</td><td>Signal too weak (73 points)</td></tr>
       <tr><td>DeepSeek V4 Flash on a Single AMD MI300X</td><td>HN #2</td><td>40</td><td>Signal too weak</td></tr>
-      <tr><td>Continuous voice interaction with GPT Live</td><td>OpenAI official</td><td>—</td><td>Feature update, not a new tool/model release; signal unclear</td></tr>
-      <tr><td>Circles</td><td>OpenAI official</td><td>—</td><td>Insufficient info to evaluate</td></tr>
+      <tr><td>Harness Engineering for Self-Improvement</td><td>HN #4</td><td>76</td><td>Opinion piece, not a new tool</td></tr>
+      <tr><td>Continuous voice interaction with GPT Live</td><td>OpenAI official</td><td>—</td><td>Voice interaction feature, outside core focus</td></tr>
+      <tr><td>Circles (OpenAI)</td><td>OpenAI official</td><td>—</td><td>Social feature, not a coding/agent tool</td></tr>
+      <tr><td>Apple is getting this wrong</td><td>OpenAI official</td><td>—</td><td>Opinion piece, not a new tool</td></tr>
+      <tr><td>Don't be a meat proxy</td><td>Simon Willison</td><td>—</td><td>Defining a term, not a tool signal</td></tr>
+      <tr><td>Open letters about AI development</td><td>Simon Willison</td><td>—</td><td>Policy/open letters, not a tool signal</td></tr>
+      <tr><td>The Fast Gemma Challenge</td><td>HuggingFace</td><td>15 likes</td><td>Competition, signal too weak</td></tr>
+      <tr><td>Beyond surface alignment (Chinese)</td><td>HuggingFace</td><td>8 likes</td><td>Chinese article, likely already covered in Chinese circles</td></tr>
     </tbody>
   </table>
 </section>
