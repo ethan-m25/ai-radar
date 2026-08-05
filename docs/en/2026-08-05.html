@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-05 · Week 32 · №072</title>
-<meta name="description" content="Two new open-weight models: Shieldstral for safety & Maple-Preview running 20B on iPhone — 2 real signals">
+<meta name="description" content="Simon Willison double feature: Stateless MCP + LLM 0.32 — 2 real signals">
 
 <meta property="og:title" content="AI Radar · 2026-08-05 · №072">
-<meta property="og:description" content="2 real signals · 2 👀">
+<meta property="og:description" content="3 real signals · 2 👀 1 ℹ️">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -147,147 +147,171 @@ li+li{margin-top:.3rem}
 <section class="cover">
   <div class="counts">
     <span class="pill look">👀 2 worth a look</span>
+    <span class="pill fyi">ℹ️ 1 FYI</span>
   </div>
-  <h1 class="headline">Two new open-weight models: Shieldstral for safety & Maple-Preview running 20B on iPhone</h1>
-  <p class="sub">Wednesday signals are moderate, but two interesting open-weight model launches hit HN today. Mistral's Shieldstral is a 3B-parameter safety moderation model (435 pts), and DeepGrove's Maple-Preview is a ternary-weight 20B MoE running at 120 tok/s on an iPhone (131 pts). 2 real signals today, plus 5 storylines still simmering.</p>
+  <h1 class="headline">Simon Willison double feature: Stateless MCP + LLM 0.32</h1>
+  <p class="sub">Wednesday signals are all about Simon Willison — he released LLM 0.32 (reasoning traces + OpenAI Responses API) and wrote a post on Stateless MCP that hit 245 points on HN. Mistral's Shieldstral safety model is worth knowing about too. 2 👀 + 1 ℹ️ today, plus 5 storylines still simmering.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Mistral Shieldstral – 3B open-weights safety moderation model (435 pts)</li>
-    <li><span class="tier look">👀</span> Maple-Preview – Ternary 20B MoE running at 120 tok/s on iPhone (131 pts)</li>
+    <li><span class="tier look">👀</span> Stateless MCP: Simon Willison rekindles interest</li>
+    <li><span class="tier look">👀</span> LLM 0.32 release: Reasoning traces + OpenAI Responses API</li>
+    <li><span class="tier fyi">ℹ️</span> Mistral Shieldstral: 3B open-weight safety moderation model</li>
   </ul>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 1: Shieldstral -->
+<!-- 👀 ITEM 1 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Mistral Shieldstral – 3B open-weights safety moderation model</h2>
-  <p class="pitch">Hey clawii — Mistral released Shieldstral today, a 3B-parameter open-weights safety model purpose-built for content moderation. 435 points and 112 comments means the community is paying attention. Even though you don't work in safety directly, this little model can run locally to filter garbage out of AI outputs, or act as a local safety guard for your vibe-coded apps.</p>
+  <h2>Stateless MCP: Simon Willison rekindles interest</h2>
+  <p class="pitch">Hey clawii — Simon Willison posted today that Stateless MCP has recaptured his interest in the protocol. 245 points and 125 comments on HN. MCP is the Model Context Protocol you might already know, but the stateless version removes state management to make integration simpler. If you use MCP servers or want to build your own, this direction is worth watching.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · AI safety moderation usually relies on cloud APIs or large classifiers. Mistral made a lightweight 3B-parameter model with open weights that runs on-device. It's designed to detect harmful content — hate speech, violence, explicit material — with accuracy reportedly close to much larger models. That means you can run it locally or inside your enterprise without sending data to external APIs.
+    <strong>📍 Context</strong> · MCP (Model Context Protocol) is an open protocol from Anthropic that lets AI apps connect to external tools and data sources safely. Traditional MCP requires maintaining state — sessions, connection pools, resource state — which adds complexity. Stateless MCP removes all that: each request is independent, like a REST API. Simon Willison is one of MCP's earliest advocates; when his attitude shifts, it usually means the technical direction is changing.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>3B parameters, runs locally</strong> — 3B params means it runs on a regular laptop or even a phone. Open weights under MIT license, free to use commercially.</li>
-    <li><strong>Built for content moderation</strong> — Supports multimodal input (text + images), can filter inappropriate content from AI chat, or serve as an on-prem compliance solution.</li>
-    <li><strong>What it means for you</strong> — If you vibe-code apps with AI chat, you can use Shieldstral as a post-filter to prevent harmful replies reaching users. Also useful as part of a local safety stack.</li>
-    <li><strong>From Mistral</strong> — Mistral is a well-known European AI lab. This is their first entry into the safety model space, and their optimization track record is solid.</li>
+    <li><strong>Lowers the barrier to using MCP</strong> — Stateless means you don't need to manage connection state. You can write a simple HTTP handler and call it an MCP server. For vibe coding users, this makes it easier to build your own tools.</li>
+    <li><strong>Simon Willison endorsement</strong> — He's a core figure in the MCP ecosystem. "Recaptured my interest" usually means a substantive improvement is coming. He may release related tools or tutorials.</li>
+    <li><strong>HN community buzz</strong> — 245 points + 125 comments means developers are seriously discussing this. Could become the next mainstream MCP pattern.</li>
+    <li><strong>What it means for you</strong> — If you use Claude Code or Codex to connect external tools (databases, APIs), Stateless MCP could make configuration simpler and reduce errors.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41260000">Mistral's Shieldstral: 3B open-weights model for multimodal moderation</a> (435 points)</li>
-      <li>Visit Mistral's official blog: <a href="https://mistral.ai/news/shieldstral">mistral.ai/news/shieldstral</a></li>
-      <li>Download model weights: <code>huggingface.co/mistralai/Shieldstral-3B</code></li>
-      <li>To try local deployment, load it via Transformers or check if Ollama adds support.</li>
+      <li>Read Simon Willison's post: <a href="https://simonwillison.net/2026/Aug/4/stateless-mcp/">Stateless MCP has recaptured my interest</a></li>
+      <li>Check the HN discussion: <a href="https://news.ycombinator.com/item?id=41250000">Stateless MCP (245 points)</a></li>
+      <li>Think about your current MCP usage: could you simplify any of your MCP servers by making them stateless?</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how does Shieldstral actually work?</summary>
+    <summary>🔬 Deep dive — how is Stateless MCP actually different?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Details</th></tr>
+        <tr><th>Dimension</th><th>Traditional MCP</th><th>Stateless MCP</th></tr>
       </thead>
       <tbody>
-        <tr><td>Model size</td><td>3B parameters (~6 GB quantized)</td></tr>
-        <tr><td>Input</td><td>Text + images (multimodal moderation)</td></tr>
-        <tr><td>Output</td><td>Safe/unsafe classification + specific category labels</td></tr>
-        <tr><td>License</td><td>MIT (open source, commercial use OK)</td></tr>
-        <tr><td>Hardware needed</td><td>Runs on CPU, 8 GB+ RAM recommended; GPU helps</td></tr>
-        <tr><td>vs alternatives</td><td>vs OpenAI Content Moderation API: fully local, no data leakage, but accuracy may be slightly lower</td></tr>
+        <tr><td>State management</td><td>Maintains sessions, connection pools, resource state</td><td>No state; each request is independent</td></tr>
+        <tr><td>Implementation complexity</td><td>Medium — need to handle lifecycle</td><td>Low — like a REST API</td></tr>
+        <tr><td>Best for</td><td>Long-lived connections, streaming interactions</td><td>Short requests, one-shot tool calls</td></tr>
+        <tr><td>Deployment difficulty</td><td>Requires state storage (e.g. Redis)</td><td>Stateless, horizontally scalable</td></tr>
+        <tr><td>Claude Code integration</td><td>Already supported</td><td>Likely simpler, but needs tool support</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: A 3B model doing safety moderation won't match the accuracy of giant models (GPT-5.6 or Claude's built-in moderation). But it's free, local, and private. For personal projects or small businesses, it's plenty. Mistral's optimization is generally good, so real-world performance should beat comparable small models.</p>
+    <p><strong>Honest caveat</strong>: Stateless MCP is still conceptual. Simon's post explores possibilities rather than shipping an implementation. But the direction is right — simplifying the protocol will attract more users. If Anthropic officially adopts this direction, it could become part of MCP 2.0.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Key trigger events: community accuracy benchmarks, someone packaging it as a one-click Ollama/vLLM deploy, enterprise adoption as a local moderation solution.
+    <strong>🔭 What to watch for</strong> · Key trigger events: Anthropic officially adding a Stateless mode to the MCP spec; Simon Willison releasing a reference implementation; a popular Stateless MCP server framework emerging in the community.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Content moderation</strong> = detecting and filtering harmful content like hate speech, violence, explicit material. <strong>3B parameters</strong> = 3 billion parameters, a small model that runs on ordinary devices. <strong>Multimodal</strong> = can handle multiple input types (text, images).
+    <strong>Jargon decoder</strong> · <strong>MCP</strong> = Model Context Protocol, an open standard for AI apps to safely call external tools. <strong>Stateless</strong> = each request is independent; the server doesn't remember previous interactions.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN post (435 points, 112 comments) — community discussing accuracy and deployment · Mistral official blog published
+    <strong>Who's talking about it</strong> · Simon Willison (author) — <a href="https://simonwillison.net/2026/Aug/4/stateless-mcp/">blog post</a> · HN post 245 points, 125 comments · Community discussion focused on implementation details and backward compatibility with existing MCP
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41260000">HN discussion</a> · <a href="https://mistral.ai/news/shieldstral">Mistral official blog</a> · <a href="https://huggingface.co/mistralai/Shieldstral-3B">HuggingFace model card</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Aug/4/stateless-mcp/">Simon Willison's original post</a> · <a href="https://news.ycombinator.com/item?id=41250000">HN discussion</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2: Maple-Preview -->
+<!-- 👀 ITEM 2 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Maple-Preview – Ternary 20B MoE running at 120 tok/s on iPhone</h2>
-  <p class="pitch">Hey clawii — DeepGrove showed off Maple-Preview on HN today, a ternary-weight 20B MoE model that hits 120 tok/s on an iPhone. 131 points and 38 comments — not as loud as Shieldstral, but it fits perfectly with your interest in "running big models locally." Yesterday you saw 4.3 GB for an 80B model; this one is more practical: a 20B model that actually runs on a phone.</p>
+  <h2>LLM 0.32 release: Reasoning traces + OpenAI Responses API</h2>
+  <p class="pitch">Hey clawii — Simon Willison also shipped LLM 0.32 today, the biggest update to his command-line AI tool since launch. New features include visible reasoning traces (the model's thinking process), native support for OpenAI's new Responses API, and server-side tool support. If you use LLM to manage multiple models from the terminal, this release is worth upgrading for.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Ternary weight quantization is an extreme compression technique that limits model parameters to just three values: -1, 0, and +1, drastically cutting memory usage. DeepGrove's Maple-Preview is a 20B-parameter MoE model (actual active parameters are much less than 20B), optimized for mobile inference at 120 tok/s on an iPhone. This means a reasonably capable model can run entirely on-device without any network connection.
+    <strong>📍 Context</strong> · LLM is Simon Willison's open-source CLI tool that lets you call various LLMs (OpenAI, Anthropic, local models) from the terminal. It supports a plugin system for extensibility. Many developers use it for quick model testing, scripting, and automation. Version 0.32 is the most significant release since the project started.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>20B model at 120 tok/s on a phone</strong> — 120 tok/s is above the threshold for fluid conversation. 20B params is ~2.5× bigger than Llama 3 8B, but after ternary quantization the model file is likely just a few GB.</li>
-    <li><strong>Ternary weight technology</strong> — Unlike traditional 4-bit or 8-bit quantization, ternary weights compress each parameter to -1, 0, or +1, theoretically needing only 2 bits or less per parameter. This is a major direction for on-device AI.</li>
-    <li><strong>What it means for you</strong> — If you use an iPhone or MacBook, you could soon run a 20B-class model locally for code completion, local Q&A, document processing — fully offline, zero API costs.</li>
-    <li><strong>Open weights</strong> — Model weights are open source, easy to run locally.</li>
+    <li><strong>Reasoning traces support</strong> — You can now see the model's "thinking" process. Great for debugging prompts and understanding model behavior. Claude Code and Codex have similar features, but LLM brings it to the terminal.</li>
+    <li><strong>OpenAI Responses API</strong> — OpenAI's new unified API for chat, tool calling, and file processing. LLM 0.32 has native support, letting you test the latest API with a single command.</li>
+    <li><strong>Server-side tools</strong> — MCP tools can now run on the server instead of the client. Useful for remote deployment and team collaboration.</li>
+    <li><strong>Better logging</strong> — Redesigned SQLite logs with content-addressable storage for easy auditing and debugging.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=41265000">Show HN: Maple-Preview – Ternary 20B MoE running at 120 tok/s on an iPhone</a> (131 points)</li>
-      <li>Visit DeepGrove's site: <a href="https://deepgrove.ai">deepgrove.ai</a> (model download likely available)</li>
-      <li>If you have an iPhone, try following the deployment instructions (may need TestFlight or a custom app).</li>
-      <li>Watch for community benchmarks — real speed and quality will determine if this is daily-driver material.</li>
+      <li>Upgrade LLM: <code>pip install -U llm</code></li>
+      <li>Try reasoning traces: <code>llm -m gpt-5.6-sol "explain quantum entanglement" --reasoning</code> (if the model supports it)</li>
+      <li>Try the Responses API: <code>llm -m gpt-5.6-sol "write a poem" --response-api</code></li>
+      <li>Read Simon's release blog: <a href="https://simonwillison.net/2026/Aug/4/llm-032/">New release of LLM adds support for reasoning traces, OpenAI Responses, server-side tools, and smarter logging</a></li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how does Maple-Preview actually work?</summary>
+    <summary>🔬 Deep dive — what's actually new in LLM 0.32?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Known</th><th>To be confirmed</th></tr>
+        <tr><th>Feature</th><th>What it does</th><th>Why it matters for vibe coding</th></tr>
       </thead>
       <tbody>
-        <tr><td>Model architecture</td><td>20B MoE (Mixture of Experts), ternary weights</td><td>Exact active parameter count, number of experts</td></tr>
-        <tr><td>Quantization method</td><td>Ternary (-1, 0, +1)</td><td>Support for other quantization formats</td></tr>
-        <tr><td>Inference speed</td><td>120 tok/s on iPhone</td><td>Speed on Android? On Mac?</td></tr>
-        <tr><td>Model file size</td><td>Estimated 3-4 GB (after ternary quantization)</td><td>Actual size</td></tr>
-        <tr><td>Open-source status</td><td>Open weights</td><td>License, training code included?</td></tr>
-        <tr><td>vs yesterday's 4.3 GB 80B project</td><td>This is more conservative and already demonstrated on real hardware</td><td>Quality comparison (20B vs 80B after quantization)</td></tr>
+        <tr><td>Reasoning traces</td><td>Shows the model's chain-of-thought</td><td>Debug prompts by seeing why the model gave a particular answer</td></tr>
+        <tr><td>OpenAI Responses API</td><td>Native support for the latest API, including files and tool calls</td><td>Test new OpenAI features with a single command</td></tr>
+        <tr><td>Server-side tools</td><td>MCP tools run on the server</td><td>Share tools across a team without installing on every machine</td></tr>
+        <tr><td>Better logging</td><td>Content-addressable SQLite logs</td><td>Easy to search history and compare outputs across models</td></tr>
+        <tr><td>New model support</td><td>Added support for several new models</td><td>Quickly try the latest models from the terminal</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: A 20B ternary model at 120 tok/s on a phone sounds plausible. Ternary weights trade quality for speed. Compared to the extreme 80B quantization from yesterday, this is more grounded — the 20B base model is smaller, so quality loss from quantization is likely more manageable. If community benchmarks check out, this is a milestone for mobile AI.</p>
+    <p><strong>Honest caveat</strong>: LLM is a niche but powerful tool. If you already use Claude Code or Codex daily, you might not reach for LLM every day. But LLM's advantage is that it's editor-agnostic — you can use it in any terminal for scripting and automation. The reasoning traces feature is especially useful since other tools don't always expose them directly.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Key trigger events: independent quality benchmarks (MMLU, HumanEval scores), support for other phone platforms, someone packaging it as a one-click deploy tool (MLX version, etc.).
+    <strong>🔭 What to watch for</strong> · Key trigger events: community building new plugins for LLM 0.32; reasoning traces being adopted by other tools (Claude Code, etc.); measurable user growth for LLM as a result of this release.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Ternary weight</strong> = compressing model parameters to just three values (-1, 0, +1), drastically reducing memory at the cost of some accuracy. <strong>MoE (Mixture of Experts)</strong> = only a subset of parameters activate per token, improving efficiency. <strong>tok/s</strong> = tokens per second, the standard speed metric for text generation.
+    <strong>Jargon decoder</strong> · <strong>Reasoning traces</strong> = the model's step-by-step thinking process before producing the final answer. <strong>Responses API</strong> = OpenAI's new unified API combining chat, tool calls, and file processing. <strong>MCP</strong> = Model Context Protocol.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · HN post (131 points, 38 comments) — community discussing deployment and performance · DeepGrove site: deepgrove.ai
+    <strong>Who's talking about it</strong> · Simon Willison (author) — <a href="https://simonwillison.net/2026/Aug/4/llm-032/">release blog</a> · GitHub repo: <a href="https://github.com/simonw/llm">simonw/llm</a> · Community discussing new features on HN and Twitter
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=41265000">HN discussion</a> · <a href="https://deepgrove.ai">DeepGrove site</a> · <a href="https://huggingface.co/deepgrove">HuggingFace (TBD)</a>
+    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Aug/4/llm-032/">Release blog</a> · <a href="https://github.com/simonw/llm">GitHub repo</a> · <a href="https://llm.datasette.io/">Official docs</a>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ℹ️ ITEM 3 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<article class="item item--fyi">
+  <span class="tier-label fyi">ℹ️ FYI</span>
+  <h2>Mistral Shieldstral: 3B open-weight safety moderation model</h2>
+  <p class="pitch">Hey clawii — Mistral released Shieldstral yesterday, a 3B-parameter open-weight safety model built for multimodal content moderation. 435 points and 112 comments on HN. You probably won't use it directly, but knowing a lightweight safety model like this exists is useful context for the AI safety ecosystem.</p>
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li><strong>435 points on HN</strong> — Strong developer interest in the safety moderation space.</li>
+    <li><strong>3B parameters, open weights</strong> — Runs locally, suitable for content moderation scenarios (chatbots, UGC platforms). MIT license, free for commercial use.</li>
+    <li><strong>Multimodal</strong> — Supports text and image moderation, broad coverage.</li>
+    <li><strong>What it means for you</strong> — If you're building user-facing AI apps, you may need a moderation layer. Shieldstral is a lightweight option.</li>
+  </ul>
+
+  <div class="whos-talking">
+    <strong>Who's talking about it</strong> · Mistral AI (official) — <a href="https://mistral.ai/news/shieldstral/">announcement</a> · HN post 435 points, 112 comments · HuggingFace model page
+  </div>
+
+  <div class="links">
+    <strong>Try it / dig in</strong> · <a href="https://mistral.ai/news/shieldstral/">Mistral official announcement</a> · <a href="https://huggingface.co/mistralai/Shieldstral-3B">HuggingFace model</a>
   </div>
 </article>
 
@@ -299,23 +323,23 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 4</span>
-      <div><span class="item-name">Qwen3.8-Max launch</span> <span class="update">— No new trigger event; model weights not yet on HuggingFace, community waiting.</span></div>
+      <div><span class="item-name">Qwen3.8-Max launch</span> <span class="update">— Weights not yet uploaded to HuggingFace; community waiting. HN heat has cooled off.</span></div>
     </li>
     <li>
       <span class="days">Day 4</span>
-      <div><span class="item-name">MCP 2.0 protocol</span> <span class="update">— Simon Willison posted about Stateless MCP today, HN 245 pts, 125 comments — fresh discussion.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 6</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— No new movement; HuggingFace downloads at 433k.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">4.3 GB running 80B Qwen project</span> <span class="update">— No new events today; community still waiting for verification and benchmarks.</span></div>
+      <div><span class="item-name">MCP 2.0 protocol upgrade</span> <span class="update">— Simon Willison wrote about Stateless MCP today, but MCP 2.0 itself has no new developments.</span></div>
     </li>
     <li>
       <span class="days">Day 4</span>
       <div><span class="item-name">Kimi K3 MI355X cost-efficiency</span> <span class="update">— No new movement; the HN 135-point thread has cooled off.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 6</span>
+      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— No new trigger event since Simon Willison's review on 7/31; HuggingFace downloads at 433k.</span></div>
+    </li>
+    <li>
+      <span class="days">Day 6</span>
+      <div><span class="item-name">Kimi K3 running in 29 GB RAM</span> <span class="update">— 0.5 tok/s experiment; no new progress since the HN 258-point thread.</span></div>
     </li>
   </ul>
 </aside>
@@ -330,21 +354,27 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Source</th><th>Points</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Stateless MCP (Simon Willison)</td><td>HN #2</td><td>245</td><td>Discussion/opinion piece, not a new tool release; already updated in Still tracking</td></tr>
+      <tr><td>Pi's Minimalism Is Its Advantage</td><td>HN #5</td><td>392</td><td>Not an AI tool</td></tr>
       <tr><td>Eight Myths on Software Engineering and GenAI</td><td>HN #15</td><td>224</td><td>Opinion piece, not a new tool</td></tr>
-      <tr><td>AI fuels more than half of cybercrime in Africa</td><td>HN #20</td><td>253</td><td>News article, not a tool</td></tr>
-      <tr><td>Flowise is shutting down</td><td>HN #26</td><td>53</td><td>Tool shutting down, weak negative signal</td></tr>
-      <tr><td>An SLM trained on $8 ESP32-S3</td><td>HN #17</td><td>36</td><td>Signal too weak, outside clawii's focus</td></tr>
-      <tr><td>Zero-Mem: Zero-Token Memory Operations</td><td>HN #8</td><td>51</td><td>Signal too weak</td></tr>
-      <tr><td>MiniMax-H3 video generation</td><td>Simon Willison blog</td><td>—</td><td>Video generation, outside clawii's focus</td></tr>
-      <tr><td>LLM 0.32 release (Simon Willison)</td><td>Simon Willison blog</td><td>—</td><td>Personal project update, not a broad new tool</td></tr>
-      <tr><td>Third-party cyber evaluations involving OpenAI</td><td>OpenAI official</td><td>—</td><td>Security report, not a tool</td></tr>
-      <tr><td>Learn teach ChatGPT work Codex</td><td>OpenAI official</td><td>—</td><td>Tutorial, not a new tool release</td></tr>
-      <tr><td>Apple is getting this wrong</td><td>OpenAI official</td><td>—</td><td>Opinion piece, not a new tool</td></tr>
-      <tr><td>Continuous voice interaction with GPT Live</td><td>OpenAI official</td><td>—</td><td>Voice feature, outside core focus</td></tr>
-      <tr><td>Circles (OpenAI)</td><td>OpenAI official</td><td>—</td><td>Social feature, not a coding/agent tool</td></tr>
-      <tr><td>Don't be a meat proxy</td><td>Simon Willison</td><td>—</td><td>Defining a term, not a tool signal</td></tr>
-      <tr><td>Open letters about AI development</td><td>Simon Willison</td><td>—</td><td>Policy/open letters, not a tool signal</td></tr>
+      <tr><td>AI fuels more than half of cybercrime in Africa</td><td>HN #20</td><td>253</td><td>News article, not a new tool/model release</td></tr>
+      <tr><td>Waymo in Dallas</td><td>HN #25</td><td>299</td><td>Autonomous driving news, outside clawii's focus</td></tr>
+      <tr><td>Flowise is shutting down</td><td>HN #26</td><td>53</td><td>Weak negative signal, not a new tool</td></tr>
+      <tr><td>Xbox goes down</td><td>HN #29</td><td>667</td><td>Not an AI tool</td></tr>
+      <tr><td>Show HN: Maple-Preview – Ternary 20B MoE on iPhone</td><td>HN #12</td><td>131</td><td>Weak signal, overlaps with yesterday's similar project</td></tr>
+      <tr><td>Zero-Mem: Zero-Token Memory Operations for LLM Agents</td><td>HN #8</td><td>51</td><td>Research paper, signal too weak</td></tr>
+      <tr><td>An SLM trained on $8 ESP32-S3</td><td>HN #17</td><td>36</td><td>Signal too weak</td></tr>
+      <tr><td>OpenAI: Third-party cyber evaluations</td><td>OpenAI official</td><td>—</td><td>Security report, not a new tool/model release</td></tr>
+      <tr><td>OpenAI: Learn teach ChatGPT work Codex</td><td>OpenAI official</td><td>—</td><td>Tutorial, not a new tool</td></tr>
+      <tr><td>OpenAI: Apple is getting this wrong</td><td>OpenAI official</td><td>—</td><td>Opinion piece</td></tr>
+      <tr><td>OpenAI: Continuous voice interaction with GPT Live</td><td>OpenAI official</td><td>—</td><td>Voice feature, outside core focus</td></tr>
+      <tr><td>OpenAI: Circles</td><td>OpenAI official</td><td>—</td><td>Social feature, not a coding/agent tool</td></tr>
+      <tr><td>OpenAI: Ten advances in mathematics</td><td>OpenAI official</td><td>—</td><td>Pure research, no usable tool/model release</td></tr>
+      <tr><td>Anthropic: Mariano-Florentino Cuéllar joins</td><td>Anthropic official</td><td>—</td><td>Hiring news, not a tool signal</td></tr>
+      <tr><td>Simon Willison: Don't be a meat proxy</td><td>Simon Willison</td><td>—</td><td>Defining a term, not a tool signal</td></tr>
+      <tr><td>Simon Willison: Open letters about AI development</td><td>Simon Willison</td><td>—</td><td>Policy summary, not a tool signal</td></tr>
+      <tr><td>HuggingFace: The Fast Gemma Challenge</td><td>HuggingFace</td><td>21 likes</td><td>Competition, signal too weak</td></tr>
+      <tr><td>HuggingFace: mDenseOn with the mLateOn</td><td>HuggingFace</td><td>31 likes</td><td>Retrieval model, signal too weak</td></tr>
+      <tr><td>HuggingFace: Beyond surface alignment</td><td>HuggingFace</td><td>9 likes</td><td>Chinese article, likely already covered in Chinese circles</td></tr>
     </tbody>
   </table>
 </section>
