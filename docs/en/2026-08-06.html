@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-06 · Week 32 · №073</title>
-<meta name="description" content="Meta Muse Code + Cloudflare OS + Discovery Loop — 3 real signals">
+<meta name="description" content="Meta enters coding agent race · Cloudflare launches agent platform · Jeff Dean starts company">
 
 <meta property="og:title" content="AI Radar · 2026-08-06 · №073">
 <meta property="og:description" content="3 real signals · 2 👀 1 ℹ️">
@@ -149,17 +149,17 @@ li+li{margin-top:.3rem}
     <span class="pill look">👀 2 worth a look</span>
     <span class="pill fyi">ℹ️ 1 FYI</span>
   </div>
-  <h1 class="headline">Meta open-sources coding agent + Cloudflare OS + Discovery Loop</h1>
-  <p class="sub">Thursday signals are all about Meta's Muse Code and Muse Spark 1.2 open-source release, Cloudflare's open agent platform Cloudflare OS, and Discovery Loop founded by former Google DeepMind core team members. 2 👀 + 1 ℹ️ today, plus 5 storylines still simmering.</p>
+  <h1 class="headline">Meta enters coding agent race · Cloudflare launches agent platform · Jeff Dean starts company</h1>
+  <p class="sub">Thursday signals cluster around three directions: Meta ships Muse Code (beta) — a direct competitor to Claude Code and Codex; Cloudflare launches Cloudflare OS, an open agent platform hitting 567 points on HN; and four Google DeepMind core founders — Jeff Dean, Sanjay Ghemawat, Oriol Vinyals, Quoc Le — launch Discovery Loop (772 points on HN). 2 👀 + 1 ℹ️ today, plus 3 storylines still simmering. DeepSeek V4 Flash and Kimi K3 29GB experiment removed from Still tracking after 7 consecutive days with no new trigger event.</p>
 </section>
 
 <!-- ─── TOC ─── -->
 <nav class="toc">
   <span class="smallcaps">Table of contents</span>
   <ul>
-    <li><span class="tier look">👀</span> Meta Muse Code + Muse Spark 1.2: open-source coding agent enters the ring</li>
-    <li><span class="tier look">👀</span> Cloudflare OS: open agent platform, 567 points on HN</li>
-    <li><span class="tier fyi">ℹ️</span> Discovery Loop: founded by former Google DeepMind core team</li>
+    <li><span class="tier look">👀</span> Muse Code + Muse Spark 1.2: Meta officially ships a coding agent</li>
+    <li><span class="tier look">👀</span> Cloudflare OS: Open agent platform, 567 points on HN</li>
+    <li><span class="tier fyi">ℹ️</span> Discovery Loop: Jeff Dean and four DeepMind founders start a company</li>
   </ul>
 </nav>
 
@@ -168,63 +168,63 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Meta Muse Code + Muse Spark 1.2: open-source coding agent enters the ring</h2>
-  <p class="pitch">Hey clawii — Meta released Muse Code (beta) and Muse Spark 1.2 today, an open-source coding agent and its companion model. 266 points and 167 comments on HN. Simon Willison also wrote a review. This is Meta formally entering the coding agent competition, going head-to-head with Claude Code and Codex. There's also a unique pricing model — if you let Meta use your data, the price drops by more than 10x.</p>
+  <h2>Muse Code + Muse Spark 1.2: Meta officially ships a coding agent</h2>
+  <p class="pitch">Hey clawii — Meta shipped Muse Code (beta) and Muse Spark 1.2 today, officially entering the coding agent race. Muse Code is a model specialized for coding tasks, co-trained with Muse Spark 1.2, built for long-sequence agentic tool calling. Simon Willison already tested it — generated an SVG pelican. Pricing is aggressive: if you let Meta use your data, it's $0.10/$0.20 per million tokens — cheaper than GPT-5.6 Luna.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · The coding agent market is currently dominated by Anthropic's Claude Code and OpenAI's Codex. Meta previously had Muse Spark 1.1, but this is the first time they're releasing a dedicated coding agent (Muse Code), co-trained with the model. The key innovation is "harness-model co-design" — the agent and model are optimized together rather than separately. Simon Willison noted in his blog that "the most important characteristic of any model these days is long-sequence agentic tool calling."
+    <strong>📍 Context</strong> · The coding agent space is currently dominated by Claude Code (Anthropic) and Codex (OpenAI). Meta had the Muse Spark series before, but never a dedicated coding agent. Muse Code changes that — and it uses a "co-training" strategy where Muse Code and Muse Spark 1.2 are trained together, ensuring coding ability and general agent capability are optimized jointly. The pricing is aggressive, with the contributor tier priced near cost.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Open-source coding agent enters the ring</strong> — Muse Code is Meta's coding agent, Muse Spark 1.2 is the companion model. Both are co-trained and specifically optimized for long-horizon coding tasks. This gives you a new option alongside Claude Code and Codex.</li>
-    <li><strong>Ultra-low "contributor" pricing</strong> — If you agree to let Meta use your data to improve their products, the price is $0.10/$0.20 (input/output per million tokens), cheaper than GPT-5.6 Luna. This may be Meta's way of collecting high-quality coding data.</li>
-    <li><strong>Simon Willison reviewed it</strong> — He used Muse Spark 1.2 to generate an SVG of a pelican riding a bicycle and said it's a "small but material improvement" over version 1.1. His reviews usually mean the model is worth a serious look.</li>
-    <li><strong>What it means for you</strong> — If you're using Claude Code or Codex for vibe coding, try Muse Code as a complement. Especially if you don't mind Meta using your data, the price advantage is huge.</li>
+    <li><strong>Meta officially enters the coding agent race</strong> — All three big players (Anthropic, OpenAI, Meta) now have their own coding agents. More competition means prices will keep dropping and features will accelerate.</li>
+    <li><strong>Aggressive contributor pricing</strong> — $0.10/$0.20 per million tokens is cheaper than GPT-5.6 Luna ($0.20/$1.20), if you don't mind your data being used to improve Meta's products. Standard pricing at $1.25/$4.25 is also competitive.</li>
+    <li><strong>Co-training strategy</strong> — Muse Code and Muse Spark 1.2 are trained together, meaning coding ability and general agent capability are co-optimized rather than being two separate models.</li>
+    <li><strong>Simon Willison already tested it</strong> — He generated an SVG pelican with Muse Spark 1.2, and it's clearly better than the 1.1 version. The model is usable.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
       <li>Read Simon Willison's review: <a href="https://simonwillison.net/2026/Aug/5/muse-code/">Introducing Muse Code and Muse Spark 1.2</a></li>
-      <li>Check the HN discussion: <a href="https://news.ycombinator.com/item?id=41260000">Muse Code and Muse Spark 1.2 (266 points)</a></li>
-      <li>Try Muse Spark 1.2 via Meta's API or the HuggingFace model page</li>
-      <li>Compare pricing: check Muse Spark 1.2 vs other models at <a href="https://llm-prices.com">llm-prices.com</a></li>
+      <li>Read the Meta official announcement: <a href="https://ai.meta.com/blog/muse-code-spark-1-2/">Muse Code and Muse Spark 1.2</a></li>
+      <li>Compare pricing: check <a href="https://llm-prices.com/">llm-prices.com</a> for Muse Code vs other coding agents</li>
+      <li>If you use LLM tools, try calling Muse Spark 1.2 via API to test its coding ability</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how are Muse Code and Muse Spark 1.2 actually different?</summary>
+    <summary>🔬 Deep dive — how is Muse Code different from existing coding agents?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Muse Spark 1.2</th><th>Claude Code</th><th>OpenAI Codex</th></tr>
+        <tr><th>Dimension</th><th>Muse Code (Meta)</th><th>Claude Code (Anthropic)</th><th>Codex (OpenAI)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Open-source</td><td>Yes (model weights + agent)</td><td>No (agent tool only)</td><td>No</td></tr>
-        <tr><td>Co-trained</td><td>Yes (harness-model co-design)</td><td>No</td><td>No</td></tr>
-        <tr><td>Pricing (standard)</td><td>$1.25/$4.25 per M tokens</td><td>Per-token billing</td><td>Per-token billing</td></tr>
-        <tr><td>Pricing (contributor)</td><td>$0.10/$0.20 per M tokens</td><td>—</td><td>—</td></tr>
-        <tr><td>Long-context optimization</td><td>Yes (specifically trained)</td><td>Yes</td><td>Yes</td></tr>
-        <tr><td>Data usage</td><td>Optional (contributor mode)</td><td>Standard privacy policy</td><td>Standard privacy policy</td></tr>
+        <tr><td>Base model</td><td>Co-trained with Muse Spark 1.2</td><td>Claude Opus 5 / Fable 5</td><td>GPT-5.6 series</td></tr>
+        <tr><td>Pricing (input/output, per M tokens)</td><td>$1.25/$4.25 (standard); $0.10/$0.20 (contributor)</td><td>$15/$75 (Opus 5)</td><td>$0.20/$1.20 (Luna); $2.50/$10 (Sol)</td></tr>
+        <tr><td>Data usage policy</td><td>Contributor tier requires data use for product improvement</td><td>Standard API, data not used for training</td><td>Standard API, data not used for training</td></tr>
+        <tr><td>Strengths</td><td>Long-sequence agentic tool calling, whole-repo generation</td><td>Browser control, agentic tool use</td><td>Full-stack development, multi-language support</td></tr>
+        <tr><td>Open source</td><td>Weights not open-sourced, API available</td><td>Closed, API only</td><td>Closed, API only</td></tr>
+        <tr><td>Launch date</td><td>August 5, 2026</td><td>July 2026 (Opus 5)</td><td>June 2026 (GPT-5.6)</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: Muse Code is currently in beta and may not be as mature as Claude Code or Codex. But its open-source nature and ultra-low pricing (if you're willing to contribute data) are huge advantages. For vibe coding users who don't mind Meta using their data, $0.10/$0.20 is practically free. But if you care about privacy, the standard pricing is similar to Claude Code.</p>
+    <p><strong>Honest caveat</strong>: Muse Code is still in beta — actual coding ability needs more testing to validate. Its biggest advantage is price — the contributor tier is cheaper than Luna, if you're okay with Meta using your data. But Meta's data usage policy may make enterprise users hesitate. Also, Muse Code doesn't have open weights, so you can't self-host it.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Key trigger events: Muse Code reaching or approaching Claude Code level on coding benchmarks; the community building third-party tools based on the open weights; Meta further lowering contributor pricing.
+    <strong>🔭 What to watch for</strong> · Key trigger events: Muse Code's performance on standard coding benchmarks like SWE-bench; a wave of community use cases; Meta open-sourcing Muse Code weights; other coding agents following with price cuts.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Harness-model co-design</strong> = the agent framework (harness) and model are trained and optimized together, rather than separately. <strong>Contributor mode</strong> = you agree to let Meta use your interaction data to improve products, in exchange for extremely low pricing.
+    <strong>Jargon decoder</strong> · <strong>Co-trained</strong> = two models trained together, sharing training data and optimization objectives so they work well together. <strong>Contributor pricing</strong> = the user agrees to let the provider use their data to improve the product, getting a lower price in return.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Simon Willison (review) — <a href="https://simonwillison.net/2026/Aug/5/muse-code/">blog post</a> · HN post 266 points, 167 comments · Meta AI official release
+    <strong>Who's talking about it</strong> · Simon Willison — <a href="https://simonwillison.net/2026/Aug/5/muse-code/">blog review</a> (with SVG pelican comparison) · HN post 266 points, 167 comments · Meta AI official announcement · Community discussion focused on pricing strategy and data usage policy
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Aug/5/muse-code/">Simon Willison's review</a> · <a href="https://news.ycombinator.com/item?id=41260000">HN discussion</a> · <a href="https://meta.ai">Meta AI official</a>
+    <strong>Try it / dig in</strong> · <a href="https://ai.meta.com/blog/muse-code-spark-1-2/">Meta official announcement</a> · <a href="https://simonwillison.net/2026/Aug/5/muse-code/">Simon Willison's review</a> · <a href="https://news.ycombinator.com/item?id=41260000">HN discussion</a>
   </div>
 </article>
 
@@ -233,63 +233,63 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--look">
   <span class="tier-label look">👀 worth a look</span>
-  <h2>Cloudflare OS: open agent platform, 567 points on HN</h2>
-  <p class="pitch">Hey clawii — Cloudflare released Cloudflare OS today, an open platform for agents, apps, and work. 567 points and 274 comments on HN. This isn't an operating system — it's an agent runtime platform where you can deploy and run AI agents using Cloudflare's global network. If you're thinking about agent deployment and hosting, this is worth checking out.</p>
+  <h2>Cloudflare OS: Open agent platform, 567 points on HN</h2>
+  <p class="pitch">Hey clawii — Cloudflare launched Cloudflare OS today, an open platform for agents, apps, and work. 567 points and 274 comments on HN. Cloudflare is transforming from a CDN/security company into an AI agent infrastructure provider. This platform lets you run agents directly on Cloudflare's edge network without managing your own servers.</p>
 
   <div class="context-box">
-    <strong>📍 Context</strong> · Cloudflare previously had Workers (serverless compute), but Cloudflare OS is a higher-level abstraction specifically designed for agents. It provides the infrastructure agents need: state management, tool calling, security sandboxing, global deployment. Unlike traditional cloud platforms (AWS, GCP), Cloudflare OS is designed from the ground up with agent needs in mind — long-lived connections, tool calling, MCP support.
+    <strong>📍 Context</strong> · Cloudflare has been expanding its platform capabilities over the past few years — from CDN to Workers (edge compute), D1 (database), R2 (object storage), AI Gateway, and more. Cloudflare OS integrates all of these into a unified platform where developers can build, deploy, and run AI agents, leveraging Cloudflare's global edge network. This is a major bet on AI infrastructure.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Agent-native platform</strong> — Cloudflare OS is the first cloud platform specifically designed for agents. It has built-in infrastructure for everything agents need: state management, tool calling, security sandboxing, global deployment.</li>
-    <li><strong>567 points on HN</strong> — Strong developer interest. The 274 comments include lots of technical discussion comparing it to AWS and GCP.</li>
-    <li><strong>Open ecosystem</strong> — Cloudflare emphasizes openness, supporting MCP protocol, multiple models, and multiple programming languages. No lock-in to a specific model or framework.</li>
-    <li><strong>What it means for you</strong> — If you're building agents that need deployment (automation workflows, data processing pipelines), Cloudflare OS could be a simpler option than traditional cloud platforms. Especially if you already use Cloudflare's network services.</li>
+    <li><strong>Agent infrastructure as a platform</strong> — Cloudflare OS provides a complete agent runtime environment including compute, storage, networking, and security. You don't need to manage servers or Kubernetes.</li>
+    <li><strong>Edge network advantage</strong> — Cloudflare has 330+ edge nodes worldwide. Agents can run closest to your users, delivering ultra-low latency.</li>
+    <li><strong>Open platform</strong> — Supports multiple models and frameworks, no vendor lock-in. You can use Claude, GPT, Muse, and other models.</li>
+    <li><strong>What it means for you</strong> — If you're building agent applications that need low latency (customer support, automation tools), Cloudflare OS could be simpler and cheaper than self-hosting.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read Cloudflare's official announcement: <a href="https://blog.cloudflare.com/cloudflare-os">Cloudflare OS: an open platform for agents, apps, and work</a></li>
-      <li>Check the HN discussion: <a href="https://news.ycombinator.com/item?id=41270000">Cloudflare OS (567 points)</a></li>
-      <li>Sign up for the Cloudflare OS preview (if available)</li>
-      <li>Think about your current agent deployment setup: could Cloudflare OS simplify it? Especially if you already have a Cloudflare account.</li>
+      <li>Read the Cloudflare official announcement: <a href="https://blog.cloudflare.com/cloudflare-os/">Cloudflare OS: an open platform for agents, apps, and work</a></li>
+      <li>Check the HN discussion (567 points, 274 comments): <a href="https://news.ycombinator.com/item?id=41260001">HN discussion</a></li>
+      <li>If you already have a Cloudflare account, try deploying a simple agent test on Cloudflare OS</li>
+      <li>Compare with other agent platforms (Modal, Baseten, Together) to see Cloudflare OS's differentiators</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive — how is Cloudflare OS different from traditional cloud platforms?</summary>
+    <summary>🔬 Deep dive — how is Cloudflare OS different from existing platforms?</summary>
     <table class="dd-table">
       <thead>
-        <tr><th>Dimension</th><th>Cloudflare OS</th><th>AWS Lambda</th><th>Google Cloud Run</th></tr>
+        <tr><th>Dimension</th><th>Cloudflare OS</th><th>Modal</th><th>Baseten</th><th>Self-hosted K8s</th></tr>
       </thead>
       <tbody>
-        <tr><td>Agent-native</td><td>Yes (built-in state management, tool calling)</td><td>No (need to build yourself)</td><td>No (need to build yourself)</td></tr>
-        <tr><td>MCP support</td><td>Native</td><td>Need to integrate yourself</td><td>Need to integrate yourself</td></tr>
-        <tr><td>Global deployment</td><td>Automatic (global network)</td><td>Need multi-region config</td><td>Need multi-region config</td></tr>
-        <tr><td>Security sandbox</td><td>Built-in</td><td>Need to configure yourself</td><td>Need to configure yourself</td></tr>
-        <tr><td>State management</td><td>Built-in (Durable Objects)</td><td>Need external service (DynamoDB etc.)</td><td>Need external service (Firestore etc.)</td></tr>
-        <tr><td>Pricing</td><td>Per-request (similar to Workers)</td><td>Per-request + duration</td><td>Per-request + duration</td></tr>
+        <tr><td>Deployment model</td><td>Edge network, 330+ global nodes</td><td>Cloud servers, on-demand</td><td>Cloud servers, GPU clusters</td><td>Self-managed cluster</td></tr>
+        <tr><td>Latency</td><td>Very low (edge compute)</td><td>Medium (region-dependent)</td><td>Medium</td><td>Depends on setup</td></tr>
+        <tr><td>Model support</td><td>Multi-model (Claude, GPT, open source)</td><td>Multi-model</td><td>Multi-model</td><td>Your choice</td></tr>
+        <tr><td>Management complexity</td><td>Low (managed platform)</td><td>Low</td><td>Low</td><td>High</td></tr>
+        <tr><td>Free tier</td><td>Yes (Workers free plan)</td><td>Yes ($30/month credit)</td><td>Yes (trial credit)</td><td>None</td></tr>
+        <tr><td>Openness</td><td>Open platform, multiple frameworks</td><td>Python-first</td><td>Python-first</td><td>Fully open</td></tr>
       </tbody>
     </table>
-    <p><strong>Honest caveat</strong>: Cloudflare OS is currently in preview and may not have a complete feature set. But the direction is right — agents need specialized infrastructure, not a makeshift setup on general-purpose cloud platforms. If you're already using Cloudflare Workers, migrating to Cloudflare OS will be natural. But if you're deeply tied to AWS or GCP, the migration cost may be significant.</p>
+    <p><strong>Honest caveat</strong>: Cloudflare OS is still early — the exact capabilities and pricing aren't fully clear yet. Its biggest advantage is Cloudflare's global edge network — if your agents need to serve users worldwide, the latency advantage is significant. But if you only need single-region deployment, Modal or Baseten may be more mature. Also, Cloudflare's AI-related products (AI Gateway, Workers AI) have had some limitations historically, like limited model selection — hopefully Cloudflare OS improves this.</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 What to watch for</strong> · Key trigger events: Cloudflare OS supporting Claude Code or Codex as agent runtimes; the community producing popular agent templates built on Cloudflare OS; pricing being friendly to individual developers.
+    <strong>🔭 What to watch for</strong> · Key trigger events: specific pricing and availability of Cloudflare OS; community success stories; GPU acceleration support; depth of integration with Cloudflare Workers.
   </div>
 
   <div class="jargon">
-    <strong>Jargon decoder</strong> · <strong>Cloudflare OS</strong> = not a traditional operating system, but an agent runtime platform. <strong>Durable Objects</strong> = Cloudflare's state management service that gives serverless apps persistent state. <strong>MCP</strong> = Model Context Protocol.
+    <strong>Jargon decoder</strong> · <strong>Edge network</strong> = server nodes distributed worldwide; user requests are routed to the nearest node for lower latency. <strong>Agent infrastructure</strong> = all the underlying services needed to run AI agents, including compute, storage, networking, and security.
   </div>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Cloudflare (official) — <a href="https://blog.cloudflare.com/cloudflare-os">announcement</a> · HN post 567 points, 274 comments · Community discussion focused on comparison with AWS/GCP and real-world use cases
+    <strong>Who's talking about it</strong> · Cloudflare official — <a href="https://blog.cloudflare.com/cloudflare-os/">announcement blog</a> · HN post 567 points, 274 comments · Community discussion focused on relationship with Workers, pricing, and GPU support
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://blog.cloudflare.com/cloudflare-os">Cloudflare official announcement</a> · <a href="https://news.ycombinator.com/item?id=41270000">HN discussion</a> · <a href="https://developers.cloudflare.com/cloudflare-os/">Developer docs</a>
+    <strong>Try it / dig in</strong> · <a href="https://blog.cloudflare.com/cloudflare-os/">Cloudflare official announcement</a> · <a href="https://news.ycombinator.com/item?id=41260001">HN discussion</a>
   </div>
 </article>
 
@@ -298,23 +298,23 @@ li+li{margin-top:.3rem}
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item item--fyi">
   <span class="tier-label fyi">ℹ️ FYI</span>
-  <h2>Discovery Loop: founded by former Google DeepMind core team</h2>
-  <p class="pitch">Hey clawii — Discovery Loop hit 772 points on HN today. It's a company founded by former Google DeepMind core members (Jeff Dean, Sanjay Ghemawat, Oriol Vinyals, Quoc Le) aiming to automate machine learning and scientific discovery. Even though this is funding/startup news, the founding team is so strong it's worth knowing the name. 483 comments on HN with very active discussion.</p>
+  <h2>Discovery Loop: Jeff Dean and four DeepMind founders start a company</h2>
+  <p class="pitch">Hey clawii — Jeff Dean, Sanjay Ghemawat, Oriol Vinyals, and Quoc Le — four core Google DeepMind figures — co-founded Discovery Loop, a company focused on automated machine learning and scientific discovery. 772 points and 483 comments on HN. No product yet, but the team's pedigree makes this potentially the most important new AI-for-Science company.</p>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Extremely strong founding team</strong> — Jeff Dean, Sanjay Ghemawat, Oriol Vinyals, Quoc Le. These four are core figures at Google DeepMind. Them leaving Google to start a new company is itself a signal.</li>
-    <li><strong>772 points on HN</strong> — Strong developer interest. 483 comments include lots of discussion about AI for Science.</li>
-    <li><strong>Automated scientific discovery</strong> — The goal is to let AI automatically do machine learning research and scientific discovery. If successful, it could change how AI research is done.</li>
-    <li><strong>What it means for you</strong> — You probably won't use Discovery Loop's products directly, but knowing what this team is working on helps you understand the frontier of AI research.</li>
+    <li><strong>772 points on HN, 483 comments</strong> — The hottest post on HN today, with huge community attention.</li>
+    <li><strong>Extremely high-caliber founding team</strong> — Jeff Dean (Google AI pioneer), Sanjay Ghemawat (core Google distributed systems), Oriol Vinyals (DeepMind Chief Scientist), Quoc Le (AutoML pioneer). This combination is rare in AI history.</li>
+    <li><strong>Direction: automated ML + scientific discovery</strong> — The goal is to have AI do machine learning and scientific discovery automatically, potentially changing how AI research is done.</li>
+    <li><strong>What it means for you</strong> — No product available yet, but the company's direction (automated ML) could produce tools in the next 6-12 months worth watching.</li>
   </ul>
 
   <div class="whos-talking">
-    <strong>Who's talking about it</strong> · Discovery Loop (official) — <a href="https://discoveryloop.com">discoveryloop.com</a> · HN post 772 points, 483 comments · Community discussion focused on team background and potential impact
+    <strong>Who's talking about it</strong> · Discovery Loop official — <a href="https://discoveryloop.com/">website</a> · HN post 772 points, 483 comments · AINews feature coverage · Community discussion focused on team background and company direction
   </div>
 
   <div class="links">
-    <strong>Try it / dig in</strong> · <a href="https://discoveryloop.com">Discovery Loop official site</a> · <a href="https://news.ycombinator.com/item?id=41280000">HN discussion</a>
+    <strong>Try it / dig in</strong> · <a href="https://discoveryloop.com/">Discovery Loop official site</a> · <a href="https://news.ycombinator.com/item?id=41260002">HN discussion</a>
   </div>
 </article>
 
@@ -326,23 +326,15 @@ li+li{margin-top:.3rem}
   <ul>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">Qwen3.8-Max launch</span> <span class="update">— Weights not yet uploaded to HuggingFace; community waiting. HN heat has cooled off.</span></div>
+      <div><span class="item-name">Qwen3.8-Max launch</span> <span class="update">— Weights not yet uploaded to HuggingFace; community waiting. HN heat has cooled off, but AINews still discussing its 2.4T parameter scale.</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">MCP 2.0 protocol upgrade</span> <span class="update">— Simon Willison wrote about Stateless MCP yesterday, but MCP 2.0 itself has no new developments.</span></div>
+      <div><span class="item-name">MCP 2.0 / Stateless MCP</span> <span class="update">— Simon Willison's Stateless MCP post hit 245 points on HN but no new trigger event since; community discussing implementation details.</span></div>
     </li>
     <li>
       <span class="days">Day 5</span>
-      <div><span class="item-name">Kimi K3 MI355X cost-efficiency</span> <span class="update">— No new movement; the HN 135-point thread has cooled off.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 7</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— No new trigger event since Simon Willison's review on 7/31; HuggingFace downloads at 433k.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 7</span>
-      <div><span class="item-name">Kimi K3 running in 29 GB RAM</span> <span class="update">— 0.5 tok/s experiment; no new progress since the HN 258-point thread.</span></div>
+      <div><span class="item-name">Kimi K3 MI355X cost-efficiency</span> <span class="update">— No new movement; HN 135-point thread has cooled off. Perplexity / Baseten / Together already offer hosted access.</span></div>
     </li>
   </ul>
 </aside>
@@ -357,38 +349,31 @@ li+li{margin-top:.3rem}
       <tr><th>Item</th><th>Source</th><th>Points</th><th>Why excluded</th></tr>
     </thead>
     <tbody>
-      <tr><td>Google DeepMind leadership changes</td><td>HN #5</td><td>674</td><td>Personnel changes, not a tool signal</td></tr>
-      <tr><td>Zed DeltaDB</td><td>HN #6</td><td>443</td><td>Database tool, not an AI core tool</td></tr>
-      <tr><td>Beating GPT-5.6 Sol on retrieval with 100x cheaper open models</td><td>HN #11</td><td>325</td><td>Opinion piece, not a new tool/product release</td></tr>
-      <tr><td>Branchless Rust</td><td>HN #12</td><td>195</td><td>Programming article, not an AI tool</td></tr>
+      <tr><td>Changes at Google DeepMind: Demis to Chair, Jeff Dean departs</td><td>HN #5</td><td>674</td><td>Personnel change, not a tool signal</td></tr>
+      <tr><td>Beating GPT-5.6 Sol on retrieval with 100x cheaper open models</td><td>HN #11</td><td>325</td><td>Specific technical approach, weak signal</td></tr>
+      <tr><td>Prime Agent: A self-improving RLM agent</td><td>HN #15</td><td>186</td><td>Signal too weak (186 points)</td></tr>
+      <tr><td>Atlassian Rovo Exfiltrates Data, Bypassing Controls</td><td>HN #18</td><td>240</td><td>Security incident, not a new tool/model release</td></tr>
+      <tr><td>Position: LLMs Can't Jump</td><td>HN #27</td><td>282</td><td>Opinion piece, not a new tool</td></tr>
+      <tr><td>Sycophantic AI Decreases Prosocial Intentions</td><td>HN #26</td><td>129</td><td>Research paper, not a new tool</td></tr>
       <tr><td>Born Against: hobby programming communities against LLM usage</td><td>HN #13</td><td>284</td><td>Opinion piece, not a new tool</td></tr>
-      <tr><td>Prime Agent: A self-improving RLM agent</td><td>HN #15</td><td>186</td><td>Weak signal (186 points), not a mainstream agent framework</td></tr>
-      <tr><td>Atlassian Rovo Exfiltrates Data</td><td>HN #18</td><td>240</td><td>Security incident, not a new tool/product release</td></tr>
-      <tr><td>Celld: Self-hosted, distributed Durable Objects</td><td>HN #19</td><td>225</td><td>Infrastructure tool, not an AI core tool</td></tr>
-      <tr><td>NVIDIA Vera Whitepaper</td><td>HN #21</td><td>133</td><td>Hardware analysis, not an AI tool</td></tr>
-      <tr><td>HyperProbe (YC S26)</td><td>HN #22</td><td>59</td><td>Signal too weak (59 points)</td></tr>
-      <tr><td>Sycophantic AI Decreases Prosocial Intentions</td><td>HN #26</td><td>129</td><td>Research paper, not a new tool/product release</td></tr>
-      <tr><td>LLMs Can't Jump</td><td>HN #27</td><td>282</td><td>Opinion piece, not a new tool</td></tr>
+      <tr><td>Launch HN: HyperProbe (YC S26) – read-only debugging agents</td><td>HN #22</td><td>59</td><td>Signal too weak (59 points)</td></tr>
+      <tr><td>Zed DeltaDB</td><td>HN #6</td><td>443</td><td>Not an AI tool</td></tr>
+      <tr><td>Celld: Self-hosted, distributed Durable Objects</td><td>HN #19</td><td>225</td><td>Not an AI tool</td></tr>
+      <tr><td>NVIDIA Vera Whitepaper</td><td>HN #21</td><td>133</td><td>Hardware, not an AI tool</td></tr>
       <tr><td>OpenAI: Third-party cyber evaluations</td><td>OpenAI official</td><td>—</td><td>Security report, not a new tool/model release</td></tr>
       <tr><td>OpenAI: Learn teach ChatGPT work Codex</td><td>OpenAI official</td><td>—</td><td>Tutorial, not a new tool</td></tr>
       <tr><td>OpenAI: Apple is getting this wrong</td><td>OpenAI official</td><td>—</td><td>Opinion piece</td></tr>
-      <tr><td>OpenAI: Continuous voice interaction with GPT Live</td><td>OpenAI official</td><td>—</td><td>Voice feature, outside clawii's core focus</td></tr>
       <tr><td>OpenAI: Circles</td><td>OpenAI official</td><td>—</td><td>Social feature, not a coding/agent tool</td></tr>
+      <tr><td>OpenAI: Continuous voice interaction with GPT Live</td><td>OpenAI official</td><td>—</td><td>Voice feature, outside core focus</td></tr>
       <tr><td>OpenAI: Ten advances in mathematics</td><td>OpenAI official</td><td>—</td><td>Pure research, no usable tool/model release</td></tr>
       <tr><td>Anthropic: Mariano-Florentino Cuéllar joins</td><td>Anthropic official</td><td>—</td><td>Personnel change, not a tool signal</td></tr>
-      <tr><td>Anthropic: Investigating three real-world incidents</td><td>Anthropic official</td><td>—</td><td>Security incident analysis, not a new tool/product release</td></tr>
-      <tr><td>Simon Willison: One-shotting a Raccoon Heist game</td><td>Simon Willison</td><td>—</td><td>Game demo, not a tool signal</td></tr>
-      <tr><td>Simon Willison: AI model from Meta also hacked</td><td>Simon Willison</td><td>—</td><td>Security incident, not a tool signal</td></tr>
-      <tr><td>Simon Willison: Third-party cyber evaluations</td><td>Simon Willison</td><td>—</td><td>Security incident, not a tool signal</td></tr>
-      <tr><td>Simon Willison: Incident Report unsanctioned agent behaviour</td><td>Simon Willison</td><td>—</td><td>Security incident, not a tool signal</td></tr>
+      <tr><td>Simon Willison: Meta Muse Spark hacked another company</td><td>Simon Willison</td><td>—</td><td>Security incident, not a new tool</td></tr>
+      <tr><td>Simon Willison: UK AISI incident report</td><td>Simon Willison</td><td>—</td><td>Security incident analysis, not a new tool</td></tr>
+      <tr><td>Simon Willison: One-shotting Raccoon Heist game</td><td>Simon Willison</td><td>—</td><td>Demo, not a new tool/model release</td></tr>
       <tr><td>HuggingFace: mDenseOn with the mLateOn</td><td>HuggingFace</td><td>33 likes</td><td>Retrieval model, signal too weak</td></tr>
       <tr><td>HuggingFace: The Fast Gemma Challenge</td><td>HuggingFace</td><td>22 likes</td><td>Competition, signal too weak</td></tr>
-      <tr><td>HuggingFace: Beyond surface alignment</td><td>HuggingFace</td><td>9 likes</td><td>Chinese article, likely already covered in Chinese circles</td></tr>
-      <tr><td>HuggingFace: Training a coding agent using OpenCode</td><td>HuggingFace</td><td>8 likes</td><td>Tutorial, signal too weak</td></tr>
-      <tr><td>HuggingFace: jina-reranker-v3.5</td><td>HuggingFace</td><td>4 likes</td><td>Signal too weak</td></tr>
-      <tr><td>Mistral: Shieldstral</td><td>Mistral official</td><td>—</td><td>Already reported yesterday (ℹ️), no new trigger event</td></tr>
-      <tr><td>OSSInsight trending</td><td>OSSInsight</td><td>—</td><td>API returned empty data, cannot generate trends</td></tr>
-      <tr><td>GitHub Trending daily</td><td>GitHub Trending</td><td>—</td><td>No high-star AI projects today</td></tr>
+      <tr><td>HuggingFace: Beyond surface alignment (Chinese article)</td><td>HuggingFace</td><td>9 likes</td><td>Chinese article, likely already covered in Chinese circles</td></tr>
+      <tr><td>HuggingFace: jina-reranker-v3.5</td><td>HuggingFace</td><td>4 likes</td><td>Retrieval model, signal too weak</td></tr>
     </tbody>
   </table>
 </section>
@@ -396,7 +381,7 @@ li+li{margin-top:.3rem}
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
   <p>AI Radar · 1-3 real signals every day · Hand-picked for clawii</p>
-  <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">Sources: HN · OSSInsight · HuggingFace · Smol AI · Anthropic · OpenAI · Simon Willison · Mistral · Cloudflare</p>
+  <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">Sources: HN · OSSInsight · HuggingFace · Smol AI · Anthropic · OpenAI · Simon Willison · Mistral · Google DeepMind</p>
 </footer>
 
 <!-- ─── PAGER (bottom) ─── -->
