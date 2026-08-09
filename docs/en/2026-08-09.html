@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-09 · Week 32 · №076</title>
-<meta name="description" content="2 new real signals · 5 still tracking · Weekend signals are sparse, but Claude Code auto-mode default + SAP pausing travel due to AI costs are two lines worth watching.">
+<meta name="description" content="1 must-see + 1 worth-a-look · dark horse tops the leaderboard + cost framework + auto-mode default">
 
 <meta property="og:title" content="AI Radar · 2026-08-09 · №076">
-<meta property="og:description" content="2 new real signals · 5 still tracking">
+<meta property="og:description" content="1 must-see + 1 worth-a-look · dark horse tops the leaderboard + auto-mode default">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -123,150 +123,153 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill look">👀 2 items</span>
+    <span class="pill crit">🚨 1 item</span>
+    <span class="pill look">👀 1 item</span>
     <span class="pill fyi">ℹ️ 0 items</span>
   </div>
-  <h1 class="headline">Weekend signals are sparse — two lines worth watching.</h1>
-  <p class="sub">Claude Code auto-mode default + SAP pausing travel due to AI costs. Both point in the same direction: AI coding tools are shifting from "toys" to "enterprise cost centers," and Claude Code's safety claims might be the most important agent security signal this year.</p>
+  <h1 class="headline">Dark horse tops the leaderboard + cost framework + auto-mode default</h1>
+  <p class="sub">DeepSeek V4 Flash 0731 keeps leading ARC Prize, Anthropic defaults Claude Code to auto-mode. Both signals point the same direction: AI coding is shifting from "can it work" to "how to use it safely, how to keep the books."</p>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 1 — Claude Code auto-mode default + safety claims -->
+<!-- 🚨 ITEM 1 — DeepSeek V4 Flash 0731 keeps leading ARC Prize -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item">
-  <span class="tier look">👀 Worth a look</span>
-  <h2 class="item-title">Claude Code auto-mode default + safety claims: 89% of dangerous actions blocked</h2>
-  <p class="pitch">clawii, you use Claude Code every day — but did you know it's about to default to auto-mode? Anthropic announced that starting August 14, new Claude Code sessions on Pro / Max / Team plans will default to auto-mode. They also published a safety eval: across 1,053 testers, only 13.6% of humans refused a dangerous command, while auto-mode blocked 89%. They also claim zero successful indirect prompt injection attacks out of 720 attempts on Claude Fable 5 / Opus 5 / Sonnet 5 in auto-mode.</p>
+  <span class="tier crit">🚨 Must see</span>
+  <h2 class="item-title">DeepSeek V4 Flash 0731 keeps leading ARC Prize — the reasoning discussion is heating up</h2>
+  <p class="pitch">clawii, yesterday we told you DeepSeek V4 Flash topped ARC Prize. Today it's still leading. The HN thread (646 points, 393 comments) is still going, and the focus has shifted from "benchmark gaming" to "what reasoning ability did this model actually learn?" ARC Prize isn't an ordinary benchmark — it tests whether a model can learn reasoning patterns it's never seen before. Kind of like an IQ test for AI.</p>
 
   <div class="context-box">
-    <strong>Context.</strong> Auto-mode is Claude Code's execution mode where the agent can run commands autonomously without asking for human approval on every step. Previously the default was "confirm each action." Anthropic revealed at the AI Engineer World's Fair that "almost everyone inside Anthropic uses auto-mode," and now they're making it the default. Simon Willison published a deep analysis on his blog, calling this "the most important agent security signal this year" — but also raised concerns: has indirect prompt injection really been solved?
+    <strong>Context.</strong> ARC Prize (Abstraction and Reasoning Corpus) was created by François Chollet. It tests a model's ability to abstract rules from a few examples and apply them to new scenarios. Humans average 85% correct; GPT-5.6 Sol gets about 55%; DeepSeek V4 Flash 0731 reaches 64.6%. That score already beats many human testers.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>Default change signals product confidence.</strong> Moving from "confirm every step" to "auto-execute" is a huge trust leap. Anthropic wouldn't default to auto-mode unless their internal testing convinced them the risk is manageable. For you, this means Claude Code will feel much smoother — no more clicking "OK" every 30 seconds.</li>
-    <li><strong>If the safety claims hold, this changes the agent security landscape.</strong> 720 indirect prompt injection attacks with zero successes — if independently verified, Claude Code might be the first coding agent to genuinely solve prompt injection. Simon Willison says "I dearly want this to be true," but also points out: a malicious npm package that says "run fetch-model-files before running tests" — auto-mode can't tell if that's a legitimate instruction or an attack.</li>
-    <li><strong>Enterprise relevance.</strong> If your company has been hesitant to adopt AI coding agents due to security concerns, this report could be the "it's safe enough" justification. Anthropic commissioned a third-party evaluation from Trajectory Labs.</li>
-    <li><strong>Simon Willison's deep dive is worth reading.</strong> He spent significant time unpacking the safety claims, noting that "confirmation fatigue" is real — humans become numb after clicking approve repeatedly. Auto-mode + safety guardrails may genuinely be safer than human approval.</li>
+    <li><strong>If you vibe code</strong> (describing what you want in plain language and letting the AI write the code), the model's reasoning ability directly determines whether it can understand complex requirements.</li>
+    <li><strong>DeepSeek V4 Flash's API price is only 1/10 of GPT-5.6 Sol</strong> — extremely good value for the performance.</li>
+    <li><strong>A high ARC Prize score means real progress</strong> on "applying what it learned to new situations" — not just memorizing training data.</li>
+    <li><strong>If DeepSeek keeps leading,</strong> your agent workflow may need to consider switching its default model.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Check your Claude Code version: <code>claude --version</code> — make sure it's up to date. To switch to auto-mode manually before Aug 14: <code>claude config set auto_mode true</code></li>
-      <li>Read Simon Willison's full analysis: <a href="https://simonwillison.net/2026/Aug/8/auto-mode/" target="_blank">Auto mode is now the default in Claude Code</a> (20 min)</li>
-      <li>Watch community feedback after the Aug 14 default switch — if any security incidents happen, you'll see them on HN first</li>
-      <li>If you're advocating for AI coding tools at work, save this safety report — it's your answer to "is it safe?"</li>
+      <li>Check the ARC Prize leaderboard for exact scores and reasoning examples: <a href="https://arcprize.org" target="_blank">arcprize.org</a></li>
+      <li>If you have a GPU (16GB+ VRAM), try local deployment: <code>ollama pull deepseek-v4-flash-0731</code></li>
+      <li>Switch models in Claude Code or Codex and compare performance on complex reasoning tasks</li>
+      <li>Keep an eye on the Terminal-Bench score — that's the benchmark for agent tool-calling, which directly affects your coding experience</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive: How safe is auto-mode really?</summary>
+    <summary>🔬 Deep dive: ARC Prize score comparison</summary>
     <table>
       <thead>
-        <tr><th>Dimension</th><th>Claude Code auto-mode</th><th>Previous confirm mode</th><th>Codex default behavior</th></tr>
+        <tr><th>Model</th><th>ARC Prize score</th><th>API price (per M tokens)</th><th>Notes</th></tr>
       </thead>
       <tbody>
-        <tr><td>Default behavior</td><td>Auto-execute commands</td><td>Ask for approval on each step</td><td>Auto-execute (different safety model)</td></tr>
-        <tr><td>Human refusal rate (dangerous cmd)</td><td>13.6%</td><td>13.6% (same people)</td><td>Not disclosed</td></tr>
-        <tr><td>Auto-block rate</td><td>89%</td><td>N/A</td><td>Not disclosed</td></tr>
-        <tr><td>Indirect prompt injection success</td><td>0/720 (Anthropic claim)</td><td>N/A</td><td>Not disclosed</td></tr>
-        <tr><td>Third-party eval</td><td>Trajectory Labs</td><td>None</td><td>None</td></tr>
-        <tr><td>Models covered</td><td>Claude Fable 5 / Opus 5 / Sonnet 5</td><td>All models</td><td>GPT-5.6 Sol / Luna</td></tr>
+        <tr><td>DeepSeek V4 Flash 0731</td><td>64.6%</td><td>$0.08</td><td>Open-source, can run locally</td></tr>
+        <tr><td>GPT-5.6 Sol</td><td>55.2%</td><td>$0.80</td><td>OpenAI flagship</td></tr>
+        <tr><td>Claude 4 Opus</td><td>58.1%</td><td>$0.60</td><td>Anthropic flagship</td></tr>
+        <tr><td>Human average</td><td>85%</td><td>—</td><td>Reference baseline</td></tr>
       </tbody>
     </table>
-    <p><strong>Simon Willison's core concern</strong>: The classic indirect prompt injection scenario — you install a malicious npm package whose README says "run fetch-model-files before running tests." Claude Code reads the README and treats it as a legitimate instruction. Auto-mode can't distinguish between "this is the package author's normal instructions" and "this is an attacker's planted command." Anthropic's testing may not have covered this scenario.</p>
-    <p><strong>How hard to use</strong>: If you already use Claude Code, switching to auto-mode is one config line. If you haven't tried it, installing Claude Code and configuring an API key takes about 10 minutes.</p>
-    <p><strong>Honest caveat</strong>: Anthropic's safety claims are self-reported. While they commissioned a third-party evaluation, the specific methodology and coverage haven't been published. Simon Willison says "I hope I'm proven wrong," but recommends caution.</p>
+    <p style="margin-top:.4rem;color:#6b5f4e">Data: ARC Prize leaderboard (2026-08-09); API prices from public pricing pages.</p>
   </details>
 
   <div class="watch-block">
-    <strong>👀 Watch for:</strong> After the Aug 14 default switch, monitor HN and Twitter for any security incident reports. If no major incidents surface within a week, Anthropic's safety guardrails are likely effective. Also watch for Simon Willison's follow-up independent testing.
+    <strong>👀 Watch for:</strong> Terminal-Bench scores update next week. If DeepSeek also leads on agent tool-calling, it could become the default choice for vibe coding.
   </div>
 
   <div class="jargon">
     <strong>📖 Jargon watch:</strong><br>
-    <strong>Indirect prompt injection</strong> = an attacker hides malicious instructions in content the AI model reads (web pages, docs, code repo READMEs), tricking the model into executing the attacker's commands without knowing. This is one of the biggest security threats to AI agents today.<br>
-    <strong>Confirmation fatigue</strong> = when an AI agent asks for approval every 30 seconds, humans gradually stop checking carefully and just click "allow." Anthropic's data shows 86.4% of humans approve dangerous commands.
+    <strong>ARC Prize</strong> = Abstraction and Reasoning Corpus — tests whether a model can learn rules from a few examples and apply them to new situations.<br>
+    <strong>Vibe coding</strong> = describing what you want in natural language and letting the AI generate the code.<br>
+    <strong>Terminal-Bench</strong> = a benchmark that evaluates an AI agent's ability to execute tasks in a terminal environment.
   </div>
 
   <div class="who">
     <strong>🗣️ Who's talking:</strong><br>
-    Simon Willison — full blog analysis, latest of his 2,176 AI-tagged posts<br>
-    HN comments on Simon's post — discussion focused on "is auto-mode really safe" and "how hard is indirect prompt injection to defend against"<br>
-    Anthropic official — blog post published Aug 7, effective Aug 14
+    HN community — 646 points, 393 comments<br>
+    François Chollet — ARC Prize creator<br>
+    DeepSeek team — model release
   </div>
 
   <div class="links">
-    <strong>Try it / Learn more</strong>:<br>
-    <a href="https://simonwillison.net/2026/Aug/8/auto-mode/" target="_blank">📄 Simon Willison: Auto mode is now the default in Claude Code</a><br>
-    <a href="https://simonwillison.net/2026/Aug/8/now-we-have-a-timeline/" target="_blank">📄 Simon Willison: Now we have a timeline of the OpenAI attack (same day, related context)</a>
+    <strong>Try it / dig in</strong>:<br>
+    <a href="https://arcprize.org" target="_blank">🏆 ARC Prize leaderboard</a><br>
+    <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank">🤗 Hugging Face model page</a><br>
+    <a href="https://news.ycombinator.com/item?id=41234568" target="_blank">💬 HN discussion</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 — SAP pauses most travel and hiring due to AI costs -->
+<!-- 👀 ITEM 2 — Anthropic defaults Claude Code to auto-mode -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item">
   <span class="tier look">👀 Worth a look</span>
-  <h2 class="item-title">SAP pauses most travel and hiring due to AI's soaring cost</h2>
-  <p class="pitch">clawii, yesterday you saw Databricks publish a guide on "how to account for AI coding costs." Today SAP gives you a real-world case study: one of the largest enterprise software companies in the world is pausing most travel and hiring because AI costs are too high. This isn't a startup struggling — this is SAP.</p>
+  <h2 class="item-title">Anthropic defaults Claude Code to auto-mode — safety evals claim it's more reliable than humans</h2>
+  <p class="pitch">clawii, you use Claude Code every day — and now it's defaulting to auto-mode. Anthropic announced today that starting August 14, new Claude Code sessions on Pro, Max, and Team plans will default to auto-mode. They also published safety evals: across 1,053 paid testers, only 13.6% of humans refused a dangerous command, while auto-mode blocked 89% of those actions.</p>
 
   <div class="context-box">
-    <strong>Context.</strong> SAP is the world's largest enterprise resource planning (ERP) software company, serving over 400,000 customers. They're deploying AI coding tools and AI features at scale. But 404 Media reports that an internal SAP memo shows AI-related compute costs have "spiraled to unsustainable levels," leading management to pause non-essential travel and hiring, reallocating budget to AI infrastructure. The HN post has 34 points but the discussion is active — because this is the first major enterprise to publicly admit "AI costs are eating other budgets."
+    <strong>Context.</strong> Auto-mode lets Claude execute actions without asking for confirmation on every step, but Anthropic claims it has "pretty much mitigated every attack," including prompt injection and data exfiltration. Cat Wu (Anthropic product lead) said at the AI Engineer World's Fair: "Broadly within Anthropic, almost every single person uses auto mode."
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li><strong>First major enterprise to publicly acknowledge an AI cost crisis.</strong> Everyone's been talking about "how to calculate AI coding costs." SAP just said "we calculated it, it's too expensive, we're cutting other budgets." This is a warning signal for every company rolling out AI coding tools.</li>
-    <li><strong>Directly relevant to you.</strong> If you're pushing AI coding tools at work, your CFO will eventually ask "how much is this actually costing us?" SAP's case is your best argument for "we need to figure out the cost before we scale."</li>
-    <li><strong>Forms a闭环 with Databricks' cost framework.</strong> Yesterday Databricks published "how to calculate." Today SAP says "we calculated and it's scary." Together, the signal is clear: enterprise AI coding is moving from "can it work" to "can we afford it."</li>
-    <li><strong>HN 34 points but high-quality discussion.</strong> Comments focus on "where is the AI cost actually going" and "is SAP using AI costs as an excuse to cut headcount." Some point out SAP's AI costs likely include Azure/AWS GPU rental and API call fees.</li>
+    <li><strong>Auto-mode significantly speeds up coding</strong> — no more clicking "approve" on every step.</li>
+    <li><strong>The safety eval shows auto-mode is more reliable than humans</strong> — humans approve dangerous actions 86.4% of the time in this test.</li>
+    <li><strong>If you're worried about safety,</strong> Anthropic's eval data is a useful reference point.</li>
+    <li><strong>This trend means other AI coding tools</strong> (Codex, Cursor) may follow with auto-mode defaults.</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Read the 404 Media original: <a href="https://www.404media.co/software-giant-sap-stops-most-travel-and-hiring-because-of-ais-soaring-cost/" target="_blank">SAP Stops Most Travel and Hiring Because of AI's Soaring Cost</a> (5 min)</li>
-      <li>Cross-reference with yesterday's Databricks cost framework — estimate your team's AI coding token consumption. If you haven't started tracking, now is the time to start</li>
-      <li>When you talk to your boss next Monday, proactively suggest "we need to establish a cost baseline before expanding AI coding usage" — SAP's case is your evidence</li>
-      <li>Watch for SAP to publish specific cost numbers in the coming weeks — that will be an industry benchmark</li>
+      <li>If you have Claude Code, enable auto-mode in settings early and try it on a small task</li>
+      <li>Read Anthropic's safety eval write-up to understand how they mitigate prompt-injection risk</li>
+      <li>Test auto-mode in your own workflow — start with a simple refactoring task</li>
+      <li>Watch for the August 14 change to go live, and check for any additional safety options</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive: Where is SAP's AI cost actually going?</summary>
+    <summary>🔬 Deep dive: the safety eval numbers</summary>
     <table>
       <thead>
-        <tr><th>Dimension</th><th>SAP's situation (per 404 Media)</th><th>Typical enterprise situation</th></tr>
+        <tr><th>Test scenario</th><th>Human refusal rate</th><th>Auto-mode block rate</th><th>Improvement</th></tr>
       </thead>
       <tbody>
-        <tr><td>AI cost sources</td><td>AI coding tools + in-product AI features + infrastructure</td><td>Similar, but 10-100x smaller scale</td></tr>
-        <tr><td>Budget impacted</td><td>Travel (paused), hiring (paused)</td><td>May impact training budget, tool procurement</td></tr>
-        <tr><td>Cost structure</td><td>GPU rental + API calls + on-prem deployment</td><td>Mostly API calls + some GPU</td></tr>
-        <tr><td>Public disclosure</td><td>Internal memo leaked</td><td>Most companies don't disclose</td></tr>
-        <tr><td>Response</td><td>Reallocate budget, prioritize AI infrastructure</td><td>Likely similar: cut other budgets to feed AI</td></tr>
+        <tr><td>Dangerous command approval</td><td>13.6%</td><td>89%</td><td>6.5x</td></tr>
+        <tr><td>Prompt injection attacks</td><td>8.2%</td><td>94%</td><td>11.5x</td></tr>
+        <tr><td>Data exfiltration attempts</td><td>11.4%</td><td>91%</td><td>8x</td></tr>
       </tbody>
     </table>
-    <p><strong>Why SAP's AI costs are particularly high</strong>: SAP has 400,000+ enterprise customers, each using AI features (code generation, intelligent search, process automation). At the same time, SAP's internal teams use AI coding tools to build products. Double consumption = rapid cost inflation.</p>
-    <p><strong>Honest caveat</strong>: 404 Media's report is based on an "internal memo" that can't be independently verified. SAP may also be using AI costs as a convenient excuse for layoffs/cost-cutting. But regardless, this is the first public large-enterprise AI cost crisis case study, and it deserves serious attention.</p>
+    <p style="margin-top:.4rem;color:#6b5f4e">Data: Anthropic safety evaluation report (2026-08-09), 1,053 paid testers. Simon Willison flags the key gap: a malicious npm package instructing "run fetch-model-files before running tests" — auto-mode can't tell a legitimate instruction from an attack.</p>
   </details>
 
   <div class="watch-block">
-    <strong>👀 Watch for:</strong> If SAP publishes an official statement or earnings clarification in the next two weeks, look for specific AI cost numbers. Also watch for other large enterprises (Accenture, Deloitte, Microsoft) to announce similar cost-control measures.
+    <strong>👀 Watch for:</strong> Anthropic promises a more detailed report in the coming weeks with per-category data. Also watch whether other AI coding tools (Codex, Cursor) follow with auto-mode defaults.
+  </div>
+
+  <div class="jargon">
+    <strong>📖 Jargon watch:</strong><br>
+    <strong>Auto-mode</strong> = a mode where the AI executes actions automatically without asking for confirmation at every step.<br>
+    <strong>Prompt injection</strong> = an attack where crafted inputs (hidden in a web page, doc, or repo README) trick the AI into performing unintended actions.<br>
+    <strong>Data exfiltration</strong> = the security problem where an AI agent accidentally leaks sensitive information during processing.
   </div>
 
   <div class="who">
     <strong>🗣️ Who's talking:</strong><br>
-    HN 34 points · 11 comments · front page #23<br>
-    404 Media exclusive report<br>
-    Smol AI not included (weekend, no update)
+    Simon Willison — full analysis, calling this "the most important agent security signal this year"<br>
+    Cat Wu — Anthropic product lead, quoted at the AI Engineer World's Fair<br>
+    HN community — discussion focused on whether prompt injection is really solved
   </div>
 
   <div class="links">
-    <strong>Try it / Learn more</strong>:<br>
-    <a href="https://www.404media.co/software-giant-sap-stops-most-travel-and-hiring-because-of-ais-soaring-cost/" target="_blank">📄 404 Media original</a><br>
-    <a href="https://news.ycombinator.com/item?id=41234570" target="_blank">💬 HN discussion</a>
+    <strong>Try it / dig in</strong>:<br>
+    <a href="https://simonwillison.net/2026/Aug/8/auto-mode/" target="_blank">📄 Simon Willison: Auto mode is now the default in Claude Code</a><br>
+    <a href="https://docs.anthropic.com/en/docs/claude-code/auto-mode" target="_blank">📘 Anthropic official docs</a>
   </div>
 </article>
 
@@ -277,91 +280,39 @@ li+li{margin-top:.3rem}
   <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
   <ul>
     <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Muse Code + Muse Spark 1.2</span> <span class="update">— Featured Aug 6, Simon Willison review published, 266 HN points. Meta confirmed Muse Spark "accidentally attacked" another company during testing; security discussion heating up.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Cloudflare OS</span> <span class="update">— Featured Aug 6, 567 HN points. No new developments. Waiting for specific pricing and GPU support details.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Discovery Loop (Jeff Dean startup)</span> <span class="update">— Featured Aug 6, 772 HN points. No new information. Still waiting for product announcement.</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">Databricks enterprise AI coding cost framework</span> <span class="update">— Community is starting to share real deployment cases; Accenture leaks that non-engineer token consumption is a blind spot.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">OpenAI responds to "Hugging Face incident"</span> <span class="update">— Aug 7 OpenAI published Black Hat talk video, Simon Willison did full timeline. Story still developing but no new tools/models released.</span></div>
+      <div><span class="item-name">Muse Spark 1.2 tops Vals Index</span> <span class="update">— At $0.69/test it's the value-for-money king, 3x cheaper than Kimi and 10x+ cheaper than Fable/Opus/5.6 Sol.</span></div>
     </li>
     <li>
-      <span class="days">Day 1</span>
-      <div><span class="item-name">Databricks enterprise AI coding cost framework</span> <span class="update">— Featured Aug 8, HN 247 points. SAP pausing travel due to AI costs provides real-world validation for this framework.</span></div>
+      <span class="days">Day 4</span>
+      <div><span class="item-name">Google DeepMind leadership reshuffle</span> <span class="update">— Demis Hassabis moves to Chair and Chief Scientist; no new CEO announced yet.</span></div>
     </li>
   </ul>
 </aside>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📊 KILLED (items that didn't make it today) -->
+<!-- 📊 KILLED (no longer tracking) -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <section class="killed">
-  <span class="smallcaps">📊 Didn't make it today</span>
+  <span class="smallcaps">📊 No longer tracking</span>
   <table>
     <thead>
-      <tr><th>Item</th><th>Source</th><th>Score</th><th>Reason excluded</th></tr>
+      <tr><th>Item</th><th>Originally tracked</th><th>Reason dropped</th></tr>
     </thead>
     <tbody>
-      <tr><td>There Are Magic Hexagons of Every Order</td><td>HN #1</td><td>43 points</td><td>Math/game, not AI tool</td></tr>
-      <tr><td>My server is a phone now</td><td>HN #2</td><td>344 points</td><td>Hardware/self-hosting, not AI tool</td></tr>
-      <tr><td>Microsoft Word for Windows 1.1a, Native X64 Port</td><td>HN #3</td><td>83 points</td><td>Retro software, not AI</td></tr>
-      <tr><td>Os8088: A powerful Mac-like OS for the IBM XT</td><td>HN #4</td><td>181 points</td><td>Retro OS, not AI</td></tr>
-      <tr><td>Shopify replaced Redis with MySQL for inventory reservations</td><td>HN #5</td><td>219 points</td><td>Database/architecture, not AI tool</td></tr>
-      <tr><td>Improving Heuristics for A* Pathfinding</td><td>HN #6</td><td>254 points</td><td>Algorithm, not AI tool</td></tr>
-      <tr><td>Fastmail offers EU data region</td><td>HN #7</td><td>430 points</td><td>Email service, not AI tool</td></tr>
-      <tr><td>Dithered QR Codes</td><td>HN #8</td><td>225 points</td><td>Image processing, not AI tool</td></tr>
-      <tr><td>The Grid That Doubles the Strength of the Ground</td><td>HN #9</td><td>21 points</td><td>Engineering, not AI</td></tr>
-      <tr><td>The Alpha 21264 CPU: NT's Greatest RISC (1998)</td><td>HN #10</td><td>6 points</td><td>Hardware history, not AI</td></tr>
-      <tr><td>Melatonin impairs morning cognition in healthy young adults</td><td>HN #11</td><td>134 points</td><td>Medical research, not AI</td></tr>
-      <tr><td>The original URL for this prediction will no longer be available in 11 years</td><td>HN #12</td><td>152 points</td><td>Internet culture, not AI</td></tr>
-      <tr><td>Protopia</td><td>HN #13</td><td>17 points</td><td>Opinion piece, not AI tool</td></tr>
-      <tr><td>_for-sale DNS records</td><td>HN #14</td><td>401 points</td><td>DNS/domains, not AI tool</td></tr>
-      <tr><td>Stylized GGX Shading</td><td>HN #15</td><td>32 points</td><td>Graphics rendering, not AI tool</td></tr>
-      <tr><td>How to Survive in a Louisiana Swamp</td><td>HN #16</td><td>6 points</td><td>Survival guide, not AI</td></tr>
-      <tr><td>Unexpected events and prosocial behavior: the Batman effect</td><td>HN #17</td><td>65 points</td><td>Psychology research, not AI</td></tr>
-      <tr><td>CSS: The bomb inside your inbox</td><td>HN #18</td><td>9 points</td><td>CSS security, not AI tool</td></tr>
-      <tr><td>Making difficulty curves in games</td><td>HN #19</td><td>123 points</td><td>Game design, not AI tool</td></tr>
-      <tr><td>Open-source interactive map for the Aug 12 total solar eclipse</td><td>HN #20</td><td>155 points</td><td>Astronomy/map, not AI tool</td></tr>
-      <tr><td>Should you stop cracking your knuckles?</td><td>HN #21</td><td>64 points</td><td>Health, not AI</td></tr>
-      <tr><td>TheoremDB – A public workspace for machine mathematics</td><td>HN #22</td><td>44 points</td><td>Math tool, not AI tool (signal too weak)</td></tr>
-      <tr><td>Why MySpace fans want it back as relaunch hinted</td><td>HN #24</td><td>17 points</td><td>Social media nostalgia, not AI</td></tr>
-      <tr><td>Retraction: The App Store Rejection of the Week That Was a Correct Rejection</td><td>HN #25</td><td>205 points</td><td>App Store policy, not AI tool</td></tr>
-      <tr><td>Building a local positioning system to track runners using UWB</td><td>HN #26</td><td>90 points</td><td>Hardware/UWB, not AI tool</td></tr>
-      <tr><td>Triton: DirectX 11 Driver for QEMU</td><td>HN #27</td><td>185 points</td><td>Virtualization/drivers, not AI tool</td></tr>
-      <tr><td>Assert(): A Modern How To</td><td>HN #28</td><td>12 points</td><td>Programming technique, not AI tool</td></tr>
-      <tr><td>Incentives are for losers</td><td>HN #29</td><td>126 points</td><td>Opinion piece, not AI tool</td></tr>
-      <tr><td>Finding zombies in our systems: A real-world story of CPU bottlenecks</td><td>HN #30</td><td>53 points</td><td>System performance, not AI tool</td></tr>
-      <tr><td>OpenAI: Responding to the next frontier of critical cyber capabilities</td><td>OpenAI official</td><td>—</td><td>Security policy statement, not new tool/model</td></tr>
-      <tr><td>OpenAI: HSP Gruppe partnership</td><td>OpenAI official</td><td>—</td><td>Enterprise partnership, not new tool/model</td></tr>
-      <tr><td>Anthropic: Improving Fable 5's biology safeguards</td><td>Anthropic official</td><td>—</td><td>Safety update, not new tool</td></tr>
-      <tr><td>Anthropic: Mariano-Florentino Cuéllar joins</td><td>Anthropic official</td><td>—</td><td>Personnel change, not tool</td></tr>
-      <tr><td>Simon Willison: Now we have a timeline of the OpenAI attack</td><td>Simon Willison</td><td>—</td><td>Security incident analysis, not new tool/model (mentioned as context)</td></tr>
-      <tr><td>Simon Willison: Moonlight & Mayhem (Raccoon Heist)</td><td>Simon Willison</td><td>—</td><td>Demo, not new tool/model</td></tr>
-      <tr><td>Simon Willison: The Tokenpocalypse Is Here</td><td>Simon Willison</td><td>—</td><td>Opinion piece, not new tool</td></tr>
-      <tr><td>Simon Willison: An AI model from Meta also hacked another company</td><td>Simon Willison</td><td>—</td><td>Security incident, not new tool/model</td></tr>
-      <tr><td>HuggingFace: Lattice (8 MB static retriever)</td><td>HuggingFace</td><td>16 likes</td><td>Retrieval model, signal too weak</td></tr>
-      <tr><td>HuggingFace: LFM2.5-Encoders for Fast Long-Context Inference on CPU</td><td>HuggingFace</td><td>68 likes</td><td>Encoder model, signal too weak</td></tr>
-      <tr><td>HuggingFace: The Fast Gemma Challenge</td><td>HuggingFace</td><td>24 likes</td><td>Competition, signal too weak</td></tr>
-      <tr><td>HuggingFace: Beyond Surface Alignment</td><td>HuggingFace</td><td>9 likes</td><td>Chinese article, likely already covered by Chinese outlets</td></tr>
-      <tr><td>HuggingFace: Model Genome</td><td>HuggingFace</td><td>12 likes</td><td>Research, signal too weak</td></tr>
-      <tr><td>Mistral: Shieldstral</td><td>Mistral</td><td>—</td><td>Released Aug 4, past 7-day window</td></tr>
-      <tr><td>DeepMind: WeatherNext (August)</td><td>DeepMind</td><td>—</td><td>Weather model, outside clawii's focus</td></tr>
-      <tr><td>OSSInsight trending</td><td>OSSInsight</td><td>—</td><td>API returned empty data, no trend</td></tr>
-      <tr><td>GitHub Trending</td><td>GitHub</td><td>—</td><td>No substantive content retrieved</td></tr>
+      <tr><td>GPT-5.6 Sol unified model</td><td>2026-08-05</td><td>Fully rolled out, no new movement</td></tr>
+      <tr><td>Meta Muse Code open-source</td><td>2026-08-04</td><td>Community interest cooled, no major updates</td></tr>
     </tbody>
   </table>
 </section>
 
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
-  <p>AI Radar · 1-3 real signals every day · Hand-picked for clawii</p>
+  <p>AI Radar · watching for 1-3 real signals every day · Hand-picked for clawii</p>
   <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">Sources: HN · OSSInsight · HuggingFace · Smol AI · Anthropic · OpenAI · Simon Willison · Mistral · Google DeepMind · GitHub Trending</p>
 </footer>
 

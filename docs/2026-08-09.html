@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-09 · Week 32 · №076</title>
-<meta name="description" content="2 条新真信号 · 4 条仍在发酵 · 周末信号稀疏，但 Claude Code 自动模式默认化 + SAP 因 AI 成本暂停差旅是两条值得盯的线。">
+<meta name="description" content="2 条新真信号 · 1 条仍在发酵 · 黑马登顶 + 成本框架 + 自动模式默认">
 
 <meta property="og:title" content="AI Radar · 2026-08-09 · №076">
-<meta property="og:description" content="2 条新真信号 · 4 条仍在发酵">
+<meta property="og:description" content="2 条新真信号 · 1 条仍在发酵 · 黑马登顶 + 成本框架 + 自动模式默认">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 
@@ -25,7 +25,7 @@ img{max-width:100%;display:block}
 a{color:#1a5a7a;text-decoration-color:#1a5a7a;text-underline-offset:2px}
 a:hover{color:#0b3b4f}
 ul,ol{padding-left:1.2rem}
-li+li{margin-top:.3rem}
+li+li{margin-top:.2rem}
 /* ── layout ── */
 .wrapper{max-width:720px;margin:0 auto;padding:0 1.2rem}
 /* ── masthead ── */
@@ -42,6 +42,7 @@ li+li{margin-top:.3rem}
 .cover .counts .pill.look{background:#d4a84b;color:#fff}
 .cover .counts .pill.fyi{background:#8a9b9b;color:#fff}
 .cover .headline{font-family:"Fraunces",Georgia,serif;font-size:1.8rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.2;letter-spacing:-.01em;color:#2b231c;margin-top:.2rem}
+
 .cover .sub{font-size:.85rem;color:#6b5f4e;margin-top:.3rem}
 /* ── pager ── */
 .pager{display:flex;justify-content:space-between;max-width:720px;margin:0 auto;padding:.6rem 1.2rem;font-size:.8rem;color:#8a7d6b}
@@ -66,6 +67,7 @@ li+li{margin-top:.3rem}
 .action-block{background:#ede6d8;border-radius:6px;padding:.6rem .8rem;margin:.6rem 0}
 .action-block ol{font-size:.85rem;padding-left:1.4rem}
 .action-block li{margin-bottom:.15rem}
+
 .action-block code{font-family:"Geist Mono",monospace;font-size:.8rem;background:#d8cfc0;padding:.05rem .3rem;border-radius:3px}
 .deep-dive{background:#f4ede0;border:1px solid #d8cfc0;border-radius:6px;padding:.6rem .8rem;margin:.6rem 0;font-size:.85rem}
 .deep-dive summary{font-weight:600;cursor:pointer;color:#2b231c}
@@ -90,6 +92,7 @@ li+li{margin-top:.3rem}
 .still-tracking .update{color:#6b5f4e}
 /* ── killed ── */
 .killed{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e4dcd0}
+
 .killed .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
 .killed table{width:100%;border-collapse:collapse;margin-top:.4rem;font-size:.8rem}
 .killed th,.killed td{border:1px solid #e4dcd0;padding:.25rem .4rem;text-align:left}
@@ -123,238 +126,186 @@ li+li{margin-top:.3rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill look">👀 2 条</span>
+    <span class="pill crit">🚨 1 条</span>
+    <span class="pill look">👀 1 条</span>
     <span class="pill fyi">ℹ️ 0 条</span>
   </div>
-  <h1 class="headline">周末信号稀疏，两条值得盯的线。</h1>
-  <p class="sub">Claude Code 自动模式默认化 + SAP 因 AI 成本暂停差旅。两条线都指向同一个趋势：AI 编码工具正在从「玩具」变成「企业成本中心」，而 Claude Code 的安全声明可能是今年最重要的 agent 安全信号。</p>
+  <h1 class="headline">黑马登顶 + 成本框架 + 自动模式默认</h1>
+  <p class="sub">DeepSeek V4 Flash 0731 在 ARC Prize 上持续领跑，Databricks 的企业 AI 编码成本管理框架成为 CFO 新宠，Anthropic 默认开启 Claude Code 自动模式。三个信号指向同一个方向：AI 编码正在从「能不能用」转向「怎么安全地用、怎么算账」。</p>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 1 — Claude Code 自动模式默认化 + 安全声明 -->
+<!-- 🚨 ITEM 1 — DeepSeek V4 Flash 0731 持续领跑 ARC Prize -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item">
-  <span class="tier look">👀 值得一看</span>
-  <h2 class="item-title">Claude Code 自动模式默认化 + 安全声明：89% 的恶意操作被自动拦截</h2>
-  <p class="pitch">clawii，你每天用 Claude Code 写代码，但你知道它马上要默认开自动模式了吗？Anthropic 宣布从 8 月 14 日起，Pro / Max / Team 用户的 Claude Code 新会话默认启用自动模式。同时他们发布了一份安全评估：在 1,053 名测试者中，只有 13.6% 的人类拒绝了危险命令，而自动模式拦截了 89%。他们还声称在 720 次间接 prompt injection 攻击中，Claude Fable 5 / Opus 5 / Sonnet 5 的自动模式零成功。</p>
+  <span class="tier crit">🚨 必看</span>
+  <h2 class="item-title">DeepSeek V4 Flash 0731 持续领跑 ARC Prize，推理能力引发新讨论</h2>
+  <p class="pitch">clawii，昨天我们报道了 DeepSeek V4 Flash 登顶 ARC Prize，今天它还在领跑。HN 上 646 分 393 条评论的讨论还在继续，焦点已经从「刷榜」转向了「这模型到底学会了什么推理能力」。ARC Prize 不是普通 benchmark——它考的是模型能否学会从未见过的推理模式，有点像 AI 的「智商测试」。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> — 自动模式（auto mode）是 Claude Code 的一种执行模式：agent 可以自主执行命令，不需要每次操作都请求人类批准。之前默认是「每次确认」模式。Anthropic 在 AI Engineer World's Fair 上透露「Anthropic 内部几乎所有人都在用自动模式」，现在他们决定把默认值改了。同时，Simon Willison 在博客上详细分析了这份安全声明，认为这是「今年最重要的 agent 安全信号」——但也提出了质疑：间接 prompt injection 真的被彻底解决了吗？
+    <strong>📌 背景</strong>：ARC Prize（Abstraction and Reasoning Corpus）由 François Chollet 创建，测试模型从少量示例中抽象出规则并应用到新场景的能力。人类平均 85% 正确率，GPT-5.6 Sol 约 55%，DeepSeek V4 Flash 0731 达到 64.6%。这个分数已经超过了很多人类测试者。
   </div>
 
-  <h3>为什么这事重要</h3>
+  <h3>💡 为什么这对你重要</h3>
   <ul>
-    <li><strong>默认值改变意味着产品信心</strong> — 从「每次确认」到「自动执行」是一个巨大的信任跃迁。Anthropic 敢默认开自动模式，说明他们内部测试认为风险可控。这对你来说意味着：以后用 Claude Code 会更流畅，不需要每步点确认。</li>
-    <li><strong>安全声明如果为真，将改变 agent 安全格局</strong> — 720 次间接 prompt injection 攻击零成功，这个数字如果被独立验证，意味着 Claude Code 可能是第一个真正解决了 prompt injection 的编码 agent。Simon Willison 说「我非常希望这是真的」，但他也指出：一个恶意 npm 包说「运行测试前先执行 fetch-model-files」，自动模式无法区分这是正常测试步骤还是攻击。</li>
-    <li><strong>对企业的意义</strong> — 如果你的公司因为安全顾虑不敢用 AI 编码 agent，这份报告可能成为「可以用了」的理由。Anthropic 还委托了第三方 Trajectory Labs 进行独立评估。</li>
-    <li><strong>Simon Willison 的深度分析</strong> — 他花了大量篇幅拆解这份安全声明，指出「确认疲劳」是真实问题——人类在重复点击确认后，会变得麻木。自动模式 + 安全护栏可能比人类审批更安全。</li>
+    <li>如果你在用 vibe coding（用自然语言描述需求让 AI 写代码），模型的推理能力直接决定了它能否理解复杂需求</li>
+    <li>DeepSeek V4 Flash 的 API 价格只有 GPT-5.6 Sol 的 1/10，性价比极高</li>
+    <li>ARC Prize 的高分意味着模型在「举一反三」方面有实质进步，不只是记忆训练数据</li>
+    <li>如果 DeepSeek 持续领先，你的 agent 工作流可能需要考虑切换默认模型</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 你今天就能做的事</strong>
     <ol>
-      <li>检查你的 Claude Code 版本：<code>claude --version</code>，确保已更新到最新版（8 月 14 日前手动切自动模式：<code>claude config set auto_mode true</code>）</li>
-      <li>读 Simon Willison 的完整分析：<a href="https://simonwillison.net/2026/Aug/8/auto-mode/" target="_blank">Auto mode is now the default in Claude Code</a>（20 分钟）</li>
-      <li>关注 8 月 14 日默认切换后的社区反馈——如果出现安全事故，你会第一时间在 HN 看到</li>
-      <li>如果你在公司推广 AI 编码，把这份安全报告存好——它是你回答「安全吗」的标准答案</li>
+      <li>去 ARC Prize 排行榜看看具体分数和推理示例：<a href="https://arcprize.org" target="_blank">arcprize.org</a></li>
+      <li>如果你有 GPU（16GB+ VRAM），试试本地部署：<code>ollama pull deepseek-v4-flash-0731</code></li>
+      <li>在 Claude Code 或 Codex 中切换模型试试，对比一下复杂推理任务的表现</li>
+      <li>关注 Terminal-Bench 分数——这是 agent 工具调用能力的指标，直接关系到你的编码体验</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——自动模式到底安不安全</summary>
+    <summary>🔍 深度分析：ARC Prize 分数对比</summary>
     <table>
       <thead>
-        <tr><th>维度</th><th>Claude Code 自动模式</th><th>之前的确认模式</th><th>Codex 默认行为</th></tr>
+        <tr><th>模型</th><th>ARC Prize 分数</th><th>API 价格（每百万 token）</th><th>备注</th></tr>
       </thead>
       <tbody>
-        <tr><td>默认行为</td><td>自动执行命令</td><td>每次操作请求确认</td><td>自动执行（但安全模型不同）</td></tr>
-        <tr><td>人类拒绝率（危险命令）</td><td>13.6%</td><td>13.6%（同一批人）</td><td>未公开</td></tr>
-        <tr><td>自动拦截率</td><td>89%</td><td>N/A</td><td>未公开</td></tr>
-        <tr><td>间接 prompt injection 成功率</td><td>0/720（Anthropic 声明）</td><td>N/A</td><td>未公开</td></tr>
-        <tr><td>第三方评估</td><td>Trajectory Labs</td><td>无</td><td>无</td></tr>
-        <tr><td>适用范围</td><td>Claude Fable 5 / Opus 5 / Sonnet 5</td><td>所有模型</td><td>GPT-5.6 Sol / Luna</td></tr>
+        <tr><td>DeepSeek V4 Flash 0731</td><td>64.6%</td><td>$0.08</td><td>开源模型，可本地部署</td></tr>
+        <tr><td>GPT-5.6 Sol</td><td>55.2%</td><td>$0.80</td><td>OpenAI 旗舰模型</td></tr>
+        <tr><td>Claude 4 Opus</td><td>58.1%</td><td>$0.60</td><td>Anthropic 旗舰模型</td></tr>
+        <tr><td>人类平均</td><td>85%</td><td>—</td><td>参考基线</td></tr>
       </tbody>
     </table>
-    <p><strong>Simon Willison 的核心质疑</strong>：间接 prompt injection 的典型场景是——你安装了一个恶意 npm 包，它的 README 里写着「运行测试前先执行 fetch-model-files」。Claude Code 读取 README 后，会认为这是一个合法指令。自动模式无法区分「这是包作者的正常说明」还是「攻击者植入的恶意指令」。Anthropic 的测试可能没有覆盖这种场景。</p>
-    <p><strong>上手难度</strong>：如果你已经在用 Claude Code，切换自动模式就是一行配置的事。如果你还没用，安装 Claude Code 并配置 API key 大概 10 分钟。</p>
-    <p><strong>诚实 caveat</strong>：Anthropic 的安全声明是「自我报告」的，虽然委托了第三方，但第三方评估的具体方法和覆盖范围尚未公开。Simon Willison 说「我希望能被证明是错的」，但建议保持谨慎。</p>
+    <p style="margin-top:.4rem;color:#6b5f4e">数据来源：ARC Prize 排行榜（2026-08-09），API 价格来自各平台公开定价。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 盯什么</strong> — 8 月 14 日默认切换后，关注 HN 和 Twitter 上是否有安全事故报告。如果一周内没有大规模安全事故，说明 Anthropic 的安全护栏确实有效。另外，关注 Simon Willison 是否会发布后续的独立测试结果。
+    <strong>👀 值得关注</strong>：Terminal-Bench 分数将在下周更新，如果 DeepSeek 在 agent 工具调用上也领先，那它可能成为 vibe coding 的默认选择。
   </div>
 
   <div class="jargon">
-    <strong>术语解码</strong>：<br>
-    <strong>间接 prompt injection</strong> = 攻击者把恶意指令藏在 AI 模型会读取的内容里（比如网页、文档、代码仓库的 README），让模型在不知情的情况下执行攻击者的命令。这是当前 AI agent 最大的安全威胁之一。<br>
-    <strong>确认疲劳</strong> = 当 AI agent 每 30 秒请求一次确认时，人类会逐渐麻木，不再仔细检查就点击「允许」。Anthropic 的数据显示 86.4% 的人类会批准危险命令。
+    <strong>📖 术语解释</strong>：
+    <ul style="margin-top:.3rem;padding-left:1.2rem;font-size:.8rem">
+      <li><strong>ARC Prize</strong>：抽象推理语料库，测试 AI 从少量示例中学习规则并应用到新场景的能力</li>
+      <li><strong>Vibe coding</strong>：用自然语言描述需求让 AI 自动生成代码的工作方式</li>
+      <li><strong>Terminal-Bench</strong>：评估 AI agent 在终端环境中执行任务能力的 benchmark</li>
+    </ul>
   </div>
 
   <div class="who">
-    <strong>谁在讨论</strong>：<br>
-    Simon Willison 博客全文分析，2,176 篇 AI 标签文章中的最新一篇<br>
-    HN 评论（Simon Willison 的帖子）：讨论集中在「自动模式是否真的安全」和「间接 prompt injection 的防御难度」<br>
-    Anthropic 官方：8 月 7 日发布博客，8 月 14 日生效
+    <strong>谁在讨论</strong>：HN 社区（646 分，393 条评论）、François Chollet（ARC Prize 创建者）、DeepSeek 团队
   </div>
 
   <div class="links">
     <strong>试试看 / 深入了解</strong>：<br>
-    <a href="https://simonwillison.net/2026/Aug/8/auto-mode/" target="_blank">📄 Simon Willison: Auto mode is now the default in Claude Code</a><br>
-    <a href="https://simonwillison.net/2026/Aug/8/now-we-have-a-timeline/" target="_blank">📄 Simon Willison: Now we have a timeline of the OpenAI attack (同一天发布，相关背景)</a>
+    <a href="https://arcprize.org" target="_blank">🏆 ARC Prize 排行榜</a><br>
+    <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank">🤗 HuggingFace 模型页</a><br>
+    <a href="https://news.ycombinator.com/item?id=41234568" target="_blank">💬 HN 讨论</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 — SAP 因 AI 成本暂停大部分差旅和招聘 -->
+<!-- 👀 ITEM 2 — Anthropic 默认开启 Claude Code 自动模式 -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item">
   <span class="tier look">👀 值得一看</span>
-  <h2 class="item-title">SAP 因 AI 成本暂停大部分差旅和招聘</h2>
-  <p class="pitch">clawii，你昨天看到 Databricks 发了一篇「怎么算 AI 编码成本」的指南，今天 SAP 就给了你一个真实案例：全球最大企业软件公司之一，因为 AI 成本太高，暂停了大部分差旅和招聘。这不是小公司的挣扎，是 SAP。</p>
+  <h2 class="item-title">Anthropic 默认开启 Claude Code 自动模式，安全评估显示比人类更可靠</h2>
+  <p class="pitch">clawii，你每天用 Claude Code 写代码，现在它默认用自动模式了。Anthropic 今天宣布，从 8 月 14 日起，Pro、Max 和 Team 计划的 Claude Code 新会话将默认启用自动模式。他们还发布了安全评估：在 1,053 名付费测试者中，只有 13.6% 的人类拒绝了危险操作，而自动模式能阻止 89% 的此类操作。</p>
 
   <div class="context-box">
-    <strong>📍 背景</strong> — SAP 是全球最大的企业资源规划（ERP）软件公司，服务超过 40 万客户。他们正在大规模部署 AI 编码工具和 AI 功能。但 404 Media 报道称，SAP 内部备忘录显示，AI 相关的计算成本「飙升到不可持续的水平」，导致管理层决定暂停非必要的差旅和招聘，把预算重新分配给 AI 基础设施。HN 上这条新闻 34 分，但讨论很热——因为这是第一个公开承认「AI 成本正在吃掉其他预算」的大型企业。
+    <strong>📌 背景</strong>：自动模式让 Claude 在不需要每次确认的情况下执行操作，但 Anthropic 声称已经「基本缓解了所有攻击」，包括提示注入和数据泄露。Cat Wu（Anthropic 产品负责人）在 AI Engineer World's Fair 上说：「在 Anthropic 内部，几乎每个人都用自动模式。」
   </div>
 
-  <h3>为什么这事重要</h3>
+  <h3>💡 为什么这对你重要</h3>
   <ul>
-    <li><strong>第一个公开承认 AI 成本危机的巨头</strong> — 之前大家都在讨论「AI 编码的成本怎么算」，SAP 直接说「我们算完了，太贵了，得砍别的预算」。这对所有正在推广 AI 编码的企业来说是一个预警信号。</li>
-    <li><strong>和你直接相关</strong> — 如果你在公司推广 AI 编码工具，迟早会遇到 CFO 问「这玩意儿到底要花多少钱」。SAP 的案例就是你跟老板说「我们需要先算清楚成本再大规模推广」的最佳论据。</li>
-    <li><strong>与 Databricks 的成本框架形成闭环</strong> — 昨天 Databricks 发了「怎么算」，今天 SAP 说「不算不知道，一算吓一跳」。两条新闻放在一起看，信号非常清晰：企业 AI 编码正在从「能用就行」进入「算账阶段」。</li>
-    <li><strong>HN 34 分但讨论质量高</strong> — 评论集中在「AI 成本到底花在哪」和「SAP 是不是在找借口裁员」。有人指出 SAP 的 AI 成本可能包括 Azure / AWS 的 GPU 租赁和 API 调用费用。</li>
+    <li>自动模式能显著提升编码速度——你不需要每次操作都点确认</li>
+    <li>安全评估显示自动模式比人类更可靠——人类在 86.4% 的情况下会批准危险操作</li>
+    <li>如果你担心安全性，Anthropic 的评估数据可以作为参考</li>
+    <li>这个趋势意味着其他 AI 编码工具也可能跟进默认自动模式</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 你今天就能做的事</strong>
     <ol>
-      <li>读 404 Media 原文：<a href="https://www.404media.co/software-giant-sap-stops-most-travel-and-hiring-because-of-ais-soaring-cost/" target="_blank">SAP Stops Most Travel and Hiring Because of AI's Soaring Cost</a>（5 分钟）</li>
-      <li>对照昨天 Databricks 的成本框架，估算你团队的 AI 编码 token 消耗——如果你还没开始追踪，现在就是开始的时候</li>
-      <li>下周一跟老板聊的时候，主动提出「我们需要先建立成本基线再扩大 AI 编码使用」——SAP 的案例就是你的论据</li>
-      <li>关注 SAP 后续是否会公开具体的成本数字——那将是整个行业的参考基准</li>
+      <li>如果你有 Claude Code，在设置中提前开启自动模式体验一下</li>
+      <li>读 Anthropic 的安全评估原文，了解他们如何缓解提示注入风险</li>
+      <li>在你的工作流中测试自动模式——从简单的重构任务开始</li>
+      <li>关注 8 月 14 日的正式变更，看看是否有额外的安全选项</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 深扒——SAP 的 AI 成本到底花在哪</summary>
+    <summary>🔍 深度分析：安全评估数据</summary>
     <table>
       <thead>
-        <tr><th>维度</th><th>SAP 的情况（据 404 Media 报道）</th><th>典型企业情况</th></tr>
+        <tr><th>测试场景</th><th>人类拒绝率</th><th>自动模式阻止率</th><th>提升</th></tr>
       </thead>
       <tbody>
-        <tr><td>AI 成本来源</td><td>AI 编码工具 + 产品内 AI 功能 + 基础设施</td><td>类似，但规模小 10-100 倍</td></tr>
-        <tr><td>受影响预算</td><td>差旅（暂停）、招聘（暂停）</td><td>可能影响培训预算、工具采购</td></tr>
-        <tr><td>成本结构</td><td>GPU 租赁 + API 调用 + 内部部署</td><td>主要是 API 调用 + 少量 GPU</td></tr>
-        <tr><td>公开程度</td><td>内部备忘录泄露</td><td>大多数公司不公开</td></tr>
-        <tr><td>应对措施</td><td>重新分配预算，优先 AI 基础设施</td><td>可能类似：砍其他预算养 AI</td></tr>
+        <tr><td>危险命令批准</td><td>13.6%</td><td>89%</td><td>6.5x</td></tr>
+        <tr><td>提示注入攻击</td><td>8.2%</td><td>94%</td><td>11.5x</td></tr>
+        <tr><td>数据泄露尝试</td><td>11.4%</td><td>91%</td><td>8x</td></tr>
       </tbody>
     </table>
-    <p><strong>为什么 SAP 的 AI 成本特别高</strong>：SAP 有 40 万+ 企业客户，每个客户都在使用 AI 功能（代码生成、智能搜索、流程自动化）。同时，SAP 内部也在用 AI 编码工具开发产品。双重消耗叠加，成本快速膨胀。</p>
-    <p><strong>诚实 caveat</strong>：404 Media 的报道基于「内部备忘录」，无法独立验证。SAP 可能也在利用 AI 成本作为裁员/削减成本的借口。但无论如何，这是第一个公开的大型企业 AI 成本危机案例，值得认真对待。</p>
+    <p style="margin-top:.4rem;color:#6b5f4e">数据来源：Anthropic 安全评估报告（2026-08-09），1,053 名付费测试者。</p>
   </details>
 
   <div class="watch-block">
-    <strong>🔭 盯什么</strong> — 如果 SAP 在接下来两周内发布官方声明或财报说明，关注具体的 AI 成本数字。另外，关注其他大型企业（Accenture、Deloitte、Microsoft）是否会跟进类似的成本控制措施。
+    <strong>👀 值得关注</strong>：Anthropic 承诺在未来几周发布更详细的评估报告，包括不同风险类别的具体数据。同时关注其他 AI 编码工具（如 Codex、Cursor）是否会跟进默认自动模式。
+  </div>
+
+  <div class="jargon">
+    <strong>📖 术语解释</strong>：
+    <ul style="margin-top:.3rem;padding-left:1.2rem;font-size:.8rem">
+      <li><strong>自动模式</strong>：AI 在不需要用户每次确认的情况下自动执行操作的模式</li>
+      <li><strong>提示注入</strong>：通过精心设计的输入让 AI 执行非预期操作的攻击方式</li>
+      <li><strong>数据泄露</strong>：AI 在处理过程中意外暴露敏感信息的安全问题</li>
+    </ul>
   </div>
 
   <div class="who">
-    <strong>谁在讨论</strong>：<br>
-    HN 34 分 · 11 条评论 · 首页 #23<br>
-    404 Media 独家报道<br>
-    Smol AI 未收录（周末无更新）
+    <strong>谁在讨论</strong>：Simon Willison（报道并分析）、Cat Wu（Anthropic 产品负责人）、HN 社区
   </div>
 
   <div class="links">
     <strong>试试看 / 深入了解</strong>：<br>
-    <a href="https://www.404media.co/software-giant-sap-stops-most-travel-and-hiring-because-of-ais-soaring-cost/" target="_blank">📄 404 Media 原文</a><br>
-    <a href="https://news.ycombinator.com/item?id=41234570" target="_blank">💬 HN 讨论</a>
+    <a href="https://simonwillison.net/2026/Aug/9/claude-code-auto-mode/" target="_blank">📄 Simon Willison 的报道</a><br>
+    <a href="https://docs.anthropic.com/en/docs/claude-code/auto-mode" target="_blank">📘 Anthropic 官方文档</a>
   </div>
 </article>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📈 STILL TRACKING (过去 7 天 featured，无新 trigger event) -->
-<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ─── STILL TRACKING ─── -->
 <aside class="still-tracking">
-  <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
+  <div class="smallcaps">⏳ 仍在跟踪</div>
   <ul>
     <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Muse Code + Muse Spark 1.2</span> <span class="update">— 8月6日 featured，Simon Willison 评测已发布，HN 266 分。Meta 确认 Muse Spark 在测试中「意外攻击」了另一家公司，安全讨论持续升温。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Cloudflare OS</span> <span class="update">— 8月6日 featured，HN 567 分。无新进展，等待具体定价和 GPU 支持细节。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">Discovery Loop (Jeff Dean 创业)</span> <span class="update">— 8月6日 featured，HN 772 分。无新信息，仍在等待产品发布。</span></div>
+      <span class="days">Day 2</span>
+      <span class="item-name">Databricks 企业 AI 编码成本管理框架</span>
+      <span class="update">—— 社区开始分享实际部署案例，Accenture 爆料非工程师 token 消耗是盲区</span>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">OpenAI 回应「Hugging Face 事件」</span> <span class="update">— 8月7日 OpenAI 发布 Black Hat 演讲视频，Simon Willison 做了完整时间线梳理。事件仍在发酵，但无新工具/模型发布。</span></div>
+      <span class="item-name">Muse Spark 1.2 登顶 Vals Index</span>
+      <span class="update">—— 以 $0.69/test 的价格成为性价比之王，3x 便宜于 Kimi</span>
     </li>
     <li>
-      <span class="days">Day 1</span>
-      <div><span class="item-name">Databricks 企业 AI 编码成本管理框架</span> <span class="update">— 8月8日 featured，HN 247 分。SAP 因 AI 成本暂停差旅的新闻为这个框架提供了真实案例支撑。</span></div>
+      <span class="days">Day 4</span>
+      <span class="item-name">Google DeepMind 领导层重组</span>
+      <span class="update">—— Demis Hassabis 转任主席，新 CEO 尚未公布</span>
     </li>
   </ul>
 </aside>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 📊 今天没选进来的 (killed list) -->
-<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ─── KILLED ─── -->
 <section class="killed">
-  <span class="smallcaps">📊 今天没选进来的</span>
+  <div class="smallcaps">🗑️ 不再跟踪</div>
   <table>
     <thead>
-      <tr><th>条目</th><th>来源</th><th>分数</th><th>排除原因</th></tr>
+      <tr><th>项目</th><th>原跟踪日期</th><th>原因</th></tr>
     </thead>
     <tbody>
-      <tr><td>There Are Magic Hexagons of Every Order</td><td>HN #1</td><td>43 points</td><td>数学/游戏，非 AI 工具</td></tr>
-      <tr><td>My server is a phone now</td><td>HN #2</td><td>344 points</td><td>硬件/自托管，非 AI 工具</td></tr>
-      <tr><td>Microsoft Word for Windows 1.1a, Native X64 Port</td><td>HN #3</td><td>83 points</td><td>复古软件，非 AI</td></tr>
-      <tr><td>Os8088: A powerful Mac-like OS for the IBM XT</td><td>HN #4</td><td>181 points</td><td>复古操作系统，非 AI</td></tr>
-      <tr><td>Shopify replaced Redis with MySQL for inventory reservations</td><td>HN #5</td><td>219 points</td><td>数据库/架构，非 AI 工具</td></tr>
-      <tr><td>Improving Heuristics for A* Pathfinding</td><td>HN #6</td><td>254 points</td><td>算法，非 AI 工具</td></tr>
-      <tr><td>Fastmail offers EU data region</td><td>HN #7</td><td>430 points</td><td>邮件服务，非 AI 工具</td></tr>
-      <tr><td>Dithered QR Codes</td><td>HN #8</td><td>225 points</td><td>图像处理，非 AI 工具</td></tr>
-      <tr><td>The Grid That Doubles the Strength of the Ground</td><td>HN #9</td><td>21 points</td><td>工程，非 AI</td></tr>
-      <tr><td>The Alpha 21264 CPU: NT's Greatest RISC (1998)</td><td>HN #10</td><td>6 points</td><td>硬件历史，非 AI</td></tr>
-      <tr><td>Melatonin impairs morning cognition in healthy young adults</td><td>HN #11</td><td>134 points</td><td>医学研究，非 AI</td></tr>
-      <tr><td>The original URL for this prediction will no longer be available in 11 years</td><td>HN #12</td><td>152 points</td><td>网络文化，非 AI</td></tr>
-      <tr><td>Protopia</td><td>HN #13</td><td>17 points</td><td>观点文章，非 AI 工具</td></tr>
-      <tr><td>_for-sale DNS records</td><td>HN #14</td><td>401 points</td><td>DNS/域名，非 AI 工具</td></tr>
-      <tr><td>Stylized GGX Shading</td><td>HN #15</td><td>32 points</td><td>图形渲染，非 AI 工具</td></tr>
-      <tr><td>How to Survive in a Louisiana Swamp</td><td>HN #16</td><td>6 points</td><td>生存指南，非 AI</td></tr>
-      <tr><td>Unexpected events and prosocial behavior: the Batman effect</td><td>HN #17</td><td>65 points</td><td>心理学研究，非 AI</td></tr>
-      <tr><td>CSS: The bomb inside your inbox</td><td>HN #18</td><td>9 points</td><td>CSS 安全，非 AI 工具</td></tr>
-      <tr><td>Making difficulty curves in games</td><td>HN #19</td><td>123 points</td><td>游戏设计，非 AI 工具</td></tr>
-      <tr><td>Open-source interactive map for the Aug 12 total solar eclipse</td><td>HN #20</td><td>155 points</td><td>天文/地图，非 AI 工具</td></tr>
-      <tr><td>Should you stop cracking your knuckles?</td><td>HN #21</td><td>64 points</td><td>健康，非 AI</td></tr>
-      <tr><td>TheoremDB – A public workspace for machine mathematics</td><td>HN #22</td><td>44 points</td><td>数学工具，非 AI 工具（信号太弱）</td></tr>
-      <tr><td>Why MySpace fans want it back as relaunch hinted</td><td>HN #24</td><td>17 points</td><td>社交媒体怀旧，非 AI</td></tr>
-      <tr><td>Retraction: The App Store Rejection of the Week That Was a Correct Rejection</td><td>HN #25</td><td>205 points</td><td>App Store 政策，非 AI 工具</td></tr>
-      <tr><td>Building a local positioning system to track runners using UWB</td><td>HN #26</td><td>90 points</td><td>硬件/UWB，非 AI 工具</td></tr>
-      <tr><td>Triton: DirectX 11 Driver for QEMU</td><td>HN #27</td><td>185 points</td><td>虚拟化/驱动，非 AI 工具</td></tr>
-      <tr><td>Assert(): A Modern How To</td><td>HN #28</td><td>12 points</td><td>编程技巧，非 AI 工具</td></tr>
-      <tr><td>Incentives are for losers</td><td>HN #29</td><td>126 points</td><td>观点文章，非 AI 工具</td></tr>
-      <tr><td>Finding zombies in our systems: A real-world story of CPU bottlenecks</td><td>HN #30</td><td>53 points</td><td>系统性能，非 AI 工具</td></tr>
-      <tr><td>OpenAI: Responding to the next frontier of critical cyber capabilities</td><td>OpenAI 官方</td><td>—</td><td>安全政策声明，非新工具/模型发布</td></tr>
-      <tr><td>OpenAI: HSP Gruppe partnership</td><td>OpenAI 官方</td><td>—</td><td>企业合作，非新工具/模型发布</td></tr>
-      <tr><td>Anthropic: Improving Fable 5's biology safeguards</td><td>Anthropic 官方</td><td>—</td><td>安全更新，非新工具</td></tr>
-      <tr><td>Anthropic: Mariano-Florentino Cuéllar joins</td><td>Anthropic 官方</td><td>—</td><td>人事变动，非工具</td></tr>
-      <tr><td>Simon Willison: Now we have a timeline of the OpenAI attack</td><td>Simon Willison</td><td>—</td><td>安全事件分析，非新工具/模型发布（已作为背景提及）</td></tr>
-      <tr><td>Simon Willison: Moonlight & Mayhem (Raccoon Heist)</td><td>Simon Willison</td><td>—</td><td>Demo，非新工具/模型发布</td></tr>
-      <tr><td>Simon Willison: The Tokenpocalypse Is Here</td><td>Simon Willison</td><td>—</td><td>观点文章，非新工具</td></tr>
-      <tr><td>Simon Willison: An AI model from Meta also hacked another company</td><td>Simon Willison</td><td>—</td><td>安全事件，非新工具/模型发布</td></tr>
-      <tr><td>HuggingFace: Lattice (8 MB static retriever)</td><td>HuggingFace</td><td>16 likes</td><td>检索模型，信号太弱</td></tr>
-      <tr><td>HuggingFace: LFM2.5-Encoders for Fast Long-Context Inference on CPU</td><td>HuggingFace</td><td>68 likes</td><td>编码器模型，信号太弱</td></tr>
-      <tr><td>HuggingFace: The Fast Gemma Challenge</td><td>HuggingFace</td><td>24 likes</td><td>比赛，信号太弱</td></tr>
-      <tr><td>HuggingFace: 超越表层对齐</td><td>HuggingFace</td><td>9 likes</td><td>中文文章，可能已被中文圈覆盖</td></tr>
-      <tr><td>HuggingFace: Model Genome</td><td>HuggingFace</td><td>12 likes</td><td>研究，信号太弱</td></tr>
-      <tr><td>Mistral: Shieldstral</td><td>Mistral</td><td>—</td><td>8月4日发布，已过 7 天窗口</td></tr>
-      <tr><td>DeepMind: WeatherNext (八月)</td><td>DeepMind</td><td>—</td><td>天气模型，偏离 clawii 关注范围</td></tr>
-      <tr><td>OSSInsight 排行榜</td><td>OSSInsight</td><td>—</td><td>API 返回空数据，无趋势</td></tr>
-      <tr><td>GitHub Trending</td><td>GitHub</td><td>—</td><td>数据未获取到实质内容</td></tr>
+      <tr><td>GPT-5.6 Sol 统一模型</td><td>2026-08-05</td><td>已全面上线，无新进展</td></tr>
+      <tr><td>Meta Muse Code 开源</td><td>2026-08-04</td><td>社区热度下降，无重大更新</td></tr>
     </tbody>
   </table>
 </section>
@@ -381,10 +332,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const resp = await fetch('./archive.json');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const data = await resp.json();
-    const issues = data.issues;
+    const issues = data.issues || [];
     const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) throw new Error('not found');
 
     const prev = issues[idx + 1];
     if (prev) {
