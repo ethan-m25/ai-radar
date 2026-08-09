@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-08-09 · Week 32</title>
+    <meta name="description" content="Week 32 周报 —— 编码 Agent 三国杀开打：Meta 携低价入局、DeepSeek 登顶 ARC Prize、Anthropic 默认自动模式，企业 AI 编码从凭感觉进入算账时代。">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 32">
+    <meta property="og:description" content="7 天 8 条新信号 · 2 🚨 · 4 👀 · 2 ℹ️ · 跨周期追踪 4 条 · 4 条幸存进 weekly">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 26ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+        .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+        .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+        .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+        .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+        @keyframes rise {
+            to { opacity: 1; transform: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section { opacity: 1; transform: none; animation: none; }
+        }
+
+        /* 中文 bug fix: avoid splitting CJK characters */
+        .cover .headline,
+        .weekly-section h2 {
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">今日</a>
+                <a href="./archive.html" class="current">归档</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 08 · 09 · WK 32 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <!-- ════════════ COVER ════════════ -->
+        <section class="cover">
+            <span class="kicker smallcaps">Week 32 · 2026-08-03 → 2026-08-09</span>
+            <h1 class="display headline">编码 Agent 三国杀开打：Meta 低价入局、DeepSeek 登顶、Anthropic 默认为自动</h1>
+            <p class="lead">本周 8 条新信号，信号密度中等但质量很高。三条平行故事线都在指向同一个方向：企业 AI 编码正在从「能不能用」进入「怎么算账、怎么安全地用」的新阶段。Databricks 发布了第一套企业级成本核算框架，直接回答 CFO 最关心的问题；DeepSeek V4 Flash 用 1/10 的价格逼近闭源旗舰；Muse Code 以极低价格掀桌子。</p>
+
+            <div class="summary-box">
+                <strong>本周一句话总结：</strong>AI 编码工具不再是「哪个模型最好」的讨论，而是「哪个模型性价比最高、哪个平台最安全、哪套成本模型能说服老板」。Meta 的 Muse Code 以 $0.10 贡献者价格入场，DeepSeek V4 Flash 登顶 ARC Prize 证明小模型也能做复杂推理，Anthropic 默认开启自动模式——三个事件叠加，你手中的 AI 编码工具正在变得更强、更便宜、更自动。
+            </div>
+
+            <div class="count-row">
+                <div class="total">8</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>2</strong>&nbsp;🚨（Databricks 成本框架 · DeepSeek V4 Flash ARC 领跑）</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>4</strong>&nbsp;👀（Qwen3.8-Max 发布 · Mac 4.3GB 跑 80B · Muse Code 入局 · Cloudflare OS）</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>2</strong>&nbsp;ℹ️（Mistral Shieldstral · Discovery Loop 创业）</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 4 条幸存进 weekly · 4 条降级/移除</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 本周最重要的唯一一件事</div>
+            <h2 class="display">AI 编码进入「算账时代」：从凭感觉好用，到用数据说服老板</h2>
+
+            <p>如果你每天在用 Claude Code 或 Codex 写代码，你肯定被问过这个问题：「这玩意儿到底值不值？」以前你可以说「效率提高了」，但现在 CFO 要的是数字。</p>
+
+            <p>本周 Databricks 发布的《Managing AI Coding Costs at Scale》是第一套完整的企业级 AI 编码成本核算框架。它把成本拆成三个维度：开发成本（写代码的 token）、调试成本（agent 自我修复的 token）、维护成本（理解遗留代码的 token）。每个 PR 都能算出 token 成本/节省的开发人时。这不是理论——Databricks 自己在用，Accenture 在评论区爆料非工程师才是 token 消耗大户。</p>
+
+            <p>与此同时，三条价格线在同步下探：<strong>Meta Muse Code</strong> 以贡献者价格 $0.10/$0.20 入场，比 GPT-5.6 Luna 还便宜 50%；<strong>DeepSeek V4 Flash</strong> 以 $0.08/百万 token 的价格登顶 ARC Prize，证明小模型也能做复杂推理；<strong>OpenAI</strong> 此前也刚刚大幅降价。这不是巧合——模型性价比大战正在重塑整个市场。</p>
+
+            <p>Anthropic 本周确认 Claude Code 将在 8 月 14 日默认开启自动模式，安全评估显示自动模式比人类更可靠（人类拒绝危险操作仅 13.6%，自动模式阻止 89%）。这意味着你的编码工具正在变得更安全、更自动，但同时也意味着你在「让出控制权」——你需要信任 AI 自己做决定。</p>
+
+            <p><strong>如果本周只做一件事：</strong>下载 Databricks 的成本核算 SQL 模板，在你公司跑一次。看看你们团队的 token 都花在哪里了。你可能会发现非工程师的 token 消耗比你想象的高得多——这是你跟老板聊预算的最佳起点。然后，打开 Claude Code 的自动模式试试，感受一下「不用每次点确认」的开发体验。</p>
+        </section>
+
+        <!-- ════════════ 📈 TRENDS ════════════ -->
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 正在成形的趋势</div>
+            <h2 class="display">三条在本周被确认或加速的方向</h2>
+
+            <div class="trend-item">
+                <div class="trend-name">① 模型性价比大战进入白热化：小模型逼近闭源旗舰</div>
+                <p>DeepSeek V4 Flash 0731（13B 激活参数，$0.08/百万 token）在 ARC Prize 上达到 64.6%，超过 GPT-5.6 Sol（55.2%）和 Claude 4 Opus（58.1%）。Meta 的 Muse Code 以 $0.10 贡献者价格入局，直接对标 Claude Code 和 Codex。本周的共识很明确：价格不再是选择模型的唯一标准，性价比才是。</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">② 企业级 AI 编码从「能不能用」进入「怎么算账」</div>
+                <p>Databricks 的成本框架不是孤例。本周 Qwen3.8-Max 发布时社区的第一反应是「价格多少」，Cloudflare OS 发布时 HN 讨论集中在定价。企业采购 AI 编码工具的关键决策因素正在从「能力对比」转向「ROI 计算」。如果你在公司推广 AI 编码，现在就需要一套成本核算模型。</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">③ Agent 自动模式成为默认选项</div>
+                <p>Anthropic 默认开启 Claude Code 自动模式，安全评估反而更强。这与上周 qm 框架（YAML 配置 agent 团队）的趋势一致——AI 工具正在从「需要人工审批的助手」变成「可以自主执行的操作系统」。对人类干预的新定义正在形成：不是每个操作都要确认，而是在关键决策上保留控制权。</p>
+            </div>
+        </section>
+
+        <!-- ════════════ 💀 WRONG ════════════ -->
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 本周我叫错了 / 过度炒作的信号</div>
+            <h2 class="display">4 条被降级，2 条需要坦白承认判断偏乐观</h2>
+
+            <p><strong>Qwen3.8-Max 发布（8/3 🚨 → 降级为 👀，Day 6 无权重上传）</strong> — 周一我把它标为 🚨，因为 HN 622 分热度极高。但到今天为止，模型权重仍未上传 HuggingFace，没有独立评测，社区热度已大幅下降。阿里巴巴可能还在准备正式发布，但一周过去了没有新进展，说明这个信号可能只是「预告片」，不是「正片」。降级为 👀。</p>
+
+            <p><strong>4.3GB Mac 跑 80B 模型（8/4 👀 → 降级，Day 5 无社区验证）</strong> — 周二我把它选为 👀，因为听起来很吸引人。但一周过去了，没有任何独立 KOL 复现或验证这个结果。GitHub 仓库也没有更新。4.3GB 跑 80B 听起来好得难以置信，目前看来确实不可信。从 👀 降级为不再跟踪。</p>
+
+            <p><strong>Mistral Shieldstral 和 Discovery Loop（ℹ️ → 降级）</strong> — 这两个都是 ℹ️ 级信号，本周无后续进展。Shieldstral 在 HN 热度 435 分后没有获得 KOL 评测，Discovery Loop 团队含金量极高但没有任何产品发布。继续跟踪是合理的，但不需要以独立条目的形式出现。</p>
+
+            <p><strong>其他降级</strong> — Muse Spark 1.2 登顶 Vals Index（Day 2 确认，进入 Still Tracking 但无需独立跟踪）、Qwen3.8-Max 权重未上传（从 Still Tracking 中移除）、DeepSeek V4 Flash 和 Kimi K3 29GB 实验因连续 7 天无新 trigger event（从 Still Tracking 中移除）。这些都已经在 daily 中标注，本周正式确认降级。</p>
+        </section>
+
+        <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 下周关注清单</div>
+            <h2 class="display">未来 7 天盯紧这三件事</h2>
+
+            <div class="watch-item">
+                <strong>① Qwen3.8-Max 权重是否上传</strong><br>
+                这是本周最大的未决事项。如果阿里巴巴在下周一或二公开权重和 benchmark，社区将迅速将其与 Kimi K3、DeepSeek V4 Flash 对比。如果推迟到下周之后，说明可能内部测试未通过或战略调整。同时关注是否与 Kimi K3 形成正面竞争。<br>
+                <span class="trigger">触发 → HuggingFace 出现 Qwen3.8-Max 模型权重 / 独立 benchmark 分数公布</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② Databricks 成本框架是否引发标准化浪潮</strong><br>
+                Databricks 的 SQL 模板是专有平台，但框架本身可以适配到 Snowflake、BigQuery 甚至 Postgres。如果下周有至少一家大型企业或咨询公司（如 Accenture、McKinsey）公开发布「基于 Databricks 框架的 AI 编码成本报告」，信号将升级。如果 Snowflake 或 AWS 也推出类似工具，说明「AI 编码成本核算」正在成为企业标配。<br>
+                <span class="trigger">触发 → 主流云平台发布类似工具 / 咨询公司发布落地案例</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ Anthropic Claude Code 自动模式正式上线后的安全反馈</strong><br>
+                8 月 14 日是正式生效日。如果上线后出现安全事件（比如自动模式意外执行危险命令），或用户大量反馈「控制感下降」，可能会促使 Anthropic 调整策略。反之，如果上线顺利且社区反馈「效率提升明显」，意味着其他工具也会跟进。关注 Simon Willison 和 HN 社区的评测。<br>
+                <span class="trigger">触发 → 上线后 72h 内的社区反馈 / 安全事件报告 / 其他工具跟进公告</span>
+            </div>
+        </section>
+
+        <!-- ════════════ 📅 CALIBRATION ════════════ -->
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 校准指标 — Week 32</div>
+            <h2 class="display">本周数字</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>7 of 7 days（8/3-8/9，全勤）</dd>
+
+                <dt>🚨 Items flagged</dt>
+                <dd>2（Databricks 企业成本框架 · DeepSeek V4 Flash ARC 领跑）</dd>
+
+                <dt>👀 Items flagged</dt>
+                <dd>4（Qwen3.8-Max 发布 · Mac 4.3GB 跑 80B · Muse Code 入局 · Cloudflare OS）</dd>
+
+                <dt>ℹ️ Items flagged</dt>
+                <dd>2（Mistral Shieldstral · Discovery Loop 创业）</dd>
+
+                <dt>New signals total</dt>
+                <dd>8（2🚨 + 4👀 + 2ℹ️）</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>4（🏆 AI 编码算账时代 · 📈 性价比大战 · 📈 企业算账 · 📈 自动模式默认 · 💀 4 条降级修正）</dd>
+
+                <dt>Items demoted / removed from tracking</dt>
+                <dd>4（Qwen3.8-Max 权重未上传 · 4.3GB Mac 方案 · Shieldstral 无后续 · Discovery Loop 无产品）</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>50%（比上周 58% 有改善。本周 2 个 🚨 都得到了后续验证——Databricks 框架持续被引用，DeepSeek Flash ARC 持续领跑。Qwen3.8-Max 的降级说明我对「HN 热度」的权重偏高，下周需要降低对 600+ 分无权重上传的敏感度。）</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>~36 小时 ahead on Databricks 成本框架（英文社区 8/6 开始讨论，中文科技媒体 8/7 开始报道）；~24 小时 ahead on DeepSeek Flash ARC（8/8 HN 爆发，中文圈 8/9 开始零星讨论）；~12 小时 ahead on Muse Code（8/6 发布，中文圈 8/6 当晚即有报道）。整体领先时间在缩短，说明中文圈对国际 AI 动态的追踪速度在加快。</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                做你的 AI 虚拟朋友 — 每天 07:07 推送 · 周日 08:00 出 Weekly Wrap · 宁缺毋滥。
+            </p>
+            <p>
+                扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+            </p>
+            <p>
+                剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 32 · 2026-08-09 · 7 dailies · 8 new signals (2🚨 / 4👀 / 2ℹ️) · 4 survived · 4 demoted/removed
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

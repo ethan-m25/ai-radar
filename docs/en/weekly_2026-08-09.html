@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-08-09 · Week 32</title>
+<meta name="description" content="Week 32 — AI coding enters the accounting era. Databricks cost framework, Muse Code at $0.10, DeepSeek tops ARC Prize, Anthropic defaults to auto-mode. 8 new signals, 4 survived to weekly.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 32">
+<meta property="og:description" content="8 new signals across 7 days · 2 🚨 · 4 👀 · 2 ℹ️ · 4 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 26ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 08 · 09 · WK 32 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <!-- ════════════ COVER ════════════ -->
+  <section class="cover">
+    <span class="kicker smallcaps">Week 32 · 2026-08-03 → 2026-08-09</span>
+    <h1 class="display headline">AI coding enters the accounting era — Databricks cost framework, Muse Code at $0.10, DeepSeek tops ARC Prize</h1>
+    <p class="lead">8 new signals this week with 2 🚨 — moderate density but high quality. Three parallel stories all pointing the same direction: enterprise AI coding is shifting from "can it work" to "how do we account for it, how do we use it safely." Databricks published the first enterprise cost framework. Muse Code entered at $0.10 contributor pricing. DeepSeek V4 Flash topped ARC Prize at 1/10 the price of closed-source flagships. Anthropic defaulted Claude Code to auto-mode. The week's theme: the tools are getting stronger, cheaper, and more autonomous — and CFOs are starting to ask questions.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> AI coding tools are no longer a debate about "which model is best" — it's now "which model gives the best value, which platform is safest, and which cost framework can convince your boss." Databricks gave you the spreadsheet. Muse Code gave you the price anchor. DeepSeek proved small models can reason. Anthropic flipped the default to auto-mode. If you only read one thing, read the Databricks cost framework — it will change how you talk about AI coding at work.
+    </div>
+
+    <div class="count-row">
+      <div class="total">8</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>2</strong>&nbsp;🚨 (Databricks cost framework · DeepSeek V4 Flash ARC Prize leader)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>4</strong>&nbsp;👀 (Qwen3.8-Max launch · 80B model in 4.3GB RAM on Mac · Muse Code enters coding agent race · Cloudflare OS)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>2</strong>&nbsp;ℹ️ (Mistral Shieldstral safety model · Discovery Loop founding)</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 4 survived to weekly · 4 demoted / removed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">AI coding enters the accounting era — from "feels faster" to "here's the data"</h2>
+
+    <p>If you use Claude Code or Codex every day, you've probably been asked: "Is this actually worth it?" You used to answer with anecdotes — "it feels faster," "I shipped more PRs." This week, Databricks gave you a spreadsheet instead.</p>
+
+    <p><strong>Monday (8/3):</strong> Qwen3.8-Max hit HN at 622 points — the community's first reaction was "how much does it cost?" Not "how good is it?" The pricing question was front and center from the start. <strong>Tuesday:</strong> A project claimed 80B in 4.3GB RAM — the community's response was "show me the benchmarks." <strong>Wednesday-Thursday:</strong> Meta's Muse Code launched at $0.10/$0.20 contributor pricing — cheaper than GPT-5.6 Luna. Cloudflare OS launched at 567 HN points — the HN discussion was dominated by pricing questions. <strong>Friday-Saturday:</strong> Databricks published the first enterprise AI coding cost framework, breaking costs into three categories: development, debugging, maintenance. DeepSeek V4 Flash topped ARC Prize at $0.08/M tokens — 1/10 the price of GPT-5.6 Sol. <strong>Sunday:</strong> Anthropic defaulted Claude Code to auto-mode — safety data showed auto-mode is more reliable than humans.</p>
+
+    <p>Three parallel stories converged this week. First, <strong>the model value war</strong> — Muse Code, DeepSeek V4 Flash, and the ongoing price cuts from OpenAI and Anthropic all point to the same direction: pricing is collapsing, and the question is no longer "which model is best" but "which model gives the best value." Second, <strong>enterprise cost accounting</strong> — Databricks' framework is the first serious attempt to answer the CFO question. It's not a blog post; it's a SQL template you can run against your own data. Third, <strong>agent autonomy</strong> — Anthropic's auto-mode default, combined with Muse Code's whole-repo generation and Cloudflare OS's agent platform, means AI coding tools are becoming more autonomous, not less.</p>
+
+    <p><strong>If you only do one thing this week:</strong> Download the Databricks cost framework SQL templates and run them against your company's data platform. Find out where your tokens are actually going. You might discover that non-engineer token consumption (PMs writing specs, designers generating UI code) is 2-3x larger than engineering consumption — and that's the data point that changes the budget conversation. Then, enable Claude Code auto-mode and see what it feels like to not click "approve" on every step.</p>
+  </section>
+
+  <!-- ════════════ 📈 TRENDS ════════════ -->
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① The model value war is in full swing — small models beat closed-source flagships on cost-efficiency</div>
+      <p>DeepSeek V4 Flash 0731 (13B active params, $0.08/M tokens) scored 64.6% on ARC Prize, beating GPT-5.6 Sol (55.2%) and Claude 4 Opus (58.1%). Meta's Muse Code entered at $0.10 contributor pricing — cheaper than GPT-5.6 Luna. The week's consensus: price is no longer the primary differentiator — value per dollar is. In the next 1-2 months, expect more "value tier" model releases and further price cuts from the incumbents.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Enterprise AI coding moved from "can it work" to "how do we account for it"</div>
+      <p>Databricks' cost framework wasn't an isolated event. Qwen3.8-Max's HN thread was dominated by pricing questions. Cloudflare OS's HN discussion centered on pricing. The decision factor for enterprise AI coding tool adoption is shifting from capability comparison to ROI calculation. If you're advocating for AI coding tools at work, you now need a cost accounting model — not just a demo.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ Agent auto-mode is becoming the default — and it's safer than manual approval</div>
+      <p>Anthropic's auto-mode default is part of a broader trend. qm (last week) showed agent frameworks can work without code. Muse Code is built for whole-repo agentic generation. Cloudflare OS is an agent platform. The direction is clear: AI tools are moving from "assistants that need approval" to "agents that execute autonomously." The key insight from Anthropic's safety eval: humans approve dangerous commands 86.4% of the time; auto-mode blocks 89%. The question is no longer "should we trust auto-mode" but "how do we design the right human-in-the-loop for the critical decisions only."</p>
+    </div>
+  </section>
+
+  <!-- ════════════ 💀 WRONG ════════════ -->
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">4 signals demoted, 2 judgment corrections</h2>
+
+    <p><strong>Qwen3.8-Max launch (8/3 🚨 → demoted to 👀, Day 6 no weights uploaded)</strong> — I flagged this as 🚨 on Monday because HN 622 points was the hottest story of the day. But by Sunday, model weights still haven't appeared on HuggingFace. No independent benchmarks. No KOL reviews. The community heat has cooled significantly. Alibaba may still be preparing the formal release, but a week without follow-up means this was a "trailer," not the "feature film." Demoted to 👀. This is a clear case where I weighted HN heat too heavily — 600+ points on a launch announcement doesn't mean the product is actually shipping.</p>
+
+    <p><strong>80B model in 4.3GB RAM on a Mac (8/4 👀 → removed, Day 5 no verification)</strong> — I flagged this as 👀 on Tuesday because the claim was compelling. But a week passed with zero independent verification. No KOL replicated it. The GitHub repo hasn't been updated. 4.3GB for an 80B model sounds too good to be true, and the evidence suggests it is. Removed from tracking.</p>
+
+    <p><strong>Mistral Shieldstral (8/5 ℹ️ → removed)</strong> — 435 HN points was solid, but no KOL review followed, no community adoption materialized. A safety model without adoption data is just a model release. Removed from tracking.</p>
+
+    <p><strong>Discovery Loop (8/6 ℹ️ → removed from independent tracking)</strong> — The founding team (Jeff Dean, Sanjay Ghemawat, Oriol Vinyals, Quoc Le) is the highest-caliber team in AI history. But no product, no roadmap, no timeline. The 772 HN points reflect the team's reputation, not the company's substance. Worth keeping on a long-term watch list, but not as an active daily signal.</p>
+
+    <p><strong>Other demotions:</strong> Muse Spark 1.2 topping Vals Index (confirmed Day 2, moved to Still Tracking, no need for independent tracking); Qwen3.8-Max weights not uploaded (removed from Still Tracking); DeepSeek V4 Flash and Kimi K3 29GB experiment removed from Still Tracking after 7 consecutive days with no new trigger event. All were already noted in daily issues and are now formally confirmed as no longer tracked.</p>
+  </section>
+
+  <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Will Qwen3.8-Max weights actually ship?</strong><br>
+      This is the biggest unresolved question from this week. If Alibaba uploads weights and benchmarks by Monday or Tuesday, the community will rapidly compare it against Kimi K3 and DeepSeek V4 Flash. If it slips to the following week or later, it suggests internal testing issues or a strategic pivot. Also watch whether it directly competes with Kimi K3's positioning.<br>
+      <span class="trigger">Trigger → HuggingFace upload of Qwen3.8-Max weights / independent benchmark scores published</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Will the Databricks cost framework trigger a standardization wave?</strong><br>
+      Databricks' SQL templates are proprietary to their platform, but the framework itself is adaptable to Snowflake, BigQuery, or even Postgres. If at least one major enterprise or consultancy (Accenture, McKinsey) publishes a "based on the Databricks framework" AI coding cost report next week, the signal upgrades. If Snowflake or AWS ship similar tools, "AI coding cost accounting" becomes an enterprise standard.<br>
+      <span class="trigger">Trigger → Major cloud platform launches similar tool / consultancy publishes adoption case study</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ What happens when Claude Code auto-mode goes live on August 14?</strong><br>
+      The official default change is August 14 (next Friday). If security incidents emerge (e.g., auto-mode accidentally executes a dangerous command), or if users widely report "loss of control," Anthropic may adjust the strategy. If the launch goes smoothly and community feedback is positive ("efficiency significantly improved"), other tools will follow. Watch Simon Willison and HN for the first 72-hour post-launch evaluation.<br>
+      <span class="trigger">Trigger → Community feedback within 72h of launch / security incident reports / competitor follow-up announcements</span>
+    </div>
+  </section>
+
+  <!-- ════════════ 📅 CALIBRATION ════════════ -->
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 32</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (8/3–8/9, full attendance)</dd>
+
+      <dt>🚨 Items flagged</dt>
+      <dd>2 (Databricks enterprise cost framework · DeepSeek V4 Flash ARC Prize leader)</dd>
+
+      <dt>👀 Items flagged</dt>
+      <dd>4 (Qwen3.8-Max launch · 80B model in 4.3GB RAM · Muse Code · Cloudflare OS)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>2 (Mistral Shieldstral · Discovery Loop founding)</dd>
+
+      <dt>New signals total</dt>
+      <dd>8 (2🚨 + 4👀 + 2ℹ️)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>4 (🏆 AI coding accounting era · 📈 model value war · 📈 enterprise cost accounting · 📈 agent auto-mode default · 💀 4 demotions/corrections)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>4 (Qwen3.8-Max weights not uploaded · 4.3GB Mac scheme · Mistral Shieldstral no follow-up · Discovery Loop no product)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>50% (improvement from last week's 58%. Both 🚨 items this week received subsequent validation — Databricks framework continued to be referenced, DeepSeek Flash ARC maintained its lead. Qwen3.8-Max demotion shows I'm still overweighting HN heat — need to reduce sensitivity to 600+ point launches without weight uploads.)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~36 hours ahead on Databricks cost framework (English community 8/6, Chinese tech media 8/7); ~24 hours ahead on DeepSeek Flash ARC (8/8 HN blow-up, Chinese discussion 8/9); ~12 hours ahead on Muse Code (8/6 launch, Chinese coverage same evening). Overall lead time is shrinking, suggesting Chinese-language coverage of international AI developments is accelerating. This is a pattern to watch — if it drops below 12 hours consistently, the "exclusive signal" advantage narrows.</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 32 · 2026-08-09 · 7 dailies · 8 new signals (2🚨 / 4👀 / 2ℹ️) · 4 survived · 4 demoted/removed
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
