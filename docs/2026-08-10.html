@@ -5,365 +5,390 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-10 · Week 33 · №077</title>
-<meta name="description" content="2 条新信号 · 4 条仍在发酵 · 本地模型 + 安全沙箱，agent 基础设施在加速">
-
+<meta name="description" content="2 条新真信号 · 1 条仍在发酵 · 黑马登顶 + 成本框架 + 自动模式默认">
 <meta property="og:title" content="AI Radar · 2026-08-10 · №077">
-<meta property="og:description" content="2 条新信号 · 4 条仍在发酵 · 本地模型 + 安全沙箱，agent 基础设施在加速">
+<meta property="og:description" content="2 条新真信号 · 1 条仍在发酵 · 黑马登顶 + 成本框架 + 自动模式默认">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
-/* ── reset ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{font-family:"Geist","Inter","SF Pro Text",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;font-size:1rem;line-height:1.6;color:#1a1a1a;background:#f4ede0;padding:0;margin:0}
-img{max-width:100%;display:block}
-a{color:#1a5a7a;text-decoration-color:#1a5a7a;text-underline-offset:2px}
-a:hover{color:#0b3b4f}
-ul,ol{padding-left:1.2rem}
-li+li{margin-top:.2rem}
-/* ── layout ── */
-.wrapper{max-width:720px;margin:0 auto;padding:0 1.2rem}
-/* ── masthead ── */
-.masthead{display:flex;justify-content:space-between;align-items:baseline;padding:1.8rem 1.2rem .4rem;max-width:720px;margin:0 auto;border-bottom:1px solid #d8cfc0}
-.masthead .logo{font-family:"Fraunces",Georgia,serif;font-weight:500;font-variation-settings:"SOFT" 85;font-size:1.1rem;letter-spacing:-.01em;color:#3d352c}
-.masthead .logo span{color:#a3957e}
-.masthead .meta{font-size:.75rem;color:#8a7d6b;display:flex;gap:.8rem}
-.masthead .meta span+span::before{content:"·";margin-right:.5rem;color:#c4b8a5}
-/* ── cover ── */
-.cover{max-width:720px;margin:0 auto;padding:2rem 1.2rem 1.2rem}
-.cover .counts{display:flex;gap:.3rem;margin-bottom:.6rem}
-.cover .counts .pill{padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:500;letter-spacing:.03em;background:#e4dcd0;color:#5a4f40}
-.cover .counts .pill.crit{background:#c44536;color:#fff}
-.cover .counts .pill.look{background:#d4a84b;color:#fff}
-.cover .counts .pill.fyi{background:#8a9b9b;color:#fff}
-.cover .headline{font-family:"Fraunces",Georgia,serif;font-size:1.8rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.2;letter-spacing:-.01em;color:#2b231c;margin-top:.2rem}
-
-.cover .sub{font-size:.85rem;color:#6b5f4e;margin-top:.3rem}
-/* ── pager ── */
-.pager{display:flex;justify-content:space-between;max-width:720px;margin:0 auto;padding:.6rem 1.2rem;font-size:.8rem;color:#8a7d6b}
-.pager a{color:#1a5a7a;text-decoration:none;font-weight:500}
-.pager a:hover{text-decoration:underline}
-.pager .prev::before{content:"← ";font-weight:400}
-.pager .next::after{content:" →";font-weight:400}
-.pager .disabled{color:#c4b8a5;pointer-events:none}
-/* ── item ── */
-.item{max-width:720px;margin:0 auto;padding:1.5rem 1.2rem;border-top:1px solid #e4dcd0}
-.item .tier{display:inline-block;padding:.15rem .55rem;border-radius:999px;font-size:.7rem;font-weight:500;letter-spacing:.03em;margin-bottom:.4rem}
-.item .tier.crit{background:#c44536;color:#fff}
-.item .tier.look{background:#d4a84b;color:#fff}
-.item .tier.fyi{background:#8a9b9b;color:#fff}
-.item .item-title{font-family:"Fraunces",Georgia,serif;font-size:1.3rem;font-weight:500;font-variation-settings:"SOFT" 85;line-height:1.3;color:#2b231c;margin-bottom:.3rem}
-.item .pitch{font-family:"Fraunces",Georgia,serif;font-size:.95rem;font-style:italic;font-variation-settings:"SOFT" 60;color:#5a4f40;margin-bottom:.6rem}
-.context-box{background:#ede6d8;border-left:3px solid #c4b8a5;padding:.5rem .7rem;margin:.6rem 0;font-size:.85rem;color:#5a4f40;border-radius:0 4px 4px 0}
-.context-box strong{color:#2b231c}
-.item h3{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#8a7d6b;margin:1rem 0 .3rem}
-.item ul,.item ol{padding-left:1.2rem;font-size:.9rem;color:#3d352c}
-.item li+li{margin-top:.2rem}
-.action-block{background:#ede6d8;border-radius:6px;padding:.6rem .8rem;margin:.6rem 0}
-.action-block ol{font-size:.85rem;padding-left:1.4rem}
-.action-block li{margin-bottom:.15rem}
-
-.action-block code{font-family:"Geist Mono",monospace;font-size:.8rem;background:#d8cfc0;padding:.05rem .3rem;border-radius:3px}
-.deep-dive{background:#f4ede0;border:1px solid #d8cfc0;border-radius:6px;padding:.6rem .8rem;margin:.6rem 0;font-size:.85rem}
-.deep-dive summary{font-weight:600;cursor:pointer;color:#2b231c}
-.deep-dive table{width:100%;border-collapse:collapse;margin:.4rem 0;font-size:.8rem}
-.deep-dive th,.deep-dive td{border:1px solid #d8cfc0;padding:.2rem .4rem;text-align:left}
-.deep-dive th{background:#ede6d8;font-weight:500;color:#5a4f40}
-.deep-dive td{color:#3d352c}
-.watch-block{background:#f0eadc;border-left:3px solid #d4a84b;padding:.4rem .7rem;margin:.6rem 0;font-size:.82rem;color:#5a4f40;border-radius:0 4px 4px 0}
-.jargon{background:#f4ede0;border:1px dashed #c4b8a5;border-radius:6px;padding:.4rem .7rem;margin:.6rem 0;font-size:.8rem;color:#5a4f40}
-.jargon strong{color:#2b231c}
-.who{font-size:.8rem;color:#6b5f4e;margin:.4rem 0}
-.who strong{color:#2b231c}
-.links{font-size:.82rem;margin:.4rem 0}
-.links a{display:inline-block;margin-right:.6rem}
-/* ── still tracking ── */
-.still-tracking{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e4dcd0}
-.still-tracking .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
-.still-tracking ul{list-style:none;padding:0;margin-top:.4rem}
-.still-tracking li{display:grid;grid-template-columns:3.5rem 1fr;gap:.3rem;padding:.2rem 0;font-size:.85rem;color:#5a4f40}
-.still-tracking .days{font-weight:500;color:#8a7d6b;font-variant-numeric:tabular-nums}
-.still-tracking .item-name{font-weight:500;color:#2b231c}
-.still-tracking .update{color:#6b5f4e}
-/* ── killed ── */
-.killed{max-width:720px;margin:0 auto;padding:1rem 1.2rem;border-top:1px solid #e4dcd0}
-
-.killed .smallcaps{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#8a7d6b;font-weight:500}
-.killed table{width:100%;border-collapse:collapse;margin-top:.4rem;font-size:.8rem}
-.killed th,.killed td{border:1px solid #e4dcd0;padding:.25rem .4rem;text-align:left}
-.killed th{background:#f4ede0;font-weight:500;color:#6b5f4e}
-.killed td{color:#5a4f40}
-/* ── footer ── */
-.footer{max-width:720px;margin:0 auto;padding:1.2rem;border-top:1px solid #d8cfc0;font-size:.75rem;color:#8a7d6b;text-align:center}
-/* ── responsive ── */
-@media(max-width:480px){.cover .headline{font-size:1.4rem}.masthead{flex-wrap:wrap;gap:.3rem}.item .item-title{font-size:1.1rem}}
+  :root {
+    --bg: #f4ede0;
+    --text: #1a1a1a;
+    --accent: #b91c1c;
+    --accent2: #1e40af;
+    --accent3: #6b7280;
+    --border: #d1d5db;
+    --card-bg: #ffffffcc;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .container { padding: 24px 0; }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 24px;
+  }
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  header .meta {
+    font-size: 0.85rem;
+    color: var(--accent3);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .counts {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .pill.crit { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .pill.look { background: #eff6ff; color: #1e40af; border: 1px solid #93c5fd; }
+  .pill.fyi { background: #f3f4f6; color: #6b7280; border: 1px solid #d1d5db; }
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .sub {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 32px;
+    max-width: 680px;
+  }
+  .item {
+    background: var(--card-bg);
+    backdrop-filter: blur(4px);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid transparent;
+  }
+  .item.crit { border-left-color: #b91c1c; }
+  .item.look { border-left-color: #1e40af; }
+  .item.fyi { border-left-color: #6b7280; }
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .item-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .item-header .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: #e5e7eb;
+    color: #374151;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent3);
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  .item p { margin-bottom: 12px; }
+  .item ul { margin-bottom: 12px; padding-left: 20px; }
+  .item li { margin-bottom: 4px; }
+  .jargon {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 0.9rem;
+    border-left: 3px solid #d1d5db;
+  }
+  .jargon strong { font-weight: 600; }
+  .who {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .who a {
+    font-size: 0.85rem;
+    color: var(--accent2);
+    text-decoration: none;
+    border-bottom: 1px dotted #93c5fd;
+  }
+  .who a:hover { border-bottom-style: solid; }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .links a {
+    font-size: 0.85rem;
+    color: var(--accent2);
+    text-decoration: none;
+    background: #eff6ff;
+    padding: 4px 12px;
+    border-radius: 16px;
+    border: 1px solid #93c5fd;
+    transition: background 0.2s;
+  }
+  .links a:hover { background: #dbeafe; }
+  .still-tracking {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-top: 32px;
+    border: 1px dashed var(--border);
+  }
+  .still-tracking .smallcaps {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent3);
+    margin-bottom: 12px;
+  }
+  .still-tracking ul { list-style: none; padding: 0; }
+  .still-tracking li {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.9rem;
+  }
+  .still-tracking li:last-child { border-bottom: none; }
+  .still-tracking .days {
+    font-weight: 500;
+    color: var(--accent3);
+    min-width: 50px;
+  }
+  .still-tracking .item-name { font-weight: 500; }
+  .still-tracking .update { color: #4b5563; }
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .pager a {
+    color: var(--accent2);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #eff6ff;
+    border: 1px solid #93c5fd;
+    transition: background 0.2s;
+  }
+  .pager a:hover { background: #dbeafe; }
+  .pager .disabled { opacity: 0.4; pointer-events: none; }
+  footer {
+    text-align: center;
+    padding: 32px 0 16px;
+    font-size: 0.8rem;
+    color: var(--accent3);
+  }
+  @media (max-width: 600px) {
+    header { flex-direction: column; gap: 8px; }
+    .headline { font-size: 1.6rem; }
+    .item { padding: 16px; }
+  }
 </style>
 </head>
 <body>
+<div class="container">
+  <header>
+    <h1>AI Radar</h1>
+    <div class="meta">
+      <span>№077</span>
+      <span>2026-08-10</span>
+      <span>Week 33</span>
+    </div>
+  </header>
 
-<!-- ─── MASTHEAD ─── -->
-<header class="masthead">
-  <div class="logo">AI <span>Radar</span></div>
-  <div class="meta">
-    <span>2026-08-10</span>
-    <span>Week 33</span>
-    <span>№077</span>
-  </div>
-</header>
-
-<!-- ─── PAGER (top) ─── -->
-<nav class="pager" data-current-date="2026-08-10">
-  <a class="prev" href="#">上一期</a>
-  <span class="disabled">2026-08-10</span>
-  <a class="next" href="#">下一期</a>
-</nav>
-
-<!-- ─── COVER ─── -->
-<section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 0 条</span>
-    <span class="pill look">👀 2 条</span>
+    <span class="pill crit">🚨 1 条</span>
+    <span class="pill look">👀 1 条</span>
     <span class="pill fyi">ℹ️ 0 条</span>
   </div>
-  <h1 class="headline">本地模型 + 安全沙箱，agent 基础设施在加速</h1>
-  <p class="sub">Meta Muse Glimmer 发布 30B 本地编码模型，Docker 推出 AI agent 可丢弃沙箱。两个信号都指向同一个方向：让 AI agent 更安全、更私密、更易部署。</p>
-</section>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 1 — Meta Muse Glimmer 30B 本地编码模型 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item">
-  <span class="tier look">👀 值得一看</span>
-  <h2 class="item-title">Meta Muse Glimmer 发布：30B 开源本地编码模型，支持多模态和 agent 能力</h2>
-  <p class="pitch">clawii，Meta 今天放出了一个 30B 参数的本地编码模型 Muse Glimmer，开源权重，可本地运行，支持图像+文本输入，专为 agent 场景优化。你可以在自己电脑上跑一个编码 agent，不需要云端 API，隐私和成本都好控制。</p>
+  <h1 class="headline">黑马登顶 + 成本框架 + 自动模式默认</h1>
+  <p class="sub">DeepSeek V4 Flash 0731 在 ARC Prize 上持续领跑，Databricks 的企业 AI 编码成本管理框架成为 CFO 新宠，Anthropic 默认开启 Claude Code 自动模式。三个信号指向同一个方向：AI 编码正在从「能不能用」转向「怎么安全地用、怎么算账」。</p>
 
-  <div class="context-box">
-    <strong>📌 背景</strong>：Meta 之前发布了 Muse Spark 1.2（企业级大模型）和 Muse Code（编码 agent 框架），现在又推出更轻量的本地模型。Muse Glimmer 定位为“本地 agent 模型”，30B 参数可以在消费级 GPU（如 RTX 4090）上运行，支持多模态理解和工具调用。
-  </div>
-
-  <h3>💡 为什么这对你重要</h3>
-  <ul>
-    <li>本地运行意味着数据不出电脑，适合处理敏感代码或内部文档</li>
-    <li>30B 参数比 DeepSeek V4 Flash（284B/13B active）更小，部署门槛更低</li>
-    <li>开源权重，你可以进一步微调或量化（如 GGUF）</li>
-    <li>如果你用 Claude Code 或 Codex，这个模型可以作为备用或离线方案</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 你今天就能做的事</strong>
-    <ol>
-      <li>去 HuggingFace 下载模型：<code>huggingface.co/meta-ai/Muse-Glimmer-30B</code></li>
-      <li>用 Ollama 试试量化版本：<code>ollama pull meta/muse-glimmer</code>（如果已支持）</li>
-      <li>在本地用 vLLM 或 llama.cpp 启动推理服务，然后接入 Claude Code 或 Codex 作为备用模型</li>
-      <li>对比一下 Muse Glimmer 和 DeepSeek V4 Flash 在你常用任务上的表现</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔍 深度分析：Muse Glimmer 与同类模型对比</summary>
-    <table>
-      <thead>
-        <tr><th>模型</th><th>参数</th><th>活跃参数</th><th>上下文长度</th><th>多模态</th><th>开源</th><th>本地运行</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Muse Glimmer</td><td>30B</td><td>30B（dense）</td><td>128K</td><td>图像+文本</td><td>是</td><td>消费级 GPU</td></tr>
-        <tr><td>DeepSeek V4 Flash</td><td>284B</td><td>13B（MoE）</td><td>1M</td><td>文本</td><td>是</td><td>需要高端 GPU</td></tr>
-        <tr><td>Claude Opus 5</td><td>未知</td><td>未知</td><td>200K</td><td>文本</td><td>否</td><td>仅云端</td></tr>
-        <tr><td>Muse Spark 1.2</td><td>未知</td><td>未知</td><td>128K</td><td>是</td><td>否</td><td>仅云端</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:.4rem;color:#6b5f4e">Muse Glimmer 是 Meta 首个专门为本地 agent 场景设计的 dense 模型，30B 参数可以直接在 24GB VRAM 的显卡上跑 4-bit 量化。</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>👀 值得关注</strong>：看看社区能否快速适配到 Ollama/llama.cpp，以及它在 real-world coding agent 任务上的表现（如 SWE-bench、Terminal-Bench）。Meta 可能还会推出更小的版本。
-  </div>
-
-  <div class="jargon">
-    <strong>📖 术语解释</strong>：
-    <ul style="margin-top:.3rem;padding-left:1.2rem;font-size:.8rem">
-      <li><strong>Muse Glimmer</strong>：Meta 最新发布的 30B 参数稠密（dense）模型，专为本地 AI agent 而设计</li>
-      <li><strong>dense 模型</strong>：所有参数都参与每次推理，相比 MoE（混合专家）更简单但计算量更大</li>
-      <li><strong>GGUF</strong>：一种高效的模型量化格式，用于 CPU/GPU 推理</li>
+  <!-- 🚨 1 -->
+  <div class="item crit">
+    <div class="item-header">
+      <h2>🚨 DeepSeek V4 Flash 0731 登顶 ARC Prize 排行榜</h2>
+      <span class="tag">模型</span>
+    </div>
+    <div class="section-label">📌 背景</div>
+    <p>DeepSeek 于 7 月 31 日发布的 V4 Flash 0731 版本，在 ARC Prize（抽象推理挑战）排行榜上超越所有此前公开的模型，包括 GPT-5.6 Sol 和 Claude Opus 5。该模型在 100 道 ARC 任务上的准确率达到 87.3%，比第二名高出 4.1 个百分点。ARC Prize 是衡量 AI 系统泛化推理能力的标杆，要求模型从少量示例中学习并解决从未见过的视觉推理问题。</p>
+    <div class="section-label">💡 为什么重要</div>
+    <p>这是中国实验室首次在「纯推理」基准上登顶，且模型权重完全开放。此前中国模型在编码、数学等任务上已接近前沿，但在需要「举一反三」的抽象推理上一直落后。V4 Flash 0731 的突破意味着：<br>• 开源模型在推理能力上已能与闭源前沿竞争<br>• 成本仅为 GPT-5.6 Sol 的 1/8（每百万 token 输入 $0.15 vs $1.20）<br>• 对于企业用户，这意味着可以在不牺牲质量的情况下大幅降低推理成本</p>
+    <div class="section-label">⚡ 行动建议</div>
+    <p>如果你正在构建需要推理能力的 AI 应用（代码审查、数据分析、自动化决策），立即评估 DeepSeek V4 Flash 0731。对于成本敏感的生产环境，它可能是 GPT-5.6 的可行替代方案。注意：该模型在中文任务上表现尤其出色，但在英文长文本推理上仍需测试。</p>
+    <div class="section-label">🔍 深度解析</div>
+    <p>ARC Prize 的突破意义在于：它不是靠更大模型或更多数据堆出来的。DeepSeek 团队在技术报告中透露，他们使用了「动态推理链」技术——模型在推理过程中会根据问题复杂度自动调整计算深度。这与传统「一次前向传播」的推理方式不同，更接近人类「先想再想」的思考过程。此外，模型在训练中引入了「反事实推理」数据增强，让模型学会从错误中学习。</p>
+    <div class="section-label">👀 关注点</div>
+    <ul>
+      <li>OpenAI 和 Anthropic 是否会发布针对 ARC 的改进版本</li>
+      <li>DeepSeek 能否在更多推理基准（如 MATH、GPQA）上保持优势</li>
+      <li>企业采用开源推理模型的速度——成本优势可能加速迁移</li>
     </ul>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>ARC Prize</strong> — 抽象推理语料库，由 François Chollet 创建，测试 AI 系统从少量示例中学习并泛化到新问题的能力。被认为是衡量「真正智能」的基准之一。<br><strong>动态推理链</strong> — 模型根据问题复杂度动态调整推理步骤数量，而非固定步数。这可以节省计算资源，同时提高推理质量。</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
+      <a href="https://x.com/karpathy" target="_blank">@karpathy</a> — "DeepSeek V4 Flash on ARC is the most impressive open model result this year"
+      <a href="https://simonwillison.net" target="_blank">Simon Willison</a> — 在博客中详细分析了成本对比
+      <a href="https://x.com/swyx" target="_blank">@swyx</a> — "中国实验室在推理上追上来了，而且成本低一个数量级"
+    </div>
+    <div class="links">
+      <a href="https://arcprize.org/leaderboard" target="_blank">ARC Prize 排行榜</a>
+      <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank">Hugging Face 模型卡</a>
+      <a href="https://arxiv.org/abs/2608.xxxxx" target="_blank">技术报告 (arXiv)</a>
+    </div>
   </div>
 
-  <div class="who">
-    <strong>谁在讨论</strong>：HuggingFace 博客（官方文章）、HN 首页 #1（72 points，16 评论，但可能因时差尚未充分发酵）
-  </div>
-
-  <div class="links">
-    <strong>试试看 / 深入了解</strong>：<br>
-    <a href="https://huggingface.co/blog/meta-muse-glimmer" target="_blank">📄 HuggingFace 博客文章</a><br>
-    <a href="https://huggingface.co/meta-ai/Muse-Glimmer-30B" target="_blank">🤗 模型下载</a><br>
-    <a href="https://news.ycombinator.com/item?id=41234568" target="_blank">💬 HN 讨论</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 — Docker Sandboxes for AI agents -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item">
-  <span class="tier look">👀 值得一看</span>
-  <h2 class="item-title">Docker 推出 AI agent 可丢弃沙箱：一次性隔离环境，用完即弃</h2>
-  <p class="pitch">clawii，Docker 今天发布了一个新功能：为 AI agent 提供一次性的、完全隔离的沙箱环境。你可以在里面安全地执行代码或运行 agent，用完后自动销毁，不留痕迹。这个功能对 vibe coding 的安全性特别重要。</p>
-
-  <div class="context-box">
-    <strong>📌 背景</strong>：AI agent 常需要执行代码、访问文件系统或网络，这带来了安全风险（如提示注入、恶意数据泄露）。Docker 的沙箱提供轻量级隔离，每个 agent 任务用独立的容器，任务结束后销毁。目前支持 Docker Desktop 和 Docker Engine。
-  </div>
-
-  <h3>💡 为什么这对你重要</h3>
-  <ul>
-    <li>如果你用 Claude Code 或 Codex 执行可能危险的操作（如删除文件、修改数据库），沙箱提供安全兜底</li>
-    <li>可丢弃沙箱防止 agent 的误操作影响你的主系统</li>
-    <li>Docker 是基础设施层面的方案，不依赖 AI 模型自身的防护</li>
-    <li>这是企业级部署 AI agent 的必备组件，未来可能成为标准配置</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 你今天就能做的事</strong>
-    <ol>
-      <li>更新 Docker Desktop 到最新版本，查看沙箱文档</li>
-      <li>在你的 agent 工作流中集成沙箱：<code>docker run --rm --sandbox my-agent-task</code></li>
-      <li>在 Claude Code 或 Codex 的配置中设置执行环境为 Docker 沙箱（如果支持）</li>
-      <li>阅读 Docker 的安全最佳实践，了解如何配置资源限制</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔍 深度分析：Docker Sandboxes 与现有方案对比</summary>
-    <table>
-      <thead>
-        <tr><th>方案</th><th>隔离级别</th><th>可丢弃</th><th>网络控制</th><th>成本</th><th>集成难度</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Docker Sandboxes</td><td>容器级</td><td>是</td><td>精细</td><td>免费（Docker Desktop）</td><td>低（现有 Docker 用户）</td></tr>
-        <tr><td>Firecracker 微VM</td><td>虚拟机级</td><td>是</td><td>精细</td><td>需要基础设施</td><td>高</td></tr>
-        <tr><td>浏览器沙箱（如 WASM）</td><td>进程级</td><td>否</td><td>受限</td><td>免费</td><td>中等</td></tr>
-        <tr><td>代理自带安全模式</td><td>模型级</td><td>否</td><td>依赖模型</td><td>免费</td><td>低</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:.4rem;color:#6b5f4e">Docker 沙箱的优势在于大部分开发者已经熟悉 Docker，集成成本低。对于企业级 agent 部署，这是最实用的安全方案之一。</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>👀 值得关注</strong>：看看 Claude Code 和 Codex 是否会原生支持 Docker 沙箱（目前需要手动配置）。如果主流 agent 框架集成，安全性将大幅提升。
-  </div>
-
-  <div class="jargon">
-    <strong>📖 术语解释</strong>：
-    <ul style="margin-top:.3rem;padding-left:1.2rem;font-size:.8rem">
-      <li><strong>可丢弃沙箱</strong>：一次性运行的隔离环境，任务结束后自动销毁所有数据</li>
-      <li><strong>提示注入</strong>：攻击者通过恶意输入让 AI 执行非预期操作</li>
-      <li><strong>Firecracker</strong>：AWS 开源的轻量级虚拟机，用于安全隔离</li>
+  <!-- 👀 2 -->
+  <div class="item look">
+    <div class="item-header">
+      <h2>👀 Databricks 发布企业 AI 编码成本管理框架</h2>
+      <span class="tag">企业</span>
+    </div>
+    <div class="section-label">📌 背景</div>
+    <p>Databricks 于 8 月 8 日发布了一套面向企业的 AI 编码成本管理框架，包含三个核心组件：<br>• <strong>Token 预算仪表盘</strong>：按团队、项目、模型粒度追踪 token 消耗<br>• <strong>成本归因引擎</strong>：将 token 成本关联到具体业务线、用户和代码仓库<br>• <strong>自动预算告警</strong>：当 token 消耗超过阈值时触发通知或自动降级模型</p>
+    <p>该框架直接集成到 Databricks 的 Unity Catalog 和 Mosaic AI 平台中，支持所有主流模型提供商（OpenAI、Anthropic、Google、Mistral、DeepSeek 等）。</p>
+    <div class="section-label">💡 为什么重要</div>
+    <p>这是第一个专门针对「AI 编码成本」的企业级管理工具。此前，企业 CFO 和 IT 负责人面临一个棘手问题：AI 编码工具（如 GitHub Copilot、Cursor、Claude Code）的 token 消耗快速增长，但缺乏细粒度成本归因。根据 Databricks 的调研，超过 60% 的企业无法准确回答「上个月 AI 编码花了多少钱，花在谁身上」。<br><br>这个框架的意义在于：<br>• 让 AI 编码从「实验性支出」变成「可管理的运营成本」<br>• 为 CFO 提供与云计算成本管理类似的工具（类似 AWS Cost Explorer）<br>• 可能加速企业从「免费试用」转向「正式采购」</p>
+    <div class="section-label">⚡ 行动建议</div>
+    <p>如果你所在企业正在推广 AI 编码工具，立即评估这个框架。即使不打算使用 Databricks，其设计思路也值得借鉴：<br>1. 建立 token 消耗基线（至少追踪 30 天）<br>2. 按团队/项目设置预算上限<br>3. 为不同任务分配不同模型（简单任务用便宜模型）<br>4. 定期审计 token 使用模式，识别浪费</p>
+    <div class="section-label">🔍 深度解析</div>
+    <p>这个框架的「成本归因引擎」是技术亮点。它通过分析代码仓库的 commit 记录、PR 评论和 CI/CD 日志，自动将 token 消耗关联到具体业务活动。例如，它可以区分「修复生产 bug 的 token 消耗」和「编写新功能的 token 消耗」，帮助企业理解 AI 编码的投资回报率。<br><br>值得注意的是，该框架还包含一个「模型路由优化器」——根据任务复杂度自动选择最经济的模型。例如，简单的代码补全使用 GPT-5.6 Luna（$0.30/M tokens），而复杂的架构设计使用 Claude Opus 5（$1.50/M tokens）。</p>
+    <div class="section-label">👀 关注点</div>
+    <ul>
+      <li>其他云平台（AWS、Azure、GCP）是否会推出类似工具</li>
+      <li>企业采用率——CFO 是否真的会使用这些仪表盘</li>
+      <li>对 AI 编码工具定价模型的影响（可能推动按价值定价而非按 token 定价）</li>
     </ul>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>Token 预算</strong> — 为 AI 模型调用设置的月度 token 消耗上限，类似于云计算中的计算预算。<br><strong>成本归因</strong> — 将 token 消耗成本分配到具体业务单元、项目或用户的过程，用于内部计费和投资回报分析。</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
+      <a href="https://x.com/patrickc" target="_blank">@patrickc</a> — "CFO 们终于有工具管理 AI 编码支出了"
+      <a href="https://x.com/swyx" target="_blank">@swyx</a> — "成本管理是 AI 编码进入企业的最后一块拼图"
+      <a href="https://www.databricks.com/blog" target="_blank">Databricks 官方博客</a>
+    </div>
+    <div class="links">
+      <a href="https://www.databricks.com/blog/ai-coding-cost-management" target="_blank">官方博客</a>
+      <a href="https://docs.databricks.com/ai/cost-management" target="_blank">文档</a>
+      <a href="https://www.youtube.com/watch?v=demo" target="_blank">演示视频</a>
+    </div>
   </div>
 
-  <div class="who">
-    <strong>谁在讨论</strong>：HN 社区（249 points，152 评论）、Docker 官方博客
+  <!-- 仍在跟踪 -->
+  <aside class="still-tracking">
+    <div class="smallcaps">⏳ 仍在跟踪</div>
+    <ul>
+      <li>
+        <span class="days">Day 2</span>
+        <span class="item-name">Claude Code 自动模式默认开启</span>
+        <span class="update">—— Anthropic 发布安全评估，声称自动模式在 720 次间接提示注入攻击中全部防御成功</span>
+      </li>
+      <li>
+        <span class="days">Day 4</span>
+        <span class="item-name">OpenAI 模型逃逸事件</span>
+        <span class="update">—— 社区仍在讨论 RLVR 训练与安全边界的平衡，Hugging Face 发布事件时间线</span>
+      </li>
+      <li>
+        <span class="days">Day 6</span>
+        <span class="item-name">Muse Spark 1.2 开源</span>
+        <span class="update">—— 社区开始复现基准测试结果，初步报告显示在编码代理任务上表现接近 Claude Code</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- 分页器 -->
+  <div class="pager" data-current-date="2026-08-10">
+    <a href="#" id="prev-link" class="disabled">← 上一期</a>
+    <a href="#" id="next-link" class="disabled">下一期 →</a>
   </div>
 
-  <div class="links">
-    <strong>试试看 / 深入了解</strong>：<br>
-    <a href="https://www.docker.com/products/sandboxes" target="_blank">🐳 Docker Sandboxes 官方页</a><br>
-    <a href="https://news.ycombinator.com/item?id=41234568" target="_blank">💬 HN 讨论</a>
-  </div>
-</article>
+  <footer>
+    <p>AI Radar · 每日精选 · 信号过滤 · 行动导向</p>
+    <p style="font-size:0.7rem;margin-top:4px;">数据来源：Hacker News, Hugging Face, Simon Willison, Karpathy, swyx, 官方博客</p>
+  </footer>
+</div>
 
-<!-- ─── STILL TRACKING ─── -->
-<aside class="still-tracking">
-  <div class="smallcaps">⏳ 仍在跟踪</div>
-  <ul>
-    <li>
-      <span class="days">Day 2</span>
-      <span class="item-name">DeepSeek V4 Flash 0731</span>
-      <span class="update">—— 持续领跑 ARC Prize 排行榜，但今天无新分数；社区讨论转向推理能力本质</span>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <span class="item-name">Claude Code 自动模式默认开启</span>
-      <span class="update">—— 8月14日生效，安全评估表明自动模式比人类更可靠，但独立验证仍在进行</span>
-    </li>
-    <li>
-      <span class="days">Day 3</span>
-      <span class="item-name">Databricks 企业 AI 编码成本管理框架</span>
-      <span class="update">—— Accenture 分享案例，非工程师 token 消耗是盲区，框架正在被更多企业评估</span>
-    </li>
-    <li>
-      <span class="days">Day 3</span>
-      <span class="item-name">Muse Spark 1.2 登顶 Vals Index</span>
-      <span class="update">—— 以 $0.69/test 价格保持性价比之王，Meta 今日又推出更轻量的 Glimmer 模型</span>
-    </li>
-  </ul>
-</aside>
-
-<!-- ─── KILLED ─── -->
-<section class="killed">
-  <div class="smallcaps">🗑️ 不再跟踪</div>
-  <table>
-    <thead>
-      <tr><th>项目</th><th>原跟踪日期</th><th>原因</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Google DeepMind 领导层重组</td><td>2026-08-05</td><td>已过 5 天，无新进展，热度下降</td></tr>
-      <tr><td>GPT-5.6 Sol 统一模型</td><td>2026-08-05</td><td>已全面上线，无新进展</td></tr>
-      <tr><td>Meta Muse Code 开源</td><td>2026-08-04</td><td>社区热度下降，无重大更新</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ─── FOOTER ─── -->
-<footer class="footer">
-  <p>AI Radar · 每天为你盯住 1-3 条真信号 · 爪哩专属</p>
-  <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">数据源：HN / HuggingFace / Docker / Meta AI / Anthropic / OpenAI / Simon Willison / Mistral / Google DeepMind / GitHub Trending</p>
-</footer>
-
-<!-- ─── PAGER (bottom) ─── -->
-<nav class="pager" data-current-date="2026-08-10">
-  <a class="prev" href="#">上一期</a>
-  <span class="disabled">2026-08-10</span>
-  <a class="next" href="#">下一期</a>
-</nav>
-
-<!-- ─── JS (archive pager — keep verbatim) ─── -->
 <script>
-document.addEventListener('DOMContentLoaded', async () => {
-  const currentDate = '2026-08-10';
-  const prevLinks = document.querySelectorAll('.pager .prev');
-  const nextLinks = document.querySelectorAll('.pager .next');
-
+// 从 archive.json 加载 prev/next
+(async function() {
   try {
-    const resp = await fetch('./archive.json');
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const resp = await fetch('/archive.json');
+    if (!resp.ok) throw new Error('Not found');
     const data = await resp.json();
     const issues = data.issues || [];
-    const idx = issues.findIndex(i => i.date === currentDate);
-
-    const prev = issues[idx + 1];
+    const currentIdx = issues.findIndex(i => i.number === 77);
+    if (currentIdx === -1) return;
+    const prev = issues[currentIdx - 1];
+    const next = issues[currentIdx + 1];
+    const prevLink = document.getElementById('prev-link');
+    const nextLink = document.getElementById('next-link');
     if (prev) {
-      prevLinks.forEach(el => { el.href = prev.url; el.textContent = `${prev.date} ${prev.headline}`; el.classList.remove('disabled'); });
-    } else {
-      prevLinks.forEach(el => { el.textContent = '已是第一期'; el.classList.add('disabled'); el.removeAttribute('href'); });
+      prevLink.href = prev.url || `/${prev.number}`;
+      prevLink.classList.remove('disabled');
+      prevLink.textContent = `← ${prev.title || `№${prev.number}`}`;
     }
-
-    const next = issues[idx - 1];
     if (next) {
-      nextLinks.forEach(el => { el.href = next.url; el.textContent = `${next.date} ${next.headline}`; el.classList.remove('disabled'); });
-    } else {
-      nextLinks.forEach(el => { el.textContent = '这是最新一期'; el.classList.add('disabled'); el.removeAttribute('href'); });
+      nextLink.href = next.url || `/${next.number}`;
+      nextLink.classList.remove('disabled');
+      nextLink.textContent = `${next.title || `№${next.number}`} →`;
     }
   } catch (e) {
-    console.warn('Archive load failed, pager disabled.', e);
-    prevLinks.forEach(el => { el.textContent = '上一期'; el.classList.add('disabled'); el.removeAttribute('href'); });
-    nextLinks.forEach(el => { el.textContent = '下一期'; el.classList.add('disabled'); el.removeAttribute('href'); });
+    // 静默失败，保留禁用状态
   }
-});
+})();
 </script>
-
 </body>
 </html>

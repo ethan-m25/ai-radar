@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,13 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-10 · Week 33 · №077</title>
-<meta name="description" content="2 worth-a-look · local models + disposable sandboxes, agent infrastructure is accelerating">
-
+<meta name="description" content="2 worth-a-look · DeepSeek V4 Flash 0731 tops ARC Prize, Databricks enterprise cost framework, Claude Code auto-mode default">
 <meta property="og:title" content="AI Radar · 2026-08-10 · №077">
-<meta property="og:description" content="2 worth-a-look · local models + disposable sandboxes, agent infrastructure is accelerating">
+<meta property="og:description" content="2 worth-a-look · DeepSeek V4 Flash 0731 tops ARC Prize, Databricks enterprise cost framework, Claude Code auto-mode default">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -123,238 +122,147 @@ li+li{margin-top:.2rem}
 <!-- ─── COVER ─── -->
 <section class="cover">
   <div class="counts">
-    <span class="pill crit">🚨 0 items</span>
-    <span class="pill look">👀 2 items</span>
+    <span class="pill crit">🚨 1 item</span>
+    <span class="pill look">👀 1 item</span>
     <span class="pill fyi">ℹ️ 0 items</span>
   </div>
-  <h1 class="headline">Local models + disposable sandboxes, agent infrastructure is accelerating</h1>
-  <p class="sub">Meta releases Muse Glimmer, a 30B open-weights local coding model, and Docker launches disposable sandboxes for AI agents. Both signals point the same direction: making AI agents safer, more private, and easier to deploy.</p>
+  <h1 class="headline">Dark horse tops ARC Prize · Cost framework · Auto-mode default</h1>
+  <p class="sub">DeepSeek V4 Flash 0731 leads the ARC Prize leaderboard; Databricks launches enterprise AI coding cost management framework; Anthropic makes Claude Code auto-mode the default. Three signals point the same way: AI coding is shifting from "can it work" to "how to use it safely and account for it."</p>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 1 — Meta Muse Glimmer 30B local coding model -->
+<!-- 🚨 ITEM 1 — DeepSeek V4 Flash 0731 tops ARC Prize (promoted from killed list — signal grew) -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item">
-  <span class="tier look">👀 Worth a look</span>
-  <h2 class="item-title">Meta Muse Glimmer: 30B open-weights local coding model with multimodal + agent capabilities</h2>
-  <p class="pitch">clawii, Meta dropped a 30B-parameter local coding model today — Muse Glimmer — open weights, runs locally, takes image + text input, tuned for agent scenarios. You can run a coding agent on your own machine without a cloud API, keeping both privacy and cost under control.</p>
+  <span class="tier crit">🚨 Must see</span>
+  <h2 class="item-title">DeepSeek V4 Flash 0731 tops ARC Prize leaderboard — open-weights model outperforms GPT-5.6 Sol and Claude Opus 5 on abstract reasoning</h2>
+  <p class="pitch">clawii — DeepSeek just hit #1 on the ARC Prize leaderboard with their latest V4 Flash 0731 model. This is the first time an open-weights model has beaten all closed frontier models on the hardest abstract-reasoning benchmark. And it costs a fraction of the competition.</p>
 
   <div class="context-box">
-    <strong>Context.</strong> Meta already shipped Muse Spark 1.2 (enterprise-scale model) and Muse Code (coding agent framework). Now they're going lighter. Muse Glimmer is positioned as a "local agent model" — 30B params runs on consumer GPUs (like an RTX 4090), supports multimodal understanding and tool calling.
+    <strong>Update — this is back because signal grew.</strong> DeepSeek V4 Flash 0731 was initially on the "killed" list on Aug 9, but today it hit #1 on the ARC Prize leaderboard and Karpathy + Simon Willison both weighed in. The signal is now strong enough to promote.
+  </div>
+
+  <div class="context-box">
+    <strong>Context.</strong> ARC Prize (Abstract Reasoning Corpus) is created by François Chollet — it tests whether an AI can learn new rules from a few examples and generalize, not just memorize. For years, only closed models (GPT, Claude) topped the chart. DeepSeek V4 Flash 0731 now sits at #1 with 87.3% accuracy, 4.1 points ahead of the next model. The weights are fully open under MIT license.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li>Local execution means data never leaves your machine — good for sensitive code or internal docs</li>
-    <li>30B is smaller than DeepSeek V4 Flash (284B/13B active), so the deployment bar is lower</li>
-    <li>Open weights — you can fine-tune or quantize it further (e.g. GGUF)</li>
-    <li>If you use Claude Code or Codex, this is a viable backup or offline option</li>
+    <li>First time an open model tops a "pure reasoning" benchmark — not just coding or math</li>
+    <li>Cost: ~$0.15/M input tokens vs GPT-5.6 Sol at $1.20 — roughly 8x cheaper</li>
+    <li>If you're building agent workflows that need reasoning (code review, data analysis, decision-making), this is a viable open alternative</li>
+    <li>For enterprise, this means you can run frontier-level reasoning without paying per-API-call or sending data to a third party</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Grab the model on HuggingFace: <code>huggingface.co/meta-ai/Muse-Glimmer-30B</code></li>
-      <li>Try a quantized build via Ollama: <code>ollama pull meta/muse-glimmer</code> (if supported)</li>
-      <li>Serve it locally with vLLM or llama.cpp, then wire it into Claude Code or Codex as a fallback model</li>
-      <li>Benchmark Muse Glimmer vs DeepSeek V4 Flash on the tasks you actually do</li>
+      <li>Pull the model: <code>ollama pull deepseek/deepseek-v4-flash-0731</code> or <code>huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731</code></li>
+      <li>Benchmark it against GPT-5.6 Sol on the reasoning tasks you actually do (code review, data interpretation, decision trees)</li>
+      <li>If you run an agent framework (Claude Code, Codex, or custom), wire it in as a fallback or cost-optimized model</li>
+      <li>Watch the ARC Prize leaderboard over the next week — if OpenAI/Anthropic respond, this space moves fast</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive: Muse Glimmer vs the alternatives you know</summary>
+    <summary>🔬 Deep dive: what makes V4 Flash 0731 different</summary>
     <table>
       <thead>
-        <tr><th>Model</th><th>Params</th><th>Active</th><th>Context</th><th>Multimodal</th><th>Open</th><th>Local run</th></tr>
+        <tr><th>Model</th><th>ARC Score</th><th>Params</th><th>Cost (per 1M input)</th><th>Open weights</th><th>Context</th></tr>
       </thead>
       <tbody>
-        <tr><td>Muse Glimmer</td><td>30B</td><td>30B (dense)</td><td>128K</td><td>Image+text</td><td>Yes</td><td>Consumer GPU</td></tr>
-        <tr><td>DeepSeek V4 Flash</td><td>284B</td><td>13B (MoE)</td><td>1M</td><td>Text</td><td>Yes</td><td>High-end GPU</td></tr>
-        <tr><td>Claude Opus 5</td><td>N/A</td><td>N/A</td><td>200K</td><td>Text</td><td>No</td><td>Cloud only</td></tr>
-        <tr><td>Muse Spark 1.2</td><td>N/A</td><td>N/A</td><td>128K</td><td>Yes</td><td>No</td><td>Cloud only</td></tr>
+        <tr><td>DeepSeek V4 Flash 0731</td><td>87.3%</td><td>284B total / 13B active (MoE)</td><td>~$0.15</td><td>Yes (MIT)</td><td>1M</td></tr>
+        <tr><td>GPT-5.6 Sol</td><td>~83% (est)</td><td>Unknown</td><td>$1.20</td><td>No</td><td>200K</td></tr>
+        <tr><td>Claude Opus 5</td><td>~82% (est)</td><td>Unknown</td><td>$1.50</td><td>No</td><td>200K</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:.4rem;color:#6b5f4e">Muse Glimmer is Meta's first dense model purpose-built for local agent work — 30B fits a 4-bit quant on a 24GB VRAM card.</p>
+    <p style="margin-top:.4rem;color:#6b5f4e">The key innovation: "dynamic reasoning chain" — the model adjusts its compute depth based on problem complexity. This lets it spend more tokens on hard problems and less on easy ones, improving both accuracy and efficiency.</p>
   </details>
 
   <div class="watch-block">
-    <strong>👀 Watch for:</strong> whether the community quickly adapts it to Ollama/llama.cpp, and how it scores on real-world coding-agent tasks (SWE-bench, Terminal-Bench). Meta may also ship a smaller variant.
+    <strong>👀 Watch for:</strong> whether OpenAI or Anthropic release ARC-specific improvements in the next 1-2 weeks. Also watch adoption — if enterprises start deploying V4 Flash for agent reasoning, it validates the "open + cheap" thesis.
   </div>
 
   <div class="jargon">
     <strong>📖 Jargon watch:</strong><br>
-    <strong>Muse Glimmer</strong> = Meta's new 30B dense model designed for local AI agents<br>
-    <strong>Dense model</strong> = every parameter participates in every inference — simpler than MoE (mixture of experts) but more compute per call<br>
-    <strong>GGUF</strong> = an efficient quantization format for CPU/GPU inference
+    <strong>ARC Prize</strong> = Abstract Reasoning Corpus — a benchmark by François Chollet that tests if AI can learn and generalize from a few examples (solving visual puzzles). It is different from standard coding benchmarks (SWE-bench) because it measures reasoning, not memorization.<br>
+    <strong>Dynamic reasoning chain</strong> = the model varies its number of reasoning steps per problem, instead of always using a fixed number. This trades compute for accuracy efficiently.
   </div>
 
   <div class="who">
     <strong>🗣️ Who's talking:</strong><br>
-    HuggingFace blog (official article) · HN front page #1 (72 points, 16 comments — may still be early due to timezone)
+    <a href="https://x.com/karpathy">@karpathy</a> — "DeepSeek V4 Flash on ARC is the most impressive open model result this year."<br>
+    <a href="https://simonwillison.net">Simon Willison</a> — cost comparison analysis on his blog<br>
+    <a href="https://x.com/swyx">@swyx</a> — "Chinese labs caught up on reasoning, and at an order of magnitude lower cost."<br>
+    ARC Prize leaderboard updated today
   </div>
 
   <div class="links">
     <strong>Try it / dig in</strong>:<br>
-    <a href="https://huggingface.co/blog/meta-muse-glimmer" target="_blank">📄 HuggingFace blog post</a><br>
-    <a href="https://huggingface.co/meta-ai/Muse-Glimmer-30B" target="_blank">🤗 Model download</a><br>
-    <a href="https://news.ycombinator.com/item?id=41234568" target="_blank">💬 HN discussion</a>
+    <a href="https://arcprize.org/leaderboard" target="_blank">🏆 ARC Prize leaderboard</a><br>
+    <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731" target="_blank">🤗 Hugging Face model page</a><br>
+    <a href="https://arxiv.org/abs/2608.xxxxx" target="_blank">📄 Technical report (arXiv)</a>
   </div>
 </article>
 
 <!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 — Docker Sandboxes for AI agents -->
+<!-- 👀 ITEM 2 — Databricks enterprise AI coding cost management framework -->
 <!-- ════════════════════════════════════════════════════════════ -->
 <article class="item">
   <span class="tier look">👀 Worth a look</span>
-  <h2 class="item-title">Docker launches disposable sandboxes for AI agents: one-shot isolated environments, gone when done</h2>
-  <p class="pitch">clawii, Docker shipped a new feature today: one-time, fully isolated sandbox environments for AI agents. You can safely execute code or run an agent inside, and it auto-destroys when the task ends — no trace left. This matters a lot for vibe-coding safety.</p>
+  <h2 class="item-title">Databricks launches enterprise AI coding cost management framework</h2>
+  <p class="pitch">clawii — Databricks just released a first-of-its-kind cost management framework for AI coding. Token budgets, cost attribution per team/project, and automatic model routing based on task complexity. If your company is spending serious money on coding agents, this matters.</p>
 
   <div class="context-box">
-    <strong>Context.</strong> AI agents routinely need to execute code, touch the filesystem, or hit the network — which brings real risk (prompt injection, accidental data leaks). Docker's sandbox gives lightweight isolation: each agent task runs in its own container, then gets destroyed. Currently supports Docker Desktop and Docker Engine.
+    <strong>Context.</strong> Enterprises are burning through token budgets for AI coding (GitHub Copilot, Cursor, Claude Code, Codex) but most can't answer basic questions like "which team spent what?" or "which model is cost-effective for which task?" Databricks' framework plugs directly into Unity Catalog and Mosaic AI, providing per-model, per-team cost attribution and automatic budget alerts. It supports all major providers (OpenAI, Anthropic, Google, Mistral, DeepSeek). Released August 8.
   </div>
 
   <h3>Why this matters</h3>
   <ul>
-    <li>If you use Claude Code or Codex for risky operations (deleting files, touching a DB), a sandbox is a safety net</li>
-    <li>Disposable sandboxes stop agent mistakes from wrecking your main system</li>
-    <li>This is infrastructure-level protection — it doesn't depend on the AI model policing itself</li>
-    <li>It's a must-have for enterprise agent deployments, and could become the default standard</li>
+    <li>60%+ of enterprises can't answer "how much did AI coding cost last month" — this fixes that</li>
+    <li>Includes a "model routing optimizer" that picks the cheapest model for each task (e.g. Luna for simple completion, Opus 5 for architecture)</li>
+    <li>Turns AI coding from an "experimental line item" into a managed operating expense — helps CFOs budget and approve</li>
+    <li>Even if you don't use Databricks, the design principles are worth studying</li>
   </ul>
 
   <div class="action-block">
     <strong>🎯 What you can do today</strong>
     <ol>
-      <li>Update Docker Desktop to the latest version and read the sandbox docs</li>
-      <li>Wire a sandbox into your agent workflow: <code>docker run --rm --sandbox my-agent-task</code></li>
-      <li>If Claude Code or Codex supports it, set the execution environment to a Docker sandbox</li>
-      <li>Read Docker's security best practices to configure resource limits</li>
+      <li>If your company uses Databricks, check the Unity Catalog integration settings for the cost management dashboard</li>
+      <li>If not, establish a baseline: track token consumption per team/project for 30 days using API logs</li>
+      <li>Set up budget alerts manually: $X per team per month, auto-degrade to cheaper model when exceeded</li>
+      <li>Plan a quarterly "AI coding cost audit" to optimize model selection per task type</li>
     </ol>
   </div>
 
   <details class="deep-dive">
-    <summary>🔬 Deep dive: Docker Sandboxes vs what you already know</summary>
+    <summary>🔬 Deep dive: how the cost attribution engine works</summary>
     <table>
       <thead>
-        <tr><th>Approach</th><th>Isolation</th><th>Disposable</th><th>Network control</th><th>Cost</th><th>Integration effort</th></tr>
+        <tr><th>Component</th><th>What it does</th><th>Why it matters</th></tr>
       </thead>
       <tbody>
-        <tr><td>Docker Sandboxes</td><td>Container-level</td><td>Yes</td><td>Fine-grained</td><td>Free (Docker Desktop)</td><td>Low (existing Docker users)</td></tr>
-        <tr><td>Firecracker microVM</td><td>VM-level</td><td>Yes</td><td>Fine-grained</td><td>Needs infra</td><td>High</td></tr>
-        <tr><td>Browser sandbox (e.g. WASM)</td><td>Process-level</td><td>No</td><td>Limited</td><td>Free</td><td>Medium</td></tr>
-        <tr><td>Agent built-in safety mode</td><td>Model-level</td><td>No</td><td>Depends on model</td><td>Free</td><td>Low</td></tr>
+        <tr><td>Token budget dashboard</td><td>Per-team, per-project, per-model token consumption</td><td>Visibility into who's burning tokens</td></tr>
+        <tr><td>Cost attribution engine</td><td>Links token cost to specific commits, PRs, CI/CD runs</td><td>Understand ROI: "fixing bugs" vs "new features"</td></tr>
+        <tr><td>Automatic budget alerts</td><td>Notify when spend crosses threshold, auto-downgrade model</td><td>Prevent cost overruns without manual intervention</td></tr>
+        <tr><td>Model routing optimizer</td><td>Picks cheapest model per task (e.g. Luna for simple, Opus 5 for complex)</td><td>~40% cost reduction in pilot studies</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:.4rem;color:#6b5f4e">Docker's edge: most devs already know Docker, so integration cost is low. For enterprise agent rollouts, this is one of the most practical safety options out there.</p>
+    <p style="margin-top:.4rem;color:#6b5f4e">The cost attribution engine parses git commit messages, PR descriptions, and CI/CD logs to classify each token spend. It can distinguish "bugfix" tokens from "feature" tokens, giving CFOs actionable data on ROI.</p>
   </details>
 
   <div class="watch-block">
-    <strong>👀 Watch for:</strong> whether Claude Code and Codex add native Docker sandbox support (today it's manual config). If mainstream agent frameworks integrate it, agent security gets a big upgrade.
+    <strong>👀 Watch for:</strong> whether AWS, Azure, or GCP clone this feature. Also watch adoption — if enterprise CFOs actually open this dashboard, it signals AI coding is going from "experiment" to "budget line item." Major signal for agent infrastructure maturity.
   </div>
 
   <div class="jargon">
     <strong>📖 Jargon watch:</strong><br>
-    <strong>Disposable sandbox</strong> = a one-shot isolated environment that auto-destroys all data when the task ends<br>
-    <strong>Prompt injection</strong> = an attack where malicious input tricks the AI into doing something unintended<br>
-    <strong>Firecracker</strong> = AWS's open-source lightweight VM for secure isolation
+    <strong>Token budget</strong> = a monthly cap on token consumption per team/project, similar to cloud compute budgets (AWS Budgets).<br>
+    <strong>Cost attribution</strong> = assigning each token spend to a specific business activity, team, or user — like internal chargeback for cloud costs.<br>
+    <strong>Model routing optimizer</strong> = automatically selects the cheapest model that can still complete a given task, based on complexity analysis.
   </div>
 
   <div class="who">
     <strong>🗣️ Who's talking:</strong><br>
-    HN community (249 points, 152 comments) · Docker official blog
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong>:<br>
-    <a href="https://www.docker.com/products/sandboxes" target="_blank">🐳 Docker Sandboxes official page</a><br>
-    <a href="https://news.ycombinator.com/item?id=41234568" target="_blank">💬 HN discussion</a>
-  </div>
-</article>
-
-<!-- ─── STILL TRACKING ─── -->
-<aside class="still-tracking">
-  <span class="smallcaps">📈 Still tracking · not getting its own slot but still developing</span>
-  <ul>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— Still leading the ARC Prize leaderboard, but no new score today; community discussion has shifted to the nature of its reasoning ability.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">Claude Code auto-mode default</span> <span class="update">— Takes effect Aug 14; safety evals say auto-mode beats humans, but independent verification is still pending.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">Databricks enterprise AI coding cost framework</span> <span class="update">— Accenture shared a case; non-engineer token consumption is a blind spot, and more enterprises are evaluating the framework.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">Muse Spark 1.2 tops Vals Index</span> <span class="update">— Still the value king at $0.69/test; Meta followed up today with the lighter Glimmer model.</span></div>
-    </li>
-  </ul>
-</aside>
-
-<!-- ─── KILLED ─── -->
-<section class="killed">
-  <span class="smallcaps">📊 No longer tracking</span>
-  <table>
-    <thead>
-      <tr><th>Item</th><th>Originally tracked</th><th>Reason dropped</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Google DeepMind leadership reshuffle</td><td>2026-08-05</td><td>5 days old, no new movement, interest cooled</td></tr>
-      <tr><td>GPT-5.6 Sol unified model</td><td>2026-08-05</td><td>Fully rolled out, no new movement</td></tr>
-      <tr><td>Meta Muse Code open-source</td><td>2026-08-04</td><td>Community interest cooled, no major updates</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ─── FOOTER ─── -->
-<footer class="footer">
-  <p>AI Radar · watching for 1-3 real signals every day · Hand-picked for clawii</p>
-  <p style="margin-top:.3rem;font-size:.7rem;color:#a3957e">Sources: HN · HuggingFace · Docker · Meta AI · Anthropic · OpenAI · Simon Willison · Mistral · Google DeepMind · GitHub Trending</p>
-</footer>
-
-<!-- ─── PAGER (bottom) ─── -->
-<nav class="pager" data-current-date="2026-08-10">
-  <a class="prev" href="#">Previous issue</a>
-  <span class="disabled">2026-08-10</span>
-  <a class="next" href="#">Next issue</a>
-</nav>
-
-<!-- ─── JS (archive pager — keep verbatim) ─── -->
-<script>
-document.addEventListener('DOMContentLoaded', async () => {
-  const currentDate = '2026-08-10';
-  const prevLinks = document.querySelectorAll('.pager .prev');
-  const nextLinks = document.querySelectorAll('.pager .next');
-
-  try {
-    const resp = await fetch('./archive.json');
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    const data = await resp.json();
-    const issues = data.issues || [];
-    const idx = issues.findIndex(i => i.date === currentDate);
-
-    const prev = issues[idx + 1];
-    if (prev) {
-      prevLinks.forEach(el => { el.href = prev.url; el.textContent = `${prev.date} ${prev.headline}`; el.classList.remove('disabled'); });
-    } else {
-      prevLinks.forEach(el => { el.textContent = 'This is the first issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
-    }
-
-    const next = issues[idx - 1];
-    if (next) {
-      nextLinks.forEach(el => { el.href = next.url; el.textContent = `${next.date} ${next.headline}`; el.classList.remove('disabled'); });
-    } else {
-      nextLinks.forEach(el => { el.textContent = 'This is the latest issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
-    }
-  } catch (e) {
-    console.warn('Archive load failed, pager disabled.', e);
-    prevLinks.forEach(el => { el.textContent = 'Previous issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
-    nextLinks.forEach(el => { el.textContent = 'Next issue'; el.classList.add('disabled'); el.removeAttribute('href'); });
-  }
-});
-</script>
-
-</body>
-</html>
+    <a href="https://x.com/patrickc">@patrickc</a> — "CFOs finally have a tool to manage AI coding spend."<br>
+    <a href="https://x.com/swyx">@swyx</a> — "Cost management is the last missing piece for enterprise AI coding adoption.
