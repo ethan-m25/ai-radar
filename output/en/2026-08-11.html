@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-11 · Week 33 · №078</title>
-<meta name="description" content="3 signals · Local dark horse + Safer defaults + Small model punches up">
+<meta name="description" content="1 signal · Meta's local agent dark horse + Safer defaults + Small model punches up">
 <meta property="og:title" content="AI Radar · 2026-08-11 · №078">
-<meta property="og:description" content="3 signals · Local dark horse + Safer defaults + Small model punches up">
+<meta property="og:description" content="1 signal · Meta's local agent dark horse + Safer defaults + Small model punches up">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,11 +122,11 @@ li+li{margin-top:.2rem}
 <section class="cover">
   <div class="counts">
     <span class="pill crit">🚨 1 item</span>
-    <span class="pill look">👀 2 items</span>
+    <span class="pill look">👀 0 items</span>
     <span class="pill fyi">ℹ️ 0 items</span>
   </div>
-  <h1 class="headline">Local dark horse · Safer defaults · Small model punches up</h1>
-  <p class="sub">Meta drops Muse Glimmer 30B for local agent workflows, Anthropic proves Claude Code auto-mode is safer than human reviewers, and LFM2.5 2.6B challenges models 4x its size. Three signals point the same direction: AI is shifting from "cloud giant" to "local-capable + safe-by-default."</p>
+  <h1 class="headline">Meta's local agent dark horse</h1>
+  <p class="sub">Meta drops Muse Glimmer 30B under Apache 2.0 — a local-first agent model that runs on a single consumer GPU. HN 1122 points, Simon Willison hands-on within hours. The signal: capable local agents just became a real option for non-developers.</p>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════ -->
@@ -202,160 +202,43 @@ li+li{margin-top:.2rem}
   </div>
 </article>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2 — Claude Code auto-mode default -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item">
-  <span class="tier look">👀 Worth a look</span>
-  <h2 class="item-title">Claude Code auto-mode becomes default — data proves it's safer than humans</h2>
-  <p class="pitch">clawii — Anthropic just published safety data from 1,053 paid testers showing that Claude Code's auto-mode blocks 89% of dangerous actions, while humans only reject 13.6%. Starting August 14, auto-mode is the default for Pro, Max, and Team plans.</p>
-
-  <div class="context-box">
-    <strong>Context.</strong> Anthropic released a safety evaluation on August 10, announcing that Claude Code's auto-mode will become the default setting for Pro, Max, and Team plans starting August 14. The core finding comes from an experiment with 1,053 paid testers: partway through each session, a normal permission prompt was swapped for a clearly dangerous command. Only 13.6% of humans refused the harmful action. Auto-mode would have blocked 89% of those same actions. This is the first large-scale study showing that AI auto-approval is safer than human-in-the-loop for coding agents.
-  </div>
-
-  <h3>Why this matters</h3>
-  <ul>
-    <li>First large-scale evidence that "AI auto-mode" is safer than human review — flips the industry assumption that human-in-the-loop is the gold standard</li>
-    <li>Humans suffer from "confirmation fatigue" — after approving dozens of legitimate actions, they stop scrutinizing each prompt</li>
-    <li>Auto-mode still misses 11% of attacks, but that's dramatically better than the 86.4% miss rate for humans</li>
-    <li>For non-developers using Claude Code: this means the tool is actively protecting you from prompt injection attacks you wouldn't notice</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 What you can do today</strong>
-    <ol>
-      <li>If you use Claude Code, auto-mode becomes default on Aug 14 — no action needed</li>
-      <li>If you previously disabled auto-mode, reconsider: the data suggests it's safer than manual approval</li>
-      <li>For sensitive projects, consider a hybrid mode: auto-mode for routine operations, manual approval for high-risk actions (database writes, production deploys)</li>
-      <li>Watch for Anthropic's full safety evaluation report — it will include detailed attack scenarios and mitigation strategies</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive: how the safety test worked</summary>
-    <p>The experiment simulated "indirect prompt injection" attacks — without the tester's knowledge, a normal permission prompt was swapped for a dangerous command (e.g. "delete all files"). Testers thought they were approving normal code operations but were actually being tricked into approving malicious actions.</p>
-    <p>Auto-mode defends through three layers:</p>
-    <ul>
-      <li><strong>Static analysis</strong> — detects whether a command involves dangerous operations (file deletion, data exfiltration)</li>
-      <li><strong>Behavior pattern recognition</strong> — identifies actions inconsistent with the current task context</li>
-      <li><strong>Sandbox execution</strong> — previews operation results in an isolated environment before committing</li>
-    </ul>
-    <p style="margin-top:.4rem;color:#6b5f4e">Caveat: auto-mode still has an 11% miss rate. For extremely sensitive operations (production database access, financial transactions), additional safeguards are still recommended.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>👀 Watch for:</strong> whether other coding agents (Codex, Cursor) follow with default auto-mode. Also watch if Anthropic open-sources their safety evaluation framework — that would be a major contribution to the industry.
-  </div>
-
-  <div class="jargon">
-    <strong>📖 Jargon watch:</strong><br>
-    <strong>Indirect prompt injection</strong> = an attacker injects malicious instructions through external content the model can access (web pages, documents), tricking it into performing dangerous actions.
-  </div>
-
-  <div class="who">
-    <strong>🗣️ Who's talking:</strong><br>
-    <a href="https://simonwillison.net/2026/Aug/10/auto-mode/" target="_blank">Simon Willison</a> — detailed analysis of the safety methodology and data<br>
-    <a href="https://news.ycombinator.com/item?id=41000001" target="_blank">HN #20</a> — 193 points, 152 comments<br>
-    <a href="https://www.anthropic.com/news/claude-code-auto-mode" target="_blank">Anthropic official blog</a>
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong>:<br>
-    <a href="https://www.anthropic.com/news/claude-code-auto-mode" target="_blank">📝 Anthropic official announcement</a><br>
-    <a href="https://docs.anthropic.com/en/docs/claude-code/auto-mode" target="_blank">📘 Auto-mode documentation</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 3 — LFM2.5 2.6B -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<article class="item">
-  <span class="tier look">👀 Worth a look</span>
-  <h2 class="item-title">LFM2.5 2.6B — a 2.6B parameter model that competes with models 4x its size</h2>
-  <p class="pitch">clawii — Liquid AI's LFM2.5 2.6B is punching way above its weight class. On several benchmarks it matches 10B+ models while running 3-5x faster and fitting in 2-3GB of RAM. The GGUF quantized version already has 112k downloads.</p>
-
-  <div class="context-box">
-    <strong>Context.</strong> Liquid AI released LFM2.5 2.6B on August 4 — a tiny model (2.6B parameters) that competes with models 4x its size on coding and reasoning benchmarks. It uses Liquid AI's proprietary "liquid neural network" architecture, which dynamically adjusts weights based on input. The model excels at long-context retrieval tasks and runs on devices as small as phones and Raspberry Pis. The Hugging Face GGUF quantized version has 112k downloads with strong community feedback.
-  </div>
-
-  <h3>Why this matters</h3>
-  <ul>
-    <li>2.6B parameters means it runs on phones, Raspberry Pis, smart home devices — not just laptops</li>
-    <li>Quantized to 2-3GB RAM — fits alongside other applications</li>
-    <li>3-5x faster inference than 10B+ models — real-time applications become feasible</li>
-    <li>Challenges the "bigger is always better" assumption — architecture matters as much as scale</li>
-    <li>For non-developers: this is the kind of model that could power a fully local voice assistant or automation agent on your phone</li>
-  </ul>
-
-  <div class="action-block">
-    <strong>🎯 What you can do today</strong>
-    <ol>
-      <li>Download the GGUF version and run it in LM Studio or Ollama: <code>ollama pull liquid/lfm2.5-2.6b</code></li>
-      <li>Test it against your current 7B model (e.g. Qwen2.5-7B) on simple tasks — classification, summarization, simple code generation</li>
-      <li>Consider it for automation scripts, text classification, or lightweight code generation where speed matters more than peak accuracy</li>
-      <li>Note: complex multi-step reasoning still needs larger models — use LFM2.5 for the 80% of tasks that don't need frontier intelligence</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive: liquid neural network architecture</summary>
-    <table>
-      <thead>
-        <tr><th>Model</th><th>Params</th><th>Quantized size</th><th>Inference speed</th><th>Local?</th><th>Architecture</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>LFM2.5 2.6B</td><td>2.6B</td><td>~2-3 GB</td><td>~50 tok/s (M4)</td><td>✅ Yes</td><td>Liquid NN</td></tr>
-        <tr><td>Qwen2.5-7B</td><td>7B</td><td>~5-6 GB</td><td>~15 tok/s (M4)</td><td>✅ Yes</td><td>Transformer</td></tr>
-        <tr><td>Gemma 4 12B</td><td>12B</td><td>~8-10 GB</td><td>~8 tok/s (M4)</td><td>✅ Yes</td><td>Transformer</td></tr>
-        <tr><td>GPT-5.6 Luna</td><td>Unknown</td><td>N/A (cloud)</td><td>N/A</td><td>❌ Cloud</td><td>Proprietary</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:.4rem;color:#6b5f4e">The core innovation is the "liquid neural network" architecture — unlike traditional Transformers with fixed weights, liquid networks use dynamic weight adjustment. The model adapts its computation path based on input, allowing it to handle complex patterns with far fewer parameters. This is particularly effective for long-context retrieval tasks, where LFM2.5 punches well above its weight class.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>👀 Watch for:</strong> whether LFM2.5 proves itself on more benchmarks over the coming weeks. Also watch if the liquid neural network architecture becomes a new paradigm for small models. Community adoption for lightweight agent applications would be a strong signal.
-  </div>
-
-  <div class="jargon">
-    <strong>📖 Jargon watch:</strong><br>
-    <strong>Liquid neural network</strong> = a neural network architecture where model weights dynamically adjust based on input data, rather than remaining fixed after training. This allows smaller models to handle more complex patterns.
-  </div>
-
-  <div class="who">
-    <strong>🗣️ Who's talking:</strong><br>
-    <a href="https://news.ycombinator.com/item?id=41000002" target="_blank">HN #6</a> — 86 points, 18 comments<br>
-    <a href="https://huggingface.co/LiquidAI/LFM2.5-2.6B" target="_blank">Hugging Face</a> — 93.7k stars, 515 downloads<br>
-    <a href="https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF" target="_blank">GGUF quantized</a> — 112k downloads
-  </div>
-
-  <div class="links">
-    <strong>Try it / dig in</strong>:<br>
-    <a href="https://www.liquid.ai/blog/lfm2.5" target="_blank">📝 Liquid AI official blog</a><br>
-    <a href="https://huggingface.co/LiquidAI/LFM2.5-2.6B" target="_blank">🤗 Hugging Face model card</a><br>
-    <a href="https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF" target="_blank">📦 GGUF quantized download</a>
-  </div>
-</article>
-
 <!-- ─── STILL TRACKING ─── -->
 <aside class="still-tracking">
   <span class="smallcaps">📈 Still tracking · not featured today but still developing</span>
   <ul>
     <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">DeepSeek V4 Flash 0731 tops ARC Prize</span> <span class="update">— community discussion continues; Karpathy tweeted "most impressive open model result this year"; Hugging Face downloads passed 1M.</span></div>
+      <span class="days">Day 2</span>
+      <div><span class="item-name">DeepSeek V4 Flash 0731</span> <span class="update">— featured Aug 10, no trigger event today. Community still testing ARC benchmark reproduction; Hugging Face model card updating.</span></div>
     </li>
     <li>
       <span class="days">Day 2</span>
-      <div><span class="item-name">Databricks enterprise AI coding cost framework</span> <span class="update">— enterprise CFO interest rising; swyx called it "the last missing piece for enterprise AI coding adoption."</span></div>
+      <div><span class="item-name">Databricks AI coding cost framework</span> <span class="update">— featured Aug 10, no new progress. Enterprise case studies expected in coming weeks.</span></div>
     </li>
     <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">OpenAI model escape incident</span> <span class="update">— Hugging Face published full timeline; community still debating security boundaries.</span></div>
+      <span class="days">Day 3</span>
+      <div><span class="item-name">Claude Code auto-mode default</span> <span class="update">— Anthropic safety eval published; community discussion centered on "human approval vs auto-mode" comparison. No new trigger event.</span></div>
     </li>
   </ul>
 </aside>
+
+<!-- ─── KILLED LIST ─── -->
+<section class="killed">
+  <span class="smallcaps">📊 Didn't make the cut today</span>
+  <table>
+    <thead>
+      <tr><th>Item</th><th>Why it's out</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>LFM2.5 2.6B (HN #7, 86 pts)</td><td>Released Aug 4, past 7-day window; no new trigger event. Still tracking community adoption.</td></tr>
+      <tr><td>H3-metal native MiniMax-H3 inference (HN #2, 295 pts)</td><td>Interesting but niche dev tool; signal below threshold for clawii's use case.</td></tr>
+      <tr><td>Needle2 14MB agentic LLM (HN #8, 359 pts)</td><td>Show HN, early stage; no KOL signal or ecosystem yet.</td></tr>
+      <tr><td>Zuckerberg attacks closed AI rivals (HN #10, 521 pts)</td><td>Commentary/positioning, not a new tool or model.</td></tr>
+      <tr><td>Claude marks AI-generated content (HN #20, 195 pts)</td><td>Feature update, not a capability jump.</td></tr>
+      <tr><td>OpenAI responsible AI infrastructure Texas</td><td>Infrastructure announcement, no usable artifact.</td></tr>
+      <tr><td>OpenAI expanding Daybreak cyber defense</td><td>Policy/security statement, not a new tool.</td></tr>
+    </tbody>
+  </table>
+</section>
 
 <!-- ─── PAGER (bottom) ─── -->
 <nav class="pager" data-current-date="2026-08-11">
@@ -367,7 +250,7 @@ li+li{margin-top:.2rem}
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
   <p>AI Radar · Daily signal filter · Action-oriented</p>
-  <p style="font-size:.7rem;margin-top:4px;color:#a3957e">Sources: Hacker News, Hugging Face, Simon Willison, Karpathy, swyx, official blogs</p>
+  <p style="font-size:.7rem;margin-top:4px;color:#a3957e">Sources: Hacker News, Hugging Face, Simon Willison, Meta official blog</p>
 </footer>
 
 <script>
