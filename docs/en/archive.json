@@ -6,6 +6,20 @@
       "date": "2026-08-16",
       "weekday": "Sun",
       "week": 33,
+      "kind": "weekly",
+      "headline": "Qwen3.8-27B tops HN at 1387: the open-source small model that spooked the community",
+      "summary": "6 new signals this week, individual signal strength extremely high. Qwen3.8-27B hits 80%+ of its 2.4T flagship on a consumer GPU — HN 1387 points, the highest s",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "weekly_2026-08-16.html"
+    },
+    {
+      "date": "2026-08-16",
+      "weekday": "Sun",
+      "week": 33,
       "issue": 81,
       "kind": "daily",
       "headline": "(no headline)",

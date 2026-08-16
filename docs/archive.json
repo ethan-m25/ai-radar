@@ -6,6 +6,20 @@
       "date": "2026-08-16",
       "weekday": "Sun",
       "week": 33,
+      "kind": "weekly",
+      "headline": "Qwen3.8-27B 登顶 HN 1387 分：开源小模型让社区第一次恐慌",
+      "summary": "本周 6 条新信号，单条强度极高。Qwen3.8-27B 以 27B 参数在消费级 GPU 上打到 2.4T 参数旗舰版 80%+ 的性能，HN 1387 分创近三月开源模型纪录。推理链泄露攻击证明「加密 ≠ 安全」。Muse Glimmer 30B 和 Gemini 3.7 Flash 延续性价比混战。本地 AI 时",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "weekly_2026-08-16.html"
+    },
+    {
+      "date": "2026-08-16",
+      "weekday": "Sun",
+      "week": 33,
       "issue": 81,
       "kind": "daily",
       "headline": "(no headline)",

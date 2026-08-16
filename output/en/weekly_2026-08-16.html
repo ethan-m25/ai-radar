@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-08-16 · Week 33</title>
+<meta name="description" content="Week 33 — Qwen3.8-27B tops HN at 1387: the small open model that spooked the community. Reasoning chain leak proves encrypted ≠ secure. Muse Glimmer + Gemini Flash keep the value war going.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 33">
+<meta property="og:description" content="6 new signals over 5 days · 4 🚨 · 2 👀 · 0 ℹ️ · 10 cross-period tracking · 4 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 30ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+
+  .cover .headline,
+  .weekly-section h2 {
+    word-break: break-word;
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 08 · 16 · WK 33 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <!-- ════════════ COVER ════════════ -->
+  <section class="cover">
+    <span class="kicker smallcaps">Week 33 · 2026-08-10 → 2026-08-16</span>
+    <h1 class="display headline">Qwen3.8-27B tops HN at 1387: the open-source small model that spooked the community</h1>
+    <p class="lead">6 new signals this week, individual signal strength extremely high. Qwen3.8-27B hits 80%+ of its 2.4T flagship on a consumer GPU — HN 1387 points, the highest score for any open-source model in months. The reasoning chain leak proved "encrypted ≠ secure." Muse Glimmer 30B and Gemini 3.7 Flash keep the value war going. Local AI is no longer a slogan.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> Open-source small models are no longer "toys." Qwen3.8-27B proved a 27B local model can do near-frontier work — Simon Willison called the Chinese end-to-end capability "frightening." The reasoning chain leak reminded everyone that encryption isn't security. If you only do one thing: download the Qwen3.8-27B GGUF (~16GB), run it in LM Studio, and test it against your real workflow.
+    </div>
+
+    <div class="count-row">
+      <div class="total">6</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>4</strong>&nbsp;🚨 (Qwen3.8-27B · Muse Glimmer 30B · Reasoning chain leak · DeepSeek V4 Flash ARC)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>2</strong>&nbsp;👀 (Databricks cost framework · Gemini 3.7 Flash price cut)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>0</strong>&nbsp;ℹ️</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 4 survived to weekly · 2 demoted/removed · 5 days of dailies (8/13, 8/14 missing)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">Qwen3.8-27B: The open-source small model that spooked HN, not excited it</h2>
+
+    <p>Alibaba released it on August 12. By August 15 it hit #1 on Hacker News with 1216 points. By August 16 it climbed to 1387 points with 778 comments. Hugging Face model card: 268k downloads, 10k stars. The unsloth GGUF version: 1.95M downloads, 1.33k stars. Those numbers already signal the heat — but what made this week different was the shift in community sentiment.</p>
+
+    <p>Day one, the reaction was "wow, Alibaba open-sourced something strong." Day two, it became "how strong, exactly? How is a 27B model hitting 80-85% of GPT-5.6 Sol on a single RTX 4090?" Day three, Simon Willison published a deep-dive using his just-built CORS Chat tool on an M5 MacBook Pro and NVIDIA DGX Spark. His verdict: Chinese end-to-end capability is "frightening" — SVG generation quality far exceeded expectations, progressive rendering actually works, multimodal output approaches GPT-5.6 Luna.</p>
+
+    <p>The panic came not because the model is too strong, but because it broke two unspoken rules. First, a Chinese lab's "small model" shouldn't catch up to a Western lab's "big model" on reasoning. Second, a consumer GPU shouldn't be able to run something close to what six-figure hardware delivers. Qwen3.8-27B broke both lines simultaneously.</p>
+
+    <p><strong>Paired with Muse Glimmer 30B (Meta, Apache 2.0, ~18GB quantized)</strong>, this week created a clear signal: you can now run near-frontier models locally for under $2,000 in hardware, zero API costs, data never leaves your machine. This isn't the future — it happened this week.</p>
+
+    <p><strong>If you only do one thing:</strong> Download the unsloth GGUF version of Qwen3.8-27B (~16GB 4-bit), load it in LM Studio, and run one or two of your most-used workflows this week (document summarization, code review, image analysis). If it hits 70%+ of your current cloud model's quality, seriously consider migrating. The savings in API costs and the privacy benefits are more real than any benchmark score.</p>
+  </section>
+
+  <!-- ════════════ 📈 TRENDS ════════════ -->
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Local open-source small models: from "can it work" to "should I even go to the cloud?"</div>
+      <p>Qwen3.8-27B (Alibaba, 28B, best in Chinese) and Muse Glimmer 30B (Meta, Apache 2.0, best for agents) both dropped this week at similar parameter counts with complementary strengths. Qwen dominates Chinese multimodal; Muse Glimmer excels at coding agents. Both quantize to 16-18GB, run on RTX 4090 or 32GB Mac, zero API cost, data never leaves. Enterprises now have a credible local alternative to cloud APIs. Key watch for next week: Qwen uses a custom license, not Apache 2.0 — will the community push Alibaba for a more permissive version?</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② AI security moved from "theoretical vulnerability" to "operational attack"</div>
+      <p>The reasoning chain leak attack (stolen-thoughts.com, August 12) showed how to extract sensitive data from encrypted reasoning chains in GPT-5.6 Luna, Claude Haiku 4.5, and Gemini 2.5 Pro. The attack exploits shared encryption keys within model families — feed the encrypted block to the weakest family member and jailbreak it into decrypting the text. The appendix shows 62 API keys and 33 passwords extracted. Vendors patched within 48 hours, but the root cause (architectural shared-key design) remains. This incident proves "encrypted ≠ secure" isn't theoretical — it's happening now.</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ Model value war upgrades from "compare prices" to "compare total cost of ownership"</div>
+      <p>Three price lines moved this week: DeepSeek V4 Flash at $0.08/M tokens tops ARC Prize (Aug 10), Gemini 3.7 Flash cuts price 50% (Aug 13), Qwen3.8-27B and Muse Glimmer offer zero-cost local options. Enterprises now face a three-way decision: cheaper cloud models (DeepSeek, Gemini Flash), local models (Qwen, Glimmer), or hybrid. Databricks' cost framework (Aug 10) arrived at exactly the right moment — CFOs finally have a tool to compare these options.</p>
+    </div>
+  </section>
+
+  <!-- ════════════ 💀 WRONG ════════════ -->
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">2 demotions, 1 honest admission of overly optimistic judgment</h2>
+
+    <p><strong>Reasoning chain leak downgraded (8/12 🚨 → 👀)</strong> — I flagged this as 🚨 on Tuesday, and it was indeed a major security event. But all vendors patched within 48 hours, and the real damage (62 API keys, 33 passwords shown in the paper) is real but contained. HN discussion shifted from "urgent response" to "industry reflection." Important security milestone, but not a real-time strategy-changer for enterprise AI. Moved into the trends discussion.</p>
+
+    <p><strong>Databricks cost framework (8/10 👀 → removed from tracking)</strong> — I chose this as 👀 on Monday because CFOs need to manage AI coding costs. But a week passed with zero enterprise case studies, zero CFO adoption reports, zero cloud platform follow-up. No community reviews on HN or Hugging Face. The judgment wasn't wrong — the framework has value — but the signal isn't strong enough for independent tracking. Its cost philosophy is already absorbed into this week's "value war" trend.</p>
+
+    <p><strong>DeepSeek V4 Flash ARC leader-topping (8/10 🚨 → removed from active tracking)</strong> — Correct flag (legitimate technical breakthrough), but ARC Prize heat didn't sustain in the community. No new benchmark challenges, no OpenAI/Anthropic response, no new technical report. Still one of the most cost-effective reasoning models available, but as a "news signal" it's lost momentum. Not a wrong call, just natural signal decay.</p>
+
+    <p><strong>Still tracking correctly:</strong> Muse Glimmer 30B (🚨, 6 days of community engagement and ecosystem support), Qwen3.8-27B (🚨, 2 days and still climbing), Gemini 3.7 Flash (👀, Simon Willison reviewed, clear price advantage) — all three tracking at original signal strength.</p>
+  </section>
+
+  <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Qwen3.8-27B's commercial license controversy</strong><br>
+      HN community has already started discussing the risks of Alibaba's custom license — what happens if they change terms later? Watch for: community-fine-tuned Apache 2.0 versions (within original license scope), an official Alibaba clarification on commercial terms, and whether smaller 7B/14B variants appear.<br>
+      <span class="trigger">Trigger → Apache 2.0 community version emerges / Alibaba publishes license statement / independent benchmarks</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Reasoning chain leak: what comes after the patch?</strong><br>
+      The 48-hour vendor fix: temporary patch or architectural redesign? The community will likely try to find bypasses; the paper authors promised more detailed exploit tooling. If a new bypass surfaces next week, this re-escalates to 🚨. If quiet, watch for vendor blog posts on "architecture improvements to chain encryption."<br>
+      <span class="trigger">Trigger → New bypass published / vendor discloses architectural fix / enterprise security advisory</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Will OpenAI / Anthropic respond to the small-model surge?</strong><br>
+      Qwen3.8-27B, Muse Glimmer, DeepSeek V4 Flash — three open-source small models rose in three weeks. OpenAI's GPT-5.6 Luna is still the best choice for individual users, but clearly behind on cost-efficiency and local deployment. Anthropic's Claude Haiku 4.5 took a brand hit from the reasoning chain leak. If OpenAI or Anthropic releases a small model, a price cut, or a local runtime next week, it marks "open-source pressure forcing closed-source to cut prices."<br>
+      <span class="trigger">Trigger → OpenAI/Anthropic small model launch / major price cut / local runtime announcement</span>
+    </div>
+  </section>
+
+  <!-- ════════════ 📅 CALIBRATION ════════════ -->
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 33</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>5 of 7 days (8/10–8/16, 8/13 and 8/14 missing)</dd>
+
+      <dt>🚨 Items flagged (unique signals)</dt>
+      <dd>4 (Qwen3.8-27B · Muse Glimmer 30B · Reasoning chain leak · DeepSeek V4 Flash ARC)</dd>
+
+      <dt>👀 Items flagged (unique signals)</dt>
+      <dd>2 (Databricks cost framework · Gemini 3.7 Flash price cut)</dd>
+
+      <dt>ℹ️ Items flagged</dt>
+      <dd>0</dd>
+
+      <dt>New signals total</dt>
+      <dd>6 (4🚨 + 2👀 + 0ℹ️)</dd>
+
+      <dt>Daily pill occurrences (inc. repeats)</dt>
+      <dd>10 (5🚨 + 5👀, Qwen and reasoning chain both appeared across multiple days)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>4 (🏆 Qwen3.8-27B · 📈 local small models · 📈 AI security operational attacks · 📈 TCO value war · 💀 2 demotions)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>2 (Reasoning chain 🚨→👀 · Databricks 👀→removed)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>33% (improvement from last week's 50%. 3 🚨 all received at least one follow-up validation. Qwen and Muse Glimmer continue to strengthen. Reasoning chain downgraded because the fix came faster than expected — the judgment itself was sound.)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~48 hours ahead on Qwen3.8-27B (English community hot since 8/12 release, Chinese discussion started 8/14); ~24 hours ahead on reasoning chain leak (8/12 HN explosion, Chinese coverage 8/13); ~12 hours ahead on Muse Glimmer (8/11 release, Chinese translators active same evening). Overall lead time flat vs last week, but Qwen's Chinese cycle is naturally faster — Alibaba is a Chinese company, so local media follows closely.</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 33 · 2026-08-16 · 5 dailies · 6 new signals (4🚨 / 2👀 / 0ℹ️) · 4 survived · 2 demoted/removed · Note: 8/13, 8/14 no daily files
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
