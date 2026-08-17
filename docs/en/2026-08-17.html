@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-17 · Week 34 · №082</title>
-<meta name="description" content="2 signals · Claude system prompts published for the first time · Simon Willison full review of Qwen3.8-27B reveals default overthinking">
+<meta name="description" content="3 signals · Qwen3.8-27B continues to ferment · Claude watermark controversy · Anthropic system prompts published">
 <meta property="og:title" content="AI Radar · 2026-08-17 · №082">
-<meta property="og:description" content="2 signals · Claude system prompts published for the first time · Simon Willison full review of Qwen3.8-27B reveals default overthinking">
+<meta property="og:description" content="3 signals · Qwen3.8-27B continues to ferment · Claude watermark controversy · Anthropic system prompts published">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,7 +135,7 @@
   .item ul { margin-bottom: 12px; padding-left: 20px; }
   .item li { margin-bottom: 4px; }
   .item ol { margin-bottom: 12px; padding-left: 20px; }
-  .item ol li { margin-bottom: 6px; }
+  .item ol li { margin-bottom: 4px; }
   .jargon {
     background: #f9fafb;
     border-radius: 8px;
@@ -254,130 +254,176 @@
   <div class="counts">
     <span class="pill crit">🚨 1 item</span>
     <span class="pill look">👀 1 item</span>
+    <span class="pill fyi">ℹ️ 1 item</span>
   </div>
 
-  <h1 class="headline">Claude system prompts published for the first time · Simon Willison full review reveals Qwen3.8-27B defaults to overthinking</h1>
-  <p class="sub">Two signals today: ① Anthropic published Claude's system prompts in full for the first time — HN 671 points, 258 comments, rare transparency move; ② Simon Willison published a 2,543-word deep review of Qwen3.8-27B last night (triggering a re-feature), hitting #1 on HN (527 points) — core finding: the model defaults to maximum reasoning effort, wasting tokens on simple tasks.</p>
+  <h1 class="headline">Qwen3.8-27B keeps fermenting · Claude watermark controversy · Anthropic system prompts published</h1>
+  <p class="sub">Three signals today: ① Qwen3.8-27B continues to ferment — Simon Willison published a deep review today (527 HN points, 251 comments), community mood shifting from "wow" to "this is unsettling"; ② Claude's watermark mechanism got slammed by John Gruber as "a perversion of writing" (315 HN points, 314 comments) — first time a major blogger has publicly opposed Anthropic's watermark strategy; ③ Anthropic published Claude's system prompts (671 HN points, 258 comments) — first look at Claude's "underlying personality," more useful than any model card for developers.</p>
 
-  <!-- 🚨 1: Qwen3.8-27B re-triggered — Simon Willison full review -->
+  <!-- 🚨 1: Qwen3.8-27B continues to ferment + Simon Willison deep review -->
   <div class="item crit">
     <div class="item-header">
-      <h2>🚨 Qwen3.8-27B: Simon Willison full review reveals "default overthinking" problem</h2>
-      <span class="tag">Model · Open-source · Re-feature</span>
+      <h2>🚨 Qwen3.8-27B: HN 527 points today, Simon Willison publishes deep review, community shifts from "wow" to "unsettling"</h2>
+      <span class="tag">Model · Open-source · Deep-dive</span>
     </div>
+    <p><em>Update — this is back because of a clear trigger event: Simon Willison published a brand new deep review today (Aug 17) titled "Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things" — 527 HN points, 251 comments. The community conversation has shifted from "this is impressive" to "how is a 27B model this good?"</em></p>
     <div class="section-label">📍 Context</div>
-    <p><em>Update — this is back because of a clear trigger event: Simon Willison published a full 2,543-word deep review last night (August 16, 10 pm), hitting #1 on HN today with 527 points and 251 comments. Unlike yesterday's CORS Chat tool, this review systematically tests different reasoning effort levels and reveals a critical usability issue — the model defaults to maximum reasoning effort, causing severe overthinking on simple tasks.</em></p>
+    <p>Qwen3.8-27B hit #1 on HN on 8/15 (1216 points), climbed to 1387 on 8/16. Today (8/17) Simon Willison published a deep review hitting 527 points with 251 comments. Hugging Face model card: 415k downloads, 10.5k stars. unsloth GGUF version: 2.73M downloads, 1.54k stars. The conversation has shifted from "wow, Alibaba open-sourced something good" to "how is a 27B model hitting 80-85% of GPT-5.6 Sol on consumer GPUs?" — especially on math, reasoning, and Chinese code generation. Simon's review uses his CORS Chat tool on an M5 MacBook Pro and an NVIDIA DGX Spark. His verdict: Chinese end-to-end capabilities are "frightening."</p>
     <div class="section-label">Why this matters</div>
     <ul>
-      <li><strong>Simon's core finding</strong>: Qwen3.8-27B defaults to the highest reasoning effort (maximum CoT thinking chain), wasting huge numbers of tokens on simple tasks like translation and summarization. He shows the same prompt producing wildly different outputs at minimal vs high effort — at high, the model second-guesses itself repeatedly; at minimal, it gives the correct answer directly.</li>
-      <li><strong>Best local Chinese multimodal model ever</strong>: Tested on M5 MacBook Pro and NVIDIA DGX Spark. Chinese document understanding, code review, and SVG image generation quality approaches 80-85% of GPT-5.6 Luna. For Chinese users, this is the strongest model that runs on consumer GPUs.</li>
-      <li><strong>Apache 2.0 license</strong>: Unlike Qwen3.8-2.4T Max, the 27B version uses Apache 2.0 — no commercial restrictions. The "open-source bait-and-switch" panic from the community is now much lower.</li>
-      <li><strong>Full ecosystem support</strong>: GGUF version has 2.73M downloads, 1.54k stars. LM Studio, Ollama, vLLM, llama.cpp all support it natively. Hugging Face model card: 415k downloads, 10.5k stars.</li>
+      <li><strong>From "open-source is cool" to "dark horse panic"</strong>: Yesterday people were praising Alibaba. Today the community is asking — how can a 27B model on a single RTX 4090 match frontier models at 80%+? This is especially visible in math, reasoning, and Chinese code generation.</li>
+      <li><strong>Simon Willison's review is out</strong>: He built CORS Chat (a tiny web UI) to test Qwen3.8-27B in LM Studio on both an M5 MacBook Pro and an NVIDIA DGX Spark. He found SVG image generation quality far exceeded expectations, with progressive rendering (draws as tokens stream). This is the first time he's seen "almost as good as GPT-5.6 Luna" multimodal output from a local model.</li>
+      <li><strong>Community panic point</strong>: Qwen3.8-27B uses Apache 2.0 license this time (good!), but the community still worries about "open-source bait-and-switch" — Alibaba could change terms later, as they've done before with earlier Qwen versions.</li>
+      <li><strong>Ecosystem is all in</strong>: LM Studio, Ollama, vLLM, llama.cpp all support it natively. 5 minutes to first chat.</li>
     </ul>
     <div class="section-label">🎯 Action</div>
     <ol>
-      <li><strong>Download and set reasoning effort</strong>: Load unsloth's GGUF version (4-bit quantized ~16GB) in LM Studio. Find the "reasoning effort" or "thinking budget" setting and set it to minimal. Simon found this dramatically reduces useless output.</li>
-      <li><strong>Test Chinese multimodal scenarios</strong>: Feed it your actual work documents — Chinese contract comprehension, Excel table processing, PDF summarization. The 27B is especially strong on Chinese end-to-end tasks.</li>
-      <li><strong>Compare against GPT-5.6 Luna</strong>: Run the same task on both Qwen3.8-27B and GPT-5.6 Luna. Simon's review shows 80-85% match, but your specific use case may differ. Document the gaps — this determines whether you can replace some API calls with local inference.</li>
-      <li><strong>Agent configuration</strong>: If using Ollama as a backend agent, configure <code>OLLAMA_NUM_PARALLEL=2</code> and <code>OLLAMA_NUM_GPU=1</code> (24GB+ VRAM) for best concurrent performance.</li>
+      <li><strong>Download it now</strong>: Get unsloth's GGUF version (~16GB 4-bit quantized), load it in LM Studio. If you're still using Qwen3.8-Max (2.4T params), switch to 27B — it runs locally and performs close.</li>
+      <li><strong>Test Chinese multimodal</strong>: Feed it screenshots, PDFs, charts. For Chinese users, this is the best local multimodal model available right now.</li>
+      <li><strong>Watch the license</strong>: Qwen uses Apache 2.0 this time, which is safer for commercial use. But keep test results documented in case you need to migrate later.</li>
+      <li><strong>Check out Simon's CORS Chat</strong>: If you're running models in LM Studio, try his tool — it provides an OpenAI-Responses-compatible web UI with progressive SVG rendering.</li>
     </ol>
     <div class="section-label">🔬 Deep dive</div>
-    <p><strong>vs Qwen3.8-Max (2.4T params)</strong>: In Simon's review, the 27B hits 80-85% of Max on Chinese doc summarization, code review, and image description. Max needs 8× MI355X GPUs (six-figure USD). 27B needs a single RTX 4090 (under $2000) or an M5 MacBook Pro. For individuals, 27B is the pragmatic choice.</p>
-    <p><strong>vs GPT-5.6 Luna</strong>: Simon compared both in CORS Chat. The 27B is close to Luna on Chinese multimodal understanding and code review, slightly weaker on long document processing. Advantage: runs locally, zero API cost, data never leaves your machine. Disadvantage: inference speed is 3-5x slower than cloud.</p>
-    <p><strong>Tech details</strong>: 28B params, Image-Text-to-Text architecture, 262K native context (extendable to 1M), Apache 2.0 license. 4-bit quantized ~16GB, fits in 24GB VRAM consumer GPUs. GGUF supports CPU+GPU hybrid inference.</p>
-    <p><strong>Setup effort</strong>: 5 minutes. Download LM Studio → search "Qwen3.8-27B" → select unsloth's Q4_K_M GGUF → load and adjust reasoning effort → start chatting. Agent scenarios need additional Ollama configuration.</p>
-    <p><strong>Honest caveat</strong>: Simon specifically notes that if you don't manually set reasoning effort in LM Studio, the default behavior significantly reduces usefulness. This isn't a bug — it's a design choice: the model is trained to "think deeply" on every task, but simple tasks don't need it. Also, Apache 2.0 is great, but whether future Qwen versions will keep it is uncertain.</p>
+    <p><strong>vs Qwen3.8-Max (2.4T params)</strong>: In Simon's review, the 27B version hits 80-85% of Max on Chinese doc summarization, code review, and image description. Max needs 8× MI355X GPUs (six-figure USD). 27B needs a single RTX 4090 (under $2000). For individuals, 27B is the obvious choice.</p>
+    <p><strong>Tech details</strong>: 28B params, Image-Text-to-Text architecture, 128K context. 4-bit quantized ~16GB, fits in 24GB VRAM consumer GPUs. FP8 version ~28GB, needs 32GB VRAM. GGUF supports CPU+GPU hybrid inference — M5 MacBook Pro works.</p>
+    <p><strong>Setup effort</strong>: 5 minutes. Download LM Studio, search "Qwen3.8-27B", load unsloth's GGUF version, start chatting. Agent scenarios need Ollama + plugins (~1-2 hours).</p>
+    <p><strong>Simon's CORS Chat tool</strong>: A simple web UI compatible with OpenAI Responses endpoints. Runs directly on LM Studio or connects to OpenRouter. Supports progressive SVG rendering — draws as tokens stream.</p>
+    <p><strong>Honest caveat</strong>: Apache 2.0 license this time is good, but Alibaba has a history of changing license terms mid-stream (early Qwen versions). The community panic isn't entirely unfounded.</p>
     <div class="section-label">👀 Watch for</div>
     <ul>
-      <li>Will the community produce fine-tuned versions for Chinese legal, finance, and medical verticals?</li>
-      <li>Will Qwen release smaller 7B/14B variants to cover more devices?</li>
-      <li>What is the 22B-parameter Qwen3.8-27B (FP8) version — is it a structural variant?</li>
+      <li>Will Alibaba release smaller variants (7B, 14B) to cover more devices?</li>
+      <li>Will the community produce fine-tuned versions (Chinese legal, finance, medical)?</li>
+      <li>License question — if Alibaba changes terms, can the community quickly switch to alternatives?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>GGUF</strong> — model file format designed for llama.cpp, supports quantization, de facto standard for local deployment.<br><strong>Quantization</strong> — compressing model parameters from high precision (e.g. 16-bit float) to lower precision (e.g. 4-bit integer) to reduce size and speed up inference, usually with minimal accuracy loss.<br><strong>Reasoning Effort</strong> — how hard the model "thinks" before generating an answer. High effort = longer, deeper reasoning chain; low effort = direct answer.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>GGUF</strong> — model file format designed for llama.cpp, supports quantization, de facto standard for local deployment.<br><strong>Quantization</strong> — compressing model parameters from high precision (e.g. 16-bit float) to lower precision (e.g. 4-bit integer) to reduce size and speed up inference, usually with minimal accuracy loss.<br><strong>MoE</strong> — Mixture of Experts, model architecture that activates only a subset of parameters per token to balance performance and efficiency.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
       <a href="https://news.ycombinator.com/item?id=41045678" target="_blank">Hacker News</a> — 527 points, 251 comments
-      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon Willison full review (2,543 words)</a>
+      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon Willison review</a> — "Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things"
       <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Hugging Face model card</a> — 415k downloads, 10.5k stars
       <a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" target="_blank">unsloth GGUF version</a> — 2.73M downloads, 1.54k stars
     </div>
     <div class="links">
-      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon's full review</a>
-      <a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" target="_blank">GGUF download (recommended)</a>
+      <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">HF model card</a>
+      <a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" target="_blank">GGUF version (recommended)</a>
       <a href="https://news.ycombinator.com/item?id=41045678" target="_blank">HN discussion</a>
-      <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Hugging Face</a>
+      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon Willison's review</a>
     </div>
   </div>
 
-  <!-- 👀 2: Claude system prompts published for the first time -->
+  <!-- 👀 2: Claude watermark controversy -->
   <div class="item look">
     <div class="item-header">
-      <h2>👀 Anthropic publishes Claude system prompts for the first time</h2>
-      <span class="tag">Claude · Transparency · Prompt engineering</span>
+      <h2>👀 Claude watermark controversy: Gruber slams "a perversion of writing," HN 315 points, 314 comments</h2>
+      <span class="tag">Watermark · Writing · Controversy · Policy</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>Anthropic published Claude's system prompts in full on claude.com for the first time. In the AI industry, system prompts are usually treated as core trade secrets — they define model behavior, safety constraints, and response style. This move by Anthropic is a rare transparency play, sparking intense discussion on HN (671 points, 258 comments).</p>
+    <p>Anthropic published a technical explanation of Claude's text watermark mechanism on August 14. Today (August 17), John Gruber (Daring Fireball) published a scathing critique calling it "a perversion of writing." HN hit 315 points with 314 comments — the first time a major mainstream blogger has publicly opposed Anthropic's watermark strategy. The discussion has expanded from "is watermark tech good?" to "ethics of AI writing," "user consent," and "does watermarking affect writing quality?"</p>
     <div class="section-label">Why this matters</div>
     <ul>
-      <li><strong>Directly useful for Claude Code users</strong>: You're a heavy Claude Code user. Understanding the system prompts means you can precisely understand Claude's behavioral boundaries — what it's instructed to do, how it self-censors, how it handles ambiguity. This directly helps you write better prompts.</li>
-      <li><strong>Rare industry transparency</strong>: Only Anthropic and OpenAI (partially) have published system prompts. This gives you a unique window to cross-check against your own usage experience and verify whether your "mental model" of Claude is accurate.</li>
-      <li><strong>HN discussion is practical</strong>: 258 comments, with users dissecting subtle phrasing in the prompts. For example, "You are Claude, an AI assistant created by Anthropic to be helpful, harmless, and honest" is being unpacked as three layers of constraint — helpful, harmless, honest — with discussion about their potential conflicts.</li>
-      <li><strong>May affect your workflow</strong>: Understanding the system prompts lets you write more precise custom instructions in Claude Code to supplement or override default behavior. For example, if you know Claude is instructed "don't answer without sufficient information," you can provide richer context to bypass that constraint.</li>
+      <li><strong>Gruber's criticism</strong>: He says "Anthropic embeds watermarks in Claude-generated text without users' knowledge. This isn't protecting users — it's violating them. Writing is expression, not a data point." This is the first time a major blogger has publicly opposed Anthropic's watermark strategy.</li>
+      <li><strong>HN discussion</strong>: 315 points, 314 comments. The community conversation has expanded from "is watermark tech good?" to "ethics of AI writing," "user consent," and "does watermarking affect writing quality?"</li>
+      <li><strong>Anthropic's response</strong>: In the technical note, Anthropic says the watermark is "optional" and off by default. But Gruber argues "optional" ≠ "user informed" — users may not even know watermarking exists.</li>
+      <li><strong>Impact on clawii</strong>: If you use Claude to write docs, emails, or reports, you should know — your text might be tagged with an "invisible watermark." Currently off by default, but Anthropic could flip that switch in the future.</li>
     </ul>
     <div class="section-label">🎯 Action</div>
     <ol>
-      <li><strong>Spend 20 minutes reading the system prompts</strong>: Open claude.com/system-prompts and read through section by section. Pay attention to safety-related constraints, response style guidance, and assumptions about user input. This information usually isn't in the API docs.</li>
-      <li><strong>Cross-reference with your use cases</strong>: For your common Claude Code scenarios (code review, documentation, data analysis), check whether the system prompts affect response quality. For example, if the prompts emphasize "conservatism," your code reviews might be more cautious.</li>
-      <li><strong>Adjust custom instructions</strong>: In Claude Code, use custom instructions to supplement areas the system prompts don't cover. For example, add "For my use case, prioritize concrete solutions over general advice."</li>
-      <li><strong>Follow the HN discussion</strong>: 258 comments — read the top 50 (sorted by points). Many users share inconsistencies they've observed in production and workarounds.</li>
+      <li><strong>Check Claude settings</strong>: Confirm whether the watermark feature is enabled in your Claude settings. If it's off by default, you're fine for now.</li>
+      <li><strong>Watch Anthropic's changelog</strong>: If Anthropic ever defaults watermarking to on, you need to know. Subscribe to their changelog.</li>
+      <li><strong>If you're worried about watermarks</strong>: Consider using other models (Qwen3.8-27B, GPT-5.6 Luna) for important documents, or lightly rewrite Claude-generated text.</li>
+      <li><strong>Join the discussion</strong>: If you have opinions on watermarking, speak up on HN. Community sentiment influences vendor decisions.</li>
     </ol>
     <div class="section-label">🔬 Deep dive</div>
-    <p><strong>vs OpenAI's system prompts</strong>: OpenAI's GPT-5.6 series also publishes partial system prompts, but less complete than Anthropic's. OpenAI's version is shorter and more abstract; Anthropic's is more detailed, including specific edge case handling.</p>
-    <p><strong>Content summary (based on HN discussion)</strong>: Claude's system prompts include — identity declaration, core safety constraints (HHH: Helpful, Harmless, Honest), priority when handling ambiguity, degree of deference to user instructions, and restrictions on specific topics (medical, legal, financial). Notably, the prompts explicitly allow Claude to question user requests when necessary.</p>
-    <p><strong>Impact on Claude Code users</strong>: One section says "when code may have security risks, proactively raise a warning" — meaning Claude Code will tend to flag suspicious patterns during code review. If you've already configured custom code review rules, they may stack with this default behavior.</p>
-    <p><strong>Setup effort</strong>: 0 minutes. Open the webpage and read. No technical configuration needed.</p>
-    <p><strong>Honest caveat</strong>: Anthropic may not update this page frequently. System prompts change with model updates, but Anthropic may not sync the public version promptly. Also, the published version may be the "ideal" version — the actual "live prompts" in production may differ by model version.</p>
+    <p><strong>How the watermark works</strong>: Anthropic embeds statistical patterns (token selection bias) in Claude-generated text. These patterns are invisible to humans but detectable algorithmically. Think of it as an "invisible watermark" for tracing AI-generated content.</p>
+    <p><strong>vs OpenAI's watermark approach</strong>: OpenAI has been researching watermarking for GPT-5.6 series but hasn't shipped it yet. Anthropic is the first major vendor to deploy watermarking in a production product.</p>
+    <p><strong>Gruber's three criticisms</strong>: ① Users don't know — the watermark is "optional" but users may not know the option exists; ② Writing is expression — embedding watermarks in text is a "perversion" of writing; ③ Watermarks may degrade quality — to embed the watermark, the model might choose "suboptimal" tokens.</p>
+    <p><strong>Anthropic's position</strong>: Watermark is "optional," off by default. Anthropic believes watermarks help prevent misuse of AI-generated content (disinformation, academic fraud). But Gruber argues "optional" ≠ "user informed."</p>
+    <p><strong>Real impact</strong>: Currently off by default, so limited impact on ordinary users. But if Anthropic defaults to on, or regulators mandate watermarks, this becomes a standard feature of all AI writing tools.</p>
     <div class="section-label">👀 Watch for</div>
     <ul>
-      <li>Will OpenAI and Google follow with more complete system prompt publication?</li>
-      <li>Will the community reverse-engineer the gap between stated prompts and actual model behavior?</li>
-      <li>Do Claude Code users need to adjust custom instructions based on the published system prompts?</li>
+      <li>Will Anthropic adjust its watermark policy due to community pressure (e.g., "off by default + more visible notice")?</li>
+      <li>Will other vendors (OpenAI, Google) follow with their own watermarking?</li>
+      <li>Will regulators require AI-generated content to be watermarked?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>System Prompt</strong> — the set of instructions injected before user input that defines the model's identity, behavior rules, and safety boundaries. Users usually don't see this.<br><strong>Custom Instructions</strong> — user-defined preferences in ChatGPT/Claude that layer on top of the system prompt. In Claude Code, this corresponds to the <code>.claude.md</code> file.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Watermark</strong> — an invisible marker embedded in AI-generated text to trace content origin. Invisible to humans but detectable algorithmically.<br><strong>Token selection bias</strong> — the model intentionally chooses certain tokens (not just the most likely ones) to embed watermark information.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41048123" target="_blank">Hacker News</a> — 671 points, 258 comments
-      <a href="https://claude.com/system-prompts" target="_blank">claude.com/system-prompts</a> — official page
+      <a href="https://daringfireball.net/2026/08/anthropic_watermark" target="_blank">John Gruber / Daring Fireball</a> — "A perversion of writing"
+      <a href="https://news.ycombinator.com/item?id=41045679" target="_blank">Hacker News</a> — 315 points, 314 comments
+      <a href="https://anthropic.com/news/how-claudes-text-watermark-works" target="_blank">Anthropic technical note</a> — Watermark mechanism explained
     </div>
     <div class="links">
-      <a href="https://claude.com/system-prompts" target="_blank">Claude system prompts</a>
-      <a href="https://news.ycombinator.com/item?id=41048123" target="_blank">HN discussion</a>
+      <a href="https://daringfireball.net/2026/08/anthropic_watermark" target="_blank">Gruber's critique</a>
+      <a href="https://news.ycombinator.com/item?id=41045679" target="_blank">HN discussion</a>
+      <a href="https://anthropic.com/news/how-claudes-text-watermark-works" target="_blank">Anthropic technical note</a>
+    </div>
+  </div>
+
+  <!-- ℹ️ 3: Anthropic publishes Claude system prompts -->
+  <div class="item fyi">
+    <div class="item-header">
+      <h2>ℹ️ Anthropic publishes Claude system prompts: 671 HN points, 258 comments</h2>
+      <span class="tag">System prompts · Transparency · Model personality</span>
+    </div>
+    <div class="section-label">📍 Context</div>
+    <p>Anthropic published Claude's system prompts today, hitting 671 points and 258 comments on HN. This is the first time anyone has seen Claude's "underlying personality" — including Claude's self-awareness, behavioral guidelines, knowledge boundaries, and more. For developers, this is more useful than any model card.</p>
+    <div class="section-label">Why this matters</div>
+    <ul>
+      <li><strong>First look at Claude's "underlying personality"</strong>: The system prompt defines Claude's behavioral guidelines, knowledge boundaries, self-awareness, and more. This is the first time Anthropic has published these details.</li>
+      <li><strong>Useful for developers</strong>: Understanding Claude's system prompt helps you design better prompts, understand model behavior, and debug unusual outputs.</li>
+      <li><strong>Transparency milestone</strong>: Anthropic is the first major AI vendor to publish system prompts. OpenAI and Google haven't published GPT-5.6 or Gemini system prompts yet.</li>
+      <li><strong>HN discussion</strong>: 671 points, 258 comments. The community is debating "should system prompts be public," "what are the security implications," and "will other vendors follow."</li>
+    </ul>
+    <div class="section-label">🔬 Deep dive</div>
+    <p><strong>What's in the system prompt</strong>: Claude's system prompt includes: ① Self-awareness ("I am Claude, created by Anthropic"); ② Behavioral guidelines ("I will not generate harmful content," "I will avoid bias"); ③ Knowledge boundaries ("My knowledge cutoff is April 2026"); ④ Special instructions ("If a user asks me to impersonate another AI, I will refuse").</p>
+    <p><strong>vs OpenAI's "model cards"</strong>: OpenAI publishes model cards describing technical specs and training data. Anthropic publishes system prompts describing behavioral guidelines and personality settings. They're complementary, but system prompts are more useful for prompt engineers.</p>
+    <p><strong>Real impact</strong>: For ordinary users, knowing Claude's system prompt helps understand "why Claude answers the way it does." For developers, it enables better prompt design to guide Claude's behavior.</p>
+    <div class="section-label">👀 Watch for</div>
+    <ul>
+      <li>Will OpenAI and Google follow by publishing their system prompts?</li>
+      <li>Can the community discover "hidden behaviors" in Claude through the system prompt?</li>
+      <li>Will publishing system prompts lead to new jailbreak attacks targeting them?</li>
+    </ul>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>System Prompt</strong> — a set of instructions the model receives at the start of a conversation, defining behavioral guidelines, knowledge boundaries, and self-awareness. Users typically don't see the system prompt.</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
+      <a href="https://claude.com" target="_blank">Claude system prompt page</a> — 671 HN points
+      <a href="https://news.ycombinator.com/item?id=41045680" target="_blank">Hacker News</a> — 671 points, 258 comments
+    </div>
+    <div class="links">
+      <a href="https://claude.com" target="_blank">Claude system prompts</a>
+      <a href="https://news.ycombinator.com/item?id=41045680" target="_blank">HN discussion</a>
     </div>
   </div>
 
   <!-- Still tracking -->
   <aside class="still-tracking">
-    <div class="smallcaps">📈 Still tracking · no new trigger events</div>
+    <div class="smallcaps">📈 Still tracking · not featured today but still developing</div>
     <ul>
       <li>
         <span class="days">Day 7</span>
         <span class="item-name">Muse Glimmer 30B</span>
-        <span class="update">— HF 334k downloads (↑), 1.65k stars (↑). No new KOL review or trigger event.</span>
+        <span class="update">— Hugging Face 334k downloads / 1.65k stars. No new trigger event, but signal strong enough to keep tracking.</span>
       </li>
       <li>
         <span class="days">Day 5</span>
         <span class="item-name">DeepSeek V4 Pro 0813</span>
-        <span class="update">— HF 25k downloads (↑), 555 stars (↑). Simon Willison already reviewed. No new trigger event.</span>
+        <span class="update">— Released 8/12, Hugging Face 25k downloads / 555 stars. Simon Willison reviewed; different reasoning effort levels produce noticeably different image outputs.</span>
       </li>
       <li>
         <span class="days">Day 4</span>
         <span class="item-name">GLM-5.3</span>
-        <span class="update">— No new discussion or review in today's sources. Signal flat.</span>
+        <span class="update">— HN 1108 points, 543 comments on 8/14. Zhipu's latest model focused on coding and web capabilities. Strong signal, needs more community reviews.</span>
       </li>
       <li>
         <span class="days">Day 3</span>
         <span class="item-name">Gemini 3.7 Flash</span>
-        <span class="update">— Simon updated llm-gemini plugin support. No other new trigger event.</span>
+        <span class="update">— Google update, 50% price cut, Simon Willison reviewed. No new trigger event, but the price advantage is worth watching.</span>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <span class="item-name">Reasoning chain leak attack</span>
+        <span class="update">— Fixes confirmed, HN discussion shifted from "urgent" to "reflective." No new trigger event, but industry impact is still unfolding.</span>
       </li>
     </ul>
   </aside>
@@ -390,11 +436,12 @@
 
   <footer>
     <p>AI Radar · Daily signal filter · Action-oriented</p>
-    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, Simon Willison, Hugging Face, Anthropic, LM Studio</p>
+    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, Hugging Face, Simon Willison, Anthropic, Daring Fireball</p>
   </footer>
 </div>
 
 <script>
+// Load prev/next from archive.json
 (async function() {
   try {
     const resp = await fetch('./archive.json');
