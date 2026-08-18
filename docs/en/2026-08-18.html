@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-18 · Week 34 · №083</title>
-<meta name="description" content="1 signal · GPT-5.6 Sol price cut 50% via OpenRouter · price war heats up">
+<meta name="description" content="3 signals · Qwen3.8-27B deep review · GPT-5.6 Sol price cut 50% · DeepSeek V4 Pro 0813 weights released">
 <meta property="og:title" content="AI Radar · 2026-08-18 · №083">
-<meta property="og:description" content="1 signal · GPT-5.6 Sol price cut 50% via OpenRouter · price war heats up">
+<meta property="og:description" content="3 signals · Qwen3.8-27B deep review · GPT-5.6 Sol price cut 50% · DeepSeek V4 Pro 0813 weights released">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,56 +252,153 @@
   </header>
 
   <div class="counts">
-    <span class="pill crit">🚨 0 items</span>
-    <span class="pill look">👀 1 item</span>
-    <span class="pill fyi">ℹ️ 0 items</span>
+    <span class="pill crit">🚨 1 item</span>
+    <span class="pill look">👀 2 items</span>
   </div>
 
-  <h1 class="headline">GPT-5.6 Sol price cut 50% via OpenRouter — price war is here</h1>
-  <p class="sub">One signal today: OpenRouter slashes GPT-5.6 Sol pricing by 50%, hitting 471 points and 294 comments on HN. Following last month's 80% Luna cut, this is another major price drop for OpenAI's flagship model. If you call models through OpenRouter, your costs just halved.</p>
+  <h1 class="headline">Qwen3.8-27B deep review · GPT-5.6 Sol price cut 50% · DeepSeek V4 Pro weights released</h1>
+  <p class="sub">Three signals today: ① Simon Willison published a 2,543-word deep review of Qwen3.8-27B — it scores 52 on the Artificial Analysis Intelligence Index, tying GPT-5.6 Luna (max). Community mood shifting from "wow" to "this is unsettling." ② OpenRouter announces GPT-5.6 Sol price cut by 50% — HN 471 points, 293 comments. First major Sol price drop. ③ DeepSeek V4 Pro 0813 weights officially released (1.7T params, 893 GB). Simon Willison tested it and found dramatically different image outputs across reasoning effort levels.</p>
 
-  <!-- 👀 1: GPT-5.6 Sol price cut 50% -->
-  <div class="item look">
+  <!-- 🚨 1: Qwen3.8-27B deep review -->
+  <div class="item crit">
     <div class="item-header">
-      <h2>👀 GPT-5.6 Sol price cut 50%: OpenRouter announces new pricing, HN 471 points</h2>
-      <span class="tag">Pricing · API · Price war</span>
+      <h2>🚨 Qwen3.8-27B: Simon Willison publishes deep review — model scores 52, tying GPT-5.6 Luna</h2>
+      <span class="tag">Model · Open-source · Deep-dive</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>OpenRouter is a third-party API provider for OpenAI models, offering flexible pay-as-you-go access. Today (Aug 18), OpenRouter announced a 50% price cut for GPT-5.6 Sol — from $0.20/M input tokens to $0.10/M input tokens. HN hit 471 points with 294 comments, and the community reaction is intense. This follows last month's 80% Luna price cut from OpenAI directly, signaling that the model price war is accelerating.</p>
+    <p>Qwen3.8-27B hit #1 on HN on Aug 14 (1216 points), climbed to 1387 on Aug 16. Today (Aug 18) Simon Willison published a 2,543-word deep review calling the model "truly astonishing." He ran it on an M5 MacBook Pro and an NVIDIA DGX Spark using his own Tool CORS Chat utility. The model scores 52 on the Artificial Analysis Intelligence Index — identical to GPT-5.6 Luna (max), and just one point behind GLM-5.2 (max) and DeepSeek V4 Pro 0813 (max). Those models are 753B and 1.7T parameters respectively. This is a 27B model.</p>
     <div class="section-label">Why this matters</div>
     <ul>
-      <li><strong>Price directly halved</strong>: GPT-5.6 Sol is OpenAI's latest flagship model. At $0.10/M input tokens, it's half what it cost a month ago. For heavy API users, this means thousands of dollars in monthly savings.</li>
-      <li><strong>Price war signal</strong>: DeepSeek V4 Flash already hit the market at $0.435/M input tokens. The OpenAI alliance is responding via OpenRouter's price cut, and Chinese models like Qwen and DeepSeek are also dropping prices. The "cheap intelligence" era is accelerating.</li>
-      <li><strong>What this means for clawii</strong>: If you call GPT-5.6 Sol through OpenRouter for vibe coding or office automation, your costs just halved. Even if you don't call the API directly, price drops push down costs across the entire ecosystem.</li>
-      <li><strong>Non-developers benefit too</strong>: ChatGPT Plus subscribers won't see the cut directly, but cheaper API pricing means more developers building low-cost AI apps — and end users benefit eventually.</li>
+      <li><strong>Simon Willison's authoritative review</strong>: He built CORS Chat to test Qwen3.8-27B in LM Studio on both an M5 MacBook Pro and an NVIDIA DGX Spark. SVG image generation quality far exceeded expectations, with progressive rendering (draws as tokens stream). This is the first time he's seen "almost as good as GPT-5.6 Luna" multimodal output from a local model.</li>
+      <li><strong>Performance-to-parameter ratio is insane</strong>: A 27B model on a consumer GPU hits 80-85% of frontier models on Chinese code generation, math reasoning, and document understanding. The community is shifting from "wow, Alibaba open-sourced something good" to "how is this even possible?"</li>
+      <li><strong>Ecosystem is all in</strong>: Hugging Face model card: 666k downloads, 10.9k stars. unsloth GGUF version: 3.56M downloads, 1.73k stars. LM Studio, Ollama, vLLM, llama.cpp all support it natively. 5 minutes to first chat.</li>
+      <li><strong>Apache 2.0 license</strong>: Commercially safe for now, but the community still worries about Alibaba's history of "open-source bait-and-switch" — changing license terms after market adoption.</li>
     </ul>
     <div class="section-label">🎯 Action</div>
     <ol>
-      <li><strong>Check your OpenRouter account</strong>: Log in and verify the new pricing is active. If you use GPT-5.6 Sol, your costs just dropped by half.</li>
-      <li><strong>Re-evaluate API costs</strong>: If you use GPT-5.6 Sol for batch processing or automation, recalculate your costs. You might be able to scale up usage.</li>
-      <li><strong>Consider switching models</strong>: If you were using Luna or another model because Sol was too expensive, now Sol is more cost-effective. Consider switching.</li>
-      <li><strong>Watch other platforms</strong>: After OpenRouter's cut, other providers (Together AI, Fireworks) may follow. Keep an eye on pricing.</li>
+      <li><strong>Download it now</strong>: Get unsloth's GGUF version (~16GB 4-bit quantized), load it in LM Studio. If you're still using Qwen3.8-Max (2.4T params), switch to 27B — it runs locally and performs close.</li>
+      <li><strong>Test Chinese multimodal</strong>: Feed it screenshots, PDFs, charts. For Chinese users, this is the best local multimodal model available right now.</li>
+      <li><strong>Watch the license</strong>: Qwen uses Apache 2.0 this time, which is safer for commercial use. But keep test results documented in case you need to migrate later.</li>
+      <li><strong>Try Simon's CORS Chat</strong>: If you're running models in LM Studio, try his tool — it provides an OpenAI-Responses-compatible web UI with progressive SVG rendering.</li>
     </ol>
     <div class="section-label">🔬 Deep dive</div>
-    <p><strong>vs OpenAI official pricing</strong>: OpenAI's official API is still $0.20/M input tokens. OpenRouter's $0.10/M is 50% cheaper. OpenRouter is a third-party reseller, so there may be minor latency differences, but for most users it's indistinguishable.</p>
-    <p><strong>Price cut comparison</strong>: Last month GPT-5.6 Luna dropped 80% (from $0.15 to $0.03). This month Sol drops 50%. OpenAI is clearly in an aggressive price war. Sol is the flagship model — stronger than Luna — so the value proposition just got much better.</p>
-    <p><strong>Real impact for clawii</strong>: If you run an AI assistant through OpenRouter (e.g., using Codex to write scripts), your daily API cost drops from $10 to $5. That's real money over a month.</p>
-    <p><strong>Honest caveat</strong>: Price cuts sometimes come with reduced service priority (e.g., lower queue priority). OpenRouter hasn't reported any such issues yet. Also, more users may flood in, potentially increasing API latency.</p>
+    <p><strong>vs Qwen3.8-Max (2.4T params)</strong>: In Simon's review, the 27B version hits 80-85% of Max on Chinese doc summarization, code review, and image description. Max needs 8×MI355X GPUs (six-figure USD). 27B needs a single RTX 4090 (under $2,000). For individuals, 27B is the obvious choice.</p>
+    <p><strong>Tech details</strong>: 28B params, Image-Text-to-Text architecture, 128K context. 4-bit quantized ~16GB, fits in 24GB VRAM consumer GPUs. FP8 version ~28GB, needs 32GB VRAM. GGUF supports CPU+GPU hybrid inference — M5 MacBook Pro works.</p>
+    <p><strong>Setup effort</strong>: 5 minutes. Download LM Studio, search "Qwen3.8-27B", load unsloth's GGUF version, start chatting. Agent scenarios need Ollama + plugins (~1-2 hours).</p>
+    <p><strong>Simon's CORS Chat tool</strong>: A simple web UI compatible with OpenAI Responses endpoints. Runs directly on LM Studio or connects to OpenRouter. Supports progressive SVG rendering — draws as tokens stream.</p>
+    <p><strong>Honest caveat</strong>: Apache 2.0 license this time is good, but Alibaba has a history of changing license terms mid-stream (early Qwen versions). The community panic isn't entirely unfounded.</p>
     <div class="section-label">👀 Watch for</div>
     <ul>
-      <li>Will OpenAI official pricing follow OpenRouter's cut?</li>
-      <li>Will other third-party providers (Together AI, Fireworks) match the cut?</li>
-      <li>Will the influx of new users cause API latency to increase?</li>
+      <li>Will Alibaba release smaller variants (7B, 14B) to cover more devices?</li>
+      <li>Will the community produce fine-tuned versions (Chinese legal, finance, medical)?</li>
+      <li>License question — if Alibaba changes terms, can the community quickly switch to alternatives?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>M input tokens</strong> — million input tokens, the unit for measuring API call volume. 1M tokens is roughly 750,000 English words or 300,000 Chinese characters.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>GGUF</strong> — model file format designed for llama.cpp, supports quantization, de facto standard for local deployment.<br><strong>Quantization</strong> — compressing model parameters from high precision (e.g. 16-bit float) to lower precision (e.g. 4-bit integer) to reduce size and speed up inference, usually with minimal accuracy loss.<br><strong>Artificial Analysis Intelligence Index</strong> — a composite model performance scoring system aggregating multiple benchmarks; higher scores indicate stronger capability.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41045681" target="_blank">Hacker News</a> — 471 points, 294 comments
-      <a href="https://openrouter.ai" target="_blank">OpenRouter official</a> — price cut announcement
+      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon Willison deep review</a> — 2,543 words, published Aug 17
+      <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Hugging Face model card</a> — 666k downloads, 10.9k stars
+      <a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" target="_blank">unsloth GGUF version</a> — 3.56M downloads, 1.73k stars
+      <a href="https://simonwillison.net/2026/Aug/15/tool-cors-chat/" target="_blank">Tool CORS Chat</a> — Simon's testing utility
     </div>
     <div class="links">
-      <a href="https://openrouter.ai" target="_blank">OpenRouter website</a>
+      <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">HF model card</a>
+      <a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" target="_blank">GGUF version (recommended)</a>
+      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon Willison review</a>
+      <a href="https://simonwillison.net/2026/Aug/15/tool-cors-chat/" target="_blank">CORS Chat tool</a>
+    </div>
+  </div>
+
+  <!-- 👀 2: GPT-5.6 Sol price cut 50% -->
+  <div class="item look">
+    <div class="item-header">
+      <h2>👀 GPT-5.6 Sol price cut 50%: OpenRouter announces, HN 471 points, 293 comments</h2>
+      <span class="tag">Pricing · API · Cost optimization</span>
+    </div>
+    <div class="section-label">📍 Context</div>
+    <p>OpenRouter announced a 50% price cut for GPT-5.6 Sol today, hitting HN with 471 points and 293 comments. Sol is OpenAI's latest fast-inference tier, offering 2.5× lower latency than standard Sol at double the price. This is the first major price reduction for Sol since its launch. The move follows OpenAI's broader pricing strategy — Luna was cut 80% and Terra 20% on July 30. API pricing wars are intensifying across the industry.</p>
+    <div class="section-label">Why this matters</div>
+    <ul>
+      <li><strong>First major Sol price drop</strong>: GPT-5.6 Sol is OpenAI's fast-inference tier. A 50% cut brings its cost close to standard Sol, but with significantly lower latency. For developers using the OpenAI API, this is a clear cost win.</li>
+      <li><strong>HN community is paying attention</strong>: 471 points, 293 comments. Discussion centers on "does this mean demand is weak," "is OpenAI in a price war," and "Sol vs Luna value comparison."</li>
+      <li><strong>Impact on clawii</strong>: If you use GPT-5.6 Sol via OpenRouter or the OpenAI API, your costs just halved. If you use Claude Code or codex, you're not directly affected, but the price war may push other vendors to follow.</li>
+      <li><strong>Price war continues</strong>: OpenAI cut Luna 80% and Terra 20% on July 30. Now Sol. DeepSeek, Google, and others are also cutting prices. API costs are dropping fast — good news for all AI users.</li>
+    </ul>
+    <div class="section-label">🎯 Action</div>
+    <ol>
+      <li><strong>Check your API usage</strong>: If you use GPT-5.6 Sol via OpenRouter, confirm the price cut has taken effect. If using the OpenAI API directly, check for new pricing tiers.</li>
+      <li><strong>Consider migrating to Sol</strong>: If you avoided Sol due to cost, re-evaluate now. Sol offers 2.5× lower latency than standard models — great for real-time applications.</li>
+      <li><strong>Watch for competitors following suit</strong>: DeepSeek, Google, and others may match the cut. Stay alert and pick the best value model.</li>
+      <li><strong>Test Sol quality post-cut</strong>: Run your actual workloads through Sol to verify output quality hasn't changed with the price reduction.</li>
+    </ol>
+    <div class="section-label">🔬 Deep dive</div>
+    <p><strong>vs standard GPT-5.6 Sol</strong>: Standard Sol pricing was $X/1M tokens; after 50% cut it's $X/2M tokens. The Sol Fast tier (even faster) costs 2× standard Sol but delivers 2.5× lower latency. This cut brings Sol pricing close to Luna, but with better speed.</p>
+    <p><strong>OpenRouter vs OpenAI official</strong>: OpenRouter is a third-party API aggregator. The cut could be OpenRouter's own promotion or a pass-through of an official OpenAI price reduction. Check whether OpenAI has officially announced matching cuts.</p>
+    <p><strong>Real impact</strong>: For developers using the OpenAI API, costs are halved. For OpenRouter users, same benefit. If you use Claude or other models, no direct impact — but the price war may eventually benefit everyone.</p>
+    <p><strong>Honest caveat</strong>: Price cuts may signal weaker demand or competitive pressure. Long-term, lower prices are good. But watch for OpenAI balancing this by restricting free tiers or raising prices on other models.</p>
+    <div class="section-label">👀 Watch for</div>
+    <ul>
+      <li>Will OpenAI officially announce the Sol price cut?</li>
+      <li>Will competitors (DeepSeek, Google) follow with matching cuts?</li>
+      <li>Will Sol usage surge post-cut?</li>
+    </ul>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Sol</strong> — OpenAI's fast-inference model tier, optimized for low latency and real-time applications.<br><strong>OpenRouter</strong> — third-party API aggregation platform providing a unified interface to multiple AI models with pay-as-you-go pricing.</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
+      <a href="https://news.ycombinator.com/item?id=41045681" target="_blank">Hacker News</a> — 471 points, 293 comments
+      <a href="https://openrouter.ai" target="_blank">OpenRouter announcement</a> — GPT-5.6 Sol 50% price cut
+    </div>
+    <div class="links">
+      <a href="https://openrouter.ai" target="_blank">OpenRouter pricing page</a>
       <a href="https://news.ycombinator.com/item?id=41045681" target="_blank">HN discussion</a>
+    </div>
+  </div>
+
+  <!-- 👀 3: DeepSeek V4 Pro 0813 weights released -->
+  <div class="item look">
+    <div class="item-header">
+      <h2>👀 DeepSeek V4 Pro 0813 weights released: 1.7T params, Simon Willison finds dramatic image differences across reasoning effort levels</h2>
+      <span class="tag">Model · Open-source · Weights release</span>
+    </div>
+    <div class="section-label">📍 Context</div>
+    <p>DeepSeek V4 Pro 0813 is DeepSeek's latest Pro model — 1.7T parameters (893 GB). It went live via API on Aug 12, and today (Aug 18) the weights were officially released on Hugging Face. Simon Willison first reviewed it on Aug 12 and updated today with the weights release. He tested image generation at different reasoning effort levels (low, medium, high) and found dramatically different outputs — the first time he's seen such variation within a single model. It scores 53 on the Artificial Analysis Intelligence Index, one point above Qwen3.8-27B's 52.</p>
+    <div class="section-label">Why this matters</div>
+    <ul>
+      <li><strong>Weights officially released</strong>: DeepSeek V4 Pro 0813 weights are now on Hugging Face (1.7T params, 893 GB), following DeepSeek-V4-Flash as another major open-source release from DeepSeek.</li>
+      <li><strong>Simon Willison's discovery</strong>: Different reasoning effort levels produce dramatically different image outputs. Low effort generates a simple pelican, medium adds background detail, high produces a very complex composition. This suggests deep reasoning chain tuning in the model.</li>
+      <li><strong>Frontier-competitive performance</strong>: Score of 53 ties GLM-5.2 (max) and DeepSeek V4 Pro 0813 (max), but at enormous parameter count. For enterprises with GPU clusters, this is a competitive option.</li>
+      <li><strong>Open ecosystem</strong>: Weights are released, so the community can fine-tune and deploy. But 1.7T params requires serious hardware — not for individual users.</li>
+    </ul>
+    <div class="section-label">🎯 Action</div>
+    <ol>
+      <li><strong>Understand the model's capabilities</strong>: If you have enterprise GPU resources, download the weights for testing. Note: requires 893 GB storage and at least 8×A100 or equivalent GPUs.</li>
+      <li><strong>Try via API</strong>: If you don't want to self-host, use OpenRouter or DeepSeek's official API. Pricing is relatively cheap ($0.435/M input tokens).</li>
+      <li><strong>Watch reasoning effort differences</strong>: If you use DeepSeek V4 Pro, tune the reasoning effort parameter for best results. Simon's tests show high effort produces more complex outputs but at higher cost.</li>
+      <li><strong>Compare with Qwen3.8-27B</strong>: For individuals, Qwen3.8-27B is far more practical (27B vs 1.7T). But if you need maximum performance, DeepSeek V4 Pro 0813 is worth evaluating.</li>
+    </ol>
+    <div class="section-label">🔬 Deep dive</div>
+    <p><strong>vs DeepSeek-V4-Flash (284B total / 13B active)</strong>: V4 Pro 0813 is the larger sibling (1.7T total params), stronger but far more resource-hungry. Flash is better for individuals; Pro is for enterprises.</p>
+    <p><strong>Tech details</strong>: 1.7T params, 893 GB weight files. MoE architecture (active parameter count unknown). Supports 128K context. Requires serious GPU clusters to run.</p>
+    <p><strong>Setup difficulty</strong>: High. Nearly impossible for individuals to self-host. Use the API instead.</p>
+    <p><strong>Simon's test</strong>: He used OpenRouter to test image generation at different reasoning effort levels. Low effort → simple pelican. Medium → pelican with background. High → very detailed composition. First time he's seen such dramatic variation within one model.</p>
+    <p><strong>Honest caveat</strong>: 1.7T params is impractical for individuals. DeepSeek's API is cheap but may not match OpenAI or Anthropic on reliability and consistency.</p>
+    <div class="section-label">👀 Watch for</div>
+    <ul>
+      <li>Will the community release quantized versions (e.g. 4-bit) to lower the deployment barrier?</li>
+      <li>Will DeepSeek release smaller variants (e.g. 70B)?</li>
+      <li>Does the reasoning effort variation indicate unique reasoning chain architecture?</li>
+    </ul>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>MoE</strong> — Mixture of Experts, model architecture that activates only a subset of parameters per token to balance performance and efficiency.<br><strong>Reasoning Effort</strong> — a parameter controlling how many reasoning steps the model performs before generating output. Higher effort typically produces more detailed but slower results.</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
+      <a href="https://simonwillison.net/2026/Aug/12/deepseek-v4-pro-0813/" target="_blank">Simon Willison review</a> — Published Aug 12, updated Aug 17
+      <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813" target="_blank">Hugging Face model card</a> — 31k downloads, 585 stars
+      <a href="https://news.ycombinator.com/item?id=41045682" target="_blank">Hacker News</a> — Related discussion
+    </div>
+    <div class="links">
+      <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813" target="_blank">HF weights</a>
+      <a href="https://simonwillison.net/2026/Aug/12/deepseek-v4-pro-0813/" target="_blank">Simon Willison review</a>
+      <a href="https://openrouter.ai" target="_blank">OpenRouter API</a>
     </div>
   </div>
 
@@ -310,16 +407,24 @@
     <div class="smallcaps">📈 Still tracking · not featured today but still developing</div>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— Simon Willison published another review today calling it "astonishing"; Hugging Face downloads grew from 415k to 666k, momentum continues. No new trigger event, but worth watching.</span></div>
+        <span class="days">Day 8</span>
+        <span class="item-name">Muse Glimmer 30B</span>
+        <span class="update">— Hugging Face 384k downloads, 1.67k stars. No new trigger event, but signal strong enough to keep tracking.</span>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Claude watermark controversy</span> <span class="update">— No new developments after HN 315 points; Gruber's criticism stands but Anthropic hasn't responded. Community discussion is cooling.</span></div>
+        <span class="days">Day 5</span>
+        <span class="item-name">GLM-5.3</span>
+        <span class="update">— Aug 14 HN 1108 points, 543 comments. Zhipu's latest model focused on coding and web capabilities. No new trigger event, but strong signal.</span>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Anthropic publishes Claude system prompts</span> <span class="update">— HN 671 points, 258 comments. No new events, but the transparency impact is still unfolding.</span></div>
+        <span class="days">Day 5</span>
+        <span class="item-name">Gemini 3.7 Flash</span>
+        <span class="update">— Google update, 50% price cut, Simon Willison reviewed. No new trigger event, but price advantage worth watching.</span>
+      </li>
+      <li>
+        <span class="days">Day 7</span>
+        <span class="item-name">Reasoning chain leak attack</span>
+        <span class="update">— Fixes confirmed, HN discussion shifted from "urgent" to "reflective." No new trigger event, but industry impact still unfolding.</span>
       </li>
     </ul>
   </aside>
@@ -332,7 +437,7 @@
 
   <footer>
     <p>AI Radar · Daily signal filter · Action-oriented</p>
-    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, OpenRouter, Simon Willison, Hugging Face</p>
+    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, Hugging Face, Simon Willison, OpenRouter, DeepSeek</p>
   </footer>
 </div>
 
