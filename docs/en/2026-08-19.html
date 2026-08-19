@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-19 · Week 34 · №084</title>
-<meta name="description" content="2 signals · Mojo open-sourced · OpenLogi explodes · Cerebras CS-4">
+<meta name="description" content="2 signals · Qwen3.8-27B tops local models · OpenAI partners with CodeAI">
 <meta property="og:title" content="AI Radar · 2026-08-19 · №084">
-<meta property="og:description" content="2 signals · Mojo open-sourced · OpenLogi explodes · Cerebras CS-4">
+<meta property="og:description" content="2 signals · Qwen3.8-27B tops local models · OpenAI partners with CodeAI">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: 'Geist', -aple-system, BlinkMacSystemFont, 'Segoe UI', Robot, sans-serif;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -39,7 +39,7 @@
   header {
     display: flex;
     justify-content: space-between;
-    align-items: baseling;
+    align-items: baseline;
     padding: 16px 0;
     border-bottom: 2px solid var(--border);
     margin-bottom: 24px;
@@ -49,7 +49,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-}
+  }
   header .meta {
     font-size: 0.85rem;
     color: var(--accent3);
@@ -103,7 +103,7 @@
   .item-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseling;
+    align-items: baseline;
     margin-bottom: 12px;
     flex-wrap: wrap;
     gap: 8px;
@@ -194,7 +194,7 @@
   .still-tracking li {
     display: flex;
     gap: 8px;
-    align-items: baseling;
+    align-items: baseline;
     padding: 6px 0;
     border-bottom: 1px solid #f3f4f6;
     font-size: 0.9rem;
@@ -226,7 +226,7 @@
     transition: background 0.2s;
   }
   .pager a:hover { background: #dbeafe; }
-  .pager .disabled { opacity: 0.4; point-events: none; }
+  .pager .disabled { opacity: 0.4; pointer-events: none; }
   footer {
     text-align: center;
     padding: 32px 0 16px;
@@ -241,13 +241,13 @@
 </style>
 </head>
 <body>
-<divid="container">
+<div class="container">
   <header>
     <h1>AI Radar</h1>
-    <divclass="meta">
+    <div class="meta">
       <span>№084</span>
       <span>2026-08-19</span>
-      <span>Weer 34</span>
+      <span>Week 34</span>
     </div>
   </header>
 
@@ -256,117 +256,116 @@
     <span class="pill look">👀 1 item</span>
   </div>
 
-  <h1 class="headline">Mojo open-sourced + OpenLogi explosion: two new ways for non-developers to play</h1>
-  <p class="sub">Twotodaysignals: ① Qualcomm opens-sourced them Mojolanguage — big for AI infernance performance on any hardware. ② OpenLogi hit #1 on HN with 777 points — a natural-language drag-and-dro supply chain logic tool, non-developer ready in 10 minutes. Cerebras CS-4 is hardware-only, too deep to matter for clawii, skip it.</p>
+  <h1 class="headline">Qwen3.8-27B tops local models + OpenAI partners with CodeAI</h1>
+  <p class="sub">Two signals today: Qwen3.8-27B scores 52 on the Artificial Analysis Intelligence Index, tying GPT-5.6 Luna and DeepSeek V4 Pro — at only 27B parameters, runs locally. OpenAI announces partnership with CodeAI to embed Codex into enterprise developer workflows. clawii's local model experience is about to change.</p>
 
-  <!-- 🚨 1: Mojo open-sourced -->
+  <!-- 🚨 1: Qwen3.8-27B tops local models -->
   <div class="item crit">
     <div class="item-header">
-      <h2>🚨 Mojo language officialy open-sourced: Qualcomm takes over, AI infernance performance goes open</h2>
-      <span class="tag">Programing language · Open-source · AI infernance</span>
+      <h2>🚨 Qwen3.8-27B: 27B local model ties GPT-5.6 Luna, Simon Willison calls it "truly astonishing"</h2>
+      <span class="tag">Local model · Open-source · Performance breakthrough</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>Mojo is a new programming language from Modular (founded by Chris Lattner, creator of LLVM and Swift). It's positioned as "a superset of Python with C-level performance," optimized for AI infernance and scientific computing. Announced in 2024 with a promise to open-source, it stayed closed. Today (Aug 19), Qualcomm anounced they acquired Modular and are open-sourcing the language itself under the MIT license, along with the Mojo SDK. HN: 64 points, 23 comments. The signal is strong: a language open-sourcing + big-co backer + potential 5-10x speedup for AI work.</p>
-    <div class="section-label">💡 Why this matters</div>
+    <p>Qwen3.8-27B is the latest Apache 2.0 open model from Alibaba's Qwen lab — 27B parameters, native vision understanding, 262K context (extendable to 1M). Today Simon Willison published a deep review noting it scores 52 on the Artificial Analysis Intelligence Index — identical to GPT-5.6 Luna (max config) and DeepSeek V4 Pro 0813 (1.7T params), but at 27B parameters. Hugging Face downloads already hit 1.01M.</p>
+    <div class="section-label">Why this matters</div>
     <ul>
-      <li><strong>5-10x faster AI infernance on consumer hardware</strong>: Mojo nativey supports GPU and TPU acceleration. Syntax looks like Python, but compiles to code that runs near CUAD-writen speed. If you write AI scripts or run local infernance with Python (Ollama, etc.), Mojo can speed things up dramatically with minimal code changes.</li>
-      <li><strong>Open + big-co backing = real</strong>: Quallcom's acquisition means long-term maintenance. This isn't a toy anymore. What does it mean for a non-developer like clawii? Future AI tools built on Mojo will simply run faster.</li>
-      <li><strong>Directly useful in your vibe coding workflow</strong>: Mojo can call Python libraries — including code generated by Claude Code or Codex. You don't have to rewrite anythig. If Codex generats a data-processing script for you, try running the core loop in Mojo for a free speed boost.</li>
-      <li><strong>Chalenge to NVidia's monolopy</strong>: Mojo's compiler optimizations make AI infernance more effcient on AMD / Qualcomm / Apple Silicon hardware too. Long term, reduces lock-in risk.</li>
-    <ul>
+      <li><strong>Local model ceiling just broke</strong>: 27B params running on an M5 MacBook Pro or NVIDIA DGX Spark matches cloud frontier models in benchmark scores. This means clawii can run a "GPT-5.6 class" model locally — no API costs, full privacy, unlimited calls.</li>
+      <li><strong>Simon Willison personally validated it</strong>: Two blog posts today — one detailed review, one calling it "truly astonishing." He tested it on his M5 MacBook Pro and DGX Spark via LM Studio, confirming local inference works well.</li>
+      <li><strong>What this means for clawii</strong>: If you use Claude Code or Codex for vibe coding, a local model can handle sensitive data, work offline, and run unlimited queries. The 4-bit quantized version needs ~16GB VRAM — fits on an M5 MacBook Pro.</li>
+      <li><strong>Ecosystem accelerating</strong>: Apache 2.0 license, uncensored abliterated versions already out (60k+ downloads). Local models are moving from "toy" to "productivity tool."</li>
+    </ul>
     <div class="section-label">🎯 Action</div>
     <ol>
-      <li><strong>Instal Mjo SDK<strong>: Go to <code>https://docs.modular.com/mojo</code>, download the installer. Supports macoS (Apple Silicon + Inte) and Linu. Windows users -> WSL.</li>
-      <li><strong>Try running an infernance script</strong>: Grab a Python infernance script you already have (e.g.running Olam with a model), conver it to <code>.mojo</code> and run <code>mojo run</code>. Note: Mojo isn't 100% Python-compatible — some synta adjustment needed.</li>
-      <li><strong>Folow the comunity</strong>: Mojo's official docs and examples are filling in fast. Qualcomm promised monthly updates.</li>
-      <li><strong>Updte your Codex prompt</strong>: Try asking Codex "write this in Mojo" — if the model supports it (imited for now), you can autmatically generate Mojo code.</li>
+      <li><strong>Download Qwen3.8-27B GGUF</strong>: unsloth's 4-bit quantized version (4.32M downloads). Load it in LM Studio or Ollama — test it today.</li>
+      <li><strong>Test your vibe coding workflow</strong>: Replace your usual API model with Qwen3.8-27B locally. Try script writing, document processing, data analysis — see if it completes your daily tasks.</li>
+      <li><strong>Check out the uncensored variants</strong>: If you need unrestricted responses (e.g. for sensitive content), community abliterated versions have 60k+ downloads. Use with caution.</li>
+      <li><strong>Compare with DeepSeek V4 Flash</strong>: DeepSeek V4 Flash is 13B active params but MoE. Qwen3.8-27B is dense — more stable inference. Try both back-to-back.</li>
     </ol>
     <div class="section-label">🔬 Deep dive</div>
-    <p><strong>vs Python + native extensions</strong>: Python+NumPy/PyTorch is already fast for core operations, but surrounding loops and control flow are slow. Mojo compiles the whole script via type infernance — official benchmarks show 10-100x acceleration on tight loops, and 2000x on matrix multiplication vs pure Python.</p>
-    <p><strong>vs Rust / C++</strong>: Mojo syntax is far simpler than Rust (it looks like Python), while performance is within 10% of handwritten Rust/C++. For non-developers, Mojo is 100x more approachable.</p>
-    <p><strong>What this means for clawii</strong>: If Codex generates Python data-processing scripts for you — batch CSV analysis, API response parsing — those scripts often run slowly. Rewriting the performance-critical loops in Mojo could give 5x speedup in minutes.</p>
-    <p><strong>Honest caveat</strong>: Mojo is early. Ecosystem is tiny (no package manager, few libraries). Post-open-source community velocity is unnown. Qualcomm's long-term commitment needs observation. Mojo can't replace Python yet — think of it as a "performance accelerator" plugin for your existing workflow, not a new home.</p>
+    <p><strong>vs GPT-5.6 Luna</strong>: Luna is OpenAI's cloud frontier model — unknown parameter count but far larger than 27B. Qwen3.8-27B scores identically on Artificial Analysis (52). Luna costs $0.03/M input tokens via API. Qwen3.8-27B is free locally, but needs hardware (M5 MacBook Pro or DGX Spark).</p>
+    <p><strong>vs DeepSeek V4 Pro 0813</strong>: DeepSeek V4 Pro is a 1.7T MoE model scoring 52. Qwen3.8-27B is dense, gives more stable inference, and runs locally. DeepSeek V4 Pro costs $0.435/M input tokens via API.</p>
+    <p><strong>vs Qwen3.6-27B</strong>: Previous generation scored ~45. Qwen3.8-27B improved 15%+, mainly in reasoning and tool use.</p>
+    <p><strong>What it runs on</strong>: vLLM, llama.cpp, Ollama, LM Studio, Hugging Face Transformers all support it day-one. 4-bit quantized ~16GB VRAM — M5 MacBook Pro runs it comfortably.</p>
+    <p><strong>Setup difficulty</strong>: LM Studio or Ollama: 5 minutes. No code required.</p>
+    <p><strong>Honest caveat</strong>: On an M5 MacBook Pro, generation speed is ~10-20 tokens/s — slower than cloud. Fine for most tasks unless you need real-time response. Also, the model tends to "overthink" (Simon Willison noted this) — you may need to adjust your prompts.</p>
     <div class="section-label">👀 Watch for</div>
     <ul>
-      <li>Community PR and contribution velocity — does the GitHub repo hit 5k stars within a week?</li>
-      <li>Will Qualcomm ship specialized compiler optimizations (especially for Snapdragon hardware)?</li>
-      <li>How quickly do Codex / Claude Code add Mojo code generation support?</li>
+      <li>Will Qwen release larger variants (e.g. 72B)?</li>
+      <li>Can community produce more efficient quantizations to lower hardware requirements?</li>
+      <li>Can competing local models (e.g. Muse Glimmer 30B) catch up?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Mojo</strong> — A programming language that looks like Python but compiles to near-C speed, designed for AI and scientific computing. Created by LLVM founder Chris Lattner, now managed by Qualcomm and open-source.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>GGUF</strong> — model quantization format that lets large models run on consumer hardware. 4-bit GGUF compresses model size to ~1/4 of original. <strong>abliteration</strong> — removing a model's safety refusal mechanisms to make it more open (may produce harmful content). <strong>MoE</strong> — Mixture of Experts, architecture that activates only a subset of parameters per token.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinutor.com/item?id=41049123" target="_blank">Hacker News</a> — 64 points, 23 comments
-      <a href="https://www.modular.com" target="_blank">Modular official blog</a> — Open-source announcement
-      <a href="https://github.com/modular/mojo" target="_blank">GitHub repository</a> — Open-source code
+      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon Willison</a> — two blog posts, called it "truly astonishing"
+      <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Hugging Face</a> — 1.01M downloads
+      <a href="https://news.ycombinator.com/item?id=41045681" target="_blank">Hacker News</a> — active discussion
     </div>
     <div class="links">
-      <a href="https://docs.modular.com/mojo" target="_blank">Mojo official docs</a>
-      <a href="https://news.ycombinator.com/item?id=41049123" target="_blank">HN discussion</a>
-      <a href="https://github.com/modular/mojo" target="_blank">GitHub · modular/mojo</a>
+      <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Hugging Face model page</a>
+      <a href="https://simonwillison.net/2026/Aug/16/qwen-3-8-27b/" target="_blank">Simon Willison review</a>
+      <a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" target="_blank">GGUF quantized version</a>
     </div>
   </div>
 
-  <!-- 👀 2: OpenLogi explodes -->
+  <!-- 👀 2: OpenAI partners with CodeAI -->
   <div class="item look">
     <div class="item-header">
-      <h2>👀 OpenLogi: Build supply chain logic with natural language drag-and-drop, explodes to #1 on HN with 777 points</h2>
-      <span class="tag">Supply chain · Low-code · Natural language · Viral</span>
+      <h2>👀 OpenAI partners with CodeAI: Codex entering enterprise workflows</h2>
+      <span class="tag">Enterprise · Partnership · Dev tools</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>OpenLogi is an open-source (MIT license) tool for building supply chain logic visually. Today (Aug 19) it's #1 on Hacker News with 777 points and 220 comments. Its core value: describe supply chain rules in natural language (e.g. "if inventory falls below 100 units, auto-replenish from the backup warehouse"), and it generates an optimized execution plan. For non-developers, this is the first genuinely business-user-oriented "program supply chain with words" tool.</p>
-    <div class="section-label">💡 Why this matters</div>
+    <p>OpenAI announced a partnership with CodeAI today (Aug 19), embedding Codex into enterprise development workflows. CodeAI is an AI-assisted coding platform already working with multiple Fortune 500 companies. This means Codex is no longer just OpenAI's standalone product — it's being integrated into existing enterprise dev toolchains.</p>
+    <div class="section-label">Why this matters</div>
     <ul>
-      <li><strong>Natural language + drag-and-drop = zero-code supply chain</strong>: Describe your rules in plain English (or Chinese) and OpenLogi generates a visual flow chart. No SAP training, no Excel macros required. Clawii works in compensation management — approval rules, budget allocation — same pattern, different domain.</li>
-      <li><strong>777 points = community validated</strong>: #1 on HN with 220 comments full of real-world use cases (logistics, retail, manufacturing). This isn't a niche toy.</li>
-      <li><strong>AI-natve + open-source</strong>: Under the hood it likely calls an LLM (GPT-5.6 series or similar) to parse natural language, but the user doesn't need to know. Open-source means you can self-host for enterprise compliance.</li>
-      <li><strong>For clawii specifically</strong>: You deal with spreadsheets, rules, and approval logic all the time in comp work. Even if you don't directly use OpenLogi, its "describe in words → auto-execution" pattern is directly transferable to your work. Watch how it models rules and think about applying the same approach to compensation logic.</li>
+      <li><strong>Enterprise Codex is here</strong>: Codex was mostly for individual devs and small teams. This partnership signals OpenAI's formal push into the enterprise market. CodeAI's enterprise customers can now call Codex directly from their existing workflows.</li>
+      <li><strong>What this means for clawii</strong>: Even though you're not an enterprise developer, Codex going enterprise means more investment, more stable APIs, potentially lower costs down the line. The Codex ecosystem gets stronger.</li>
+      <li><strong>Competitive landscape shift</strong>: Cursor just launched Origin (AI-native IDE), Claude Code keeps iterating. OpenAI choosing a partner route instead of building its own IDE is a smart strategic move.</li>
+      <li><strong>Non-developers benefit too</strong>: Codex's automation abilities (script writing, data processing) will spread through enterprise channels and eventually reach all users.</li>
     </ul>
     <div class="section-label">🎯 Action</div>
     <ol>
-      <li><strong>Open the OpenLogi site</strong>: <code>https://openlogi.org</code>. Try the online sandbox on the homepage. Describe a simple rule ("if order value > $1000, use air freight; else ground") and watch it translate.</li>
-      <li><strong>Map to your work</strong>: What repetitive rules do you have in comp work? "If employee rating is A, bonus multiplier 1.5; rating B → 1.2." OpenLogi's approach can turn these into executable logic.</li>
-      <li><strong>Read the HN comments</strong>: Top 50 comments have real use cases and critiques. Worth skimming.</li>
+      <li><strong>Watch CodeAI's public docs</strong>: If CodeAI opens an API or plugin, clawii can try integrating it into personal workflows.</li>
+      <li><strong>Compare with Cursor Origin</strong>: Cursor just launched Origin — an AI-native IDE positioning itself differently. Try both, see which fits your vibe coding style better.</li>
+      <li><strong>Wait and see</strong>: Partnership just announced, product details are sparse. Stay tuned for actual deliverables before going deep.</li>
     </ol>
     <div class="section-label">🔬 Deep dive</div>
-    <p><strong>vs traditional supply chain software (SAP / Oracel)</strong>: OpenLogi is a completely different approach — no expensive licenses, no consulting engagement. You describe rules in natural language, it generates logic. But it only handles the logic layer — no deep ERP integration (no real-time inventory syncing). Think of it as "supply chain logic spelled out in words" rather than a full ERP replacement.</p>
-    <p><strong>vs low-code platforms (Retool / Airatable)</strong>: Retool requires SQL knowedge; Airatable requires formula knowledge. OpenLogi's bar is lower — describe in your native language. But it's far less flexible than Retool. Good for simple-to-medium complexity rules.</p>
-    <p><strong>What it runs on</strong>: Open-source code on GitHub (MIT), can be self-hosted. Frond-end likely React, back-end likely Node.js/Python. Model calls are configurable (default probably OpenAI API, swichable to local models).</p>
-    <p><strong>Honest assessment</strong>: The 777-point explosion is more "proof of concept" than "mature product." Production reliability is unknown. But for pure logic exploration and rototyping, it's already useful. Try it as a fun experiment, don't migrat your core business on day one.</p>
+    <p><strong>vs Cursor Origin</strong>: Cursor Origin is a full AI-native IDE — complete control over the coding workflow. CodeAI partnership is more "stick Codex into existing tools" than reinvent the IDE. Different approaches, different trade-offs.</p>
+    <p><strong>vs Claude Code</strong>: Claude Code is Anthropic's coding agent — supports cross-session messaging, safer execution modes. Codex's advantage is OpenAI's ecosystem (GPT-5.6 Sol, plugin system).</p>
+    <p><strong>Real impact for clawii</strong>: Short-term, minimal. Long-term, if CodeAI releases non-developer products (e.g. automated office scripting), clawii could benefit.</p>
+    <p><strong>Honest caveat</strong>: Enterprise partnerships usually mean higher prices and more complex deployment. For individual users, the plain Codex CLI may remain the better option.</p>
     <div class="section-label">👀 Watch for</div>
     <ul>
-      <li>Wil the project sustain GitHub momentum (1k+ stars within a week)?<li>
-      <li>Are there real enterprise case studies emerging?<li>
-      <li>Chinese language support status? (Currently looks English-first)</li>
+      <li>Will CodeAI release products for SMBs?</li>
+      <li>Will OpenAI reduce support for individual developers?</li>
+      <li>How will Cursor and Claude Code respond?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Supply chain logic</strong> — Rules describing how goods flow from suppliers to customers: inventory manaement, procurement triggers, logistics choices. For non-logistics professionals, thin of it as "bussines rule automation."</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41048234" target="_blank">Hacker News</a> — 777 points, 220 comments
-      <a href="https://openlogi.org" target="_blank">OpenLogi website</a> — Online sandbox
-      <a href="https://github.com/amatheus/OpenLogi" target="_blank">GitHub repository</a> — MIT license
+      <a href="https://openai.com/index/partnering-with-codeai" target="_blank">OpenAI official announcement</a>
+      <a href="https://news.ycombinator.com/item?id=41045681" target="_blank">Hacker News</a> — discussion thread
     </div>
     <div class="links">
-      <a href="https://openlogi.org" target="_blank">OpenLogi site</a>
-      <a href="https://news.ycombinator.com/item?id=41048234" target="_blank">HN discussion</a>
-      <a href="https://github.com/amatheus/OpenLogi" target="_blank">GitHub · amatheus/OpenLogi</a>
+      <a href="https://openai.com/index/partnering-with-codeai" target="_blank">OpenAI official announcement</a>
+      <a href="https://cursor.com" target="_blank">Cursor Origin</a>
     </div>
   </div>
 
   <!-- Still tracking -->
   <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · not featured today but still developing</span>
+    <div class="smallcaps">📈 Still tracking · not featured today but still developing</div>
     <ul>
       <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— Simon Willison re-reviewed today ("truy astounishing"), downloads passed 1M, sustained momentum. No trigger event to re-feature.</span></div>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— Simon Willison published two blog posts today; Hugging Face downloads jumped from 415k to 1.01M. Already featured (🚨) in top-3, no further tracking needed.</span></div>
       </li>
       <li>
-        <span class="days">Day 3</span>
-        <div><span class="item-name">Claude watermark controversy & Anthropic system prompt release</span> <span class="update">— No new developments, community heat cooling down. Continuing to observe.</span></div>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Claude watermark controversy</span> <span class="update">— 315 HN points, no new developments. Anthropic hasn't responded. Community discussion slowly cooling.</span></div>
       </li>
       <li>
-        <span class="days">Day 3</span>
-        <div><span class="item-name">GPT-5.6 Sol price cut 50%</span> <span class="update">— HN 471 point event passed, price cut active. OpenRouter reports no quality degratation post-cut.</span></div>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Anthropic publishes Claude system prompts</span> <span class="update">— 671 HN points, 258 comments. No new events, but transparency impact still being felt.</span></div>
       </li>
     </ul>
   </aside>
@@ -377,9 +376,9 @@
     <a href="#" id="next-link" class="disabled">Next issue →</a>
   </div>
 
-  <foter>
+  <footer>
     <p>AI Radar · Daily signal filter · Action-oriented</p>
-    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, OpenRouter, Simon Willison, Hugging Face, Modular</p>
+    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, Simon Willison, Hugging Face, OpenAI</p>
   </footer>
 </div>
 
@@ -387,16 +386,16 @@
 // Load prev/next from archive.json
 (async function() {
   try {
-    const resp = await fetch('/archive.json');
+    const resp = await fetch('./archive.json');
     if (!resp.ok) throw new Error('Not found');
     const data = await resp.json();
     const issues = data.issues || [];
-    const currentIdx = issues.findIndex(i => i.number === 84);
+    const currentIdx = issues.findIndex(i => (i.number || i.issue) === 84);
     if (currentIdx === -1) return;
     const prev = issues[currentIdx - 1];
     const next = issues[currentIdx + 1];
-    const prevLink = document.getEleentById('prev-link');
-    const nextLink = document.getEleentById('next-link');
+    const prevLink = document.getElementById('prev-link');
+    const nextLink = document.getElementById('next-link');
     if (prev) {
       prevLink.href = prev.url || `/${prev.number}`;
       prevLink.classList.remove('disabled');
