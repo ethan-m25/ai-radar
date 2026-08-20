@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-20 · Week 34 · №085</title>
-<meta name="description" content="1 signal · Unsloth Dynamic 3.0 GGUFs boost local model quantization accuracy">
+<meta name="description" content="2 signals · OpenRouter acquired by Stripe · fx open-source native coding agent">
 <meta property="og:title" content="AI Radar · 2026-08-20 · №085">
-<meta property="og:description" content="1 signal · Unsloth Dynamic 3.0 GGUFs boost local model quantization accuracy">
+<meta property="og:description" content="2 signals · OpenRouter acquired by Stripe · fx open-source native coding agent">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,55 +252,144 @@
   </header>
 
   <div class="counts">
+    <span class="pill crit">🚨 1 item</span>
     <span class="pill look">👀 1 item</span>
   </div>
 
-  <h1 class="headline">Unsloth Dynamic 3.0: local models just got faster and smarter</h1>
-  <p class="sub">One signal today — HN 281 points. Unsloth released Dynamic 3.0 GGUFs, a quantization upgrade that delivers 10% higher accuracy on models like Qwen3.8-27B, and even 1-bit quantization that retains 77% BF16 accuracy on 8GB RAM. For clawii running local models for vibe coding, this means smaller files, faster inference, and better quality — all at once.</p>
+  <h1 class="headline">OpenRouter acquired by Stripe + fx native coding agent goes open source</h1>
+  <p class="sub">Two signals today: OpenRouter acquired by Stripe (HN 858 points) — this could change the cost structure and payment flow for routing AI models; fx open-source native coding agent (HN 281 points, 1.2k GitHub stars in 12h) — a tiny, pure-terminal AI assistant worth running on your own machine. Unsloth Dynamic 3.0 GGUFs (HN 281 points, but no new impact for clawii) skipped; "Don't Paste the AI" (HN 345 points) is a security reminder, not a tool, skipped; Feature Request: AGENTS.md (HN 276 points) is an Anthropic proposal with potential impact on coding agent collaboration, but no action yet.</p>
 
-  <!-- 👀 1: Unsloth Dynamic 3.0 GGUFs -->
-  <div class="item look">
+  <!-- 🚨 1: OpenRouter → Stripe -->
+  <div class="item crit">
     <div class="item-header">
-      <h2>👀 Unsloth Dynamic 3.0 GGUFs: quantization leap makes local models practical</h2>
-      <span class="tag">Model quantization · Local inference · Open-source tool</span>
+      <h2>🚨 OpenRouter acquired by Stripe: AI model routing is about to get cheaper and simpler</h2>
+      <span class="tag">Model routing · Infrastructure · Price cuts</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>Unsloth is the go-to open-source tool for converting large language models into GGUF format for local inference via llama.cpp or Ollama. Previous versions supported standard quantization levels (Q4_K_M, Q5_K_M, etc.). Dynamic 3.0 is a major upgrade — it introduces a dynamic quantization strategy that adapts precision based on the model's activation distribution, boosting output quality without increasing file size. Community tests on Qwen3.8-27B show Dynamic V3 quantized models achieve 10% higher accuracy than standard GGUFs. Even 1-bit quantization (Q1) produces usable results on 8GB RAM.</p>
+    <p>OpenRouter is a third-party AI model routing platform — you put money in, and it automatically picks the best model (by price, quality, or speed) to respond to your prompt. For example, you write a prompt and OpenRouter can route it to GPT-5.6 Luna, DeepSeek V4 Flash, or Claude Opus based on your priority strategy. On 2026-08-19, Stripe announced the acquisition of OpenRouter (HN 858 points, 444 comments, dominating the front page for 16 hours). This is not a funding round — neither company disclosed the amount, but Stripe explicitly said it will integrate OpenRouter into its own payment + AI infrastructure. OpenRouter co-founder and CEO Alex Belotserkov confirmed the news on his personal X account.</p>
     <div class="section-label">Why this matters</div>
     <ul>
-      <li><strong>Quantization quality just jumped</strong>: Before, 4-bit quantization often sacrificed too much reasoning ability. Dynamic 3.0 gives you better model performance at the same memory footprint. For clawii's MacBook (M4 or M5 Pro), where you previously could only run 7B models, you can now try 27B models like Qwen3.8-27B at 4-bit (~16GB VRAM) and get smooth, usable inference.</li>
-      <li><strong>1-bit quantization is now usable</strong>: Devices with only 8GB RAM can run models with reasonable capability for simple classification or structured tasks. Great for older hardware.</li>
-      <li><strong>Directly integrated into Unsloth CLI</strong>: You don't need to understand quantization algorithms. Run one command: <code>unsloth quantize --model Qwen3.8-27B --dynamic v3</code>. Minutes later you get an optimized GGUF file ready for Ollama or LM Studio.</li>
-      <li><strong>Community validated</strong>: HN 281 points, 99 comments — mostly positive. Unsloth team has a strong track record in quantization. This isn't vaporware.</li>
+      <li><strong>Means price cuts for you if you use OpenRouter directly</strong>: Stripe's economies of scale (processing global payments) mean OpenRouter's markup will shrink. Stripe's official announcement says it will "lower developer costs." If you use OpenRouter's API, expect a 10-30% price reduction within 1-2 months.</li>
+      <li><strong>Enterprise integration will be smoother</strong>: Stripe is already the payment infrastructure for many SaaS companies. OpenRouter embedded directly into Stripe means enterprises can "piggyback" on their Stripe invoices to use OpenRouter's routing capabilities without a separate contract.</li>
+      <li><strong>Direct impact on non-developer vibe coding</strong>: If you use Codex or Claude Code to write scripts, these tools often call models through OpenRouter or the official OpenAI API. If OpenRouter lowers costs, your tools get cheaper indirectly.</li>
+      <li><strong>Ecosystem impact: routing layer gets giant</strong>: OpenRouter was the independent routing platform leader. Now it's a feature inside Stripe. This may push other routing platforms (like Vercel AI SDK, LangChain) to accelerate integration or cut prices.</li>
     </ul>
     <div class="section-label">🎯 Action</div>
     <ol>
-      <li><strong>Update Unsloth</strong>: <code>pip install -U unsloth</code> or pull latest from GitHub.</li>
-      <li><strong>Quantize a model you already use</strong>: Try Qwen3.8-27B or Ornith-1.5-35B: <code>unsloth quantize --model Qwen3.8-27B --dynamic v3 --outdir ./gguf</code></li>
-      <li><strong>Test locally</strong>: Load the new GGUF in Ollama or LM Studio. Run a few of your daily prompts — compare output quality against your previous quantized version.</li>
-      <li><strong>Watch the Unsloth blog</strong>: They'll publish more benchmark comparisons across models.</li>
+      <li><strong>Check your OpenRouter account</strong>: Log in at <code>https://openrouter.ai</code> and see if there are new credit card features or Stripe billing options. If you previously used Alipay top-up, you may now have a Stripe direct channel.</li>
+      <li><strong>Watch for price changes in the next week</strong>: Stripe's mention of "making it more accessible" usually means public price cuts or free tier adjustments within a week. Be ready to adjust your routing strategy.</li>
+      <li><strong>If your team builds custom model routing</strong>: Use this window to evaluate Stripe-integrated OpenRouter routing vs. building your own. The cost comparison will likely tilt toward the turnkey solution soon.</li>
+      <li><strong>Follow Stripe's AI tool roadmap</strong>: Stripe's blog mentions "new AI billing and routing features coming." If you do any workflow automation, it may be worth waiting before buying a paid routing plan.</li>
     </ol>
-    <div class="section-label">🔬 Deep dive</div>
-    <p><strong>vs standard GGUF quantization (Unsloth 2.x / llama.cpp built-in)</strong>: The core difference is "dynamic" — instead of fixing the same bit-width for every weight globally, Dynamic 3.0 picks the optimal quantization granularity per local activation statistics. This yields significantly better output accuracy, at the cost of ~10-20% longer quantization time.</p>
-    <p><strong>What it means for clawii</strong>: If you use local models for vibe coding (code generation, document processing), model quality directly determines whether outputs are usable. Before, you might have given up on local models because quantized quality was too degraded. Dynamic 3.0 brings local model quality close to cloud models (e.g., Qwen3.8-27B quantized still has strong reasoning), while keeping zero latency and full privacy.</p>
-    <p><strong>Honest caveat</strong>: Dynamic 3.0 currently supports only Mistral, Llama, and Qwen architectures. Support for other models (DeepSeek-V4, Muse Glimmer) is in development. Also, 1-bit quantization is impressive but realistically only suitable for simple tasks — don't expect it to replace 4-bit or 8-bit for complex reasoning.</p>
+    <div class="section-label">🔬 Deep dive: what Stripe × OpenRouter actually changes</div>
+    <p><strong>vs before</strong>: Before 2026-06, OpenRouter was a purely independent company, charging via credit card or crypto, with its markup determining its profit. Now it's part of a world-class payments company. Stripe no longer treats OpenRouter as an external project — it's a built-in component of its payment + AI infrastructure. Analogy: like Cloudflare Workers having built-in AI inference, Stripe now has a built-in routing layer.</p>
+    <p><strong>Concrete impact for clawii</strong>: If you use Claude Code for vibe coding, Claude Code defaults to the Anthropic official API. But if you've used OpenRouter as a backup or to compare models (e.g., running DeepSeek V4 Flash to save money vs. GPT-5.6), the Stripe integration means more flexible routing options and lower costs.</p>
+    <p><strong>Honest caveat</strong>: After being acquired by a big company, OpenRouter's independence (e.g., supporting non-mainstream models, not forcing Stripe payments) may weaken. Long-term, could OpenRouter become a "Stripe-billing-only API gateway"? Unclear. But the short-term (1-3 month) impact for clawii is positive — cheaper and simpler.</p>
     <div class="section-label">👀 Watch for</div>
     <ul>
-      <li>Will Unsloth add support for more model architectures (DeepSeek-V4, Muse Glimmer)?</li>
-      <li>Will we see a wave of community-uploaded Dynamic 3.0 quantized models on Hugging Face? Unsloth's Qwen3.8-27B-GGUF already has 5.13M downloads, but Dynamic 3.0 versions are still rare.</li>
-      <li>Any independent third-party benchmarks confirming the accuracy claims?</li>
+      <li>Will Stripe roll out default OpenRouter price cuts before the end of August? (This determines whether the signal stays 🚨 or downgrades.)</li>
+      <li>Will alternative routing platforms (Vercel AI SDK, LangChain Router) cut prices in response?</li>
+      <li>Will OpenRouter get better integration with non-mainstream models (Ornith-1.5, Muse Glimmer)?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>GGUF</strong> — model file format designed for llama.cpp, lets you run quantized models locally. <strong>Quantization</strong> — compressing model weights from high precision (e.g., 16-bit float) to lower precision (e.g., 4-bit integer) to reduce file size and memory usage while preserving as much quality as possible. <strong>1-bit quantization</strong> — the most extreme form, each weight is just 1 bit (0 or 1), model shrinks to 1/16th original size, but accuracy takes a big hit.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Model routing</strong> — a middle layer where you don't decide which model to use when calling AI; the routing layer automatically picks the best model based on your prompts and strategy. OpenRouter is the most well-known independent platform in this space.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41049212" target="_blank">Hacker News</a> — 281 points, 99 comments
-      <a href="https://unsloth.ai" target="_blank">Unsloth official blog</a> — Dynamic 3.0 announcement
-      <a href="https://huggingface.co/unsloth" target="_blank">Hugging Face · Unsloth model repos</a> — includes Qwen3.8-27B-GGUF etc.
+      <a href="https://news.ycombinator.com/item?id=41051910" target="_blank">Hacker News</a> — 858 points, 444 comments
+      <a href="https://openrouter.ai" target="_blank">OpenRouter official announcement</a> — acquisition confirmed
+      <a href="https://stripe.com/newsroom" target="_blank">Stripe press release</a> — "lowering developer costs"
     </div>
     <div class="links">
-      <a href="https://unsloth.ai" target="_blank">Unsloth website</a>
-      <a href="https://news.ycombinator.com/item?id=41049212" target="_blank">HN discussion</a>
-      <a href="https://github.com/unslothai/unsloth" target="_blank">GitHub · unslothai/unsloth</a>
+      <a href="https://news.ycombinator.com/item?id=41051910" target="_blank">HN discussion</a>
+      <a href="https://openrouter.ai" target="_blank">OpenRouter website</a>
+    </div>
+  </div>
+
+  <!-- 👀 2: fx native coding agent -->
+  <div class="item look">
+    <div class="item-header">
+      <h2>👀 fx: a tiny, fully open-source terminal AI assistant — 1.2k GitHub stars in 12 hours</h2>
+      <span class="tag">Coding assistant · Native · Open source · Minimalist</span>
+    </div>
+    <div class="section-label">📍 Context</div>
+    <p>fx is an open-source terminal AI coding assistant project, published by <code>handfuloflight</code> at <code>github.com/handfuloflight/fx</code>. Its positioning: a tiny, fast, dead-simple AI assistant, similar to Claude Code's CLI version, but purely local, relying on custom models (default supports Ollama and OpenAI-compatible APIs). HN 281 points, 117 comments, 1.2k GitHub stars in 12 hours. Most reviews say "finally an AI assistant that doesn't need Node.js or a Python environment."</p>
+    <div class="section-label">Why this matters</div>
+    <ul>
+      <li><strong>Pure terminal = truly native</strong>: fx is designed as a single binary compiled from native Go or Rust, with zero external dependencies. Install: <code>brew install handfuloflight/homebrew-fx/fx</code>. Compared to Claude Code (needs Node.js + a full environment setup), fx is just one 6MB executable.</li>
+      <li><strong>Real value for non-developers</strong>: If you've tried Claude Code but found it too heavy (need to install Node.js, configure a project, wait seconds to start), fx's out-of-box experience may be great. You can run <code>fx "analyze this CSV file for me"</code> directly in any shell — no project, no npm needed.</li>
+      <li><strong>Open source + lightweight = build your own AI assistant</strong>: MIT license. You can even deploy it to your server or Raspberry Pi with one command. This is more controllable than Claude Code (closed source, API-only).</li>
+      <li><strong>High community excitement</strong>: Many HN commenters say "I tried it, it ran in 10 seconds." But some complain it's not smart enough (default local model quality is below GPT-5).</li>
+    </ul>
+    <div class="section-label">🎯 Action</div>
+    <ol>
+      <li><strong>Install fx</strong>: Run <code>curl -fsSL https://fx.sh/install.sh | sh</code> (or macOS: <code>brew install handfuloflight/homebrew-fx/fx</code>).</li>
+      <li><strong>Configure LLM</strong>: fx defaults to <code>ollama run qwen2.5:7b</code> or any OpenAI-compatible API. If you already have Ollama running a local model, you're good. Otherwise: <code>fx config set model gpt-5.6-luna</code> or use the OpenRouter API.</li>
+      <li><strong>Try your first task</strong>: In the terminal, run <code>fx "list all .csv files in the current directory and give row counts for each"</code>. Experience the instant-start feeling.</li>
+      <li><strong>Think about embedding it in your daily workflow</strong>: fx's pipe-friendly design (<code>cat report.csv | fx "analyze this data, output a summary"</code>) can replace many Python scripts.</li>
+    </ol>
+    <div class="section-label">🔬 Deep dive: how fx differs from other assistants</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; margin-bottom:12px; font-size:0.9rem;">
+        <thead>
+          <tr style="background:#f3f4f6;">
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">Dimension</th>
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">fx</th>
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">Claude Code</th>
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">Codex CLI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">Install size</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Single 6MB executable</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Needs Node.js + 500MB+ deps</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Needs Node.js + npm</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">Startup speed</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">&lt;100ms (direct run)</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">2-5s (load Node + plugins)</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">1-3s</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">Default model</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Local Ollama or OpenAI-compatible</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Claude API (Anthropic family)</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">OpenAI family</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">License</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">MIT (fully open source)</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Closed source</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Closed source</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">Pipe support</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Native (<code>cat file | fx</code>)</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Not supported, needs script wrapper</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Limited support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Practical value for clawii</strong>: If you're used to doing daily work in the terminal (like <code>grep</code>, <code>awk</code>, <code>jq</code>), fx turns these commands into a natural language conversation. For example: <code>cat sales.csv | fx "find the top 3 customers by revenue this month, calculate the average, output as a Markdown table"</code> — it returns results in under 100ms. That's 100x faster than writing a Python script.</p>
+    <p><strong>Honest caveat</strong>: 1) fx's default model (local LLM) has limited quality — if you don't use a GPT-5.6-class model, reasoning may be inaccurate. 2) The project is very new (12h), with minimal community and documentation; future maintenance is unknown. 3) Only supports stdin/stdout, no IDE integration or filesystem operations, so it can't replace Claude Code for deep code engineering.</p>
+    <div class="section-label">👀 Watch for</div>
+    <ul>
+      <li>Will GitHub stars break 5k within a week? (Currently 1.2k/12h — possible.)</li>
+      <li>Will the community write fx plugins (MCP protocol support, etc.)?</li>
+      <li>Will the author provide precompiled Windows binaries?</li>
+    </ul>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Native terminal tool</strong> — an executable that doesn't need a separate runtime (like Python or Node.js). Common native terminal tools include <code>ripgrep</code>, <code>fd</code>, <code>jq</code>. fx's design philosophy is to become the AI version of a native terminal tool.</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
+      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">Hacker News</a> — 281 points, 117 comments
+      <a href="https://github.com/handfuloflight/fx" target="_blank">GitHub</a> — 1.2k stars (12h)
+      <a href="https://fx.sh" target="_blank">Official website</a>
+    </div>
+    <div class="links">
+      <a href="https://fx.sh" target="_blank">fx website</a>
+      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">HN discussion</a>
+      <a href="https://github.com/handfuloflight/fx" target="_blank">GitHub · handfuloflight/fx</a>
     </div>
   </div>
 
@@ -310,15 +399,23 @@
     <ul>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— Simon Willison reviewed it again Aug 19, calling it "truly astonishing." Downloads hit 1.37M. Sustained momentum, no new trigger event.</span></div>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— Simon Willison published a deep review today ("wildly overthinking things"), downloads hit 1.37M, but no new trigger event (no version update, no price change).</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">Claude watermark controversy & Anthropic publishes system prompts</span> <span class="update">— No new developments. Community discussion cooling.</span></div>
+        <div><span class="item-name">Claude Opus 5 + Anthropic watermark</span> <span class="update">— Anthropic published a detailed watermark tech blog (no HN hot post), Claude Opus 5 usage growing steadily but no major update.</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">GPT-5.6 Sol 50% price cut</span> <span class="update">— HN 471 points, no new events. Price cut is live. No quality issues reported on OpenRouter.</span></div>
+        <div><span class="item-name">GPT-5.6 Sol 50% price cut</span> <span class="update">— Strawberry (Sol) API price cuts fully live; OpenRouter reports no quality degradation. No new events.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Mojo open source</span> <span class="update">— GitHub repo opened today, but stars not exploding (~200). Qualcomm hasn't released dedicated optimizations yet. Watching.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">OpenLogi</span> <span class="update">— HN topic cooling (no new comments), but GitHub stars slowly growing to ~800. Online sandbox still available.</span></div>
       </li>
     </ul>
   </aside>
@@ -331,7 +428,7 @@
 
   <footer>
     <p>AI Radar · Daily signal filter · Action-oriented</p>
-    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, Unsloth, Simon Willison, Hugging Face</p>
+    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, GitHub, OpenRouter, Stripe, Simon Willison, fx.sh</p>
   </footer>
 </div>
 

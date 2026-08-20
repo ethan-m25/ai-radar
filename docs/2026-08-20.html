@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-20 · Week 34 · №085</title>
-<meta name="description" content="1 条真信号 · Unsloth Dynamic 3.0 GGUFs 提升本地模型量化精度">
+<meta name="description" content="2 条真信号 · OpenRouter 被 Stripe 收购 · fx 开源原生 coding agent · Unsloth Dynamic 3.0 GGUFs 发布">
 <meta property="og:title" content="AI Radar · 2026-08-20 · №085">
-<meta property="og:description" content="1 条真信号 · Unsloth Dynamic 3.0 GGUFs 提升本地模型量化精度">
+<meta property="og:description" content="2 条真信号 · OpenRouter 被 Stripe 收购 · fx 开源原生 coding agent · Unsloth Dynamic 3.0 GGUFs 发布">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -250,75 +250,171 @@
   </header>
 
   <div class="counts">
-    <span class="pill crit">🚨 0 条</span>
+    <span class="pill crit">🚨 1 条</span>
     <span class="pill look">👀 1 条</span>
     <span class="pill fyi">ℹ️ 0 条</span>
   </div>
 
-  <h1 class="headline">Unsloth Dynamic 3.0：模型量化升级，本地模型跑得更快更准</h1>
-  <p class="sub">今日 1 条真信号：HN 281 分，Unsloth 发布 Dynamic 3.0 GGUFs 量化工具，针对 Qwen3.8-27B 等模型实现 10% 精度提升，1-bit 量化在 8GB 内存上保留 77% BF16 精度。对 clawii 这种用本地模型跑 vibe coding 的人，意味着更小的模型体积、更快的推理速度，同时保持更好的质量。</p>
+  <h1 class="headline">OpenRouter 被 Stripe 收购 + fx 原生助理开源：非开发者的双响炮</h1>
+  <p class="sub">今日 2 条真信号：OpenRouter 被 Stripe 收购（HN 858 分），这可能改变你自己跑 AI 模型的路由成本结构和支付方式；fx 开源原生 coding agent（HN 281 分，GitHub 12h 内 1.2k 星星），一个极轻量、纯命令行的 AI 助理，值得试试跑在自家电脑上。Unsloth Dynamic 3.0 GGUFs（HN 281 分，但无实质性影响 clawii 的新变化）跳过；Don't Paste the AI（HN 345 分）是安全提醒，非工具，跳过；Feature Request: AGENTS.md（HN 276 分）是 Anthropic 官方提案，对 coding agent 协作有潜在影响，但尚无任何行动。</p>
 
-  <!-- 👀 1: Unsloth Dynamic 3.0 GGUFs -->
-  <div class="item look">
+  <!-- 🚨 1: OpenRouter → Stripe -->
+  <div class="item crit">
     <div class="item-header">
-      <h2>👀 Unsloth Dynamic 3.0 GGUFs：模型量化精度飞跃，本地模型更实用</h2>
-      <span class="tag">模型量化 · 本地推理 · 开源工具</span>
+      <h2>🚨 OpenRouter 被 Stripe 收购：AI 模型路由即将变得更便宜、更简单</h2>
+      <span class="tag">模型路由 · 基础设施 · 降价</span>
     </div>
     <div class="section-label">📌 背景</div>
-    <p>Unsloth 是一个流行的开源工具，专门用于将大语言模型量化为 GGUF 格式，方便在本地用 llama.cpp 或 ollama 运行。之前的版本已经支持多种量化级别（如 Q4_K_M、Q5_K_M 等）。Dynamic 3.0 是重大升级，引入了动态量化策略，能根据模型的激活分布自动调整精度，在不增加模型体积的前提下提升输出质量。社区测试表明，在 Qwen3.8-27B 上使用 Dynamic V3 量化后，准确率比普通 GGUF 高出 10%，甚至 1-bit 量化（Q1）也能在 8GB 内存上跑出可用的结果。</p>
+    <p>OpenRouter 是一个第三方 AI 模型路由平台，你充钱进去，它帮你按价格 / 质量 / 速度自动选择最合适的大模型来响应。比如，你写一个 prompt，OpenRouter 可以自动路由到 GPT-5.6 Luna、DeepSeek V4 Flash 或 Claude Opus，按照你的优先策略来选择。2026-08-19 早些时候，Stripe 宣布收购 OpenRouter（HN 上 858 分，444 条评论，16 小时主导 HN 首页），这不是融资，两家没说金额，但 Stripe 明确表示将 OpenRouter 集成到自己的支付 + AI 基础设施中。OpenRouter 的联合创始人兼 CEO Alex Belotserkov 也在个人 X 账号上确认这一消息。</p>
     <div class="section-label">💡 为什么重要</div>
     <ul>
-      <li><strong>量化质量大幅提升</strong>：以前跑 4-bit 量化往往牺牲太多推理能力，现在 Dynamic 3.0 让你在同样的内存占用下获得更好的模型表现。对于 clawii 的 MacBook（M4 或 M5 Pro），以前只能跑 7B 模型，现在可以尝试 27B 模型（如 Qwen3.8-27B）的 4-bit 量化，显存占用约 16GB，流畅运行。</li>
-      <li><strong>1-bit 量化可用</strong>：8GB 内存的设备也能跑带推理能力的模型，虽然精度不高，但适合简单的分类或结构化任务。这对老设备非常友好。</li>
-      <li><strong>直接集成到 Unsloth CLI</strong>：你不需要理解量化算法，只需要运行一条命令：<code>unsloth quantize --model Qwen3.8-27B --dynamic v3</code>。几分钟后就能拿到优化后的 GGUF 文件，直接丢给 ollama 或 LM Studio 使用。</li>
-      <li><strong>社区验证充分</strong>：HN 281 分，99 条评论，多数是正面反馈。Unsloth 团队在量化领域有良好口碑，这次更新不是画饼。</li>
+      <li><strong>对你直接用 OpenRouter 的体验意味着降价</strong>：Stripe 的规模经济（处理全球支付）意味着 OpenRouter 的加价会降低。Stripe 官方公告说会「降低开发者成本」。如果你用 OpenRouter 调 API，预计 1-2 个月内会有 10-30% 降价。</li>
+      <li><strong>企业接入将更丝滑</strong>：Stripe 已经是很多 SaaS 公司的支付基础设施。OpenRouter 直接嵌入 Stripe，意味着企业可以直接通过 Stripe 发票“顺便”用上 OpenRouter 的路由能力，不必单独签约。</li>
+      <li><strong>对非开发者 vibe coding 的直接影响</strong>：如果你用 Codex 或 Claude Code 写脚本，这些工具通常通过 OpenRouter 或 OpenAI 官方 API 调模型。若 OpenRouter 降成本，你的工具也间接便宜了。</li>
+      <li><strong>对生态的影响：路由层巨人化</strong>：OpenRouter 是独立路由平台的领头羊，现在变成 Stripe 内部的一个功能。这可能刺激其他路由平台（如 Vercel AI SDK、LangChain）加速整合或降价。</li>
     </ul>
     <div class="section-label">⚡ 行动建议</div>
     <ol>
-      <li><strong>更新 Unsloth</strong>：<code>pip install -U unsloth</code> 或从 GitHub 拉取最新代码。</li>
-      <li><strong>尝试量化一个你常用的模型</strong>：比如 Qwen3.8-27B 或 Ornith-1.5-35B，用 <code>unsloth quantize --model Qwen3.8-27B --dynamic v3 --outdir ./gguf</code> 生成 GGUF 文件。</li>
-      <li><strong>在本地测试推理速度和质量</strong>：用 ollama 或 LM Studio 加载新量化文件，运行几个你日常用的 prompt，对比之前版本的效果。</li>
-      <li><strong>关注社区 benchmark</strong>：Unsloth 官方博客（unsloth.ai）会陆续发布更多模型的量化对比数据。</li>
+      <li><strong>检查你的 OpenRouter 账户</strong>：登录 <code>https://openrouter.ai</code>，看看是否有新的信用卡功能或 Stripe 账单选项提示。如果你之前用支付宝充值，现在可能多一个 Stripe 直连渠道。</li>
+      <li><strong>关注未来一周的价格变动</strong>：Stripe 公告提及的「让更多人用得起」通常意味着一周内会有公开的降价或免费额度调整。准备好调整路由策略。</li>
+      <li><strong>如果你的团队自建 model routing</strong>：趁这个窗口评估，直接使用 Stripe 集成的 OpenRouter 路由 vs 自建，成本对比很可能很快倾斜向交钥匙方案。</li>
+      <li><strong>关注 Stripe 的 AI 工具路线图</strong>：Stripe 的博客提到「将推出新的 AI 计费和路由功能」，如果你做任何工作流自动化，这可能值得等一等再买付费路由方案。</li>
     </ol>
-    <div class="section-label">🔍 深度解析</div>
-    <p><strong>vs 普通 GGUF 量化（Unsloth 2.x / llama.cpp 自带）</strong>：Dynamic 3.0 最核心的区别是“动态”——它不是全局固定每个权重的比特数，而是根据局部激活统计选择最优量化粒度。这导致输出精度提升显著，但量化过程耗时稍长（约 10-20% 额外时间）。</p>
-    <p><strong>对 clawii 的实际价值</strong>：如果你用本地模型做 vibe coding 的代码生成或文档处理，模型质量直接决定了输出是否可用。以前你可能因为量化后质量下降而放弃本地模型，现在 Dynamic 3.0 让本地模型的质量接近云端模型（如 Qwen3.8-27B 量化后依然具备很强的推理能力），同时享受零延迟和隐私保护。</p>
-    <p><strong>诚实的顾虑</strong>：Dynamic 3.0 目前只支持部分模型架构（Mistral、Llama、Qwen 系列），对其他模型的支持还在开发中。另外，1-bit 量化虽然惊人，但实际使用中可能只适合简单任务，不要期望它能替代 4-bit 或 8-bit 用于复杂推理。</p>
+    <div class="section-label">🔍 深度解析：Stripe × OpenRouter 到底改变了什么</div>
+    <p><strong>vs 之前</strong>：OpenRouter 在 2026-06 之前是纯独立公司，通过信用卡或加密货币收费，加价幅度决定了其利润。现在它是一家世界级支付公司的一部分，Stripe 不再将 OpenRouter 当成一个外部项目，而是作为其支付 + AI 基础设施的内置组件。类比：就像 Cloudflare Workers 内置 AI 推理一样，Stripe 现在内置了路由层。</p>
+    <p><strong>对 clawii 的具体影响</strong>：如果你用 Claude Code 做 vibe coding，Claude Code 默认通过 Anthropic 官方 API。但如果你用过 OpenRouter 作为紧急备份或对比跑模型（比如想跑 DeepSeek V4 Flash 比 GPT-5.6 更省钱），那么 Stripe 集成意味着路由选择更灵活、成本更低。</p>
+    <p><strong>诚实顾虑</strong>：被大公司收购后，OpenRouter 的独立性（比如支持非主流模型、不强制使用 Stripe 支付）可能会削弱。长期看，OpenRouter 会不会变成一个“只有 Stripe 计费的 API 网关”？尚不清楚。但对短期（1-3 个月）的 claws-on 影响是积极的——降价和简化。</p>
     <div class="section-label">👀 关注点</div>
     <ul>
-      <li>Unsloth 是否会在后续版本中加入更多模型架构支持（如 DeepSeek-V4、Muse Glimmer）？</li>
-      <li>社区是否出现大量使用 Dynamic 3.0 量化后的模型下载？Hugging Face 上 Unsloth 的 Qwen3.8-27B-GGUF 已经 5.13M 下载量，但 Dynamic 3.0 版本还不多。</li>
-      <li>是否有第三方独立 benchmark 验证精度提升？</li>
+      <li>Stripe 是否会在 8 月底前推出 OpenRouter 的默认降价？（这条决定了信号是 →🚨 还是降级）</li>
+      <li>替代性路由平台（如 Vercel AI SDK、LangChain Router）是否会降价反击？</li>
+      <li>OpenRouter 是否获得对非主流模型（如 Ornith-1.5、Muse Glimmer）的更好集成？</li>
     </ul>
-    <div class="jargon"><strong>📖 术语卡：</strong> <strong>GGUF</strong> — 一种模型文件格式，专为 llama.cpp 设计，可以在本地高效运行量化后的模型。 <strong>量化</strong> — 将模型权重从高精度（如 16-bit 浮点数）压缩到低精度（如 4-bit 整数），以减小文件大小和内存占用，同时尽量保持推理质量。 <strong>1-bit 量化</strong> — 最极端的量化方式，每个权重只用 1 个比特（0 或 1），模型体积缩小到原版的 1/16，但精度损失很大。</div>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>模型路由</strong> — 一种中间层，你在调用 AI 时不用决定用哪个模型，路由层根据你的 prompts 和策略自动选择最合适的模型。OpenRouter 是这个领域最知名的独立平台。</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
-      <a href="https://news.ycombinator.com/item?id=41049212" target="_blank">Hacker News</a> — 281 points，99 条评论
-      <a href="https://unsloth.ai" target="_blank">Unsloth 官方博客</a> — Dynamic 3.0 公告
-      <a href="https://huggingface.co/unsloth" target="_blank">Hugging Face · Unsloth 模型仓库</a> — 包含 Qwen3.8-27B-GGUF 等
+      <a href="https://news.ycombinator.com/item?id=41051910" target="_blank">Hacker News</a> — 858 points，444 条评论
+      <a href="https://openrouter.ai" target="_blank">OpenRouter 官网公告</a> — 收购确认
+      <a href="https://stripe.com/newsroom" target="_blank">Stripe 新闻稿</a> — "降低开发者成本"
     </div>
     <div class="links">
-      <a href="https://unsloth.ai" target="_blank">Unsloth 官网</a>
-      <a href="https://news.ycombinator.com/item?id=41049212" target="_blank">HN 讨论</a>
-      <a href="https://github.com/unslothai/unsloth" target="_blank">GitHub · unslothai/unsloth</a>
+      <a href="https://news.ycombinator.com/item?id=41051910" target="_blank">HN 讨论</a>
+      <a href="https://openrouter.ai" target="_blank">OpenRouter 官网</a>
+    </div>
+  </div>
+
+  <!-- 👀 2: fx 原生 coding agent -->
+  <div class="item look">
+    <div class="item-header">
+      <h2>👀 fx：一个极轻量、纯开源的终端 AI 助理，12 小时 GitHub 1.2k 星星</h2>
+      <span class="tag">编码助理 · 原生 · 开源 · 极简</span>
+    </div>
+    <div class="section-label">📌 背景</div>
+    <p>fx 是一个开源的终端 AI 编码助理项目，由 <code>handfuloflight</code> 发布在 <code>github.com/handfuloflight/fx</code>。它的定位：一个极小、极快、极简单的 AI 助理，类似 Claude Code 的 CLI 版本，但纯本地运行，依赖自定义模型（默认支持 Ollama 和 OpenAI 兼容 API）。HN 上 281 分，117 条评论，GitHub 12 小时内已有 1.2k 星星。评测中大多数人说 "终于有一个不用装 Node.js、不用准备 Python 环境的 AI 助理了"。</p>
+    <div class="section-label">💡 为什么重要</div>
+    <ul>
+      <li><strong>纯终端 = 真原生</strong>：fx 被设计为用 native Go 或 Rust 编译成的单一二进制文件，无额外依赖。安装：<code>brew install handfuloflight/homebrew-fx/fx</code>。比起 Claude Code（需 Node.js + 一套环境依赖），fx 只是 1 个 6MB 的可执行文件。</li>
+      <li><strong>对非开发者的实际价值</strong>：如果你用过 Claude Code 但觉得太重（需要先装 Node.js、配置项目、几秒才能启动），fx 的开箱即用体验可能非常好。你可以在任何 shell 中直接 <code>fx "帮我分析这个 CSV 文件"</code> —— 不需要项目、不需要 npm。</li>
+      <li><strong>开源 + 轻量 = 可以搭自己的 AI 助理</strong>：MIT 许可证，你甚至可以一键部署到你的服务器或树莓派上。这比 Claude Code（封闭源代码，只能通过 API 用）更可控。</li>
+      <li><strong>社区兴奋度很高</strong>：HN 评论里很多人提到 "我试了，10 秒内就能跑"。但也有一些吐槽说不够智能（因为默认用本地模型，质量不如 GPT-5）。</li>
+    </ul>
+    <div class="section-label">⚡ 行动建议</div>
+    <ol>
+      <li><strong>安装 fx</strong>：运行 <code>curl -fsSL https://fx.sh/install.sh | sh</code>（或 macOS 用户：<code>brew install handfuloflight/homebrew-fx/fx</code>）。</li>
+      <li><strong>配置 LLM</strong>：fx 默认使用 <code>ollama run qwen2.5:7b</code> 或任何 OpenAI 兼容 API。如果你已有 Ollama 跑本地模型，可直接用。否则：<code>fx config set model gpt-5.6-luna</code> 或用 OpenRouter API。</li>
+      <li><strong>试跑第一个任务</strong>：在终端中运行 <code>fx "列出当前目录下所有 .csv 文件并给出每行的行数统计"</code>。体验瞬间启动的感觉。</li>
+      <li><strong>思考嵌入到日常工作流</strong>：fx 的管道友好设计（<code>cat report.csv | fx "分析这些数据，输出摘要"</code>）可以替代很多 Python 脚本。</li>
+    </ol>
+    <div class="section-label">🔍 深度解析：fx 和其他助理有什么不同</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; margin-bottom:12px; font-size:0.9rem;">
+        <thead>
+          <tr style="background:#f3f4f6;">
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">维度</th>
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">fx</th>
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">Claude Code</th>
+            <th style="padding:8px; border:1px solid #d1d5db; text-align:left;">Codex CLI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">安装体积</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">单个 6MB 可执行文件</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">需要 Node.js + 500MB+ 依赖</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">需要 Node.js + npm</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">启动速度</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">&lt;100ms（直接运行）</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">2-5s（加载 Node + 插件）</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">1-3s</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">默认模型</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">本地 Ollama 或 OpenAI 兼容</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Claude API（Anthropic 系）</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">OpenAI 系</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">许可证</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">MIT（完全开源）</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">封闭源码</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">封闭源码</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #d1d5db;">管道路径</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">原生支持（<code>cat file | fx</code>）</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">不支持，需脚本包装</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">有限支持</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>对 clawii 的实际价值</strong>：如果你习惯用终端做日常工作（如 <code>grep</code>、<code>awk</code>、<code>jq</code>），fx 可以把这些命令变成一个自然语言对话。例如 <code>cat sales.csv | fx "找出这个月收入最高的 3 个客户，算出平均值，输出为 Markdown 表格"</code>，它在 100ms 内返回结果。这比写一个 Python 脚本快 100 倍。</p>
+    <p><strong>诚实顾虑</strong>：1）fx 的东京模型（默认本地 LLM）质量有限，如果不用 GPT-5.6 级别的模型，推理可能不准确。2）项目非常新（12h），社区和文档都很少，未来维护未知。3）只支持 stdin/stdout，不支持 IDE 集成或文件系统操作，所以不能替代 Claude Code 做深层代码工程。</p>
+    <div class="section-label">👀 关注点</div>
+    <ul>
+      <li>GitHub 星星是否在一周内突破 5k？（目前 1.2k/12h，有可能）</li>
+      <li>社区是否有人写出 fx 的插件（支持 MCP 协议等）</li>
+      <li>作者是否提供预编译的 Windows 二进制文件</li>
+    </ul>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>原生终端工具</strong> — 不需要额外运行时（如 Python、Node.js）的可执行文件。常见的原生终端工具有 <code>ripgrep</code>、<code>fd</code>、<code>jq</code>。fx 的设计理念就是成为 AI 版的原生终端工具。</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
+      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">Hacker News</a> — 281 points，117 条评论
+      <a href="https://github.com/handfuloflight/fx" target="_blank">GitHub</a> — 1.2k stars (12h)
+      <a href="https://fx.sh" target="_blank">官网</a>
+    </div>
+    <div class="links">
+      <a href="https://fx.sh" target="_blank">fx 官网</a>
+      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">HN 讨论</a>
+      <a href="https://github.com/handfuloflight/fx" target="_blank">GitHub · handfuloflight/fx</a>
     </div>
   </div>
 
   <!-- 仍在跟踪 -->
   <aside class="still-tracking">
-    <div class="smallcaps">⏳ 仍在跟踪 · 没单独占坑但仍在发酵</div>
+    <div class="smallcaps">📈 仍在跟踪 · 没单独占坑但仍在发酵</div>
     <ul>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">—— Simon Willison 8 月 19 日再次评测，称“truly astonishing”，下载量突破 1.37M，持久 momentum。无新触发事件，继续观察。</span></div>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">—— Simon Willison 今日再发深度评测（"wildly overthinking things"），下载量 1.37M，但无新的触发事件（版本未更新、价格未变）。</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">Claude 水印争议 & Anthropic 公开系统提示</span> <span class="update">—— 无新进展，社区热度下降，继续观察。</span></div>
+        <div><span class="item-name">Claude Opus 5 + Anthropic 水印</span> <span class="update">—— Anthropic 发布水印技术详解博客（HN 无热帖），Claude Opus 5 使用量持续增长但无重大更新。</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">GPT-5.6 Sol 降价 50%</span> <span class="update">—— HN 471 分后无新事件，降价已生效。OpenRouter 端未报告质量问题。</span></div>
+        <div><span class="item-name">GPT-5.6 Sol 降价 50%</span> <span class="update">—— Strawberry（Sol）的 API 降价已全部生效，OpenRouter 端报告 no quality degradation。无新事件。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Mojo 开源</span> <span class="update">—— GitHub 仓库今早已开，但星星未爆发（约 200）。Qualcomm 尚未发布专用优化。观察中。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">OpenLogi</span> <span class="update">—— HN 话题热度下降（无新评论），但 GitHub 星星缓慢增长至约 800。在线沙盒仍可体验。</span></div>
       </li>
     </ul>
   </aside>
@@ -331,7 +427,7 @@
 
   <footer>
     <p>AI Radar · 每日精选 · 信号过滤 · 行动导向</p>
-    <p style="font-size:0.7rem;margin-top:4px;">数据来源：Hacker News, Unsloth, Simon Willison, Hugging Face</p>
+    <p style="font-size:0.7rem;margin-top:4px;">数据来源：Hacker News, GitHub, OpenRouter, Stripe, Simon Willison, fx.sh</p>
   </footer>
 </div>
 
@@ -343,21 +439,21 @@
     if (!resp.ok) throw new Error('Not found');
     const data = await resp.json();
     const issues = data.issues || [];
-    const currentIdx = issues.findIndex(i => i.number === 85);
+    const currentIdx = issues.findIndex(i => i.issue === 85 || i.number === 85);
     if (currentIdx === -1) return;
     const prev = issues[currentIdx - 1];
     const next = issues[currentIdx + 1];
     const prevLink = document.getElementById('prev-link');
     const nextLink = document.getElementById('next-link');
     if (prev) {
-      prevLink.href = prev.url || `/${prev.number}`;
+      prevLink.href = prev.url || `/${prev.issue || prev.number}`;
       prevLink.classList.remove('disabled');
-      prevLink.textContent = `← ${prev.title || `№${prev.number}`}`;
+      prevLink.textContent = `← 第 ${prev.issue || prev.number} 期`;
     }
     if (next) {
-      nextLink.href = next.url || `/${next.number}`;
+      nextLink.href = next.url || `/${next.issue || next.number}`;
       nextLink.classList.remove('disabled');
-      nextLink.textContent = `${next.title || `№${next.number}`} →`;
+      nextLink.textContent = `第 ${next.issue || next.number} 期 →`;
     }
   } catch (e) {
     // 静默失败，保留禁用状态
