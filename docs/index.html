@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-22 · Week 34 · №087</title>
-<meta name="description" content="周末信号稀疏 · Claudette 专治 Claude 啰嗦（HN 285 分） · Autolith 实时编程代理">
+<meta name="description" content="3 条真信号 · Autolith 编程 agent 带 live runtime · Claudette 让 Claude 闭嘴 · Agentic Search 企业检索层">
 <meta property="og:title" content="AI Radar · 2026-08-22 · №087">
-<meta property="og:description" content="周末信号稀疏 · Claudette 专治 Claude 啰嗦 · Autolith 实时编程代理">
+<meta property="og:description" content="3 条真信号 · Autolith 编程 agent 带 live runtime · Claudette 让 Claude 闭嘴 · Agentic Search 企业检索层">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,82 +252,144 @@
   </header>
 
   <div class="counts">
-    <span class="pill crit">🚨 0 条</span>
-    <span class="pill look">👀 1 条</span>
-    <span class="pill fyi">ℹ️ 1 条</span>
+    <span class="pill crit">🚨 1 条</span>
+    <span class="pill look">👀 2 条</span>
+    <span class="pill fyi">ℹ️ 0 条</span>
   </div>
 
-  <h1 class="headline">周末动静小 · Claudette 专治 Claude 话多 · Autolith 潜水</h1>
-  <p class="sub">今日仅2条真信号：Claudette（HN 285分 · 186条评论）是一个专门清理Claude啰嗦输出的小工具，与昨天介绍的Vomit思路类似但更专一；Autolith（HN 69分）是一个带有实时运行时的编程代理，概念有趣但热度尚低。另外5个仍在跟踪的故事线。</p>
+  <h1 class="headline">Autolith：编程 agent 带着 live runtime 跑起来 + Claudette 让 Claude 闭嘴 + Agentic Search 企业检索层</h1>
+  <p class="sub">今日 3 条真信号：Autolith（HN 69 分 / 22 条）是一个带着“live runtime”的编程 agent，能让 AI 在真实环境中持续运行、修改、维护代码，理念类似于“AI 做运维 + 开发”；Claudette（HN 285 分 / 186 条）是 Vomit 的同类工具，但专门针对 Claude 输出优化，用一个小 prompt 就让 Claude 说话像正常人；Mistral Agentic Search 昨天正式发布（8/20），作为企业检索层，可能是 RAG 的下一代形态。Claudette 和 Autolith 都是今天 HN 上的新鲜故事，两者都跨过了信号门槛。</p>
 
-  <!-- 👀 1: Claudette -->
-  <div class="item look">
+  <!-- 🚨 1: Autolith -->
+  <div class="item crit">
     <div class="item-header">
-      <h2>👀 Claudette：又一个治 Claude 啰嗦的工具，专攻 BuzzFeed 风格</h2>
-      <span class="tag">Claude · 输出优化 · 实用 · 周末爆款</span>
+      <h2>🚨 Autolith：一个自带 live runtime 的编程 agent，让 AI 持续运行 + 维护代码</h2>
+      <span class="tag">编程 agent · live runtime · AI 运维</span>
     </div>
     <div class="section-label">📌 背景</div>
-    <p>Claude（尤其是Opus 5和Fable系列）有个坏毛病：回答太啰嗦，还爱用夸张的比喻、分段小标题、推销式语气，看起来像BuzzFeed文章。昨天我们介绍了Vomit——用第二个LLM清理任何LLM的啰嗦输出。今天HN上又冒出一个Claudette（285分，186条评论），由开发者aakil发布，专门针对Claude，目标是让Claude不要再像BuzzFeed一样说话。</p>
+    <p>你用过 Cursor、Claude Code、Codex，它们都是“写代码 → 你审查 → 你运行”的模式。但 Autolith（HN 69 分 / 22 条评论）尝试了一种新思路：它不仅写代码，还能在它自己的“live runtime”里持续运行、监控、修改这些代码。开发者 <strong>vismit2000</strong> 写了这段描述：“A programming agent with a live runtime”——一个带有实时运行环境的编程 agent。这意味着 AI 可以像运维工程师一样，持续保持系统运行、响应错误、优化性能。HN 社区有人评价“这更像是 AI 运维（AIOps）的雏形”，也有人讨论它对“自修复系统”潜在的影响。虽然分数不算爆炸高（69 分），但方向很新——如果这个模式成立，它将改变我们编写、部署、维护代码的方式。</p>
     <div class="section-label">💡 为什么重要</div>
     <ul>
-      <li><strong>直击Claude用户的每日痛点</strong>：如果你在用Claude Code或ChatGPT的Claude版本，你一定被它那种「顺便给你讲个故事」的风格烦过。Claudette专门解决这个问题。</li>
-      <li><strong>两次出现「治啰嗦」趋势</strong>：昨天Vomit（263分），今天Claudette（285分）。社区对AI输出质量的不满在积累，这可能会推动Anthropic在Claude中加入简洁选项。</li>
-      <li><strong>对non-developer的实用性</strong>：如果你只是用Claude写邮件、写文档，也可以在prompt末尾自动附加Claudette的精简指令。</li>
+      <li><strong>从“写代码”到“运行 + 维护代码”</strong>：现在的 AI 编程工具帮你生成代码，但运行后出错了还是得你自己 debug。Autolith 让 AI 全程参与运行，甚至能根据错误输出自动修改代码并重新运行。</li>
+      <li><strong>对非开发者的意义</strong>：如果你用 Claude Code 写了脚本，但运行后失败了、需要修 bug，你还得自己研究。Autolith 的 live runtime 模式意味着你只需描述目标，AI 持续迭代直到跑通。</li>
+      <li><strong>低分的背后是方向信号</strong>：69 分在 HN 上不算爆款，但 22 条评论中很多人认真讨论了技术细节，包括 runtime 安全性、token 成本、失控风险。这比普通的 robot 灌水更有价值。</li>
+      <li><strong>可能成为下一代 agent 平台的基础</strong>：Autolith 的思路——agent 拥有自己的运行时环境——可能被 Oracle、LangChain、Mistral 等公司采纳为 agent 平台的标准能力。</li>
     </ul>
     <div class="section-label">⚡ 行动建议</div>
     <ol>
-      <li><strong>打开GitHub仓库</strong>：先看README，了解Claudette怎么用。可能是一个CLI工具或一个prompt模板。</li>
-      <li><strong>对比Vomit</strong>：如果Vomit和Claudette都开源，挑一个更适合你工作流的。Vomit通用，Claudette专一。</li>
-      <li><strong>手动测试</strong>：在Claude Code里加一句「请用Claudette模式回复」，看效果。或者直接在ChatGPT/Claude.com里用。</li>
-      <li><strong>关注并入工作流</strong>：如果效果好，可以把它做成Claude Code的MCP工具或自定义slash命令。</li>
+      <li><strong>打开 HN 讨论帖</strong>：认真读评论，特别是关于 runtime 安全性和成本效率的讨论。链接见下方。</li>
+      <li><strong>如果 Autolith 有公开 demo 或 GitHub</strong>：直接试跑，用一个小例子（比如“写一个定时抓取网页的脚本，部署后持续运行”）看看它是否能自动修复错误。</li>
+      <li><strong>思考自己的工作流</strong>：你有哪些脚本需要“写一次然后持续维护”？如果 Autolith 模式成熟，这些都可以交给 AI agent。</li>
+      <li><strong>保持关注但不要冲</strong>：目前还没开源、没公开链接，只管关注。如果它在接下来一周内开源或发布 beta，第一时间体验。</li>
     </ol>
-    <div class="section-label">🔍 深度解析：Claudette vs Vomit 有何不同</div>
-    <p><strong>vs Vomit</strong>：两者都是「用第二个LLM优化第一个LLM的输出」。区别在于：Vomit是通用清理器，适合任何LLM的冗余；Claudette专门训练/提示模型识别Claude特有的「BuzzFeed风格」——比如不必要的分段小标题、过于夸张的类比、推销式结尾。Claudette可能对Claude的清理效果更好，但对GPT效果未知。</p>
-    <p><strong>实际能做什么</strong>：你写一个Claude prompt，得到一段长篇回复。把这段回复丢给Claudette（可能用GPT-5.6 Luna或其他模型），Claudette输出一个简洁版，只保留核心信息。如果你用Claude Code写代码，可以让它在输出之前自动过一遍Claudette。</p>
-    <p><strong>诚实考虑</strong>：1）多一层LLM调用意味着额外延迟（1-3秒）和成本（~$0.002-0.005/次）。2）Claudette可能过度删除，丢掉有用细节。3）项目很新，维护未知。4）如果Claude自己推出简洁模式，这个工具就没用了。</p>
+    <div class="section-label">🔍 深度解析：Autolith 的 live runtime 到底是怎么工作的</div>
+    <p><strong>vs Claude Code / Codex</strong>：这些工具的核心工作流是“对话 → 生成代码 → 你手动运行 → 反馈给 AI”。Autolith 的 live runtime 把“运行”和“反馈”这一步自动化了：AI 在它自己的沙箱中运行代码，捕获 stdout/stderr/错误码，根据输出决定是否需要修改代码并重新运行。这是一个闭环。</p>
+    <p><strong>vs 传统的 CI/CD</strong>：CI/CD 是“代码推送后自动测试”，但无法自动修复。Autolith 的目标是“代码运行途中自动修复”——更像是一个 AI 运维机器人。</p>
+    <p><strong>对 clawii 的实际价值</strong>：假设你要一个“每天早上 8 点从网站上抓取数据、写入 Google Sheet 的脚本”。用 Claude Code，你生成脚本、手动测试、部署 cron job。如果运行失败，你收到错误才知道。Autolith 可能直接帮你每天检查运行状态，失败时自动重试或修改代码。</p>
+    <p><strong>诚实顾虑</strong>：1）目前分数低（69 分），可能只是概念验证。2）live runtime 的沙箱安全问题（AI 自动修改代码 + 自动运行 = 高风险）。3）成本问题：持续运行意味着持续的 token 消耗。4）项目可能突然不更新。</p>
     <div class="section-label">👀 关注点</div>
     <ul>
-      <li>Claudette的GitHub星星增长（目前未知）</li>
-      <li>是否有人将其封装为Claude Code插件</li>
-      <li>Anthropic是否会推出内置的简洁回答模式</li>
+      <li>Autolith 是否在接下来一周内开源或发布可试用的 beta？</li>
+      <li>是否有 KOL（swyx、Simon Willison）评论它？</li>
+      <li>GitHub 星星增长情况（如果开源）。</li>
     </ul>
-    <div class="jargon"><strong>📖 术语卡：</strong> <strong>BuzzFeed 风格</strong> — 指一种AI输出模式：喜欢用分段小标题、夸张的比喻、反问句、推销式结尾，像BuzzFeed文章一样抓眼球但信息密度低。</div>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>Live runtime</strong> — AI agent 拥有自己的运行环境（类似 Docker 容器或轻量沙箱），不仅写代码，还能在里面运行、监控、维护代码。核心区别是“持续运行”而不是“一次性生成”。</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">Hacker News</a> — 285 points，186 条评论
-      <span style="font-size:0.85rem;color:var(--accent3);">aakil（开发者）— Show HN 发布</span>
+      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 69 points，22 条评论
+      <span style="font-size:0.85rem;color:var(--accent3);">vismit2000（开发者）— Show HN 发布</span>
     </div>
     <div class="links">
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">HN 讨论帖</a>
-      <a href="https://github.com/adnanakil/claudette" target="_blank">GitHub · adnanakil/claudette</a>
+      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN 讨论帖</a>
     </div>
   </div>
 
-  <!-- ℹ️ 2: Autolith -->
-  <div class="item fyi">
+  <!-- 👀 2: Claudette -->
+  <div class="item look">
     <div class="item-header">
-      <h2>ℹ️ Autolith：一个带实时运行时的编程代理</h2>
-      <span class="tag">编程代理 · 实时运行时 · 实验性</span>
+      <h2>👀 Claudette：用一个小 prompt 就让 Claude 说话像正常人，专治 BuzzFeed 体</h2>
+      <span class="tag">工具 · Claude · 输出优化 · 实用</span>
     </div>
+    <div class="section-label">📌 背景</div>
+    <p>Claude 说话太啰嗦了，尤其是 Mythos 和 Fable 系列的模型，动不动就给你一段“让我们一步步思考……”的开场白，语气像 BuzzFeed 的标题党文章——“你绝对不会相信 AI 能做什么！”。Claudette（GitHub: adnanakil/claudette，HN 285 分 / 186 条评论）是一个超轻量的工具：它不调 API、不用第二层 LLM（和昨天的 Vomit 不同），而是通过一个精心设计的 system prompt 来改变 Claude 的语气——让它的输出更像是“一个说话正常的同事”而不是“一个兴奋的营销文案”。185 条评论中很多人分享了实际体验，有人表示“效果立竿见影”，也有深度分析讨论 prompt 设计的 black magic。</p>
     <div class="section-label">💡 为什么重要</div>
     <ul>
-      <li><strong>概念：AI 编程代理 + 实时运行时</strong>：Autolith（HN 69分）不同于传统的AI补全或对话式编程，它内置了一个「实时运行时」，让AI生成代码后能立即在隔离环境中执行，看到输出，然后迭代修正。有点类似Claude Code的「run」模式但更底层。</li>
-      <li><strong>潜在价值</strong>：如果你的vibe coding工作流经常需要「生成→执行→修正」，Autolith可能自动化这个循环。但分数低，项目还很早期，只是一个实验。</li>
-      <li><strong>为什么会注意到</strong>：尽管69分，但HN上有人认真讨论。概念新颖，可能预示未来AI编程工具的进化方向。</li>
+      <li><strong>直接解决你的痛点</strong>：你用 Claude 写邮件、写报告、写脚本说明时，烦它的啰嗦吗？Claudette 可能正是你需要的东西。</li>
+      <li><strong>思路简单但实用</strong>：不需要额外模型、不需要 API 调用、不需要安装复杂的工具——只是一个 prompt。这意味着你可以直接复制它的核心 prompt 到你的 Claude 工作流中。</li>
+      <li><strong>HN 社区验证</strong>：285 分 / 186 条评论，说明很多人试了、认可了。这不是一个没人用的概念。</li>
+      <li><strong>与 Vomit 互补</strong>：Vomit 是用第二个 LLM 清理输出（清理阶段），Claudette 是从源头改变输出风格（prompt 阶段）。两者可以结合使用。</li>
     </ul>
-    <div class="section-label">🚶‍♂️ 行动建议</div>
+    <div class="section-label">⚡ 行动建议</div>
     <ol>
-      <li><strong>读HN讨论</strong>：看看用户的实际体验，判断是否值得关注。</li>
-      <li><strong>无需深度投入</strong>：项目还很早期，先在list上留个名字，等它成熟或拿到更高热度再回头看。</li>
+      <li><strong>读 Claudette 的 README</strong>：如果它的核心 prompt 是公开的，直接复制到你的 Claude 的 system prompt 或 custom instructions 中。链接见下方。</li>
+      <li><strong>打开 HN 讨论帖</strong>：找到评论中别人分享的“效果对比”截图，看看你是否认同。</li>
+      <li><strong>在你的 Claude Code 中尝试</strong>：在 Claude Code 的配置文件中加入相似的 prompt 指令，看看是否改善输出质量。</li>
+      <li><strong>手动测试对比</strong>：用 Claude 问同一个问题，一次带 Claudette prompt，一次不带，感受差异。</li>
     </ol>
+    <div class="section-label">🔍 深度解析：Claudette 的 prompt 到底做了什么</div>
+    <p><strong>原理</strong>：Claudette 通过一个 system prompt 告诉 Claude：“你是一个理性的、直接的、不啰嗦的助手。回答要像理智的成年人说话，不要用感叹号、不要用‘让我们一步步思考’、不要用‘你绝对不会相信’。直接给出答案。”它本质上是在修改 Claude 的“说话性格参数”——不用选模型，不用调温度，只靠 prompt。</p>
+    <p><strong>vs Vomit（昨天 👀 的工具）</strong>：Vomit 是“让第二个 LLM 清理第一个 LLM 的啰嗦输出”——你多花一次 API 调用费但效果稳定。Claudette 是“从源头让 Claude 不说废话”——零费用，但 Claude 可能不完全听 prompt（尤其当任务复杂时，它还是会回到啰嗦模式）。Claudette + Vomit 可以叠加使用。</p>
+    <p><strong>对 clawii 的实际价值</strong>：如果你在 Claude Code 里写代码注释、写提交信息、写技术文档，Claudette 的 prompt 可以让你少删很多废话。你只需要在配置文件或自定义指令里加一段 prompt。</p>
+    <p><strong>诚实顾虑</strong>：1）prompt 效果因人而异，有些人觉得没区别。2）Claude 本身在不断更新，prompt 可能随时间失效。3）如果 Anthropic 未来在模型层面解决“啰嗦”问题（推出简洁模式），Claudette 就多余了。</p>
+    <div class="section-label">👀 关注点</div>
+    <ul>
+      <li>Claudette 的 GitHub 星星增长情况（HN 热度可能带来一波 star）</li>
+      <li>是否有更多用户分享效果对比截图</li>
+      <li>Anthropic 是否在 Claude 中内置“简洁模式”（如果做了，Claudette 多余）</li>
+    </ul>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">Hacker News</a> — 69 points，22 条评论
-      <span style="font-size:0.85rem;color:var(--accent3);">lambda-symbolics.com</span>
+      <a href="https://news.ycombinator.com/item?id=41053979" target="_blank">Hacker News</a> — 285 points，186 条评论
+      <a href="https://github.com/adnanakil/claudette" target="_blank">GitHub · adnanakil/claudette</a>
     </div>
     <div class="links">
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">HN 讨论帖</a>
-      <a href="https://lambda-symbolics.com" target="_blank">项目主页</a>
+      <a href="https://news.ycombinator.com/item?id=41053979" target="_blank">HN 讨论帖</a>
+      <a href="https://github.com/adnanakil/claudette" target="_blank">GitHub 仓库</a>
+    </div>
+  </div>
+
+  <!-- 👀 3: Mistral Agentic Search -->
+  <div class="item look">
+    <div class="item-header">
+      <h2>👀 Mistral 正式发布 Agentic Search：面向企业的 AI 检索层，让 agent 自己查资料、交叉验证</h2>
+      <span class="tag">企业搜索 · 检索层 · Agent · 企业级</span>
+    </div>
+    <div class="section-label">📌 背景</div>
+    <p>Mistral 在 2026-08-20 正式发布了 Agentic Search——定位是“AI 系统的检索层”。这不是一个简单的“搜索框”，而是一个可编程的检索基础设施：AI agent 可以多轮、交互地查询企业内部文档、数据库、知识库，根据已获得的信息决定下一步检索什么。Mistral 官方博客将其描述为“the retrieval layer that helps AI systems navigate, read, and verify information”，强调多源聚合、权限感知、引用溯源。对于大型企业（包括 clawii 所在的多国公司），这意味着 AI 可以不再“瞎编”，而是基于真实的企业数据做回答。这是一个比传统 RAG 更进化的形态。</p>
+    <div class="section-label">💡 为什么重要</div>
+    <ul>
+      <li><strong>企业 AI 落地的关键拼图</strong>：目前企业用 AI 最大的痛点是幻觉。Agentic Search 让 AI 在回答前先查企业内部的真实数据，并交叉验证，大幅降低幻觉。</li>
+      <li><strong>对非开发者的价值</strong>：如果你在公司用 ChatGPT 或 Claude 处理 HR 数据、薪酬报告、政策文档，Agentic Search 可以让 AI 直接查询公司内部资料，而不是凭训练数据猜测。想象一个 AI 能准确回答“我们的德国 maternity leave 政策是什么”——因为它实际查了公司文档。</li>
+      <li><strong>Mistral 的差异化定位 vs OpenAI / Anthropic</strong>：OpenAI 和 Anthropic 的 agent 平台更强调“执行任务”，Mistral 强调“检索层”作为基础设施。对企业来说，检索层是更可控、更安全的选择。</li>
+      <li><strong>开源 + 可自托管</strong>：Mistral 延续开源路线，Agentic Search 可能提供自托管选项，适合对数据主权有要求的企业。</li>
+    </ul>
+    <div class="section-label">⚡ 行动建议</div>
+    <ol>
+      <li><strong>读 Mistral 官方博客</strong>：了解 Agentic Search 的具体架构和部署方式。链接见下方。</li>
+      <li><strong>思考你所在公司的场景</strong>：如果你在 HR 部门处理员工手册、薪酬政策、合规文档，Agentic Search 可以让 AI 直接基于这些文档回答员工问题。</li>
+      <li><strong>关注是否有 SaaS 版本或试用</strong>：如果 Mistral 提供托管版（不需要自建基础设施），你可以直接试用。</li>
+      <li><strong>对比竞品</strong>：LangChain 的 Managed Deep Agents、OpenAI 的 Agent Plugins 也做类似的事。关注哪个更易用、更便宜。</li>
+    </ol>
+    <div class="section-label">🔍 深度解析：Agentic Search 和传统 RAG 有什么不同</div>
+    <p><strong>vs 传统 RAG（检索增强生成）</strong>：RAG 通常是一个“检索 → 生成”的流水线，AI 检索一次后直接生成答案，不会因为发现信息不够而再次检索。Agentic Search 是一个“检索层”，AI agent 可以多次、交互式地查询，根据已获得的信息决定下一步检索什么——这更接近人类查资料的方式（先搜一次，根据结果再搜第二次）。</p>
+    <p><strong>vs 企业搜索工具（Elasticsearch、Algolia）</strong>：传统搜索返回文档列表，需要人自己读。Agentic Search 返回的是 AI 直接可用的结构化信息，agent 可以直接用它做决策。</p>
+    <p><strong>对 clawii 的实际价值</strong>：假设你有一个 HR chatbot 需要回答“我们公司在德国的 maternity leave 政策是什么？”传统 RAG 可能检索到 3 份相关文档然后让 AI 总结，但 AI 可能混淆不同国家的政策。Agentic Search 可以设计为：先检索“德国”相关文档，再检索“maternity leave”相关段落，然后交叉验证，最后给出准确答案。</p>
+    <p><strong>诚实顾虑</strong>：1）Mistral 的 Agentic Search 刚发布，实际效果待验证。2）企业部署需要 IT 部门配合，不是个人能直接试用的。3）Mistral 的生态不如 OpenAI/Anthropic 成熟，集成可能更复杂。</p>
+    <div class="section-label">👀 关注点</div>
+    <ul>
+      <li>Agentic Search 是否提供免费试用或 sandbox？</li>
+      <li>是否有企业客户案例发布？</li>
+      <li>Mistral 是否开源 Agentic Search 的核心组件？</li>
+    </ul>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>RAG</strong> = Retrieval-Augmented Generation（检索增强生成）——让 AI 在生成答案前先检索外部知识库，减少幻觉。Agentic Search 是 RAG 的进化版，支持多轮交互式检索。</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
+      <a href="https://mistral.ai/news" target="_blank">Mistral 官方博客</a> — Agentic Search 发布公告
+      <span style="font-size:0.85rem;color:var(--accent3);">Mistral 官方 — "The retrieval layer that helps AI systems navigate, read, and verify information"</span>
+    </div>
+    <div class="links">
+      <a href="https://mistral.ai/news" target="_blank">Mistral 官方博客</a>
+      <a href="https://mistral.ai" target="_blank">Mistral 官网</a>
     </div>
   </div>
 
@@ -336,24 +398,24 @@
     <div class="smallcaps">📈 仍在跟踪 · 没单独占坑但仍在发酵</div>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Huzzah</span> <span class="update">—— HN 324分，仍在首页讨论中，但无 KOL 深度评测新发出。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Vomit</span> <span class="update">—— HN 263分，GitHub 星星在涨，但无触发事件（版本未更新、价格未变）。</span></div>
+        <span class="days">Day 6</span>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">—— HuggingFace 依旧稳居 Trending 第一（2.09M 下载），Simon Willison 深度评测上周已发，今日无新触发事件（版本未更新、价格未变）。</span></div>
       </li>
       <li>
         <span class="days">Day 6</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">—— HuggingFace Trending 仍第一（2.09M下载），Simon Willison 评测已发，无新触发。</span></div>
+        <div><span class="item-name">Claude Opus 5 + Anthropic 水印</span> <span class="update">—— Anthropic 水印技术博客已发布 8 天，无新动态。Claude Opus 5 使用量平稳。</span></div>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Kimi K3</span> <span class="update">—— HuggingFace Trending 第二（2.61M下载），Ollama 已收录，社区活跃。</span></div>
+        <span class="days">Day 6</span>
+        <div><span class="item-name">GPT-5.6 Sol 降价 50%</span> <span class="update">—— 降价已全面生效，OpenRouter 端无质量下降报告。无新事件。</span></div>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Mistral Agentic Search</span> <span class="update">—— 企业检索层，无新客户案例或开源动态。</span></div>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">Mojo 开源</span> <span class="update">—— GitHub 星星约 200，Qualcomm 尚未发布专用优化。无新触发。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">OpenLogi</span> <span class="update">—— HN 热度下降，GitHub 星星缓慢增长至约 800。在线沙盒仍可体验。</span></div>
       </li>
     </ul>
   </aside>
@@ -366,7 +428,7 @@
 
   <footer>
     <p>AI Radar · 每日精选 · 信号过滤 · 行动导向</p>
-    <p style="font-size:0.7rem;margin-top:4px;">数据来源：Hacker News, GitHub, HuggingFace, Mistral, Simon Willison, OpenAI, Anthropic</p>
+    <p style="font-size:0.7rem;margin-top:4px;">数据来源：Hacker News, GitHub, Mistral, Simon Willison, OpenAI, Anthropic</p>
   </footer>
 </div>
 

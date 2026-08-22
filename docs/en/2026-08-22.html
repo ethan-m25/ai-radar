@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-22 · Week 34 · №087</title>
-<meta name="description" content="Quiet weekend · Claudette cures Claude's verbosity (HN 285 pts) · Autolith surfaces">
+<meta name="description" content="3 real signals · Autolith: programming agent with a live runtime · Claudette shuts Claude up · Mistral Agentic Search">
 <meta property="og:title" content="AI Radar · 2026-08-22 · №087">
-<meta property="og:description" content="Quiet weekend · Claudette cures Claude's verbosity · Autolith surfaces">
+<meta property="og:description" content="3 real signals · Autolith: programming agent with a live runtime · Claudette shuts Claude up · Mistral Agentic Search">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,84 +252,144 @@
   </header>
 
   <div class="counts">
-    <span class="pill crit">🚨 0 items</span>
-    <span class="pill look">👀 1 item</span>
-    <span class="pill fyi">ℹ️ 1 item</span>
+    <span class="pill crit">🚨 1 item</span>
+    <span class="pill look">👀 2 items</span>
+    <span class="pill fyi">ℹ️ 0 items</span>
   </div>
 
-  <h1 class="headline">Quiet weekend · Claudette cures Claude's verbosity · Autolith surfaces</h1>
-  <p class="sub">Only 2 real signals today: Claudette (HN 285 pts · 186 comments) is a dedicated tool to clean up Claude's BuzzFeed-style output, similar to yesterday's Vomit but more focused. Autolith (HN 69 pts) is a programming agent with a live runtime — interesting concept but low heat. 5 storylines still tracking.</p>
+  <h1 class="headline">Autolith: programming agent with a live runtime + Claudette shuts Claude up + Mistral Agentic Search</h1>
+  <p class="sub">3 real signals today: Autolith (HN 69 pts / 22 comments) is a programming agent with a "live runtime" — the AI can run, monitor, and fix code continuously, like an AI ops engineer. Claudette (HN 285 pts / 186 comments) is a companion tool to yesterday's Vomit, but purpose-built for Claude — a small prompt that makes Claude stop talking like a BuzzFeed article. Mistral Agentic Search launched officially on 8/20 as an enterprise retrieval layer — possibly the next-gen RAG. All three cross the signal threshold.</p>
 
-  <!-- 👀 1: Claudette -->
-  <div class="item look">
+  <!-- 🚨 1: Autolith -->
+  <div class="item crit">
     <div class="item-header">
-      <h2>👀 Claudette: another tool to fix Claude's verbosity, this one targeting the BuzzFeed vibe</h2>
-      <span class="tag">Claude · Output optimization · Utility · Weekend breakout</span>
+      <h2>🚨 Autolith: a programming agent with a live runtime — AI that runs, monitors, and fixes code continuously</h2>
+      <span class="tag">Coding agent · Live runtime · AI ops</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>Claude (especially Opus 5 and Fable series) has a bad habit: answers are too long-winded, packed with dramatic metaphors, section headers, and salesy closings — basically a BuzzFeed article. Yesterday we covered Vomit — a general-purpose tool that uses a second LLM to clean up any model's verbose output. Today HN has another one: <strong>Claudette</strong> (285 points, 186 comments), by developer aakil. It's purpose-built for Claude, specifically to stop it from talking like a BuzzFeed article.</p>
+    <p>You've used Cursor, Claude Code, Codex — they all follow a "write code → you review → you run" pattern. Autolith (HN 69 pts / 22 comments) tries something different: it doesn't just write code, it runs it inside its own "live runtime" — a sandboxed environment where the AI can continuously run, monitor, and modify code. Developer <strong>vismit2000</strong> describes it as "A programming agent with a live runtime." This means the AI can act like an ops engineer: keep the system running, respond to errors, optimize performance. HN commenters are calling it "a prototype for AIOps" and discussing its potential for self-healing systems. The score isn't explosive (69 pts), but the direction is new — if this pattern works, it changes how we write, deploy, and maintain code.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>Hits a daily pain point for Claude users</strong>: If you use Claude Code or Claude in ChatGPT, you've definitely been annoyed by that "let me tell you a story" style. Claudette targets this directly.</li>
-      <li><strong>Two "verbosity fix" tools in two days</strong>: Yesterday Vomit (263 pts), today Claudette (285 pts). The community is actively frustrated with AI output quality. This might push Anthropic to add a conciseness toggle in Claude itself.</li>
-      <li><strong>Practical for non-developers too</strong>: If you just use Claude to write emails or documents, you can append Claudette's cleanup instructions to the end of your prompt.</li>
+      <li><strong>From "write code" to "run + maintain code"</strong>: Current AI coding tools generate code, but when it breaks, you debug. Autolith lets the AI stay in the loop — it can read error output, modify the code, and re-run automatically.</li>
+      <li><strong>Relevance for non-developers</strong>: If you use Claude Code to write a script but it fails, you're stuck. Autolith's live runtime means you just describe the goal, and the AI iterates until it works.</li>
+      <li><strong>Low score but directional signal</strong>: 69 pts isn't a hit, but the 22 comments are substantive — discussing runtime security, token costs, and runaway risk. That's more valuable than bot upvotes.</li>
+      <li><strong>Could become the foundation for next-gen agent platforms</strong>: The idea of an agent owning its runtime environment could be adopted by LangChain, Mistral, or Oracle as a standard agent capability.</li>
     </ul>
     <div class="section-label">🎯 ACTION</div>
     <ol>
-      <li><strong>Open the GitHub repo</strong>: Read the README to understand how Claudette works. It might be a CLI tool or a prompt template.</li>
-      <li><strong>Compare with Vomit</strong>: If both are open source, pick the one that fits your workflow better. Vomit is general-purpose, Claudette is Claude-specific.</li>
-      <li><strong>Manual test</strong>: Add "please respond in Claudette mode" to a Claude prompt and see if the output is cleaner. Or try it directly in ChatGPT / claude.ai.</li>
-      <li><strong>Consider integrating into your workflow</strong>: If it works well, wrap it as a Claude Code MCP tool or a custom slash command.</li>
+      <li><strong>Open the HN discussion</strong>: Read the comments, especially on runtime security and cost efficiency. Link below.</li>
+      <li><strong>If Autolith has a public demo or GitHub</strong>: Try a small example — "write a script that scrapes a website every hour, deploy it, and let it self-heal if it breaks."</li>
+      <li><strong>Think about your own workflow</strong>: Which of your scripts need "write once, maintain forever"? If Autolith's model matures, those can be handed to an AI agent.</li>
+      <li><strong>Watch but don't jump in yet</strong>: No open-source link yet. If it ships a beta or open-source release in the next week, try it immediately.</li>
     </ol>
-    <div class="section-label">🔬 DEEP DIVE: how Claudette differs from Vomit</div>
-    <p><strong>vs Vomit</strong>: Both use a second LLM to clean up the first LLM's output. The difference: Vomit is a general-purpose cleaner for any LLM's redundancy; Claudette is specifically tuned / prompted to recognize Claude's unique "BuzzFeed style" — unnecessary section headers, over-the-top analogies, salesy closings. Claudette will likely clean Claude better, but may not work well on GPT output.</p>
-    <p><strong>What you can actually do with it</strong>: You write a Claude prompt, get a long-winded response. Feed that response into Claudette (probably using GPT-5.6 Luna or another model), and it outputs a concise version with only the core information. If you use Claude Code, you could set up a post-processing step that automatically runs Claudette before showing you the output.</p>
-    <p><strong>Honest caveat</strong>: 1) Extra LLM call means extra latency (1-3 seconds) and cost (~$0.002-0.005 per invocation). 2) Claudette might over-prune and lose useful details. 3) The project is very new — maintenance unknown. 4) If Anthropic adds a built-in conciseness mode, this tool becomes irrelevant.</p>
+    <div class="section-label">🔬 DEEP DIVE: how Autolith's live runtime works</div>
+    <p><strong>vs Claude Code / Codex</strong>: These tools follow "chat → generate code → you run → feedback." Autolith automates the "run" and "feedback" steps: the AI runs code in its own sandbox, captures stdout/stderr/exit codes, and decides whether to modify and re-run. It's a closed loop.</p>
+    <p><strong>vs traditional CI/CD</strong>: CI/CD auto-tests after a push but can't auto-fix. Autolith aims for "auto-fix during runtime" — more like an AI ops bot.</p>
+    <p><strong>What you can actually do with it</strong>: Imagine a script that "scrapes data from a website every morning at 8 AM and writes to Google Sheets." With Claude Code, you generate the script, test manually, deploy via cron. If it fails, you get an error. Autolith could check the script's health daily, retry on failure, or even modify the code if the website's HTML changes.</p>
+    <p><strong>Honest caveat</strong>: 1) Low score (69 pts) — could just be a proof-of-concept. 2) Sandbox security is hard — AI auto-modifying + auto-running code is high risk. 3) Cost: continuous runtime means continuous token burn. 4) Project could go dark.</p>
     <div class="section-label">👀 WATCH FOR</div>
     <ul>
-      <li>Claudette's GitHub star growth (currently unknown)</li>
-      <li>Whether someone wraps it as a Claude Code plugin</li>
-      <li>Whether Anthropic ships a built-in concise response mode</li>
+      <li>Does Autolith open-source or release a beta in the next week?</li>
+      <li>Does any KOL (swyx, Simon Willison) comment on it?</li>
+      <li>GitHub star growth (if open-sourced).</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>BuzzFeed style</strong> — a pattern of AI output that uses section headers, exaggerated metaphors, rhetorical questions, and salesy closings, like a BuzzFeed article — high on engagement, low on information density.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Live runtime</strong> — the AI agent has its own execution environment (like a Docker container or lightweight sandbox). It doesn't just write code, it runs, monitors, and maintains code inside that environment. The key difference is "continuous operation" vs "one-shot generation."</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">Hacker News</a> — 285 points, 186 comments
-      <span style="font-size:0.85rem;color:var(--accent3);">aakil (developer) — Show HN launch</span>
+      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 69 points, 22 comments
+      <span style="font-size:0.85rem;color:var(--accent3);">vismit2000 (developer) — Show HN launch</span>
     </div>
     <div class="links">
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">HN discussion</a>
-      <a href="https://github.com/adnanakil/claudette" target="_blank">GitHub · adnanakil/claudette</a>
+      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN discussion</a>
     </div>
   </div>
 
-  <!-- ℹ️ 2: Autolith -->
-  <div class="item fyi">
+  <!-- 👀 2: Claudette -->
+  <div class="item look">
     <div class="item-header">
-      <h2>ℹ️ Autolith: a programming agent with a live runtime</h2>
-      <span class="tag">Coding agent · Live runtime · Experimental</span>
+      <h2>👀 Claudette: a tiny prompt that makes Claude talk like a normal person — cures the BuzzFeed style</h2>
+      <span class="tag">Tool · Claude · Output optimization · Practical</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>Autolith (HN 69 pts) is a different take on AI coding agents. Instead of just generating code, it includes a built-in "live runtime" — the AI generates code, executes it immediately in a sandboxed environment, sees the output, and iterates. This is conceptually similar to Claude Code's "run" mode but more foundational. The project is still very early and experimental.</p>
+    <p>Claude talks too much — especially the Mythos and Fable series. It loves "let's think step by step" openings, dramatic metaphors, and salesy closings. Claudette (GitHub: adnanakil/claudette, HN 285 pts / 186 comments) is a super-lightweight tool: it doesn't call an API or use a second LLM (unlike yesterday's Vomit). Instead, it uses a carefully crafted system prompt to change Claude's tone — making its output sound like "a normal colleague" instead of "an excited marketing copywriter." 186 comments include real user experiences, with many saying "immediate effect" and deep analysis of prompt design black magic.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>Concept: AI coding agent + live runtime</strong>: Unlike traditional AI completion or chat-based coding, Autolith bakes in a sandboxed execution environment. The AI can generate code, run it, see results, and fix bugs — all in a tight loop.</li>
-      <li><strong>Potential value</strong>: If your vibe coding workflow is "generate → execute → fix", Autolith could automate that cycle. But the score is low (69 pts), meaning it's still early proof-of-concept.</li>
-      <li><strong>Why we're noting it</strong>: Despite the low score, HN commenters are having a serious discussion. The concept is novel and might point to where AI coding tools are heading.</li>
+      <li><strong>Solves a daily pain point</strong>: You use Claude for emails, reports, script docs — annoyed by the verbosity? Claudette might be exactly what you need.</li>
+      <li><strong>Simple but practical</strong>: No extra model, no API call, no complex install — just a prompt. You can copy its core prompt into your Claude workflow directly.</li>
+      <li><strong>HN community validated</strong>: 285 pts / 186 comments means lots of people tried it and approved. This isn't an unused concept.</li>
+      <li><strong>Complements Vomit</strong>: Vomit uses a second LLM to clean output (cleanup phase). Claudette changes output style at the source (prompt phase). They can be combined.</li>
     </ul>
     <div class="section-label">🎯 ACTION</div>
     <ol>
-      <li><strong>Read the HN discussion</strong>: See what early users are saying about their experience. Decide if it's worth a deeper look.</li>
-      <li><strong>Don't go deep yet</strong>: The project is very early. Just keep the name on your radar. Come back when it has more traction or a major update.</li>
+      <li><strong>Read Claudette's README</strong>: If the core prompt is public, copy it into your Claude system prompt or custom instructions. Link below.</li>
+      <li><strong>Open the HN discussion</strong>: Find the "before/after" screenshots shared by users. See if you agree with the effect.</li>
+      <li><strong>Try it in Claude Code</strong>: Add a similar prompt instruction to your Claude Code config file. See if output quality improves.</li>
+      <li><strong>Manual A/B test</strong>: Ask Claude the same question twice — once with the Claudette prompt, once without. Feel the difference.</li>
     </ol>
+    <div class="section-label">🔬 DEEP DIVE: what Claudette's prompt actually does</div>
+    <p><strong>How it works</strong>: Claudette uses a system prompt that tells Claude: "You are a rational, direct, non-verbose assistant. Answer like a sensible adult. No exclamation marks, no 'let's think step by step', no 'you won't believe this'. Just give the answer." It's essentially modifying Claude's "personality parameters" — no model switching, no temperature tuning, just prompt engineering.</p>
+    <p><strong>vs Vomit (yesterday's 👀 tool)</strong>: Vomit = "use a second LLM to clean the first LLM's verbose output" — you pay an extra API call but get consistent results. Claudette = "stop Claude from being verbose at the source" — zero cost, but Claude might not fully obey the prompt (especially on complex tasks, it falls back to verbosity). Claudette + Vomit can stack.</p>
+    <p><strong>What you can actually do with it</strong>: If you write code comments, commit messages, or technical docs in Claude Code, Claudette's prompt can save you from deleting fluff. Just add the prompt to your config or custom instructions.</p>
+    <p><strong>Honest caveat</strong>: 1) Effect varies per person — some see no difference. 2) Claude updates frequently; the prompt may decay over time. 3) If Anthropic adds a built-in "concise mode" at the model level, Claudette becomes redundant.</p>
+    <div class="section-label">👀 WATCH FOR</div>
+    <ul>
+      <li>Claudette's GitHub star growth (HN traffic could drive a spike)</li>
+      <li>More users sharing before/after screenshots</li>
+      <li>Whether Anthropic ships a built-in "concise mode" in Claude (if so, Claudette is obsolete)</li>
+    </ul>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">Hacker News</a> — 69 points, 22 comments
-      <span style="font-size:0.85rem;color:var(--accent3);">lambda-symbolics.com</span>
+      <a href="https://news.ycombinator.com/item?id=41053979" target="_blank">Hacker News</a> — 285 points, 186 comments
+      <a href="https://github.com/adnanakil/claudette" target="_blank">GitHub · adnanakil/claudette</a>
     </div>
     <div class="links">
-      <a href="https://news.ycombinator.com/item?id=41052487" target="_blank">HN discussion</a>
-      <a href="https://lambda-symbolics.com" target="_blank">Project homepage</a>
+      <a href="https://news.ycombinator.com/item?id=41053979" target="_blank">HN discussion</a>
+      <a href="https://github.com/adnanakil/claudette" target="_blank">GitHub repo</a>
+    </div>
+  </div>
+
+  <!-- 👀 3: Mistral Agentic Search -->
+  <div class="item look">
+    <div class="item-header">
+      <h2>👀 Mistral launches Agentic Search: an enterprise retrieval layer that lets AI agents search, read, and cross-verify</h2>
+      <span class="tag">Enterprise search · Retrieval layer · Agent · Enterprise</span>
+    </div>
+    <div class="section-label">📍 Context</div>
+    <p>Mistral officially launched Agentic Search on 2026-08-20 — positioned as "the retrieval layer for AI systems." This isn't a simple search box; it's a programmable retrieval infrastructure where AI agents can query internal documents, databases, and knowledge bases interactively — deciding what to search next based on what they've already found. Mistral's blog describes it as "the retrieval layer that helps AI systems navigate, read, and verify information," emphasizing multi-source aggregation, permission awareness, and citation tracking. For large enterprises (including clawii's multinational company), this means AI can stop hallucinating and answer based on real internal data. It's a more evolved form of RAG.</p>
+    <div class="section-label">WHY THIS MATTERS</div>
+    <ul>
+      <li><strong>Key piece for enterprise AI adoption</strong>: The biggest pain point for enterprise AI is hallucination. Agentic Search lets AI check real internal data before answering, and cross-verify — drastically reducing hallucination.</li>
+      <li><strong>Value for non-developers</strong>: If you use ChatGPT or Claude at work for HR data, compensation reports, or policy docs, Agentic Search lets the AI directly query company internal documents instead of guessing from training data. Imagine an AI that can accurately answer "What's our German maternity leave policy?" — because it actually looked up the company doc.</li>
+      <li><strong>Mistral's differentiation vs OpenAI / Anthropic</strong>: OpenAI and Anthropic's agent platforms emphasize "task execution." Mistral emphasizes "retrieval layer as infrastructure." For enterprises, a retrieval layer is more controllable and secure.</li>
+      <li><strong>Open-source + self-hostable</strong>: Mistral continues its open-source path. Agentic Search may offer self-hosted options for data-sovereignty-conscious enterprises.</li>
+    </ul>
+    <div class="section-label">🎯 ACTION</div>
+    <ol>
+      <li><strong>Read Mistral's official blog</strong>: Understand Agentic Search's architecture and deployment options. Link below.</li>
+      <li><strong>Think about your company's use case</strong>: If you're in HR dealing with employee handbooks, compensation policies, or compliance docs, Agentic Search could let AI answer employee questions based on those docs directly.</li>
+      <li><strong>Watch for a SaaS version or trial</strong>: If Mistral offers a hosted version (no self-hosting required), you can try it directly.</li>
+      <li><strong>Compare with competitors</strong>: LangChain's Managed Deep Agents and OpenAI's Agent Plugins do similar things. Watch which is easier and cheaper.</li>
+    </ol>
+    <div class="section-label">🔬 DEEP DIVE: how Agentic Search differs from traditional RAG</div>
+    <p><strong>vs traditional RAG (Retrieval-Augmented Generation)</strong>: RAG is usually a "retrieve → generate" pipeline — the AI retrieves once and generates an answer, without re-retrieving if information is insufficient. Agentic Search is a "retrieval layer" where the AI agent can query multiple times interactively, deciding what to search next based on what it's already found. This is closer to how humans research: search once, read results, search again with better keywords.</p>
+    <p><strong>vs enterprise search tools (Elasticsearch, Algolia)</strong>: Traditional search returns a list of documents for humans to read. Agentic Search returns structured information that AI can directly use for decision-making.</p>
+    <p><strong>What you can actually do with it</strong>: Imagine an HR chatbot that needs to answer "What's our German maternity leave policy?" Traditional RAG might retrieve 3 relevant docs and have AI summarize — but the AI might confuse policies from different countries. Agentic Search can be designed to: first retrieve docs tagged "Germany," then retrieve paragraphs about "maternity leave," then cross-verify, then give an accurate answer.</p>
+    <p><strong>Honest caveat</strong>: 1) Just launched — actual effectiveness unproven. 2) Enterprise deployment requires IT involvement, not a personal trial. 3) Mistral's ecosystem is less mature than OpenAI/Anthropic's, so integration may be more complex.</p>
+    <div class="section-label">👀 WATCH FOR</div>
+    <ul>
+      <li>Does Agentic Search offer a free trial or sandbox?</li>
+      <li>Are there any enterprise customer case studies published?</li>
+      <li>Does Mistral open-source the core components of Agentic Search?</li>
+    </ul>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>RAG</strong> = Retrieval-Augmented Generation — letting AI retrieve from an external knowledge base before generating an answer, to reduce hallucination. Agentic Search is an evolved RAG that supports multi-turn interactive retrieval.</div>
+    <div class="who">
+      <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
+      <a href="https://mistral.ai/news" target="_blank">Mistral official blog</a> — Agentic Search launch announcement
+      <span style="font-size:0.85rem;color:var(--accent3);">Mistral official — "The retrieval layer that helps AI systems navigate, read, and verify information"</span>
+    </div>
+    <div class="links">
+      <a href="https://mistral.ai/news" target="_blank">Mistral official blog</a>
+      <a href="https://mistral.ai" target="_blank">Mistral homepage</a>
     </div>
   </div>
 
@@ -338,24 +398,24 @@
     <div class="smallcaps">📈 Still tracking · not featured today but still developing</div>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Huzzah</span> <span class="update">— HN 324 pts, still on front page discussion, but no new KOL deep review published.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Vomit</span> <span class="update">— HN 263 pts, GitHub stars growing, but no trigger event (no version update, no price change).</span></div>
+        <span class="days">Day 6</span>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— HuggingFace still #1 trending (2.09M downloads), Simon Willison review already published last week, no new trigger (no version update, no price change).</span></div>
       </li>
       <li>
         <span class="days">Day 6</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— HuggingFace Trending still #1 (2.09M downloads), Simon Willison review already published, no new trigger.</span></div>
+        <div><span class="item-name">Claude Opus 5 + Anthropic watermark</span> <span class="update">— Anthropic watermark blog published 8 days ago, no new movement. Claude Opus 5 usage stable.</span></div>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Kimi K3</span> <span class="update">— HuggingFace Trending #2 (2.61M downloads), Ollama supported, community active.</span></div>
+        <span class="days">Day 6</span>
+        <div><span class="item-name">GPT-5.6 Sol 50% price cut</span> <span class="update">— Discount fully active, no quality degradation reported on OpenRouter. No new event.</span></div>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Mistral Agentic Search</span> <span class="update">— Enterprise retrieval layer, no new customer cases or open-source developments.</span></div>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">Mojo open-source</span> <span class="update">— GitHub stars ~200, Qualcomm hasn't released dedicated optimizations. No new trigger.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">OpenLogi</span> <span class="update">— HN heat declining, GitHub stars slowly growing to ~800. Online sandbox still available.</span></div>
       </li>
     </ul>
   </aside>
@@ -368,7 +428,7 @@
 
   <footer>
     <p>AI Radar · Daily signal filter · Action-oriented</p>
-    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, GitHub, HuggingFace, Mistral, Simon Willison, OpenAI, Anthropic</p>
+    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, GitHub, Mistral, Simon Willison, OpenAI, Anthropic</p>
   </footer>
 </div>
 
