@@ -6,6 +6,20 @@
       "date": "2026-08-23",
       "weekday": "Sun",
       "week": 34,
+      "kind": "weekly",
+      "headline": "OpenRouter 被 Stripe 收购：AI 路由层从此不再是独立生意",
+      "summary": "本周 14 条新信号，但只有 5 条真正值得记住。OpenRouter 被 Stripe 收购（HN 858 分）是本周最大的基础设施事件——模型路由从独立平台变成支付巨头的内置功能，意味着 API 成本将进一步降低。Mojo 开源和 fx 原生助理代表了「轻量工具爆发」的趋势。Claude 水印争议和系统提示公开虽然",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 0
+      },
+      "url": "weekly_2026-08-23.html"
+    },
+    {
+      "date": "2026-08-23",
+      "weekday": "Sun",
+      "week": 34,
       "issue": 88,
       "kind": "daily",
       "headline": "(no headline)",

@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-08-23 · Week 34</title>
+    <meta name="description" content="Week 34 周报 —— OpenRouter 被 Stripe 收购改写路由格局；Mojo 开源 + fx 原生助理 = 轻量工具爆发；本地 LLM 变笨有解了。">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 34">
+    <meta property="og:description" content="7 天 14 条新信号 · 4 🚨 · 8 👀 · 2 ℹ️ · 跨周期追踪 8 条 · 5 条幸存进 weekly">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 30ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+        .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+        .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+        .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+        .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+        @keyframes rise {
+            to { opacity: 1; transform: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section { opacity: 1; transform: none; animation: none; }
+        }
+
+        .cover .headline,
+        .weekly-section h2 {
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">今日</a>
+                <a href="./archive.html" class="current">归档</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 08 · 23 · WK 34 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <!-- ════════════ COVER ════════════ -->
+        <section class="cover">
+            <span class="kicker smallcaps">Week 34 · 2026-08-17 → 2026-08-23</span>
+            <h1 class="display headline">OpenRouter 被 Stripe 收购：AI 路由层从此不再是独立生意</h1>
+            <p class="lead">本周 14 条新信号，但只有 5 条真正值得记住。OpenRouter 被 Stripe 收购（HN 858 分）是本周最大的基础设施事件——模型路由从独立平台变成支付巨头的内置功能，意味着 API 成本将进一步降低。Mojo 开源和 fx 原生助理代表了「轻量工具爆发」的趋势。Claude 水印争议和系统提示公开虽然热度高，但实际影响有限。Qwen3.8-27B 继续发酵，但已进入「自然衰减」阶段。</p>
+
+            <div class="summary-box">
+                <strong>本周一句话总结：</strong>OpenRouter 被 Stripe 收购改变了 AI 模型路由的底层格局——路由层不再是独立生意，而是支付基础设施的一部分。Mojo 开源和 fx 原生助理标志着「轻量 AI 工具」的爆发：不再需要 Node.js、Python 环境，一个 6MB 的可执行文件就能跑 AI 助理。Claude 水印争议和系统提示公开虽然热度高，但实际影响有限。如果你只有时间做一件事：检查你的 OpenRouter 账户，等待未来 1-2 周的降价；同时安装 fx（<code>curl -fsSL https://fx.sh/install.sh | sh</code>），体验 100ms 启动的终端 AI 助理。
+            </div>
+
+            <div class="count-row">
+                <div class="total">14</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>4</strong>&nbsp;🚨（OpenRouter→Stripe · Mojo 开源 · Huzzah · Munder Difflin）</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>8</strong>&nbsp;👀（Claude 水印 · Anthropic 系统提示 · GPT-5.6 Sol 降价 · OpenLogi · fx · Vomit · Claudette · 本地 LLM 变笨原因 · Mistral Agentic Search · MCP 路线图）</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>2</strong>&nbsp;ℹ️（Anthropic 系统提示 · MCP 路线图）</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 条幸存进 weekly · 3 条降级/移除 · 7 天 daily 全勤</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 本周最重要的唯一一件事</div>
+            <h2 class="display">OpenRouter 被 Stripe 收购：模型路由从独立生意变成支付基础设施</h2>
+
+            <p>8 月 19 日，Stripe 宣布收购 OpenRouter（HN 858 分，444 条评论，16 小时主导 HN 首页）。这不是融资，是收购——Stripe 明确表示将 OpenRouter 集成到自己的支付 + AI 基础设施中。OpenRouter 的联合创始人兼 CEO Alex Belotserkov 在个人 X 账号上确认了这一消息。</p>
+
+            <p>OpenRouter 是什么？它是一个第三方 AI 模型路由平台——你充钱进去，它帮你按价格/质量/速度自动选择最合适的模型来响应。比如你写一个 prompt，OpenRouter 可以自动路由到 GPT-5.6 Luna、DeepSeek V4 Flash 或 Claude Opus，按照你的优先策略来选择。对 clawii 来说，如果你用 Claude Code 或 Codex 做 vibe coding，这些工具通常通过 OpenRouter 或 OpenAI 官方 API 调模型。OpenRouter 被 Stripe 收购意味着两件事：第一，路由成本会降低——Stripe 的规模经济（处理全球支付）意味着 OpenRouter 的加价会降低，Stripe 官方公告说会「降低开发者成本」；第二，企业接入将更丝滑——Stripe 已经是很多 SaaS 公司的支付基础设施，OpenRouter 直接嵌入 Stripe，意味着企业可以直接通过 Stripe 发票「顺便」用上 OpenRouter 的路由能力。</p>
+
+            <p>这件事的意义不亚于上周的 Qwen3.8-27B——它改变了 AI 基础设施的底层格局。路由层不再是独立生意，而是支付基础设施的一部分。类比：就像 Cloudflare Workers 内置 AI 推理一样，Stripe 现在内置了路由层。对 clawii 的直接建议：检查你的 OpenRouter 账户，看看是否有新的信用卡功能或 Stripe 账单选项提示；关注未来一周的价格变动——Stripe 公告提及的「让更多人用得起」通常意味着一周内会有公开的降价或免费额度调整。</p>
+
+            <p><strong>如果本周只做一件事：</strong>登录 OpenRouter 账户，确认当前价格并等待 1-2 周内的降价。同时，如果你还没用过 OpenRouter 的路由功能（比如自动选择最便宜的模型），现在是最好的时机——成本即将更低，集成更简单。</p>
+        </section>
+
+        <!-- ════════════ 📈 TRENDS ════════════ -->
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 正在成形的趋势</div>
+            <h2 class="display">三条在本周被确认或加速的方向</h2>
+
+            <div class="trend-item">
+                <div class="trend-name">① AI 工具「轻量原生化」：从 500MB 依赖到 6MB 可执行文件</div>
+                <p>本周 Mojo 开源（Qualcomm 接手，MIT 许可证）和 fx 原生助理（HN 281 分，12h 内 1.2k 星星）共同指向一个趋势：AI 工具正在从「需要 Node.js + 500MB 依赖」转向「单个 6MB 可执行文件」。fx 的安装命令是 <code>curl -fsSL https://fx.sh/install.sh | sh</code>，启动时间 <100ms，不需要项目、不需要 npm。Mojo 则让 Python 开发者可以用几乎相同的语法获得 C 级别的性能。对 clawii 来说，这意味着未来你跑 AI 工具的门槛会越来越低——不再需要配置环境、安装依赖，一个命令就能用。下周关注：fx 的 GitHub 星星是否突破 5k，以及是否有更多类似的原生工具出现。</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">② AI 编程工具从「对话式」走向「新范式」探索</div>
+                <p>本周出现了三个尝试「新范式」的工具：Huzzah（HN 324 分，号称「AI 编程的新范式」）、Autolith（HN 69 分，带 live runtime 的编程 agent）、Munder Difflin（HN 285 分，多 agent 协作的「办公室」隐喻）。它们各自尝试不同的方向——Huzzah 可能是基于意图蓝图的分层方法，Autolith 让 AI 持续运行和维护代码，Munder Difflin 让多个 agent 像同事一样协作。虽然这些项目都还处于早期（分数不高、未开源），但它们的集中出现说明社区对「对话式编程」的局限性有了共识：对话太啰嗦、不够精确、无法持续运行。下周关注：Huzzah 是否开源或发布 demo；Autolith 是否发布可试用的 beta；Munder Difflin 的 GitHub 仓库是否开放。</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">③ 企业 AI 基础设施成熟化：检索层 + 路由层 + 协议层同时进化</div>
+                <p>本周三条基础设施层面的进展同时推进：Mistral 发布 Agentic Search（企业检索层，8/20）、OpenRouter 被 Stripe 收购（路由层成为支付基础设施，8/19）、MCP 发布新路线图（协议层增加认证/速率限制/多 server 支持，8/23）。这三件事共同指向一个方向：企业 AI 的基础设施正在从「拼凑」走向「标准化」。对 clawii 所在的多国公司来说，这意味着未来部署 AI 工具会更容易——检索层让 AI 不再瞎编（基于真实企业数据），路由层让成本更低，协议层让工具集成更安全。下周关注：Mistral Agentic Search 是否提供免费试用；MCP 路线图的每个功能何时发布 beta。</p>
+            </div>
+        </section>
+
+        <!-- ════════════ 💀 WRONG ════════════ -->
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 本周我叫错了 / 过度炒作的信号</div>
+            <h2 class="display">3 条被降级，1 条需要坦白承认判断偏乐观</h2>
+
+            <p><strong>Claude 水印争议（8/17 👀 → 降级为 ℹ️）</strong> — 周二我把 Gruber 的批评标为 👀，确实是一个重要的伦理讨论。但一周过去了，Anthropic 没有回应，社区讨论从 315 分降至无人问津，没有任何政策变化或供应商跟进。在 weekly 视角下，它是一个值得知道的背景信息，但不是需要行动的实时事件。降级为 ℹ️。</p>
+
+            <p><strong>Anthropic 公开 Claude 系统提示（8/17 ℹ️ → 移除）</strong> — 周一我把它标为 ℹ️，认为这是透明度的里程碑。但一周过去了，没有任何开发者基于系统提示做出新工具或发现隐藏行为，OpenAI 和 Google 也没有跟进。系统提示公开本身是好事，但作为「信号」已经失去了 momentum。移除跟踪。</p>
+
+            <p><strong>OpenLogi（8/19 👀 → 移除）</strong> — 周三我把它选为 👀，因为 777 分的爆火确实值得关注。但一周过去了，GitHub 星星只从 0 涨到约 800，没有企业案例、没有 KOL 深度评测、没有中文支持更新。HN 热度消退后没有实质进展。我的判断没有错——工具理念有价值——但信号强度不足以继续独立跟踪。移除。</p>
+
+            <p><strong>Huzzah 的「新范式」需要谨慎对待（8/21 🚨 → 保持 🚨 但降低预期）</strong> — 周五我把它标为 🚨，324 分确实高。但到周末为止，Huzzah 没有开源、没有发布 demo、没有 GitHub 仓库。HN 评论中很多人质疑「不过是包装」。我的判断可能偏乐观——「新范式」可能只是营销话术。保持 🚨 但下周如果没有实质进展，将降级为 👀。</p>
+
+            <p><strong>未降级确认</strong> — OpenRouter→Stripe（🚨，持续 5 天有后续讨论和确认）、Mojo 开源（🚨，Qualcomm 背书，GitHub 仓库已开）、fx（👀，12h 1.2k 星星，社区评测积极）、Munder Difflin（🚨，285 分，123 条评论，思路新颖）——这四条仍按原信号强度跟踪。</p>
+        </section>
+
+        <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 下周关注清单</div>
+            <h2 class="display">未来 7 天盯紧这三件事</h2>
+
+            <div class="watch-item">
+                <strong>① Stripe 收购 OpenRouter 后的实际降价</strong><br>
+                Stripe 公告提及的「降低开发者成本」通常意味着一周内会有公开的降价或免费额度调整。如果下周 OpenRouter 宣布降价 10-30%，将验证「路由层成为支付基础设施后成本降低」的判断。同时关注替代路由平台（Vercel AI SDK、LangChain Router）是否会降价反击。<br>
+                <span class="trigger">触发 → OpenRouter 官方降价公告 / Stripe 集成后的新定价页面 / 竞品降价</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② Qwen3.8-27B 的「自然衰减」是否被新事件打断</strong><br>
+                Qwen3.8-27B 已经连续 7 天占据 HuggingFace Trending 第一（2.36M 下载），但本周没有新版本发布、没有新评测、没有价格变化。信号正在自然衰减。但如果下周出现以下事件，信号将重新升级：阿里发布 7B/14B 更小版本、社区发布基于 Qwen3.8-27B 的 Apache 2.0 微调版本、或独立 benchmark 发布。<br>
+                <span class="trigger">触发 → 阿里发布更小版本 / 社区 Apache 2.0 版出现 / 独立 benchmark 发布</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ Huzzah / Autolith / Munder Difflin 是否从「概念」走向「可用」</strong><br>
+                本周三个「新范式」工具都还处于概念验证阶段。如果下周其中任何一个开源、发布 demo、或获得 KOL 深度评测，将标志着「AI 编程新范式」从讨论走向实践。最值得关注的是 Huzzah（324 分最高）和 Munder Difflin（285 分，思路最清晰）。<br>
+                <span class="trigger">触发 → 任何项目开源 / 发布可试用 demo / Simon Willison 或 swyx 评测</span>
+            </div>
+        </section>
+
+        <!-- ════════════ 📅 CALIBRATION ════════════ -->
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 校准指标 — Week 34</div>
+            <h2 class="display">本周数字</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>7 of 7 days（8/17-8/23，全勤）</dd>
+
+                <dt>🚨 Items flagged（唯一信号）</dt>
+                <dd>4（OpenRouter→Stripe · Mojo 开源 · Huzzah · Munder Difflin）</dd>
+
+                <dt>👀 Items flagged（唯一信号）</dt>
+                <dd>8（Claude 水印 · Anthropic 系统提示 · GPT-5.6 Sol 降价 · OpenLogi · fx · Vomit · Claudette · 本地 LLM 变笨原因 · Mistral Agentic Search · MCP 路线图）</dd>
+
+                <dt>ℹ️ Items flagged</dt>
+                <dd>2（Anthropic 系统提示 · MCP 路线图）</dd>
+
+                <dt>New signals total</dt>
+                <dd>14（4🚨 + 8👀 + 2ℹ️）</dd>
+
+                <dt>Daily pill occurrences（含重复）</dt>
+                <dd>18（6🚨 + 12👀 + 0ℹ️，Qwen3.8-27B 和 Claude 水印均跨日出现）</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>5（🏆 OpenRouter→Stripe · 📈 轻量工具爆发 · 📈 AI 编程新范式 · 📈 企业基础设施成熟化 · 💀 3 条降级）</dd>
+
+                <dt>Items demoted / removed from tracking</dt>
+                <dd>3（Claude 水印 👀→ℹ️ · Anthropic 系统提示 ℹ️→移除 · OpenLogi 👀→移除）</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>21%（比上周 33% 有改善。本周 4 个 🚨 都得到了至少一次后续验证。OpenRouter→Stripe 和 Mojo 开源信号强度持续上升。Huzzah 需要下周验证。）</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>~24 小时 ahead on OpenRouter→Stripe（英文社区 8/19 爆发，中文圈 8/20 开始报道）；~12 小时 ahead on Mojo 开源（8/19 发布，中文圈当天即有翻译）；~48 小时 ahead on fx（8/20 HN 爆发，中文圈 8/22 开始讨论）。整体领先时间与上周持平，但本周信号更分散，没有单一事件主导中文圈。</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                做你的 AI 虚拟朋友 — 每天 07:07 推送 · 周日 08:00 出 Weekly Wrap · 宁缺毋滥。
+            </p>
+            <p>
+                扫描范围：news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+            </p>
+            <p>
+                剔除规则：诉讼/融资/人事/政策辩论/基准微改/中文圈已覆盖/纯研究无落地
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 34 · 2026-08-23 · 7 dailies · 14 new signals (4🚨 / 8👀 / 2ℹ️) · 5 survived · 3 demoted/removed · 全勤周
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

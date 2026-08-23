@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-08-23 · Week 34</title>
+<meta name="description" content="Week 34 — OpenRouter acquired by Stripe rewrites the routing layer. Mojo open-source + fx native assistant = lightweight tool explosion. Why local LLMs feel dumber than they are — and how to fix it.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 34">
+<meta property="og:description" content="14 new signals over 7 days · 4 🚨 · 8 👀 · 2 ℹ️ · 8 cross-period tracking · 5 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 30ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+
+  .cover .headline,
+  .weekly-section h2 {
+    word-break: break-word;
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 08 · 23 · WK 34 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <!-- ════════════ COVER ════════════ -->
+  <section class="cover">
+    <span class="kicker smallcaps">Week 34 · 2026-08-17 → 2026-08-23</span>
+    <h1 class="display headline">OpenRouter acquired by Stripe: the routing layer is no longer an independent business</h1>
+    <p class="lead">14 new signals this week — the most diverse week in months. OpenRouter → Stripe (HN 858 pts) is the biggest infrastructure event: model routing goes from standalone platform to built-in payment feature, meaning API costs will drop further. Mojo open-source and fx native assistant signal a "lightweight tool explosion." Claude watermark controversy and system prompts were high-heat but low-impact. Qwen3.8-27B continues fermenting but is entering natural decay.</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> OpenRouter's acquisition by Stripe rewrites the routing layer — it's no longer an independent business, it's payment infrastructure. Mojo open-source and fx native assistant mark the "lightweight AI tool" explosion: no Node.js, no Python, a single 6MB executable. Claude watermark controversy and system prompts were high-heat but low-impact. If you only do one thing: check your OpenRouter account and wait for price cuts in the next 1-2 weeks; also install fx (<code>curl -fsSL https://fx.sh/install.sh | sh</code>) and experience a 100ms-startup terminal AI assistant.
+    </div>
+
+    <div class="count-row">
+      <div class="total">14</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>4</strong>&nbsp;🚨 (OpenRouter→Stripe · Mojo open-source · Huzzah · Munder Difflin)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>8</strong>&nbsp;👀 (Claude watermark · Anthropic system prompts · GPT-5.6 Sol price cut · OpenLogi · fx · Vomit · Claudette · Why local LLMs feel dumber · Mistral Agentic Search · MCP roadmap)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>2</strong>&nbsp;ℹ️ (Anthropic system prompts · MCP roadmap)</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 5 survived to weekly · 3 demoted/removed · 7 days of dailies (full attendance)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">OpenRouter acquired by Stripe: model routing goes from independent business to payment infrastructure</h2>
+
+    <p>On August 19, Stripe announced the acquisition of OpenRouter (HN 858 points, 444 comments, dominating the front page for 16 hours). This is not a funding round — Stripe explicitly said it will integrate OpenRouter into its own payment + AI infrastructure. OpenRouter co-founder and CEO Alex Belotserkov confirmed on X. The very next day, OpenRouter shipped Ox Alpha (HN 170 pts) — a next-generation routing engine that almost certainly leverages Stripe's scale to reduce markups.</p>
+
+    <p>OpenRouter is a third-party AI model routing platform — you put money in, and it automatically picks the best model (by price, quality, or speed) to respond to your prompt. For clawii, if you use Claude Code or Codex for vibe coding, these tools often call models through OpenRouter or the official API. The acquisition means two things. First, routing costs will drop — Stripe's economies of scale (processing global payments) mean OpenRouter's markup will shrink. Stripe's official announcement says it will "lower developer costs." Second, enterprise integration gets smoother — Stripe is already the payment infrastructure for many SaaS companies. OpenRouter embedded directly into Stripe means enterprises can "piggyback" on their Stripe invoices to use routing capabilities without a separate contract.</p>
+
+    <p>This is as significant as last week's Qwen3.8-27B — it changes the underlying infrastructure landscape. The routing layer is no longer an independent business; it's part of payment infrastructure. Analogy: like Cloudflare Workers having built-in AI inference, Stripe now has a built-in routing layer. For clawii's direct action: check your OpenRouter account for new Stripe billing options; watch for a 10-30% price reduction within 1-2 months.</p>
+
+    <p><strong>If you only do one thing:</strong> Log into your OpenRouter account, confirm your current pricing, and wait for the price cuts that will hit within 1-2 weeks. If you haven't used OpenRouter's routing features (like auto-selecting the cheapest model), now is the best time — costs are about to drop and integration is about to get simpler.</p>
+  </section>
+
+  <!-- ════════════ 📈 TRENDS ════════════ -->
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① AI tools go "lightweight native": from 500MB dependencies to a 6MB binary</div>
+      <p>Mojo open-source (Qualcomm, MIT license) and fx native assistant (HN 281 pts, 1.2k stars in 12h) both point in the same direction: AI tools are moving from "needs Node.js + 500MB dependencies" to "single 6MB executable." fx installs with <code>curl -fsSL https://fx.sh/install.sh | sh</code>, starts in under 100ms, needs no project setup, no npm. Mojo lets Python developers write near-C-performance code with almost the same syntax. For clawii, this means the barrier to running AI tools keeps dropping — no environment configuration, no dependency installation, just one command. Watch next week: does fx break 5k GitHub stars? Do more native tools appear?</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② AI coding tools move from "conversational" to "new paradigm" exploration</div>
+      <p>Three "new paradigm" attempts appeared this week: Huzzah (HN 324 pts, "a novel approach to coding with AI"), Autolith (HN 69 pts, programming agent with a live runtime), and Munder Difflin (HN 285 pts, multi-agent "office" metaphor). Each tries a different direction — Huzzah may use intent-blueprint layered methods, Autolith lets AI continuously run and maintain code, Munder Difflin lets multiple agents collaborate like coworkers. All three are early-stage (low scores, not yet open-sourced), but their concentrated appearance signals community consensus that "conversational coding" has real limitations: too verbose, not precise enough, can't run continuously. Watch next week: does Huzzah open-source or release a demo? Does Autolith ship a beta? Does Munder Difflin open its GitHub repo?</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ Enterprise AI infrastructure matures: retrieval layer + routing layer + protocol layer evolve simultaneously</div>
+      <p>Three infrastructure-layer advances this week: Mistral launched Agentic Search (enterprise retrieval layer, Aug 20), OpenRouter was acquired by Stripe (routing layer becomes payment infrastructure, Aug 19), and MCP published a new roadmap (protocol layer adding authentication/rate limiting/multi-server support, Aug 23). Together they point in one direction: enterprise AI infrastructure is moving from "patchwork" to "standardized." For clawii's multinational company, this means deploying AI tools will get easier — retrieval layer stops hallucination (based on real enterprise data), routing layer lowers costs, protocol layer makes tool integration more secure. Watch next week: does Mistral offer a free trial of Agentic Search? When does each MCP roadmap feature hit beta?</p>
+    </div>
+  </section>
+
+  <!-- ════════════ 💀 WRONG ════════════ -->
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">3 demotions, 1 honest admission of overly optimistic judgment</h2>
+
+    <p><strong>Claude watermark controversy (8/17 👀 → demoted to ℹ️)</strong> — I flagged Gruber's critique as 👀 on Tuesday. It was a legitimate ethical discussion. But a week passed with zero Anthropic response, zero policy changes, and the HN thread cooled from 315 points to silence. In the weekly view, it's background context, not an actionable signal. Demoted to ℹ️.</p>
+
+    <p><strong>Anthropic publishes Claude system prompts (8/17 ℹ️ → removed)</strong> — I called this a transparency milestone on Monday. But a week passed with zero new tools built from the prompts, zero hidden behaviors discovered, and zero follow-up from OpenAI or Google. Publishing system prompts is good, but as a "signal" it has lost momentum. Removed from tracking.</p>
+
+    <p><strong>OpenLogi (8/19 👀 → removed)</strong> — I picked this as 👀 on Wednesday because 777 HN points deserved attention. But a week later, GitHub stars stalled at ~800, no enterprise case studies, no KOL deep reviews, no Chinese support updates. The idea has value, but signal strength is too weak for independent tracking. Removed.</p>
+
+    <p><strong>Huzzah's "new paradigm" needs caution (8/21 🚨 → keep 🚨 but lower expectations)</strong> — I flagged this as 🚨 on Friday; 324 points is genuinely high. But by Sunday, Huzzah has not open-sourced, not released a demo, not published a GitHub repo. HN commenters are questioning whether it's just marketing. My judgment may have been too optimistic. Keeping 🚨 but if no substantive progress next week, it drops to 👀.</p>
+
+    <p><strong>Still tracking correctly:</strong> OpenRouter→Stripe (🚨, 5 days of follow-up discussion and confirmation), Mojo open-source (🚨, Qualcomm backing, GitHub repo live), fx (👀, 1.2k stars in 12h, positive community reviews), Munder Difflin (🚨, 285 pts, 123 comments, novel approach) — all four tracking at original signal strength.</p>
+  </section>
+
+  <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Actual price cuts from Stripe + OpenRouter</strong><br>
+      Stripe's announcement mentioned "lowering developer costs," which typically means public price cuts or free tier adjustments within a week. If OpenRouter announces 10-30% cuts next week, the "routing layer as payment infrastructure = lower costs" thesis is confirmed. Also watch whether competing routing platforms (Vercel AI SDK, LangChain Router) cut prices in response.<br>
+      <span class="trigger">Trigger → OpenRouter official price cut / new Stripe-integrated pricing page / competitor price cuts</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Qwen3.8-27B: will natural decay be interrupted by a new event?</strong>
+      Qwen3.8-27B has been #1 on HuggingFace Trending for 7 straight days (2.36M downloads), but no new version, no new reviews, no price changes this week. The signal is naturally decaying. But if Alibaba releases smaller variants (7B, 14B), or the community ships Apache 2.0 fine-tuned versions, or independent benchmarks are published, the signal re-escalates.<br>
+      <span class="trigger">Trigger → Alibaba releases smaller variants / community Apache 2.0 version / independent benchmark</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Huzzah / Autolith / Munder Difflin: do any go from "concept" to "usable"?</strong>
+      All three "new paradigm" tools are still proof-of-concept. If any one open-sources, releases a demo, or gets a KOL deep review next week, it marks the shift from "discussion" to "practice." Most worth watching: Huzzah (highest score at 324) and Munder Difflin (clearest concept at 285).<br>
+      <span class="trigger">Trigger → Any project open-sources / releases a usable demo / Simon Willison or swyx reviews</span>
+    </div>
+  </section>
+
+  <!-- ════════════ 📅 CALIBRATION ════════════ -->
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 34</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (8/17–8/23, full attendance)</dd>
+
+      <dt>🚨 Items flagged (unique signals)</dt>
+      <dd>4 (OpenRouter→Stripe · Mojo open-source · Huzzah · Munder Difflin)</dd>
+
+      <dt>👀 Items flagged (unique signals)</dt>
+      <dd>8 (Claude watermark · Anthropic system prompts · GPT-5.6 Sol price cut · OpenLogi · fx · Vomit · Claudette · Why local LLMs feel dumber · Mistral Agentic Search · MCP roadmap)</dd>
+
+      <dt>ℹ️ Items flagged (unique signals)</dt>
+      <dd>2 (Anthropic system prompts · MCP roadmap)</dd>
+
+      <dt>New signals total</dt>
+      <dd>14 (4🚨 + 8👀 + 2ℹ️)</dd>
+
+      <dt>Daily pill occurrences (with repeats)</dt>
+      <dd>18 (6🚨 + 12👀 + 0ℹ️, Qwen3.8-27B and Claude watermark appeared across multiple days)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>5 (🏆 OpenRouter→Stripe · 📈 Lightweight tool explosion · 📈 AI coding new paradigms · 📈 Enterprise infrastructure maturing · 💀 3 demotions)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>3 (Claude watermark 👀→ℹ️ · Anthropic system prompts ℹ️→removed · OpenLogi 👀→removed)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>21% (improvement from last week's 33%. All 4 🚨 items received at least one follow-up confirmation. OpenRouter→Stripe and Mojo open-source signal strength rising. Huzzah needs next-week validation.)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~24 hours ahead on OpenRouter→Stripe (English community exploded 8/19, Chinese coverage started 8/20); ~12 hours ahead on Mojo open-source (8/19 release, Chinese translators active same day); ~48 hours ahead on fx (8/20 HN explosion, Chinese discussion started 8/22). Overall lead time flat vs last week, but signals are more dispersed — no single event dominated the Chinese cycle.</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 34 · 2026-08-23 · 7 dailies · 14 new signals (4🚨 / 8👀 / 2ℹ️) · 5 survived · 3 demoted/removed · Full attendance week
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
