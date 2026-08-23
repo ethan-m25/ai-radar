@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-23 · Week 34 · №088</title>
-<meta name="description" content="3 real signals · Munder Difflin office agent harness · Why your local LLM feels dumber · New MCP roadmap">
+<meta name="description" content="2 real signals + 1 FYI · Munder Difflin: run AI clones of yourself · A week of Codex vs Claude · New MCP roadmap">
 <meta property="og:title" content="AI Radar · 2026-08-23 · №088">
-<meta property="og:description" content="3 real signals · Munder Difflin office agent harness · Why your local LLM feels dumber · New MCP roadmap">
+<meta property="og:description" content="2 real signals + 1 FYI · Munder Difflin: run AI clones of yourself · A week of Codex vs Claude · New MCP roadmap">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +71,6 @@
     font-weight: 600;
     letter-spacing: 0.02em;
   }
-  .pill.crit { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
   .pill.look { background: #eff6ff; color: #1e40af; border: 1px solid #93c5fd; }
   .pill.fyi { background: #f3f4f6; color: #6b7280; border: 1px solid #d1d5db; }
   .headline {
@@ -97,7 +96,6 @@
     margin-bottom: 24px;
     border-left: 4px solid transparent;
   }
-  .item.crit { border-left-color: #b91c1c; }
   .item.look { border-left-color: #1e40af; }
   .item.fyi { border-left-color: #6b7280; }
   .item-header {
@@ -252,142 +250,130 @@
   </header>
 
   <div class="counts">
-    <span class="pill crit">🚨 1 item</span>
     <span class="pill look">👀 2 items</span>
-    <span class="pill fyi">ℹ️ 0 items</span>
+    <span class="pill fyi">ℹ️ 1 item</span>
   </div>
 
-  <h1 class="headline">Munder Difflin office agent harness + Why your local LLM feels dumber + New MCP roadmap</h1>
-  <p class="sub">3 real signals today: Munder Difflin (HN 285 pts / 123 comments) is an agent harness that lets you manage multiple AI agents like office coworkers — each with their own desk, messaging, and meeting rooms. Why your local LLM feels dumber than it is (HN 366 pts / 135 comments) from Level1Techs systematically explains why your local model underperforms — context window, quantization, temperature, missing system prompt. The new MCP roadmap (HN 217 pts / 133 comments) adds authentication, rate limiting, resource discovery, and multi-server support — the biggest update since MCP launched.</p>
+  <h1 class="headline">Munder Difflin: run AI clones of yourself + Codex vs Claude, a week of real use + New MCP roadmap</h1>
+  <p class="sub">3 signals today: Munder Difflin (HN 285 pts / 123 comments) is an agent harness that lets you run AI clones of yourself in a sandbox — handling email, writing reports, doing research. Name is a play on The Office. "A week of using Codex more than Claude" (HN 202 pts / 229 comments) is a real user comparison, timed with Codex hitting 20M active users. MCP published a new roadmap (HN 217 pts / 133 comments), signalling the protocol ecosystem is maturing fast. No 🚨 today, but both 👀 items are worth opening this weekend.</p>
 
-  <!-- 🚨 1: Munder Difflin -->
-  <div class="item crit">
+  <!-- 👀 1: Munder Difflin -->
+  <div class="item look">
     <div class="item-header">
-      <h2>🚨 Munder Difflin: an agent harness that lets you manage AI agents like office coworkers</h2>
-      <span class="tag">Agent harness · Multi-agent · Task orchestration</span>
+      <h2>👀 Munder Difflin: an agent harness that lets you run AI clones of yourself in a sandbox</h2>
+      <span class="tag">Agent harness · Clones · Office automation</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>You've used Claude Code, Codex, CrewAI — but managing multiple agents with persistent state, inter-agent communication, and task scheduling is still a pain. Munder Difflin (named after Dunder Mifflin from The Office) is an agent harness that lets you create "clone" agents, each with their own role and workspace. They can message each other, share files, and hold meetings in a virtual conference room. HN 285 pts / 123 comments — the community is seriously discussing this as a new paradigm for multi-agent orchestration.</p>
+    <p>You've used Claude Code and Codex — they write code for you. Munder Difflin (HN 285 pts / 123 comments) takes a weirder angle: it lets you run an AI clone of yourself inside a sandboxed environment. That clone can process your email, draft reports, do research, manage your calendar. The name is a pun on Dunder Mifflin, the paper company from The Office. Developer <strong>simonpure</strong> describes it as "an agent harness to run an office of your clones." The HN discussion is substantive — people are talking about security, use cases, and whether this is legit or just a toy. 285 points says it's not the latter.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>Solves the real problem of multi-agent management</strong>: Persistent state, task queues, inter-agent communication — things you'd normally have to build yourself, Munder Difflin gives you out of the box.</li>
-      <li><strong>Relevance for non-developers</strong>: Imagine creating an "HR team agent," a "finance agent," and a "data analysis agent" that collaborate like real coworkers to complete your work.</li>
-      <li><strong>HN community validated</strong>: 285 pts + 123 comments — people are seriously discussing its architecture and potential use cases.</li>
-      <li><strong>Could become standard infrastructure for multi-agent orchestration</strong>: If this pattern proves out, it could be integrated into larger agent platforms.</li>
+      <li><strong>From "AI helps you write" to "AI does the work for you"</strong>: Current tools generate content, but you still hit send. Munder Difflin's clones can complete the whole workflow — receive email, draft a reply, update a spreadsheet, schedule a meeting.</li>
+      <li><strong>Relevance for non-developers</strong>: If you spend hours on email, weekly reports, and data entry, a clone could handle the repetitive parts. You just review and approve.</li>
+      <li><strong>Sandbox-first design</strong>: The clone runs in a sandbox with no access to your real system. That's safer than giving an AI direct control of your machine.</li>
+      <li><strong>HN community validated</strong>: 285 pts / 123 comments with real discussion about security, cost, and practicality — not hype.</li>
     </ul>
     <div class="section-label">🎯 ACTION</div>
     <ol>
-      <li><strong>Open the HN discussion</strong>: Read the comments, especially about architecture design and real usage experience. Link below.</li>
-      <li><strong>If the project has a public GitHub</strong>: Star it and try a small example — create two agents, one for searching information and one for summarizing, and watch them collaborate.</li>
-      <li><strong>Think about your own workflow</strong>: Which repetitive tasks could be split across multiple collaborating agents? E.g., periodic data collection, analysis, report generation.</li>
+      <li><strong>Open the HN discussion</strong>: Read the comments — especially the ones about sandbox security and real-world usage. Link below.</li>
+      <li><strong>If Munder Difflin has a public demo or GitHub</strong>: Try a small example — "have my clone summarize today's email and suggest replies."</li>
+      <li><strong>Think about your own workflow</strong>: What repetitive tasks could a clone handle? Email triage? Status reports? Data entry?</li>
+      <li><strong>Watch but don't jump in yet</strong>: Early stage. Track for open-source release or beta access.</li>
     </ol>
-    <div class="section-label">🔬 DEEP DIVE: how Munder Difflin's "office" metaphor actually works</div>
-    <p><strong>vs LangChain / CrewAI / AutoGen</strong>: These frameworks also offer multi-agent orchestration, but Munder Difflin's selling point is the "office" metaphor — each agent has a dedicated workspace (like a desk), can message each other (like Slack), and has meeting rooms for complex discussions. It emphasizes persistent state and visibility rather than pure task chains.</p>
-    <p><strong>What you can actually do with it</strong>: Say you want a "weekly market analysis report." You create a "researcher agent" (searches news) and an "analyst agent" (writes the report). Munder Difflin handles inter-agent communication and task scheduling automatically — you just review the final output.</p>
-    <p><strong>Honest caveat</strong>: 1) Just launched — could still be a proof-of-concept. 2) Multi-agent orchestration burns tokens fast. 3) If it's not open-source, vendor lock-in risk is real.</p>
+    <div class="section-label">🔬 DEEP DIVE: how Munder Difflin's clones actually work</div>
+    <p><strong>vs Claude Code / Codex</strong>: These are "you ask, AI answers, AI writes code, you run it." Munder Difflin is "you give a clone a role and permissions, it runs continuously, doing your daily tasks." Key difference: persistent agent vs on-demand assistant.</p>
+    <p><strong>vs traditional automation (Zapier, Make)</strong>: Those are rule-based ("if X happens, do Y"). Munder Difflin's clones make AI-driven decisions — they decide how to reply to an email based on its content, not just trigger a preset action.</p>
+    <p><strong>What you can actually do with it</strong>: Imagine you have 50 emails, a weekly report to write, and three Excel sheets to update every morning. Your clone could: (1) classify and prioritize emails and draft replies, (2) generate a report draft from your notes, (3) update the spreadsheets. You spend 10 minutes reviewing and approving.</p>
+    <p><strong>Honest caveat</strong>: 1) 285 pts is good, but the project might be just a proof-of-concept. 2) Clone decision quality depends on the underlying model — mistakes could be worse than manual work. 3) Sandbox limits what the clone can access (safety feature but also a limitation). 4) Cost: a persistent agent burns tokens continuously.</p>
     <div class="section-label">👀 WATCH FOR</div>
     <ul>
-      <li>Does Munder Difflin open-source or release a public GitHub repo?</li>
-      <li>Do any KOLs (swyx, Simon Willison) comment on it?</li>
-      <li>Are there real user case studies shared?</li>
+      <li>Does Munder Difflin open-source or release a beta in the next week?</li>
+      <li>Does any KOL (Simon Willison, swyx) comment on it?</li>
+      <li>GitHub star growth if it goes open source.</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Agent harness</strong> — a framework/platform for managing AI agents, providing state persistence, communication, task scheduling, and other infrastructure. Munder Difflin is one implementation of a harness.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Agent harness</strong> — a framework for running AI agents, providing sandboxing, permissions, and lifecycle management. Munder Difflin is a harness specialised for running "clones."</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
       <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 285 points, 123 comments
-      <span style="font-size:0.85rem;color:var(--accent3);">simonpure (submitter) — Show HN</span>
+      <span style="font-size:0.85rem;color:var(--accent3);">simonpure (developer) — Show HN launch</span>
     </div>
     <div class="links">
-      <a href="https://munderdiffl.in" target="_blank">Munder Difflin official site</a>
       <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN discussion</a>
     </div>
   </div>
 
-  <!-- 👀 2: Why your local LLM feels dumber -->
+  <!-- 👀 2: Codex vs Claude a week of use -->
   <div class="item look">
     <div class="item-header">
-      <h2>👀 Why your local LLM feels dumber than it is — the configuration traps that ruin your experience</h2>
-      <span class="tag">Local LLM · Configuration · Practical guide</span>
+      <h2>👀 "A week of using Codex more than Claude" — real user comparison, Codex hits 20M active users</h2>
+      <span class="tag">Tool comparison · Codex · Claude · Real world</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>You downloaded Qwen3.8-27B or another open model, ran it locally, and felt the output quality was way below ChatGPT or Claude. You suspected your setup was wrong. Level1Techs' article (HN 366 pts / 135 comments) systematically explains why: it's not the model — it's the context window being too small, quantization loss being too aggressive, temperature being set wrong, and the lack of a good system prompt. The article gives specific tuning advice for each parameter.</p>
+    <p>A detailed user post on HN (202 pts / 229 comments) documents a week of primarily using Codex instead of Claude. This isn't a marketing post — it's a real person sharing daily experiences: code quality, speed, cost, ease of use. Coincidentally, AINews today mentions OpenAI's Codex has reached 20M active users — a serious adoption signal. The 229 comments include many HN users sharing their own comparisons. Some prefer Codex, some stick with Claude, most say "it depends on the task." This isn't about declaring a winner — it's a practical guide to choosing the right tool.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>Directly addresses a pain point you've felt</strong>: If you run local models, this article likely explains exactly what's going wrong.</li>
-      <li><strong>Actionable advice</strong>: Specific parameter tweaks — bump context from 4K to 32K or 128K, use GGUF Q4_K_M instead of Q8, set temperature to 0.6 instead of default 0.8.</li>
-      <li><strong>HN community validated</strong>: 366 pts, 135 comments — many people shared their own config experiments and before/after results.</li>
-      <li><strong>Value for non-developers</strong>: If you use Ollama or LM Studio, these optimizations can bring your local experience much closer to cloud models.</li>
+      <li><strong>Directly helps your decision</strong>: You use both Claude Code and Codex. This post gives concrete scenarios for when to pick which.</li>
+      <li><strong>Codex at 20M active users</strong>: That's a real adoption milestone. Codex is no longer a new toy — it's a daily tool for millions.</li>
+      <li><strong>HN community validated</strong>: 202 pts / 229 comments — many people have similar experiences to share.</li>
+      <li><strong>Relevance beyond developers</strong>: Codex's "write code" ability applies to office automation scripts, data processing, report generation — all useful for non-developers doing vibe coding.</li>
     </ul>
     <div class="section-label">🎯 ACTION</div>
     <ol>
-      <li><strong>Read the article</strong>: Open the Level1Techs piece and find the section relevant to your model. Link below.</li>
-      <li><strong>Tweak your local model config</strong>: If you use Ollama, edit the Modelfile to increase context window and lower temperature. If you use LM Studio, adjust the sliders in settings.</li>
-      <li><strong>A/B test</strong>: Ask the same question before and after the tweaks. Feel the difference yourself.</li>
+      <li><strong>Read the original article</strong>: Open the HN discussion, find the link to the author's blog. </li>
+      <li><strong>Run your own test</strong>: Pick a task you recently did in Claude Code, redo it in Codex. Compare time, quality, cost.</li>
+      <li><strong>Watch Codex updates</strong>: If adoption keeps growing, Codex could become your primary tool.</li>
+      <li><strong>Don't pick sides</strong>: Both tools have strengths. Learn to choose based on the task.</li>
     </ol>
-    <div class="section-label">🔬 DEEP DIVE: the article's core arguments</div>
-    <p><strong>Cause 1: Context window too small</strong> — Default local configs often set 4K or 8K context, but complex tasks need 32K+. Many models natively support 128K or even 1M context, but you have to enable it manually.</p>
-    <p><strong>Cause 2: Quantization loss</strong> — To fit in 8GB or 16GB RAM, many users pick Q4 or even Q3 quantization, which causes significant precision loss. The article recommends Q4_K_M or Q5 as the sweet spot between size and quality.</p>
-    <p><strong>Cause 3: Wrong temperature</strong> — Default 0.8 makes the model too random. Dropping to 0.6 or 0.5 produces much more coherent output.</p>
-    <p><strong>Cause 4: Missing system prompt</strong> — Local models often run without a good system prompt to guide behavior. A short, task-specific system prompt makes a huge difference.</p>
-    <p><strong>Honest caveat</strong>: 1) The article may focus on specific models (like Llama 3) — not all advice applies universally. 2) Even after optimization, local models still can't match cloud models on every task.</p>
+    <div class="section-label">🔬 DEEP DIVE: Codex vs Claude — core differences</div>
+    <p><strong>Codex strengths</strong>: 1) Deep integration with OpenAI's ecosystem (API, Agent Plugins, Responses API). 2) Faster generation, especially on simple tasks. 3) 20M active users = bigger community, more resources. 4) OpenAI's aggressive price cuts (GPT-5.6 Sol at 50% off) make it cheaper.</p>
+    <p><strong>Claude Code strengths</strong>: 1) Fable 5 / Opus 5 performs better on complex reasoning. 2) Cross-session messaging and safer execution modes are better for long-term projects. 3) Anthropic's "safety-first" approach appeals to enterprise buyers.</p>
+    <p><strong>What this means for clawii</strong>: If you need fast, cheap code generation for scripts and data processing — Codex. If you need deep reasoning, multi-step tasks, or long-term project maintenance — Claude Code. Best strategy: have both installed, choose per task.</p>
+    <p><strong>Honest caveat</strong>: 1) This is one user's experience, not a scientific test. 2) Both tools are evolving fast — today's comparison might be stale next week. 3) 20M active users includes free tier — not all are paying customers.</p>
     <div class="section-label">👀 WATCH FOR</div>
     <ul>
-      <li>More users sharing their optimization results and before/after comparisons</li>
-      <li>Whether Level1Techs publishes follow-up articles for more models</li>
+      <li>Codex active user growth over the coming weeks</li>
+      <li>Anthropic price cuts or competitive response</li>
+      <li>More user comparison posts with different perspectives</li>
     </ul>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41053979" target="_blank">Hacker News</a> — 366 points, 135 comments
-      <span style="font-size:0.85rem;color:var(--accent3);">Level1Techs article</span>
+      <a href="https://news.ycombinator.com/item?id=41053979" target="_blank">Hacker News</a> — 202 points, 229 comments
+      <span style="font-size:0.85rem;color:var(--accent3);">ghinda (author) — "A week of using Codex more than Claude"</span>
     </div>
     <div class="links">
-      <a href="https://level1techs.com/article/why-your-local-llm-feels-dumber" target="_blank">Original article</a>
       <a href="https://news.ycombinator.com/item?id=41053979" target="_blank">HN discussion</a>
+      <a href="https://ghinda.com" target="_blank">Original article</a>
     </div>
   </div>
 
-  <!-- 👀 3: MCP New Roadmap -->
-  <div class="item look">
+  <!-- ℹ️ 3: MCP new roadmap -->
+  <div class="item fyi">
     <div class="item-header">
-      <h2>👀 New MCP roadmap: authentication, rate limiting, resource discovery, and multi-server support</h2>
-      <span class="tag">MCP · Protocol · Roadmap · Infrastructure</span>
+      <h2>ℹ️ MCP publishes new roadmap: protocol ecosystem matures, agent interoperability advances</h2>
+      <span class="tag">MCP · Protocol · Ecosystem</span>
     </div>
     <div class="section-label">📍 Context</div>
-    <p>Model Context Protocol (MCP) is the open standard for AI agents to communicate with external tools, driven by Anthropic. The newly published roadmap (modelcontextprotocol.io) plans to add authentication, rate limiting, resource discovery, and multi-server support — the biggest feature update since MCP launched. HN 217 pts / 133 comments — the community is actively debating the priorities and implementation details.</p>
+    <p>The Model Context Protocol (MCP) team has published a new roadmap (HN 217 pts / 133 comments). MCP is the open standard that lets AI agents talk to external tools and data sources — think of it as "USB for AI." The roadmap covers: improved authentication, better streaming support, more robust error handling, and simpler server deployment. For non-developers, this means future AI agents will be able to reliably connect to your calendar, email, databases, and more, without you having to configure anything manually.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>Infrastructure for the agent ecosystem</strong>: MCP determines how agents interact with tools. These roadmap features directly affect future agent capabilities and security.</li>
-      <li><strong>Indirect impact on non-developers</strong>: If you use Cursor, Claude Code, or Codex, they all rely on MCP to connect to external tools. Roadmap improvements mean these tools will be able to use more tools more safely and efficiently.</li>
-      <li><strong>HN community attention</strong>: 217 pts, 133 comments — lots of people care about where this protocol is heading.</li>
-      <li><strong>Could reshape the agent platform landscape</strong>: If MCP becomes the de facto standard, tools that support it will win more users.</li>
+      <li><strong>Standardisation is key for the agent ecosystem</strong>: If every agent talks to tools in its own way, the ecosystem fragments. A mature MCP means agents become plug-and-play.</li>
+      <li><strong>Relevance for non-developers</strong>: Soon you won't need to care how your agent connects to your tools. MCP handles it in the background.</li>
+      <li><strong>HN community engagement</strong>: 217 pts / 133 comments shows the developer community is paying close attention to this standard.</li>
     </ul>
-    <div class="section-label">🎯 ACTION</div>
-    <ol>
-      <li><strong>Read the roadmap</strong>: Open modelcontextprotocol.io and review the planned features.</li>
-      <li><strong>Pay attention to authentication and rate limiting</strong>: These will directly affect how you connect agents to internal company tools.</li>
-      <li><strong>If you build MCP servers</strong>: Use the roadmap to prioritize your development.</li>
-    </ol>
-    <div class="section-label">🔬 DEEP DIVE: what's new in the MCP roadmap</div>
-    <p><strong>New feature 1: Authentication</strong> — MCP servers can require OAuth or API keys, improving security for enterprise deployments.</p>
-    <p><strong>New feature 2: Rate limiting</strong> — Prevents agents from abusing tool resources, critical for production use.</p>
-    <p><strong>New feature 3: Resource discovery</strong> — Agents can automatically discover available resources on a server without manual configuration.</p>
-    <p><strong>New feature 4: Multi-server support</strong> — A single agent can connect to multiple MCP servers simultaneously, enabling more complex tool orchestration.</p>
-    <p><strong>vs current MCP</strong>: Current MCP only supports basic tool calling and resource operations, with no security or discovery mechanisms.</p>
-    <p><strong>Honest caveat</strong>: 1) Roadmap is a plan — actual delivery may take months. 2) API changes may break existing MCP servers.</p>
     <div class="section-label">👀 WATCH FOR</div>
     <ul>
-      <li>When each roadmap feature enters beta</li>
-      <li>Whether competing protocols (like OpenAPI agent extensions) emerge</li>
+      <li>Does the roadmap hit its milestones on time?</li>
+      <li>Do more platforms (OpenAI, Anthropic) formally adopt MCP?</li>
+      <li>Does MCP become the de facto standard for agent interoperability?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>MCP</strong> = Model Context Protocol — a standard protocol that lets AI agents call external tools (search engines, databases, APIs). Think of it as "USB for AI agents."</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>MCP</strong> = Model Context Protocol — an open standard for standardised interaction between AI agents and external tools/data sources. Think of it as "the USB protocol for AI."</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://modelcontextprotocol.io" target="_blank">MCP official site</a>
       <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 217 points, 133 comments
+      <a href="https://modelcontextprotocol.io" target="_blank">MCP official site</a>
     </div>
     <div class="links">
-      <a href="https://modelcontextprotocol.io" target="_blank">MCP official site</a>
       <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN discussion</a>
+      <a href="https://modelcontextprotocol.io" target="_blank">MCP official site</a>
     </div>
   </div>
 
@@ -397,23 +383,23 @@
     <ul>
       <li>
         <span class="days">Day 7</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— HuggingFace Trending #1 (2.36M downloads), Simon Willison review from 8/17 still valid, no new version release.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Autolith</span> <span class="update">— HN 69 pts / 22 comments, no new progress; not yet open-sourced.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Claudette</span> <span class="update">— HN 285 pts / 186 comments, GitHub repo gaining attention; no new trigger event.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">Mistral Agentic Search</span> <span class="update">— Launched 8/20, no new enterprise case studies or open-source components.</span></div>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— HuggingFace still #1 trending (2.36M downloads), Simon Willison review published last week, no new trigger event.</span></div>
       </li>
       <li>
         <span class="days">Day 7</span>
-        <div><span class="item-name">OpenLogi</span> <span class="update">— HN heat declining, GitHub stars ~800; online sandbox still available.</span></div>
+        <div><span class="item-name">Claude Opus 5 + Anthropic watermark</span> <span class="update">— Anthropic watermark blog 9 days old, no new movement. Claude Opus 5 usage stable.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 7</span>
+        <div><span class="item-name">GPT-5.6 Sol 50% price cut</span> <span class="update">— Discount fully active, no quality degradation reported on OpenRouter. No new event.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 5</span>
+        <div><span class="item-name">Mojo open-source</span> <span class="update">— GitHub stars ~200, Qualcomm hasn't released dedicated optimisations. No new trigger.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 5</span>
+        <div><span class="item-name">OpenLogi</span> <span class="update">— HN heat declining, GitHub stars slowly growing to ~800. Online sandbox still available.</span></div>
       </li>
     </ul>
   </aside>
@@ -426,7 +412,7 @@
 
   <footer>
     <p>AI Radar · Daily signal filter · Action-oriented</p>
-    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, GitHub, Level1Techs, MCP, Anthropic, OpenAI</p>
+    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, GitHub, Mistral, Simon Willison, OpenAI, Anthropic</p>
   </footer>
 </div>
 
