@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-24 · Week 35 · №089</title>
-<meta name="description" content="3 条真信号 · Ornith-1.5 开源模型 · agent.md 实践指南 · Harness 概念解析">
+<meta name="description" content="3 条真信号 · Fable 之后的路由时代 · Bun 1.4 让本地 agent 更便宜 · Ornith-1.5 开源模型家族">
 <meta property="og:title" content="AI Radar · 2026-08-24 · №089">
-<meta property="og:description" content="3 条真信号 · Ornith-1.5 开源模型 · agent.md 实践指南 · Harness 概念解析">
+<meta property="og:description" content="3 条真信号 · Fable 之后的路由时代 · Bun 1.4 让本地 agent 更便宜 · Ornith-1.5 开源模型家族">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -253,122 +253,145 @@
 
   <div class="counts">
     <span class="pill crit">🚨 1 条</span>
-    <span class="pill look">👀 1 条</span>
-    <span class="pill fyi">ℹ️ 1 条</span>
+    <span class="pill look">👀 2 条</span>
+    <span class="pill fyi">ℹ️ 0 条</span>
   </div>
 
-  <h1 class="headline">Ornith-1.5 开源模型 + agent.md 实践指南 + Harness 概念解析</h1>
-  <p class="sub">今日 3 条真信号：Ornith-1.5（MIT 许可，多规模 MoE，自改进）是本周最重要的开源模型发布；agent.md（HN 324 分）是一份让 LLM 更好理解你代码库的简单文件；What Is a Harness?（HN 464 分）帮你理解 agent 架构的核心抽象。</p>
+  <h1 class="headline">Fable 之后的路由时代 + Bun 1.4 让本地 agent 更便宜 + Ornith-1.5 开源模型家族</h1>
+  <p class="sub">今日 3 条真信号：Fable 太贵，Opus 5 够用，模型路由（routing）成为 2026 下半年最实际的省钱策略（FT 报道 + Simon Willison 深度解读）；Bun 1.4 的 WebView 让本地 agent 跑浏览器自动化变得极其便宜；Ornith-1.5 开源模型家族（MIT 协议）把 9B/35B/397B 三个档位一次性铺开。</p>
 
-  <!-- 🚨 1: Ornith-1.5 -->
+  <!-- 🚨 1: 模型路由时代 -->
   <div class="item crit">
     <div class="item-header">
-      <h2>🚨 Ornith-1.5：MIT 许可的新开源模型家族，自改进能力</h2>
-      <span class="tag">开源模型 · MoE · 自改进 · 本地部署</span>
+      <h2>🚨 Fable 之后的路由时代：别再把所有活都丢给最贵模型</h2>
+      <span class="tag">模型路由 · 成本优化 · 企业级 · 定价策略</span>
     </div>
     <div class="section-label">📌 背景</div>
-    <p>开源模型领域竞争白热化：Qwen3.8-27B 刚成为本地运行的首选，DeepSeek V4 和 GLM-5.3 也在不断迭代。Ornith-1.5 由 ornith-ai 发布，提供 9B 密集、35B MoE 和 397B MoE 三种规模，全部采用 MIT 许可。它强调端到端自改进能力——模型可以通过自我生成数据来提升性能，无需人工标注。同时支持 FP8、GGUF、MLX、NVFP4 等多种量化格式，适配从 Mac Mini 到数据中心的各种硬件。</p>
+    <p>过去一年，clawii 你可能习惯了「一个模型干所有事」——Claude、GPT、Gemini 轮着用，哪个顺手用哪个。但 Anthropic 的 Fable 5 发布后，情况变了：它很强，但太贵。FT 报道（554 分 / 490 条评论）和 Simon Willison 的解读都指向同一个趋势——「路由」（routing）成为 2026 下半年最实际的省钱策略。AT&T 已经公开说 40% 的 AI 用量走开源模型，目标 60-70%，成本降 56%，质量只掉 2%。这不是理论，是大公司在真金白银地做。</p>
     <div class="section-label">💡 为什么重要</div>
     <ul>
-      <li><strong>MIT 许可</strong>：比 Apache 2.0 更宽松，商业使用无任何限制，可以自由修改、再分发。</li>
-      <li><strong>多规模选择</strong>：9B 适合消费级 GPU（如 RTX 4090），35B MoE 适合工作站，397B 适合服务器。你总能找到适合自己硬件的版本。</li>
-      <li><strong>自改进能力</strong>：模型可以自己生成训练数据并迭代，意味着未来可能不需要昂贵的微调就能持续提升。</li>
-      <li><strong>对非开发者的意义</strong>：如果你在本地运行模型（通过 Ollama 或 LM Studio），Ornith-1.5 的 9B 或 35B 版本可能成为你的新首选，性能接近 Qwen3.8-27B 但许可更自由。</li>
+      <li><strong>直接省钱</strong>：Fable 5 的 API 价格可能是 Opus 5 的 3-5 倍。把简单任务（总结、分类、提取）路由到便宜模型，复杂任务才用贵模型，账单能砍一半以上。</li>
+      <li><strong>对非开发者的意义</strong>：你 vibe coding 时用的 Claude Code / Codex，底层已经在做路由了。理解这个趋势，你就知道为什么有些任务「感觉变笨了」——不是模型退步，是它被路由到了便宜档位。</li>
+      <li><strong>企业级验证</strong>：AT&T 45B tokens/天，成本降 56%，质量只掉 2%。这个数据说明路由不是「省小钱」，是「省大钱且不掉链子」。</li>
+      <li><strong>Ramp AI Index 出现</strong>：用 7 万家公司信用卡账单数据估算模型采用率，说明「模型花销」正在变成可量化的管理指标。</li>
     </ul>
     <div class="section-label">⚡ 行动建议</div>
     <ol>
-      <li><strong>查看 HuggingFace 模型卡</strong>：访问 ornith-ai/Ornith-1.5-35B-A3B 等页面，了解详细架构和基准测试。</li>
-      <li><strong>尝试本地运行</strong>：如果你有 24GB+ VRAM，用 Ollama 或 llama.cpp 加载 9B 或 35B 的 GGUF 版本，对比 Qwen3.8-27B 的效果。</li>
-      <li><strong>关注自改进的实际效果</strong>：社区可能会发布基于 Ornith-1.5 微调的专用模型，保持关注。</li>
+      <li><strong>读 Simon Willison 的解读</strong>：他整理了 Anthropic 模型花销分布（Opus 4.8 占 28%，Fable 5 只占 8%），看完你就知道大公司实际怎么分配预算。</li>
+      <li><strong>检查你的 vibe coding 工具</strong>：Claude Code 和 Codex 都有模型选择设置。把简单任务（文档整理、邮件草稿）固定到便宜模型（Haiku、Flash），复杂任务才用 Opus / Fable。</li>
+      <li><strong>试试路由工具</strong>：OpenRouter 已经支持自动路由，Vercel 也在推。如果你用 API 做自动化，花 10 分钟配置路由规则，月底看账单对比。</li>
     </ol>
-    <div class="section-label">🔍 深度解析：Ornith-1.5 到底有什么不同</div>
-    <p><strong>vs Qwen3.8-27B</strong>：Qwen3.8-27B 是原生多模态（支持图像输入），Ornith-1.5 目前只有文本。但 Ornith-1.5 的 35B MoE 架构在推理效率上可能更高（激活参数更少）。Ornith-1.5 的 MIT 许可比 Qwen 的 Apache 2.0 更宽松（虽然 Apache 2.0 已经很宽松）。Ornith-1.5 强调自改进，而 Qwen 依赖传统微调。</p>
-    <p><strong>vs DeepSeek V4</strong>：DeepSeek V4 更大（1.7T 参数），但 Ornith-1.5 的 397B MoE 版本可能在某些任务上接近，且更易部署。</p>
-    <p><strong>对 clawii 的实际价值</strong>：如果你用本地模型处理办公任务（总结文档、生成报告），Ornith-1.5 的 9B 版本可以在 16GB 内存的 MacBook 上运行，性能足够，且完全免费。</p>
-    <p><strong>诚实顾虑</strong>：1）模型刚发布，社区验证不足。2）自改进能力需要实际测试。3）多模态缺失可能限制一些用例。</p>
+    <div class="section-label">🔍 深度解析：路由到底怎么工作</div>
+    <p><strong>vs 手动选模型</strong>：你现在可能是「一个任务手动切一个模型」。路由是自动的——系统根据任务复杂度、上下文长度、所需能力，自动决定用哪个模型。OpenRouter 的自动路由、Anthropic 的 prompt caching、OpenAI 的智能路由都在做这件事。</p>
+    <p><strong>AT&T 的具体做法</strong>：45B tokens/天，40% 走开源模型（Qwen、Llama、DeepSeek），目标是 60-70%。他们发现开源模型在「中等复杂度任务」上质量足够，成本只有闭源模型的零头。这不是「开源 vs 闭源」的意识形态之争，是纯成本计算。</p>
+    <p><strong>对 clawii 的实际价值</strong>：假设你每月 API 账单 $200，路由优化后可能降到 $80-100，质量几乎不变。如果你用 Claude Code，可以设置「简单任务用 Haiku，复杂任务用 Opus」的规则。</p>
+    <p><strong>诚实顾虑</strong>：1）路由需要一些配置，不是开箱即用。2）路由判断错误时，简单任务被丢给便宜模型可能偶尔质量不够。3）如果你用量很小（每月 <$50），省下的钱可能不值得折腾。</p>
     <div class="section-label">👀 关注点</div>
     <ul>
-      <li>Ornith-1.5 在 Vals 或 Artificial Analysis 上的基准分数。</li>
-      <li>是否有 KOL（如 Simon Willison、swyx）评测它。</li>
-      <li>社区是否快速适配到 Ollama、LM Studio 等工具。</li>
+      <li>OpenRouter / Vercel 的路由功能是否变得更智能、更便宜？</li>
+      <li>Anthropic 是否会推出官方路由工具（类似「自动选模型」）？</li>
+      <li>AT&T 的 60-70% 开源目标是否达成，其他大公司是否跟进？</li>
     </ul>
-    <div class="jargon"><strong>📖 术语卡：</strong> <strong>MoE</strong> = Mixture of Experts — 混合专家架构，模型由多个子网络（专家）组成，每次推理只激活部分专家，提高效率。 <strong>自改进</strong> — 模型通过自身生成数据并训练来提升性能，类似自我对弈。</div>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>模型路由（routing）</strong> — 根据任务类型自动选择最合适的 AI 模型，而不是所有任务都用同一个模型。类似「根据路况选择走高速还是走国道」。</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
-      <a href="https://huggingface.co/ornith-ai" target="_blank">HuggingFace 组织</a> — 模型页面 60k+ 下载（35B 版本）
-      <span style="font-size:0.85rem;color:var(--accent3);">AINews 8/19 报道</span>
+      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 554 points，490 条评论（FT 报道）
+      <a href="https://simonwillison.net/2026/Aug/23/anthropic-best-model/" target="_blank">Simon Willison</a> — 深度解读 + Ramp AI Index 数据
+      <a href="https://dbreunig.com/2026/08/23/fable-and-the-end-of-the-free-lunch.html" target="_blank">Drew Breunig</a> — "Fable &amp; The End of the Free Lunch"
     </div>
     <div class="links">
-      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B" target="_blank">Ornith-1.5-35B 模型卡</a>
-      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-9B" target="_blank">Ornith-1.5-9B 模型卡</a>
-      <a href="https://news.smol.ai/issues/2026-08-19" target="_blank">AINews 8/19 报道</a>
+      <a href="https://www.ft.com/content/anthropic-best-model-struggles" target="_blank">FT 原文</a>
+      <a href="https://simonwillison.net/2026/Aug/23/anthropic-best-model/" target="_blank">Simon Willison 解读</a>
+      <a href="https://dbreunig.com/2026/08/23/fable-and-the-end-of-the-free-lunch.html" target="_blank">Drew Breunig 博客</a>
     </div>
   </div>
 
-  <!-- 👀 2: agent.md -->
+  <!-- 👀 2: Bun 1.4 WebView -->
   <div class="item look">
     <div class="item-header">
-      <h2>👀 agent.md：一份文件，让 LLM 更好地理解你的代码库</h2>
-      <span class="tag">实践指南 · 代码质量 · agent 协作</span>
+      <h2>👀 Bun 1.4 的 WebView：本地 agent 跑浏览器自动化，便宜到离谱</h2>
+      <span class="tag">Bun · 浏览器自动化 · 本地 agent · 开发工具</span>
     </div>
     <div class="section-label">📌 背景</div>
-    <p>使用 Claude Code、Codex 等编码 agent 时，经常遇到 LLM 不理解项目结构、编码风格或测试要求的问题。Fabiensanglard 在 HN 上分享了他的解决方案：在项目根目录放一个 agent.md 文件，用自然语言描述项目背景、架构、约定和常见陷阱。LLM 在开始工作前会自动读取这个文件，从而生成更符合预期的代码。HN 上 324 分、138 条评论，社区反响热烈。</p>
+    <p>clawii 你可能用过 Claude Code 或 Codex 帮你写代码，但「让 agent 自己打开浏览器、操作网页、抓数据」这件事，一直很贵——因为要跑一个完整的 Chrome 实例，内存占用 1-2GB，还得单独装 Playwright 或 Puppeteer。Bun 1.4 刚刚发布（Rust 重写后的第一个稳定版），内置了 Bun.WebView——用 macOS 的 WebKit 或本地 Chromium 就能做浏览器自动化，内存只要 192-256MB。Simon Willison 用 Claude Code 做了个原型验证，效果惊人。</p>
     <div class="section-label">💡 为什么重要</div>
     <ul>
-      <li><strong>简单有效</strong>：一个 Markdown 文件就能显著提升 LLM 辅助代码的质量，无需复杂配置。</li>
-      <li><strong>对非开发者的意义</strong>：如果你用 Claude Code 或 Codex 编写脚本（比如自动化办公任务），agent.md 可以帮助 LLM 理解你的项目背景和输出要求。</li>
-      <li><strong>社区验证</strong>：324 分和大量评论表明很多人已经实践并受益。</li>
-      <li><strong>可能成为新标准</strong>：类似 CONTRIBUTING.md 但针对 AI 助手，未来可能被更多工具原生支持。</li>
+      <li><strong>本地 agent 的浏览器操作成本大降</strong>：以前跑一个浏览器自动化 agent 要 1-2GB 内存，现在只要 200MB 左右。这意味着你可以在自己的电脑上跑多个浏览器 agent，而不卡机。</li>
+      <li><strong>对非开发者的意义</strong>：你 vibe coding 时可以让 agent「打开某个网页 → 提取数据 → 整理成表格」，以前这个流程很贵很慢，现在便宜到可以随便跑。</li>
+      <li><strong>Bun 1.4 本身是个大版本</strong>：Rust 重写后启动快 50%、内存省 35%、修了 2900 个 bug。如果你用 JavaScript/TypeScript 做自动化，Bun 值得重新看一眼。</li>
+      <li><strong>Simon Willison 亲自验证</strong>：他用 Claude Code 写了个原型，用 Bun.WebView 加载网页并执行 JS，内存 192-256MB 就够跑完整 Chrome。</li>
     </ul>
     <div class="section-label">⚡ 行动建议</div>
     <ol>
-      <li><strong>阅读 Fabiensanglard 的文章</strong>：了解 agent.md 的具体内容和格式。</li>
-      <li><strong>为你的项目创建 agent.md</strong>：包含项目描述、编码风格、测试要求、常见错误等。</li>
-      <li><strong>在 Claude Code 或 Codex 中测试</strong>：观察 LLM 是否自动读取 agent.md（目前需要手动引用或工具支持），对比使用前后的代码质量。</li>
+      <li><strong>升级 Bun</strong>：如果你用 Bun，跑 <code>bun upgrade</code> 到 1.4。如果你没用过 Bun，它是 Node.js 的替代品，安装只要一条命令。</li>
+      <li><strong>试试 Bun.WebView</strong>：用 <code>bun install bun</code> 然后跑一个简单的 WebView 示例，看看加载网页和执行 JS 有多快。</li>
+      <li><strong>让 Claude Code 帮你写个浏览器自动化脚本</strong>：告诉它「用 Bun.WebView 打开 example.com，提取标题和所有链接」，看它能不能跑通。</li>
     </ol>
-    <div class="section-label">🔍 深度解析：agent.md 和系统 prompt 有什么不同</div>
-    <p><strong>vs 系统 prompt</strong>：系统 prompt 是会话级别的，每次新对话都需要重新设置。agent.md 是项目级别的，放在代码库中，可以被 LLM 自动发现（如果工具支持）。它类似于 README 但专门针对 AI 助手。</p>
-    <p><strong>对 clawii 的实际价值</strong>：假设你有一个“每周报告生成”项目，agent.md 可以告诉 LLM：报告格式、数据来源、输出路径、常见错误处理。这样每次运行 Claude Code 时，它都会遵循这些规则，减少手动纠正。</p>
-    <p><strong>诚实顾虑</strong>：1）目前不是所有工具都原生支持 agent.md，可能需要手动引用。2）agent.md 需要维护，如果项目变化快，可能过时。3）效果取决于 LLM 的理解能力。</p>
+    <div class="section-label">🔍 深度解析：Bun.WebView 和 Playwright 有什么不同</div>
+    <p><strong>vs Playwright / Puppeteer</strong>：Playwright 是独立的浏览器自动化库，需要单独安装浏览器（Chromium 约 300MB+），内存占用高。Bun.WebView 是 Bun 内置的，用系统自带的 WebKit（macOS）或本地 Chromium，内存只要 192-256MB，启动更快。</p>
+    <p><strong>跑在什么之上</strong>：Bun 1.4 是 Rust 重写后的版本，内置 WebView 支持（macOS WebKit + Chrome DevTools Protocol）。不需要额外安装浏览器驱动。</p>
+    <p><strong>上手难度</strong>：如果你会 JavaScript/TypeScript，10 分钟能跑通第一个示例。如果你不会 JS，让 Claude Code 帮你写，它很擅长这个。</p>
+    <p><strong>对 clawii 的实际价值</strong>：假设你要每天自动抓取某个行业网站的数据，用 Bun.WebView 写个脚本，跑在你自己的电脑上，内存占用小，不卡机，还能定时跑。</p>
+    <p><strong>诚实顾虑</strong>：1）Bun.WebView 还很新，API 可能不稳定。2）WebKit 和 Chromium 的行为有差异，某些网站可能表现不同。3）如果你不用 JavaScript，这个工具对你价值有限。</p>
     <div class="section-label">👀 关注点</div>
     <ul>
-      <li>是否有工具（如 Cursor、Claude Code）宣布原生支持 agent.md。</li>
-      <li>社区是否形成 agent.md 的最佳实践模板。</li>
+      <li>Bun.WebView 的 API 是否稳定，社区是否开始大量使用？</li>
+      <li>是否有非开发者友好的封装工具出现（比如「用自然语言描述，自动生成浏览器自动化脚本」）？</li>
     </ul>
-    <div class="jargon"><strong>📖 术语卡：</strong> <strong>agent.md</strong> — 一个 Markdown 文件，放在项目根目录，用于指导 AI 编码 agent 如何理解和处理代码库。</div>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>WebView</strong> — 在应用内嵌一个浏览器引擎，用来显示网页或执行网页操作。Bun.WebView 让开发者不用装完整浏览器就能做网页自动化。</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 324 points，138 条评论
-      <span style="font-size:0.85rem;color:var(--accent3);">作者 Fabiensanglard</span>
+      <a href="https://simonwillison.net/2026/Aug/20/bun-webview/" target="_blank">Simon Willison</a> — 用 Claude Code 做了原型验证
+      <a href="https://bun.sh/blog/bun-v1.4" target="_blank">Bun 官方博客</a> — 发布说明
     </div>
     <div class="links">
-      <a href="https://fabiensanglard.net/agent.md/" target="_blank">Fabiensanglard 的文章</a>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN 讨论帖</a>
+      <a href="https://bun.sh/blog/bun-v1.4" target="_blank">Bun 1.4 发布说明</a>
+      <a href="https://simonwillison.net/2026/Aug/20/bun-webview/" target="_blank">Simon Willison 的验证</a>
     </div>
   </div>
 
-  <!-- ℹ️ 3: What Is a Harness? -->
-  <div class="item fyi">
+  <!-- 👀 3: Ornith-1.5 -->
+  <div class="item look">
     <div class="item-header">
-      <h2>ℹ️ 什么是 Harness？理解 AI agent 架构的核心概念</h2>
-      <span class="tag">概念 · agent 架构 · 基础设施</span>
+      <h2>👀 Ornith-1.5：MIT 协议的开源模型家族，9B/35B/397B 三档全开</h2>
+      <span class="tag">开源模型 · MIT 协议 · 多档位 · 本地部署</span>
     </div>
     <div class="section-label">📌 背景</div>
-    <p>随着 AI agent 工具爆发（Claude Code、Codex、CrewAI、AutoGen 等），一个核心概念逐渐浮现：harness。HN 上 earendil.com 的一篇文章（464 分 / 155 评论）系统解释了 harness 是什么——它是管理 agent 生命周期、工具调用、状态持久化、安全隔离的基础设施层。理解 harness 有助于你选择和使用合适的 agent 框架。</p>
+    <p>开源模型的世界里，你通常只能在「小模型（跑得动但笨）」和「大模型（聪明但跑不动）」之间二选一。Ornith-1.5 打破了这种选择——它一次性发布了 9B（密集）、35B（MoE）、397B（MoE）三个档位，全部 MIT 协议（最宽松的开源许可，随便商用）。而且自带 FP8、GGUF、MLX、NVFP4 等多种量化格式，从手机到服务器都能跑。HuggingFace 上已经出现多个量化版本，社区热度在涨。</p>
     <div class="section-label">💡 为什么重要</div>
     <ul>
-      <li><strong>概念澄清</strong>：harness 是 agent 架构的关键抽象，类似于操作系统之于应用程序。</li>
-      <li><strong>社区关注</strong>：464 分表明很多人认为这个概念重要。</li>
-      <li><strong>对非开发者的意义</strong>：了解 harness 有助于理解为什么有些 agent 工具更好用，以及如何评估新工具。</li>
+      <li><strong>一个家族覆盖所有场景</strong>：9B 跑在笔记本上，35B 跑在桌面 GPU，397B 跑在服务器。你不用在不同模型之间切换，用同一个家族的模型，行为一致性更好。</li>
+      <li><strong>MIT 协议 = 随便用</strong>：比 Qwen 的 Apache 2.0 还宽松，商用、改代码、闭源分发都行。对企业来说，这是最省心的 license。</li>
+      <li><strong>端到端自我改进能力</strong>：Ornith 展示了「自我改进」能力——模型可以自己生成训练数据、自己评估、自己迭代。这是开源模型的前沿方向。</li>
+      <li><strong>量化格式齐全</strong>：FP8、GGUF、MLX、NVFP4 全都有，意味着 Ollama、LM Studio、MLX 用户都能直接跑。</li>
     </ul>
+    <div class="section-label">⚡ 行动建议</div>
+    <ol>
+      <li><strong>去 HuggingFace 看看</strong>：搜「ornith-ai/Ornith-1.5」，看看 9B 和 35B 的 GGUF 版本，用 Ollama 或 LM Studio 跑一下试试。</li>
+      <li><strong>对比 Qwen3.8-27B</strong>：如果你已经在用 Qwen3.8-27B，跑几个同样的测试题，看看 Ornith-1.5-35B 的表现差异。</li>
+      <li><strong>关注 397B 的 API 服务</strong>：如果你需要最强开源模型，看看 Together AI 或 Fireworks 是否已经上线 Ornith-1.5-397B。</li>
+    </ol>
+    <div class="section-label">🔍 深度解析：Ornith-1.5 和 Qwen3.8-27B 有什么不同</div>
+    <p><strong>vs Qwen3.8-27B</strong>：Qwen3.8-27B 是密集模型（27B 参数全激活），Ornith-1.5-35B 是 MoE（35B 总参数，3B 激活）。MoE 的优势是推理更快、更省显存，但质量可能略低于同参数的密集模型。Ornith 的卖点是「一个家族多档位」+ MIT 协议，Qwen 的卖点是「单模型性能极致」+ Apache 2.0。</p>
+    <p><strong>跑在什么之上</strong>：Ornith-1.5 支持 FP8、GGUF、MLX、NVFP4 量化格式，Ollama、LM Studio、MLX、vLLM 都能跑。9B 可以在 8GB 内存的 Mac 上跑，35B 需要 16-24GB 内存。</p>
+    <p><strong>上手难度</strong>：如果你用 Ollama，<code>ollama pull ornith-1.5-9b</code> 一条命令就能跑。如果你用 LM Studio，直接在界面里搜「Ornith-1.5」下载即可。</p>
+    <p><strong>对 clawii 的实际价值</strong>：假设你要在本地跑一个「文档分类 agent」，9B 版本就够用，跑得快、不占资源。如果你要跑「代码生成」，35B 版本可能更合适。</p>
+    <p><strong>诚实顾虑</strong>：1）Ornith 是相对新的模型，社区评测还不多，实际表现有待验证。2）397B MoE 虽然总参数大，但激活参数只有 3B（35B 版本），某些任务可能不如同参数的密集模型。3）MIT 协议虽宽松，但模型本身的能力是否真的达到宣传水平，需要实测。</p>
+    <div class="section-label">👀 关注点</div>
+    <ul>
+      <li>Ornith-1.5 在 Artificial Analysis 等评测榜上的实际排名？</li>
+      <li>是否有 KOL（Simon Willison、swyx）评测 Ornith-1.5？</li>
+      <li>Together AI / Fireworks 是否上线 397B 的 API？</li>
+    </ul>
+    <div class="jargon"><strong>📖 术语卡：</strong> <strong>MoE</strong> = Mixture of Experts — 一种模型架构，总参数很大，但每次推理只激活一部分参数，所以速度快、省显存。类似「一个公司有很多员工，但每个任务只派几个人去做」。</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">谁在讨论：</span>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 464 points，155 条评论
-      <span style="font-size:0.85rem;color:var(--accent3);">earendil.com 文章</span>
+      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B" target="_blank">HuggingFace</a> — 60.3k 下载（35B），988k 下载（GGUF）
+      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-9B" target="_blank">HuggingFace</a> — 83.2k 下载（9B）
     </div>
     <div class="links">
-      <a href="https://earendil.com/what-is-a-harness" target="_blank">文章原文</a>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN 讨论帖</a>
+      <a href="https://huggingface.co/ornith-ai" target="_blank">Ornith-1.5 HuggingFace 主页</a>
+      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B-GGUF" target="_blank">35B GGUF 版本</a>
     </div>
   </div>
 
@@ -377,24 +400,24 @@
     <div class="smallcaps">📈 仍在跟踪 · 没单独占坑但仍在发酵</div>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Munder Difflin</span> <span class="update">—— 8/23 发布，HN 285 分 / 123 条评论；无新触发事件。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">本地 LLM 变笨的原因</span> <span class="update">—— 8/23 发布，HN 366 分 / 135 条评论；无新进展。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">MCP 新路线图</span> <span class="update">—— 8/23 发布，HN 217 分 / 133 条评论；无新更新。</span></div>
-      </li>
-      <li>
         <span class="days">Day 8</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">—— HuggingFace Trending 第一（2.65M 下载），Simon Willison 8/17 评测仍有效，无新版本。</span></div>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">—— HuggingFace Trending 第一（2.65M 下载），多个 uncensored 变体出现（OBLITERATED 313k 下载），Simon Willison 8/17 评测仍有效。</span></div>
       </li>
       <li>
         <span class="days">Day 5</span>
-        <div><span class="item-name">Mistral Agentic Search</span> <span class="update">—— 8/20 发布，无新企业案例或开源组件。</span></div>
+        <div><span class="item-name">DeepSeek-V4-Flash-Vision-Exp</span> <span class="update">—— 多模态支持，性能接近 Opus-4.8，HuggingFace 3.27M 下载，无新版本发布。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">TrueForge</span> <span class="update">—— TrueFoundry 开源的 agent harness，token 用量降 30%、成本降 75%，尚无 KOL 评测。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">GLM-5.3-Vision</span> <span class="update">—— 疑似 Ox Alpha 背后的模型，743B 基础 + SAO 增强，API 已上线，无独立评测。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Mistral Agentic Search</span> <span class="update">—— 8/20 发布，检索层产品，无新企业案例或开源组件。</span></div>
       </li>
     </ul>
   </aside>
@@ -407,7 +430,7 @@
 
   <footer>
     <p>AI Radar · 每日精选 · 信号过滤 · 行动导向</p>
-    <p style="font-size:0.7rem;margin-top:4px;">数据来源：Hacker News, GitHub, HuggingFace, AINews, Simon Willison, Anthropic, OpenAI</p>
+    <p style="font-size:0.7rem;margin-top:4px;">数据来源：Hacker News, GitHub, HuggingFace, Simon Willison, FT, Bun, Anthropic, OpenAI</p>
   </footer>
 </div>
 

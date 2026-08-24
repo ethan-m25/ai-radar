@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f4ede0">
 <title>AI Radar · 2026-08-24 · Week 35 · №089</title>
-<meta name="description" content="3 real signals · Ornith-1.5 open model · agent.md practice guide · What Is a Harness">
+<meta name="description" content="3 real signals · The routing era after Fable · Bun 1.4 WebView makes local agents cheaper · Ornith-1.5 open model family">
 <meta property="og:title" content="AI Radar · 2026-08-24 · №089">
-<meta property="og:description" content="3 real signals · Ornith-1.5 open model · agent.md practice guide · What Is a Harness">
+<meta property="og:description" content="3 real signals · The routing era after Fable · Bun 1.4 WebView makes local agents cheaper · Ornith-1.5 open model family">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AI Radar">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -253,122 +253,145 @@
 
   <div class="counts">
     <span class="pill crit">🚨 1 item</span>
-    <span class="pill look">👀 1 item</span>
-    <span class="pill fyi">ℹ️ 1 item</span>
+    <span class="pill look">👀 2 items</span>
+    <span class="pill fyi">ℹ️ 0 items</span>
   </div>
 
-  <h1 class="headline">Ornith-1.5 open model + agent.md practice guide + What Is a Harness</h1>
-  <p class="sub">3 real signals today: Ornith-1.5 (MIT license, multi-scale MoE, self-improvement) is the most important open-model release this week; agent.md (HN 324 pts) is a single file that helps LLMs understand your codebase better; What Is a Harness? (HN 464 pts) nails the core abstraction of agent architecture.</p>
+  <h1 class="headline">The routing era after Fable · Bun 1.4 WebView makes local agents cheaper · Ornith-1.5 open model family</h1>
+  <p class="sub">3 real signals today: Fable is too expensive, Opus 5 is good enough — model routing is the most practical cost-saving strategy of H2 2026 (FT report + Simon Willison deep dive); Bun 1.4's WebView makes browser automation for local agents ridiculously cheap; Ornith-1.5 open model family (MIT license) covers 9B/35B/397B all at once.</p>
 
-  <!-- 🚨 1: Ornith-1.5 -->
+  <!-- 🚨 1: The routing era after Fable -->
   <div class="item crit">
     <div class="item-header">
-      <h2>🚨 Ornith-1.5: MIT-licensed open model family with self-improvement</h2>
-      <span class="tag">open model · MoE · self-improvement · local deployment</span>
+      <h2>🚨 The routing era after Fable: stop throwing every task at the most expensive model</h2>
+      <span class="tag">model routing · cost optimization · enterprise · pricing strategy</span>
     </div>
-    <div class="section-label">📍 Context</div>
-    <p>The open-model race is white-hot: Qwen3.8-27B just became the go-to local model, and DeepSeek V4 and GLM-5.3 keep iterating. Ornith-1.5, released by ornith-ai, comes in three sizes — 9B dense, 35B MoE, and 397B MoE — all under MIT license. Its headline feature is end-to-end self-improvement: the model can generate its own training data and iterate without human annotation. It also ships with multiple quantization formats (FP8, GGUF, MLX, NVFP4), covering everything from a Mac Mini to a data center.</p>
+    <div class="section-label">📌 Context</div>
+    <p>For the past year, you've probably been used to "one model for everything" — Claude, GPT, Gemini, whatever works. But after Anthropic released Fable 5, the game changed: it's incredibly capable, but also incredibly expensive. An FT report (554 points / 490 comments on HN) and Simon Willison's deep dive both point to the same trend — routing is becoming the most practical cost-saving strategy of H2 2026. AT&T has publicly stated that 40% of its AI usage goes through open models, targeting 60-70%, cutting costs by 56% with only a 2% quality drop. This isn't theory — it's what large companies are doing with real money.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>MIT license</strong>: More permissive than Apache 2.0 — no restrictions on commercial use, modification, or redistribution.</li>
-      <li><strong>Multi-scale choice</strong>: 9B fits consumer GPUs (RTX 4090), 35B MoE works on workstations, 397B targets servers. There's a version for whatever hardware you have.</li>
-      <li><strong>Self-improvement capability</strong>: The model can generate its own training data and iterate, meaning future improvements may not require expensive fine-tuning.</li>
-      <li><strong>What it means for someone like clawii</strong>: If you run local models (via Ollama or LM Studio), the 9B or 35B version could become your new default — performance close to Qwen3.8-27B but with a freer license.</li>
+      <li><strong>Direct savings</strong>: Fable 5 API pricing can be 3-5x that of Opus 5. Route simple tasks (summarization, classification, extraction) to cheap models and complex tasks to expensive models — your bill can drop by more than half.</li>
+      <li><strong>What it means for non-developers</strong>: When you vibe-code with Claude Code or Codex, the underlying system is already doing routing. Understanding this trend explains why some tasks "feel dumber" — it's not model regression, it's being routed to a cheaper tier.</li>
+      <li><strong>Enterprise validation</strong>: AT&T at 45B tokens/day, 56% cost reduction, 2% quality drop. This proves routing isn't "saving pocket change" — it's "saving real money without dropping the ball."</li>
+      <li><strong>Ramp AI Index emerges</strong>: A new index using credit card billing data from 70,000 companies to estimate model adoption. "Model spend" is becoming a quantifiable management metric.</li>
     </ul>
     <div class="section-label">🎯 ACTION</div>
     <ol>
-      <li><strong>Check the HuggingFace model cards</strong>: Visit ornith-ai/Ornith-1.5-35B-A3B and related pages to see architecture details and benchmarks.</li>
-      <li><strong>Try running it locally</strong>: If you have 24GB+ VRAM, load the 9B or 35B GGUF version via Ollama or llama.cpp and compare against Qwen3.8-27B.</li>
-      <li><strong>Watch for community fine-tunes</strong>: The self-improvement claim means specialized variants may emerge quickly.</li>
+      <li><strong>Read Simon Willison's breakdown</strong>: He mapped Anthropic model spend distribution (Opus 4.8 at 28%, Fable 5 at just 8%) — you'll see how large companies actually allocate budget.</li>
+      <li><strong>Check your vibe coding tool settings</strong>: Claude Code and Codex both have model selection options. Pin simple tasks (document cleanup, email drafts) to cheap models (Haiku, Flash), and save expensive models (Opus, Fable) for complex work.</li>
+      <li><strong>Try a routing tool</strong>: OpenRouter already supports automatic routing, and Vercel is pushing it too. If you use APIs for automation, spend 10 minutes configuring routing rules and compare your bill at end of month.</li>
     </ol>
-    <div class="section-label">🔬 DEEP DIVE: how Ornith-1.5 is actually different</div>
-    <p><strong>vs Qwen3.8-27B</strong>: Qwen3.8-27B is natively multimodal (accepts images); Ornith-1.5 is text-only for now. But Ornith-1.5's 35B MoE architecture may be more efficient at inference (fewer active parameters). The MIT license is slightly more permissive than Qwen's Apache 2.0. Ornith-1.5 emphasizes self-improvement; Qwen relies on traditional fine-tuning.</p>
-    <p><strong>vs DeepSeek V4</strong>: DeepSeek V4 is much larger (1.7T params), but Ornith-1.5's 397B MoE variant may rival it on some tasks while being easier to deploy.</p>
-    <p><strong>What you can actually do with it</strong>: If you use local models for office work — summarizing documents, drafting reports, answering questions about your data — the 9B version can run on a 16GB MacBook with decent performance, completely free.</p>
-    <p><strong>Honest caveat</strong>: 1) The model just launched — community validation is thin. 2) Self-improvement needs real-world testing. 3) No multimodal support limits some use cases.</p>
+    <div class="section-label">🔬 DEEP DIVE: how routing actually works</div>
+    <p><strong>vs manually picking models</strong>: Right now you probably switch models per task manually. Routing is automatic — the system decides which model to use based on task complexity, context length, and required capabilities. OpenRouter's auto-routing, Anthropic's prompt caching, and OpenAI's smart routing all do this.</p>
+    <p><strong>AT&T's specific approach</strong>: 45B tokens/day, 40% via open models (Qwen, Llama, DeepSeek), targeting 60-70%. They found open models are good enough for "medium-complexity tasks" at a fraction of the cost of closed models. This isn't an "open vs closed" ideology debate — it's pure cost math.</p>
+    <p><strong>Practical value for someone like clawii</strong>: Say your monthly API bill is $200. With routing optimization, it could drop to $80-100 with almost no quality loss. If you use Claude Code, you can set rules like "simple tasks use Haiku, complex tasks use Opus."</p>
+    <p><strong>Honest caveats</strong>: 1) Routing requires some configuration — not plug-and-play. 2) When routing misjudges, a simple task sent to a cheap model might occasionally underperform. 3) If your usage is small (under $50/month), the savings may not be worth the effort.</p>
     <div class="section-label">👀 WATCH FOR</div>
     <ul>
-      <li>Benchmark scores on Vals or Artificial Analysis.</li>
-      <li>KOL reviews (Simon Willison, swyx, etc.).</li>
-      <li>How fast the community ports it to Ollama, LM Studio, etc.</li>
+      <li>Will OpenRouter / Vercel make routing smarter and cheaper?</li>
+      <li>Will Anthropic ship an official routing tool (like "auto-select model")?</li>
+      <li>Will AT&T hit its 60-70% open-model target, and will other large companies follow?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>MoE</strong> = Mixture of Experts — the model has many sub-networks ("experts") and only activates a subset per inference, improving efficiency. <strong>Self-improvement</strong> — the model generates its own training data and retrains, like self-play in games.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>Model routing</strong> — Automatically selecting the best AI model for each task based on its characteristics, rather than using the same model for everything. Like choosing between a highway and local roads depending on traffic conditions.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://huggingface.co/ornith-ai" target="_blank">HuggingFace org</a> — 60k+ downloads (35B variant)
-      <span style="font-size:0.85rem;color:var(--accent3);">AINews 8/19 coverage</span>
+      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 554 points, 490 comments (FT article)
+      <a href="https://simonwillison.net/2026/Aug/23/anthropic-best-model/" target="_blank">Simon Willison</a> — deep dive + Ramp AI Index data
+      <a href="https://dbreunig.com/2026/08/23/fable-and-the-end-of-the-free-lunch.html" target="_blank">Drew Breunig</a> — "Fable & The End of the Free Lunch"
     </div>
     <div class="links">
-      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B" target="_blank">Ornith-1.5-35B model card</a>
-      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-9B" target="_blank">Ornith-1.5-9B model card</a>
-      <a href="https://news.smol.ai/issues/2026-08-19" target="_blank">AINews 8/19 coverage</a>
+      <a href="https://www.ft.com/content/anthropic-best-model-struggles" target="_blank">FT article</a>
+      <a href="https://simonwillison.net/2026/Aug/23/anthropic-best-model/" target="_blank">Simon Willison's breakdown</a>
+      <a href="https://dbreunig.com/2026/08/23/fable-and-the-end-of-the-free-lunch.html" target="_blank">Drew Breunig's blog</a>
     </div>
   </div>
 
-  <!-- 👀 2: agent.md -->
+  <!-- 👀 2: Bun 1.4 WebView -->
   <div class="item look">
     <div class="item-header">
-      <h2>👀 agent.md: one file that helps LLMs understand your codebase</h2>
-      <span class="tag">practice guide · code quality · agent collaboration</span>
+      <h2>👀 Bun 1.4 WebView: browser automation for local agents, absurdly cheap</h2>
+      <span class="tag">Bun · browser automation · local agent · dev tools</span>
     </div>
-    <div class="section-label">📍 Context</div>
-    <p>When using Claude Code, Codex, or similar coding agents, you've probably experienced the LLM misunderstanding your project structure, coding style, or testing requirements. Fabiensanglard shared a dead-simple solution on HN: drop an <code>agent.md</code> file in your project root that describes the project background, architecture, conventions, and common pitfalls. The LLM reads it before starting work, producing much more predictable code. HN 324 points, 138 comments — the community is all over it.</p>
+    <div class="section-label">📌 Context</div>
+    <p>You've probably used Claude Code or Codex to write code, but "having an agent open a browser, interact with a page, and scrape data" has always been expensive — you need a full Chrome instance, 1-2GB of RAM, plus Playwright or Puppeteer. Bun 1.4 just dropped (first stable release after the Rust rewrite) and it ships with Bun.WebView — browser automation using macOS WebKit or a local Chromium process, needing only 192-256MB of RAM. Simon Willison had Claude Code build a prototype to verify it, and the results were striking.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>Simple and effective</strong>: One Markdown file can dramatically improve LLM-assisted code quality with zero complex setup.</li>
-      <li><strong>What it means for someone like clawii</strong>: If you use Claude Code or Codex to write scripts (automation, data processing), agent.md helps the LLM understand your project context and output expectations.</li>
-      <li><strong>Community validated</strong>: 324 points and heavy discussion means many people have tried it and it works.</li>
-      <li><strong>Could become a new standard</strong>: Like CONTRIBUTING.md but for AI assistants — future tools may support it natively.</li>
+      <li><strong>Cost of browser automation for local agents plummets</strong>: Used to need 1-2GB RAM per browser agent; now ~200MB. You can run multiple browser agents on your own machine without it slowing down.</li>
+      <li><strong>What it means for non-developers</strong>: When vibe-coding, you can tell an agent "open this webpage → extract data → organize into a spreadsheet." That used to be expensive and slow. Now it's cheap enough to run on a whim.</li>
+      <li><strong>Bun 1.4 itself is a big release</strong>: Rust rewrite means 50% faster startup, 35% less memory, 2,900 bug fixes. If you use JavaScript/TypeScript for automation, Bun is worth a fresh look.</li>
+      <li><strong>Simon Willison personally validated it</strong>: He had Claude Code build a prototype using Bun.WebView to load pages and execute JS — 192-256MB was enough to run a full Chrome.</li>
     </ul>
     <div class="section-label">🎯 ACTION</div>
     <ol>
-      <li><strong>Read Fabiensanglard's article</strong>: Get the exact format and content recommendations.</li>
-      <li><strong>Create an agent.md for your project</strong>: Include project description, coding style, test requirements, common mistakes.</li>
-      <li><strong>Test it in Claude Code or Codex</strong>: See if the LLM picks it up automatically (some tools need manual reference) and compare output quality before and after.</li>
+      <li><strong>Upgrade Bun</strong>: If you use Bun, run <code>bun upgrade</code> to v1.4. If you've never used Bun, it's a Node.js alternative — installs with one command.</li>
+      <li><strong>Try Bun.WebView</strong>: Run <code>bun install bun</code> then a simple WebView example to see how fast it loads pages and executes JS.</li>
+      <li><strong>Have Claude Code write you a browser automation script</strong>: Tell it "use Bun.WebView to open example.com, extract the title and all links" — see if it works end to end.</li>
     </ol>
-    <div class="section-label">🔬 DEEP DIVE: how agent.md is different from a system prompt</div>
-    <p><strong>vs system prompt</strong>: A system prompt is session-level — you have to re-set it every new conversation. agent.md is project-level — it lives in your repo and can be auto-discovered by the tool (if supported). It's like a README but specifically for AI assistants.</p>
-    <p><strong>What you can actually do with it</strong>: Say you have a "weekly report generator" project. Your agent.md can tell the LLM: report format, data sources, output path, common error handling. Every time you run Claude Code on that project, it follows those rules. No more manual corrections.</p>
-    <p><strong>Honest caveat</strong>: 1) Not all tools natively support agent.md yet — you may need to reference it manually. 2) The file needs maintenance; if your project changes fast, it can become stale. 3) Effectiveness depends on the LLM's ability to follow instructions.</p>
+    <div class="section-label">🔬 DEEP DIVE: how Bun.WebView is different from Playwright</div>
+    <p><strong>vs Playwright / Puppeteer</strong>: Playwright is a standalone browser automation library that needs a separate browser download (Chromium ~300MB+) and has high memory usage. Bun.WebView is built into Bun, uses the system's native WebKit (macOS) or a local Chromium via CDP, and needs only 192-256MB of RAM with faster startup.</p>
+    <p><strong>What it runs on</strong>: Bun 1.4, rewritten in Rust, with built-in WebView support (macOS WebKit + Chrome DevTools Protocol). No extra browser driver needed.</p>
+    <p><strong>How hard to use</strong>: If you know JavaScript/TypeScript, you can get a first example running in 10 minutes. If you don't know JS, have Claude Code write it for you — it's very good at this.</p>
+    <p><strong>What you can actually do with it</strong>: Say you need to scrape a niche industry website every day. Write a Bun.WebView script, run it on your own machine, low memory footprint, won't bog you down, and you can schedule it to run periodically.</p>
+    <p><strong>Honest caveats</strong>: 1) Bun.WebView is very new — the API may be unstable. 2) WebKit and Chromium behave differently on some sites. 3) If you don't use JavaScript, this tool has limited value for you.</p>
     <div class="section-label">👀 WATCH FOR</div>
     <ul>
-      <li>Do tools like Cursor or Claude Code announce native agent.md support?</li>
-      <li>Does the community converge on a best-practice template?</li>
+      <li>Will Bun.WebView's API stabilize and see widespread community adoption?</li>
+      <li>Will non-developer-friendly wrappers emerge (like "describe in natural language, auto-generate browser automation script")?</li>
     </ul>
-    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>agent.md</strong> — a Markdown file placed in the project root that instructs AI coding agents on how to understand and work with the codebase.</div>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>WebView</strong> — An embedded browser engine inside an app, used to display web pages or perform web operations. Bun.WebView lets developers do browser automation without installing a full browser.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 324 points, 138 comments
-      <span style="font-size:0.85rem;color:var(--accent3);">Author: Fabiensanglard</span>
+      <a href="https://simonwillison.net/2026/Aug/20/bun-webview/" target="_blank">Simon Willison</a> — built a prototype with Claude Code to validate it
+      <a href="https://bun.sh/blog/bun-v1.4" target="_blank">Bun official blog</a> — release notes
     </div>
     <div class="links">
-      <a href="https://fabiensanglard.net/agent.md/" target="_blank">Fabiensanglard's article</a>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN discussion</a>
+      <a href="https://bun.sh/blog/bun-v1.4" target="_blank">Bun 1.4 release notes</a>
+      <a href="https://simonwillison.net/2026/Aug/20/bun-webview/" target="_blank">Simon Willison's validation</a>
     </div>
   </div>
 
-  <!-- ℹ️ 3: What Is a Harness? -->
-  <div class="item fyi">
+  <!-- 👀 3: Ornith-1.5 -->
+  <div class="item look">
     <div class="item-header">
-      <h2>ℹ️ What Is a Harness? — understanding the core concept of AI agent architecture</h2>
-      <span class="tag">concept · agent architecture · infrastructure</span>
+      <h2>👀 Ornith-1.5: MIT-licensed open model family — 9B, 35B, and 397B all at once</h2>
+      <span class="tag">open model · MIT license · multi-tier · local deployment</span>
     </div>
-    <div class="section-label">📍 Context</div>
-    <p>With the explosion of AI agent tools (Claude Code, Codex, CrewAI, AutoGen), a core concept keeps bubbling up: the harness. An article on earendil.com (HN 464 pts / 155 comments) systematically explains what a harness is — it's the infrastructure layer that manages agent lifecycle, tool calling, state persistence, and security isolation. Understanding "harness" helps you pick and evaluate agent frameworks.</p>
+    <div class="section-label">📌 Context</div>
+    <p>In the world of open models, you usually have to choose between "small (runs locally but dim)" and "big (smart but won't fit on your GPU)." Ornith-1.5 breaks that trade-off — it ships three sizes at once: 9B dense, 35B MoE, and 397B MoE, all under the MIT license (the most permissive open-source license — use it for anything, including commercial). It also comes in FP8, GGUF, MLX, and NVFP4 quantization formats, covering everything from a phone to a server. Multiple quantized variants are already on HuggingFace and community momentum is building.</p>
     <div class="section-label">WHY THIS MATTERS</div>
     <ul>
-      <li><strong>Conceptual clarity</strong>: The harness is the key abstraction in agent architecture, like an operating system for applications.</li>
-      <li><strong>Community attention</strong>: 464 points signals many people think this concept matters.</li>
-      <li><strong>What it means for non-developers</strong>: Understanding harnesses helps you see why some agent tools work better than others, and how to evaluate new ones.</li>
+      <li><strong>One family covers every scenario</strong>: 9B runs on a laptop, 35B runs on a desktop GPU, 397B runs on a server. You don't have to switch between model families — they share the same behavior and conventions.</li>
+      <li><strong>MIT license = use it however you want</strong>: More permissive than Qwen's Apache 2.0. Commercial use, modification, closed-source distribution — all fine. For enterprises, this is the most hassle-free license.</li>
+      <li><strong>End-to-end self-improvement capability</strong>: Ornith demonstrates self-improvement — the model can generate its own training data, evaluate itself, and iterate. This is a frontier direction for open models.</li>
+      <li><strong>All quantization formats ready</strong>: FP8, GGUF, MLX, NVFP4 — every major format is covered. If you use Ollama, LM Studio, or MLX, you can run it today.</li>
     </ul>
+    <div class="section-label">🎯 ACTION</div>
+    <ol>
+      <li><strong>Check HuggingFace</strong>: Search for "ornith-ai/Ornith-1.5" and look at the 9B and 35B GGUF variants. Try pulling one with Ollama or LM Studio.</li>
+      <li><strong>Compare against Qwen3.8-27B</strong>: If you're already using Qwen3.8-27B, run the same test prompts and see how Ornith-1.5-35B compares.</li>
+      <li><strong>Watch for 397B API availability</strong>: If you need the strongest open model, check whether Together AI or Fireworks has already deployed Ornith-1.5-397B as an API endpoint.</li>
+    </ol>
+    <div class="section-label">🔬 DEEP DIVE: how Ornith-1.5 is different from Qwen3.8-27B</div>
+    <p><strong>vs Qwen3.8-27B</strong>: Qwen3.8-27B is a dense model (all 27B parameters active per inference). Ornith-1.5-35B is MoE (35B total, ~3B active). MoE's advantage is faster inference and lower memory usage, though quality may be slightly below a same-parameter-count dense model. Ornith's selling point is "one family, multiple tiers" + MIT license; Qwen's selling point is "single-model peak performance" + Apache 2.0.</p>
+    <p><strong>What it runs on</strong>: Ornith-1.5 supports FP8, GGUF, MLX, NVFP4 quantization formats. Ollama, LM Studio, MLX, and vLLM all work. The 9B variant runs on a Mac with 8GB RAM; 35B needs 16-24GB RAM.</p>
+    <p><strong>How hard to use</strong>: If you use Ollama, <code>ollama pull ornith-1.5-9b</code> is one command. If you use LM Studio, search for "Ornith-1.5" in the interface and download.</p>
+    <p><strong>What you can actually do with it</strong>: Say you want a local "document classification agent" — the 9B version is fast, lightweight, and good enough. If you need "code generation," the 35B version is a better fit.</p>
+    <p><strong>Honest caveats</strong>: 1) Ornith is relatively new — community benchmarks are thin and real-world performance needs validation. 2) The 397B MoE has huge total parameters but only ~3B active (35B variant), which means it may underperform a dense model of the same size on some tasks. 3) MIT license is permissive, but whether the model actually delivers on its claims needs hands-on testing.</p>
+    <div class="section-label">👀 WATCH FOR</div>
+    <ul>
+      <li>Where does Ornith-1.5 rank on Artificial Analysis and other leaderboards?</li>
+      <li>Will any KOL (Simon Willison, swyx) publish a review of Ornith-1.5?</li>
+      <li>Will Together AI or Fireworks offer the 397B variant as an API?</li>
+    </ul>
+    <div class="jargon"><strong>📖 Jargon decoder:</strong> <strong>MoE</strong> = Mixture of Experts — a model architecture where total parameters are large but only a subset activate per inference, making it fast and memory-efficient. Think of a company with many employees, but only a few work on any given task.</div>
     <div class="who">
       <span style="font-weight:500;color:var(--accent3);font-size:0.85rem;">Who's talking:</span>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">Hacker News</a> — 464 points, 155 comments
-      <span style="font-size:0.85rem;color:var(--accent3);">earendil.com article</span>
+      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B" target="_blank">HuggingFace</a> — 60.3k downloads (35B), 988k downloads (GGUF)
+      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-9B" target="_blank">HuggingFace</a> — 83.2k downloads (9B)
     </div>
     <div class="links">
-      <a href="https://earendil.com/what-is-a-harness" target="_blank">Original article</a>
-      <a href="https://news.ycombinator.com/item?id=41054629" target="_blank">HN discussion</a>
+      <a href="https://huggingface.co/ornith-ai" target="_blank">Ornith-1.5 HuggingFace org</a>
+      <a href="https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B-GGUF" target="_blank">35B GGUF variant</a>
     </div>
   </div>
 
@@ -377,24 +400,24 @@
     <div class="smallcaps">📈 Still tracking · not featured today but still developing</div>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Munder Difflin</span> <span class="update">— Released 8/23, HN 285 pts / 123 comments; no new trigger event.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Why local LLM feels dumber</span> <span class="update">— Released 8/23, HN 366 pts / 135 comments; no new developments.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">MCP new roadmap</span> <span class="update">— Released 8/23, HN 217 pts / 133 comments; no updates.</span></div>
-      </li>
-      <li>
         <span class="days">Day 8</span>
-        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— HuggingFace Trending #1 (2.65M downloads), Simon Willison Aug 17 review still relevant, no new version.</span></div>
+        <div><span class="item-name">Qwen3.8-27B</span> <span class="update">— HuggingFace Trending #1 (2.65M downloads), multiple uncensored variants appearing (OBLITERATED 313k downloads), Simon Willison's Aug 17 review still the best reference.</span></div>
       </li>
       <li>
         <span class="days">Day 5</span>
-        <div><span class="item-name">Mistral Agentic Search</span> <span class="update">— Released 8/20, no new enterprise cases or open-source components.</span></div>
+        <div><span class="item-name">DeepSeek-V4-Flash-Vision-Exp</span> <span class="update">— Multimodal support, performance near Opus-4.8, 3.27M downloads on HuggingFace, no new version.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">TrueForge</span> <span class="update">— TrueFoundry's open-source agent harness, claims 30% fewer tokens and 75% cost reduction, no KOL review yet.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">GLM-5.3-Vision</span> <span class="update">— Likely the model behind Ox Alpha, 743B base + SAO enhancements, API already live, no independent evaluation.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Mistral Agentic Search</span> <span class="update">— Released 8/20, retrieval-layer product, no new enterprise case studies or open-source components.</span></div>
       </li>
     </ul>
   </aside>
@@ -407,7 +430,7 @@
 
   <footer>
     <p>AI Radar · Daily signal filter · Action-oriented</p>
-    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, GitHub, HuggingFace, AINews, Simon Willison, Anthropic, OpenAI</p>
+    <p style="font-size:0.7rem;margin-top:4px;">Sources: Hacker News, GitHub, HuggingFace, Simon Willison, FT, Bun, Anthropic, OpenAI</p>
   </footer>
 </div>
 
