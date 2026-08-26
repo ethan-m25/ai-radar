@@ -358,18 +358,18 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 must-see</span> Ox Alpha identified as Z.ai's GLM-5.3 series, open weights coming</li>
+        <li><span class="tier-tag crit">🚨 must-see</span> Z.ai confirms Ox Alpha as GLM-5.3 series, open weights coming</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 🚨 ===== -->
 <article class="item item--crit">
     <div class="tier-label">🚨 must-see</div>
-    <div class="display-title">Ox Alpha Confirmed as Z.ai / GLM-5.3 Series, Open Weights On the Way</div>
+    <div class="display-title">Z.ai Confirms Ox Alpha as GLM-5.3 Series, Open Weights On the Way</div>
     <div class="pitch">Hey clawii — the "mystery model" that's been dominating coding and agent benchmarks for the past two weeks finally has an identity. Z.ai (Zhipu AI) officially confirmed today that Ox Alpha is a new GLM-5.3 series model, and they've committed to open-sourcing the weights. For vibe coding, this means another open-weight option that can go toe-to-toe with frontier closed models is about to land on your local machine.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · Ox Alpha first appeared in mid-August as a "mystery model" on the LMsys and Vals leaderboards, posting unusually strong coding and agentic task scores. The community spent two weeks guessing. Today Z.ai confirmed via Bloomberg: it's based on the GLM-5.2 743B-parameter base, heavily optimized through post-training (asynchronous RL and on-policy distillation). The capability gains come from training methodology and infrastructure, not raw model size. Z.ai explicitly said weights will be open-sourced — no timeline, but "soon."
+        <strong>📍 Context</strong> · Ox Alpha first appeared in mid-August as a "mystery model" on the LMsys and Vals leaderboards, posting unusually strong coding and agentic task scores. The community spent two weeks guessing whether it was Z.ai or DeepSeek. Today Bloomberg confirmed the identity: it's based on GLM-5.2's 743B-parameter base, heavily optimized through post-training (asynchronous RL and on-policy distillation). The capability gains come from training methodology and infrastructure, not raw model size. Z.ai explicitly said weights will be open-sourced — no timeline, but "soon."
     </div>
 
     <div class="lang">
@@ -410,7 +410,7 @@
                     <tr><td>License</td><td>Expected open (Apache 2.0?)</td><td>Apache 2.0</td><td>Apache 2.0</td><td>Custom (commercial use requires application)</td></tr>
                 </tbody>
             </table>
-            <p><strong>Ox Alpha's core differentiator</strong>: It's not "bigger" — it's "smarter." Z.ai says they used asynchronous RL and on-policy distillation on top of GLM-5.2's 743B base to dramatically improve coding and agent tasks without increasing model size. That means it likely retains the 743B knowledge capacity, but inference cost is much lower than the original dense model.</p>
+            <p><strong>Ox Alpha's core differentiator</strong>: It's not "bigger" — it's "smarter." Z.ai says they used asynchronous RL (reinforcement learning) and on-policy distillation on top of GLM-5.2's 743B base to dramatically improve coding and agent tasks without increasing model size. That means it likely retains the 743B knowledge capacity, but inference cost is much lower than the original dense model.</p>
             <p><strong>vs Qwen3.8-27B</strong>: Qwen is a 27B dense model — VRAM-friendly (4-bit ~16GB) but much smaller parameter count. Ox Alpha's base is 743B. Even after distillation or MoE-ification, the knowledge capacity advantage is enormous. Qwen's edge is Apache 2.0 licensing and native multimodality.</p>
             <p><strong>vs DeepSeek V4-Flash</strong>: DeepSeek is 304B MoE / 37B active — already the open MoE benchmark. Ox Alpha's 743B base means it likely surpasses DeepSeek in "knowledge breadth," but the final picture depends on the released architecture and active parameter count.</p>
             <p><strong>What it runs on</strong>: GLM series uses Transformer, trained on Z.ai's own framework. Inference likely via vLLM, llama.cpp, Ollama (depending on the final release format).</p>
@@ -428,7 +428,7 @@
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · HN #4 (56 points, 10 comments, 58 mins ago) · Bloomberg report · Z.ai official confirmation · Chinese-language media (量子位 / 机器之心) haven't covered it at scale yet — the window is still open
+        <strong>Who's talking</strong> · HN #4 (59 points, 10 comments, 1 hour ago) · Bloomberg report · Z.ai official confirmation · Chinese-language media (量子位 / 机器之心) haven't covered it at scale yet — the window is still open
     </div>
 
     <div class="try-links">
@@ -441,15 +441,15 @@
     <span class="smallcaps">📈 Still tracking · not featured today but still developing</span>
     <ul>
         <li>
-            <span class="days">Day 2</span>
-            <div><span class="item-name">Apple M6 / M5 Ultra</span> <span class="update">— HN still has multiple front-page entries today (#5 Mac Studio, #12 Mac mini, #15 Mac mini), discussion heat sustained but no new trigger event. Apple hasn't announced ship dates.</span></div>
-        </li>
-        <li>
             <span class="days">Day 3</span>
-            <div><span class="item-name">Qwen3.8-27B variants</span> <span class="update">— 25+ uncensored / abliterated variants on HuggingFace, OBLITERATUS version added 469k downloads in one day. Ecosystem still expanding but no new trigger event.</span></div>
+            <div><span class="item-name">Apple M6 / M5 Ultra</span> <span class="update">— Multiple HN front-page entries today (#5 Mac Studio, #12 Mac mini, #15 Mac mini), discussion heat sustained but no new trigger event. Apple hasn't announced ship dates.</span></div>
         </li>
         <li>
-            <span class="days">Day 5</span>
+            <span class="days">Day 4</span>
+            <div><span class="item-name">Qwen3.8-27B variants</span> <span class="update">— 25+ uncensored / abliterated variants on Hugging Face, OBLITERATUS version added 469k downloads in one day. Ecosystem still expanding but no new trigger event.</span></div>
+        </li>
+        <li>
+            <span class="days">Day 6</span>
             <div><span class="item-name">Ornith-1.5 series</span> <span class="update">— 35B-A3B-GGUF cumulative downloads hit 1.39M, but no new KOL endorsement. Downgraded to ambient tracking; will be removed next issue.</span></div>
         </li>
     </ul>
@@ -469,6 +469,7 @@
             <tr><td>Mistral x HUMAIN Agentic Search</td><td>Enterprise product launch, no direct impact on vibe coding.</td></tr>
             <tr><td>Bun 1.4 WebView / Bun.Image</td><td>Runtime update, not a core AI signal.</td></tr>
             <tr><td>Nitter / XCancel cease-and-desist</td><td>Not AI news.</td></tr>
+            <tr><td>Muse Glimmer 30B</td><td>Meta open model, insufficient HN discussion, already covered by Chinese-language media.</td></tr>
         </tbody>
     </table>
 </section>

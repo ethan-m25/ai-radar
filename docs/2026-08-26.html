@@ -358,26 +358,26 @@
 <nav class="toc">
     <span class="smallcaps">📋 今日目录</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 必看</span> Ox Alpha 确认身份：Z.ai 的 GLM-5.3 系列，即将开源权重</li>
+        <li><span class="tier-tag crit">🚨 必看</span> Z.ai 确认 Ox Alpha 为 GLM-5.3 系列，即将开源权重</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 🚨 ===== -->
 <article class="item item--crit">
     <div class="tier-label">🚨 必看</div>
-    <div class="display-title">Ox Alpha 确认为 Z.ai / GLM-5.3 系列，即将开源权重</div>
-    <div class="pitch">clawii，过去两周在编码和 agent 基准测试中屠榜的"神秘模型"Ox Alpha 终于被认领了——Z.ai（智谱 AI）今天正式确认 Ox Alpha 是全新的 GLM-5.3 系列模型，并承诺将开源权重。对 vibe coding 来说，这意味着又一个能本地跑、能力和一线闭源模型掰手腕的开源选项即将到来。</div>
+    <div class="display-title">Z.ai 确认 Ox Alpha 为 GLM-5.3 系列，即将开源权重</div>
+    <div class="pitch">clawii，过去两周在编码和 agent 基准测试中屠榜的"神秘模型"Ox Alpha 终于被正式认领了——Z.ai（智谱 AI）在 Bloomberg 上确认它是全新的 GLM-5.3 系列模型，并承诺开源权重。这意味着又一个能本地跑、能力接近一线闭源模型的开源选项即将到来。</div>
 
     <div class="context-box">
-        <strong>📍 背景</strong> · Ox Alpha 最早在 8 月中旬以"神秘模型"身份出现在 LMsys 和 Vals 排行榜上，编码和 agentic 任务成绩异常突出，一度引发社区猜测。今天 Z.ai 通过 Bloomberg 确认了身份：它基于 GLM-5.2 的 743B 参数 base，经过大幅 post-training 优化（包括异步 RL 和 on-policy distillation），能力提升主要来自训练方法和基础设施，而不是单纯的模型规模。Z.ai 明确说权重会开源，没有公布具体时间表，但承诺"很快"。
+        <strong>📍 背景</strong> · Ox Alpha 最早在 8 月中旬以"神秘模型"身份出现在 LMsys 和 Vals 排行榜上，编码和 agentic 任务分数异常高，社区一直猜它是 Z.ai 或 DeepSeek 的新模型。今天 Bloomberg 报道确认了身份：它基于 GLM-5.2 的 743B 参数 base，经过大幅 post-training 优化（包括异步 RL 和 on-policy distillation），能力提升主要来自训练方法和基础设施，而不是单纯的模型规模。Z.ai 明确说权重会开源，但未公布具体时间表。
     </div>
 
     <div class="lang">
         <h3>为什么这事重要</h3>
         <ul>
-            <li><strong>又一个开源模型追平甚至超越一线闭源</strong>：Ox Alpha 在编码（Code Arena、SWE-Bench）和 agent 任务上的表现接近 GPT-5.6 Luna 和 Claude Opus 5，但走的是开源路线。你不需要支付 API 费用就能在本地跑出接近的量。</li>
-            <li><strong>中国开源模型生态持续膨胀</strong>：Qwen3.8-27B、DeepSeek V4-Flash、GLM-5.3……中国实验室在开源战略上比美国公司激进得多。Ox Alpha 的加入意味着你作为 vibe coder 的选择越来越多，而且越来越强。</li>
-            <li><strong>743B 的 base + post-training 优化</strong>：这不是一个"从头训练"的新模型，而是基于 743B 参数的 GLM-5.2 做了大量强化学习优化。这意味着它的知识容量很大，但推理成本可能通过蒸馏或 MoE 来降低。</li>
+            <li><strong>又一个开源模型追平甚至超越一线闭源</strong>：Ox Alpha 在编码（Code Arena、SWE-Bench）和 agent 任务上的表现接近 GPT-5.6 Luna 和 Claude Opus 5，但走的是开源路线。你不需要支付 API 费用就能本地跑出接近的质量。</li>
+            <li><strong>中国开源模型生态持续膨胀</strong>：Qwen3.8-27B、DeepSeek V4-Flash、GLM-5.3……中国实验室在开源战略上比美国公司激进得多。Ox Alpha 的加入意味着你作为 vibe coder 的选择越来越多，越来越强。</li>
+            <li><strong>743B 的 base + post-training 优化</strong>：这不是一个"从头训练"的新模型，而是基于 743B 参数的 GLM-5.2 做了大量强化学习优化。它的知识容量很大，但推理成本可能通过蒸馏或 MoE 来降低。</li>
             <li><strong>对本地工作流的实际影响</strong>：如果 Ox Alpha 的 4-bit 量化版能在 48GB 显存（或 Mac 统一内存）上运行，那你的 vibe coding 后端就可以切换到完全本地、零延迟、零数据外泄的状态。</li>
         </ul>
     </div>
@@ -428,7 +428,7 @@
     </div>
 
     <div class="who-talking">
-        <strong>谁在讨论</strong> · HN #4（56 points, 10 comments, 58 mins ago）· Bloomberg 报道 · Z.ai 官方确认 · 中文圈（量子位/机器之心）尚未大规模报道——窗口期还在
+        <strong>谁在讨论</strong> · HN #4（59 points, 10 comments, 1 hour ago）· Bloomberg 报道 · Z.ai 官方确认 · 中文圈（量子位/机器之心）尚未大规模报道——窗口期还在
     </div>
 
     <div class="try-links">
@@ -441,15 +441,15 @@
     <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
     <ul>
         <li>
-            <span class="days">Day 2</span>
+            <span class="days">Day 3</span>
             <div><span class="item-name">Apple M6 / M5 Ultra</span> <span class="update">— HN 今日仍有多条在首页前十（#5 Mac Studio, #12 Mac mini, #15 Mac mini），讨论热度持续但无新 trigger event。Apple 官方出货时间未公布。</span></div>
         </li>
         <li>
-            <span class="days">Day 3</span>
+            <span class="days">Day 4</span>
             <div><span class="item-name">Qwen3.8-27B 衍生版</span> <span class="update">— Hugging Face 上 uncensored / abliterated 变体已超 25 个，OBLITERATUS 版一天新增 469k 下载。生态仍在膨胀但无新 trigger event。</span></div>
         </li>
         <li>
-            <span class="days">Day 5</span>
+            <span class="days">Day 6</span>
             <div><span class="item-name">Ornith-1.5 系列</span> <span class="update">— 35B-A3B-GGUF 累计下载 +1.39M，但 KOL 讨论度无新增。降级为 ambient tracking，下期将移除。</span></div>
         </li>
     </ul>
@@ -469,6 +469,7 @@
             <tr><td>Mistral x HUMAIN Agentic Search</td><td>企业产品发布，对 vibe coding 无直接影响。</td></tr>
             <tr><td>Bun 1.4 WebView / Bun.Image</td><td>Runtime 更新，非 AI 核心信号。</td></tr>
             <tr><td>Nitter / XCancel 收到停止函</td><td>非 AI 新闻。</td></tr>
+            <tr><td>Muse Glimmer 30B</td><td>Meta 开源模型，HN 讨论度不足，中文圈已覆盖。</td></tr>
         </tbody>
     </table>
 </section>
