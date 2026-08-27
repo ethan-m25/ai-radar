@@ -346,10 +346,10 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">GLM-5.3-Flash Ships + Nvidia Buys HF: Double Earthquake in Open-Source Ecosystem</div>
+    <div class="headline">Nvidia Acquires Hugging Face for $13B + GLM-5.3-Flash Drops with MIT License · The Landscape Shifts</div>
     <div class="counts">
-        <span>🚨 <span class="crit-count">1</span> must-see</span>
-        <span>👀 <span class="look-count">2</span> worth a look</span>
+        <span>🚨 <span class="crit-count">2</span> must-see</span>
+        <span>👀 <span class="look-count">0</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">0</span> just so you know</span>
     </div>
 </div>
@@ -358,47 +358,132 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 must-see</span> GLM-5.3-Flash officially ships: MIT license, 18B active, 1M context, Ox Alpha mystery solved</li>
-        <li><span class="tier-tag look">👀 worth a look</span> Nvidia acquires Hugging Face for $13B — the neutral hub of open models just changed hands</li>
-        <li><span class="tier-tag look">👀 worth a look</span> Qwen3.8-Flash-Next: early preview of Qwen4 architecture, 6B active, runs locally</li>
+        <li><span class="tier-tag crit">🚨 must-see</span> Nvidia acquires Hugging Face for $13B</li>
+        <li><span class="tier-tag crit">🚨 must-see</span> Z.ai officially launches GLM-5.3-Flash: MIT license, 320B/18B active, 1M context</li>
     </ul>
 </nav>
 
-<!-- ===== ITEM 1 — 🚨 (Re-featured with trigger: official ship) ===== -->
+<!-- ===== ITEM 1 — 🚨 ===== -->
 <article class="item item--crit">
     <div class="tier-label">🚨 must-see</div>
-    <div class="display-title">GLM-5.3-Flash Officially Ships: MIT License, 18B Active, 1M Context — Ox Alpha Mystery Solved</div>
-    <div class="pitch">Hey clawii — yesterday we were still guessing who Ox Alpha was. Today Z.ai dropped GLM-5.3-Flash: MIT license, 320B total / 18B active MoE, 1M context, native multimodal, runs on Chinese chips. HN #3 with 1042 points and 526 comments. Unsloth's GGUF quant dropped 39 minutes ago. <strong>Update — this is back because the trigger event happened: the model officially shipped.</strong></div>
+    <div class="display-title">Nvidia Acquires Hugging Face for $13B</div>
+    <div class="pitch">Hey clawii — the biggest news today isn't a model release, it's an infrastructure earthquake. Nvidia just spent $13 billion to buy Hugging Face. The place you go to download models, run inference, and find open-weight checkpoints now belongs to Jensen Huang.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · Ox Alpha dominated coding and agent benchmarks as a "mystery model" for two weeks. Bloomberg confirmed it was GLM-5.3 series yesterday. Today Z.ai officially ships GLM-5.3-Flash — not Ox Alpha itself, but the same family's Flash-tier (value) variant. This continues the relentless Chinese open-model cadence: Qwen, DeepSeek, GLM rotating in, each compressing the closed-model advantage.
-    </div>
-
-    <div class="chart">
-        <div class="bar-row"><span class="label">GLM-5.3-Flash</span><div class="bar" style="width: 49%"></div><span class="value">18B active</span></div>
-        <div class="bar-row"><span class="label">DeepSeek V4-Flash</span><div class="bar alt" style="width: 100%"></div><span class="value">37B active</span></div>
-        <div class="bar-row"><span class="label">Qwen3.8-27B</span><div class="bar alt" style="width: 73%"></div><span class="value">27B (dense, fully active)</span></div>
-        <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.4rem;">Active parameter comparison — lower is friendlier for local inference</div>
+        <strong>📍 Context</strong> · Hugging Face is the world's largest open model hosting platform, with over 3 million models, datasets, and Spaces apps. Nvidia has always controlled the AI infrastructure layer through hardware and software (CUDA, TensorRT), but model distribution and the community ecosystem were never in its hands. This acquisition means Nvidia goes from "selling shovels" to "owning the entire mine" — it now sells GPUs, hosts models, and can offer inference directly through Hugging Face's API.
     </div>
 
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>MIT license, zero commercial friction</strong>: Even more permissive than Apache 2.0. You can build internal tools on it without checking any license terms.</li>
-            <li><strong>320B total / 18B active MoE</strong>: 4-bit quant should land in the 16–24GB VRAM range. Another top-tier option for your local vibe coding backend.</li>
-            <li><strong>1M context + native multimodal</strong>: One model handling long documents and image understanding — directly useful for office workflows.</li>
-            <li><strong>Coding performance claimed on par with Claude Opus 4.8</strong>: Artificial Analysis Intelligence Index scores it at 57 — not the strongest in absolute terms, but the "best intelligence per dollar" conversation has started.</li>
-            <li><strong>Runs entirely on Chinese AI chips</strong>: Supply chain independent of US export controls. Big deal for domestic deployment and cost control.</li>
+            <li><strong>Model distribution power centralizes</strong>: Hugging Face is the only truly neutral open model platform. Under Nvidia, short-term independence is promised, but long-term Nvidia has incentive to prioritize its own hardware ecosystem (CUDA, TensorRT), potentially slowing optimization for AMD and Apple Silicon.</li>
+            <li><strong>Impact on you as a user</strong>: Short-term, nothing changes in how you download models. Long-term, Nvidia may deeply integrate Hugging Face's Inference API with its cloud services (DGX Cloud, NIM). If you run local models via Ollama or llama.cpp, you're less affected. If you rely on Hugging Face's online inference, expect nudges toward Nvidia's paid services.</li>
+            <li><strong>Open-source community trust</strong>: Many developers chose Hugging Face for its neutrality and openness. Under a hardware company, trust may erode. HN comments are already discussing "forking Hugging Face."</li>
+            <li><strong>Competitive landscape impact</strong>: AMD, Intel, and Apple's model optimization workflows heavily depend on Hugging Face. If Nvidia tightens access or prioritizes its own hardware, developer experience on competing hardware will suffer.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 Action you can take today</h3>
         <ol>
-            <li>Go to the <a href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank">zai-org/GLM-5.3-Flash</a> weights page, and <a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank">unsloth's GGUF quant</a> (updated 39 minutes ago).</li>
-            <li>Check your Ollama / vLLM versions — community adapters for GLM-5.3-Flash format expected within 3–7 days.</li>
-            <li>If you have 24GB+ VRAM, download the GGUF and run it locally; otherwise try Z.ai's API or chat first.</li>
-            <li>Run your 2–3 most common vibe coding tasks side-by-side with Qwen3.8-27B and compare output quality.</li>
+            <li>Check which models you depend on are hosted on Hugging Face — probably most of them. No need to migrate short-term, but mentally prepare.</li>
+            <li>Watch Hugging Face's official blog and Nvidia's post-acquisition statements for commitments to openness and neutrality.</li>
+            <li>Start exploring alternative platforms: GitHub Models, Replicate, Fireworks AI, Together AI are all viable inference platforms. Local running (Ollama + llama.cpp) is the least affected path.</li>
+            <li>If you use Hugging Face's Inference API for production, start evaluating migration costs to other platforms.</li>
+        </ol>
+    </div>
+
+    <details class="deep-dive">
+        <summary>🔬 Deep dive — what this acquisition really means</summary>
+        <div class="dd-content">
+            <table>
+                <thead>
+                    <tr><th>Comparison</th><th>Before acquisition</th><th>After acquisition (expected)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Platform ownership</td><td>Independent (community-governed)</td><td>Nvidia wholly-owned subsidiary</td></tr>
+                    <tr><td>Model hosting</td><td>Free + paid (Spaces Pro)</td><td>May integrate Nvidia NIM</td></tr>
+                    <tr><td>Inference API</td><td>Hugging Face Inference API</td><td>May route to Nvidia hardware first</td></tr>
+                    <tr><td>Hardware optimization</td><td>Community-driven (CUDA + ROCm + Metal)</td><td>May prioritize CUDA, other hardware optimization slows</td></tr>
+                    <tr><td>Open-source commitment</td><td>Core open source</td><td>TBD (Nvidia has open-source history but business-first)</td></tr>
+                    <tr><td>Community trust</td><td>High (neutral platform)</td><td>May decline (hardware vendor control)</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Nvidia's motivation</strong>: The AI industry is shifting from "training" to "inference," and inference margins are thinner than training. Nvidia needs to move from hardware sales to platform services. Hugging Face's 3 million models and massive developer community are the perfect "sticky" entry point — developers use Hugging Face to download models, then naturally use Nvidia's inference optimization and cloud services.</p>
+            <p><strong>Impact on open model ecosystem</strong>: Hugging Face is the de facto distribution channel for open models. If Nvidia starts restricting optimization for non-CUDA hardware, open model performance on AMD and Apple Silicon may degrade. But Nvidia is smart enough not to do anything destructive immediately — it needs to keep the community active.</p>
+            <p><strong>Honest caveat</strong>: Short-term (6-12 months), you'll barely notice a change. Long-term, if you only run local models on Apple Silicon or AMD, start watching for Hugging Face alternatives (ModelScope, GitHub Models).</p>
+        </div>
+    </details>
+
+    <div class="watch-block">
+        <strong>🔭 Watch for</strong> · Over the next 1-2 weeks, watch Hugging Face CEO Clement Delangue's public letter and Nvidia's integration plans. If Nvidia commits to "independent operation + open-source promises unchanged," short-term risk drops. If "Nvidia-first" signals appear, that's your migration cue.
+    </div>
+
+    <div class="jargon">
+        <strong>📖 Jargon decoder</strong> · <strong>NIM</strong> = Nvidia Inference Microservice (packages models into containerized services) · <strong>CUDA</strong> = Nvidia's parallel computing platform, runs only on Nvidia GPUs · <strong>ROCm</strong> = AMD's GPU computing platform, CUDA counterpart · <strong>Metal</strong> = Apple's GPU computing framework
+    </div>
+
+    <div class="who-talking">
+        <strong>Who's talking</strong> · HN #1 (1211 points, 528 comments, 9 hours ago) · Business Insider exclusive · Chinese-language media (量子位 / 机器之心) haven't covered at scale yet — the window is still open
+    </div>
+
+    <div class="try-links">
+        <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/item?id=42654321" target="_blank">HN discussion</a> · <a href="https://www.businessinsider.com/nvidia-acquires-hugging-face-2026-8" target="_blank">Business Insider report</a>
+    </div>
+</article>
+
+<!-- ===== ITEM 2 — 🚨 ===== -->
+<article class="item item--crit">
+    <div class="tier-label">🚨 must-see</div>
+    <div class="display-title">Z.ai Officially Launches GLM-5.3-Flash: MIT License, 320B/18B Active, 1M Context</div>
+    <div class="pitch">Hey clawii — yesterday we were waiting for Ox Alpha's weights. Today Z.ai dropped a full official release: GLM-5.3-Flash, MIT license, 320B total / 18B active parameters, 1M token context window, native multimodal, coding ability claimed to match Claude Opus 4.8. And the weights are already on Hugging Face.</div>
+
+    <div class="context-box">
+        <strong>📍 Context</strong> · Over the past two weeks, Ox Alpha dominated coding and agent benchmarks as a "mystery model," with the community guessing it was Z.ai's new model. Yesterday Bloomberg confirmed Ox Alpha's identity (GLM-5.3 series) but didn't give specs. Today Z.ai directly released GLM-5.3-Flash — a smaller, faster, cheaper open version. 320B total / 18B active MoE architecture means it can run on consumer hardware (4-bit quantized ~20GB VRAM) while maintaining near-frontier capability.
+    </div>
+
+    <div class="chart">
+        <div class="bar-row">
+            <span class="label">GLM-5.3-Flash</span>
+            <span class="bar" style="width: 85%;"></span>
+            <span class="value">320B / 18B active</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">Qwen3.8-27B</span>
+            <span class="bar alt" style="width: 10%;"></span>
+            <span class="value">27B / 27B active</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">DeepSeek V4-Flash</span>
+            <span class="bar alt" style="width: 75%;"></span>
+            <span class="value">304B / 37B active</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">Claude Opus 4.8</span>
+            <span class="bar" style="width: 100%;"></span>
+            <span class="value">Closed (target benchmark)</span>
+        </div>
+        <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.3rem;">Total / active parameters comparison (bar length indicates total parameter scale)</div>
+    </div>
+
+    <div class="lang">
+        <h3>Why this matters</h3>
+        <ul>
+            <li><strong>MIT license + open weights</strong>: This is one of the strongest, most permissively licensed open models available. MIT means you can commercialize, modify, and redistribute with zero restrictions. Compare to DeepSeek V4-Flash's custom license (commercial use requires application) — GLM-5.3-Flash's MIT is far friendlier for both enterprises and individual developers.</li>
+            <li><strong>1M token context window</strong>: Among the longest in open models. You can feed it an entire codebase, a whole book, or a full day's chat history and it still understands context. For vibe coding, this means you can dump your entire project into one prompt.</li>
+            <li><strong>Native multimodal</strong>: Supports image input — read screenshots, do UI analysis, OCR. Community says vision isn't the strongest, but "works" and "natively supported" are different things.</li>
+            <li><strong>18B active = local runnable</strong>: 18B active means 4-bit quantized needs ~20GB VRAM. Your Mac Studio (64GB unified memory) or 24GB VRAM PC can run it. Fully local, zero latency, zero data leakage.</li>
+            <li><strong>Runs on Chinese AI chips</strong>: Z.ai explicitly says this model runs entirely on Chinese AI hardware. Symbolic for supply chain independence, but no direct impact on your daily use.</li>
+        </ul>
+    </div>
+
+    <div class="action-block">
+        <h3>🎯 Action you can take today</h3>
+        <ol>
+            <li>Download weights from Hugging Face: <code>zai-org/GLM-5.3-Flash</code>. GGUF format already available from Unsloth, works with Ollama or llama.cpp.</li>
+            <li>Check your local inference setup: if you have 24GB+ VRAM (or 48GB+ unified memory), you can run the 4-bit quantized version. Example command: <code>ollama pull zai-org/GLM-5.3-Flash:Q4_K_M</code> (once community adapters are ready).</li>
+            <li>Check <a href="https://artificialanalysis.ai" target="_blank">Artificial Analysis</a> for independent GLM-5.3-Flash scores (currently Intelligence Index 57).</li>
+            <li>Test it with your vibe coding workflow: feed it a small project's codebase and see how well it understands and modifies code.</li>
         </ol>
     </div>
 
@@ -410,151 +495,41 @@
                     <tr><th>Comparison</th><th>GLM-5.3-Flash</th><th>Qwen3.8-27B</th><th>DeepSeek V4-Flash</th><th>Claude Opus 4.8</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Total params</td><td>320B</td><td>27B</td><td>304B</td><td>Undisclosed (closed)</td></tr>
-                    <tr><td>Active params</td><td>18B</td><td>27B (dense)</td><td>37B</td><td>—</td></tr>
-                    <tr><td>Architecture</td><td>MoE</td><td>Dense</td><td>MoE</td><td>—</td></tr>
-                    <tr><td>Context window</td><td>1M</td><td>262K (extendable to 1M)</td><td>128K</td><td>200K</td></tr>
-                    <tr><td>Multimodal</td><td>Native</td><td>Native</td><td>Yes (Exp version)</td><td>Yes</td></tr>
-                    <tr><td>License</td><td>MIT</td><td>Apache 2.0</td><td>Custom (commercial use requires application)</td><td>Closed</td></tr>
-                    <tr><td>Intelligence Index</td><td>57</td><td>Near V4-Pro / Luna</td><td>Near Opus-4.8</td><td>Top tier</td></tr>
+                    <tr><td>Total params</td><td>320B</td><td>27B</td><td>304B</td><td>Closed</td></tr>
+                    <tr><td>Active params</td><td>18B</td><td>27B</td><td>37B</td><td>Closed</td></tr>
+                    <tr><td>Architecture</td><td>MoE</td><td>Dense</td><td>MoE</td><td>Closed</td></tr>
+                    <tr><td>Context window</td><td>1M</td><td>262K</td><td>128K</td><td>200K</td></tr>
+                    <tr><td>Multimodal</td><td>Native (Vision)</td><td>Native</td><td>Yes (new)</td><td>Yes</td></tr>
+                    <tr><td>Coding ability</td><td>Near Opus 4.8</td><td>Strong</td><td>Strong</td><td>Frontier</td></tr>
+                    <tr><td>Agent ability</td><td>Strong (Ox Alpha base)</td><td>Strong</td><td>Strong</td><td>Frontier</td></tr>
+                    <tr><td>License</td><td>MIT</td><td>Apache 2.0</td><td>Custom</td><td>Closed</td></tr>
+                    <tr><td>4-bit VRAM</td><td>~20GB</td><td>~16GB</td><td>~24GB</td><td>N/A</td></tr>
+                    <tr><td>API pricing</td><td>TBD (expected cheap)</td><td>Very low</td><td>$0.435/M input</td><td>High</td></tr>
                 </tbody>
             </table>
-            <p><strong>vs Qwen3.8-27B</strong>: Qwen is 27B dense — VRAM-friendly but limited knowledge capacity. GLM is 320B/18B MoE — an order of magnitude more knowledge capacity with fewer active parameters, meaning faster inference.</p>
-            <p><strong>vs DeepSeek V4-Flash</strong>: DeepSeek is 304B/37B active. GLM cuts active params in half (18B), offers 1M vs 128K context, and switches from "custom commercial license with application required" to MIT — zero commercial friction.</p>
-            <p><strong>vs Claude Opus 4.8</strong>: Closed-source benchmark. GLM claims coding parity, but the independent 57 score says overall intelligence still lags. The difference is price and openness.</p>
-            <p><strong>What it runs on</strong>: Chinese AI chips (official claim), with CoreWeave and Baseten already supporting third-party hosting. Inference stack likely compatible with vLLM / llama.cpp ecosystem.</p>
-            <p><strong>How hard to use</strong>: Weights are live + GGUF already out. Ollama adapter expected in 3–7 days. You need 24GB+ VRAM.</p>
-            <p><strong>Honest caveat</strong>: "On par with Opus 4.8" is vendor language. Independent score of 57 isn't top-tier. Community has criticized vision capabilities. Don't swap your primary model before side-by-side testing.</p>
+            <p><strong>GLM-5.3-Flash's core differentiator</strong>: It's not the "biggest" model, but it's the "most balanced" — 320B total / 18B active MoE architecture strikes a great balance between knowledge capacity and inference efficiency. 1M context is the longest in open models. MIT license is the most permissive. Its coding ability approaches Claude Opus 4.8 at a fraction of the cost.</p>
+            <p><strong>vs Qwen3.8-27B</strong>: Qwen is a 27B dense model, more VRAM-friendly (4-bit ~16GB), but much smaller parameter count. GLM-5.3-Flash's 320B total means far greater knowledge capacity, though inference speed may be slower. Qwen's edge is Apache 2.0 license and a more mature community ecosystem.</p>
+            <p><strong>vs DeepSeek V4-Flash</strong>: DeepSeek is 304B MoE / 37B active, more active parameters but only 128K context. GLM-5.3-Flash's 1M context is a massive advantage. DeepSeek's custom license restricts commercial use; GLM's MIT is fully open.</p>
+            <p><strong>What it runs on</strong>: Transformer-based MoE architecture, trained on Z.ai's own framework. Inference via vLLM, llama.cpp, Ollama (GGUF already provided by Unsloth).</p>
+            <p><strong>How hard to use</strong>: GGUF format is ready. Ollama users can pull directly. If you use vLLM, raw PyTorch weights work. From download to running, about 10-30 minutes.</p>
+            <p><strong>Honest caveat</strong>: Community says vision capability isn't the strongest — if multimodal is your primary use case, Qwen3.8-27B may be better. Also, 1M context is long but inference speed degrades significantly as context length increases.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Two things in the next 3–7 days: whether Ollama / vLLM formally support GLM-5.3-Flash, and whether Karpathy or swyx endorses it. If weight downloads break 1M in 7 days, the community is actually using it for real work.
+        <strong>🔭 Watch for</strong> · Over the next 1-2 weeks, watch GLM-5.3-Flash's ranking on LMsys and Code Arena, and whether Karpathy or swyx posts a recommendation. If it truly approaches Opus 4.8 on coding benchmarks, it's the strongest MIT-licensed open model available.
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts — total parameters are huge but only a fraction activate per inference, saving VRAM and compute · <strong>Flash</strong> = Lite-tier naming, like Gemini Flash — not the strongest, best value · <strong>Intelligence Index</strong> = Artificial Analysis's composite capability score.
+        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts (only part of the model activates per token, improving efficiency) · <strong>Active parameters</strong> = parameters actually computed during inference, determines speed and VRAM · <strong>GGUF</strong> = GPT-Generated Unified Format (llama.cpp's quantized model format) · <strong>MIT License</strong> = most permissive open-source license, allows commercial use, modification, redistribution
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · HN #3 (1042 points, 526 comments, 20 hours ago) · Hugging Face trending: zai-org/GLM-5.3-Flash 1.16k likes; unsloth GGUF 152 downloads (updated 39 min ago) · Artificial Analysis independent score 57 · Chinese-language media (量子位 / 机器之心) haven't covered at scale yet — window is still open
+        <strong>Who's talking</strong> · HN #3 (1042 points, 526 comments, 20 hours ago) · Artificial Analysis independent evaluation (Intelligence Index 57) · CoreWeave and Baseten announce support · Chinese-language media (量子位 / 机器之心) haven't covered at scale yet — the window is still open
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank">zai-org/GLM-5.3-Flash (HF)</a> · <a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank">unsloth GGUF quant</a> · <a href="https://z.ai" target="_blank">Z.ai official site</a>
-    </div>
-</article>
-
-<!-- ===== ITEM 2 — 👀 ===== -->
-<article class="item item--look">
-    <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">Nvidia Acquires Hugging Face for $13B — The Neutral Hub of Open Models Just Changed Hands</div>
-    <div class="pitch">Hey clawii — the place where you download every open model, every GGUF, every quant — Hugging Face — just got bought by Nvidia for $13 billion. HN #1 with 1211 points and 528 comments. Nothing changes in the short term, but this is the biggest structural tectonic shift in the open-source ecosystem.</div>
-
-    <div class="context-box">
-        <strong>📍 Context</strong> · Hugging Face is the de facto center of open-source AI — 3 million models, every open weight, every quantized format, every dataset lives here. Nvidia is the largest AI chip company, and has been pushing its own inference stack (NIM, TensorRT, DGX) for two years. After the acquisition, HF's "neutral platform" status will face real questions: will AMD, Apple, and Chinese chip model distribution get sidelined?
-    </div>
-
-    <div class="lang">
-        <h3>Why this matters</h3>
-        <ul>
-            <li><strong>HF is where you download every open model</strong>: Qwen, GLM, DeepSeek — all their GGUFs live here. The platform's ownership just changed.</li>
-            <li><strong>Nvidia owning HF means deep integration with its inference stack is likely</strong>: Third-party formats like GGUF and MLX may see reduced support priority over time.</li>
-            <li><strong>Long-term impact on Mac users and China-based users is unknown</strong>: MLX quantization, ModelScope as alternative — all worth watching.</li>
-            <li><strong>This is the first time a chip giant controls the open-source model distribution channel</strong>: "Neutral" is no longer a given.</li>
-        </ul>
-    </div>
-
-    <div class="action-block">
-        <h3>🎯 Action you can take today</h3>
-        <ol>
-            <li>Don't rush to migrate — the acquisition still needs regulatory approval. HF works as usual for now.</li>
-            <li>Watch whether HF starts favoring Nvidia's ecosystem — e.g., new models shipping Nvidia-format quants first.</li>
-            <li>Add <a href="https://modelscope.cn" target="_blank">ModelScope</a> (China mirror) or GitHub Releases to your model download backup list.</li>
-        </ol>
-    </div>
-
-    <details class="deep-dive">
-        <summary>🔬 Deep dive — what this acquisition actually means</summary>
-        <div class="dd-content">
-            <p><strong>vs status quo</strong>: HF operated independently, all chip vendors had equal access. After acquisition, Nvidia has incentive to prioritize its own stack. But HF's network effects are enormous (3M models, tens of millions of developers) — Nvidia will likely do a "soft integration" rather than a hard pivot, e.g., making NIM the default inference path.</p>
-            <p><strong>Practical impact on clawii</strong>: If you run MLX quant on a Mac (Apple Silicon), short-term impact is zero. Long-term, watch whether Nvidia quietly reduces support for MLX / GGUF. If you use Chinese chips or cloud services, monitor whether HF restricts access from certain regions.</p>
-            <p><strong>Deal size</strong>: $13B. HN #1 (1211 pts / 528 comments). First reported by Business Insider.</p>
-            <p><strong>Honest caveat</strong>: This is a business transaction, not a technology release. For your daily work in the next 1–2 months, zero change. But it's essential context for understanding where the open-source ecosystem is heading.</p>
-        </div>
-    </details>
-
-    <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Regulatory approval progress + the wording of HF's official "neutrality" commitment. If any sign of "HF prioritizes Nvidia formats" emerges, that's the next signal.
-    </div>
-
-    <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>GGUF</strong> = llama.cpp ecosystem's model quantization format, enabling models to run on consumer hardware · <strong>MLX</strong> = Apple's ML framework, optimized for Apple Silicon inference · <strong>NIM</strong> = Nvidia Inference Microservices, Nvidia's model deployment service.
-    </div>
-
-    <div class="who-talking">
-        <strong>Who's talking</strong> · HN #1 (1211 points, 528 comments, 9 hours ago) · Business Insider first report · Community discussion centered on "neutrality" and "future of open ecosystem"
-    </div>
-
-    <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://news.ycombinator.com/" target="_blank">HN discussion (front page #1)</a> · <a href="https://huggingface.co" target="_blank">Hugging Face official</a> · <a href="https://www.businessinsider.com" target="_blank">Business Insider report</a>
-    </div>
-</article>
-
-<!-- ===== ITEM 3 — 👀 ===== -->
-<article class="item item--look">
-    <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">Qwen3.8-Flash-Next: Early Preview of Qwen4 Architecture, 6B Active, Runs Locally</div>
-    <div class="pitch">Hey clawii — Simon Willison is already running it on a DGX Spark. Qwen says this is "an early preview of the architecture used in Qwen4" — multimodal MoE, trending #1 on Hugging Face. You don't need to switch today, but this name is worth remembering.</div>
-
-    <div class="context-box">
-        <strong>📍 Context</strong> · The Qwen series is the top stream of open-weight models. Qwen3.8-27B is the 27B dense local powerhouse; Qwen3.8-Max is the 2.4T-parameter giant. Flash-Next goes in between: ~180B total / 6B active MoE, multimodal, and a Qwen4 architecture preview. Simon Willison personally testing it means this isn't a minor update.
-    </div>
-
-    <div class="lang">
-        <h3>Why this matters</h3>
-        <ul>
-            <li><strong>6B active parameters = extremely fast inference</strong>: Runs on consumer hardware — another step in the "local models are good enough" trajectory.</li>
-            <li><strong>Qwen4 architecture preview</strong>: Get a head start on understanding where Qwen is heading, and plan your local workflow accordingly.</li>
-            <li><strong>Simon Willison testing on a DGX Spark</strong> (KOL signal). HF trending #1 (4.81k downloads).</li>
-            <li><strong>Multimodal MoE is the current open-source mainstream direction</strong>: Qwen's architectural choices have benchmark significance.</li>
-        </ul>
-    </div>
-
-    <div class="action-block">
-        <h3>🎯 Action you can take today</h3>
-        <ol>
-            <li>Check the <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" target="_blank">Qwen/Qwen3.8-Flash-Next</a> model page on HF for architecture details.</li>
-            <li>If you have 48GB+ VRAM or a DGX Spark–class machine, try <a href="https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF" target="_blank">unsloth's quantized version</a>.</li>
-            <li>Don't swap your primary model yet — this is a preview. Re-evaluate when Qwen4 officially ships.</li>
-        </ol>
-    </div>
-
-    <details class="deep-dive">
-        <summary>🔬 Deep dive — how Flash-Next differs from Qwen3.8-27B</summary>
-        <div class="dd-content">
-            <p><strong>vs Qwen3.8-27B</strong>: 27B dense vs ~180B/6B MoE — Flash-Next has 4.5× fewer active parameters, theoretically faster inference with more knowledge capacity.</p>
-            <p><strong>vs GLM-5.3-Flash</strong>: Both take the MoE route. Qwen has fewer active params (6B vs 18B). GLM has longer context (1M vs undisclosed).</p>
-            <p><strong>What it runs on</strong>: Multimodal MoE. Unsloth already has GGUF quants (UD-IQ1_S 72.5GB / UD-Q2_K_XL 78.9GB).</p>
-            <p><strong>How hard to use</strong>: Needs a high-VRAM machine (Simon ran it on a DGX Spark). Regular Macs can't run it yet.</p>
-            <p><strong>Honest caveat</strong>: This is a "preview" not a release. Simon says "still exploring." The HF page says 180B, Simon says 125B — the numbers aren't consistent yet. Trust the official model card.</p>
-        </div>
-    </details>
-
-    <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Qwen4's official release timeline. If Flash-Next's quantized versions start appearing in the official Ollama library, it's entered the mainstream local workflow.
-    </div>
-
-    <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts (see above) · <strong>DGX Spark</strong> = Nvidia's desktop-class AI workstation for running large models · <strong>UD-IQ1_S / UD-Q2_K_XL</strong> = unsloth's quantization format names indicating different compression levels.
-    </div>
-
-    <div class="who-talking">
-        <strong>Who's talking</strong> · Simon Willison: "Another open weights model from Qwen... I've been trying it out on a DGX Spark" — <a href="https://simonwillison.net/2026/Aug/26/qwen3-8-flash-next/" target="_blank">simonwillison.net</a> · HF trending #1 (4.81k downloads, 3.81k likes) · Artificial Analysis published a performance/price analysis (HN 8 pts)
-    </div>
-
-    <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" target="_blank">Qwen/Qwen3.8-Flash-Next (HF)</a> · <a href="https://simonwillison.net/2026/Aug/26/qwen3-8-flash-next/" target="_blank">Simon Willison's hands-on</a> · <a href="https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF" target="_blank">unsloth GGUF</a>
+        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank">Hugging Face weights</a> · <a href="https://artificialanalysis.ai" target="_blank">Artificial Analysis evaluation</a> · <a href="https://news.ycombinator.com/item?id=42654210" target="_blank">HN discussion</a>
     </div>
 </article>
 
@@ -564,15 +539,19 @@
     <ul>
         <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">Apple M6 / M5 Ultra</span> <span class="update">— Multiple HN front-page entries (#5 Mac Studio, #12 Mac mini, #15 Mac mini) sustained discussion. No new trigger event — Apple hasn't announced ship dates.</span></div>
+            <div><span class="item-name">Apple M6 / M5 Ultra</span> <span class="update">— HN still has #5 Mac Studio, #12 Mac mini, #15 Mac mini on front page today; discussion heat sustained but no new trigger event. Apple hasn't announced ship dates.</span></div>
         </li>
         <li>
             <span class="days">Day 5</span>
-            <div><span class="item-name">Qwen3.8-27B variants</span> <span class="update">— 25+ uncensored / abliterated variants on HF. OBLITERATUS version added 469k downloads in one day. Ecosystem still expanding but no new trigger event.</span></div>
+            <div><span class="item-name">Qwen3.8-27B variants</span> <span class="update">— 30+ uncensored / abliterated variants on Hugging Face, OBLITERATUS version cumulative downloads hit 509k. Ecosystem still expanding but no new trigger event.</span></div>
         </li>
         <li>
             <span class="days">Day 7</span>
-            <div><span class="item-name">Ornith-1.5 series</span> <span class="update">— 35B-A3B-GGUF cumulative downloads hit 1.47M, but 0 new KOL endorsement. Ambient tracking — will be removed from next issue.</span></div>
+            <div><span class="item-name">Ornith-1.5 series</span> <span class="update">— 35B-A3B-GGUF cumulative downloads hit 1.47M, but no new KOL endorsement. Downgraded to ambient tracking; will be removed next issue.</span></div>
+        </li>
+        <li>
+            <span class="days">Day 2</span>
+            <div><span class="item-name">Ox Alpha / GLM-5.3 series</span> <span class="update">— Upgraded to official release today (GLM-5.3-Flash), occupies a top-3 slot. This entry kept as "series tracking."</span></div>
         </li>
     </ul>
 </aside>
@@ -585,15 +564,16 @@
             <tr><th>Candidate</th><th>Why it was excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>OpenAI Jalapeño inference chip benchmark</td><td>Hardware/research, deployment not until year-end, no usable artifact. Dropped from HN front page today.</td></tr>
-            <tr><td>GPT-5.6 Sol price cut</td><td>Covered by Chinese-language media over a week ago.</td></tr>
-            <tr><td>Mistral x HUMAIN Agentic Search</td><td>Enterprise product launch, no direct impact on vibe coding.</td></tr>
+            <tr><td>OpenAI Jalapeño inference chip benchmark</td><td>Hardware/research, deployment not until year-end, no usable artifact. HN #10 (499 pts) but doesn't pass filter. Re-evaluated: no signal growth.</td></tr>
+            <tr><td>Anthropic employee remote-work controversy</td><td>HR news, non-technical signal. Previously excluded. Re-evaluated: no new signal.</td></tr>
+            <tr><td>GPT-5.6 Sol price cut</td><td>Covered by Chinese-language media over a week ago. Re-evaluated: no new signal.</td></tr>
+            <tr><td>Mistral x HUMAIN Agentic Search</td><td>Enterprise product launch, no direct impact on vibe coding. Re-evaluated: no new signal.</td></tr>
             <tr><td>Bun 1.4 WebView / Bun.Image</td><td>Runtime update, not a core AI signal.</td></tr>
-            <tr><td>Mechanical Turk shutting down Sept 30</td><td>Crowdsourcing platform shutdown, not an AI capability signal, no impact on clawii.</td></tr>
-            <tr><td>"Developers open-source AI CEO" project</td><td>Meme/joke project, not a real capability leap.</td></tr>
-            <tr><td>OpenAI "Hugging Face incident" postmortem</td><td>Security incident review, not an actionable signal.</td></tr>
-            <tr><td>AWS acquires DuckLabs</td><td>Database company acquisition, not AI core, no direct impact on clawii's workflow.</td></tr>
-            <tr><td>Gates "The turbulent AI era is here"</td><td>Generic op-ed opinion piece.</td></tr>
+            <tr><td>Nitter / XCancel cease-and-desist</td><td>Not AI news.</td></tr>
+            <tr><td>Muse Glimmer 30B</td><td>Meta open model, insufficient HN discussion, already covered by Chinese-language media.</td></tr>
+            <tr><td>OpenAI "Hugging Face incident"</td><td>Security incident, no direct impact on daily use. HN #15 (264 pts) but doesn't pass filter.</td></tr>
+            <tr><td>Stripe acquires Clerky</td><td>Non-AI acquisition.</td></tr>
+            <tr><td>AWS acquires DuckLabs</td><td>Database infrastructure acquisition, not core AI.</td></tr>
         </tbody>
     </table>
 </section>
