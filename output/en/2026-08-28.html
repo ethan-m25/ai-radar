@@ -346,10 +346,9 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">Small Model Wave + Google Double Drop: Transcription &amp; Video Generation</div>
+    <div class="headline">Google Drops Gemini 3.5 Transcribe · Small Model Trend Confirms</div>
     <div class="counts">
-        <span>🚨 <span class="crit-count">0</span> must-see</span>
-        <span>👀 <span class="look-count">2</span> worth a look</span>
+        <span>👀 <span class="look-count">1</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> just so you know</span>
     </div>
 </div>
@@ -358,163 +357,101 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag look">👀 worth a look</span> Small Models Have Arrived — the small model era is here</li>
-        <li><span class="tier-tag look">👀 worth a look</span> Gemini 3.5 Transcribe — Google releases a smart transcription model</li>
-        <li><span class="tier-tag fyi">ℹ️ just so you know</span> Gemini Omni 1.1 Flash — new video generation model</li>
+        <li><span class="tier-tag look">👀 worth a look</span> Gemini 3.5 Transcribe — Google&#x27;s dedicated speech-to-text model</li>
+        <li><span class="tier-tag fyi">ℹ️ just so you know</span> &quot;Small Models Have Arrived&quot; — HN front-page essay confirms the shift</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">Small Models Have Arrived — the small model era is here</div>
-    <div class="pitch">Hey clawii — a 663-point HN article summarizes the recent small model explosion — GLM-5.3-Flash, Qwen3.8-Flash-Next, and more — explaining why small models are changing the game. Not a product launch, but the community confirming a trend.</div>
+    <div class="display-title">Gemini 3.5 Transcribe — Google&#x27;s Dedicated Speech-to-Text Model</div>
+    <div class="pitch">Hey clawii — Google just shipped a model specifically for transcription, called Gemini 3.5 Transcribe. Multilingual, real-time streaming, baked into the Gemini API and Google products. HN #7 with 302 points. If you deal with meeting recordings, interview transcripts, or voice notes, this one&#x27;s worth a look this weekend.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · Over the past two weeks, multiple Chinese labs have released high-value small models (MoE architecture, few active parameters), making it possible to run powerful models locally. GLM-5.3-Flash (320B/18B active), Qwen3.8-Flash-Next (180B/6B active) and others excel at coding and agent tasks. This article from calv.info earned 663 points and 299 comments on HN — the community's summary and endorsement of the trend.
+        <strong>📍 Context</strong> · The speech-to-text market already has strong players: Whisper (open-source, self-hosted), Deepgram (commercial, low-latency), Azure Speech, and Google&#x27;s own Chirp model. What&#x27;s new here is that Google is branding this under Gemini — a dedicated transcription model rather than a side feature of a general-purpose model. It promises deep integration with the Gemini ecosystem (API, Google Cloud, Workspace), native streaming, and 99+ language support including Chinese. Pricing isn&#x27;t announced yet, but Google usually competes on cost.
     </div>
 
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>Directly relevant to your local model interest</strong>: The article lists key models and their comparisons, helping you quickly understand the ecosystem.</li>
-            <li><strong>High HN score = community validation</strong>: 663 points isn't random — many people think this is an important turning point.</li>
-            <li><strong>Small models = lower cost + higher availability</strong>: You can run near-frontier models on consumer hardware, a huge win for vibe coding and office automation.</li>
-            <li><strong>The article itself is a great learning resource</strong>: Even if you already know these models, it helps build a big-picture view.</li>
+            <li><strong>Dedicated transcription model, not a general-model side effect</strong>: Google specifically trained a model for this task. In theory, accuracy and latency should be better than using a general-purpose LLM to transcribe.</li>
+            <li><strong>Direct Gemini API integration</strong>: If you&#x27;re already using the Gemini API for other tasks, you can handle transcription + analysis in a single pipeline. No stitching together separate services.</li>
+            <li><strong>Multilingual + real-time</strong>: Supports Chinese, streams output in real time. Good for live meeting captions, interview transcription, or voice note processing.</li>
+            <li><strong>HN #7 with 302 points</strong>: Strong community interest. People clearly need better transcription tools.</li>
         </ul>
     </div>
 
     <div class="action-block">
-        <h3>🎯 What you can do today</h3>
+        <h3>🎯 Action you can take today</h3>
         <ol>
-            <li>Read the original: <a href="https://calv.info/small-models-have-arrived" target="_blank">calv.info/small-models-have-arrived</a></li>
-            <li>Cross-reference the model list in the article against your current stack — are you using outdated models?</li>
-            <li>If the article mentions a model you haven't tried (like GLM-5.3-Flash), head to Hugging Face to check out the weights and quantized versions.</li>
+            <li>Open the <a href="https://blog.google" target="_blank">Google blog post</a> for the full Gemini 3.5 Transcribe announcement and API docs.</li>
+            <li>If you already have a Gemini API key, try calling the transcription endpoint and compare with your current setup (Whisper, Deepgram, etc.).</li>
+            <li>Watch for pricing — if it ends up cheaper than Whisper-as-a-service or Deepgram, consider migrating your transcription workflow.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — what this article actually says</summary>
-        <div class="dd-content">
-            <p>Core thesis: Small models (&lt;20B active parameters) have reached a level where they can replace large models for everyday tasks. Key data points:</p>
-            <ul>
-                <li>GLM-5.3-Flash: 320B total / 18B active, MIT license, 1M context, coding performance rivaling Opus 4.8.</li>
-                <li>Qwen3.8-Flash-Next: 180B total / 6B active, Qwen4 architecture preview, multimodal MoE.</li>
-                <li>DeepSeek V4-Flash: 304B / 37B active, but license restricts commercial use.</li>
-                <li>These models score 50-60 on the Artificial Analysis Intelligence Index, approaching closed-source frontier models.</li>
-            </ul>
-            <p><strong>What it means for you</strong>: You can run these models locally — no cloud API dependency, better privacy, lower latency, near-zero cost (just electricity).</p>
-            <p><strong>Honest caveat</strong>: The article is a summary, not original research. Some data may come from vendor marketing. But HN community discussion validates most claims.</p>
-        </div>
-    </details>
-
-    <div class="watch-block">
-        <strong>🔭 Watch for</strong> · This article itself is a signal: when the community starts summarizing a trend, the trend is already mature. Watch for Ollama to officially support these new models, and for KOLs like Karpathy to weigh in.
-    </div>
-
-    <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts — large total parameters, but only a fraction activates per inference · <strong>Active parameters</strong> = parameters actually computed during inference, determines speed and VRAM.
-    </div>
-
-    <div class="who-talking">
-        <strong>Who's talking</strong> · HN #3 (663 points, 299 comments, 19 hours ago) · Author: calv.info · Community discussion focuses on "are small models actually good enough" and "the rise of Chinese open-source models"
-    </div>
-
-    <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://calv.info/small-models-have-arrived" target="_blank">Original article</a> · <a href="https://news.ycombinator.com/item?id=42654322" target="_blank">HN discussion</a>
-    </div>
-</article>
-
-<!-- ===== ITEM 2 — 👀 ===== -->
-<article class="item item--look">
-    <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">Gemini 3.5 Transcribe — Google releases a smart transcription model</div>
-    <div class="pitch">Hey clawii — Google released Gemini 3.5 Transcribe, a model purpose-built for speech-to-text. HN 302 points. If you process meeting recordings, voice notes, or podcast transcripts, this could be a new option.</div>
-
-    <div class="context-box">
-        <strong>📍 Context</strong> · Google has been pushing hard on voice AI — Gemini Live Translate, Realtime API, and now this. Gemini 3.5 Transcribe is specifically optimized for transcription, claiming improvements in accuracy and speed. It's Google's answer to open-source solutions like Whisper in the transcription market.
-    </div>
-
-    <div class="lang">
-        <h3>Why this matters</h3>
-        <ul>
-            <li><strong>Transcription is a common office need</strong>: Meeting notes, interview transcripts, voice memos — you probably need this.</li>
-            <li><strong>Potentially more accurate than existing options</strong>: Google has strong speech recognition foundations, and the Gemini model can understand context to reduce errors.</li>
-            <li><strong>Google ecosystem integration</strong>: Could work directly with Google Meet, YouTube, etc., lowering the barrier to entry.</li>
-            <li><strong>HN 302 points = community interest</strong>: Not explosive, but worth paying attention to.</li>
-        </ul>
-    </div>
-
-    <div class="action-block">
-        <h3>🎯 What you can do today</h3>
-        <ol>
-            <li>Check the Google DeepMind blog for details: <a href="https://deepmind.google/discover/blog/" target="_blank">deepmind.google/discover/blog/</a> (search "Gemini 3.5 Transcribe")</li>
-            <li>If you have a Google Cloud account, try the transcription feature in the Gemini API.</li>
-            <li>Compare against your current transcription tool (Whisper, Otter.ai, etc.) for accuracy and pricing.</li>
-        </ol>
-    </div>
-
-    <details class="deep-dive">
-        <summary>🔬 Deep dive — how Gemini 3.5 Transcribe is different</summary>
+        <summary>🔬 Deep dive — how Gemini 3.5 Transcribe is actually different</summary>
         <div class="dd-content">
             <table>
                 <thead>
                     <tr><th>Comparison</th><th>Gemini 3.5 Transcribe</th><th>Whisper large-v3</th><th>Deepgram Nova-2</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Model type</td><td>Proprietary, Gemini-based</td><td>Open-source</td><td>Proprietary</td></tr>
-                    <tr><td>Accuracy (WER)</td><td>Not published, claims leading</td><td>~5-8%</td><td>~4-6%</td></tr>
-                    <tr><td>Language support</td><td>100+ languages</td><td>99 languages</td><td>30+ languages</td></tr>
-                    <tr><td>Real-time transcription</td><td>Yes</td><td>Yes (with optimization)</td><td>Yes</td></tr>
-                    <tr><td>Pricing</td><td>Per API call</td><td>Free (self-hosted)</td><td>Per minute</td></tr>
-                    <tr><td>Integration</td><td>Google ecosystem</td><td>Universal</td><td>Universal</td></tr>
+                    <tr><td>Model type</td><td>Dedicated transcription model (Gemini family)</td><td>Open-source general ASR</td><td>Commercial dedicated ASR</td></tr>
+                    <tr><td>Real-time streaming</td><td>Native support</td><td>Requires extra engineering</td><td>Native support</td></tr>
+                    <tr><td>Languages</td><td>99+ (incl. Chinese)</td><td>99+</td><td>30+</td></tr>
+                    <tr><td>Ecosystem integration</td><td>Gemini API, Google Cloud, Workspace</td><td>Self-host or 3rd-party API</td><td>Proprietary API</td></tr>
+                    <tr><td>Pricing</td><td>TBD (est. ~$0.006/min?)</td><td>Free self-host / ~$0.006/min hosted</td><td>~$0.004/min</td></tr>
+                    <tr><td>Accuracy (English)</td><td>No independent benchmarks yet</td><td>~5% WER</td><td>~4% WER</td></tr>
+                    <tr><td>Chinese accuracy</td><td>TBD</td><td>Good</td><td>Good</td></tr>
                 </tbody>
             </table>
-            <p><strong>vs Whisper</strong>: Whisper is open-source and free, but requires self-hosting and maintenance. Gemini Transcribe is a managed service — convenient but costs money.</p>
-            <p><strong>vs Deepgram</strong>: Deepgram is also proprietary. Gemini's advantage is Google's ecosystem and broader language coverage.</p>
-            <p><strong>How hard to use</strong>: API integration in minutes, but you need a Google Cloud account and API key.</p>
-            <p><strong>Honest caveat</strong>: Information is limited right now. Actual accuracy needs independent evaluation. If privacy is a concern, self-hosted Whisper may be better.</p>
+            <p><strong>vs Whisper</strong>: Whisper is open-source and free if you self-host — but you need a GPU. Gemini is a managed service, more convenient but likely more expensive at scale. Whisper&#x27;s Chinese accuracy is already solid; Gemini&#x27;s edge would be tighter integration with Google products (e.g., directly piping transcripts into Google Docs or Gemini analysis).</p>
+            <p><strong>vs Deepgram</strong>: Deepgram is the commercial benchmark — low price, low latency, production-hardened. If Gemini prices competitively and leverages Gemini&#x27;s multimodal capabilities (e.g., simultaneous sentiment analysis or summarization), it could carve a differentiated niche.</p>
+            <p><strong>Honest caveat</strong>: Right now it&#x27;s just a blog post. The API may be rolling out gradually. Independent benchmarks don&#x27;t exist yet. Don&#x27;t rip out your existing transcription stack until you&#x27;ve tested it side-by-side.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Independent benchmarks (WER comparisons) and pricing announcements. If the price is reasonable and accuracy truly leads, it could reshape the transcription market.
+        <strong>🔭 Watch for</strong> · Two things in the next 1-2 weeks: (1) API pricing — if it lands near or below Deepgram&#x27;s $0.004/min, it&#x27;s a serious contender; (2) independent benchmarks — if the Hugging Face Open ASR Leaderboard picks up Gemini 3.5 Transcribe and shows competitive WER, it&#x27;s time to test.
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>WER</strong> = Word Error Rate — lower is better · <strong>Transcription</strong> = converting speech to text.
+        <strong>📖 Jargon decoder</strong> · <strong>WER</strong> = Word Error Rate — percentage of words the model gets wrong; lower is better. · <strong>ASR</strong> = Automatic Speech Recognition — the technical term for speech-to-text.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · HN #7 (302 points, 97 comments, 17 hours ago) · Google DeepMind blog · Community discussion focuses on comparison with Whisper and Google's pricing strategy
+        <strong>Who&#x27;s talking</strong> · HN #7 (302 points, 97 comments, 17 hours ago) · Google official blog · Community discussion focuses on Whisper vs Google comparisons and pricing expectations
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://deepmind.google/discover/blog/" target="_blank">Google DeepMind blog</a> · <a href="https://news.ycombinator.com/item?id=42654323" target="_blank">HN discussion</a>
+        <strong>Try it / dig in</strong> · <a href="https://blog.google" target="_blank">Google official blog</a> · <a href="https://developers.google.com" target="_blank">Gemini API docs</a>
     </div>
 </article>
 
-<!-- ===== ITEM 3 — ℹ️ ===== -->
+<!-- ===== ITEM 2 — ℹ️ ===== -->
 <article class="item item--fyi">
     <div class="tier-label">ℹ️ just so you know</div>
-    <div class="display-title">Gemini Omni 1.1 Flash — new video generation model</div>
-    <div class="pitch">Hey clawii — Google updated its video generation model Gemini Omni 1.1 Flash with more control. Just so you know the name — unless you make video content, this one's background noise.</div>
+    <div class="display-title">&quot;Small Models Have Arrived&quot; — HN Front-Page Essay Confirms the Shift</div>
+    <div class="pitch">Hey clawii — a blog post hit HN #3 with 663 points and 299 comments. The core argument: small models (&lt;10B active parameters) are now approaching the capability of large frontier models for everyday tasks. Local deployment and cheap inference are no longer a compromise — they&#x27;re the default for most use cases. Not a product, but a trend worth knowing.</div>
 
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>Video generation capability improved</strong>: Supports longer videos and better control, but limited impact on your daily work.</li>
-            <li><strong>HN 262 points</strong>: Some community interest, but less practical than the transcription model.</li>
-            <li><strong>If you make demo or training videos</strong>: Could be useful, but not directly relevant to vibe coding.</li>
+            <li><strong>Trend confirmation</strong>: Qwen3.8-27B, GLM-5.3-Flash (18B active), Ornith-1.5 (35B MoE, 3B active) — these are all closing the gap with closed-source giants. The community has noticed.</li>
+            <li><strong>What it means for you</strong>: Over the next 3-6 months, you may not need to pay for GPT-5.6 or Claude Opus for most vibe coding tasks. A local model on your Mac Studio or a $0.20/hour API will cover 80% of daily needs.</li>
+            <li><strong>HN #3, 663 points</strong>: Strong consensus. This isn&#x27;t an isolated opinion — the community broadly agrees that the small model inflection point has arrived.</li>
         </ul>
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · HN #12 (262 points, 194 comments, 17 hours ago) · Google DeepMind blog
+        <strong>Who&#x27;s talking</strong> · HN #3 (663 points, 299 comments, 19 hours ago) · Essay by Calvin (<a href="https://calv.info" target="_blank">calv.info</a>) · Comments heavily discuss Qwen3.8-27B and GLM-5.3-Flash real-world performance
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://deepmind.google/discover/blog/" target="_blank">Google DeepMind blog</a> · <a href="https://news.ycombinator.com/item?id=42654324" target="_blank">HN discussion</a>
+        <strong>Dig in</strong> · <a href="https://calv.info" target="_blank">Original essay: &quot;Small Models Have Arrived&quot;</a>
     </div>
 </article>
 
@@ -524,35 +461,39 @@
     <ul>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HF trending sustained, unsloth GGUF updated; no new KOL endorsement, HN dropped off front page.</span></div>
+            <div><span class="item-name">GLM-5.3-Flash (open weights)</span> <span class="update">— Weights on Hugging Face, unsloth GGUF published; HN discussion cooling; Ollama adapter not yet complete.</span></div>
         </li>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">Nvidia acquires Hugging Face</span> <span class="update">— Still on HN front page (#17), but no substantive new developments; regulatory review hasn't started.</span></div>
+            <div><span class="item-name">Nvidia acquires Hugging Face ($13B)</span> <span class="update">— Still #1 on HN (1900 pts) but no new developments; regulatory review not yet started. Long-term impact, not urgent today.</span></div>
         </li>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">Qwen3.8-Flash-Next</span> <span class="update">— Simon Willison reviewed it, HF trending #1; Ollama doesn't officially support it yet.</span></div>
+            <div><span class="item-name">Qwen3.8-Flash-Next</span> <span class="update">— #1 on Hugging Face trending (4.81k downloads); Simon Willison tested but no new KOL endorsement. Still percolating.</span></div>
         </li>
     </ul>
 </aside>
 
 <!-- ===== KILLED LIST ===== -->
 <section class="killed">
-    <span class="smallcaps">📊 What didn't make it in today</span>
+    <span class="smallcaps">📊 What didn&#x27;t make it in today</span>
     <table>
         <thead>
             <tr><th>Candidate</th><th>Why it was excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>Anthropic Model Hardware Standard preview</td><td>Enterprise hardware standard, no direct impact on vibe coding, HN 119 points, weak signal.</td></tr>
-            <tr><td>Claude Code Auto Mode security discussion</td><td>Security research, not a capability leap. Simon Willison covered it but not a new release.</td></tr>
-            <tr><td>GPT-5.6 Sol price cut</td><td>Covered by Chinese-language media over a week ago.</td></tr>
+            <tr><td>OpenAI Jalapeño inference chip</td><td>Hardware/research, deployment not until year-end, no usable artifact. HN already dropped off front page.</td></tr>
+            <tr><td>GPT-5.6 Sol price cut</td><td>Covered by Chinese-language media over a week ago. No new signal.</td></tr>
             <tr><td>Mistral x HUMAIN Agentic Search</td><td>Enterprise product launch, no direct impact on vibe coding.</td></tr>
             <tr><td>Bun 1.4 WebView / Bun.Image</td><td>Runtime update, not a core AI signal.</td></tr>
-            <tr><td>OpenAI Thailand startup support / Brazil expansion</td><td>Non-technical news, no artifact.</td></tr>
-            <tr><td>Gates "The turbulent AI era is here"</td><td>Generic opinion piece.</td></tr>
-            <tr><td>Microduck open-source robot</td><td>Hardware project, not AI software signal, no direct impact on clawii.</td></tr>
+            <tr><td>Mechanical Turk shutting down Sep 30</td><td>Crowdsourcing platform closure, not an AI capability signal.</td></tr>
+            <tr><td>&quot;Developer open-sources AI CEO&quot; project</td><td>Joke/meme project, not a real capability leap.</td></tr>
+            <tr><td>OpenAI &quot;Hugging Face incident&quot; postmortem</td><td>Security incident review, not actionable for daily use.</td></tr>
+            <tr><td>AWS acquires DuckLabs</td><td>Database acquisition, not AI core.</td></tr>
+            <tr><td>Gates &quot;The turbulent AI era is here&quot;</td><td>Op-ed thinkpiece, no concrete signal.</td></tr>
+            <tr><td>Anthropic Model Hardware Standard preview</td><td>Hardware standard preview, limited impact on non-developers. HN only 119 points.</td></tr>
+            <tr><td>&quot;The load-bearing vocabulary of Claude&quot;</td><td>Interesting analysis but not actionable — no direct impact on daily workflow.</td></tr>
+            <tr><td>Microduck open-source robot</td><td>Hardware project, not AI software, already covered by Chinese media.</td></tr>
         </tbody>
     </table>
 </section>
