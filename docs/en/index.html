@@ -346,11 +346,9 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">GLM-5.3 Open Weights + Automated Security Attacks: Two Signals, One Warning</div>
+    <div class="headline">GLM-5.3 Goes Open-Weight + Qwen3.8-Flash-Next: A Weekend for New Models</div>
     <div class="counts">
-        <span>🚨 <span class="crit-count">1</span> must see</span>
-        <span>👀 <span class="look-count">1</span> worth a look</span>
-        <span>ℹ️ <span class="fyi-count">1</span> just so you know</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
     </div>
 </div>
 
@@ -358,41 +356,40 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 must see</span> GLM-5.3 Open Weights: 708-point HN #1, China&#x27;s Strongest Open Model</li>
-        <li><span class="tier-tag look">👀 worth a look</span> Automated Security Attacks: Vulnerabilities Exploited Within Minutes of Disclosure</li>
-        <li><span class="tier-tag fyi">ℹ️ just so you know</span> OpenAI Decides Not to Acquire Cursor (After SpaceX Acquisition)</li>
+        <li><span class="tier-tag look">👀 worth a look</span> GLM-5.3 Full Weights Released (HN 708 pts)</li>
+        <li><span class="tier-tag look">👀 worth a look</span> Qwen3.8-Flash-Next: Qwen4 Architecture Preview Model Drops</li>
     </ul>
 </nav>
 
-<!-- ===== ITEM 1 — 🚨 ===== -->
-<article class="item item--crit">
-    <div class="tier-label">🚨 must see</div>
-    <div class="display-title">GLM-5.3 Open Weights: 708-point HN #1, China&#x27;s Strongest Open Model</div>
-    <div class="pitch">Hey clawii — GLM-5.3 just dropped its full open weights on Hugging Face, and HN pushed it to #1 with 708 points. This is one of the strongest open models out of China right now: 744B total / 40B active params, MIT license, 1M context. You can run a quantized version locally or just call the API.</div>
+<!-- ===== ITEM 1 — 👀 ===== -->
+<article class="item item--look">
+    <div class="tier-label">👀 worth a look</div>
+    <div class="display-title">GLM-5.3 Full Weights Released (HN 708 pts)</div>
+    <div class="pitch">Hey clawii — Z.ai just open-sourced the full GLM-5.3 (753B) and Flash (321B) weights. HN hit 708 points with 235 comments. The full model is too big to run locally, but the API is cheap, it's MIT licensed, and you can do whatever you want with it.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · Over the past two weeks, Z.ai (Zhipu) has been rolling out the GLM-5.3 family: first the 320B/18B Flash version, now the full 744B/40B model. Today the complete model went open weights, and the HN community erupted. This marks a point where Chinese open models are genuinely closing the gap with closed frontier models on coding and agent tasks.
+        <strong>📍 Context</strong> · The GLM family is Z.ai (Zhipu)'s flagship model line. GLM-5.2 and GLM-5.3-Flash were released earlier, but <strong>GLM-5.3 full weights</strong> just landed on HuggingFace today under the MIT license. Specs: 753B total / 40B active parameters, 1M context window, multimodal. The Flash variant (321B / 18B active) is also available. This is another heavyweight entry from the Chinese open-model camp.
     </div>
 
     <div class="chart">
         <div class="bar-row">
             <span class="label">GLM-5.3</span>
-            <div class="bar" style="width: 100%;"></div>
-            <span class="value">744B total / 40B active</span>
+            <span class="bar" style="width:140px;"></span>
+            <span class="value">753B total / 40B active</span>
         </div>
         <div class="bar-row">
             <span class="label">GLM-5.3-Flash</span>
-            <div class="bar alt" style="width: 43%;"></div>
-            <span class="value">320B total / 18B active</span>
+            <span class="bar alt" style="width:70px;"></span>
+            <span class="value">321B total / 18B active</span>
         </div>
         <div class="bar-row">
             <span class="label">DeepSeek V4-Flash</span>
-            <div class="bar alt" style="width: 41%;"></div>
+            <span class="bar" style="width:65px;"></span>
             <span class="value">304B total / 37B active</span>
         </div>
         <div class="bar-row">
             <span class="label">Qwen3.8-Flash-Next</span>
-            <div class="bar alt" style="width: 24%;"></div>
+            <span class="bar alt" style="width:40px;"></span>
             <span class="value">125B total / 6B active</span>
         </div>
     </div>
@@ -400,154 +397,127 @@
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>HN #1 with 708 points</strong>: This isn&#x27;t a niche echo chamber — it&#x27;s broad recognition from the global dev community.</li>
-            <li><strong>MIT license + 1M context</strong>: You can use it commercially, modify it, deploy it locally, and the context window is big enough for large codebases.</li>
-            <li><strong>Coding performance on par with Opus 4.8</strong>: Strong on agentic coding and cyber-defense benchmarks. Directly relevant to your vibe coding.</li>
-            <li><strong>Quantized versions already available</strong>: Unsloth shipped GGUF quantized builds, so consumer GPUs can run it.</li>
+            <li><strong>MIT license + full weights</strong>: You can freely download, fine-tune, and use commercially. No API lock-in.</li>
+            <li><strong>Performance claims near Claude Opus 4.8</strong>: On coding benchmarks it claims parity, and the Artificial Analysis Intelligence Index scores it at 57 (Opus 4.8 is 59).</li>
+            <li><strong>1M context window</strong>: Whole books, entire codebases — no problem. Great for agents and long-document analysis.</li>
+            <li><strong>HN 708 points is not noise</strong>: The community is voting with upvotes. This is a milestone.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 Action you can take today</h3>
         <ol>
-            <li>Grab the weights or a quantized build from Hugging Face: <a href="https://huggingface.co/zai-org/GLM-5.3" target="_blank">zai-org/GLM-5.3</a></li>
-            <li>Load the GGUF version (Unsloth has it) via Ollama or llama.cpp: <code>ollama pull zai-org/GLM-5.3-Flash</code></li>
-            <li>Switch to this model in Cline / Codex and test it on your vibe coding workflow.</li>
-            <li>If you don&#x27;t want to self-host, just call the Z.ai API: <a href="https://z.ai" target="_blank">z.ai</a></li>
+            <li>Check the weights on HuggingFace: <a href="https://huggingface.co/zai-org/GLM-5.3" target="_blank">zai-org/GLM-5.3</a> and <a href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank">GLM-5.3-Flash</a>.</li>
+            <li>If you can't run 753B locally, start with the Flash variant (18B active — runs in 4-bit on 24GB VRAM).</li>
+            <li>If you prefer API, check Z.ai's pricing — rumored to be excellent value.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — what makes GLM-5.3 actually strong</summary>
+        <summary>🔬 Deep dive — how GLM-5.3 actually stacks up</summary>
         <div class="dd-content">
             <table>
                 <thead>
                     <tr><th>Comparison</th><th>GLM-5.3</th><th>DeepSeek V4-Flash</th><th>Qwen3.8-Flash-Next</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Total params</td><td>744B</td><td>304B</td><td>125B</td></tr>
+                    <tr><td>Total params</td><td>753B</td><td>304B</td><td>125B</td></tr>
                     <tr><td>Active params</td><td>40B</td><td>37B</td><td>6B</td></tr>
                     <tr><td>Context window</td><td>1M</td><td>128K</td><td>262K (extendable to 1M)</td></tr>
-                    <tr><td>License</td><td>MIT</td><td>Custom (restricts commercial use)</td><td>Apache 2.0</td></tr>
-                    <tr><td>Architecture</td><td>MoE + SAO long-context attention</td><td>MoE</td><td>MoE (Qwen4 preview)</td></tr>
-                    <tr><td>Coding benchmark</td><td>On par with Opus 4.8</td><td>Close to Opus 4.8</td><td>Close to DeepSeek V4-Pro</td></tr>
-                    <tr><td>Multimodal</td><td>Natively multimodal</td><td>Text + experimental vision</td><td>Natively multimodal</td></tr>
+                    <tr><td>License</td><td>MIT</td><td>DeepSeek License (commercial restrictions)</td><td>Apache 2.0</td></tr>
+                    <tr><td>Multimodal</td><td>Yes</td><td>Vision variant available</td><td>Native multimodal</td></tr>
+                    <tr><td>AI Index score</td><td>57</td><td>~50</td><td>~50 (estimated)</td></tr>
                 </tbody>
             </table>
-            <p><strong>vs DeepSeek V4-Flash</strong>: GLM-5.3 is bigger, has a longer context, and a more permissive license (MIT vs commercial-restricted). DeepSeek&#x27;s edge is a more mature open-source ecosystem.</p>
-            <p><strong>vs Qwen3.8-Flash-Next</strong>: Qwen has only 6B active params — more efficient but lower ceiling. GLM-5.3 is stronger on complex coding tasks.</p>
-            <p><strong>What it runs on</strong>: MoE architecture, trained entirely on Chinese AI chips (but runs fine on NVIDIA GPUs). The 2-bit quantized version is just 239GB and retains 81% accuracy.</p>
-            <p><strong>How hard to use / build</strong>: Full version needs a multi-GPU server (at least 2×A100 80GB). Quantized versions run on a single A100 or a Mac Studio (192GB). API calls are a 5-minute setup.</p>
-            <p><strong>Honest caveat</strong>: Vision capabilities have drawn criticism — not as good as Qwen3.8&#x27;s multimodal. Coding is strong, but Chinese-language writing may not beat DeepSeek.</p>
+            <p><strong>vs what you already use</strong>: You're probably on GPT-5.6 Sol or Claude Opus 4.8 — both closed-source APIs. GLM-5.3 is open-source under MIT, so you can self-host and keep data on your own servers. But 753B needs at least 4× A100s in FP16, or ~150GB VRAM in 4-bit. Most developers will rent cloud GPUs.</p>
+            <p><strong>How hard to use</strong>: vLLM and llama.cpp both support it with ready-made Docker images. About 15 minutes to get running. Start with the Flash variant.</p>
+            <p><strong>Honest caveat</strong>: Coding benchmarks near Opus 4.8, but real-world use may differ. The Chinese community will likely do deep evaluations soon — wait for those.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Whether Ollama officially supports the GLM-5.3 family; whether Karpathy or Simon Willison reviews it; whether Z.ai&#x27;s API pricing is competitive.
+        <strong>🔭 Watch for</strong> · Karpathy or Simon Willison reviewing it. If they say "this model is legit," it's safe to adopt. Also watch for Ollama adding official support.
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts — total params are huge, but only a small subset activates per inference · <strong>SAO</strong> = Strided Attention Offset — a technique for optimizing long-context attention · <strong>GGUF</strong> = a model quantization format used by llama.cpp and other local inference engines.
+        <strong>📖 Jargon decoder</strong> · <strong>Active parameters</strong> = the number of parameters actually used per inference call, determines VRAM and speed · <strong>AI Index</strong> = Artificial Analysis's composite intelligence score; higher = smarter · <strong>MIT license</strong> = the most permissive open-source license; use it for anything including commercial · <strong>MoE</strong> = Mixture of Experts — multiple expert sub-networks inside one model, only a subset activates per token.
     </div>
 
     <div class="who-talking">
-        <strong>Who&#x27;s talking</strong> · HN #1 (708 points, 235 comments, 19 hours ago) · Hugging Face trending #1 (190k downloads) · Unsloth already published GGUF quantized builds · Community discussion centers on &quot;have Chinese open models surpassed the West?&quot; and the significance of the MIT license
+        <strong>Who's talking</strong> · HN #25 (708 points, 235 comments, 19 hours ago) · HuggingFace trending #3 (259 downloads) · Community discussion centers on: "Is it better than DeepSeek V4?" "MIT license is huge" "What can I do with 1M context"
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/zai-org/GLM-5.3" target="_blank">Hugging Face weights</a> · <a href="https://news.ycombinator.com/item?id=..." target="_blank">HN discussion</a> · <a href="https://z.ai" target="_blank">Z.ai official site</a> · <a href="https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF" target="_blank">Unsloth GGUF quantized build</a>
+        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/zai-org/GLM-5.3" target="_blank">HuggingFace · GLM-5.3</a> · <a href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank">HuggingFace · GLM-5.3-Flash</a> · <a href="https://www.z.ai" target="_blank">Z.ai official site</a>
     </div>
 </article>
 
 <!-- ===== ITEM 2 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">Automated Security Attacks: Vulnerabilities Exploited Within Minutes of Disclosure</div>
-    <div class="pitch">Hey clawii — Cambridge professor Anil Madhavapeddy is reporting a scary new trend: security vulnerabilities are being automatically exploited by AI agents within minutes of being discussed publicly. The rclone maintainer confirms 40+ security disclosures in the past month (vs ~20 in the prior decade). Not a product launch, but it directly affects how you should protect your own code.</div>
+    <div class="display-title">Qwen3.8-Flash-Next: Qwen4 Architecture Preview Model Drops</div>
+    <div class="pitch">Hey clawii — Alibaba just released Qwen3.8-Flash-Next, an architecture preview of Qwen4. 125B total / 6B active parameters. Simon Willison already tested it and says "worth paying attention to." HF trending #2.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · As coding agents like Claude Code and Codex go mainstream, security researchers are finding that AI agents can automatically scan public patch discussions, understand the vulnerability, and generate exploit code. Anil Madhavapeddy observed probe traffic within 10 minutes of patch discussions in the OCaml compiler community. The rclone project confirmed the same phenomenon. Simon Willison and the HN community are both on this.
+        <strong>📍 Context</strong> · The Qwen family is Alibaba's open-source model line. Qwen3.8-Flash-Next is a new member of the Qwen3.8 series built around <strong>low active parameters + high performance</strong>. 6B active means it runs on consumer GPUs (RTX 3090 handles 4-bit quantization easily), while performance approaches DeepSeek V4-Pro. It's a "teaser" for the Qwen4 architecture — multimodal MoE with architectural improvements.
     </div>
 
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>Direct threat to your code&#x27;s security</strong>: If you discuss a security fix in a public repo, attackers may exploit it within hours.</li>
-            <li><strong>Traditional security processes are breaking</strong>: Existing vulnerability disclosure and patch-release workflows can&#x27;t keep up with AI-speed attacks.</li>
-            <li><strong>Impact on vibe coding</strong>: If you use AI agents to manage code, you need stricter security practices.</li>
-            <li><strong>Simon Willison has covered it</strong>: This isn&#x27;t a fringe phenomenon — it&#x27;s a reality the mainstream security community is facing.</li>
+            <li><strong>6B active = runs locally</strong>: This is a model you can actually run on your own machine. No cloud required.</li>
+            <li><strong>Architecture preview</strong>: Qwen4's new MoE and attention optimizations may set the standard for the next generation of open models.</li>
+            <li><strong>Simon Willison tested it personally</strong>: He ran quantized versions on a DGX Spark and generated images (pelicans riding bicycles). Positive experience.</li>
+            <li><strong>Apache 2.0 license</strong>: Commercial-friendly, just as permissive as MIT.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 Action you can take today</h3>
         <ol>
-            <li>Read Anil&#x27;s original report: <a href="https://recoil.org" target="_blank">recoil.org</a> (&quot;Just the rumour of a bug is enough&quot;)</li>
-            <li>Audit your public repos: are there unfixed security issues being discussed openly? Consider a private disclosure process.</li>
-            <li>If you run AI agents on your code, make sure they run in a sandbox with restricted network egress.</li>
-            <li>Follow Simon Willison&#x27;s ongoing analysis: <a href="https://simonwillison.net" target="_blank">simonwillison.net</a></li>
+            <li>Download the Unsloth quantized version: <a href="https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF" target="_blank">unsloth/Qwen3.8-Flash-Next-GGUF</a></li>
+            <li>Run it locally with llama.cpp (or Ollama if already supported): <code>llama-cli -m qwen3.8-flash-next-Q4_K_M.gguf -p "Hello"</code></li>
+            <li>Read Simon Willison's review: <a href="https://simonwillison.net/2026/Aug/26/qwen3-8-flash-next/" target="_blank">simonwillison.net</a></li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — how automated attacks work</summary>
+        <summary>🔬 Deep dive — what makes Qwen3.8-Flash-Next special</summary>
         <div class="dd-content">
-            <p><strong>The attack flow</strong>:</p>
-            <ol>
-                <li>A developer discusses a security patch on a public mailing list or GitHub issue.</li>
-                <li>AI agents (e.g., automation built on Claude Fable or DeepSeek V4 Pro) monitor these discussions.</li>
-                <li>The agent understands the vulnerability, auto-generates exploit code, and scans target systems within minutes.</li>
-                <li>Anil successfully reproduced this attack using DeepSeek V4 Pro (when Claude Fable refused the task).</li>
-            </ol>
-            <p><strong>The rclone data</strong>: 40+ security disclosures in the past month vs ~20 in the prior decade. 75% of disclosures had real substance. GitHub&#x27;s CVE assignment time went from 2-3 days to 3-4 weeks.</p>
-            <p><strong>What this means for you</strong>:</p>
-            <ul>
-                <li>Don&#x27;t discuss unfixed security issues in public channels.</li>
-                <li>Use private vulnerability disclosure processes (like GitHub&#x27;s security advisory feature).</li>
-                <li>If you use AI agents on your code, ensure they don&#x27;t auto-apply patches from untrusted sources.</li>
-            </ul>
-            <p><strong>Honest caveat</strong>: This isn&#x27;t a problem you can &quot;solve&quot; — it&#x27;s a new reality to adapt to. The security community is actively discussing new embargo processes.</p>
+            <table>
+                <thead>
+                    <tr><th>Comparison</th><th>Qwen3.8-Flash-Next</th><th>Qwen3.8-27B</th><th>GLM-5.3-Flash</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Total params</td><td>125B</td><td>27B (dense)</td><td>321B</td></tr>
+                    <tr><td>Active params</td><td>6B</td><td>27B</td><td>18B</td></tr>
+                    <tr><td>Context window</td><td>262K (extendable to 1M)</td><td>262K (extendable to 1M)</td><td>1M</td></tr>
+                    <tr><td>License</td><td>Apache 2.0</td><td>Apache 2.0</td><td>MIT</td></tr>
+                    <tr><td>Multimodal</td><td>Native (Image-Text)</td><td>Native multimodal</td><td>Native multimodal</td></tr>
+                    <tr><td>Architecture</td><td>MoE (Qwen4 preview)</td><td>Dense</td><td>MoE</td></tr>
+                    <tr><td>Local VRAM (4-bit)</td><td>~6GB</td><td>~16GB</td><td>~12GB</td></tr>
+                </tbody>
+            </table>
+            <p><strong>vs Qwen3.8-27B</strong>: Flash-Next uses MoE to squeeze active params down to 6B, theoretically 4-5× faster while retaining similar quality. The trade-off: MoE is less batch-size-friendly, so single-request latency may be slightly higher.</p>
+            <p><strong>How hard to use</strong>: 5 minutes. Download the GGUF, run with Ollama or llama.cpp. If you have 8GB+ VRAM, 4-bit quantization is more than enough.</p>
+            <p><strong>Honest caveat</strong>: Simon said he's "still exploring" — the model may have rough edges. Early users reported KV cache BF16 issues (already fixed). And 6B active params won't match 40B-active GLM-5.3 on complex reasoning. But for daily coding and Q&A, it's more than enough.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Whether GitHub introduces new security disclosure workflows; whether mainstream coding agents (Claude Code, Codex) add security guardrails; whether new &quot;AI security audit&quot; tools emerge.
+        <strong>🔭 Watch for</strong> · Whether Karpathy tries it. If he tweets about it, this becomes the default local-run recommendation. Also watch for Ollama official support in their model list.
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>CVE</strong> = Common Vulnerabilities and Exposures — the standardized numbering system for security vulnerabilities · <strong>embargo</strong> = the confidentiality period before a security patch is publicly released · <strong>sandbox</strong> = an isolated runtime environment that restricts what a program can access.
+        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts · <strong>Active parameters</strong> = the params actually used per inference · <strong>GGUF</strong> = a model quantization format for llama.cpp and compatible runners · <strong>Qwen4 architecture preview</strong> = a technical teaser before the final Qwen4 release, letting you experience new features early.
     </div>
 
     <div class="who-talking">
-        <strong>Who&#x27;s talking</strong> · Simon Willison (reported 2026-08-28) · HN #11 (331 points, 113 comments) · rclone maintainer Nick Craig-Wood confirmed in HN comments · Anil Madhavapeddy (Cambridge professor, OCaml core maintainer)
+        <strong>Who's talking</strong> · Simon Willison review (2026-08-26): <a href="https://simonwillison.net/2026/Aug/26/qwen3-8-flash-next/" target="_blank">blog post</a> · HuggingFace trending #2 (188k downloads in 1 day) · Unsloth has published multiple quantization variants · No standalone HN thread yet, but Simon's blog is gaining traction
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://recoil.org" target="_blank">Anil&#x27;s original report</a> · <a href="https://simonwillison.net/2026/Aug/28/just-a-rumour-of-a-bug/" target="_blank">Simon Willison&#x27;s coverage</a> · <a href="https://news.ycombinator.com/item?id=..." target="_blank">HN discussion</a>
-    </div>
-</article>
-
-<!-- ===== ITEM 3 — ℹ️ ===== -->
-<article class="item item--fyi">
-    <div class="tier-label">ℹ️ just so you know</div>
-    <div class="display-title">OpenAI Decides Not to Acquire Cursor (After SpaceX Acquisition)</div>
-    <div class="pitch">Hey clawii — OpenAI published an official statement explaining why it decided not to pursue acquiring Cursor after SpaceX bought it. Just so you know — limited impact on your daily usage.</div>
-
-    <div class="lang">
-        <h3>Why this matters</h3>
-        <ul>
-            <li><strong>Industry consolidation signal</strong>: After SpaceX acquired Cursor, OpenAI chose not to compete — a sign the AI coding tool landscape is settling.</li>
-            <li><strong>Limited impact on you</strong>: Cursor remains an independent product; you can keep using it.</li>
-            <li><strong>HN 550 points</strong>: High community interest, but this is more business news than a tech signal.</li>
-        </ul>
-    </div>
-
-    <div class="who-talking">
-        <strong>Who&#x27;s talking</strong> · HN #14 (550 points, 308 comments) · OpenAI official blog
-    </div>
-
-    <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" target="_blank">OpenAI official statement</a> · <a href="https://news.ycombinator.com/item?id=..." target="_blank">HN discussion</a>
+        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" target="_blank">HF official model card</a> · <a href="https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF" target="_blank">Unsloth quantized version</a> · <a href="https://simonwillison.net/2026/Aug/26/qwen3-8-flash-next/" target="_blank">Simon Willison's review</a>
     </div>
 </article>
 
@@ -557,45 +527,40 @@
     <ul>
         <li>
             <span class="days">Day 3</span>
-            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— Full model went open weights today, HN 708 pts #1, promoted to 🚨 main item. Flash version still on HF trending.</span></div>
+            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HF trending continues (1.5k downloads), but overshadowed today by the full GLM-5.3 release; no new KOL endorsement.</span></div>
         </li>
         <li>
             <span class="days">Day 3</span>
-            <div><span class="item-name">Qwen3.8-Flash-Next</span> <span class="update">— Simon Willison has reviewed it, HF trending #1; Ollama doesn&#x27;t officially support it yet.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 3</span>
-            <div><span class="item-name">Nvidia acquires Hugging Face</span> <span class="update">— Dropped off HN front page (#30+), no new substantive developments.</span></div>
+            <div><span class="item-name">Nvidia acquires Hugging Face</span> <span class="update">— HN dropped off front page; no new developments; regulatory review hasn't started.</span></div>
         </li>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">Claude Code Auto Mode security</span> <span class="update">— Simon Willison covered Johann Rehberger&#x27;s attack demo, 80% success rate. Still developing.</span></div>
+            <div><span class="item-name">Gemini 3.5 Transcribe</span> <span class="update">— Google published official blog post, HN #7 but already covered; waiting for independent benchmarks and pricing.</span></div>
+        </li>
+        <li>
+            <span class="days">Day 2</span>
+            <div><span class="item-name">"Small Models Have Arrived" essay</span> <span class="update">— HN 663-point post dropped to #30+; community discussion continues but no new signal.</span></div>
         </li>
     </ul>
 </aside>
 
 <!-- ===== KILLED LIST ===== -->
 <section class="killed">
-    <span class="smallcaps">📊 What didn&#x27;t make it in today</span>
+    <span class="smallcaps">📊 What didn't make it in today</span>
     <table>
         <thead>
             <tr><th>Candidate</th><th>Why it was excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>Anthropic Model Hardware Standard preview</td><td>Enterprise hardware standard, no direct impact on vibe coding, HN dropped off front page.</td></tr>
-            <tr><td>GPT-5.6 Sol price cut</td><td>Covered by Chinese-language media over a week ago.</td></tr>
+            <tr><td>Gemini Omni 1.1 Flash</td><td>Featured yesterday, no trigger event today; already in Still Tracking.</td></tr>
+            <tr><td>Granite Speech 5.0 Turbo CTC</td><td>IBM transcription model, weak signal — HF article only 30 likes; transcription space already crowded.</td></tr>
+            <tr><td>Tencent Hy4-preview</td><td>Tencent open-source MoE, Chinese media covered it over a week ago; HF trending has 1.3k stars but not a new release.</td></tr>
+            <tr><td>OpenAI's decision on Cursor acquisition</td><td>Business/legal news, clawii doesn't care.</td></tr>
+            <tr><td>Anthropic Model Hardware Standard</td><td>Hardware standard, no usable artifact.</td></tr>
+            <tr><td>Claude Code Auto Mode security vulnerability</td><td>Security research, not a capability leap; limited impact on non-developers.</td></tr>
+            <tr><td>GPT-5.6 Sol price cut</td><td>Chinese media covered it over a week ago.</td></tr>
             <tr><td>Mistral x HUMAIN Agentic Search</td><td>Enterprise product launch, no direct impact on vibe coding.</td></tr>
-            <tr><td>Bun 1.4 WebView / Bun.Image</td><td>Runtime update, not a core AI signal.</td></tr>
-            <tr><td>OpenAI Thailand startup support / Brazil expansion</td><td>Non-technical news, no artifact.</td></tr>
-            <tr><td>Gates &quot;The turbulent AI era is here&quot;</td><td>Op-ed thinkpiece, no concrete signal.</td></tr>
-            <tr><td>Microduck open-source robot</td><td>Hardware project, not an AI software signal, no direct impact on clawii.</td></tr>
-            <tr><td>OpenAI Jalapeño inference chip</td><td>Hardware/research, deployment not until year-end, no usable artifact.</td></tr>
-            <tr><td>Anthropic employee remote-work controversy</td><td>HR news, not a tech signal.</td></tr>
-            <tr><td>&quot;Developer open-sources AI CEO&quot; project</td><td>Joke/meme project, not a real capability leap.</td></tr>
-            <tr><td>Mechanical Turk shutdown</td><td>Crowdsourcing platform closure, not an AI capability signal.</td></tr>
-            <tr><td>AWS acquires DuckLabs</td><td>Database company acquisition, not AI core.</td></tr>
-            <tr><td>OpenAI &quot;Hugging Face incident&quot; postmortem</td><td>Security incident review, not actionable for daily use.</td></tr>
-            <tr><td>Nitter / XCancel cease-and-desist</td><td>Not AI news.</td></tr>
+            <tr><td>Bun 1.4</td><td>Runtime update, not core AI.</td></tr>
         </tbody>
     </table>
 </section>
