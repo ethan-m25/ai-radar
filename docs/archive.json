@@ -6,6 +6,20 @@
       "date": "2026-08-30",
       "weekday": "Sun",
       "week": 35,
+      "kind": "weekly",
+      "headline": "中国开源模型三连发：GLM-5.3 · Qwen3.8-Flash-Next · Hy4-preview 改写本地推理格局",
+      "summary": "本周 9 条新信号，但只有 4 条真正值得记住。GLM-5.3（MIT 协议 · 753B/40B 激活 · 1M 上下文）和 Hy4-preview（Apache 2.0 · 770B/49B 激活 · 1M 上下文）标志着中国开源模型从\"追赶\"进入\"并跑\"阶段。Nvidia 以 $13B 收购 Hugging Fa",
+      "counts": {
+        "crit": 3,
+        "look": 8,
+        "fyi": 2
+      },
+      "url": "weekly_2026-08-30.html"
+    },
+    {
+      "date": "2026-08-30",
+      "weekday": "Sun",
+      "week": 35,
       "issue": 95,
       "kind": "daily",
       "headline": "(no headline)",

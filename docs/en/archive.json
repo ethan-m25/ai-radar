@@ -6,6 +6,20 @@
       "date": "2026-08-30",
       "weekday": "Sun",
       "week": 35,
+      "kind": "weekly",
+      "headline": "Chinese open-source models drop in a triple salvo: GLM-5.3, Qwen3.8-Flash-Next, Hy4-preview rewrite local inference",
+      "summary": "9 new signals this week, but only 4 are worth remembering. GLM-5.3 (MIT license · 753B/40B active · 1M context) and Hy4-preview (Apache 2.0 · 770B/49B active · ",
+      "counts": {
+        "crit": 3,
+        "look": 5,
+        "fyi": 1
+      },
+      "url": "weekly_2026-08-30.html"
+    },
+    {
+      "date": "2026-08-30",
+      "weekday": "Sun",
+      "week": 35,
       "issue": 95,
       "kind": "daily",
       "headline": "(no headline)",

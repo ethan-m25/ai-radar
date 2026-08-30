@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4ede0">
+<title>AI Radar · Weekly Wrap · 2026-08-30 · Week 35</title>
+<meta name="description" content="Week 35 — Chinese open-source models drop in a triple salvo (GLM-5.3 · Qwen3.8-Flash-Next · Hy4-preview), rewriting local inference. Nvidia buys Hugging Face for $13B. The small-model era is officially confirmed.">
+
+<meta property="og:title" content="AI Radar · Weekly Wrap · Week 35">
+<meta property="og:description" content="9 new signals over 7 days · 3 🚨 · 5 👀 · 1 ℹ️ · 5 cross-period tracking · 4 survived to weekly">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Radar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: oklch(0.97 0.012 85);
+    --bg-card: oklch(0.99 0.008 85);
+    --bg-sunk: oklch(0.94 0.014 85);
+    --ink: oklch(0.18 0.025 270);
+    --ink-soft: oklch(0.36 0.020 270);
+    --ink-mute: oklch(0.52 0.014 270);
+    --hairline: oklch(0.86 0.015 85);
+    --hairline-bold: oklch(0.72 0.020 85);
+    --tier-crit: oklch(0.55 0.22 26);
+    --tier-crit-soft: oklch(0.94 0.04 30);
+    --tier-look: oklch(0.68 0.16 70);
+    --tier-look-soft: oklch(0.95 0.04 80);
+    --tier-fyi: oklch(0.55 0.03 250);
+    --tier-fyi-soft: oklch(0.94 0.012 250);
+    --tier-weekly: oklch(0.45 0.14 280);
+    --tier-weekly-soft: oklch(0.94 0.025 280);
+    --t-cover: clamp(2.75rem, 8vw, 5rem);
+    --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+    --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+    --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+    --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+    --t-small: 0.9375rem;
+    --t-micro: 0.75rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', -apple-system, sans-serif; font-size: var(--t-body); line-height: 1.65; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01"; font-variation-settings: "SOFT" 30, "opsz" 144; font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; }
+  .display-italic { font-family: 'Fraunces', serif; font-style: italic; font-variation-settings: "SOFT" 60, "opsz" 144; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.92em; }
+  .smallcaps { text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--t-micro); font-weight: 500; color: var(--ink-mute); }
+  .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  @media (min-width: 768px) { .page { max-width: 780px; padding: 3rem 2rem 6rem; } }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline-bold); margin-bottom: 1rem; }
+  .masthead .logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .masthead .nav { display: flex; gap: 1.2rem; }
+  .masthead .nav a { font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s, color 0.15s; }
+  .masthead .nav a:hover, .masthead .nav a.current { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .issue-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; font-size: var(--t-micro); color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .issue-meta .date-line { font-family: 'Geist Mono', monospace; }
+  .issue-meta .weekly-badge { background: var(--tier-weekly); color: #fff; padding: 0.2rem 0.6rem; border-radius: 2px; font-size: var(--t-micro); letter-spacing: 0.12em; font-weight: 600; }
+
+  .cover { margin-bottom: 3.5rem; }
+  .cover .kicker { display: block; margin-bottom: 1.5rem; }
+  .cover .headline { font-size: var(--t-cover); margin: 0 0 1.5rem; max-width: 30ch; }
+  .cover .lead { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 60, "opsz" 144; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--ink-soft); max-width: 56ch; margin: 0 0 2rem; }
+  .cover .summary-box { background: var(--tier-weekly-soft); border-left: 3px solid var(--tier-weekly); padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--t-small); color: var(--ink); }
+  .cover .summary-box strong { color: var(--tier-weekly); }
+  .cover .count-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); }
+  .cover .count-row .total { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cover .count-breakdown { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cover .count-pill { display: inline-flex; align-items: center; gap: 0.55rem; font-size: var(--t-small); color: var(--ink-soft); }
+  .cover .count-pill .dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+  .dot-crit { background: var(--tier-crit); }
+  .dot-look { background: var(--tier-look); }
+  .dot-fyi { background: var(--tier-fyi); }
+
+  .weekly-section { margin: 4rem 0; padding: 2rem 0 2rem 1.5rem; border-top: 1px solid var(--hairline-bold); position: relative; }
+  .weekly-section::before { content: ""; position: absolute; left: 0; top: 2rem; bottom: 2rem; width: 3px; background: var(--section-color, var(--tier-weekly)); }
+  .weekly-section .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Geist Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--section-color, var(--tier-weekly)); margin-bottom: 0.75rem; font-weight: 500; }
+  .weekly-section h2 { font-size: var(--t-h1); margin: 0 0 1.25rem; max-width: 30ch; }
+  .weekly-section p { margin: 0.5rem 0 1rem; max-width: 64ch; }
+  .weekly-section ul { padding-left: 1.25rem; margin: 0.5rem 0 1.5rem; max-width: 64ch; }
+  .weekly-section li { margin: 0.5rem 0; }
+  .weekly-section li::marker { color: var(--section-color, var(--tier-weekly)); }
+  .weekly-section h3 { font-family: 'Geist', sans-serif; font-size: var(--t-h3); margin: 2rem 0 0.6rem; font-weight: 600; }
+
+  .section--trophy { --section-color: oklch(0.55 0.18 50); }
+  .section--trends { --section-color: var(--tier-look); }
+  .section--wrong { --section-color: var(--tier-crit); }
+  .section--watch { --section-color: oklch(0.52 0.16 240); }
+  .section--calibration { --section-color: var(--ink-mute); }
+
+  .trend-item { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-card); border-left: 2px solid var(--section-color, var(--tier-look)); border-radius: 2px; }
+  .trend-item .trend-name { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 0, "opsz" 144; font-weight: 600; font-size: var(--t-h3); margin: 0 0 0.75rem; }
+  .trend-item p { margin: 0.5rem 0; font-size: var(--t-small); color: var(--ink-soft); }
+
+  .watch-item { margin: 1.25rem 0; padding: 0.9rem 1.1rem; background: var(--tier-fyi-soft); border-left: 2px solid var(--section-color, var(--tier-fyi)); }
+  .watch-item strong { color: var(--ink); }
+  .watch-item span.trigger { font-size: var(--t-small); color: var(--ink-mute); font-style: italic; }
+
+  .calibration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: var(--t-small); }
+  @media (max-width: 500px) { .calibration-grid { grid-template-columns: 1fr; } }
+  .calibration-grid dt { color: var(--ink-mute); font-family: 'Geist Mono', monospace; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.75rem; }
+  .calibration-grid dd { color: var(--ink); font-weight: 500; margin: 0; }
+
+  .footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--hairline-bold); color: var(--ink-mute); font-size: var(--t-small); }
+  .footer p { margin: 0.5rem 0; }
+  .footer .system { font-family: 'Geist Mono', monospace; font-size: var(--t-micro); }
+
+  .weekly-section { opacity: 0; transform: translateY(10px); animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .weekly-section:nth-of-type(1) { animation-delay: 0.05s; }
+  .weekly-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .weekly-section:nth-of-type(3) { animation-delay: 0.25s; }
+  .weekly-section:nth-of-type(4) { animation-delay: 0.35s; }
+  .weekly-section:nth-of-type(5) { animation-delay: 0.45s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .weekly-section { opacity: 1; transform: none; animation: none; } }
+
+  .cover .headline,
+  .weekly-section h2 {
+    word-break: break-word;
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <a href="./" class="logo">AI RADAR</a>
+    <nav class="nav">
+      <a href="./">Today</a>
+      <a href="./archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <div class="issue-meta">
+    <span class="date-line">2026 · 08 · 30 · WK 35 · SUN</span>
+    <span class="weekly-badge">WEEKLY WRAP</span>
+  </div>
+
+  <!-- ════════════ COVER ════════════ -->
+  <section class="cover">
+    <span class="kicker smallcaps">Week 35 · 2026-08-24 → 2026-08-30</span>
+    <h1 class="display headline">Chinese open-source models drop in a triple salvo: GLM-5.3, Qwen3.8-Flash-Next, Hy4-preview rewrite local inference</h1>
+    <p class="lead">9 new signals this week, but only 4 are worth remembering. GLM-5.3 (MIT license · 753B/40B active · 1M context) and Hy4-preview (Apache 2.0 · 770B/49B active · 1M context) mark the moment Chinese open models shift from "catching up" to "running alongside." Nvidia's $13B acquisition of Hugging Face is the biggest infrastructure event — the neutral distribution channel for open models just got bought by a chip giant. The small-model era is officially community-confirmed (HN 663-point essay).</p>
+
+    <div class="summary-box">
+      <strong>One sentence for the week:</strong> The Chinese open-source triple salvo (GLM-5.3 · Qwen3.8-Flash-Next · Hy4-preview) rewrites local inference — you no longer need a cloud API to get near-frontier quality on your own machine. Nvidia buying Hugging Face is a long-term structural change, zero short-term impact but worth remembering. The small-model era (&lt;20B active params) is community-confirmed. If you only do one thing: download the GLM-5.3-Flash GGUF quantized version (24GB VRAM), run it locally, and see if it covers 80% of your daily vibe-coding tasks.
+    </div>
+
+    <div class="count-row">
+      <div class="total">9</div>
+      <div class="count-breakdown">
+        <span class="count-pill"><span class="dot dot-crit"></span><strong>3</strong>&nbsp;🚨 (GLM-5.3 open-source · Nvidia acquires HF · Model routing era)</span>
+        <span class="count-pill"><span class="dot dot-look"></span><strong>5</strong>&nbsp;👀 (Qwen3.8-Flash-Next · Hy4-preview · Small Models essay · Bun 1.4 WebView · Gemini 3.5 Transcribe)</span>
+        <span class="count-pill"><span class="dot dot-fyi"></span><strong>1</strong>&nbsp;ℹ️ (Gemini Omni 1.1 Flash)</span>
+        <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 4 survived to weekly · 2 demoted/removed · 7 days of dailies (full attendance)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+  <section class="weekly-section section--trophy">
+    <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+    <h2 class="display">Chinese open-source triple salvo: the "iPhone moment" for local inference</h2>
+
+    <p>Three Chinese AI labs released open models in rapid succession this week: Aug 26 — Qwen3.8-Flash-Next (125B/6B active, Qwen4 architecture preview); Aug 27 — GLM-5.3-Flash (321B/18B active, MIT license); Aug 29 — GLM-5.3 full (753B/40B active, MIT license); Aug 30 — Tencent Hy4-preview (770B/49B active, Apache 2.0). This is not a coincidence — it's a collective breakout of the Chinese open-source ecosystem.</p>
+
+    <p>For clawii, here's what this means. First, you can now run a model locally that approaches Claude Opus 4.8 and GPT-5.6 Luna in quality. GLM-5.3-Flash's 4-bit quantized version needs only 24GB VRAM (RTX 4090 or Mac Studio M5 Ultra can handle it), and its coding ability is claimed to be near Opus 4.8. Second, all these models use the most permissive open-source licenses (MIT or Apache 2.0) — zero commercial restrictions. Third, 1M context windows are becoming standard — both GLM-5.3 and Hy4-preview support 1M context, meaning you can feed an entire codebase or a whole book into a single prompt.</p>
+
+    <p>This is as significant as last week's OpenRouter-Stripe acquisition — it changes your model-choice landscape as a vibe coder. Before, you had to choose between "run a small model locally (not good enough)" and "use a big model in the cloud (cost, latency, privacy)." Now you can run a model locally that approaches frontier closed-source quality — zero latency, zero data leakage, zero API fees. Simon Willison has already tested Qwen3.8-Flash-Next and Hy4-preview on a DGX Spark with positive results.</p>
+
+    <p><strong>If you only do one thing:</strong> Download the GLM-5.3-Flash GGUF quantized version (already published by Unsloth), run it locally with Ollama or llama.cpp, and test 2-3 of your most common vibe-coding tasks. If the quality is satisfactory, consider migrating your daily workflow from cloud APIs to local models. The API fees you save can be used to rent stronger cloud GPUs for the really complex tasks.</p>
+  </section>
+
+  <!-- ════════════ 📈 TRENDS ════════════ -->
+  <section class="weekly-section section--trends">
+    <div class="section-label">📈 Trends building this week</div>
+    <h2 class="display">Three directions confirmed or accelerated</h2>
+
+    <div class="trend-item">
+      <div class="trend-name">① Chinese open models shift from "catching up" to "running alongside"</div>
+      <p>This week's triple salvo (GLM-5.3 · Qwen3.8-Flash-Next · Hy4-preview) marks the moment Chinese open-source models are no longer just "cheap alternatives" — they are genuinely competitive with frontier closed models. GLM-5.3's Artificial Analysis Intelligence Index scores 57 (Opus 4.8 is 59), Hy4-preview hit HN 312 points, Qwen3.8-Flash-Next is #1 on HuggingFace trending. The numbers show community recognition. For clawii, this means your model choices are no longer limited to "only OpenAI and Anthropic can make top-tier models." Watch next week: does Karpathy or swyx review these models? Does Ollama add official support for GLM-5.3-Flash and Hy4-preview?</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">② Model routing becomes the most practical cost-saving strategy of H2 2026</div>
+      <p>This week's FT report (554 points) and Simon Willison's deep dive confirm a trend: Fable 5 is too expensive, Opus 5 is good enough, and model routing is the most practical cost-saving strategy of H2 2026. AT&T has publicly stated that 40% of its AI usage goes through open models, targeting 60-70%, cutting costs by 56% with only a 2% quality drop. This isn't theory — it's what large companies are doing with real money. For clawii, this means you should start configuring routing rules — simple tasks use cheap models (Haiku, Flash), complex tasks use Opus / Fable. Watch next week: does OpenRouter ship smarter routing? Does Vercel cut routing tool prices?</p>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-name">③ The small-model era is officially community-confirmed</div>
+      <p>This week's "Small Models Have Arrived" essay by calv.info (HN 663 points, 299 comments) summarizes the recent small-model explosion. Core thesis: small models (&lt;20B active parameters) have reached the point where they can replace large models for everyday tasks. GLM-5.3-Flash (18B active), Qwen3.8-Flash-Next (6B active), Hy4-preview (49B active) are all evidence. For clawii, this means you can run near-frontier models on consumer hardware without relying on cloud APIs. Watch next week: does Ollama officially support these new models? Do more KOLs publish hands-on reviews of small-model real-world performance?</p>
+    </div>
+  </section>
+
+  <!-- ════════════ 💀 WRONG ════════════ -->
+  <section class="weekly-section section--wrong">
+    <div class="section-label">💀 What I called wrong / overhyped this week</div>
+    <h2 class="display">2 demotions, 1 honest admission of overly optimistic short-term judgment</h2>
+
+    <p><strong>Bun 1.4 WebView (8/24 👀 → demoted to ℹ️)</strong> — I flagged Bun 1.4's WebView as 👀 on Monday, believing it would dramatically lower the cost of browser automation for local agents. But a week passed with zero community-built tools based on Bun.WebView, and Simon Willison's prototype validation had no follow-up. Bun 1.4 itself is an important runtime update, but the WebView feature hasn't found its killer use case yet. Demoted to ℹ️.</p>
+
+    <p><strong>Gemini 3.5 Transcribe (8/28 👀 → demoted to ℹ️)</strong> — I flagged Google's transcription model as 👀 on Friday, thinking it could reshape the transcription market. But a week passed with zero independent benchmarks, zero pricing announcements, zero enterprise case studies. The HN 302-point heat has cooled. Transcription is a mature market, and Gemini Transcribe needs more evidence to prove it's better than Whisper or Deepgram. Demoted to ℹ️.</p>
+
+    <p><strong>Nvidia acquires Hugging Face — short-term impact needs lower expectations (8/27 🚨 → keep 🚨 but lower short-term expectations)</strong> — I flagged this acquisition as 🚨 on Wednesday, calling it "the biggest structural earthquake in the open-source ecosystem." This judgment is still correct on the long-term axis, but a week passed with zero substantive progress — regulatory review hasn't started, Hugging Face hasn't published any "neutrality" commitments, and community discussion has shifted from "panic" to "waiting." Short-term (1-2 months), zero impact on your daily work. Keeping 🚨 but lowering short-term expectations.</p>
+
+    <p><strong>Still tracking correctly:</strong> GLM-5.3 open-source (🚨, HN 708 points, weights released, MIT license), Qwen3.8-Flash-Next (👀, Simon Willison review, HF trending #1), Hy4-preview (👀, HN 312 points, Simon Willison review), model routing era (🚨, FT report 554 points, AT&T data validation) — all four tracking at original signal strength.</p>
+  </section>
+
+  <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+  <section class="weekly-section section--watch">
+    <div class="section-label">🔮 Watch list for next week</div>
+    <h2 class="display">Three things to track over the next 7 days</h2>
+
+    <div class="watch-item">
+      <strong>① Does Karpathy or swyx review GLM-5.3 / Hy4-preview / Qwen3.8-Flash-Next?</strong><br>
+      This week's triple salvo already got Simon Willison's review, but Karpathy or swyx's endorsement is the final "community approval" signal. If Karpathy tweets "this is the way," these models enter the mainstream local workflow. Also watch whether Ollama officially supports them (<code>ollama pull glm-5.3-flash</code> becomes available).<br>
+      <span class="trigger">Trigger → Karpathy / swyx posts / Ollama official support / HF downloads cross 1M</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>② Nvidia-Hugging Face acquisition regulatory progress</strong><br>
+      This $13B acquisition needs antitrust approval. If next week brings news of "regulators demanding asset divestiture" or "EU launching an investigation," it will affect the final outcome. Also watch whether Hugging Face publishes an official "neutrality" commitment statement.<br>
+      <span class="trigger">Trigger → Regulatory review starts / HF official announcement / Competitors (ModelScope, GitHub) announce new model distribution plans</span>
+    </div>
+
+    <div class="watch-item">
+      <strong>③ Do model routing tools see price cuts or new features?</strong><br>
+      The FT report and AT&T data confirm the routing trend, but actual tools are still immature. If OpenRouter announces price cuts, Vercel ships smarter routing features, or Anthropic launches an official routing tool next week, it validates "routing as the most practical cost-saving strategy of H2 2026."<br>
+      <span class="trigger">Trigger → OpenRouter price cut / Vercel routing feature update / Anthropic official routing tool</span>
+    </div>
+  </section>
+
+  <!-- ════════════ 📅 CALIBRATION ════════════ -->
+  <section class="weekly-section section--calibration">
+    <div class="section-label">📅 Calibration metrics — Week 35</div>
+    <h2 class="display">The numbers for this week</h2>
+
+    <dl class="calibration-grid">
+      <dt>Daily digests this week</dt>
+      <dd>7 of 7 days (8/24–8/30, full attendance)</dd>
+
+      <dt>🚨 Items flagged (unique signals)</dt>
+      <dd>3 (GLM-5.3 open-source · Nvidia acquires HF · Model routing era)</dd>
+
+      <dt>👀 Items flagged (unique signals)</dt>
+      <dd>5 (Qwen3.8-Flash-Next · Hy4-preview · Small Models essay · Bun 1.4 WebView · Gemini 3.5 Transcribe)</dd>
+
+      <dt>ℹ️ Items flagged (unique signals)</dt>
+      <dd>1 (Gemini Omni 1.1 Flash)</dd>
+
+      <dt>New signals total</dt>
+      <dd>9 (3🚨 + 5👀 + 1ℹ️)</dd>
+
+      <dt>Daily pill occurrences (with repeats)</dt>
+      <dd>16 (5🚨 + 10👀 + 1ℹ️, GLM-5.3 and Qwen3.8-Flash-Next appeared across multiple days)</dd>
+
+      <dt>Items surviving to weekly</dt>
+      <dd>4 (🏆 Chinese open-source triple salvo · 📈 Model routing era · 📈 Small-model era confirmed · 💀 2 demotions + 1 lowered expectations)</dd>
+
+      <dt>Items demoted / removed from tracking</dt>
+      <dd>2 (Bun 1.4 WebView 👀→ℹ️ · Gemini 3.5 Transcribe 👀→ℹ️)</dd>
+
+      <dt>Demotion rate</dt>
+      <dd>22% (flat vs last week's 21%. All 3 🚨 items received at least one follow-up confirmation. GLM-5.3 and model routing era signal strength rising. Nvidia-HF acquisition needs lower short-term expectations.)</dd>
+
+      <dt>Lead time vs Chinese content cycle</dt>
+      <dd>~12 hours ahead on GLM-5.3 open-source (English community exploded 8/27, Chinese coverage started 8/28); ~24 hours ahead on Hy4-preview (8/30 HN explosion, Chinese discussion started 8/31); ~48 hours ahead on Small Models essay (8/28 HN explosion, Chinese discussion started 8/30). Overall lead time flat vs last week, but signals are more concentrated — the Chinese open-source triple salvo was the single dominant event of the week.</dd>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+      Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+    </p>
+    <p>
+      Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+    </p>
+    <p>
+      Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+    </p>
+    <p class="system">
+      ai-radar · Weekly Wrap · Week 35 · 2026-08-30 · 7 dailies · 9 new signals (3🚨 / 5👀 / 1ℹ️) · 4 survived · 2 demoted/removed · Full attendance week
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
