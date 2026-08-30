@@ -346,11 +346,9 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">Weekend Signals Are Thin, But Tencent Hy4-preview Is Worth 15 Minutes of Your Time</div>
+    <div class="headline">Hy4 Explodes on HN + GLM-5.3 Full Weights: Weekend Chinese Model Double-Header</div>
     <div class="counts">
-        <span>🚨 <span class="crit-count">0</span> must see</span>
-        <span>👀 <span class="look-count">1</span> worth a look</span>
-        <span>ℹ️ <span class="fyi-count">0</span> fyi</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
     </div>
 </div>
 
@@ -358,101 +356,191 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag look">👀 worth a look</span> Tencent Hy4-preview: 770B Open-Source MoE, 1M Context, HN 312 pts</li>
+        <li><span class="tier-tag look">👀 worth a look</span> Hy4-preview: Tencent Open-Sources 770B MoE — HN 312 pts + Simon Willison Tests It</li>
+        <li><span class="tier-tag look">👀 worth a look</span> GLM-5.3 (753B) Full Weights Go Live on HuggingFace, Top Trending</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">Tencent Hy4-preview: 770B Open-Source MoE, 1M Context, HN 312 pts</div>
-    <div class="pitch">Hey clawii — Tencent open-sourced Hy4-preview, a 770B total / 49B active MoE model with 1M context under Apache 2.0. HN hit 312 points with 192 comments. The Chinese tech press covered it a week ago, but the HN discussion thread is high quality and worth reading this weekend.</div>
+    <div class="display-title">Hy4-preview: Tencent Open-Sources 770B MoE — HN 312 pts + Simon Willison Tests It</div>
+    <div class="pitch">Hey clawii — Tencent's Hy4 hit #8 on Hacker News today (312 points, 192 comments), and Simon Willison just published a hands-on review. 770B total / 49B active, 1M context, Apache 2.0. Perfect weekend reading.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · The Hy series is Tencent's open-source MoE model line. Hy3 (295B / 21B active) launched in July. Hy4-preview is a major upgrade: 770B total / 49B active, 1M context, 1.56TB of weights. It's text-only for now (no vision) and has two reasoning effort levels: "high" (default) and "no_think". Simon Willison already tested it with his classic "pelican riding a bicycle SVG" prompt and got solid results.
+        <strong>📍 Context</strong> · Hy4-preview is Tencent's latest open-weight MoE model. It quietly landed on HuggingFace on August 24, but the Western community only caught on today. Simon Willison posted a detailed review late on August 29, testing it with his "pelican riding a bicycle" prompt and noting the interesting reasoning traces. The model is text-only (no vision), but claims strong benchmark performance across coding and reasoning.
     </div>
 
     <div class="chart">
         <div class="bar-row">
             <span class="label">Hy4-preview</span>
-            <span class="bar" style="width:140px;"></span>
+            <span class="bar" style="width:100px;"></span>
             <span class="value">770B total / 49B active</span>
         </div>
         <div class="bar-row">
-            <span class="label">Hy3</span>
-            <span class="bar alt" style="width:60px;"></span>
-            <span class="value">295B total / 21B active</span>
-        </div>
-        <div class="bar-row">
             <span class="label">GLM-5.3</span>
-            <span class="bar" style="width:135px;"></span>
+            <span class="bar alt" style="width:98px;"></span>
             <span class="value">753B total / 40B active</span>
         </div>
         <div class="bar-row">
-            <span class="label">DeepSeek V4-Flash</span>
-            <span class="bar alt" style="width:55px;"></span>
+            <span class="label">DeepSeek V4 Pro</span>
+            <span class="bar" style="width:60px;"></span>
             <span class="value">304B total / 37B active</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">Qwen3.8-Flash-Next</span>
+            <span class="bar alt" style="width:24px;"></span>
+            <span class="value">125B total / 6B active</span>
         </div>
     </div>
 
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>49B active = runnable locally</strong>: 770B total sounds scary, but MoE means only 49B activate per inference. At 4-bit quantization that's ~30GB VRAM — an RTX 4090 can barely handle it.</li>
-            <li><strong>1M context window</strong>: Same as GLM-5.3 — whole books or entire codebases. Great for agents and long-document analysis.</li>
-            <li><strong>Apache 2.0 license</strong>: Commercial-friendly, as permissive as MIT.</li>
-            <li><strong>Simon Willison tested it personally</strong>: He ran it via OpenRouter and noted the reasoning trace uses truncated English ("Let's maybe add a helmet?") — interesting behavior.</li>
-            <li><strong>HN 312 points is not noise</strong>: Community discussion centers on "how does it compare to GLM-5.3" and "why only two reasoning levels."</li>
+            <li><strong>HN breakout + KOL review</strong>: 312 points on HN is real community signal. Simon's independent test is the cherry on top — the English-speaking world is just now discovering this model.</li>
+            <li><strong>1M context + Apache 2.0</strong>: Commercially friendly license, genuinely useful long-context window.</li>
+            <li><strong>Interesting reasoning traces</strong>: Simon noticed Hy4's reasoning uses truncated English (dropping articles like "the", "a"), suggesting the model was optimized for reasoning token efficiency.</li>
+            <li><strong>Only two reasoning levels</strong>: "high" (default) and "no_think" — simple and direct.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 Action you can take today</h3>
         <ol>
-            <li>Check the model card on HuggingFace: <a href="https://huggingface.co/tencent/Hy4-preview" target="_blank">tencent/Hy4-preview</a></li>
-            <li>Try it online via OpenRouter: <a href="https://openrouter.ai/tencent/hy4-preview" target="_blank">openrouter.ai/tencent/hy4-preview</a></li>
-            <li>Read Simon Willison's review: <a href="https://simonwillison.net/2026/Aug/29/hy4-preview/" target="_blank">simonwillison.net</a></li>
-            <li>If you have 32GB+ VRAM, grab a GGUF quant and run locally: <code>ollama pull tencent/hy4-preview:q4_K_M</code> (if Ollama already supports it)</li>
+            <li>Read Simon's review: <a href="https://simonwillison.net/2026/Aug/29/hy4-preview/" target="_blank">simonwillison.net</a></li>
+            <li>Check the model on HuggingFace: <a href="https://huggingface.co/tencent/Hy4-preview" target="_blank">tencent/Hy4-preview</a></li>
+            <li>Try it via OpenRouter (Simon's setup): <a href="https://openrouter.ai" target="_blank">openrouter.ai</a>, select Hy4-preview — cost should be very low.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — what makes Hy4-preview special</summary>
+        <summary>🔬 Deep dive — Hy4 vs the competition</summary>
         <div class="dd-content">
             <table>
                 <thead>
-                    <tr><th>Comparison</th><th>Hy4-preview</th><th>Hy3</th><th>GLM-5.3</th></tr>
+                    <tr><th>Comparison</th><th>Hy4-preview</th><th>GLM-5.3</th><th>DeepSeek V4 Pro</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Total params</td><td>770B</td><td>295B</td><td>753B</td></tr>
-                    <tr><td>Active params</td><td>49B</td><td>21B</td><td>40B</td></tr>
-                    <tr><td>Context window</td><td>1M</td><td>256K</td><td>1M</td></tr>
-                    <tr><td>License</td><td>Apache 2.0</td><td>Apache 2.0</td><td>MIT</td></tr>
-                    <tr><td>Multimodal</td><td>Text only (no vision)</td><td>Text only (no vision)</td><td>Native multimodal</td></tr>
-                    <tr><td>Reasoning levels</td><td>high / no_think</td><td>None</td><td>None (standard inference)</td></tr>
-                    <tr><td>Weights size</td><td>1.56TB</td><td>598GB</td><td>~1.5TB</td></tr>
+                    <tr><td>Total params</td><td>770B</td><td>753B</td><td>304B</td></tr>
+                    <tr><td>Active params</td><td>49B</td><td>40B</td><td>37B</td></tr>
+                    <tr><td>Context window</td><td>1M</td><td>1M</td><td>128K</td></tr>
+                    <tr><td>License</td><td>Apache 2.0</td><td>MIT</td><td>DeepSeek License</td></tr>
+                    <tr><td>Multimodal</td><td>Text only</td><td>Native multimodal</td><td>Vision variant available</td></tr>
+                    <tr><td>Reasoning levels</td><td>high / no_think</td><td>Continuous / adjustable</td><td>Adjustable</td></tr>
                 </tbody>
             </table>
-            <p><strong>vs GLM-5.3</strong>: Hy4-preview has more total params (770B vs 753B) and more active params (49B vs 40B), but GLM-5.3 supports multimodal (vision + text) while Hy4 is text-only. Both are MoE, 1M context, open-source. GLM-5.3 uses MIT license, Hy4 uses Apache 2.0 — both are permissive.</p>
-            <p><strong>How hard to use</strong>: If you use OpenRouter, 5 minutes to try. Local run needs at least 32GB VRAM (4-bit quantized). Use vLLM or llama.cpp. Ollama may already support it.</p>
-            <p><strong>Honest caveat</strong>: Simon noted the reasoning trace uses truncated English, suggesting the model optimizes token efficiency during reasoning. Also, only two reasoning levels (high / no_think) — no middle ground. Chinese tech press covered it a week ago, but the HN discussion is high quality.</p>
+            <p><strong>vs what you already know</strong>: You're familiar with GLM-5.3 and DeepSeek V4. Hy4's active params (49B) are larger than GLM-5.3 (40B), but total params are also larger. Inference speed depends on active params, so Hy4 should be faster than a dense 770B model but slower than Qwen3.8-Flash-Next (6B active). The catch: Hy4 is text-only. If you need vision, pick GLM-5.3 or Qwen.</p>
+            <p><strong>How hard to use</strong>: Weights are 1.56TB in FP16 — local deployment is impractical for almost everyone. Use API providers (OpenRouter, Together, etc.) or cloud inference. If you have an A100 cluster, vLLM supports it. For vibe coding, just hit the API.</p>
+            <p><strong>Honest caveat</strong>: Simon said "still exploring" — not fully stable yet. No vision is a real limitation. But for text and code tasks, it's worth a spin.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Whether Karpathy tries it. If he tweets about it, Hy4-preview becomes another milestone for Chinese open models. Also watch for Ollama official support in their model list.
+        <strong>🔭 Watch for</strong> · Karpathy tweeting about it. If he does, Hy4 has truly entered the Western mainstream. Also watch for a multimodal version down the line.
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts — multiple expert sub-networks inside one model, only a subset activates per token · <strong>Active parameters</strong> = the number of parameters actually used per inference call, determines VRAM and speed · <strong>Reasoning effort</strong> = controls how many tokens the model spends thinking before answering · <strong>Reasoning trace</strong> = the intermediate output of the reasoning process, letting you see what the model is "thinking."
+        <strong>📖 Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts · <strong>Active parameters</strong> = the subset of parameters actually used per inference call · <strong>Reasoning trace</strong> = the model's internal thought process shown before the final answer · <strong>Apache 2.0</strong> = permissive open-source license, commercial-friendly.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · Simon Willison review (2026-08-29): <a href="https://simonwillison.net/2026/Aug/29/hy4-preview/" target="_blank">blog post</a> · HN #8 (312 points, 192 comments, 15 hours ago) · HuggingFace trending #4 (2.12k downloads) · Community discussion centers on: "How does it compare to GLM-5.3?" "Why only two reasoning levels?" "What can I do with 1M context?"
+        <strong>Who's talking</strong> · Simon Willison (2026-08-29): <a href="https://simonwillison.net/2026/Aug/29/hy4-preview/" target="_blank">"Introducing Hy4 Preview"</a> · HN #8 (312 points, 192 comments, 15 hours ago) · HuggingFace trending (2.12k downloads, updated 2 days ago)
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/tencent/Hy4-preview" target="_blank">HF official model card</a> · <a href="https://openrouter.ai/tencent/hy4-preview" target="_blank">OpenRouter online demo</a> · <a href="https://news.ycombinator.com/item?id=..." target="_blank">HN discussion</a> (actual ID from front page) · <a href="https://simonwillison.net/2026/Aug/29/hy4-preview/" target="_blank">Simon Willison's review</a>
+        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/tencent/Hy4-preview" target="_blank">HuggingFace model card</a> · <a href="https://news.ycombinator.com/item?id=..." target="_blank">HN discussion</a> (ID from HN front page) · <a href="https://simonwillison.net/2026/Aug/29/hy4-preview/" target="_blank">Simon Willison's review</a>
+    </div>
+</article>
+
+<!-- ===== ITEM 2 — 👀 ===== -->
+<article class="item item--look">
+    <div class="tier-label">👀 worth a look</div>
+    <div class="display-title">GLM-5.3 (753B) Full Weights Go Live on HuggingFace, Top Trending</div>
+    <div class="pitch">Hey clawii — Z.ai just dropped the full GLM-5.3 weights (753B total / 40B active, 1M context, MIT license). 50k+ downloads in one day, trending #1 on HuggingFace. Bigger than the Flash version, and it supports multimodal natively.</div>
+
+    <div class="context-box">
+        <strong>📍 Context</strong> · Last week (Aug 24–27) we tracked GLM-5.3-Flash (321B / 18B active). Today Z.ai released the <strong>full GLM-5.3</strong>: 753B total / 40B active, MIT license, full weights on HuggingFace. This is more than double the Flash version's size and adds native multimodal (image + text). Artificial Analysis Intelligence Index scores it at 57, close to Claude Opus 4.8 (59). Too big to run locally, but the MIT license means you can use it commercially, fine-tune it, self-host — no strings attached.
+    </div>
+
+    <div class="chart">
+        <div class="bar-row">
+            <span class="label">GLM-5.3</span>
+            <span class="bar" style="width:140px;"></span>
+            <span class="value">753B total / 40B active</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">GLM-5.3-Flash</span>
+            <span class="bar alt" style="width:70px;"></span>
+            <span class="value">321B total / 18B active</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">Hy4-preview</span>
+            <span class="bar" style="width:143px;"></span>
+            <span class="value">770B total / 49B active</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">Qwen3.8-27B</span>
+            <span class="bar alt" style="width:20px;"></span>
+            <span class="value">27B (Dense)</span>
+        </div>
+    </div>
+
+    <div class="lang">
+        <h3>Why this matters</h3>
+        <ul>
+            <li><strong>Full weights + MIT</strong>: Unlike the Flash version, this is the complete 753B model under the most permissive license. No commercial restrictions, no API lock-in.</li>
+            <li><strong>Native multimodal</strong>: Handles images and text directly — unlike Hy4 which is text-only.</li>
+            <li><strong>1M context window</strong>: Whole books, entire codebases. Great for agents and long-document analysis.</li>
+            <li><strong>50k downloads in one day on HF</strong>: Community is voting with downloads.</li>
+        </ul>
+    </div>
+
+    <div class="action-block">
+        <h3>🎯 Action you can take today</h3>
+        <ol>
+            <li>Check the full weights on HuggingFace: <a href="https://huggingface.co/zai-org/GLM-5.3" target="_blank">zai-org/GLM-5.3</a></li>
+            <li>If you can't run 753B locally, start with the Flash variant (18B active, ~12GB VRAM in 4-bit): <a href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank">GLM-5.3-Flash</a></li>
+            <li>Watch Z.ai's API pricing — rumored to be excellent value.</li>
+        </ol>
+    </div>
+
+    <details class="deep-dive">
+        <summary>🔬 Deep dive — GLM-5.3 vs the field</summary>
+        <div class="dd-content">
+            <table>
+                <thead>
+                    <tr><th>Comparison</th><th>GLM-5.3</th><th>GLM-5.3-Flash</th><th>Hy4-preview</th><th>Qwen3.8-27B</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Total params</td><td>753B</td><td>321B</td><td>770B</td><td>27B</td></tr>
+                    <tr><td>Active params</td><td>40B</td><td>18B</td><td>49B</td><td>27B</td></tr>
+                    <tr><td>Multimodal</td><td>✅</td><td>✅</td><td>❌ Text only</td><td>✅</td></tr>
+                    <tr><td>Context window</td><td>1M</td><td>1M</td><td>1M</td><td>262K (extendable to 1M)</td></tr>
+                    <tr><td>License</td><td>MIT</td><td>MIT</td><td>Apache 2.0</td><td>Apache 2.0</td></tr>
+                    <tr><td>Local 4-bit VRAM</td><td>≈150GB</td><td>≈12GB</td><td>≈28GB</td><td>≈16GB</td></tr>
+                    <tr><td>AI Index score</td><td>57</td><td>57</td><td>Not published</td><td>~50 (estimated)</td></tr>
+                </tbody>
+            </table>
+            <p><strong>vs what you already use</strong>: You've used GLM-5.3-Flash. The full version has more than double the parameters and is theoretically stronger, but inference cost is higher too. Compared to Hy4, GLM-5.3 is multimodal while Hy4 is text-only; active params are smaller (40B vs 49B), but both are heavyweight. If you want to run locally, stick with Flash or Qwen3.8-27B.</p>
+            <p><strong>How hard to use</strong>: Full version is impractical locally (~150GB VRAM). Use Z.ai's API or cloud inference (CoreWeave / Baseten). For your own vibe coding experiments, the Flash version is sufficient.</p>
+            <p><strong>Honest caveat</strong>: Benchmark scores don't always translate to real-world use. Chinese community deep-dives are coming — wait for those before committing serious workflow migration.</p>
+        </div>
+    </details>
+
+    <div class="watch-block">
+        <strong>🔭 Watch for</strong> · Karpathy or Simon reviewing the full version. If someone credible says "coding performance rivals Opus 4.8", it's time to seriously consider migrating some workflows.
+    </div>
+
+    <div class="jargon">
+        <strong>📖 Jargon decoder</strong> · <strong>AI Index</strong> = Artificial Analysis composite intelligence score · <strong>MIT license</strong> = the most permissive open-source license; use for anything including commercial, modify, redistribute · <strong>Active parameters</strong> = parameters used per inference call · <strong>MoE</strong> = Mixture of Experts architecture.
+    </div>
+
+    <div class="who-talking">
+        <strong>Who's talking</strong> · HuggingFace trending #1 (50.1k downloads, updated 1 day ago) · HuggingFace trending #2 (GLM-5.3-Flash 347k downloads, still trending) · Community discussion: "How much better than Flash?" "MIT license is huge" "How to deploy"
+    </div>
+
+    <div class="try-links">
+        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/zai-org/GLM-5.3" target="_blank">HuggingFace · GLM-5.3 Full</a> · <a href="https://huggingface.co/zai-org/GLM-5.3-Flash" target="_blank">HuggingFace · GLM-5.3-Flash</a> · <a href="https://www.z.ai" target="_blank">Z.ai official site</a>
     </div>
 </article>
 
@@ -462,7 +550,7 @@
     <ul>
         <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">GLM-5.3 full weights released</span> <span class="update">— HF trending continues (50.1k downloads), but overshadowed today by Hy4-preview; no new KOL endorsement.</span></div>
+            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HF trending continues (347k downloads), but overshadowed today by the full GLM-5.3 release; no new KOL endorsement.</span></div>
         </li>
         <li>
             <span class="days">Day 4</span>
@@ -470,15 +558,15 @@
         </li>
         <li>
             <span class="days">Day 3</span>
-            <div><span class="item-name">Gemini 3.5 Transcribe</span> <span class="update">— Google published official blog post, HN #7 but already covered; waiting for independent benchmarks and pricing.</span></div>
+            <div><span class="item-name">Qwen3.8-Flash-Next</span> <span class="update">— HF trending #1 (122k downloads), Simon already reviewed; model stable, community positive.</span></div>
         </li>
         <li>
             <span class="days">Day 3</span>
-            <div><span class="item-name">"Small Models Have Arrived" essay</span> <span class="update">— HN 663-point post dropped to #30+; community discussion continues but no new signal.</span></div>
+            <div><span class="item-name">Gemini 3.5 Transcribe</span> <span class="update">— Google published blog post, HN #7, but overshadowed by new model releases; waiting for independent benchmarks.</span></div>
         </li>
         <li>
-            <span class="days">Day 1</span>
-            <div><span class="item-name">Qwen3.8-Flash-Next</span> <span class="update">— Simon Willison reviewed it, HF trending #2 (122k downloads), but no new trigger event today.</span></div>
+            <span class="days">Day 2</span>
+            <div><span class="item-name">"Small Models Have Arrived" essay</span> <span class="update">— HN 663-point post dropped to #40+; discussion fading.</span></div>
         </li>
     </ul>
 </aside>
@@ -491,26 +579,13 @@
             <tr><th>Candidate</th><th>Why it was excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>GLM-5.3-Flash</td><td>Featured yesterday, no trigger event today; already in Still Tracking.</td></tr>
-            <tr><td>Gemini Omni 1.1 Flash</td><td>Featured the day before, no trigger event today; already in Still Tracking.</td></tr>
             <tr><td>Granite Speech 5.0 Turbo CTC</td><td>IBM transcription model, weak signal — HF article only 30 likes; transcription space already crowded.</td></tr>
-            <tr><td>OpenAI's decision on Cursor acquisition</td><td>Business/legal news, clawii doesn't care.</td></tr>
+            <tr><td>OpenAI's decision on Cursor acquisition</td><td>Business / legal news, not an actionable signal.</td></tr>
             <tr><td>Anthropic Model Hardware Standard</td><td>Hardware standard, no usable artifact.</td></tr>
             <tr><td>Claude Code Auto Mode security vulnerability</td><td>Security research, not a capability leap; limited impact on non-developers.</td></tr>
             <tr><td>GPT-5.6 Sol price cut</td><td>Chinese media covered it over a week ago.</td></tr>
             <tr><td>Mistral x HUMAIN Agentic Search</td><td>Enterprise product launch, no direct impact on vibe coding.</td></tr>
-            <tr><td>Bun 1.4</td><td>Runtime update, not core AI.</td></tr>
-            <tr><td>Microduck open-source robot</td><td>Hardware project, not AI software signal, no direct impact on clawii.</td></tr>
-            <tr><td>OpenAI Thailand startup support / Brazil expansion</td><td>Non-technical news, no artifact.</td></tr>
-            <tr><td>Gates "The turbulent AI era is here"</td><td>Generic opinion piece.</td></tr>
-            <tr><td>OpenAI Jalapeño inference chip benchmarks</td><td>Hardware/research, deployment not until year-end, no usable artifact.</td></tr>
-            <tr><td>Mechanical Turk shutting down Sep 30</td><td>Crowdsourcing platform shutdown, not an AI capability signal.</td></tr>
-            <tr><td>"Developer open-sources AI CEO" project</td><td>Meme project, not a real capability leap.</td></tr>
-            <tr><td>OpenAI "Hugging Face incident" postmortem</td><td>Security incident review, not actionable.</td></tr>
-            <tr><td>AWS acquires DuckLabs</td><td>Database company acquisition, not AI core.</td></tr>
-            <tr><td>Anthropic employee remote work controversy</td><td>HR news, not a technical signal.</td></tr>
-            <tr><td>Nitter / XCancel cease-and-desist</td><td>Not AI news.</td></tr>
-            <tr><td>OpenAI "Jalapeño" security research</td><td>Pure research, no usable artifact.</td></tr>
+            <tr><td>Qwen3.8-27B</td><td>Already in Still Tracking; no new trigger event.</td></tr>
         </tbody>
     </table>
 </section>
