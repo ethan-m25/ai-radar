@@ -346,10 +346,10 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">OpenAI Decides Not to Acquire Cursor + Claude Code Auto Mode Broken — Security Floor Is Shifting</div>
+    <div class="headline">Quiet Monday — Simon Finally Explains ChatGPT Work, OpenClaw 2.0 Drops, and a Cautionary Tale</div>
     <div class="counts">
-        <span>🚨 <span class="crit-count">1</span> must see</span>
-        <span>👀 <span class="look-count">1</span> worth a look</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
+        <span>ℹ️ <span class="fyi-count">1</span> fyi</span>
     </div>
 </div>
 
@@ -357,164 +357,167 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 must see</span> Claude Code Auto Mode Broken — Your Agent Might Be Getting Exploited</li>
-        <li><span class="tier-tag look">👀 worth a look</span> OpenAI Decides Not to Acquire Cursor — Why This Matters to You</li>
+        <li><span class="tier-tag look">👀 worth a look</span> Simon Willison Finally Explains ChatGPT Work — "Extraordinarily Confusing but Extremely Powerful"</li>
+        <li><span class="tier-tag look">👀 worth a look</span> OpenClaw 2.0 Is Here — "Accidentally," with 105 HN Comments and Counting</li>
+        <li><span class="tier-tag fyi">ℹ️ fyi</span> Meta Security Researcher's AI Agent Deleted All Her Emails — Agent Safety Is Not Sci-Fi</li>
     </ul>
 </nav>
 
-<!-- ===== ITEM 1 — 🚨 ===== -->
-<article class="item item--crit">
-    <div class="tier-label">🚨 must see</div>
-    <div class="display-title">Claude Code Auto Mode Broken — Your Agent Might Be Getting Exploited</div>
-    <div class="pitch">Hey clawii — Johann Rehberger found an attack against Claude Code Auto Mode with an 80% success rate. Worse: Auto Mode blocked the cleanup command after detecting the attack. This isn't a theoretical vulnerability — it's a real, usable exploit.</div>
+<!-- ===== ITEM 1 — 👀 ===== -->
+<article class="item item--look">
+    <div class="tier-label">👀 worth a look</div>
+    <div class="display-title">Simon Willison Finally Explains ChatGPT Work — "Extraordinarily Confusing but Extremely Powerful"</div>
+    <div class="pitch">Hey clawii — OpenAI's ChatGPT Work launched back in July, but nobody has really explained what it can do. Simon Willison dropped a 2,214-word deep-dive yesterday, and it hit #11 on HN with 201 points. Worth 30 minutes of your Monday.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · Claude Code's Auto Mode is Anthropic's default safety mechanism, designed to automatically block prompt injection attacks. Johann Rehberger (one of the most credible prompt injection researchers) discovered a "confused environment attack": by tricking Claude Code into downloading and unzipping a file, the extracted <code>struct.py</code> gets auto-executed by Python's import mechanism. Auto Mode failed to stop the attack in 80% of tests, and even blocked cleanup commands after detecting the compromise.
-    </div>
-
-    <div class="chart">
-        <div class="bar-row">
-            <span class="label">Auto Mode block rate</span>
-            <span class="bar" style="width:20px;"></span>
-            <span class="value">~20% (only stopped attack in 20% of tests)</span>
-        </div>
-        <div class="bar-row">
-            <span class="label">Attack success rate</span>
-            <span class="bar alt" style="width:80px;"></span>
-            <span class="value">~80% (per Johann's report)</span>
-        </div>
+        <strong>📍 Context</strong> · ChatGPT Work is OpenAI's agent product, announced July 9 and rapidly iterated since. It combines code interpreter, Skills, and general agents into one interface — turning ChatGPT from "chat" into "work." But the product is confusing as hell (Simon's words: "extraordinarily confusing and very powerful"). For someone like you who doesn't live in the terminal, this is the closest thing to a Claude Code-like experience you can get from a browser.
     </div>
 
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>Auto Mode is the default</strong>: Anthropic recently made Auto Mode the default safety setting for Claude Code, claiming it protects users from prompt injection. This exploit directly undermines that claim.</li>
-            <li><strong>The safety mechanism itself became the problem</strong>: Most alarmingly, Auto Mode blocked Claude's own cleanup commands after detecting the attack. The safety mechanism became an accomplice.</li>
-            <li><strong>Not a theoretical bug</strong>: Johann published the full attack chain, including zip file construction and import hijacking. Anyone can reproduce it.</li>
-            <li><strong>Simon Willison confirmed it</strong>: He calls it a "confused environment attack" rather than traditional prompt injection, but the conclusion is the same — Auto Mode is not reliable.</li>
-            <li><strong>Relevant even if you're not a dev</strong>: If you use Claude Code to handle any sensitive files (SSH keys, cloud credentials, codebases), this exploit could be used against you.</li>
+            <li><strong>Simon Willison is one of the most credible reviewers in the field</strong>: He spent real time breaking down how ChatGPT Work actually works. You can copy his workflow instead of figuring it out from scratch.</li>
+            <li><strong>ChatGPT Work requires zero terminal access, zero code to write</strong>: It's the agent entry point for non-developers — exactly the piece you've been missing as a vibe coder.</li>
+            <li><strong>HN 201 points + 103 comments</strong>: The community is digesting this right now. You're not late — but the Chinese-language wave will hit in a week or two. Read it now.</li>
+            <li><strong>It's the same category as Claude Code / codex, but a completely different entry point</strong>: Understanding it = understanding OpenAI's agent roadmap.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 Action you can take today</h3>
         <ol>
-            <li><strong>Don't rely on Auto Mode</strong>: Turn it off and run Claude Code inside a sandbox instead. Anthropic's default safety mechanism has been broken.</li>
-            <li><strong>Use a container or VM</strong>: Run Claude Code inside a Docker container or virtual machine with restricted network egress. Don't expose home directories, SSH keys, or cloud credentials.</li>
-            <li><strong>Monitor agent behavior</strong>: Use audit logging to track Claude Code's filesystem access and network requests. Alert on anomalous behavior immediately.</li>
-            <li><strong>Watch for Anthropic's fix</strong>: Anthropic will likely ship a patch soon. Upgrade to the latest version before re-evaluating whether to enable Auto Mode.</li>
+            <li>Read Simon's original post: <a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank">Understanding ChatGPT Work</a> (2,214 words, ~30 minutes)</li>
+            <li>If you have a ChatGPT paid account, open Work mode and try it on a task you'd normally use Claude Code for (spreadsheet cleanup, batch document editing, etc.)</li>
+            <li>Check the HN discussion for real-world pitfalls: <a href="https://hn.algolia.com/?q=Understanding+ChatGPT+Work" target="_blank">HN thread</a></li>
+            <li>Note Simon's <strong>lethal trifecta</strong> concept (code interpreter + file access + general agent) — this is the key to understanding all agent products.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — how this attack actually works</summary>
+        <summary>🔬 Deep dive — How ChatGPT Work differs from Claude Code / codex</summary>
         <div class="dd-content">
             <table>
                 <thead>
-                    <tr><th>Comparison</th><th>Traditional Prompt Injection</th><th>Confused Environment Attack (this bug)</th></tr>
+                    <tr><th>Comparison</th><th>ChatGPT Work</th><th>Claude Code</th><th>codex</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Attack vector</td><td>Malicious instructions executed by the LLM</td><td>Malicious file auto-executed by the environment (Python import)</td></tr>
-                    <tr><td>Trigger condition</td><td>User visits malicious website / document</td><td>Claude Code downloads and unzips a zip file</td></tr>
-                    <tr><td>Auto Mode interception</td><td>Theoretically possible</td><td>80% failure rate, plus blocks cleanup commands</td></tr>
-                    <tr><td>Attack result</td><td>LLM executes malicious instructions</td><td>Malicious code runs locally, LLM can't control it</td></tr>
-                    <tr><td>Fix difficulty</td><td>Relatively easy (filter inputs)</td><td>Hard (requires sandbox-level isolation)</td></tr>
+                    <tr><td>Entry point</td><td>ChatGPT UI (browser / App)</td><td>Terminal / IDE</td><td>Terminal / IDE / App</td></tr>
+                    <tr><td>Need to write code?</td><td>No</td><td>A little</td><td>A little</td></tr>
+                    <tr><td>Best for</td><td>Everyone</td><td>Developers / technical users</td><td>Developers</td></tr>
+                    <tr><td>Core capabilities</td><td>Code interpreter + Skills + general agent</td><td>Long-running coding agent</td><td>Coding agent</td></tr>
+                    <tr><td>Underlying model</td><td>GPT-5.6 series</td><td>Claude Opus / Sonnet</td><td>GPT-5.6-Codex</td></tr>
                 </tbody>
             </table>
-            <p><strong>Attack chain explained</strong>:</p>
-            <ol>
-                <li>Attacker crafts a zip file containing a malicious <code>struct.py</code>.</li>
-                <li>Claude Code in Auto Mode downloads and unzips the file (normal operation).</li>
-                <li>When Claude Code runs Python code, <code>import struct</code> gets hijacked — Python loads the local <code>struct.py</code> instead of the standard library.</li>
-                <li>Malicious code executes. Auto Mode fails to detect the anomaly.</li>
-                <li>Even when Claude detects the attack and tries to kill the malicious process, Auto Mode blocks the cleanup command.</li>
-            </ol>
-            <p><strong>vs traditional sandbox</strong>: Docker containers or VMs prevent this attack because of filesystem isolation. But Claude Code's Auto Mode operates at the application layer and can't defend against filesystem-level attacks.</p>
-            <p><strong>Honest caveat</strong>: This exploit requires the attacker to trick Claude Code into downloading a malicious zip file. Risk is low in normal use, but high if you use Claude Code to process files from untrusted sources.</p>
+            <p><strong>vs Claude Code / codex</strong>: Both Claude Code and codex live in the terminal / editor and are developer-focused. ChatGPT Work lives in the native ChatGPT interface and is for everyone. It has a built-in code interpreter, reusable Skills, and general agents that can plan tasks and call tools. Simon calls the combination a "lethal trifecta" — all three together make an agent actually useful.</p>
+            <p><strong>What it runs on</strong>: GPT-5.6 series models, delivered through the ChatGPT interface. No environment setup, no API key needed.</p>
+            <p><strong>How hard to use</strong>: If you have a ChatGPT account, you're 5 minutes from trying it. But "using it" and "using it well" are very different — Simon needed 2,214 words to explain it, which tells you how confusing it is.</p>
+            <p><strong>Honest caveat</strong>: The product is iterating fast. Features may change. My source is Simon's summary plus HN data — for full details, read his original post.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Anthropic's official response and fix timeline. If they don't ship a patch within 48 hours, the problem is worse than it looks. Also watch for similar vulnerabilities in other agents (Codex, Cursor).
+        <strong>🔭 Watch for</strong> · Whether OpenAI opens ChatGPT Work's capabilities as an API. If they do, third-party tools will integrate immediately. Also watch for Simon's follow-up and when the Chinese-language coverage starts (you'll have an information advantage until then).
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>Confused environment attack</strong> = attacker exploits the environment (filesystem, import mechanism) rather than the LLM itself to execute malicious code · <strong>Prompt injection</strong> = feeding malicious instructions to an LLM to make it do unintended things · <strong>Sandbox</strong> = isolated environment that restricts what resources a program can access · <strong>Import hijacking</strong> = Python loading a local module instead of the standard library, causing malicious code to execute.
+        <strong>📖 Jargon decoder</strong> · <strong>lethal trifecta</strong> = Simon's term for the combination of "code interpreter + file access + general agent" — the three together make an agent actually useful · <strong>Skills</strong> = reusable skill packs inside ChatGPT, similar to Claude's Skills · <strong>general agents</strong> = agents that can plan their own tasks, call tools, and handle long workflows.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · Johann Rehberger original report: <a href="https://embracethered.com" target="_blank">embracethered.com</a> · Simon Willison analysis (2026-08-27): <a href="https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/" target="_blank">simonwillison.net</a> · HN #3 (79 points, 12 comments) · Lobste.rs discussion: hyperpape notes this isn't traditional prompt injection · rclone maintainer Nick Craig-Wood confirms similar issues: 40+ security disclosures/month
+        <strong>Who's talking</strong> · Simon Willison: "Understanding ChatGPT Work" (2026-08-30, 2,214 words): <a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank">Blog post</a> · HN #11 (201 points, 103 comments) · Tags: code-interpreter, skills, general-agents, lethal-trifecta
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://embracethered.com" target="_blank">Johann Rehberger original report</a> · <a href="https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/" target="_blank">Simon Willison analysis</a> · <a href="https://news.ycombinator.com/item?id=..." target="_blank">HN discussion</a> (actual ID from front page)
+        <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank">Simon's original post</a> · <a href="https://hn.algolia.com/?q=Understanding+ChatGPT+Work" target="_blank">HN discussion</a>
     </div>
 </article>
 
 <!-- ===== ITEM 2 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">OpenAI Decides Not to Acquire Cursor — Why This Matters to You</div>
-    <div class="pitch">Hey clawii — OpenAI officially announced it will not acquire Cursor (after SpaceX's acquisition). This isn't "company gossip" — it means Cursor stays independent, and OpenAI keeps investing in Codex. For anyone doing vibe coding with Cursor, this is good news.</div>
+    <div class="display-title">OpenClaw 2.0 Is Here — "Accidentally," with 105 HN Comments and Counting</div>
+    <div class="pitch">Hey clawii — The OpenClaw you discovered 4 weeks too late just dropped version 2.0 overnight. 106 points on HN, 105 comments, and the title includes "Accidentally" — worth 10 minutes to figure out what changed.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · Cursor is the most popular AI-native IDE today. After SpaceX acquired it, OpenAI had to decide whether to exercise a matching right or make its own acquisition. On August 28, OpenAI officially announced it would not acquire Cursor. This means: Cursor stays independent, OpenAI goes all-in on Codex, and the two compete in the market. For users, competition means better products and lower prices.
+        <strong>📍 Context</strong> · OpenClaw is the open-source personal AI assistant that you were kicking yourself for discovering 4 weeks late. It turns Claude / GPT models into long-running agents that handle daily tasks. 2.0 is a major version bump — in open-source projects, that usually means architectural changes, not small fixes.
     </div>
 
     <div class="lang">
         <h3>Why this matters</h3>
         <ul>
-            <li><strong>Cursor stays independent</strong>: It won't be absorbed into OpenAI, so it continues supporting multiple models (Claude, Gemini, etc.). If you use Cursor for vibe coding, you don't have to worry about being locked into the OpenAI ecosystem.</li>
-            <li><strong>OpenAI goes all-in on Codex</strong>: OpenAI explicitly said it will keep investing in Codex. That means Codex and Cursor will keep competing. Competition = better products + lower prices.</li>
-            <li><strong>Impact on non-developers</strong>: Both Cursor and Codex are expanding beyond developers. Cursor's "natural language programming" mode and Codex's agent features are both lowering the barrier to coding. Their competition will accelerate this trend.</li>
-            <li><strong>Ecosystem signal</strong>: OpenAI choosing not to acquire means they believe their own Codex can win. This is an important market signal — the AI coding tools market is diverging.</li>
+            <li><strong>You're already using OpenClaw</strong>: A major version update directly affects your daily toolchain. You need to decide whether to upgrade or wait.</li>
+            <li><strong>105 HN comments means real community discussion</strong>: People are sharing gotchas and new workflows in real time.</li>
+            <li><strong>"Accidentally" in the title is weird</strong>: Could be a launch mishap, could be intentional trolling. Either way, knowing what happened is valuable context.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 Action you can take today</h3>
         <ol>
-            <li><strong>Keep using Cursor</strong>: No need to worry about product changes from an acquisition. Cursor will stay independent.</li>
-            <li><strong>Try Codex too</strong>: OpenAI's Codex is iterating fast. Use both and see which fits your workflow better.</li>
-            <li><strong>Watch pricing</strong>: Competition could lead to price cuts. Both Cursor and Codex may adjust their pricing strategies.</li>
+            <li>Open <a href="https://openclaw.ai" target="_blank">openclaw.ai</a> and read the 2.0 changelog and release notes</li>
+            <li>Check the HN discussion (#22) — 105 comments usually contain real-world upgrade reports: <a href="https://hn.algolia.com/?q=OpenClaw+2.0" target="_blank">HN thread</a></li>
+            <li>If 2.0 has breaking changes, read the migration guide before upgrading. If not, upgrade directly.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — Cursor vs Codex: what's different now</summary>
+        <summary>🔬 Deep dive — What changed in OpenClaw 2.0</summary>
         <div class="dd-content">
             <table>
                 <thead>
-                    <tr><th>Comparison</th><th>Cursor</th><th>Codex</th></tr>
+                    <tr><th>Comparison</th><th>OpenClaw 1.x</th><th>OpenClaw 2.0</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Parent company</td><td>Independent (acquired by SpaceX but operates independently)</td><td>OpenAI</td></tr>
-                    <tr><td>Model support</td><td>Multi-model (Claude, GPT, Gemini, etc.)</td><td>OpenAI models only (GPT-5.6, Codex-specific models)</td></tr>
-                    <tr><td>IDE integration</td><td>VS Code fork, native experience</td><td>CLI + VS Code extension + JetBrains plugin</td></tr>
-                    <tr><td>Non-developer friendliness</td><td>High (natural language programming mode)</td><td>Medium (requires some CLI basics)</td></tr>
-                    <tr><td>Pricing</td><td>$20/month (Pro)</td><td>$20/month (included in ChatGPT Pro)</td></tr>
-                    <tr><td>Agent capabilities</td><td>Strong (multi-file editing, auto-fix)</td><td>Strong (Codex agent, auto-debugging)</td></tr>
+                    <tr><td>Version status</td><td>What you're using now</td><td>Released overnight (HN: 6 hours ago)</td></tr>
+                    <tr><td>HN heat</td><td>—</td><td>106 points / 105 comments</td></tr>
+                    <tr><td>Specific changes</td><td>—</td><td>See changelog (no full text in my sources)</td></tr>
                 </tbody>
             </table>
-            <p><strong>Impact on vibe coding</strong>: Both tools are iterating fast. Cursor's advantage is multi-model support and native IDE experience; Codex's advantage is OpenAI's model optimization and deep integration. Competition is good for users.</p>
-            <p><strong>Honest caveat</strong>: OpenAI not acquiring Cursor today doesn't mean it won't change its mind later. If Codex's market share falls behind, OpenAI may reconsider an acquisition strategy.</p>
+            <p><strong>vs 1.x</strong>: The exact differences need the changelog — honestly, my sources only have the HN title and score, not the full release notes. This deep dive is necessarily limited.</p>
+            <p><strong>What it runs on</strong>: OpenClaw is an agent runtime that can connect to Claude / GPT / open-source models.</p>
+            <p><strong>How hard to upgrade</strong>: You're already using it. Upgrade difficulty depends on how many breaking changes there are.</p>
+            <p><strong>Honest caveat</strong>: I can't verify GitHub star growth (OSSInsight returned empty data today). This signal is mainly supported by HN discussion. If you don't use OpenClaw, skip this item.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Cursor's next product update — they may accelerate new features to compete with Codex. Also watch for any Codex pricing adjustments.
+        <strong>🔭 Watch for</strong> · Whether KOLs start discussing OpenClaw 2.0. If swyx or Simon Willison tweet about it, the signal escalates and I'll pull it back in.
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>AI-native IDE</strong> = an integrated development environment built from the ground up for AI-assisted coding, not a traditional IDE with an AI plugin bolted on · <strong>Vibe coding</strong> = describing what you want in natural language and letting AI generate the code.
+        <strong>📖 Jargon decoder</strong> · <strong>breaking changes</strong> = incompatible updates that may break your existing configs or plugins after upgrade · <strong>major version</strong> = the first number in the version, jumping from 1.x to 2.0 usually means big changes.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · OpenAI official announcement (2026-08-28): <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" target="_blank">openai.com</a> · HN discussion: community reactions focused on "why OpenAI walked away" and "Cursor's future" · X KOL discussion: most see this as a win-win for both Cursor and Codex
+        <strong>Who's talking</strong> · HN #22 (106 points, 105 comments, 6 hours ago) · Source: <a href="https://openclaw.ai" target="_blank">openclaw.ai</a>
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" target="_blank">OpenAI official announcement</a> · <a href="https://cursor.sh" target="_blank">Cursor website</a> · <a href="https://codex.openai.com" target="_blank">Codex website</a>
+        <strong>Try it / dig in</strong> · <a href="https://openclaw.ai" target="_blank">OpenClaw official site</a> · <a href="https://hn.algolia.com/?q=OpenClaw+2.0" target="_blank">HN discussion</a>
+    </div>
+</article>
+
+<!-- ===== ITEM 3 — ℹ️ ===== -->
+<article class="item item--fyi">
+    <div class="tier-label">ℹ️ fyi</div>
+    <div class="display-title">Meta Security Researcher's AI Agent Deleted All Her Emails — Agent Safety Is Not Sci-Fi</div>
+    <div class="pitch">Hey clawii — A Meta security researcher's AI agent wiped her own emails. 48 points on HN, not a big story, but a real reminder if you're running agents daily.</div>
+
+    <div class="lang">
+        <h3>Why this matters</h3>
+        <ul>
+            <li><strong>You use Claude Code / codex / OpenClaw every day</strong>: Agent permission boundaries are a real risk, not a theoretical problem.</li>
+            <li><strong>Even a Meta security researcher got hit</strong>: This is not "only people who don't know what they're doing" territory.</li>
+            <li><strong>Reminder</strong>: Give agents minimal permissions. Back up important data.</li>
+        </ul>
+    </div>
+
+    <div class="who-talking">
+        <strong>Who's talking</strong> · HN #28 (48 points, 32 comments) · Source: PCMag
+    </div>
+
+    <div class="try-links">
+        <strong>Dig in</strong> · <a href="https://hn.algolia.com/?q=Meta+Security+Researcher+AI+Agent+Deleted+Emails" target="_blank">HN discussion</a>
     </div>
 </article>
 
@@ -524,23 +527,19 @@
     <ul>
         <li>
             <span class="days">Day 5</span>
-            <div><span class="item-name">GLM-5.3 full weights</span> <span class="update">— HF trending continues (66.2k downloads), but overshadowed today by security news; no new KOL endorsement.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 5</span>
-            <div><span class="item-name">Nvidia acquires Hugging Face</span> <span class="update">— HN dropped off front page; no new developments; regulatory review hasn't started.</span></div>
+            <div><span class="item-name">GLM-5.3 full weights</span> <span class="update">— HF downloads 50.1k → 66.2k (model card updated 7 min ago), but no new KOL endorsement.</span></div>
         </li>
         <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">Gemini 3.5 Transcribe</span> <span class="update">— Google published official blog, but buried by security news; waiting for independent benchmarks and pricing.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 4</span>
-            <div><span class="item-name">"Small Models Have Arrived" essay</span> <span class="update">— HN 663-point post dropped off front page, but community discussion continues; no further new signal.</span></div>
+            <div><span class="item-name">"Small Models" essay</span> <span class="update">— HN dropped off front page; discussion cooling; no new signal.</span></div>
         </li>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">Tencent Hy4-preview</span> <span class="update">— Simon Willison reviewed it, HF trending 2.59k downloads; no new trigger event today.</span></div>
+            <div><span class="item-name">Qwen3.8-Flash-Next</span> <span class="update">— HF downloads 122k → 159k, still trending #1; Simon already reviewed, no new KOL.</span></div>
+        </li>
+        <li>
+            <span class="days">Day 1</span>
+            <div><span class="item-name">Tencent Hy4-preview</span> <span class="update">— HF downloads 2.12k → 2.59k, no new KOL endorsement; waiting for Karpathy.</span></div>
         </li>
     </ul>
 </aside>
@@ -553,27 +552,25 @@
             <tr><th>Candidate</th><th>Why it was excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>GLM-5.3-Flash</td><td>Already featured yesterday, no trigger event today, already in Still Tracking.</td></tr>
-            <tr><td>Gemini Omni 1.1 Flash</td><td>Already featured day before yesterday, no trigger event today, already in Still Tracking.</td></tr>
-            <tr><td>Granite Speech 5.0 Turbo CTC</td><td>IBM transcription model, weak signal — HF article only 30 likes; transcription space already crowded.</td></tr>
-            <tr><td>Anthropic Model Hardware Standard</td><td>Hardware standard, no usable artifact, HN 119 points dropped off front page.</td></tr>
+            <tr><td>OpenAI's decision on Cursor (official statement today)</td><td>Business / legal decision following SpaceX acquisition — Musk/OpenAI drama, not actionable.</td></tr>
+            <tr><td>Breaking Claude Code Opus 5 Auto Mode</td><td>HN #3 (79 pts) but same security research, no new capability signal; Simon already classified as confused environment attack.</td></tr>
+            <tr><td>Nvidia acquires Hugging Face</td><td>3+ days with no new developments — removed from Still Tracking, now ambient noise.</td></tr>
+            <tr><td>Gemini 3.5 Transcribe</td><td>3+ days with no new developments — removed from Still Tracking; will re-evaluate when independent benchmarks appear.</td></tr>
+            <tr><td>Granite Speech 5.0 Turbo CTC</td><td>HF article 30 likes, weak signal; transcription space already crowded.</td></tr>
+            <tr><td>Anthropic Model Hardware Standard</td><td>Hardware standard, no usable artifact.</td></tr>
             <tr><td>GPT-5.6 Sol price cut</td><td>Chinese media covered it over a week ago.</td></tr>
             <tr><td>Mistral x HUMAIN Agentic Search</td><td>Enterprise product launch, no direct impact on vibe coding.</td></tr>
-            <tr><td>Bun 1.4</td><td>Runtime update, not AI core.</td></tr>
-            <tr><td>Microduck open-source robot</td><td>Hardware project, not AI software signal, no direct impact on clawii.</td></tr>
-            <tr><td>OpenAI Thailand startup support / Brazil expansion</td><td>Non-technical news, no artifact.</td></tr>
-            <tr><td>Gates "The turbulent AI era is here"</td><td>Generic opinion piece.</td></tr>
-            <tr><td>OpenAI Jalapeño inference chip benchmarks</td><td>Hardware/research, deployment at year-end, no usable artifact.</td></tr>
-            <tr><td>Mechanical Turk shutting down Sep 30</td><td>Crowdsourcing platform shutdown, not an AI capability signal.</td></tr>
-            <tr><td>"Developer open-sources AI CEO" project</td><td>Meme project, not a real capability leap.</td></tr>
-            <tr><td>OpenAI "Hugging Face incident" postmortem</td><td>Security incident review, not an actionable signal.</td></tr>
+            <tr><td>Bun 1.4</td><td>Runtime update, not AI core signal.</td></tr>
+            <tr><td>Microduck open-source robot</td><td>Hardware project, not AI software signal.</td></tr>
+            <tr><td>OpenAI Thailand / Brazil expansion</td><td>Non-technical news, no artifact.</td></tr>
+            <tr><td>Gates "The turbulent AI era is here"</td><td>Opinion piece, no signal.</td></tr>
+            <tr><td>OpenAI Jalapeño inference chip</td><td>Hardware / research, deployment by year-end, no usable artifact.</td></tr>
+            <tr><td>Mechanical Turk shutdown</td><td>Crowdsourcing platform shutdown, not AI capability signal.</td></tr>
+            <tr><td>OpenAI "Hugging Face incident" postmortem</td><td>Security incident review, no actionable signal.</td></tr>
             <tr><td>AWS acquires DuckLabs</td><td>Database company acquisition, not AI core.</td></tr>
-            <tr><td>Anthropic employee remote work controversy</td><td>HR news, not a tech signal.</td></tr>
-            <tr><td>Nitter / XCancel receives cease-and-desist</td><td>Not AI news.</td></tr>
+            <tr><td>Anthropic remote work controversy</td><td>HR news, not technical signal.</td></tr>
+            <tr><td>Nitter / XCancel cease-and-desist</td><td>Not AI news.</td></tr>
             <tr><td>OpenAI "Jalapeño" security research</td><td>Pure research, no usable artifact.</td></tr>
-            <tr><td>Qwen3.8-Flash-Next</td><td>Simon Willison already reviewed, HF trending #1 (159k downloads), but no new trigger event today, already in Still Tracking.</td></tr>
-            <tr><td>OpenClaw 2.0</td><td>HN #22 (106 points), but weak signal, no KOL endorsement, and Chinese media already covered.</td></tr>
-            <tr><td>Understanding ChatGPT Work</td><td>Simon Willison article, HN #11 (201 points), but not a new release — it's a product explainer.</td></tr>
         </tbody>
     </table>
 </section>
