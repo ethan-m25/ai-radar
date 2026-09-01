@@ -346,7 +346,7 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">周一信号不多，但 ChatGPT Work 终于有人讲明白了——OpenClaw 2.0 也来了</div>
+    <div class="headline">周一信号不多，但 Simon 把 ChatGPT Work 讲明白了——OpenClaw 2.0 也来了</div>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> 必看</span>
         <span>👀 <span class="look-count">2</span> 值得看</span>
@@ -359,7 +359,7 @@
     <span class="smallcaps">📋 今日目录</span>
     <ul>
         <li><span class="tier-tag look">👀 值得看</span> Simon Willison 把 ChatGPT Work 讲明白了——"极其混乱但极其强大"</li>
-        <li><span class="tier-tag look">👀 值得看</span> OpenClaw 2.0 来了——"Accidentally"，但 105 条评论在讨论它</li>
+        <li><span class="tier-tag look">👀 值得看</span> OpenClaw 2.0 来了——"Accidentally"但 106 分 105 条评论</li>
         <li><span class="tier-tag fyi">ℹ️ 知道就行</span> Meta 安全研究员的 AI agent 把她邮件全删了</li>
     </ul>
 </nav>
@@ -368,10 +368,10 @@
 <article class="item item--look">
     <div class="tier-label">👀 值得看</div>
     <div class="display-title">Simon Willison 把 ChatGPT Work 讲明白了——"极其混乱但极其强大"</div>
-    <div class="pitch">clawii，OpenAI 的 ChatGPT Work 7 月就发布了，但一直没人讲清楚它到底能干嘛。Simon Willison 昨天写了 2,214 字的深度指南，HN 冲到 201 分。你该花半小时读一下。</div>
+    <div class="pitch">clawii，OpenAI 的 ChatGPT Work 7 月就发布了，但一直没人讲清楚它到底能干嘛。Simon 昨天写了 2,214 字的深度指南，HN 冲到 201 分。你该花半小时读一下。</div>
 
     <div class="context-box">
-        <strong>📍 背景</strong> · ChatGPT Work 是 OpenAI 7 月 9 日发布的 agent 产品，之后一直在快速迭代。它把代码解释器（code interpreter）、Skills、通用 agent（general agents）组合在一起，让 ChatGPT 从"聊天"变成"干活"。但产品本身非常 confusing——Simon 的原话是 "extraordinarily confusing and very powerful"。对不用终端的你来说，这可能是最接近 Claude Code 体验的官方产品。
+        <strong>📍 背景</strong> · ChatGPT Work 是 OpenAI 7 月 9 日发布的 agent 产品，之后一直在快速迭代。它把 code interpreter、Skills、general agents 组合在一起，让 ChatGPT 从"聊天"变成"干活"。但产品本身非常 confusing——Simon 的原话是 "extraordinarily confusing and very powerful"。对不用终端的你来说，这是最接近 Claude Code 体验的官方产品。
     </div>
 
     <div class="lang">
@@ -390,7 +390,7 @@
             <li>读 Simon 的原文：<a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank">Understanding ChatGPT Work</a>（2,214 字，半小时内读完）</li>
             <li>如果你有 ChatGPT 付费账号，打开 Work 模式，试着让它处理一个你平时用 Claude Code 做的任务（比如整理表格、批量改文档）</li>
             <li>去 HN 讨论帖看大家踩过的坑：<a href="https://hn.algolia.com/?q=Understanding+ChatGPT+Work" target="_blank">HN 讨论</a></li>
-            <li>把 Simon 提到的 <strong>lethal trifecta</strong>（代码解释器 + 文件访问 + 通用 agent 的组合）记下来——这是理解所有 agent 产品的钥匙</li>
+            <li>把 Simon 提到的 <strong>lethal trifecta</strong>（code interpreter + 文件访问 + general agent 的组合）记下来——这是理解所有 agent 产品的钥匙</li>
         </ol>
     </div>
 
@@ -405,11 +405,11 @@
                     <tr><td>入口</td><td>ChatGPT 界面（浏览器 / App）</td><td>终端 / IDE</td><td>终端 / IDE / App</td></tr>
                     <tr><td>需要写代码吗</td><td>不需要</td><td>需要一点</td><td>需要一点</td></tr>
                     <tr><td>适合谁</td><td>所有人</td><td>开发者 / 技术用户</td><td>开发者</td></tr>
-                    <tr><td>核心能力</td><td>代码解释器 + Skills + 通用 agent</td><td>长任务 coding agent</td><td>coding agent</td></tr>
-                    <tr><td>底层模型</td><td>GPT-5.6 系列（OpenAI 当前主力，具体以官方为准）</td><td>Claude Opus / Sonnet</td><td>GPT-5.6-Codex</td></tr>
+                    <tr><td>核心能力</td><td>code interpreter + Skills + general agent</td><td>长任务 coding agent</td><td>coding agent</td></tr>
+                    <tr><td>底层模型</td><td>GPT-5.6 系列（OpenAI 当前主力）</td><td>Claude Opus / Sonnet</td><td>GPT-5.6-Codex</td></tr>
                 </tbody>
             </table>
-            <p><strong>vs Claude Code / codex</strong>：Claude Code 和 codex 都是终端 / 编辑器里的 agent，面向开发者；ChatGPT Work 是 ChatGPT 原生界面，面向所有人。它内置代码解释器、Skills（可复用的技能包）、通用 agent（能自己规划任务、调用工具）。Simon 用 "lethal trifecta" 形容这三者的组合——合在一起，agent 才能真正干活。</p>
+            <p><strong>vs Claude Code / codex</strong>：Claude Code 和 codex 都是终端 / 编辑器里的 agent，面向开发者；ChatGPT Work 是 ChatGPT 原生界面，面向所有人。它内置 code interpreter、Skills（可复用的技能包）、general agent（能自己规划任务、调用工具）。Simon 用 "lethal trifecta" 形容这三者的组合——合在一起，agent 才能真正干活。</p>
             <p><strong>跑在什么之上</strong>：GPT-5.6 系列模型，通过 ChatGPT 界面提供，不需要自己搭环境、不需要 API key。</p>
             <p><strong>上手难度</strong>：有 ChatGPT 账号就能用，5 分钟上手。但"会用"和"用好"差距很大——Simon 写了 2,214 字才讲明白，说明它确实 confusing。</p>
             <p><strong>诚实警告</strong>：产品还在快速迭代，功能可能随时变。我这边拿到的源只有 Simon 的摘要和 HN 数据，具体功能细节以原文为准。</p>
@@ -421,7 +421,7 @@
     </div>
 
     <div class="jargon">
-        <strong>术语解码</strong> · <strong>lethal trifecta</strong> = Simon 用来形容"代码解释器 + 文件访问 + 通用 agent"这个组合的词——三者合在一起，agent 才能真正干活 · <strong>Skills</strong> = ChatGPT 里的可复用技能包，类似 Claude 的 Skills · <strong>general agents</strong> = 通用 agent，能自己规划任务、调用工具、处理长流程。
+        <strong>术语解码</strong> · <strong>lethal trifecta</strong> = Simon 用来形容"code interpreter + 文件访问 + general agent"这个组合的词——三者合在一起，agent 才能真正干活 · <strong>Skills</strong> = ChatGPT 里的可复用技能包，类似 Claude 的 Skills · <strong>general agents</strong> = 通用 agent，能自己规划任务、调用工具、处理长流程。
     </div>
 
     <div class="who-talking">
@@ -436,7 +436,7 @@
 <!-- ===== ITEM 2 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 值得看</div>
-    <div class="display-title">OpenClaw 2.0 来了——"Accidentally"，但 105 条评论在讨论它</div>
+    <div class="display-title">OpenClaw 2.0 来了——"Accidentally"但 106 分 105 条评论</div>
     <div class="pitch">clawii，你晚了 4 周才发现的 OpenClaw，昨天夜里出了 2.0。HN 106 分、105 条评论，标题还带个 "Accidentally"——具体怎么回事得点进去看，但大版本更新值得你花 10 分钟。</div>
 
     <div class="context-box">
