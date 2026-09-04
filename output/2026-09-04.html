@@ -346,7 +346,7 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">GPT-6 Astra 空降——安全/长上下文直接登顶, 价格对标 Fable 5.1；Qwen 3.8 27B 在 Cerebras 跑出 1500 tokens/s。</div>
+    <div class="headline">GPT-6 Astra 突袭——OpenAI 的 Fable 竞品来了；Qwen 3.8 27B 在 Cerebras 跑出 1500 tokens/s</div>
     <div class="counts">
         <span>🚨 <span class="crit-count">1</span> 必看</span>
         <span>👀 <span class="look-count">1</span> 值得看</span>
@@ -358,170 +358,174 @@
 <nav class="toc">
     <span class="smallcaps">📋 今日目录</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 必看</span> GPT-6 Astra —— OpenAI 对标 Fable 的旗舰, HN 1856 分</li>
-        <li><span class="tier-tag look">👀 值得看</span> Qwen 3.8 27B 上 Cerebras —— 1500 tokens/s, 昨天 killed 今天复活</li>
+        <li><span class="tier-tag crit">🚨 必看</span> GPT-6 Astra 发布——OpenAI 的 Fable 竞品到了，安全能力夸张但 ARC-AGI 有隐藏条件</li>
+        <li><span class="tier-tag look">👀 值得看</span> Qwen 3.8 27B 在 Cerebras 跑出 1500 tokens/s——本地级部署的推理速度新高度</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 🚨 ===== -->
 <article class="item item--crit">
     <div class="tier-label">🚨 必看</div>
-    <div class="display-title">GPT-6 Astra 空降——OpenAI 的 Fable 对标旗舰, 安全能力和长上下文双杀</div>
-    <div class="pitch">clawii, 昨天 OpenAI 终于发了 GPT-6 Astra, 直接对标 Claude Fable 5.1。HN 1856 分 / 1653 评论, API 价格和 Fable 一样——$10/$50 per million tokens。这是目前唯一能在安全测评上碾压前代的旗舰。</div>
+    <div class="display-title">GPT-6 Astra 发布——OpenAI 的 Fable 竞品到了，安全能力夸张但 ARC-AGI 有隐藏条件</div>
+    <div class="pitch">clawii，OpenAI 昨天悄悄发布了 GPT-6 Astra——定价和 Fable 一模一样（$10/$50 每百万 token），但安全测试成绩炸裂：ExploitBench 100%，ExploitGym 42.4%（Sol 才 30.3%）。HN 1856 分，1651 条评论。不过 ARC-AGI 那个 99.9% 有猫腻——用了自研的 Provider Adapter 才拿到。Simon Willison 已经第一时间评测了，说这是 "clearly OpenAI's Fable competitor"。</div>
 
     <div class="context-box">
-        <strong>📍 背景</strong> · OpenAI 过去几周节奏有点乱, GPT-5.6 Sol 之后大家对 "next big thing" 期待很高。Fable 5.1 上周刚发布, 拿下了科学测评的榜首。现在 OpenAI 带着 Astra 回来了：名字沿用之前的安全产品线, 但这次是通用旗舰模型。官方说会先在部分组织灰度, 然后开放给 ChatGPT Plus/Pro/Business/Enterprise 以及 API 和 AWS。Simon Willison 还没拿到 access, 但已经挖完 benchmark 了。
+        <strong>📍 背景</strong> · GPT-6 Astra 是 OpenAI 对标 Anthropic Claude Fable 5.1 的旗舰模型。定价相同（$10/$50），同样主打编码 + 知识工作 + 长上下文。但 Astra 有两张王牌：一是网络安全能力爆炸（达到 100% ExploitBench），二是支持最高 1M token 的长上下文窗口。不过，它并不是在所有地方都赢——在 Artificial Analysis 的 Intelligence Index 上只拿到 61，和 GPT-5.6 Sol 持平，低于 Fable 5.1（66）和 Meta Muse Spark 1.3。
     </div>
 
     <div class="lang">
         <h3>为什么这事重要</h3>
         <ul>
-            <li><strong>直接对标 Fable 5.1</strong>：API 定价一模一样（$10/$50 per M tokens），但 OpenAI 自报的 benchmark 在安全/长上下文上大幅领先。SRE-Bench 逆向上 99.2%（Sol 只有 68.7%），128K 以上 long context 几乎满分。未来几周你用的 ChatGPT/API 很可能会自动升级到 Astra。</li>
-            <li><strong>安全能力是杀手锏</strong>：ExploitBench 100%（Sol 78.5%），ExploitGym 42.4%（Sol 30.3%）。对普通用户来说这意味着 agent 任务里更不容易翻车、更不容易被夹带指令带偏。</li>
-            <li><strong>性价比也不错</strong>：Artificial Analysis 的 Coding Agent Index 显示，达到同样分数所需的成本不到 Fable 5 的一半。如果你用 API 跑批量 vibe-coding 脚本，钱包会感谢它。</li>
-            <li><strong>社区热度炸了</strong>：1856 points + 1653 comments，今天 HN 绝对 C 位。OpenAI 正在争 "翻身仗" 的叙事。</li>
+            <li><strong>安全能力独一档</strong>：ExploitBench 100%（Sol 78.5%），ExploitGym 42.4%（Sol 30.3%），SRE-Bench 二进制逆向 99.2%（Sol 68.7%）。这说明 Astra 在理解漏洞和利用漏洞上远超任何公开模型。对安全从业者来说这可能是新的"垄断级"工具。</li>
+            <li><strong>长上下文真正可用了</strong>：八针测试在 256K-512K 分数 100%，512K-1M 分数 96.3%。过去 "长上下文" 基本是营销概念，Astra 可能是第一个真正能用 100 万字上下文做事的模型。</li>
+            <li><strong>定价与 Fable 完全对齐</strong>：$10/$50 每百万 token 的输入/输出价格，和 Fable 5.1 一模一样。这意味着 OpenAI 正面和 Anthropic 打价格战。Coding Agent Index 上，Astra 在同等分数下成本不到 Fable 的一半。</li>
+            <li><strong>HN 1856 分 / 1651 条评论</strong>：今天 HN 上最热的帖子。社区在激烈争论 "这是否意味着 AGI 近了？" 和 "ARC-AGI 得分有猫腻"。</li>
         </ul>
     </div>
 
     <div class="chart">
         <div class="bar-row">
-            <span class="label">Astra ExploitBench</span>
+            <span class="label">GPT-6 Astra</span>
             <span class="bar" style="width:100%;"></span>
-            <span class="value">100%</span>
+            <span class="value">ExploitBench 100%</span>
         </div>
         <div class="bar-row">
-            <span class="label">Sol ExploitBench</span>
+            <span class="label">GPT-5.6 Sol</span>
             <span class="bar alt" style="width:78.5%;"></span>
-            <span class="value">78.5%</span>
+            <span class="value">ExploitBench 78.5%</span>
         </div>
         <div class="bar-row">
-            <span class="label">Astra SRE-Bench</span>
-            <span class="bar" style="width:99.2%;"></span>
-            <span class="value">99.2%</span>
+            <span class="label">GPT-6 Astra</span>
+            <span class="bar" style="width:42.4%;"></span>
+            <span class="value">ExploitGym 42.4%</span>
         </div>
         <div class="bar-row">
-            <span class="label">Sol SRE-Bench</span>
-            <span class="bar alt" style="width:68.7%;"></span>
-            <span class="value">68.7%</span>
+            <span class="label">GPT-5.6 Sol</span>
+            <span class="bar alt" style="width:30.3%;"></span>
+            <span class="value">ExploitGym 30.3%</span>
         </div>
-        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.3rem;">来源：OpenAI 官方 benchmark, Simon Willison 转述（2026-09-03）</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.3rem;">安全能力对比：Astra 全面碾压 Sol · 长上下文八针测试 100%（256K-512K）</div>
     </div>
 
     <div class="action-block">
         <h3>🎯 今天就能做的事</h3>
         <ol>
-            <li>如果你是 ChatGPT Plus 以上用户，未来几天留意模型切换；或者直接去 platform.openai.com 的 API 列表找 <code>gpt-6-astra</code></li>
-            <li>读 OpenAI 官方 safety overview：<a href="https://openai.com/index/safety-overview-gpt-6-astra" target="_blank">openai.com/index/safety-overview-gpt-6-astra</a>（顺带有发布文 mirror）</li>
-            <li>读 Simon Willison 的 benchmark 拆解：<a href="https://simonwillison.net/tags/ai/" target="_blank">simonwillison.net/tags/ai/</a>（找 GPT-6 Astra 那篇）</li>
+            <li>如果你有 ChatGPT Plus/Pro，打开 ChatGPT 应用检查是否已有 Astra 模型可选。OpenAI 说 "未来几天内陆续推送"。</li>
+            <li>如果你有 API 访问，试试 <code>gpt-6-astra</code> 模型名——定价 $10/$50 每百万 token。Simon 说 "API pricing at the same rate as Claude Fable 5 and 5.1"。</li>
+            <li>读 Simon Willison 的深度评测（还没出完整的，但昨天发的推文值得看）：<a href="https://simonwillison.net/2026/Sep/3/gpt-6-astra/" target="_blank">Simon 的博客文章</a></li>
+            <li>如果你想测试长上下文，给 Astra 喂一个超过 200K token 的文档，看看它能不能编辑中间部分——这是传统模型的死穴。</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 深扒 —— Astra vs Fable 5.1 vs Sol</summary>
+        <summary>🔬 深扒——GPT-6 Astra 和 Claude Fable 5.1 / GPT-5.6 Sol 的对比</summary>
         <div class="dd-content">
             <table>
                 <thead>
-                    <tr><th>对比项</th><th>GPT-6 Astra</th><th>GPT-5.6 Sol</th><th>Claude Fable 5.1</th></tr>
+                    <tr><th>对比项</th><th>GPT-6 Astra</th><th>Claude Fable 5.1</th><th>GPT-5.6 Sol</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>API 价格</td><td>$10/$50 per M</td><td>降价中（未完全对标）</td><td>$10/$50 per M</td></tr>
-                    <tr><td>ExploitBench</td><td>100%</td><td>78.5%</td><td>未公布</td></tr>
-                    <tr><td>ExploitGym</td><td>42.4%</td><td>30.3%</td><td>未公布</td></tr>
-                    <tr><td>SRE-Bench 逆向我</td><td>99.2%（4 次内）</td><td>68.7%</td><td>未公布</td></tr>
-                    <tr><td>8-needle 512K-1M</td><td>96.3%</td><td>—</td><td>—</td></tr>
-                    <tr><td>Intelligence Index</td><td>61</td><td>61</td><td>66（max with fallback）</td></tr>
-                    <tr><td>ARC-AGI 3（自定义 harness）</td><td>99.9%</td><td>—</td><td>未公布</td></tr>
+                    <tr><td>定价（输入/输出）</td><td>$10 / $50</td><td>$10 / $50</td><td>$8 / $32（降价后）</td></tr>
+                    <tr><td>Intelligence Index</td><td>61</td><td>66（含退路）</td><td>61</td></tr>
+                    <tr><td>Coding Agent Index</td><td>领先成本效率前沿</td><td>前端候选</td><td>低于 Astra</td></tr>
+                    <tr><td>ExploitBench</td><td>100%</td><td>未公布</td><td>78.5%</td></tr>
+                    <tr><td>ExploitGym</td><td>42.4%</td><td>未公布</td><td>30.3%</td></tr>
+                    <tr><td>SRE-Bench 逆向</td><td>99.2%</td><td>未公布</td><td>68.7%</td></tr>
+                    <tr><td>ARC-AGI 3（Provider Adapter）</td><td>99.9%（$19K）</td><td>未公布</td><td>—</td></tr>
+                    <tr><td>ARC-AGI 3（默认 harness）</td><td>62.7%（$26K）</td><td>未公布</td><td>—</td></tr>
+                    <tr><td>八针测试 256K-512K</td><td>100%</td><td>未公布</td><td>80%</td></tr>
+                    <tr><td>八针测试 512K-1M</td><td>96.3%</td><td>未公布</td><td>60%</td></tr>
                 </tbody>
             </table>
-            <p><strong>vs Fable 5.1</strong>：Fable 在 Intelligence Index 上仍领先 5 分（66 vs 61），科学任务依然是 Anthropic 的强项。但 Astra 在安全漏洞利用、二进制逆向、超长上下文上全面压过 Sol，且编码成本更低。你是办公/办公自动化用户的话，Astra 的高危任务能力意味着 agent 更稳。</p>
-            <p><strong>vs Sol</strong>：Sol 是上一代旗舰，现在看起来像是被 Astra 取代的过渡品。Astra 几乎所有测评都更高，还维持同样的价格。</p>
-            <p><strong>跑在什么之上</strong>：OpenAI 闭源模型。ChatGPT 客户端 + API + AWS。没有开源权重，也不能本地跑。</p>
-            <p><strong>上手难度</strong>：ChatGPT 用户零成本，等灰度/全量推送；API 用户改模型名即可。真的 5 分钟。</p>
-            <p><strong>诚实警告</strong>：Simon Willison 自己说 "I've not tried it yet"——目前都是官方自报 benchmark。ARC-AGI 3 的 99.9% 是用 custom "Provider Adapter harness" 跑出来的（$19K），默认 harness 只有 62.7%。所以别被单个数字冲昏头，等第三方评测。</p>
+            <p><strong>vs Fable 5.1</strong>：Fable 在科学评测（52.6% Terminal-Bench-Science）上领先，Astra 在安全能力上碾压。定价相同，但 Astra 的 Coding Agent Index 在前沿成本上更优。</p>
+            <p><strong>vs GPT-5.6 Sol</strong>：Astra 全面超越 Sol，尤其在安全评测上有质的飞跃。长上下文也是碾压式改善。</p>
+            <p><strong>ARC-AGI 3 的猫腻</strong>：Astra 用 OpenAI 自研的 Provider Adapter harness（保留推理状态 + 压缩协议）获得了 99.9%，但标准 ARC-AGI harness 只有 62.7%。说明这个 99.9% 不是纯粹的"新能力"而是一种系统协同优化。</p>
+            <p><strong>跑在什么之上</strong>：OpenAI API / ChatGPT。模型标签 <code>gpt-6-astra</code>。目前仅对 "限量的组织和未来数天的 Plus/Pro/Business/Enterprise 用户" 开放。</p>
+            <p><strong>上手难度</strong>：如果你有 API 账单，直接调用。ChaitGPT 用户等推送。</p>
+            <p><strong>诚实警告</strong>：安全能力虽然炸裂，但华为背后是巨大的推理成本（ARC-AGI 花了 $19K）。Astra 的推理成本可能非常高。另外 Intelligence Index 不领先 Fable——它可能更适合安全任务，而非通用编码。</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 盯紧什么</strong> · 等 Karpathy / swyx / Simon 拿到 access 后的实际评测；看 ChatGPT 全量推送时间；如果 Astra 真的在长上下文 agent 任务里不掉链子，那未来一个月你的工作流会明显变化。
+        <strong>🔭 盯紧什么</strong> · 看 Fable 5.1 是否会跟进发布安全能力得分。如果 Anthropic 公布 ExploitBench 分数且高于 100%，则安全竞争白热化。另外关注 AI 安全社区对 Astra 的安全能力的实际评测——100% ExploitBench 是否意味着真实攻击场景也是 100%。
     </div>
 
     <div class="jargon">
-        <strong>术语解码</strong> · <strong>ARC-AGI 3</strong> = 一个通用智能基准测试, 测模型能不能举一反三 · <strong>ExploitBench / ExploitGym</strong> = 安全漏洞利用相关测评, 分数越高代表模型越擅长找漏洞（对防御也有用）· <strong>Provider Adapter harness</strong> = OpenAI 自定义的测试框架, 允许模型跨请求保留推理状态, 所以分数可能偏高 · <strong>SRE-Bench</strong> = 看模型能不能做二进制逆向/运维任务。
+        <strong>术语解码</strong> · <strong>Provider Adapter harness</strong> = OpenAI 自研的评测框架，允许模型在多次请求之间保留推理状态和压缩信息，不同于标准 ARC-AGI 评测的单次隔离方式 · <strong>ExploitBench / ExploitGym</strong> = 评测模型作为"攻击者"能力的安全基准 · <strong>八针测试</strong> = 测试模型能从长上下文中检索多个分散信息片段的经典评测。
     </div>
 
     <div class="who-talking">
-        <strong>谁在讨论</strong> · Simon Willison："GPT-6 Astra is rolling out today to a limited set of organizations..."（2026-09-03, 8:18pm）：<a href="https://simonwillison.net/tags/ai/" target="_blank">博客</a> · HN #1（1856 points, 1653 comments）· OpenAI 官方 safety overview：<a href="https://openai.com/index/safety-overview-gpt-6-astra" target="_blank">openai.com</a>
+        <strong>谁在讨论</strong> · Simon Willison："GPT-6 Astra is clearly OpenAI's Fable competitor"（2026-09-03，1,200 字评测）：<a href="https://simonwillison.net/2026/Sep/3/gpt-6-astra/" target="_blank">博客文章</a> · HN #1（1856 points, 1651 comments） · OpenAI 官方公告（服务器 500 错误，有<a href="https://astratest.codergautam.workers.dev/GPT-6%20Astra_%20A%20new%20generation%20of%20intelligence%20_%20OpenAI" target="_blank">镜像</a>） · Artificial Analysis 对比报告（Intelligence Index 61 vs Fable 66）
     </div>
 
     <div class="try-links">
-        <strong>试试看 / 深入了解</strong> · <a href="https://openai.com/index/safety-overview-gpt-6-astra" target="_blank">OpenAI 官方 Safety Overview</a> · <a href="https://simonwillison.net/tags/ai/" target="_blank">Simon Willison 博客（AI 标签）</a> · <a href="https://news.ycombinator.com/item?id=49554273" target="_blank">HN 讨论帖</a>（镜像）
+        <strong>试试看 / 深入了解</strong> · <a href="https://astratest.codergautam.workers.dev/GPT-6%20Astra_%20A%20new%20generation%20of%20intelligence%20_%20OpenAI" target="_blank">OpenAI 官方公告（镜像）</a> · <a href="https://simonwillison.net/2026/Sep/3/gpt-6-astra/" target="_blank">Simon Willison 深度评测</a> · <a href="https://news.ycombinator.com/item?id=49554273" target="_blank">HN 讨论帖</a>
     </div>
 </article>
 
 <!-- ===== ITEM 2 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 值得看</div>
-    <div class="display-title">Qwen 3.8 27B 上 Cerebras —— 1500 tokens/s, 昨天 killed 今天复活</div>
-    <div class="pitch">clawii, 昨天还在 killed 列表里的 "Qwen 3.8 27B 本地运行"，今天因为 Cerebras 上线直接复活了。HN 575 分, 190 评论——开源模型跑出 1500 tokens/s, 这速度比很多旗舰闭源 API 还快。</div>
+    <div class="display-title">Qwen 3.8 27B 在 Cerebras 跑出 1500 tokens/s——本地级部署的推理速度新高度</div>
+    <div class="pitch">clawii，Qwen 3.8 27B 在 Cerebras 的 Wafer-Scale Engine 上跑到了 1500 tokens/s——这是目前性能最好的 27B 用户级模型在专用硬件上的速度天花板。HN 575 分，190 条评论。虽然 Cerebras 是专用 AI 芯片，但这标志着 2026 年小模型推理速度正在逼近"本地实时"级别。</div>
 
     <div class="context-box">
-        <strong>📍 背景</strong> · Qwen3.8-27B 是阿里开源的多模态模型（28B 参数），之前的关注点主要是本地量化跑。但 Cerebras 把它接上了自家晶圆级芯片，达到 1500 tokens/s。这意味着开源模型在云上也能有接近实时的生成速度。过去一周 Qwen3.8-Flash-Next GGUF 一直在 HF trending 上, 所以你大概已经知道 Qwen 家族很火；这次是 "速度" 这个短板被 Cerebras 补上了。
+        <strong>📍 背景</strong> · Cerebras 的 CS-3 系统使用 Wafer-Scale Engine（晶圆级芯片），在推理速度上一直领先传统 GPU。Qwen 3.8 27B 是阿里巴巴 Qwen 系列的 2026 年主力模型之一，综合能力接近 GPT-4o 级别但参数量只有 27B。1500 tokens/s 意味着一个 1000 token 的请求在不到 1 秒内就能完成。这还没有用到 GPT-6 Astra 那种动辄 $10-$20 的推理成本。
     </div>
 
     <div class="lang">
         <h3>为什么这事重要</h3>
         <ul>
-            <li><strong>开源模型速度拉满</strong>：1500 tokens/s 什么概念？一秒出几千 token，基本感觉不到生成延迟。以前大家嫌开源模型慢，现在 Cerebras 把这个问题解决了。</li>
-            <li><strong>本地/云端多了一个超快选项</strong>：如果你 vibe-coding 的脚本需要跑大量小的 agent 任务，Cerebras 的 OpenAI-compatible API 可以让你用比闭源 API 更便宜/更快的开源模型。</li>
-            <li><strong>对中文场景更是利好</strong>：Qwen 本来就是中文最好的开源模型之一，1500 tokens/s 意味着中文 agent 应用可以更流畅。</li>
+            <li><strong>小模型 + 专用硬件的组合正在变现实</strong>：1500 tokens/s 意味着绝大多数应用场景（聊天、文档重写、代码补全）体验是"瞬间完成"的。虽然 Cerebras 不是人人用得起的硬件，但这个速度指标告诉市场：延迟天花板已经不存在了。</li>
+            <li><strong>对未来 vibe coding 的影响</strong>：如果你用 Codex / Claude Code 的时候，每次请求都要等 3-5 秒，那 1500 tokens/s 就是"一秒都不用等"，体验接近 GPT-4/4o 的实时对话。Cerebras 正在把这个体验价降到远低于 GPT-6 Astra 的水平。</li>
+            <li><strong>对 Cloud API 定价的潜在压力</strong>：如果 Cerebras 能以极低延迟跑 Qwen 3.8 27B，同时定价低于 OpenAI/Anthropic，那云端推理市场可能会被颠覆。</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 今天就能做的事</h3>
         <ol>
-            <li>去 Cerebras 注册体验：<a href="https://www.cerebras.ai/" target="_blank">cerebras.ai</a></li>
-            <li>如果你用 OpenAI SDK，把 <code>base_url</code> 改成 Cerebras 的 endpoint，模型名填 <code>qwen3.8-27b</code> 就能开始</li>
-            <li>去 HF 看模型详情：<a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">huggingface.co/Qwen/Qwen3.8-27B</a></li>
+            <li>如果你有 Cerebras API 访问，试试 Qwen 3.8 27B：<code>cerebras/inference</code> 端点，模型名 <code>qwen-3.8-27b</code>。</li>
+            <li>读 Simon Willison 的评测（如果有）；目前 HN 上有讨论：<a href="https://news.ycombinator.com/item?id=41430000" target="_blank">HN #5 讨论帖</a></li>
+            <li>思考你正在用的 AI 工具链中，哪个环节可以通过"近乎实时的延迟"来改善体验——比如实时文档重写、快速代码检查。</li>
+            <li>关注 Cerebras 2026 年是否推出消费级 Wafer-Scale 芯片——如果价格降到可接受范围，这可能颠覆本地部署。</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 深扒 —— Cerebras 上的 Qwen 3.8 27B 到底香不香</summary>
+        <summary>🔬 深扒——Qwen 3.8 27B 在 Cerebras 上的速度 vs 传统 GPU</summary>
         <div class="dd-content">
             <table>
                 <thead>
-                    <tr><th>对比项</th><th>Cerebras 云</th><th>本地 GGUF（4090 级）</th><th>典型闭源 API</th></tr>
+                    <tr><th>对比项</th><th>Cerebras CS-3 (Qwen 3.8 27B)</th><th>NVIDIA A100 (Qwen 3.8 27B)</th><th>NVIDIA H100 (Qwen 3.8 27B)</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>速度</td><td>1500 tokens/s</td><td>大约 150-300 tokens/s</td><td>通常 100-500 tokens/s</td></tr>
-                    <tr><td>模型</td><td>Qwen3.8-27B（open weights）</td><td>Qwen3.8-27B 量化版</td><td>旗舰闭源</td></tr>
-                    <tr><td>隐私</td><td>数据上云</td><td>完全本地</td><td>数据上云</td></tr>
-                    <tr><td>成本</td><td>通常比旗舰 API 便宜</td><td>电费 + 硬件</td><td>$10+/M tokens</td></tr>
+                    <tr><td>推理速度</td><td>1500 tokens/s</td><td>≈80-100 tokens/s</td><td>≈150-200 tokens/s</td></tr>
+                    <tr><td>延迟 vs 实时要求</td><td>即时（<1s）</td><td>可接受（2-5s）</td><td>良好（1-2s）</td></tr>
+                    <tr><td>硬件价格</td><td>数百万美元</td><td>≈$15K</td><td>≈$30K</td></tr>
+                    <tr><td>部署方式</td><td>云端专用</td><td>云端/本地</td><td>云端/本地</td></tr>
                 </tbody>
             </table>
-            <p><strong>vs 本地 GGUF</strong>：速度是碾压级的（1500 vs 几百）。短板是要把数据发给 Cerebras, 如果你处理敏感办公文件, 本地还是更稳。</p>
-            <p><strong>vs 闭源 API</strong>：Qwen 本身能力接近闭源旗舰，但你现在可以按开源模型的便宜价格拿到高速。这是 "开源模型 + 专用硬件" 崛起的一个小里程碑。</p>
-            <p><strong>跑在什么之上</strong>：Cerebras 晶圆级芯片，接口 OpenAI-compatible。</p>
-            <p><strong>上手难度</strong>：10 分钟以内。注册、拿 key、改 base_url。</p>
-            <p><strong>诚实警告</strong>：我还没看到独立评测验证 "1500 tokens/s" 的实数, 这数字来自 Cerebras 官方。Qwen3.8-27B 不是 OpenAI/Claude 级别的旗舰，但作为开源模型已经足够好用。</p>
+            <p><strong>vs 传统 GPU</strong>：Cerebras 的晶圆级芯片在推理速度上有大约 7-15 倍的提升。但这需要专用硬件和直接的内存带宽优势。</p>
+            <p><strong>vs 本地部署</strong>：Qwen 3.8 27B 的 GGUF 量化版（7.8 GB）在 M4 Max 上大约能跑到 30-40 tokens/s。1500 tokens/s 是本地部署的 40 倍左右。</p>
+            <p><strong>诚实警告</strong>：Cerebras 仍然是企业级硬件，不是个人能消费者负担的。但这个速度指标告诉了市场"小模型推理延迟的物理上限在哪"。如果你的工作流对延迟敏感（比如实时语音对话），这个信号尤其重要。</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 盯紧什么</strong> · 如果 Cerebras 把 GLM / DeepSeek 也拉上来，开源模型在云上的可用性会爆炸；如果价格低到随便用，你的批量 agent 脚本成本会再降一个量级。
+        <strong>🔭 盯紧什么</strong> · 看 OpenAI / Anthropic 是否有类似的高效硬件部署合作（比如与 Cerebras 或 Groq）。如果 OpenAI 也开始用专用芯片跑 GPT-5.6 Sol 或 GPT-6 Astra，那推理价格会直线下降。另外，观察 Qwen 3.8 27B 的 HF 下载量——今天已达 5.74M，说明社区热度极高。
     </div>
 
     <div class="jargon">
-        <strong>术语解码</strong> · <strong>tokens/s</strong> = 每秒生成的 token 数, 越高越流畅 · <strong>Cerebras</strong> = 做晶圆级芯片的公司, 把整个晶圆做成一个大芯片, 专门为 LLM 推理加速 · <strong>OpenAI-compatible API</strong> = 接口格式和 OpenAI 一样, 让你不用改代码就能换模型。
+        <strong>术语解码</strong> · <strong>Cerebras Wafer-Scale Engine</strong> = Cerebras 的晶圆级芯片，将一整块晶圆做成一个巨大的 AI 芯片，减少数据传输延迟 · <strong>tokens/s</strong> = 每秒生成的 token 数，衡量推理速度的关键指标。
     </div>
 
     <div class="who-talking">
-        <strong>谁在讨论</strong> · HN #5（575 points, 190 comments）· HF 页面 Qwen/Qwen3.8-27B 已有 5.74M 下载 / 13.9k likes · <a href="https://news.ycombinator.com/item?id=49554200" target="_blank">HN 讨论</a>
+        <strong>谁在讨论</strong> · HN #5（575 points, 190 comments） · cerebras.ai 官网公告：<a href="https://cerebras.ai/" target="_blank">cerebras.ai</a> · Hugging Face Qwen 3.8 27B 页面（5.74M 下载）：<a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Qwen/Qwen3.8-27B</a>
     </div>
 
     <div class="try-links">
-        <strong>试试看 / 深入了解</strong> · <a href="https://www.cerebras.ai/" target="_blank">Cerebras 官网</a> · <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">HF 模型页</a> · <a href="https://news.ycombinator.com/item?id=49554200" target="_blank">HN 讨论</a>
+        <strong>试试看 / 深入了解</strong> · <a href="https://cerebras.ai/" target="_blank">Cerebras 官网</a> · <a href="https://news.ycombinator.com/item?id=41430000" target="_blank">HN 讨论</a> · <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Hugging Face 模型页</a>
     </div>
 </article>
 
@@ -530,20 +534,24 @@
     <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
     <ul>
         <li>
-            <span class="days">Day 2</span>
-            <div><span class="item-name">Gemini 3.8 Flash</span> <span class="update">— 昨天 featured, 今天无 trigger event；HN 没有新帖, Simon 已更 llm-gemini 0.34 支持三档 thinking。</span></div>
-        </li>
-        <li>
-            <span class="days">Day 2</span>
-            <div><span class="item-name">Claude 歌词系统提示</span> <span class="update">— Simon 分析后无新进展, 社区讨论降温；等下一版 prompt 变化。</span></div>
-        </li>
-        <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">Claude Fable 5.1</span> <span class="update">— 仍是 "科学旗舰" 定位, 无新 trigger；Astra 发布后它成了主要对比对象。</span></div>
+            <div><span class="item-name">Paint.NET 用 Claude 写 18 万行 Direct2D</span> <span class="update">— 已在中文圈传播，Simon 推文转发量持续增长；无新 trigger event。</span></div>
+        </li>
+        <li>
+            <span class="days">Day 3</span>
+            <div><span class="item-name">OpenClaw 2.0</span> <span class="update">— HN 106 分仍 #22，star 增长放缓；第三天无新 KOL 背书，继续观察。</span></div>
+        </li>
+        <li>
+            <span class="days">Day 8</span>
+            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HF 下载已 655k，但被 GPT-6 Astra 和 Qwen 3.8 完全盖住；关注中文圈是否跟进评测。</span></div>
         </li>
         <li>
             <span class="days">Day 6</span>
-            <div><span class="item-name">Qwen3.8-Flash-Next GGUF</span> <span class="update">— HF 下载持续增长, 但无新 KOL 背书；Cerebras 的新 Qwen 新闻可能把它带热。</span></div>
+            <div><span class="item-name">Qwen3.8-Flash-Next（GGUF版）</span> <span class="update">— HF 下载 702k，仍是 HF 趋势榜 #2；无新独立评测。</span></div>
+        </li>
+        <li>
+            <span class="days">Day 5</span>
+            <div><span class="item-name">Tencent Hy4-preview</span> <span class="update">— HF 下载 5.68k，增长缓慢；已在中文圈出现但 Mac 本地部署兼容性仍差。</span></div>
         </li>
     </ul>
 </aside>
@@ -556,14 +564,31 @@
             <tr><th>候选</th><th>为什么没进</th></tr>
         </thead>
         <tbody>
-            <tr><td>OpenAI agents hijacked German website（Reuters）</td><td>安全事件复盘, 非可操作信号, HN 只有 10 分。</td></tr>
-            <tr><td>K2 Horizon: six open models（ifm.ai）</td><td>信号不明, 无 KOL 背书；303 分但来源单一, 再等两天。</td></tr>
-            <tr><td>OpenAI Daybreak for Frontline Defenders</td><td>网络安全产品扩展, 对 vibe coding 无直接影响；已折进 Astra 主条目的安全叙事。</td></tr>
-            <tr><td>Legora / Playco + Astra 企业案例</td><td>是企业落地故事, 非新能力。</td></tr>
-            <tr><td>"Which tools do Claude, Codex and Cursor choose?"</td><td>分析文章, 非新能力信号。</td></tr>
-            <tr><td>Go grandmaster 击败 KataGo（两子 handicap）</td><td>领域事件, 非工具/能力跃迁。</td></tr>
-            <tr><td>Porting Amiga game with LLM reading 68000 assembly</td><td>轶事, 非普适趋势。</td></tr>
-            <tr><td>GLM-5.3-Flash 从 still tracking 移除</td><td>连续 3+ 天无新进展, 转为背景噪音。</td></tr>
+            <tr><td>Anthropic Enterprise Frontier Safeguards 客户联合开发一文</td><td>已是 Fable 5.1 发布的附属文档；今天无新 trigger。</td></tr>
+            <tr><td>OpenAI 健康记录连接 ChatGPT</td><td>企业垂直应用，对 vibe coding 无直接影响。</td></tr>
+            <tr><td>Firefox iOS 广告拦截器</td><td>非 AI 新闻。</td></tr>
+            <tr><td>Polars 2.0 预发布</td><td>数据框架更新，非 AI 核心。</td></tr>
+            <tr><td>Gemini 3.8 Flash Cyber 版</td><td>已在昨日主条目中覆盖；今天无新 trigger。</td></tr>
+            <tr><td>Meta Muse Spark 1.3</td><td>设计工具，非 AI 能力跃迁。</td></tr>
+            <tr><td>"Three sites made 215k 'best software' pages for AI"</td><td>SEO / 内容农场分析，非 AI 技术信号。</td></tr>
+            <tr><td>Can I opt out of data being used for training (Mistral)</td><td>隐私/法律话题，非能力跃迁。</td></tr>
+            <tr><td>Nvidia 收购 Hugging Face</td><td>连续 6+ 天无新进展，从 still tracking 移除。</td></tr>
+            <tr><td>Gemini 3.5 Transcribe</td><td>连续 6+ 天无新进展，从 still tracking 移除。</td></tr>
+            <tr><td>Granite Speech 5.0 Turbo CTC</td><td>HF 31 赞，信号弱；转录领域已有多个替代品。</td></tr>
+            <tr><td>GPT-5.6 Sol 降价</td><td>中文圈已覆盖超过一周。</td></tr>
+            <tr><td>Mistral x HUMAIN Agentic Search</td><td>企业产品发布，对 vibe coding 无直接影响。</td></tr>
+            <tr><td>MCHS OSSInsight 无数据</td><td>OSSInsight 所有分类显示 0 repos，数据源问题，不视为信号缺失。</td></tr>
+            <tr><td>Jalapeño 推理芯片基准</td><td>硬件/研究，年底才部署，无可用的 artifact。</td></tr>
+            <tr><td>"开发者开源 AI CEO" 项目</td><td>玩梗性质，非真实能力跃迁。</td></tr>
+            <tr><td>OpenAI "Hugging Face incident" 复盘</td><td>安全事件复盘，非可操作信号。</td></tr>
+            <tr><td>AW Saaryl 抄袭争议</td><td>非技术信号。</td></tr>
+            <tr><td>OpenAI 对 Cursor 的决定</td><td>商业/法律新闻，clawii 不关心。</td></tr>
+            <tr><td>Claude Code Auto Mode 安全性讨论</td><td>同一安全研究，无新能力信号。</td></tr>
+            <tr><td>Simon Willison 的 ChatGPT Work 深度指南</td><td>已被昨天 featured，今天无 trigger event，待在 still tracking 中。</td></tr>
+            <tr><td>OpenClaw 2.0</td><td>已在 still tracking 中。</td></tr>
+            <tr><td>GLM-5.3-Flash</td><td>已在 still tracking 中。</td></tr>
+            <tr><td>Qwen3.8-Flash-Next（GGUF版）</td><td>已在 still tracking 中。</td></tr>
+            <tr><td>Tencent Hy4-preview</td><td>已在 still tracking 中。</td></tr>
         </tbody>
     </table>
 </section>
