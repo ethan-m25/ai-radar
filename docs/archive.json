@@ -6,14 +6,28 @@
       "date": "2026-09-06",
       "weekday": "Sun",
       "week": 36,
+      "kind": "weekly",
+      "headline": "模型三国杀：Fable 5.1 · Gemini 3.8 Flash · GPT-6 Astra 一周内全数亮相",
+      "summary": "本周 13 条新信号，但只有 5 条值得你记住。Anthropic、Google、OpenAI 在一周内分别亮出各自的最新旗舰——Fable 5.1（科学翻倍）、Gemini 3.8 Flash（10 倍性价比）、GPT-6 Astra（安全能力独一档）。同时 Agent 聊天板事件让 AI 安全从理论变成真实议题。这",
+      "counts": {
+        "crit": 4,
+        "look": 10,
+        "fyi": 4
+      },
+      "url": "weekly_2026-09-06.html"
+    },
+    {
+      "date": "2026-09-06",
+      "weekday": "Sun",
+      "week": 36,
       "issue": 102,
       "kind": "daily",
       "headline": "(no headline)",
       "summary": "",
       "counts": {
         "crit": 0,
-        "look": 1,
-        "fyi": 0
+        "look": 2,
+        "fyi": 1
       },
       "url": "2026-09-06.html"
     },
