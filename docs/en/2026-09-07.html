@@ -76,9 +76,7 @@
             color: var(--text-secondary);
         }
         .cover .counts span { font-weight: 600; }
-        .cover .counts .crit-count { color: var(--crit); }
         .cover .counts .look-count { color: var(--look); }
-        .cover .counts .fyi-count { color: var(--fyi); }
         .toc {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -111,9 +109,7 @@
             border-radius: 4px;
             white-space: nowrap;
         }
-        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
         .tier-tag.look { background: var(--look-bg); color: var(--look); }
-        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
         .item {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -121,9 +117,7 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        .item--crit { border-left: 4px solid var(--crit); }
         .item--look { border-left: 4px solid var(--look); }
-        .item--fyi { border-left: 4px solid var(--fyi); }
         .item .tier-label {
             font-size: 0.7rem;
             font-weight: 700;
@@ -131,9 +125,7 @@
             letter-spacing: 0.06em;
             margin-bottom: 0.25rem;
         }
-        .item--crit .tier-label { color: var(--crit); }
         .item--look .tier-label { color: var(--look); }
-        .item--fyi .tier-label { color: var(--fyi); }
         .item .display-title {
             font-family: var(--font-serif);
             font-size: 1.4rem;
@@ -346,10 +338,9 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">OpenAI's Internal RSI Acceleration + Engrim Local SQLite Memory Engine + Astra Day 4: Simon's Blender Tutorial Keeps Fermenting</div>
+    <div class="headline">OpenAI's Internal Agent Adoption Just Went Vertical — RSI Day and the Chief Scientist's View</div>
     <div class="counts">
-        <span>👀 <span class="look-count">2</span> worth a look</span>
-        <span>ℹ️ <span class="fyi-count">1</span> just so you know</span>
+        <span>👀 <span class="look-count">1</span> worth a look</span>
     </div>
 </div>
 
@@ -357,164 +348,86 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag look">👀 worth a look</span> OpenAI's internal RSI acceleration — "An Alien Mind" + "Research Acceleration" two blog posts, Simon deep analysis, HN 418+183 points</li>
-        <li><span class="tier-tag look">👀 worth a look</span> Engrim — a universal, local-first SQLite memory engine built for AI CLIs (Show HN 42 points)</li>
-        <li><span class="tier-tag fyi">ℹ️ just so you know</span> Astra Day 4 tracking — Simon's Blender tutorial keeps fermenting, no new trigger</li>
+        <li><span class="tier-tag look">👀 worth a look</span> OpenAI Publishes Internal Research Acceleration Report — Agent Spend Per Researcher 5x'd in 2 Months, Chief Scientist Writes About RSI</li>
     </ul>
 </nav>
 
-<!-- ===== ITEM 1 — 👀 (new today — OpenAI RSI) ===== -->
+<!-- ===== ITEM 1 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">OpenAI's Internal RSI Acceleration — "An Alien Mind" + "Research Acceleration" Two Blog Posts, Simon Deep Analysis, HN 418+183 Points</div>
-    <div class="pitch">Hey clawii, OpenAI published two blog posts today — one called "An Alien Mind" (by Chief Scientist Jakub Pachocki), the other called "Research acceleration: The view inside OpenAI". Core message: OpenAI's internal research team is already using coding agents to accelerate their own research — AI spend per researcher suddenly spiked in late July, and Simon says that's very likely when Astra became available internally. This isn't PR fluff — it's the first time OpenAI has publicly shown how they use AI to accelerate AI research.</div>
+    <div class="display-title">OpenAI's Internal Agent Adoption Went Vertical — RSI Day and the Chief Scientist's View</div>
+    <div class="pitch">clawii, this isn't a new tool, but it might be the most important signal today: OpenAI's own researchers nearly 5x'd their AI agent spend in the last two months — annualized per person is now ~$110K. Meanwhile Chief Scientist Jakub Pachocki published an essay called "An Alien Mind" about Recursive Self-Improvement. This is the strongest internal confirmation yet that agentic engineering is going mainstream, fast.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · OpenAI today (2026-09-07) published two important pieces: one is Chief Scientist Jakub Pachocki's philosophical essay "An Alien Mind" about RSI (Recursive Self-Improvement); the other is the more practical "Research acceleration" article showing how OpenAI's internal research team uses coding agents to speed up research. Simon Willison wrote his analysis on September 6. On HN, the two articles got 418 and 183 points respectively.
+        <strong>📍 Context</strong> · On September 6, 2026, OpenAI declared it "RSI day" and published two pieces: a philosophical essay by Chief Scientist Jakub Pachocki titled "An Alien Mind," and a research team's internal measurement report "Research acceleration: The view inside OpenAI." The latter contains a striking chart showing per-researcher AI spend going from ~$20K/year in May to ~$110K/year by late July. The inflection point coincides with internal access to a new model — likely GPT-6 Astra.
     </div>
 
-    <div class="lang">
-        <h3>Why this is worth a look</h3>
-        <ul>
-            <li><strong>RSI is no longer theoretical — OpenAI is already using it internally</strong>: The article includes a chart showing OpenAI's internal AI spend per researcher suddenly spiking in late July. Simon says this is very likely when Astra became available internally. That means OpenAI's researchers are already using their own latest models to accelerate research.</li>
-            <li><strong>"An Alien Mind" is Jakub's philosophical manifesto</strong>: He describes an "alien mind" — an AI whose way of thinking is fundamentally different from a human's. This isn't a technical paper; it's a meditation on what AGI might actually look like. Simon commented: "This is the kind of thing that would have been science fiction five years ago."</li>
-            <li><strong>Indirect impact on vibe coding</strong>: If OpenAI's internal research team is using coding agents to accelerate research, agent workflows have matured enough for frontier research. That means the Claude Code or Codex you use will keep getting stronger.</li>
-            <li><strong>HN community reaction</strong>: 418 points + 183 points, comments focused on RSI safety implications and the transparency of OpenAI's internal culture.</li>
-        </ul>
-    </div>
-
-    <div class="action-block">
-        <h3>🎯 What you can do today</h3>
-        <ol>
-            <li>Read Simon's analysis (published Sep 6): <a href="https://simonwillison.net/2026/Sep/6/research-acceleration-openai/" target="_blank">Research acceleration: The view inside OpenAI</a></li>
-            <li>Read "An Alien Mind" original (OpenAI blog): <a href="https://openai.com/index/an-alien-mind" target="_blank">An Alien Mind</a></li>
-            <li>Read "Research acceleration" original: <a href="https://openai.com/index/research-acceleration-view-inside-openai" target="_blank">Research acceleration: The view inside OpenAI</a></li>
-            <li>Check the HN discussion (418 points): <a href="https://news.ycombinator.com/item?id=49580001" target="_blank">An Alien Mind HN</a></li>
-        </ol>
-    </div>
-
-    <details class="deep-dive">
-        <summary>🔬 Deep dive — what RSI acceleration means, Simon's analysis points, internal agent usage</summary>
-        <div class="dd-content">
-            <p><strong>What RSI (Recursive Self-Improvement) is</strong>: Simply put, an AI system that improves itself — using AI to help design better AI. Not a new concept, but OpenAI is publicly acknowledging they're already doing it internally. The key chart shows AI spend per researcher jumping from ~$500/week to ~$3000/week in late July; Simon believes this corresponds to Astra becoming available internally.</p>
-            <p><strong>"An Alien Mind" core argument</strong>: Jakub Pachocki argues that true AGI won't think like a human — it will be an "alien mind" with its own unique way of reasoning. He writes: "The most important thing about intelligence is not that it's human-like, but that it's effective." More philosophical manifesto than technical paper, but its publication itself is a signal — OpenAI's chief scientist is publicly discussing the nature of AGI.</p>
-            <p><strong>What the Research acceleration article actually shows</strong>: The article shows how OpenAI's internal researchers use coding agents to: automatically run experiments, analyze results, draft papers, even help design new model architectures. The article says: "Our researchers now spend more time thinking about what to build than how to build it."</p>
-            <p><strong>Honest caveat</strong>: These articles are inherently PR-ish — OpenAI showing off its progress. But Simon's independent analysis adds credibility. For clawii, this isn't an "act now" signal, it's an "awareness" signal — AI is developing faster than you might think.</p>
+    <div class="chart">
+        <div class="bar-row">
+            <span class="label">May</span>
+            <span class="bar" style="width:18%;"></span>
+            <span class="value">~$20k/yr/person</span>
         </div>
-    </details>
-
-    <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Whether other AI companies (Anthropic, Google DeepMind) publish similar internal usage stories. Watch for independent evidence confirming OpenAI's RSI acceleration (e.g., changes in paper output speed). If RSI is really accelerating, the frequency of model capability jumps could shift from "quarterly" to "monthly".
-    </div>
-
-    <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>RSI</strong> = Recursive Self-Improvement — an AI system using itself to improve itself · <strong>AGI</strong> = Artificial General Intelligence — AI that can do any intellectual task a human can · <strong>Alien Mind</strong> = the term Jakub uses for an AI way of thinking that's completely different from human thought but highly effective.
-    </div>
-
-    <div class="who-talking">
-        <strong>Who's talking</strong> · Simon Willison analysis (2026-09-06): <a href="https://simonwillison.net/2026/Sep/6/research-acceleration-openai/" target="_blank">Research acceleration: The view inside OpenAI</a> · HN "An Alien Mind" 418 points: <a href="https://news.ycombinator.com/item?id=49580001" target="_blank">HN thread</a> · HN "Research acceleration" 183 points: <a href="https://news.ycombinator.com/item?id=49580002" target="_blank">HN thread</a>
-    </div>
-
-    <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://openai.com/index/an-alien-mind" target="_blank">An Alien Mind (OpenAI)</a> · <a href="https://openai.com/index/research-acceleration-view-inside-openai" target="_blank">Research acceleration (OpenAI)</a> · <a href="https://simonwillison.net/2026/Sep/6/research-acceleration-openai/" target="_blank">Simon's analysis</a>
-    </div>
-</article>
-
-<!-- ===== ITEM 2 — 👀 (new today — Engrim) ===== -->
-<article class="item item--look">
-    <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">Engrim — A Universal, Local-First SQLite Memory Engine Built for AI CLIs (Show HN 42 Points)</div>
-    <div class="pitch">Hey clawii, there's a Show HN project on HN today called Engrim — 42 points, 10 comments. It's a "universal, local-first SQLite memory engine" built specifically for AI CLI tools. In plain words: it gives your AI agent persistent, locally-stored memory — no cloud service, no complex config, just a SQLite database + a simple API. For vibe coding, this could be a genuinely useful tool.</div>
-
-    <div class="context-box">
-        <strong>📍 Context</strong> · AI CLI tools (Claude Code, Codex, Vibe, etc.) currently have a problem: every conversation is independent, no long-term memory. Engrim tries to solve this — it provides a local SQLite database where AI agents can read/write "memories" (key-value pairs + vector embeddings), all stored locally. The project is on GitHub, written in Go, with a REST API and CLI interface.
+        <div class="bar-row">
+            <span class="label">Late July</span>
+            <span class="bar alt" style="width:100%;"></span>
+            <span class="value">~$110k/yr/person</span>
+        </div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.3rem;">Based on the "AI spend per researcher" chart from OpenAI's blog</div>
     </div>
 
     <div class="lang">
-        <h3>Why this is worth a look</h3>
+        <h3>Why this matters</h3>
         <ul>
-            <li><strong>Solves a real pain point</strong>: Every time you start a new task in Claude Code or Codex, it doesn't remember what it did before. Engrim provides a simple memory layer — you can have the agent store key info and read it back on the next launch.</li>
-            <li><strong>Local-first, SQLite-based</strong>: No cloud service, no API key, data entirely on your own machine. SQLite means you can view and edit memories with any SQLite browser.</li>
-            <li><strong>Practical value for vibe coding</strong>: You can have Claude Code store project context, decision records, and common commands in Engrim, then auto-load them on the next launch. That's far more reliable than manually writing a system prompt every time.</li>
-            <li><strong>42 points isn't high, but the project's thinking is clear</strong>: Show HN 42 points is a medium signal, but the problem is well-defined and the implementation is simple — worth a try.</li>
+            <li><strong>Internal adoption data is the most honest signal</strong>: Lots of people debate whether agents are actually useful. Meanwhile, OpenAI's own researchers are voting with their expense accounts — 5x growth in 2 months, from $20K to $110K annualized per person. That's more convincing than any external benchmark.</li>
+            <li><strong>The Chief Scientist writing about RSI is a big deal</strong>: Jakub Pachocki's "An Alien Mind" directly addresses Recursive Self-Improvement, which used to be pure AGI theory. OpenAI now believes agents have brought RSI into practical territory. This suggests they may already be using agents to improve agents.</li>
+            <li><strong>Indirect impact on your vibe coding</strong>: If the smartest AI researchers in the world are going all-in on agent workflows, it means agents have crossed from "toy" to "real productivity tool." The same curve applies to Claude Code and Codex — expect more agent tooling to land in the next 1-2 months.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 What you can do today</h3>
         <ol>
-            <li>Check the GitHub project: <a href="https://github.com/timgordontg/engrim" target="_blank">github.com/timgordontg/engrim</a></li>
-            <li>Install (Go environment): <code>go install github.com/timgordontg/engrim@latest</code></li>
-            <li>Start the service: <code>engrim serve</code> (default port 8080)</li>
-            <li>Configure MCP or API calls in Claude Code or Codex so the agent can read/write memory.</li>
+            <li>Read the original OpenAI blog post — focus on the AI spend chart: <a href="https://openai.com/index/research-acceleration-view-inside-openai" target="_blank">Research acceleration: The view inside OpenAI</a></li>
+            <li>Read Simon Willison's summary and analysis (he called it RSI day): <a href="https://simonwillison.net/2026/Sep/6/research-acceleration-view-inside-openai/" target="_blank">Simon's take</a></li>
+            <li>Think about your own agent workflow — if you're still doing single-threaded vibe coding, try running 2-3 agent tasks in parallel. OpenAI's internal data shows massive parallel agent usage is the current trajectory.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — how Engrim works, vs existing options, how hard to get started</summary>
+        <summary>🔬 Deep dive — what this signal really means</summary>
         <div class="dd-content">
             <table>
                 <thead>
-                    <tr><th>Dimension</th><th>Engrim</th><th>Mem0 / MemGPT</th><th>DIY SQLite scripts</th></tr>
+                    <tr><th>Dimension</th><th>What it says</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Storage engine</td><td>SQLite</td><td>PostgreSQL / vector DB</td><td>SQLite</td></tr>
-                    <tr><td>Deployment</td><td>Local CLI service</td><td>Cloud service / Docker</td><td>Write it yourself</td></tr>
-                    <tr><td>API complexity</td><td>REST API, 3 endpoints</td><td>Full SDK</td><td>Define your own</td></tr>
-                    <tr><td>Vector search</td><td>Built-in (SQLite FTS5)</td><td>Full vector database</td><td>Implement yourself</td></tr>
-                    <tr><td>Install time</td><td>5 minutes (Go env)</td><td>30 minutes (Docker)</td><td>1 hour+</td></tr>
-                    <tr><td>Value for vibe coding</td><td>High — simple, local, embeddable</td><td>Medium — too heavy</td><td>Low — need to write it</td></tr>
+                    <tr><td>Data source</td><td>OpenAI research team's internal measurement, published on the <a href="https://openai.com/index/research-acceleration-view-inside-openai" target="_blank">official blog</a></td></tr>
+                    <tr><td>Growth curve</td><td>May: ~$20K/yr → June: ~$40K/yr → late July: ~$110K/yr. Simon notes the late-July spike likely coincides with internal Astra access.</td></tr>
+                    <tr><td>How this connects to you</td><td>The Claude Code / Codex you use is the same category of tool. OpenAI's researchers are using similar internal tools (probably an internal Codex build). Their adoption curve means these tools have graduated from "toy phase" to genuine productivity.</td></tr>
+                    <tr><td>Comparison to other signals</td><td>Anthropic hasn't published similar internal data. Google DeepMind hasn't either. This is the only public internal agent adoption data from a top-tier AI lab.</td></tr>
+                    <tr><td>Honest caveat</td><td>This data covers only OpenAI's research division (maybe a few hundred people), not the whole company. But even a few hundred of the most senior AI researchers are a powerful leading indicator.</td></tr>
                 </tbody>
             </table>
-            <p><strong>How Engrim works</strong>: Run <code>engrim serve</code> and it starts a local HTTP service. AI agents can store and retrieve memories via REST API. Supports: key-value storage, vector embedding search (based on SQLite FTS5), tag classification. All data is stored in a SQLite file under <code>~/.engrim/</code>.</p>
-            <p><strong>vs existing options</strong>: Mem0 and MemGPT are more powerful but need Docker or cloud services. Engrim's advantage is minimalism — one binary + SQLite, running in 5 minutes. Downside: limited features (no auto-summarization, no memory priority management).</p>
-            <p><strong>How hard to get started</strong>: With a Go environment, 5 minutes. Without Go, grab a binary from GitHub Releases. Configuring Claude Code or Codex to use it requires a bit of MCP config knowledge, but the README has examples.</p>
-            <p><strong>Honest caveat</strong>: The project is very new (Show HN today), may have rough edges. 42 points isn't high, suggesting limited community interest. But the thinking is clear and the implementation is simple — worth a try.</p>
+            <p><strong>What is RSI?</strong> Recursive Self-Improvement means an AI system can improve its own performance by interacting with itself, without human intervention. OpenAI believes agents are already showing RSI capabilities — like an agent improving its own code, or an agent generating better prompts to improve another agent. This essay is the first time the company's leadership has formally discussed RSI.</p>
+            <p><strong>What is "An Alien Mind" about?</strong> Chief Scientist Jakub Pachocki wrote a short essay exploring whether AI systems are developing an "alien mind" — a way of thinking fundamentally different from humans. He argues that RSI will accelerate this and that this is a positive development. The essay is philosophical, but its publication itself is a signal: OpenAI is taking RSI seriously.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 Watch for</strong> · Whether the project gains more stars over the next week (currently 42 points; if it hits 200+, the community is endorsing it). Watch for Claude Code / Codex MCP integration tutorials. If Engrim gets integrated into mainstream agent frameworks, it becomes an important infrastructure piece.
+        <strong>🔭 Watch for</strong> · Whether Anthropic or Google DeepMind follow up with similar internal adoption data. If they do, it confirms agents are becoming table stakes across the industry. Also watch for OpenAI to ship external agent product upgrades informed by this internal rush — internal adoption spikes usually precede external releases.
     </div>
 
     <div class="jargon">
-        <strong>📖 Jargon decoder</strong> · <strong>FTS5</strong> = Full-Text Search 5 — SQLite's built-in full-text search engine, supports simple vector search · <strong>MCP</strong> = Model Context Protocol — the standard protocol for AI agents to talk to external tools · <strong>Key-value pair</strong> = the simplest data storage model, one key maps to one value.
+        <strong>📖 Jargon decoder</strong> · <strong>RSI</strong> = Recursive Self-Improvement — an AI system improving itself through self-interaction · <strong>Agentic engineering</strong> = using AI agents to assist or automate software engineering work · <strong>AI spend per researcher</strong> = average annualized cost per researcher on AI tools.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking</strong> · Show HN 42 points, 10 comments: <a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN thread</a> · GitHub project: <a href="https://github.com/timgordontg/engrim" target="_blank">github.com/timgordontg/engrim</a>
+        <strong>Who's talking about it</strong> · Simon Willison (2026-09-06): <a href="https://simonwillison.net/2026/Sep/6/research-acceleration-view-inside-openai/" target="_blank">"the year that agentic engineering really took off at OpenAI"</a> · HN main thread: 184 points, 131 comments · HN second thread "An Alien Mind": 418 points, 371 comments
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://github.com/timgordontg/engrim" target="_blank">GitHub project</a> · <a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN discussion</a>
-    </div>
-</article>
-
-<!-- ===== ITEM 3 — ℹ️ ===== -->
-<article class="item item--fyi">
-    <div class="tier-label">ℹ️ just so you know</div>
-    <div class="display-title">Astra Day 4 Tracking — Simon's Blender Tutorial Keeps Fermenting, No New Trigger</div>
-    <div class="pitch">Hey clawii, it's day 4 since Astra's release and there's no new trigger event. Simon's Blender tutorial (using Astra through Codex to drive local Blender and generate 3D scenes) keeps spreading through the community, but HN scores haven't grown significantly. OpenAI's blog is still throwing 500 errors. The ARC-AGI 3 99.9% score controversy has no new clarification. Astra stays in still tracking.</div>
-
-    <div class="context-box">
-        <strong>📍 Context</strong> · GPT-6 Astra is OpenAI's flagship model released four days ago. We covered it on day 1 (🚨), day 2 (🚨 update), and day 3 (👀 update). No new trigger event today, so it's downgraded to ℹ️.
-    </div>
-
-    <div class="lang">
-        <h3>Why this matters (but no need to act immediately)</h3>
-        <ul>
-            <li><strong>Simon's Blender tutorial keeps spreading</strong>: His tutorial using Astra through Codex to drive local Blender and generate 3D scenes is getting attention in the developer community. It's a practical "AI + traditional creative tool" use case.</li>
-            <li><strong>No new trigger event</strong>: No new benchmarks, no new KOL endorsements, no new application cases. Astra discussion heat is cooling.</li>
-            <li><strong>Nothing to act on right now</strong>: If you've read the previous days' coverage, there's no new info today. Astra is still worth watching, just not today.</li>
-        </ul>
-    </div>
-
-    <div class="who-talking">
-        <strong>Who's talking</strong> · Simon Willison's Blender tutorial (2026-09-05): <a href="https://simonwillison.net/2026/Sep/5/blender-coding-agents/" target="_blank">TIL Using Blender with coding agents on macOS</a>
-    </div>
-
-    <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Sep/5/blender-coding-agents/" target="_blank">Simon's Blender tutorial</a> · <a href="https://openrouter.ai/openai/gpt-6-astra" target="_blank">OpenRouter Astra</a>
+        <strong>Try it / dig in</strong> · <a href="https://openai.com/index/research-acceleration-view-inside-openai" target="_blank">OpenAI blog: Research acceleration</a> · <a href="https://openai.com/index/an-alien-mind" target="_blank">An Alien Mind</a> · <a href="https://simonwillison.net/2026/Sep/6/research-acceleration-view-inside-openai/" target="_blank">Simon Willison's commentary</a>
     </div>
 </article>
 
@@ -523,24 +436,8 @@
     <span class="smallcaps">📈 Still tracking · not featured today but still developing</span>
     <ul>
         <li>
-            <span class="days">Day 7</span>
-            <div><span class="item-name">Paint.NET wrote 180K lines of Direct2D with Claude</span> <span class="update">— already spreading in Chinese circles; no new trigger event.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 6</span>
-            <div><span class="item-name">OpenClaw 2.0</span> <span class="update">— HN dropped off the front page, star growth stalled; sixth day with no new KOL endorsement.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 11</span>
-            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HF downloads ~790k (+~30k/day), growth slowing but still on trending.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 9</span>
-            <div><span class="item-name">Qwen3.8-Flash-Next (GGUF)</span> <span class="update">— HF downloads ~440k, trending #2 but growth slowing.</span></div>
-        </li>
-        <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">Astra robot arm applications</span> <span class="update">— no new trigger event; HN 196-point post dropped off the front page.</span></div>
+            <div><span class="item-name">GPT-6 Astra</span> <span class="update">— no new trigger event; Simon's Blender tutorial and pelican comparison grid already covered on Day 1. Waiting for independent third-party benchmarks or official ARC-AGI clarification.</span></div>
         </li>
     </ul>
 </aside>
@@ -553,66 +450,23 @@
             <tr><th>Candidate</th><th>Why it was excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>Speculative Decoding in vLLM on AMD GPUs (HN 20 points)</td><td>Technical tutorial, not a new capability signal; 20 points is weak.</td></tr>
-            <tr><td>Making a Python interpreter in 1024 bytes (HN 242 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Programming is Art (HN 74 points)</td><td>Opinion piece, not an actionable signal.</td></tr>
-            <tr><td>It took a year to ship WebAssembly in Anubis (HN 281 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Show HN: GET Together (HN 67 points)</td><td>Non-AI social network project.</td></tr>
-            <tr><td>Switzerland replacing Microsoft on 3k computers (HN 175 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Ask HN: Fable hacked my piano (HN 168 points)</td><td>Anecdote, not a capability signal.</td></tr>
-            <tr><td>GrapheneOS overhauled default apps (HN 305 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Nitter and XCancel resume service (HN 760 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Asahi Linux on M3 (HN 492 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Babylonian Lamb Stew with Beets (HN 150 points)</td><td>Not AI news.</td></tr>
-            <tr><td>NetBSD 9.5 released (HN 136 points)</td><td>Not AI news.</td></tr>
-            <tr><td>I'm a seeing-eye dog for a computer (HN 73 points)</td><td>Personal experience, not a new signal.</td></tr>
-            <tr><td>Show HN: Mador (HN 91 points)</td><td>Frontend tool, not AI core.</td></tr>
-            <tr><td>Black Hole of Los Alamos (HN 69 points)</td><td>Not AI news.</td></tr>
-            <tr><td>OpenAI supporting independent journalism in Ukraine (official blog)</td><td>Corporate social responsibility news, not a capability signal.</td></tr>
-            <tr><td>Engrim (Show HN 42 points)</td><td>Already covered as a main item.</td></tr>
-            <tr><td>OpenAI RSI articles (HN 418+183 points)</td><td>Already covered as a main item.</td></tr>
-            <tr><td>Astra Day 4 tracking</td><td>Already covered as ℹ️.</td></tr>
-            <tr><td>LG smart TVs caught logging audio (HN 206 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Caltech Mathathon (HN 25 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Live map of public transport in Belgium (HN 41 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Impedance Matching (HN 10 points)</td><td>Not AI news.</td></tr>
-            <tr><td>'You Can See Everything' Review (HN 51 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Ask HN: How do you manage skills files? (HN 153 points)</td><td>Not AI news.</td></tr>
-            <tr><td>TiVo to charge money for skipping commercials (HN 89 points)</td><td>Not AI news.</td></tr>
-            <tr><td>Harnessing the Universal Geometry of Embeddings (HN 81 points)</td><td>Pure research paper, no artifact.</td></tr>
-            <tr><td>Is mathematics about to enter the conservatory? (HN 57 points)</td><td>Opinion piece, not an actionable signal.</td></tr>
-            <tr><td>Show HN: Think Turing Complete (HN 6 points)</td><td>Weak signal.</td></tr>
-            <tr><td>Has anybody seen my keys? (HN 37 points)</td><td>Not AI news.</td></tr>
-            <tr><td>OpenAI Daybreak for Frontline Defenders (official blog)</td><td>Security product launch, not a general capability signal.</td></tr>
-            <tr><td>Legora financial statement review + Astra (official blog)</td><td>OpenAI launch-day companion content, no new trigger today.</td></tr>
-            <tr><td>Playco game prototyping + Astra (official blog)</td><td>Same as above.</td></tr>
-            <tr><td>Qwen3.8-27B on Cerebras 1500 tokens/s</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Tencent Hy4-preview</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Spotify Portal reducing 90% Claude Code token usage</td><td>Enterprise case study, no general guidance for vibe coding.</td></tr>
-            <tr><td>Artificial Analysis Intelligence Index v4.2</td><td>Industry analysis update, not a new capability signal.</td></tr>
-            <tr><td>NeoMME (HF blog)</td><td>61 likes, weak signal; multimodal encoder, not a general tool.</td></tr>
-            <tr><td>Fine-tuning 350M for Structured Outputs (HF blog)</td><td>71 likes, technical tutorial, not a new capability signal.</td></tr>
-            <tr><td>Give Your Coding Agents a Memory (HF blog)</td><td>41 likes, weak signal.</td></tr>
-            <tr><td>Puffin-World (HF blog)</td><td>22 likes, weak signal; 3D world model research.</td></tr>
-            <tr><td>Open Yap 1K (HF blog)</td><td>9 likes, weak signal.</td></tr>
-            <tr><td>Cosmos-Reason2 on a Quest 3 (HF blog)</td><td>8 likes, weak signal.</td></tr>
-            <tr><td>VLANeXt (HF blog)</td><td>22 likes, weak signal; robotics research codebase.</td></tr>
-            <tr><td>Technical writing in the agentic era (HF blog)</td><td>15 likes, weak signal.</td></tr>
-            <tr><td>Internet-Scale Knowledge Retrieval (HF blog)</td><td>13 likes, weak signal.</td></tr>
-            <tr><td>Evaluating LLMs Under Production Parity (HF blog)</td><td>12 likes, weak signal.</td></tr>
-            <tr><td>DeepSeek-V4-Flash-Vision-Exp (HF model)</td><td>252k downloads, but already in still tracking.</td></tr>
-            <tr><td>XHToken/Spark-X2.5-4B (HF model)</td><td>7.22k downloads, weak signal.</td></tr>
-            <tr><td>google/timesfm-3.0-pytorch (HF model)</td><td>272k downloads, time series model, not a general tool.</td></tr>
-            <tr><td>Lightricks/LTX-2.5 (HF model)</td><td>1.58M downloads, video generation model, already in still tracking.</td></tr>
-            <tr><td>MiniMaxAI/MiniMax-H3 (HF model)</td><td>4.99M downloads, video generation model, already in still tracking.</td></tr>
-            <tr><td>IFM/K2-Horizon-MoVA-36B-A4B (HF model)</td><td>2.23k downloads, weak signal.</td></tr>
-            <tr><td>dealignai/GLM-5.3-CYBERSECURITY-FP8 (HF model)</td><td>18.6k downloads, security-specific model, not a general tool.</td></tr>
-            <tr><td>microsoft/VibeVoice-ASR-Streaming-7B (HF model)</td><td>1.14k downloads, weak signal.</td></tr>
-            <tr><td>nvidia/Qwen3.8-Flash-Next-NVFP4 (HF model)</td><td>18.1k downloads, quantized version, not a new capability signal.</td></tr>
-            <tr><td>BreezeBlue/Breeze-TTS-2 (HF model)</td><td>6.75k downloads, TTS model, not a core capability jump.</td></tr>
-            <tr><td>OpenAI health records connect ChatGPT (official blog)</td><td>Enterprise vertical app, no direct impact on vibe coding.</td></tr>
-            <tr><td>Anthropic Enterprise Frontier Safeguards customer co-development article</td><td>Already companion doc to Fable 5.1 release; no new trigger today.</td></tr>
-            <tr><td>Claude system prompt update: refusing to reproduce lyrics</td><td>Already in still tracking, no trigger event today.</td></tr>
+            <tr><td>An Alien Mind (OpenAI Chief Scientist essay)</td><td>Pure opinion piece, no artifact; 418 HN points but no actionable signal.</td></tr>
+            <tr><td>Research acceleration (already selected as main item)</td><td>Already in top-3, no duplicate.</td></tr>
+            <tr><td>Keep Our Servers Running (archive.org fundraiser)</td><td>Not AI.</td></tr>
+            <tr><td>Nitter and XCancel resume service</td><td>Not AI.</td></tr>
+            <tr><td>GrapheneOS default apps and clipboard overhaul</td><td>Not AI, mobile security.</td></tr>
+            <tr><td>Asahi Linux on M3</td><td>Not AI, Linux port.</td></tr>
+            <tr><td>Caltech Mathathon</td><td>Not AI.</td></tr>
+            <tr><td>Show HN: Engrim (SQLite memory engine for AI CLIs)</td><td>42 points, 10 comments — too weak.</td></tr>
+            <tr><td>Show HN: GET Together (social network)</td><td>Not AI.</td></tr>
+            <tr><td>Show HN: Mador (80-line DOM reactive proxy)</td><td>91 points but not AI.</td></tr>
+            <tr><td>Is mathematics about to enter the conservatory?</td><td>Opinion piece, not an AI capability signal.</td></tr>
+            <tr><td>Switzerland replacing Microsoft on 3k computers</td><td>Not AI core.</td></tr>
+            <tr><td>LG smart TVs logging audio</td><td>Not AI, privacy incident.</td></tr>
+            <tr><td>TiVo to charge for skipping commercials</td><td>Not AI.</td></tr>
+            <tr><td>NetBSD 9.5 released</td><td>Not AI.</td></tr>
+            <tr><td>Babylonian lamb stew recipe</td><td>Completely unrelated.</td></tr>
+            <tr><td>HF blogs: NeoMME / Fine-tuning 350M / Coding memory</td><td>Previously killed, no new growth today.</td></tr>
         </tbody>
     </table>
 </section>
