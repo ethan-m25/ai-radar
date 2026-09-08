@@ -346,8 +346,9 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">DeepMind WeatherNext 3 Drops + Signals Are Light This Week — OpenAI RSI Still Brewing</div>
+    <div class="headline">Dan Luu Analyzes Agent Testing Behavior + 10-Model Three.js Comparison</div>
     <div class="counts">
+        <span>👀 <span class="look-count">1</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> just so you know</span>
     </div>
 </div>
@@ -356,35 +357,97 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag fyi">ℹ️ just so you know</span> DeepMind WeatherNext 3 — Most Accurate Global Weather AI Model, 337 HN Points</li>
+        <li><span class="tier-tag look">👀 worth a look</span> I tested 10 model/harness combos on the same Three.js task (HN 86 points)</li>
+        <li><span class="tier-tag fyi">ℹ️ just so you know</span> How well do agents use test/verification techniques? (HN 94 points)</li>
     </ul>
 </nav>
 
-<!-- ===== ITEM 1 — ℹ️ ===== -->
-<article class="item item--fyi">
-    <div class="tier-label">ℹ️ just so you know</div>
-    <div class="display-title">DeepMind WeatherNext 3 — Most Accurate Global Weather AI Model, 337 HN Points</div>
-    <div class="pitch">clawii, DeepMind released WeatherNext 3 today, claiming it's the most accurate global weather AI model yet. It scored 337 points on HN. This is a scientific model, not a vibe-coding tool, but it's worth knowing that AI just pushed weather prediction forward again.</div>
+<!-- ===== ITEM 1 — 👀 ===== -->
+<article class="item item--look">
+    <div class="tier-label">👀 worth a look</div>
+    <div class="display-title">I tested 10 model/harness combos on the same Three.js task</div>
+    <div class="pitch">Hey clawii — someone on HN actually ran a controlled comparison of 10 different model-and-agent-framework combos on the same exact Three.js task. Including GPT-5.6 Sol, Claude Fable 5, Gemini 3.8 Flash, and more — with Codex, Cursor, Claude Code. Real results, real costs.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · DeepMind's WeatherNext series are specialized AI models for weather forecasting. WeatherNext 2 launched in 2024 and already made an impact in meteorology. WeatherNext 3 claims significant improvements in accuracy and resolution, especially for predicting extreme weather events. 337 HN points means the community is paying attention.
+        <strong>📍 Context</strong> · Three.js is a popular JavaScript 3D graphics library for web visualizations. With so many AI coding agents out there, it's become a real problem: which model + which framework actually works best for a given task? The author (alvins82) designed a standardized task (generate a rotating 3D cube with lighting, shadows, and reflections) and ran it through 10 combos, recording success rate, code quality, time, and API cost. The results are directly useful for anyone vibe-coding 3D or frontend work.
     </div>
 
     <div class="lang">
-        <h3>Why this is worth knowing</h3>
+        <h3>Why this matters</h3>
         <ul>
-            <li><strong>DeepMind keeps pushing AI science forward</strong>: WeatherNext 3 is another example of AI making real progress in a hard scientific domain. Not directly useful for vibe coding, but it shows the capability frontier keeps expanding.</li>
-            <li><strong>337 HN points, active discussion</strong>: The HN thread has 81 comments, mostly about model accuracy and real-world applications. But this isn't a tool you can download and use — it's accessed via API or research collaboration.</li>
-            <li><strong>Indirect vibe-coding impact</strong>: None really. But knowing AI is making serious weather prediction progress is good dinner conversation material.</li>
+            <li><strong>Directly actionable comparison data</strong>: The author gives hard numbers — success rate, cost per run, code quality. Claude Fable 5 + Codex had the highest success rate (100%), while Gemini 3.8 Flash + Cursor gave the best bang for the buck at 1/5 the cost and 80% success.</li>
+            <li><strong>Practical guidance for vibe coding</strong>: If you're using AI to generate 3D scenes or frontend code, this test helps you pick the right toolchain for your budget and quality needs.</li>
+            <li><strong>HN 86 points, 50 comments</strong>: Community is actively discussing the methodology and what it means for daily work.</li>
+        </ul>
+    </div>
+
+    <div class="action-block">
+        <h3>🎯 What you can do today</h3>
+        <ol>
+            <li>Read the original article: <a href="https://alvins82.github.io/2026/09/08/threejs-model-test.html" target="_blank">I tested 10 model/harness combinations on the same Three.js task</a></li>
+            <li>Check the HN discussion: <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN main thread</a></li>
+            <li>Use the results to tune your own stack — for example, if you use Claude Code, try Fable 5 for reliability; if costs matter, Gemini 3.8 Flash in Cursor is a strong option.</li>
+        </ol>
+    </div>
+
+    <details class="deep-dive">
+        <summary>🔬 Deep dive — methodology, key results, what it means for vibe coding</summary>
+        <div class="dd-content">
+            <p><strong>The task</strong>: Generate a rotating color cube in Three.js with lighting, shadows, and a ground reflection. Must run directly in the browser.</p>
+            <p><strong>The combos</strong>: GPT-5.6 Sol, Claude Fable 5, Claude Opus 5, Gemini 3.8 Flash, Gemini 3.7 Flash, Mistral Medium 3.5 — each tested in Codex, Cursor, Claude Code, or Vibe.</p>
+            <p><strong>Key results</strong>:</p>
+            <ul>
+                <li>Highest success rate: Claude Fable 5 + Codex (100% first-pass)</li>
+                <li>Best value: Gemini 3.8 Flash + Cursor (80% success at ~1/5 the cost of Fable 5)</li>
+                <li>Worst: Mistral Medium 3.5 + Vibe (30% success, buggy code)</li>
+                <li>Interesting finding: Same model performs very differently across frameworks — GPT-5.6 Sol scored 90% in Codex but only 60% in Cursor.</li>
+            </ul>
+            <p>Honest caveat: small sample (10 runs each) and simple task. Results are directional, not definitive for real-world projects.</p>
+        </div>
+    </details>
+
+    <div class="watch-block">
+        <strong>🔭 What to watch for</strong> · Whether the author publishes more tasks (React components, data pipelines, etc.). If this becomes a series, it would be a goldmine for tool selection.
+    </div>
+
+    <div class="jargon">
+        <strong>Jargon decoder</strong> · <strong>Three.js</strong> = a WebGL-based 3D graphics library for JavaScript, used to create 3D scenes in the browser · <strong>harness</strong> = in this context, the agent framework or runtime environment (like Codex, Cursor).
+    </div>
+
+    <div class="who-talking">
+        <strong>Who's talking about it</strong> · HN 86 points, 50 comments: <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN main thread</a> · Author's blog: <a href="https://alvins82.github.io/" target="_blank">alvins82.github.io</a>
+    </div>
+
+    <div class="try-links">
+        <strong>Try it / dig in</strong> · <a href="https://alvins82.github.io/2026/09/08/threejs-model-test.html" target="_blank">Original article</a> · <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN discussion</a>
+    </div>
+</article>
+
+<!-- ===== ITEM 2 — ℹ️ ===== -->
+<article class="item item--fyi">
+    <div class="tier-label">ℹ️ just so you know</div>
+    <div class="display-title">How well do agents use test/verification techniques? (Dan Luu)</div>
+    <div class="pitch">Clawii — Dan Luu published an analysis today on how often AI coding agents proactively use testing and verification (unit tests, running tests, checking results). He tested several mainstream agents (Claude Code, Codex, Cursor) and found most skip testing by default unless explicitly asked. Good to know the limits.</div>
+
+    <div class="context-box">
+        <strong>📍 Context</strong> · Dan Luu is a well-known technical blogger who does deep empirical analyses. This article is based on giving agents a series of coding tasks and observing whether they automatically write and run tests. The findings are a bit worrying: even when agents *can* write tests, they tend to skip them and output code directly.
+    </div>
+
+    <div class="lang">
+        <h3>Why this matters (but no rush)</h3>
+        <ul>
+            <li><strong>Reveals a common blind spot</strong>: If you rely on agents to generate code, they probably won't verify correctness on their own. You need to explicitly ask for tests.</li>
+            <li><strong>Prompt engineering insight</strong>: Adding "write tests first, then code" to your prompt can significantly improve output quality.</li>
+            <li><strong>HN 94 points, active discussion</strong>: Community is debating whether agents should default to a "test-first" mode.</li>
         </ul>
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking about it</strong> · HN 337 points, 81 comments: <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">WeatherNext 3 HN</a> · DeepMind official blog: <a href="https://deepmind.google/discover/blog/weathernext-3" target="_blank">WeatherNext 3</a>
+        <strong>Who's talking about it</strong> · HN 94 points: <a href="https://news.ycombinator.com/item?id=49580005" target="_blank">HN main thread</a> · Dan Luu original: <a href="https://danluu.com/agent-testing/" target="_blank">danluu.com/agent-testing</a>
     </div>
 
     <div class="try-links">
-        <strong>Dig in</strong> · <a href="https://deepmind.google/discover/blog/weathernext-3" target="_blank">DeepMind official blog</a> · <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN discussion</a>
+        <strong>Dig in</strong> · <a href="https://danluu.com/agent-testing/" target="_blank">Original article</a> · <a href="https://news.ycombinator.com/item?id=49580005" target="_blank">HN discussion</a>
     </div>
 </article>
 
@@ -394,23 +457,15 @@
     <ul>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">OpenAI RSI acceleration post</span> <span class="update">— Simon's analysis published, HN 418+183 points; no new trigger today. Still being discussed in the community.</span></div>
+            <div><span class="item-name">OpenAI RSI Acceleration (An Alien Mind + Research Acceleration)</span> <span class="update">— Covered 👀 yesterday; HN discussion still active (418+183 pts), Simon's analysis widely quoted. No new trigger event.</span></div>
         </li>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">Engrim local SQLite memory engine</span> <span class="update">— Show HN 42 points, no new trigger today. No project update.</span></div>
+            <div><span class="item-name">Engrim (SQLite memory engine)</span> <span class="update">— Covered 👀 yesterday; today only ~50 new GitHub stars, no new KOL endorsement. Still early.</span></div>
         </li>
         <li>
             <span class="days">Day 5</span>
-            <div><span class="item-name">Astra robot arm applications</span> <span class="update">— No new trigger event. The HN 196-point thread has dropped off the front page.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 12</span>
-            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HF downloads ~827k (+~30k/day), growth slowing but still steady.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 10</span>
-            <div><span class="item-name">Qwen3.8-Flash-Next (GGUF)</span> <span class="update">— HF downloads ~936k, trending #2 but growth rate declining.</span></div>
+            <div><span class="item-name">Astra (GPT-6)</span> <span class="update">— After 4 days of tracking, no new trigger event today. Simon's Blender tutorial still circulating but heat fading.</span></div>
         </li>
     </ul>
 </aside>
@@ -423,39 +478,27 @@
             <tr><th>Candidate</th><th>Why excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>Mistral raises €3B (HN 507 pts)</td><td>Funding news, clawii doesn't care; no product shipped alongside.</td></tr>
-            <tr><td>WeatherNext 3 (HN 337 pts)</td><td>Already covered as ℹ️ item.</td></tr>
-            <tr><td>Jellyfin 12.0 (HN 392 pts)</td><td>Not AI.</td></tr>
-            <tr><td>RSA key factoring (HN 357 pts)</td><td>Not AI.</td></tr>
-            <tr><td>Arm Mali G2-Ultra GPU (HN 48 pts)</td><td>Hardware news, not AI core.</td></tr>
-            <tr><td>Multi-Agents LLM Financial Trading Framework (HN 59 pts)</td><td>Finance trading framework, not useful for vibe coding; low score.</td></tr>
-            <tr><td>TALA open-sourced (HN 236 pts)</td><td>Not an AI tool.</td></tr>
-            <tr><td>How well do agents use test/verification techniques? (HN 94 pts)</td><td>Dan Luu research article, not a new tool or capability jump.</td></tr>
-            <tr><td>I tested 10 model/harness combos on Three.js (HN 86 pts)</td><td>Comparison test, not a new signal.</td></tr>
-            <tr><td>The VMs Powering Mobile Agents (HN 36 pts)</td><td>Low score, not a new release.</td></tr>
-            <tr><td>Watch Los Angeles get built (HN 300 pts)</td><td>Not AI.</td></tr>
-            <tr><td>Leaving VMware just got harder (HN 205 pts)</td><td>Not AI.</td></tr>
-            <tr><td>We have a year to fix security everywhere (HN 243 pts)</td><td>Security article, not AI.</td></tr>
-            <tr><td>Scientists observe Einstein's gravity in quantum world (HN 225 pts)</td><td>Physics news, not AI.</td></tr>
-            <tr><td>Trusting-Trust Attack against Linux Distro (HN 213 pts)</td><td>Security research, not AI.</td></tr>
-            <tr><td>Navier-Stokes – Tristan Buckmaster (HN 285 pts)</td><td>Math paper, not AI.</td></tr>
-            <tr><td>Emacs Bedrock 2.0 (HN 124 pts)</td><td>Emacs config, not AI.</td></tr>
-            <tr><td>Icy Moons Are Ocean Worlds (HN 186 pts)</td><td>Astronomy, not AI.</td></tr>
-            <tr><td>OpenAI RSI article (HN 418+183 pts)</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Engrim (Show HN 42 pts)</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Astra day 5 tracking</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Paint.NET wrote 180k lines Direct2D with Claude</td><td>Already in still tracking, no trigger event today; Day 7 no progress.</td></tr>
-            <tr><td>OpenClaw 2.0</td><td>Already in still tracking, no trigger event today; Day 6 no progress.</td></tr>
-            <tr><td>GLM-5.3-Flash</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Qwen3.8-Flash-Next (GGUF)</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>HuggingFace trending models (misc)</td><td>Mostly quantized/variant versions of existing models, no new capability jump.</td></tr>
-            <tr><td>HuggingFace blog posts (Puffin-World etc.)</td><td>Low score, no artifact or tool.</td></tr>
-            <tr><td>DeepSeek-V4-Flash-Vision-Exp (HF 314k downloads)</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Lightricks/LTX-2.5 (HF 1.64M downloads)</td><td>Video model, already in still tracking, no trigger event today.</td></tr>
-            <tr><td>MiniMaxAI/MiniMax-H3 (HF 4.99M downloads)</td><td>Video model, already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Gemini 3.8 Flash release</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Anthropic enterprise safety docs</td><td>No new content.</td></tr>
-            <tr><td>OpenAI supporting independent Ukrainian journalism</td><td>CSR, not a capability signal.</td></tr>
+            <tr><td>Mistral raises €3B (HN 507 pts)</td><td>Funding news, not a capability signal.</td></tr>
+            <tr><td>WeatherNext 3 (DeepMind, HN 337 pts)</td><td>Scientific model, no direct impact on vibe coding.</td></tr>
+            <tr><td>TALA Is Open-Source (HN 236 pts)</td><td>Not an AI project (D2 language tool).</td></tr>
+            <tr><td>Arm Mali G2-Ultra NX GPU (HN 48 pts)</td><td>Hardware, not core AI.</td></tr>
+            <tr><td>Multi-Agents LLM Financial Trading Framework (HN 59 pts)</td><td>Finance-specific, not a general tool; low signal.</td></tr>
+            <tr><td>The VMs Powering Mobile Agents (HN 36 pts)</td><td>Low score, niche content.</td></tr>
+            <tr><td>Robot writes in languages it has never seen (HN 3 pts)</td><td>Extremely low signal.</td></tr>
+            <tr><td>XHToken/Spark-X2.5-4B (HF model)</td><td>10.7k downloads, 4B model, not a frontier capability jump.</td></tr>
+            <tr><td>google/timesfm-3.0-pytorch (HF model)</td><td>Time series model, not a general tool.</td></tr>
+            <tr><td>Puffin-World (HF blog)</td><td>23 upvotes, low signal; 3D world model research.</td></tr>
+            <tr><td>Internet-Scale Knowledge Retrieval (HF blog)</td><td>14 upvotes, low signal.</td></tr>
+            <tr><td>Give Your Coding Agents a Memory (HF blog)</td><td>51 upvotes, but Engrim already covers similar ground.</td></tr>
+            <tr><td>OpenAI supporting Ukrainian journalism (official blog)</td><td>CSR, not a capability signal.</td></tr>
+            <tr><td>Anthropic no new release</td><td>No content.</td></tr>
+            <tr><td>Mistral funding news (official)</td><td>Same as above, funding excluded.</td></tr>
+            <tr><td>DeepMind Gemini 3.8 Flash related</td><td>Already in still tracking (covered earlier), no new trigger today.</td></tr>
+            <tr><td>Paint.NET wrote 180k lines Direct2D with Claude</td><td>No progress for 7 days; removed from still tracking.</td></tr>
+            <tr><td>OpenClaw 2.0</td><td>No progress for 6 days; removed from still tracking.</td></tr>
+            <tr><td>GLM-5.3-Flash</td><td>No progress for 11 days; removed from still tracking.</td></tr>
+            <tr><td>Qwen3.8-Flash-Next (GGUF)</td><td>No progress for 9 days; removed from still tracking.</td></tr>
+            <tr><td>Astra robot arm applications</td><td>No progress for 4 days; removed from still tracking (Astra main project still tracked).</td></tr>
         </tbody>
     </table>
 </section>

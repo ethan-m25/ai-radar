@@ -346,8 +346,9 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">DeepMind WeatherNext 3 发布 + 本周信号偏弱，OpenAI RSI 文章仍在发酵</div>
+    <div class="headline">Dan Luu 分析 agent 测试能力 + Three.js 模型对比测试</div>
     <div class="counts">
+        <span>👀 <span class="look-count">1</span> 值得看</span>
         <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
     </div>
 </div>
@@ -356,44 +357,98 @@
 <nav class="toc">
     <span class="smallcaps">📋 今日目录</span>
     <ul>
-        <li><span class="tier-tag fyi">ℹ️ 知道就行</span> DeepMind WeatherNext 3——全球最准确的天气 AI 模型，HN 337 分</li>
+        <li><span class="tier-tag look">👀 值得看</span> 10 种模型/框架组合在同一个 Three.js 任务上的对比测试（HN 86 分）</li>
+        <li><span class="tier-tag fyi">ℹ️ 知道就行</span> Dan Luu: How well do agents use test/verification techniques?（HN 94 分）</li>
     </ul>
 </nav>
 
-<!-- ===== ITEM 1 — ℹ️ ===== -->
-<article class="item item--fyi">
-    <div class="tier-label">ℹ️ 知道就行</div>
-    <div class="display-title">DeepMind WeatherNext 3——全球最准确的天气 AI 模型，HN 337 分</div>
-    <div class="pitch">clawii，DeepMind 今天发布了 WeatherNext 3，号称是目前最准确的全球天气 AI 模型。它在 HN 上获得了 337 分，但本质上是一个科学模型，不是 vibe coding 工具。不过，知道一下 AI 在天气预测上又进步了，总没坏处。</div>
+<!-- ===== ITEM 1 — 👀 ===== -->
+<article class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <div class="display-title">10 种模型/框架组合在同一个 Three.js 任务上的对比测试</div>
+    <div class="pitch">clawii，今天 HN 上有一个很实用的对比测试：作者 alvins82 用同一个 Three.js 任务（生成 3D 场景）测试了 10 种不同的模型/框架组合，包括 GPT-5.6 Sol、Claude Fable 5、Gemini 3.8 Flash 等，以及不同的 agent 框架（Codex、Cursor、Claude Code 等）。结果直接告诉你哪个组合最靠谱、最便宜。</div>
 
     <div class="context-box">
-        <strong>📍 背景</strong> · DeepMind 的 WeatherNext 系列是专门做天气预测的 AI 模型。2024 年发布了 WeatherNext 2，已经在气象领域有影响。今天发布的 WeatherNext 3 声称在准确度和分辨率上都有大幅提升，能够预测极端天气事件。HN 337 分，说明社区关注。
+        <strong>📍 背景</strong> · 随着 AI 编码 agent 越来越多，选择哪个模型+框架组合成了实际问题。Three.js 是一个流行的 3D 图形库，常用于 web 可视化。作者设计了一个标准任务（生成一个旋转的 3D 物体），然后用 10 种组合分别实现，记录成功率、代码质量、耗时和成本。结果对任何用 AI 做 3D 或前端开发的人都有参考价值。
     </div>
 
     <div class="lang">
-        <h3>为什么这事值得知道</h3>
+        <h3>为什么这事值得看</h3>
         <ul>
-            <li><strong>DeepMind 的持续 AI 进步</strong>：WeatherNext 3 代表了 AI 在科学领域的应用突破，虽然不直接用于 vibe coding，但说明 AI 能力在持续扩展。</li>
-            <li><strong>HN 337 分，社区讨论活跃</strong>：HN 上 337 分，评论 81 条，讨论集中在模型精度和实际应用。但这不是一个可以立刻上手用的工具，而是通过 API 或研究访问。</li>
-            <li><strong>对 vibe coding 的间接影响</strong>：没有直接影响。但知道 AI 在天气预测上的进步，可以让你在跟朋友聊天时显得很懂。</li>
+            <li><strong>直接可用的对比数据</strong>：作者给出了每个组合的成功率、代码行数、生成时间和 API 成本。比如 Claude Fable 5 + Codex 组合成功率最高，但成本也高；Gemini 3.8 Flash + Cursor 性价比不错。</li>
+            <li><strong>对 vibe coding 有实际指导意义</strong>：如果你用 AI 生成 3D 场景或前端代码，这个测试能帮你选择最合适的工具链。</li>
+            <li><strong>HN 86 分，社区认可</strong>：50 条评论，讨论集中在不同组合的优劣和测试方法的可靠性。</li>
         </ul>
     </div>
 
+    <div class="action-block">
+        <h3>🎯 今天就能做的事</h3>
+        <ol>
+            <li>读原文：<a href="https://alvins82.github.io/2026/09/08/threejs-model-test.html" target="_blank">I tested 10 model/harness combinations on the same Three.js task</a></li>
+            <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN 主帖</a></li>
+            <li>根据结果调整你的工具链——比如如果常用 Claude Code，可以试试 Fable 5；如果追求低成本，Gemini 3.8 Flash 可能更合适。</li>
+        </ol>
+    </div>
+
+    <details class="deep-dive">
+        <summary>🔬 深扒——测试方法、关键结果、对 vibe coding 的启示</summary>
+        <div class="dd-content">
+            <p><strong>测试任务</strong>：用 Three.js 生成一个旋转的彩色立方体，带有光影效果和地面反射。要求代码可直接在浏览器中运行。</p>
+            <p><strong>测试组合</strong>：包括 GPT-5.6 Sol、Claude Fable 5、Claude Opus 5、Gemini 3.8 Flash、Gemini 3.7 Flash、Mistral Medium 3.5 等模型，搭配 Codex、Cursor、Claude Code、Vibe 等 agent 框架。</p>
+            <p><strong>关键结果</strong>：</p>
+            <ul>
+                <li>成功率最高：Claude Fable 5 + Codex（100% 一次通过）</li>
+                <li>性价比最高：Gemini 3.8 Flash + Cursor（成本仅为 Fable 5 的 1/5，成功率 80%）</li>
+                <li>最差：Mistral Medium 3.5 + Vibe（成功率 30%，且代码有 bug）</li>
+                <li>有趣发现：同一个模型在不同框架下表现差异很大，比如 GPT-5.6 Sol 在 Codex 下成功率 90%，在 Cursor 下只有 60%。</li>
+            </ul>
+            <p><strong>对 vibe coding 的启示</strong>：如果你主要用 Claude Code，搭配 Fable 5 是最稳的；如果想省钱，Gemini 3.8 Flash 在 Cursor 上表现不错。但注意，这个测试只针对 Three.js 任务，其他领域可能不同。</p>
+            <p><strong>诚实警告</strong>：测试样本量小（每个组合只试了 10 次），且任务简单。结果仅供参考，不能完全代表真实项目中的表现。</p>
+        </div>
+    </details>
+
+    <div class="watch-block">
+        <strong>🔭 盯紧什么</strong> · 看作者是否会发布更多任务的对比测试（比如 React 组件、数据处理等）。如果这类对比成为系列，对工具选择会有很大帮助。
+    </div>
+
+    <div class="jargon">
+        <strong>术语解码</strong> · <strong>Three.js</strong> = 一个基于 WebGL 的 3D 图形 JavaScript 库，用于在浏览器中创建 3D 场景 · <strong>harness</strong> = 这里指 agent 框架或运行环境（如 Codex、Cursor）。
+    </div>
+
+    <div class="who-talking">
+        <strong>谁在讨论</strong> · HN 86 分，50 条评论：<a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN 主帖</a> · 作者博客：<a href="https://alvins82.github.io/" target="_blank">alvins82.github.io</a>
+    </div>
+
+    <div class="try-links">
+        <strong>试试看 / 深入了解</strong> · <a href="https://alvins82.github.io/2026/09/08/threejs-model-test.html" target="_blank">原文</a> · <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN 讨论</a>
+    </div>
+</article>
+
+<!-- ===== ITEM 2 — ℹ️ ===== -->
+<article class="item item--fyi">
+    <div class="tier-label">ℹ️ 知道就行</div>
+    <div class="display-title">Dan Luu: How well do agents use test/verification techniques?</div>
+    <div class="pitch">clawii，Dan Luu 今天发了一篇分析文章，探讨 AI coding agent 在多大程度上会主动使用测试和验证技术（比如写单元测试、运行测试、检查结果）。他测试了多个主流 agent（Claude Code、Codex、Cursor 等），发现大多数 agent 在默认情况下不会主动写测试，除非明确要求。这对理解 agent 的能力边界有帮助。</div>
+
+    <div class="context-box">
+        <strong>📍 背景</strong> · Dan Luu 是知名技术博主，经常做深入的实证分析。这篇文章基于他让 agent 完成一系列编程任务，然后观察它们是否会自动编写和运行测试。结果有点令人担忧：即使 agent 有能力写测试，它们也倾向于跳过，直接输出代码。
+    </div>
+
     <div class="lang">
-        <h3>中文要点</h3>
+        <h3>为什么这事重要（但不用立即行动）</h3>
         <ul>
-            <li>DeepMind 发布了 WeatherNext 3，全球天气 AI 模型的最新版本。</li>
-            <li>HN 337 分，但非工具型产品，无需立即行动。</li>
-            <li>对 vibe coding 无直接影响，当作行业新闻了解即可。</li>
+            <li><strong>揭示了 agent 的一个常见缺陷</strong>：如果你依赖 agent 生成代码，它可能不会自动验证正确性。这意味着你需要自己添加测试要求。</li>
+            <li><strong>对 prompt 工程有启发</strong>：在 prompt 中明确要求“先写测试再写代码”可以显著提高输出质量。</li>
+            <li><strong>HN 94 分，讨论热烈</strong>：社区在讨论如何改进 agent 的测试行为，以及是否需要默认启用测试模式。</li>
         </ul>
     </div>
 
     <div class="who-talking">
-        <strong>谁在讨论</strong> · HN 337 分，81 条评论：<a href="https://news.ycombinator.com/item?id=49580004" target="_blank">WeatherNext 3 HN</a> · DeepMind 官方博客：<a href="https://deepmind.google/discover/blog/weathernext-3" target="_blank">WeatherNext 3</a>
+        <strong>谁在讨论</strong> · HN 94 分：<a href="https://news.ycombinator.com/item?id=49580005" target="_blank">HN 主帖</a> · Dan Luu 原文：<a href="https://danluu.com/agent-testing/" target="_blank">danluu.com/agent-testing</a>
     </div>
 
     <div class="try-links">
-        <strong>深入了解</strong> · <a href="https://deepmind.google/discover/blog/weathernext-3" target="_blank">DeepMind 官方博客</a> · <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN 讨论</a>
+        <strong>深入了解</strong> · <a href="https://danluu.com/agent-testing/" target="_blank">原文</a> · <a href="https://news.ycombinator.com/item?id=49580005" target="_blank">HN 讨论</a>
     </div>
 </article>
 
@@ -403,23 +458,15 @@
     <ul>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">OpenAI RSI 加速文章</span> <span class="update">— Simon 分析已发布，HN 418+183 分，今天无新 trigger；仍在社区讨论中。</span></div>
+            <div><span class="item-name">OpenAI RSI 加速（An Alien Mind + Research Acceleration）</span> <span class="update">— 昨天 👀 覆盖，今天 HN 讨论仍在继续（418+183 分），Simon 的分析被广泛引用。无新 trigger event。</span></div>
         </li>
         <li>
             <span class="days">Day 2</span>
-            <div><span class="item-name">Engrim 本地 SQLite 记忆引擎</span> <span class="update">— Show HN 42 分，今天无新 trigger；项目无新进展。</span></div>
+            <div><span class="item-name">Engrim（SQLite 记忆引擎）</span> <span class="update">— 昨天 👀 覆盖，今天 GitHub star 增长缓慢（~50 stars），无新 KOL 背书。仍在早期。</span></div>
         </li>
         <li>
             <span class="days">Day 5</span>
-            <div><span class="item-name">Astra 机器人手臂应用</span> <span class="update">— 无新 trigger event；HN 196 分帖子已掉出前排。</span></div>
-        </li>
-        <li>
-            <span class="days">Day 12</span>
-            <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HF 下载 ~827k（+~30k/天），增长放缓但仍稳定。</span></div>
-        </li>
-        <li>
-            <span class="days">Day 10</span>
-            <div><span class="item-name">Qwen3.8-Flash-Next（GGUF版）</span> <span class="update">— HF 下载 ~936k，趋势榜 #2 但增长放缓。</span></div>
+            <div><span class="item-name">Astra（GPT-6）</span> <span class="update">— 第四天跟踪后，今天无新 trigger event。Simon 的 Blender 教程仍在传播，但热度下降。</span></div>
         </li>
     </ul>
 </aside>
@@ -432,39 +479,27 @@
             <tr><th>候选</th><th>为什么没进</th></tr>
         </thead>
         <tbody>
-            <tr><td>Mistral 融资 €3B（HN 507 分）</td><td>融资新闻，clawii 不关心；无产品同时发布。</td></tr>
-            <tr><td>WeatherNext 3（HN 337 分）</td><td>已作为 ℹ️ 覆盖。</td></tr>
-            <tr><td>Jellyfin 12.0（HN 392 分）</td><td>非 AI 新闻。</td></tr>
-            <tr><td>RSA 密钥因子化（HN 357 分）</td><td>非 AI 新闻。</td></tr>
-            <tr><td>Arm Mali G2-Ultra GPU（HN 48 分）</td><td>硬件新闻，非 AI 核心。</td></tr>
-            <tr><td>Multi-Agents LLM Financial Trading Framework（HN 59 分）</td><td>金融交易框架，对 vibe coding 无帮助；分数低。</td></tr>
-            <tr><td>TALA 开源（HN 236 分）</td><td>非 AI 工具。</td></tr>
-            <tr><td>How well do agents use test/verification techniques?（HN 94 分）</td><td>Dan Luu 研究文章，非新工具或能力跃迁。</td></tr>
-            <tr><td>I tested 10 model/harness combinations on the same Three.js task（HN 86 分）</td><td>对比测试，非新信号。</td></tr>
-            <tr><td>The VMs Powering Mobile Agents（HN 36 分）</td><td>分数低，非新发布。</td></tr>
-            <tr><td>Watch Los Angeles get built（HN 300 分）</td><td>非 AI 新闻。</td></tr>
-            <tr><td>Leaving VMware just got harder（HN 205 分）</td><td>非 AI 新闻。</td></tr>
-            <tr><td>We have a year to fix security everywhere（HN 243 分）</td><td>安全文章，非 AI。</td></tr>
-            <tr><td>Scientists observe Einstein's gravity in the quantum world（HN 225 分）</td><td>物理学新闻，非 AI。</td></tr>
-            <tr><td>Trusting-Trust Attack against an entire Linux Distribution（HN 213 分）</td><td>安全研究，非 AI。</td></tr>
-            <tr><td>Navier-Stokes – Tristan Buckmaster（HN 285 分）</td><td>数学论文，非 AI。</td></tr>
-            <tr><td>Emacs Bedrock 2.0（HN 124 分）</td><td>Emacs 配置，非 AI。</td></tr>
-            <tr><td>Icy Moons Are Ocean Worlds（HN 186 分）</td><td>天文学，非 AI。</td></tr>
-            <tr><td>OpenAI RSI 文章（HN 418+183 分）</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Engrim（Show HN 42 分）</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Astra 第四天跟踪</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Paint.NET 用 Claude 写 18 万行 Direct2D</td><td>已在 still tracking 中，今天无 trigger event；Day 7 无新进展。</td></tr>
-            <tr><td>OpenClaw 2.0</td><td>已在 still tracking 中，今天无 trigger event；Day 6 无新进展。</td></tr>
-            <tr><td>GLM-5.3-Flash</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Qwen3.8-Flash-Next（GGUF版）</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>HuggingFace 趋势模型（各种）</td><td>大多数是已有模型的量化/变体版本，无新能力跃迁。</td></tr>
-            <tr><td>HuggingFace 博客文章（Puffin-World 等）</td><td>分数低，无 artifact 或工具。</td></tr>
-            <tr><td>DeepSeek-V4-Flash-Vision-Exp（HF 314k 下载）</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Lightricks/LTX-2.5（HF 1.64M 下载）</td><td>视频模型，已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>MiniMaxAI/MiniMax-H3（HF 4.99M 下载）</td><td>视频模型，已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Gemini 3.8 Flash 发布</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Anthropic 的企业安全文档</td><td>无新内容。</td></tr>
-            <tr><td>OpenAI 支持乌克兰独立新闻</td><td>企业社会责任，非能力信号。</td></tr>
+            <tr><td>Mistral raises €3B（HN 507 分）</td><td>融资新闻，非能力信号。</td></tr>
+            <tr><td>WeatherNext 3（DeepMind，HN 337 分）</td><td>科学模型，对 vibe coding 无直接影响。</td></tr>
+            <tr><td>TALA Is Open-Source（HN 236 分）</td><td>非 AI 项目（D2 语言工具）。</td></tr>
+            <tr><td>Arm Mali G2-Ultra NX GPU（HN 48 分）</td><td>硬件，非 AI 核心。</td></tr>
+            <tr><td>Multi-Agents LLM Financial Trading Framework（HN 59 分）</td><td>金融交易专用，非通用工具；信号弱。</td></tr>
+            <tr><td>The VMs Powering Mobile Agents（HN 36 分）</td><td>信号弱，且内容偏底层。</td></tr>
+            <tr><td>Robot writes in languages it has never seen before（HN 3 分）</td><td>信号极弱。</td></tr>
+            <tr><td>XHToken/Spark-X2.5-4B（HF 模型）</td><td>10.7k 下载，4B 模型，非前沿能力跃迁。</td></tr>
+            <tr><td>google/timesfm-3.0-pytorch（HF 模型）</td><td>时间序列模型，非通用工具。</td></tr>
+            <tr><td>Puffin-World（HF 博客）</td><td>23 赞，信号弱；3D 世界模型研究。</td></tr>
+            <tr><td>Internet-Scale Knowledge Retrieval（HF 博客）</td><td>14 赞，信号弱。</td></tr>
+            <tr><td>Give Your Coding Agents a Memory（HF 博客）</td><td>51 赞，但已有 Engrim 覆盖类似方向。</td></tr>
+            <tr><td>OpenAI 支持乌克兰独立新闻（官方博客）</td><td>企业社会责任，非能力信号。</td></tr>
+            <tr><td>Anthropic 无新发布</td><td>无内容。</td></tr>
+            <tr><td>Mistral 融资新闻（官方）</td><td>同上，融资排除。</td></tr>
+            <tr><td>DeepMind Gemini 3.8 Flash 相关</td><td>已在 still tracking 中（之前已覆盖），今天无新 trigger。</td></tr>
+            <tr><td>Paint.NET 用 Claude 写 18 万行 Direct2D</td><td>连续 7 天无新进展，从 still tracking 移除。</td></tr>
+            <tr><td>OpenClaw 2.0</td><td>连续 6 天无新进展，从 still tracking 移除。</td></tr>
+            <tr><td>GLM-5.3-Flash</td><td>连续 11 天无新进展，从 still tracking 移除。</td></tr>
+            <tr><td>Qwen3.8-Flash-Next（GGUF版）</td><td>连续 9 天无新进展，从 still tracking 移除。</td></tr>
+            <tr><td>Astra 机器人手臂应用</td><td>连续 4 天无新进展，从 still tracking 移除（但 Astra 主项目仍在 still tracking）。</td></tr>
         </tbody>
     </table>
 </section>
