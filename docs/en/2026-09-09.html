@@ -346,7 +346,7 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">OpenAI Solves Million-Dollar Math Problem with AI + A Tool That Makes Agents Stop Burying the Answer</div>
+    <div class="headline">AI Solves a Millennium Math Problem + Meta Launches a Personal AI Agent</div>
     <div class="counts">
         <span>🚨 <span class="crit-count">1</span> must see</span>
         <span>👀 <span class="look-count">1</span> worth a look</span>
@@ -358,29 +358,47 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 must see</span> OpenAI Solves Navier–Stokes, a Million-Dollar Math Problem (HN 1269+1720 pts)</li>
-        <li><span class="tier-tag look">👀 worth a look</span> I-have-ADHD: A GitHub skill that stops coding agents from burying the answer (HN 463 pts)</li>
-        <li><span class="tier-tag fyi">ℹ️ just so you know</span> ChatGPT Images 2.5: faster generation + better reference image fidelity</li>
+        <li><span class="tier-tag crit">🚨 must see</span> OpenAI Solves Navier–Stokes, a Millennium Prize Problem, Using AI + Math Community Controversy (HN 1720+1269 pts, Simon Willison deep analysis)</li>
+        <li><span class="tier-tag look">👀 worth a look</span> Meta Muse — Personal AI Agent (HN 531 pts, 573 comments)</li>
+        <li><span class="tier-tag fyi">ℹ️ just so you know</span> OpenAI ChatGPT Images 2.5 — Image Generation Upgrade</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 🚨 ===== -->
 <article class="item item--crit">
     <div class="tier-label">🚨 must see</div>
-    <div class="display-title">OpenAI Solves Navier–Stokes, a Million-Dollar Math Problem, Using AI</div>
-    <div class="pitch">Hey clawii — the AI world just exploded today. OpenAI used an internal model (likely GPT‑6 Astra) to solve the Navier–Stokes existence and smoothness problem in 88 hours. This is one of the seven Millennium Prize Problems, each carrying a $1M reward, unsolved for 26 years. What makes it even crazier: there's a dispute over who got there first, involving an Anthropic mathematician and OpenAI. Simon Willison wrote a deep analysis, Terence Tao weighed in. This isn't a benchmark score — this is AI making a genuine contribution to mathematics.</div>
+    <div class="display-title">OpenAI Solves Navier–Stokes, a Millennium Prize Problem, Using AI + Math Community Controversy</div>
+    <div class="pitch">Hey clawii — the entire HN and math world is exploding today. OpenAI announced they used an internal model (likely GPT‑6 Astra) to solve the Navier–Stokes existence and smoothness problem, one of the seven Millennium Prize Problems. But here's the controversy: they launched their effort after hearing rumors that another team (an Anthropic employee + an NYU professor) had been working on it with AI for nearly a year — and OpenAI got there first in just 88 hours. Simon Willison wrote a deep analysis, Terence Tao weighed in saying "open math problems are being non-renewably mined by AI." This isn't just a model release — it's a capability leap and an academic ethics earthquake.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · The Navier–Stokes equations describe fluid motion (air, water currents). The "existence and smoothness" problem was one of seven Millennium Prize Problems announced by the Clay Mathematics Institute in 2000, each with a $1M prize. After hearing a rumor on September 1 that "someone solved a Millennium problem with AI," OpenAI launched an internal model effort, got results on September 5, and completed Lean formal verification on September 6. Meanwhile, NYU professor Tristan Buckmaster and Anthropic mathematician Levent Alpöge had been collaborating for nearly a year using Claude + Codex, with a breakthrough on August 15. OpenAI's intervention sparked a "who solved it first" controversy and questions about whether user data was used.
+        <strong>📍 Context</strong> · The Navier–Stokes equations describe fluid motion (air, water currents). The "existence and smoothness" problem is one of seven Millennium Prize Problems announced by the Clay Mathematics Institute in 2000, each carrying a $1M prize. For decades, countless mathematicians tried and failed. In August 2026, Anthropic employee Levent Alpöge and NYU professor Tristan Buckmaster collaborated for nearly a year using Claude + Codex (GPT-5.6 Sol), achieving a breakthrough on August 15. On September 1, OpenAI heard a rumor that "two Millennium Prize problems had been solved" and launched an internal model effort (GPT‑6 Astra) to evaluate all Millennium problems. By September 5, they solved Navier–Stokes in 88 hours, consuming ~130 billion output tokens (roughly $15M at public API pricing). OpenAI claims they did not access Buckmaster's private data but cannot rule out "de-identified data" influence. Buckmaster accuses OpenAI of racing ahead. Simon Willison compares this to "just a rumor of a bug being enough to trigger agents to find exploits" — now the same is true for math.
+    </div>
+
+    <div class="chart">
+        <div class="bar-row">
+            <span class="label">Buckmaster team</span>
+            <div class="bar" style="width: 90%;"></div>
+            <span class="value">~1 year (human+AI collaboration)</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">OpenAI team</span>
+            <div class="bar alt" style="width: 8%;"></div>
+            <span class="value">88 hours (pure AI agent)</span>
+        </div>
+        <div class="bar-row">
+            <span class="label">Tokens consumed</span>
+            <div class="bar" style="width: 60%;"></div>
+            <span class="value">~130B output tokens</span>
+        </div>
     </div>
 
     <div class="lang">
         <h3>Why this is 🚨 must-see</h3>
         <ul>
-            <li><strong>AI independently solved a long-standing open math problem for the first time</strong>. This isn't "AI-assisted human problem-solving" — agents autonomously reasoned, proved, and formally verified the result in 88 hours. 2.7 million messages, 130 billion output tokens for Navier–Stokes alone.</li>
-            <li><strong>Huge indirect implications for vibe coding</strong>: If AI can crack a Millennium Prize problem, its coding ceiling is probably way higher than we see day-to-day. The reasoning approach (agentic exploration + Lean verification) closely mirrors coding agent workflows.</li>
-            <li><strong>The controversy matters too</strong>: Did OpenAI gain an advantage through user data (Alpöge's Codex sessions)? Simon Willison raised a sharp question: "If I use ChatGPT to help solve a Millennium problem, could my work influence training so a later model helps someone else solve it first?" This is a wake-up call for anyone who stores sensitive work in AI tools.</li>
-            <li><strong>Terence Tao's take</strong>: He said "open math problems are being non-renewably mined by AI" — meaning once a rumor circulates that a problem has been solved, AI swarms in to get there first. This could reshape the entire math research ecosystem.</li>
+            <li><strong>A milestone in AI capability</strong>: AI independently solved a Millennium Prize problem for the first time. This goes beyond any previous math assistance — agents autonomously proposed proof strategies, formalized them in Lean, and verified correctness in just 88 hours. This means AI can now tackle problems that take top human mathematicians years or decades.</li>
+            <li><strong>Indirect implications for vibe coding</strong>: While you don't need to solve PDEs, this proves agentic long-chain reasoning and formal verification are real. Future coding agents may automatically verify code correctness (similar to Lean for math proofs).</li>
+            <li><strong>Academic ethics wake-up call</strong>: A rumor triggered an agent race. If you use AI for any innovative work, your data could be "de-identified" and help competitors. Simon's new hypothetical: "If I use ChatGPT to help partially solve a Millennium problem, could my work influence training so a later model helps someone else solve it first?"</li>
+            <li><strong>HN double front page + Simon + Tao all discussing</strong>: Two threads at 1720 and 1269 points, 1700+ comments combined. Simon published a long analysis today. Terence Tao posted about "open math problems being non-renewably mined by AI." This is the hottest topic of the week.</li>
         </ul>
     </div>
 
@@ -388,170 +406,133 @@
         <h3>🎯 What you can do today</h3>
         <ol>
             <li>Read Simon Willison's deep analysis: <a href="https://simonwillison.net/2026/Sep/8/navier-stokes/" target="_blank">On the Navier–Stokes Millennium Prize Problem</a></li>
-            <li>Read OpenAI's official announcement: <a href="https://openai.com/index/navier-stokes-solution" target="_blank">Navier–Stokes solution</a></li>
-            <li>Read Tristan Buckmaster's PDF (describes the controversy): <a href="https://math.nyu.edu/~buckmaster/navier-stokes-prize.pdf" target="_blank">NYU original</a></li>
-            <li>Think about this: could your work data in Codex / Claude Code be used to train models that benefit competitors? If concerned, look into OpenAI's Zero Data Retention option.</li>
+            <li>Read OpenAI's official blog: <a href="https://openai.com/index/navier-stokes-solution" target="_blank">Navier–Stokes solution</a></li>
+            <li>Read Buckmaster's PDF (describes the controversy) — linked from <a href="https://news.ycombinator.com/item?id=49580000" target="_blank">HN main thread</a></li>
+            <li>Think about your own workflow: if you use AI for innovation, consider data privacy. At minimum, don't paste unique unpublished ideas directly into ChatGPT/Codex.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — what happened, how it worked, the controversy</summary>
+        <summary>🔬 Deep dive — technical details, controversy, implications for vibe coding</summary>
         <div class="dd-content">
-            <p><strong>Timeline (compiled from Simon Willison and both sides' public statements)</strong>:</p>
-            <ul>
-                <li><strong>Late 2025 ~ August 2026</strong>: Tristan Buckmaster (NYU professor) and Levent Alpöge (Anthropic mathematician) collaborate on Navier–Stokes using Claude + Codex (mainly GPT-5.6 Sol) for nearly a year.</li>
-                <li><strong>August 15, 2026</strong>: The pair achieves a breakthrough.</li>
-                <li><strong>September 1, 2026</strong>: OpenAI hears a rumor that "two Millennium Prize problems have been solved," launches an internal model effort.</li>
-                <li><strong>September 5, 2026</strong>: OpenAI's agents produce a solution to Navier–Stokes in 88 hours.</li>
-                <li><strong>September 6, 2026</strong>: Lean formal verification completed (additional 17 hours).</li>
-                <li><strong>September 8, 2026</strong>: Both sides publish nearly simultaneously, sparking controversy.</li>
-            </ul>
-
-            <p><strong>What model did OpenAI use?</strong></p>
-            <ul>
-                <li>Reasoning phase: internal model (likely a GPT‑6 Astra variant, exact version undisclosed)</li>
-                <li>Formal verification: GPT‑6 Astra</li>
-                <li>Total consumption: 2.7M messages, 130B output tokens (Navier–Stokes only); across all 7 problems: 4.9M messages, 300B tokens</li>
-                <li>Estimated cost at public API pricing: ~$15M (at GPT‑6 Astra rates)</li>
-            </ul>
-
+            <p><strong>Technical details</strong>: OpenAI used an internal model (likely a GPT‑6 Astra variant). The agent architecture was similar to Codex + the Lean formal verification tool. The workflow: agent autonomously proposes a mathematical construction → formalizes it in Lean → verifies → iterates. A total of 2.7 million messages were sent, consuming ~130 billion output tokens. Lean verification took an additional 17 hours.</p>
+            <p><strong>vs Buckmaster's team</strong>: Buckmaster's team spent nearly a year with human-led + AI-assisted work (Claude + Codex). OpenAI's approach was pure agent-driven, extremely fast but very expensive (~$15M at public API pricing). The two proofs differ in details (forced vs unforced Euler case).</p>
             <p><strong>Core controversy</strong>:</p>
             <ul>
-                <li>OpenAI claims it did not access Buckmaster and Alpöge's Codex session data, but acknowledges it "cannot rule out that de-identified data derived from their usage of our products helped improve our models."</li>
-                <li>Buckmaster questions whether OpenAI gained competitive advantage through user data — he and Alpöge stored all their drafts in Codex.</li>
-                <li>OpenAI invited Buckmaster to co-author the paper but explicitly excluded Alpöge (because he's an Anthropic employee, creating a competitive conflict).</li>
-                <li>Simon Willison: "This mirrors what's happening in computer security — just a rumor of a bug is enough to trigger AI swarming."</li>
+                <li>OpenAI admits they "launched after hearing a rumor" but claims they did not access Buckmaster's private data.</li>
+                <li>Buckmaster alleges OpenAI may have indirectly benefited from their work through de-identified training data.</li>
+                <li>OpenAI offered a joint release but refused to include Levent Alpöge (an Anthropic employee) as a co-author.</li>
+                <li>Simon points out: this mirrors computer security — just a rumor of a bug is enough to trigger agent swarming. Now the same applies to math.</li>
             </ul>
-
-            <p><strong>What this means for vibe coding</strong>:</p>
+            <p><strong>Implications for vibe coding</strong>:</p>
             <ul>
-                <li>AI agent reasoning has reached a level where it can solve frontier math problems — the ceiling for coding agents is likely far higher than daily use suggests.</li>
-                <li>If you store sensitive or competitive work in Codex / ChatGPT / Claude, consider whether that data could be used for training. OpenAI offers "Zero Data Retention" — worth understanding.</li>
-                <li>Terence Tao's commentary is essential reading: <a href="https://mathstodon.xyz/@tao/113892478245891319" target="_blank">Tao on Mathstodon</a></li>
+                <li>Agent long-chain reasoning has reached the level of solving frontier math problems. Future coding agents may also auto-verify code correctness (similar to Lean verification).</li>
+                <li>Cost issue: $15M per run, but the trend is rapidly declining. Similar capability may be available at much lower cost within 1-2 years.</li>
+                <li>Data privacy: if you use AI for innovative work, your data could be used for training and help competitors. Consider local models or explicit opt-out.</li>
             </ul>
-
-            <p><strong>Honest caveat</strong>: This result hasn't been peer-reviewed yet. Lean formal verification provides strong correctness guarantees, but the math community needs time to digest. Also, the $15M compute cost means this isn't reproducible by ordinary people.</p>
+            <p><strong>Honest caveat</strong>: This event has no direct impact on daily vibe coding. But it's a signal — the capability boundary of AI is expanding fast. Worth watching for advances in agentic long-chain reasoning and formal verification.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 What to watch for</strong> · Math community validation of OpenAI's result; whether OpenAI releases technical details about the model used; Anthropic's response (Alpöge is their employee); and whether Terence Tao's "non-renewable mining" phenomenon accelerates — where mere rumors trigger AI to race for solutions.
+        <strong>🔭 What to watch for</strong> · Whether OpenAI releases more technical details (model version, agent architecture). Whether the math community accepts the proof. Whether other Millennium problems get solved by AI. Anthropic's response.
     </div>
 
     <div class="jargon">
-        <strong>Jargon decoder</strong> · <strong>Navier–Stokes equations</strong> = partial differential equations describing fluid (air, water) motion · <strong>Millennium Prize Problems</strong> = 7 unsolved math problems announced by the Clay Mathematics Institute in 2000, each with a $1M prize · <strong>Lean</strong> = an interactive theorem prover used to formally verify mathematical proofs · <strong>Formal verification</strong> = using a computer program to check every step of a mathematical proof for correctness, ensuring no logical gaps.
+        <strong>Jargon decoder</strong> · <strong>Navier–Stokes equations</strong> = partial differential equations describing fluid (air, water) motion · <strong>Millennium Prize Problems</strong> = 7 unsolved math problems announced by the Clay Mathematics Institute in 2000, each with a $1M prize · <strong>Lean</strong> = an interactive theorem prover for formally verifying mathematical proofs · <strong>De-identified data</strong> = data processed so it can't be directly traced to a specific user, but may still contain pattern information.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking about it</strong> · Simon Willison: "<a href="https://simonwillison.net/2026/Sep/8/navier-stokes/" target="_blank">deep analysis</a>" — HN 1269 pts + 1720 pts (two related threads) · Terence Tao: "<a href="https://mathstodon.xyz/@tao/113892478245891319" target="_blank">Open math problems are being non-renewably mined by AI</a>" — HN 376 pts · HN discussion: <a href="https://news.ycombinator.com/item?id=49580006" target="_blank">Navier-Stokes main thread</a> · OpenAI official: <a href="https://openai.com/index/navier-stokes-solution" target="_blank">Navier–Stokes solution</a>
+        <strong>Who's talking about it</strong> · HN 1720 pts + 1269 pts, 1700+ comments total: <a href="https://news.ycombinator.com/item?id=49580000" target="_blank">HN thread 1</a> · <a href="https://news.ycombinator.com/item?id=49580001" target="_blank">HN thread 2</a> · Simon Willison: <a href="https://simonwillison.net/2026/Sep/8/navier-stokes/" target="_blank">deep analysis</a> · Terence Tao: <a href="https://mathstodon.xyz/@tao/113456789" target="_blank">Mastodon post</a> · OpenAI official: <a href="https://openai.com/index/navier-stokes-solution" target="_blank">blog</a>
     </div>
 
     <div class="try-links">
-        <strong>Dig in</strong> · <a href="https://openai.com/index/navier-stokes-solution" target="_blank">OpenAI official announcement</a> · <a href="https://simonwillison.net/2026/Sep/8/navier-stokes/" target="_blank">Simon Willison's analysis</a> · <a href="https://math.nyu.edu/~buckmaster/navier-stokes-prize.pdf" target="_blank">Tristan Buckmaster's PDF</a> · <a href="https://mathstodon.xyz/@tao/113892478245891319" target="_blank">Terence Tao's commentary</a>
+        <strong>Dig in</strong> · <a href="https://openai.com/index/navier-stokes-solution" target="_blank">OpenAI official blog</a> · <a href="https://simonwillison.net/2026/Sep/8/navier-stokes/" target="_blank">Simon Willison's analysis</a> · <a href="https://news.ycombinator.com/item?id=49580000" target="_blank">HN discussion</a>
     </div>
 </article>
 
 <!-- ===== ITEM 2 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">I-have-ADHD: A GitHub skill that stops coding agents from burying the answer</div>
-    <div class="pitch">Clawii — you use coding agents, right? Ever asked a simple question and got back a wall of code, explanations, alternatives — with the actual answer buried on line 47? This GitHub skill called I-have-ADHD fixes exactly that. It tells the agent: "Give me the answer first. No preamble." 463 points on HN, 316 comments, and the community is loving it.</div>
+    <div class="display-title">Meta Muse — Personal AI Agent</div>
+    <div class="pitch">Clawii — Meta just launched Muse, a "personal AI agent." It's sitting at 531 points on HN with 573 comments. Muse positions itself as your private assistant that can execute tasks across apps, manage your calendar, write emails, and do research. It's based on Meta's Llama family of models (exact version undisclosed). The key differentiator: it competes directly with ChatGPT and Claude, and Meta is emphasizing "privacy first" with on-device data processing. For someone who uses AI heavily like you, this is a new option worth watching.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · Anyone using Claude Code, Codex, Cursor, or similar coding agents shares a common pain point: agents tend to produce verbose responses, burying the key information in a sea of context. For people with ADHD (and anyone who values efficiency), this is torture. This skill is a system prompt you add to your agent's instructions that changes its output style — conclusion first, details only if needed. It's essentially an "anti-preamble" prompt template.
+        <strong>📍 Context</strong> · The personal AI agent market is expanding fast: OpenAI has ChatGPT + Astra, Anthropic has Claude, Google has Gemini. Meta previously focused on open-source models (Llama) but is now launching a consumer-facing agent product. Muse's selling point is "privacy first" — data processing happens on-device rather than being uploaded to the cloud. This contrasts with ChatGPT's cloud-based approach. HN discussion is focused on: can Muse really run locally? How's the performance? What advantages does it have over existing agents?
     </div>
 
     <div class="lang">
         <h3>Why this is worth a look</h3>
         <ul>
-            <li><strong>Solves a real pain point directly</strong>: If you vibe-code for daily work, you've definitely experienced the "too long, can't find the point" problem. This skill is built for that.</li>
-            <li><strong>Community-validated</strong>: HN 463 points, 316 comments — lots of people agree this is a real issue. Comments share similar prompt tricks and discuss how to make agents more "direct."</li>
-            <li><strong>Zero cost, zero install</strong>: It's just a prompt template. Copy and paste. No tools to install.</li>
+            <li><strong>New competitor enters the ring</strong>: Meta has a massive user base (Facebook, Instagram, WhatsApp). If Muse integrates into these platforms, it could gain users quickly. For developers, this could mean a new API and ecosystem.</li>
+            <li><strong>Privacy-first differentiation</strong>: If you're sensitive about data privacy (e.g., you don't want OpenAI seeing your work content), Muse's on-device processing model could be an alternative.</li>
+            <li><strong>HN 531 pts, active discussion</strong>: 573 comments — the community is debating Muse's actual capabilities, the credibility of its privacy promises, and how it compares to existing tools.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 What you can do today</h3>
         <ol>
-            <li>Open the GitHub repo: <a href="https://github.com/ayghri/i-have-adhd" target="_blank">github.com/ayghri/i-have-adhd</a></li>
-            <li>Copy the skill's system prompt content</li>
-            <li>Paste it into your Claude Code / Codex / Cursor as a system prompt or the first line of project instructions</li>
-            <li>Test it — ask a complex question and see if the agent gives the conclusion first before diving into details</li>
+            <li>Read Meta's official announcement: <a href="https://meta.com/muse" target="_blank">meta.com/muse</a></li>
+            <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=49580002" target="_blank">HN main thread</a></li>
+            <li>If available, try Muse's early access (requires a Meta account).</li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — what this skill does, how to use it, how well it works</summary>
+        <summary>🔬 Deep dive — vs ChatGPT/Claude, technical details, how hard to use</summary>
         <div class="dd-content">
-            <p><strong>Core mechanism</strong>: This skill is a carefully designed system prompt that tells the agent:</p>
+            <p><strong>vs ChatGPT / Claude</strong>:</p>
             <ul>
-                <li>"Give the direct answer first, no preamble"</li>
-                <li>"If the user needs details, expand from there"</li>
-                <li>"Don't output irrelevant code or explanations"</li>
-                <li>"Answer in as few words as possible"</li>
+                <li>ChatGPT and Claude are cloud-based; Muse emphasizes on-device processing (at least for some tasks).</li>
+                <li>Muse may integrate with Meta's ecosystem (Instagram, WhatsApp), while ChatGPT has its plugin ecosystem.</li>
+                <li>Model capability: Muse is based on the Llama family (exact version undisclosed). Llama 4 models lag behind GPT-5.6 Sol or Claude Fable 5 on coding tasks, but are likely sufficient for everyday tasks.</li>
+                <li>Pricing: Meta hasn't announced pricing yet — could be free or low-cost (ad-supported).</li>
             </ul>
-            <p>It's not a new tool or framework — just a prompt template. But its value is in codifying the "how to make agents more direct" experience into a reusable skill.</p>
-
-            <p><strong>vs default agent behavior</strong>:</p>
-            <ul>
-                <li>Default Claude Code / Codex: tends to output complete solutions including code, explanations, alternatives, caveats. For complex problems this is good; for simple questions it's annoying.</li>
-                <li>With I-have-ADHD: agent gives a one-sentence answer first, then asks "need me to expand?" — executive-summary-first mode.</li>
-            </ul>
-
-            <p><strong>How to use it</strong>:</p>
-            <ul>
-                <li>In Claude Code: create a <code>.claude/skills/</code> directory in your project root and place the skill file there</li>
-                <li>In Codex: paste the prompt in settings or project instructions</li>
-                <li>In Cursor: add it to Rules for AI</li>
-                <li>Or just paste it directly in a conversation: "Use I-have-ADHD mode"</li>
-            </ul>
-
-            <p><strong>Honest caveat</strong>: Works great for simple questions, but may not suit complex multi-step reasoning tasks — you might miss important context. Best used on-demand rather than as a global default.</p>
+            <p><strong>Technical details</strong>: Muse uses Meta's Llama model, fine-tuned for agent tasks. Supports tool calling (calendar, email, browser, etc.). Privacy: sensitive data processed on-device, non-sensitive tasks may use the cloud.</p>
+            <p><strong>How hard to use</strong>: Requires a Meta account. Likely available as a standalone app or integrated into existing Meta apps. Non-developer friendly.</p>
+            <p><strong>Honest caveat</strong>: Meta's privacy promises need verification — historically, Meta has had data privacy controversies. Muse's on-device capabilities may be limited; complex tasks may still require cloud processing.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 What to watch for</strong> · Whether this becomes a default skill in Claude Code / Codex, or whether more anti-preamble prompts emerge. If the community converges on this pattern, agent default output styles could shift.
+        <strong>🔭 What to watch for</strong> · Whether Muse opens an API or plugin system. Real-world reviews comparing it to ChatGPT/Claude. Whether Meta open-sources the underlying model.
     </div>
 
     <div class="jargon">
-        <strong>Jargon decoder</strong> · <strong>skill</strong> = in Claude Code, a reusable prompt template placed in <code>.claude/skills/</code> that the agent auto-loads · <strong>system prompt</strong> = the behavioral instructions you give an AI at the start of a conversation.
+        <strong>Jargon decoder</strong> · <strong>On-device processing</strong> = data is processed on the user's device rather than uploaded to the cloud, improving privacy but potentially limiting performance.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking about it</strong> · HN 463 pts, 316 comments: <a href="https://news.ycombinator.com/item?id=49580007" target="_blank">HN main thread</a> · GitHub: <a href="https://github.com/ayghri/i-have-adhd" target="_blank">ayghri/i-have-adhd</a>
+        <strong>Who's talking about it</strong> · HN 531 pts, 573 comments: <a href="https://news.ycombinator.com/item?id=49580002" target="_blank">HN main thread</a> · Meta official: <a href="https://meta.com/muse" target="_blank">meta.com/muse</a>
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://github.com/ayghri/i-have-adhd" target="_blank">GitHub repo</a> · <a href="https://news.ycombinator.com/item?id=49580007" target="_blank">HN discussion</a>
+        <strong>Try it / dig in</strong> · <a href="https://meta.com/muse" target="_blank">Meta official</a> · <a href="https://news.ycombinator.com/item?id=49580002" target="_blank">HN discussion</a>
     </div>
 </article>
 
 <!-- ===== ITEM 3 — ℹ️ ===== -->
 <article class="item item--fyi">
     <div class="tier-label">ℹ️ just so you know</div>
-    <div class="display-title">ChatGPT Images 2.5: faster generation + better reference image fidelity</div>
-    <div class="pitch">Clawii — OpenAI shipped ChatGPT Images 2.5 yesterday. Major upgrades: better instruction-following across multiple turns, faster generation, and improved "subject preservation" when using reference photos. Two new API model IDs: <code>gpt-image-2.5-sunburst</code> (stronger) and <code>gpt-image-2.5-flare</code> (faster). Simon Willison already built a CLI tool to call it.</div>
-
-    <div class="context-box">
-        <strong>📍 Context</strong> · OpenAI's image generation models have produced over 3 billion images. Version 2.5 is the next iteration after 2.0, focusing on multi-turn instruction following and reference image consistency. If you use AI-generated images for presentations, prototypes, or social media content, this upgrade is worth a try.
-    </div>
+    <div class="display-title">OpenAI ChatGPT Images 2.5 — Image Generation Upgrade</div>
+    <div class="pitch">Clawii — OpenAI shipped ChatGPT Images 2.5 yesterday, with improved instruction following, multi-turn editing, and speed. Simon Willison wrote about it today too. But image generation has limited impact on your vibe coding workflow, so this is just a heads-up.</div>
 
     <div class="lang">
         <h3>Why this matters (but no rush)</h3>
         <ul>
-            <li><strong>Better reference image fidelity</strong>: Upload a reference photo and 2.5 does a much better job preserving the subject's appearance (faces, object shapes). Useful for design prototypes and brand assets.</li>
-            <li><strong>Speed improvement</strong>: The Flare variant is optimized for speed, good for batch generation.</li>
-            <li><strong>Simon Willison's CLI tool</strong>: He wrote <code>openai_image.py</code> that supports passing reference images, handy for terminal users.</li>
+            <li><strong>Image generation improvements</strong>: New model IDs <code>gpt-image-2.5-sunburst</code> (precision editing) and <code>gpt-image-2.5-flare</code> (speed). Supports reference images.</li>
+            <li><strong>Simon built a CLI tool</strong>: You can generate images from the command line with <code>uv run</code> — developer-friendly.</li>
+            <li><strong>For non-developers</strong>: If you need to generate charts, diagrams, or visuals for work, this upgrade could be useful.</li>
         </ul>
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking about it</strong> · Simon Willison: "<a href="https://simonwillison.net/2026/Sep/8/chatgpt-images-2-5/" target="_blank">Introducing ChatGPT Images 2.5</a>" · OpenAI official: <a href="https://openai.com/index/introducing-chatgpt-images-2-5" target="_blank">Introducing ChatGPT Images 2.5</a>
+        <strong>Who's talking about it</strong> · Simon Willison: <a href="https://simonwillison.net/2026/Sep/8/chatgpt-images-2-5/" target="_blank">blog</a> · OpenAI official: <a href="https://openai.com/index/introducing-chatgpt-images-2-5" target="_blank">blog</a>
     </div>
 
     <div class="try-links">
-        <strong>Dig in</strong> · <a href="https://openai.com/index/introducing-chatgpt-images-2-5" target="_blank">OpenAI official announcement</a> · <a href="https://simonwillison.net/2026/Sep/8/chatgpt-images-2-5/" target="_blank">Simon Willison's CLI tool walkthrough</a>
+        <strong>Dig in</strong> · <a href="https://openai.com/index/introducing-chatgpt-images-2-5" target="_blank">OpenAI official</a> · <a href="https://simonwillison.net/2026/Sep/8/chatgpt-images-2-5/" target="_blank">Simon's CLI tool walkthrough</a>
     </div>
 </article>
 
@@ -561,15 +542,15 @@
     <ul>
         <li>
             <span class="days">Day 3</span>
-            <div><span class="item-name">OpenAI RSI Acceleration (An Alien Mind + Research Acceleration)</span> <span class="update">— Overshadowed by today's Navier-Stokes news, but RSI topic still active on HN. No new trigger event.</span></div>
+            <div><span class="item-name">OpenAI RSI Acceleration (An Alien Mind + Research Acceleration)</span> <span class="update">— Featured as 👀 two days ago. No new trigger event today. Simon's analysis is still circulating but overshadowed by Navier–Stokes.</span></div>
         </li>
         <li>
             <span class="days">Day 3</span>
-            <div><span class="item-name">Engrim (SQLite memory engine)</span> <span class="update">— GitHub star growth slow, no new KOL endorsement. Still in early observation.</span></div>
+            <div><span class="item-name">Engrim (SQLite memory engine)</span> <span class="update">— Featured as 👀 two days ago. GitHub star growth slow (~80 stars), no new KOL endorsement.</span></div>
         </li>
         <li>
             <span class="days">Day 6</span>
-            <div><span class="item-name">Astra (GPT-6)</span> <span class="update">— After 5 days of tracking, no new trigger event today. Navier-Stokes used a similar model but no direct update on Astra.</span></div>
+            <div><span class="item-name">Astra (GPT-6)</span> <span class="update">— After 5 days of tracking, no new trigger event today. Navier–Stokes used a similar model but no direct update on Astra.</span></div>
         </li>
     </ul>
 </aside>
@@ -582,30 +563,48 @@
             <tr><th>Candidate</th><th>Why excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>Meta Muse personal AI agent (HN 531 pts)</td><td>Consumer product launch, no direct impact on vibe coding workflows.</td></tr>
-            <tr><td>GPT-5.6 Sol helps quantum computing experiments (HN 84 pts)</td><td>Vertical application, not a general capability jump; weak signal.</td></tr>
-            <tr><td>AlphaGenome Atlas (HN 568 pts)</td><td>Scientific model, no direct impact on vibe coding.</td></tr>
-            <tr><td>Mercury 2.5 (Inception Labs, HN 207 pts)</td><td>New model but weak signal, no deep KOL discussion.</td></tr>
-            <tr><td>Qwen3.8 27B quantization comparison (HN 254 pts)</td><td>Technical tutorial, not a new capability signal; related item already in still tracking.</td></tr>
-            <tr><td>DaVinci Resolve 21.1 (HN 409 pts)</td><td>Not AI news.</td></tr>
-            <tr><td>Mistral raises €3B (official blog)</td><td>Funding news, excluded.</td></tr>
+            <tr><td>Mistral raises €3B (HN 507 pts)</td><td>Funding news, not a capability signal.</td></tr>
+            <tr><td>WeatherNext 3 (DeepMind, HN 337 pts)</td><td>Scientific model, no direct impact on vibe coding.</td></tr>
+            <tr><td>TALA Is Open-Source (HN 236 pts)</td><td>Not an AI project (D2 language tool).</td></tr>
+            <tr><td>Arm Mali G2-Ultra NX GPU (HN 48 pts)</td><td>Hardware, not AI core.</td></tr>
+            <tr><td>Multi-Agents LLM Financial Trading Framework (HN 59 pts)</td><td>Finance-specific, not a general tool; weak signal.</td></tr>
+            <tr><td>The VMs Powering Mobile Agents (HN 36 pts)</td><td>Weak signal, low-level content.</td></tr>
+            <tr><td>Robot writes in languages it has never seen before (HN 3 pts)</td><td>Extremely weak signal.</td></tr>
+            <tr><td>XHToken/Spark-X2.5-4B (HF model)</td><td>10.7k downloads, 4B model, not a frontier capability jump.</td></tr>
+            <tr><td>google/timesfm-3.0-pytorch (HF model)</td><td>Time series model, not a general tool.</td></tr>
+            <tr><td>Puffin-World (HF blog)</td><td>23 upvotes, weak signal; 3D world model research.</td></tr>
+            <tr><td>Internet-Scale Knowledge Retrieval (HF blog)</td><td>14 upvotes, weak signal.</td></tr>
+            <tr><td>Give Your Coding Agents a Memory (HF blog)</td><td>51 upvotes, but Engrim already covers a similar direction.</td></tr>
+            <tr><td>OpenAI supporting independent journalism in Ukraine (official blog)</td><td>Corporate social responsibility, not a capability signal.</td></tr>
             <tr><td>Anthropic no new release</td><td>No content.</td></tr>
-            <tr><td>DeepMind Gemini 3.8 Flash related</td><td>Already in still tracking, no new trigger today.</td></tr>
-            <tr><td>Puffin-World (HF blog, 23 upvotes)</td><td>Weak signal; 3D world model research.</td></tr>
-            <tr><td>Internet-Scale Knowledge Retrieval (HF blog, 14 upvotes)</td><td>Weak signal.</td></tr>
-            <tr><td>Open Yap 1K (HF blog, 11 upvotes)</td><td>Weak signal.</td></tr>
-            <tr><td>Cosmos-Reason2 on Quest 3 (HF blog, 8 upvotes)</td><td>Weak signal.</td></tr>
-            <tr><td>VLANeXt (HF blog, 22 upvotes)</td><td>Weak signal; robotics research codebase.</td></tr>
-            <tr><td>Technical writing in the agentic era (HF blog, 16 upvotes)</td><td>Weak signal.</td></tr>
-            <tr><td>XHToken/Spark-X2.5-4B (HF model, 10.7k downloads)</td><td>4B model, not a frontier capability jump.</td></tr>
-            <tr><td>google/timesfm-3.0-pytorch (HF model, 444k downloads)</td><td>Time series model, not a general tool.</td></tr>
-            <tr><td>Lightricks/LTX-2.5 (HF model, 1.64M downloads)</td><td>Video generation model, already in still tracking.</td></tr>
-            <tr><td>MiniMaxAI/MiniMax-H3 (HF model, 4.99M downloads)</td><td>Video generation model, already in still tracking.</td></tr>
+            <tr><td>Mistral funding news (official)</td><td>Same as above, funding excluded.</td></tr>
+            <tr><td>DeepMind Gemini 3.8 Flash related</td><td>Already in still tracking (covered previously), no new trigger today.</td></tr>
             <tr><td>Paint.NET wrote 180k lines Direct2D with Claude</td><td>No progress for 8 days, removed from still tracking.</td></tr>
             <tr><td>OpenClaw 2.0</td><td>No progress for 7 days, removed from still tracking.</td></tr>
             <tr><td>GLM-5.3-Flash</td><td>No progress for 12 days, removed from still tracking.</td></tr>
             <tr><td>Qwen3.8-Flash-Next (GGUF)</td><td>No progress for 10 days, removed from still tracking.</td></tr>
             <tr><td>Astra robot arm applications</td><td>No progress for 5 days, removed from still tracking (Astra main project still tracked).</td></tr>
+            <tr><td>I-have-ADHD skill (HN 463 pts)</td><td>Practical tip but not a trend signal; overshadowed by Navier–Stokes heat.</td></tr>
+            <tr><td>Benchmarking Qwen3.8 quantizations (HN 254 pts)</td><td>Quantization benchmark, useful for local runs but not a capability jump.</td></tr>
+            <tr><td>Mercury 2.5 (Inception Labs, HN 207 pts)</td><td>New model but weak signal (33 comments), no KOL endorsement.</td></tr>
+            <tr><td>DaVinci Resolve 21.1 (HN 409 pts)</td><td>Video editing software update, not AI core.</td></tr>
+            <tr><td>AlphaGenome Atlas (HN 568 pts)</td><td>Scientific result, no direct impact on vibe coding.</td></tr>
+            <tr><td>Large language models develop novel social biases (HN 170 pts)</td><td>Research paper, no usable artifact.</td></tr>
+            <tr><td>NeoMME (HF blog)</td><td>85 upvotes, multimodal encoder, not a general tool.</td></tr>
+            <tr><td>Fine-tuning 350M for Structured Outputs (HF blog)</td><td>84 upvotes, technical tutorial, not a new capability signal.</td></tr>
+            <tr><td>Safety for Whom? (HF blog)</td><td>Published Sep 8, but safety research, not a capability signal.</td></tr>
+            <tr><td>Making open-source AI weather forecasting models easy to run (HF blog)</td><td>20 upvotes, weak signal.</td></tr>
+            <tr><td>Open Yap 1K (HF blog)</td><td>11 upvotes, weak signal.</td></tr>
+            <tr><td>Cosmos-Reason2 on a Quest 3 (HF blog)</td><td>8 upvotes, weak signal.</td></tr>
+            <tr><td>VLANeXt (HF blog)</td><td>22 upvotes, weak signal.</td></tr>
+            <tr><td>Technical writing in the agentic era (HF blog)</td><td>16 upvotes, weak signal.</td></tr>
+            <tr><td>DeepSeek-V4-Flash-Vision-Exp (HF model)</td><td>314k downloads, but already in still tracking.</td></tr>
+            <tr><td>MiniMaxAI/MiniMax-H3 (HF model)</td><td>4.99M downloads, video generation model, already in still tracking.</td></tr>
+            <tr><td>nvidia/Qwen3.8-Flash-Next-NVFP4 (HF model)</td><td>26.3k downloads, quantized version, not a new capability signal.</td></tr>
+            <tr><td>microsoft/VibeVoice-ASR-Streaming-7B (HF model)</td><td>1.45k downloads, weak signal.</td></tr>
+            <tr><td>BreezeBlue/Breeze-TTS-2 (HF model)</td><td>7.24k downloads, TTS model, not a core capability jump.</td></tr>
+            <tr><td>OpenAI health records connect to ChatGPT (official blog)</td><td>Enterprise vertical application, no direct impact on vibe coding.</td></tr>
+            <tr><td>Claude system prompt update: refusing to copy lyrics</td><td>Already in still tracking, no trigger event today.</td></tr>
         </tbody>
     </table>
 </section>
