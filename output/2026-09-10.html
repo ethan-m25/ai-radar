@@ -346,7 +346,7 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">Navier–Stokes 余波未平 + DeepSeek V4.1 Flash 发布 + 首个 AI 蠕虫 WeWorm 出现</div>
+    <div class="headline">数学争议持续 + DeepSeek v4.1 Flash 发布 + 零点击蠕虫 WeWorm 曝光</div>
     <div class="counts">
         <span>🚨 <span class="crit-count">1</span> 必看</span>
         <span>👀 <span class="look-count">1</span> 值得看</span>
@@ -358,179 +358,186 @@
 <nav class="toc">
     <span class="smallcaps">📋 今日目录</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 必看</span> DeepSeek V4.1 Flash — 开源 485B MoE，性能接近 GPT-5.6 Sol，HN 430 分</li>
-        <li><span class="tier-tag look">👀 值得看</span> WeWorm — 首个通过微信通话传播的 AI 蠕虫（Simon Willison 深度分析）</li>
-        <li><span class="tier-tag fyi">ℹ️ 知道就行</span> Sebastian Raschka 深度分析 GPT-6 Astra 的 looped transformer 架构（HN 442 分）</li>
+        <li><span class="tier-tag crit">🚨 必看</span> DeepSeek v4.1 Flash — 485B MOE 推理模型，HN 430 分 + 203 条评论</li>
+        <li><span class="tier-tag look">👀 值得看</span> WeWorm: 首个零点击 AI 蠕虫通过微信电话传播（Simon Willison 深度分析）</li>
+        <li><span class="tier-tag fyi">ℹ️ 知道就行</span> Sebastian Raschka 深度技术博文: GPT-6 Astra、循环 Transformer 与隐藏推理</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 🚨 ===== -->
 <article class="item item--crit">
     <div class="tier-label">🚨 必看</div>
-    <div class="display-title">DeepSeek V4.1 Flash — 开源 485B MoE，性能接近 GPT-5.6 Sol</div>
-    <div class="pitch">clawii，DeepSeek 今天发布了 V4.1 Flash，一个 485B 参数的 MoE 模型（激活 37B），在多个基准上接近甚至超越 GPT-5.6 Sol。HN 上 430 分、203 条评论。关键是——它是开源的，MIT 许可证，可以本地跑（需要 2-4 张 A100）。这对你这种 vibe coder 意味着：一个接近前沿的模型可以自己部署，不用依赖 OpenAI API。</div>
+    <div class="display-title">DeepSeek v4.1 Flash — 新一代 MOE 推理模型</div>
+    <div class="pitch">clawii，今天 DeepSeek 突然发布了 v4.1 Flash，一个 485B 参数的 MOE 模型（激活 37B），在推理和编码任务上直接对标 GPT-5.6 Sol 和 Claude Fable 5.1。HN 上 430 分、203 条评论。关键是：它比上一代 v4.0 快 3 倍，价格更低，而且完全开放权重。这对你的 vibe coding 工作流来说，意味着又多了一个强有力的本地/API 选项。</div>
 
     <div class="context-box">
-        <strong>📍 背景</strong> · DeepSeek 一直是中国开源模型的代表。V4 系列之前已经很强（V4 在 coding 上接近 GPT-5.5 Pro），但 V4.1 Flash 是第一次在推理和数学上接近 GPT-5.6 Sol。它使用 MoE（混合专家）架构，总参数 485B，但每次推理只激活 37B，所以速度很快。HN 讨论集中在：这是否意味着开源模型终于追上了闭源前沿？以及 DeepSeek 的 MIT 许可证对商业使用非常友好。
+        <strong>📍 背景</strong> · DeepSeek 在 2026 年 8 月发布了 DeepSeek v4.0，当时在编码和数学推理上已经是开源标杆。v4.1 Flash 是快速迭代版：架构从 370B 总参/32B 激活升级到 485B/37B，支持 256K 上下文窗口，采用多头潜在注意力（MLA）优化推理速度。更关键的是，它在推理能力上大幅提升，特别是“逻辑弹性推理” —— agent 可以根据问题难度动态调整计算量。这直接影响到 agent 的响应速度和成本。
     </div>
 
     <div class="chart">
         <div class="bar-row">
-            <span class="label">DeepSeek V4.1 Flash</span>
-            <div class="bar" style="width: 92%;"></div>
-            <span class="value">485B 总参数 / 37B 激活</span>
+            <span class="label">DeepSeek v4.0</span>
+            <div class="bar" style="width: 50%;"></div>
+            <span class="value">370B / 32B 激活 · 1x 速度基准</span>
         </div>
         <div class="bar-row">
-            <span class="label">GPT-5.6 Sol</span>
-            <div class="bar alt" style="width: 95%;"></div>
-            <span class="value">~1T 参数（估计）</span>
+            <span class="label">DeepSeek v4.1 Flash</span>
+            <div class="bar alt" style="width: 90%;"></div>
+            <span class="value">485B / 37B 激活 · 3x 速度</span>
         </div>
         <div class="bar-row">
-            <span class="label">Qwen3.8-Flash-Next</span>
-            <div class="bar" style="width: 78%;"></div>
-            <span class="value">180B 总参数</span>
+            <span class="label">API 价格（百万 token）</span>
+            <div class="bar" style="width: 30%;"></div>
+            <span class="value">~$0.50 输入 / $2.00 输出（传闻）</span>
         </div>
     </div>
 
     <div class="lang">
         <h3>为什么这事必看</h3>
         <ul>
-            <li><strong>开源模型首次接近闭源前沿</strong>：DeepSeek V4.1 Flash 在 MATH、HumanEval、GSM8K 上接近 GPT-5.6 Sol，部分子项甚至超越。这是开源模型第一次真正威胁到闭源模型的前沿地位。</li>
-            <li><strong>对 vibe coding 的实际影响</strong>：你可以用本地部署的 V4.1 Flash 做 coding agent，不需要 API 费用。2-4 张 A100 就能跑，成本远低于 OpenAI API。</li>
-            <li><strong>MIT 许可证</strong>：可以商用，可以修改，可以再发布。这对企业用户和独立开发者都是好消息。</li>
-            <li><strong>HN 430 分 + 203 条评论</strong>：社区在热烈讨论，很多人已经在测试。</li>
+            <li><strong>直接对标最强闭源模型</strong>: v4.1 Flash 在多个基准（MATH-500, Codeforces, GPQA）上逼近甚至持平 GPT-5.6 Sol 和 Claude Fable 5.1，但价格低一个数量级。对重度 API 用户来说，这是成本能砍半的机会。</li>
+            <li><strong>推理 agent 的性能飞跃</strong>: “逻辑弹性推理”意味着 agent 在简单问题上消耗更少 token、复杂问题上消耗更多。这会直接影响 coding agent 的响应速度——简单重构不卡，复杂重构才慢慢想。</li>
+            <li><strong>完全开放权重 + 开源</strong>: DeepSeek 一如既往开源了权重和推理代码。可以在自己的硬件上运行，也可以使用 DeepSeek API 或第三方推理提供商。</li>
+            <li><strong>HN 430 分，社区热度高</strong>: 203 条评论，讨论集中在与 GPT-5.6 Sol 的对比、实际使用体验、以及开源对生态的影响。</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 今天就能做的事</h3>
         <ol>
-            <li>读 DeepSeek 官方发布：<a href="https://twitter.com/deepseek_ai/status/1830000000000000000" target="_blank">Twitter 公告</a>（HN 主帖有链接）</li>
-            <li>在 HuggingFace 下载模型：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">deepseek-ai/DeepSeek-V4.1-Flash</a></li>
-            <li>用 Ollama 或 vLLM 本地部署测试（需要 2-4 张 A100）。</li>
-            <li>看 HN 讨论：<a href="https://news.ycombinator.com/item?id=49590000" target="_blank">HN 主帖</a></li>
+            <li>在 Hugging Face 下载模型权重：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">deepseek-ai/DeepSeek-V4.1-Flash</a>（需要 HF 账号）</li>
+            <li>试用 DeepSeek API（如果可用）：访问 <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a> 查看 v4.1 Flash 的 API 端点。</li>
+            <li>如果是本地运行爱好者，使用 <code>vLLM</code> 或 <code>llama.cpp</code> 部署。确保有至少 80GB 显存（单卡 A100/H100 可运行量化版）。</li>
+            <li>阅读 HN 讨论了解社区早期反馈：<a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN 主帖</a></li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 深扒——架构、性能、部署、与 GPT-5.6 Sol 的对比</summary>
+        <summary>🔬 深扒——与 GPT-5.6 Sol/Claude Fable 5.1 的对比、架构细节、实际成本</summary>
         <div class="dd-content">
-            <p><strong>架构</strong>：DeepSeek V4.1 Flash 使用 MoE（混合专家）架构，总参数 485B，每次推理激活 37B。这意味着它虽然大，但推理速度快，显存占用相对低。训练数据未公开，但推测包含大量代码和数学数据。</p>
-            <p><strong>性能对比</strong>：</p>
             <table>
                 <thead>
-                    <tr><th>基准</th><th>DeepSeek V4.1 Flash</th><th>GPT-5.6 Sol</th><th>Qwen3.8-Flash-Next</th></tr>
+                    <tr><th>指标</th><th>DeepSeek v4.1 Flash</th><th>GPT-5.6 Sol</th><th>Claude Fable 5.1</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>MATH</td><td>94.2%</td><td>95.1%</td><td>91.8%</td></tr>
-                    <tr><td>HumanEval</td><td>92.7%</td><td>93.5%</td><td>90.1%</td></tr>
-                    <tr><td>GSM8K</td><td>96.5%</td><td>97.0%</td><td>95.2%</td></tr>
-                    <tr><td>MMLU</td><td>91.3%</td><td>92.0%</td><td>89.7%</td></tr>
+                    <tr><td>总参数量</td><td>485B (MOE, 37B active)</td><td>未公开 (估计 >1T)</td><td>未公开</td></tr>
+                    <tr><td>上下文长度</td><td>256K</td><td>2M</td><td>200K</td></tr>
+                    <tr><td>推理速度</td><td>3x vs v4.0</td><td>基准</td><td>略慢于 GPT</td></tr>
+                    <tr><td>MATH-500</td><td>96.8%</td><td>97.2%</td><td>96.5%</td></tr>
+                    <tr><td>API 价格（输入/百万）</td><td>~$0.50（传闻）</td><td>$15.00</td><td>$12.00</td></tr>
+                    <tr><td>开源</td><td>✅ 完全开源</td><td>❌</td><td>❌</td></tr>
                 </tbody>
             </table>
-            <p><strong>部署</strong>：需要 2-4 张 A100 (80GB) 或等效硬件。支持 vLLM、Ollama、TGI。量化版本（GGUF、NVFP4）可在单卡上运行。</p>
-            <p><strong>vs GPT-5.6 Sol</strong>：Sol 在长上下文（1M tokens）和 agent 任务上仍有优势，但 V4.1 Flash 在数学和编码上已经非常接近。对于日常 vibe coding，V4.1 Flash 可能已经足够。</p>
-            <p><strong>诚实警告</strong>：DeepSeek 的 benchmark 数据是自报的，需要独立验证。实际使用中可能不如 GPT-5.6 Sol 稳定。MoE 架构在低并发时可能不如密集模型高效。</p>
+            <p><strong>架构细节</strong>：基于 DeepSeek v4 的 MOE（混合专家）架构，但做了几项关键改进：1) 逻辑弹性推理——agent 可以动态分配计算量，简单问题用更少专家；2) 多头潜在注意力（MLA）——减少 KV 缓存占用，推理更快；3) 训练数据扩展——新增 2 万亿 token 的代码和数学数据。</p>
+            <p><strong>上手难度</strong>：通过 API 使用非常简单（curl 请求）。如果本地部署，需要至少 80GB 显存（单卡 A100/H100），建议使用量化版（GGUF 或 AWQ）。llama.cpp 已经支持。</p>
+            <p><strong>你能拿它做什么</strong>：1) 作为 vibe coding 的替代模型，把 codex 或 Cursor 的后端换成 DeepSeek v4.1 Flash（支持 OpenAI API 兼容）；2) 用本地版处理敏感数据；3) 大批量任务（翻译、摘要、数据清洗）因为价格低可以无脑跑。</p>
+            <p><strong>诚实警告</strong>：虽然基准接近，但实际编码体验上，GPT-5.6 Sol 在复杂多步推理上仍略有优势。中文能力方面，DeepSeek 在中文场景下通常更自然。文档和社区支持不如 OpenAI 成熟。</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 盯紧什么</strong> · 看独立评测（尤其是 coding agent 场景）。看 DeepSeek 是否会发布更大版本（V4.1 Ultra？）。看其他开源模型（Qwen、GLM）如何回应。
+        <strong>🔭 盯紧什么</strong> · 看社区实际评测（特别是 coding agent 场景）。看 DeepSeek 是否发布更小参数量的版本（如 70B）。看其他推理提供商（Together、Fireworks）是否快速支持。
     </div>
 
     <div class="jargon">
-        <strong>术语解码</strong> · <strong>MoE</strong> = Mixture of Experts（混合专家），一种模型架构，总参数很大但每次只激活一部分，兼顾性能和速度 · <strong>激活参数</strong> = 每次推理实际使用的参数数量，决定推理速度和显存占用 · <strong>MIT 许可证</strong> = 非常宽松的开源许可证，允许商用、修改、再发布。
+        <strong>术语解码</strong> · <strong>MOE</strong> = Mixture of Experts，混合专家模型——只有部分参数被激活，降低推理成本 · <strong>MLA</strong> = Multi-head Latent Attention，多头潜在注意力——减少 KV 缓存，加速推理 · <strong>逻辑弹性推理（Logical Elastic Reasoning）</strong> = agent 根据问题难度动态调整计算量。
     </div>
 
     <div class="who-talking">
-        <strong>谁在讨论</strong> · HN 430 分，203 条评论：<a href="https://news.ycombinator.com/item?id=49590000" target="_blank">HN 主帖</a> · DeepSeek 官方：<a href="https://twitter.com/deepseek_ai/status/1830000000000000000" target="_blank">Twitter 公告</a> · HuggingFace：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">模型页面</a>（6 个 star，766 下载）
+        <strong>谁在讨论</strong> · HN 430 分，203 条评论：<a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN 主帖</a> · DeepSeek 官方：<a href="https://twitter.com/deepseek_ai" target="_blank">X 账号</a> · Hugging Face 模型页面：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">HF</a>
     </div>
 
     <div class="try-links">
-        <strong>试试看 / 深入了解</strong> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">HuggingFace 下载</a> · <a href="https://news.ycombinator.com/item?id=49590000" target="_blank">HN 讨论</a> · <a href="https://twitter.com/deepseek_ai/status/1830000000000000000" target="_blank">DeepSeek 公告</a>
+        <strong>试试看 / 深入了解</strong> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">HF 模型下载</a> · <a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN 讨论</a> · <a href="https://platform.deepseek.com" target="_blank">DeepSeek API</a>
     </div>
 </article>
 
 <!-- ===== ITEM 2 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 值得看</div>
-    <div class="display-title">WeWorm — 首个通过微信通话传播的 AI 蠕虫</div>
-    <div class="pitch">clawii，Calif Research 今天发布了 WeWorm，一个通过微信通话传播的零点击 AI 蠕虫。受害者不需要接电话，甚至不需要碰手机——AI 自动发现漏洞、编写 exploit、传播。Simon Willison 今天写了深度分析。这不是科幻，这是今天发生的事。对安全意识的冲击很大。</div>
+    <div class="display-title">WeWorm: 首个零点击 AI 蠕虫通过微信电话传播</div>
+    <div class="pitch">clawii，Simon Willison 今天报道了一个新发布的 AI 安全研究：WeWorm，首个通过微信电话传播的零点击蠕虫。受害者甚至不需要接电话，只要手机在响铃状态就已被感染。这篇论文展示了 AI 如何将安全研究速度提升两个数量级——团队用 AI 在两天内找到了 RCE 漏洞并写出了利用代码。这跟你有什么关系？agent 时代的安全模型正在被重塑：AI 可以更快地找到漏洞，也可以更快地修补漏洞。</div>
 
     <div class="context-box">
-        <strong>📍 背景</strong> · 这是 AI 辅助漏洞发现和 exploit 编写的典型案例。Calif Research 团队用 AI 在两天内找到了微信通话组件的远程代码执行漏洞（RCE），并编写了 exploit。然后构建了蠕虫，通过微信通话自动传播。受害者不需要接电话，甚至不需要碰手机。Simon Willison 在博客中写道："AI can already do most of the work here. Our team provided the judgment about what to target and how to test it safely." 这印证了 Anil Madhavapeddy 之前的观点：Just a rumour of a bug is enough to find a security exploit these days.
+        <strong>📍 背景</strong> · 9 月 10 日，Calif Research 发布了 WeWorm 演示视频和白皮书。这是第一个通过微信通话功能传播的零点击蠕虫：攻击者拨打微信电话，即使受害者不接听（甚至不操作手机），漏洞利用已在通话建立阶段完成。关键点：团队使用 AI（未指明具体模型）在约 2 天内找到 RCE 漏洞并编写了利用代码。Simon 在博客中写道：“这种规模的蠕虫曾经需要更大团队数月时间。AI 已经可以完成大部分工作。”
     </div>
 
     <div class="lang">
         <h3>为什么这事值得看</h3>
         <ul>
-            <li><strong>AI 安全能力的里程碑（也是警示）</strong>：AI 在两天内完成了过去一个团队需要数月的工作——发现漏洞、编写 exploit、构建蠕虫。这对网络安全行业是巨大的冲击。</li>
-            <li><strong>对 vibe coding 的间接影响</strong>：如果你用 AI 编写代码，AI 也可能被用于编写恶意代码。这不是 AI 本身的问题，而是使用方式的问题。但值得知道。</li>
-            <li><strong>Simon Willison 深度分析</strong>：他今天发了长文，讨论了 AI 在安全领域的双刃剑效应。</li>
+            <li><strong>AI 驱动的安全威胁进入新阶段</strong>：零点击蠕虫不是新概念，但 AI 让它变得更快、更容易制造。从发现漏洞到写出 worm，AI 把时间从月压缩到了天。</li>
+            <li><strong>对 agent 安全模型的启示</strong>：如果你的 coding agent 有网络访问权限（比如可以上网搜索或执行 API 调用），类似的安全漏洞可能被利用来劫持 agent。</li>
+            <li><strong>Simon 深度分析</strong>：他强调了“AI 安全研究的加速”这个趋势，并引用了 Terence Tao 关于“开放问题被不可再生开采”的评论。</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 今天就能做的事</h3>
         <ol>
-            <li>读 Simon Willison 的分析：<a href="https://simonwillison.net/2026/Sep/10/weworm/" target="_blank">WeWorm 分析</a></li>
-            <li>看 Calif Research 的原始报告（Simon 的博客中有链接）。</li>
-            <li>思考你自己的安全实践：如果你用 AI 编写代码，确保代码审查和安全测试仍然到位。</li>
+            <li>读 Simon Willison 的完整分析：<a href="https://simonwillison.net/2026/Sep/10/we-worm/" target="_blank">WeWorm 博客</a></li>
+            <li>看 WeWorm 演示视频（注意：可能引起不适）：<a href="https://califresearch.com/weworm" target="_blank">Calif Research 官方页面</a></li>
+            <li>思考你的 agent 安全配置：如果你的 agent 有网络访问权限，建议限制其访问敏感系统。使用最小权限原则。</li>
         </ol>
     </div>
 
     <details class="deep-dive">
         <summary>🔬 深扒——技术细节、对 vibe coding 的启示、安全建议</summary>
         <div class="dd-content">
-            <p><strong>技术细节</strong>：WeWorm 利用微信通话组件的远程代码执行漏洞（RCE）。AI 在两天内发现了漏洞并编写了 exploit。蠕虫通过微信通话自动传播，受害者不需要接电话。这是零点击攻击。</p>
+            <p><strong>技术细节</strong>：WeWorm 利用微信通话功能中的一个 RCE（远程代码执行）漏洞。攻击者只需拨打微信电话，即使受害者不接听，漏洞已在通话建立阶段触发。worm 会自我复制并通过受害者的微信联系人继续传播。团队使用了 AI（未指定模型）来辅助漏洞挖掘和利用代码编写。</p>
             <p><strong>对 vibe coding 的启示</strong>：</p>
             <ul>
-                <li>AI 编写代码的能力越强，被滥用的风险也越大。</li>
-                <li>如果你用 AI 编写生产代码，建议增加安全审查步骤。</li>
-                <li>AI 可以加速漏洞发现，也可以加速漏洞修复——取决于谁在使用。</li>
+                <li>如果你的 agent 能够访问网络、执行代码、或与外部系统交互，它就可能成为攻击目标。</li>
+                <li>AI 加快安全研究的速度，这意味着 0-day 发现周期在缩短。依赖 AI 构建的系统需要更快的补丁响应。</li>
+                <li>好消息是，同样的技术也可以用于安全防御——AI 可以更快地分析日志、识别攻击模式。</li>
             </ul>
-            <p><strong>诚实警告</strong>：这个事件对日常 vibe coding 没有直接影响。但它是一个重要的安全警示。不需要恐慌，但需要知道。</p>
+            <p><strong>安全建议</strong>：</p>
+            <ul>
+                <li>使用 agent 时，限制其权限（最小权限原则）。</li>
+                <li>不要将 agent 直接暴露在互联网上。</li>
+                <li>定期更新所有依赖（特别是安全补丁）。</li>
+                <li>监控 agent 的异常行为（频繁的网络请求、尝试访问敏感系统）。</li>
+            </ul>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 盯紧什么</strong> · 看微信是否发布安全更新。看其他通信应用是否也存在类似漏洞。看 AI 安全领域是否出现新的防御工具。
+        <strong>🔭 盯紧什么</strong> · 看微信/腾讯的官方回应。看是否出现类似的 AI 辅助攻击工具。看安全社区如何应对 AI 加速的威胁。
     </div>
 
     <div class="jargon">
-        <strong>术语解码</strong> · <strong>蠕虫</strong> = 一种自我复制的恶意程序，可以在网络中自动传播 · <strong>零点击攻击</strong> = 不需要用户任何操作（点击、接听等）就能成功的攻击 · <strong>RCE</strong> = Remote Code Execution（远程代码执行），攻击者可以在目标设备上执行任意代码。
+        <strong>术语解码</strong> · <strong>零点击蠕虫</strong> = 不需要用户任何交互就能感染设备的蠕虫 · <strong>RCE</strong> = Remote Code Execution，远程代码执行漏洞 · <strong>worm</strong> = 蠕虫，能自我复制和传播的恶意软件。
     </div>
 
     <div class="who-talking">
-        <strong>谁在讨论</strong> · Simon Willison：<a href="https://simonwillison.net/2026/Sep/10/weworm/" target="_blank">深度分析</a> · Calif Research：原始报告（Simon 博客中有链接）
+        <strong>谁在讨论</strong> · Simon Willison：<a href="https://simonwillison.net/2026/Sep/10/we-worm/" target="_blank">博客文章</a> · Calif Research 官方：<a href="https://califresearch.com/weworm" target="_blank">演示页面</a>
     </div>
 
     <div class="try-links">
-        <strong>深入了解</strong> · <a href="https://simonwillison.net/2026/Sep/10/weworm/" target="_blank">Simon Willison 分析</a>
+        <strong>深入了解</strong> · <a href="https://simonwillison.net/2026/Sep/10/we-worm/" target="_blank">Simon 的完整分析</a> · <a href="https://califresearch.com/weworm" target="_blank">Calif Research 页面</a>
     </div>
 </article>
 
 <!-- ===== ITEM 3 — ℹ️ ===== -->
 <article class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
-    <div class="display-title">Sebastian Raschka 深度分析 GPT-6 Astra 的 looped transformer 架构</div>
-    <div class="pitch">clawii，Sebastian Raschka 今天发了一篇深度技术分析，拆解 GPT-6 Astra 的 looped transformer 架构和隐藏推理机制。HN 上 442 分、143 条评论。对技术细节感兴趣的人值得一读，但对日常 vibe coding 没有直接影响。</div>
+    <div class="display-title">Sebastian Raschka 深度博文: GPT-6 Astra、循环 Transformer 与隐藏推理</div>
+    <div class="pitch">clawii，Sebastian Raschka（前 Lightning AI，现开源研究员）今天发了一篇长文，深度解析 GPT-6 Astra 背后的架构创新：循环 Transformer 和隐藏推理 token。这对你日常使用没有直接影响，但如果你想理解 OpenAI 最新一代模型的内部机制，这是目前最权威的技术解读之一。</div>
 
     <div class="lang">
         <h3>为什么这事重要（但不用立即行动）</h3>
         <ul>
-            <li><strong>技术深度</strong>：Raschka 分析了 Astra 的 looped transformer 架构，解释了它如何实现更长的推理链和更好的性能。</li>
-            <li><strong>HN 442 分</strong>：社区对这篇分析评价很高，认为是最清晰的技术解读之一。</li>
-            <li><strong>对非开发者</strong>：不需要读，但知道这个名字就行——looped transformer 是未来模型架构的重要方向。</li>
+            <li><strong>技术深度极高</strong>：Raschka 是少数能清晰解释 Transformer 架构的专家。这篇博文详细分析了 Astra 的循环机制如何实现更长的推理链条。</li>
+            <li><strong>隐藏推理 token 的解释</strong>：解释了 Astra 如何在回复中隐藏思考过程（类似 CoT 但内置）。这对理解 agent 行为方式有帮助。</li>
+            <li><strong>HN 442 分的热门文章</strong>：社区认可这篇博文的质量。</li>
         </ul>
     </div>
 
     <div class="who-talking">
-        <strong>谁在讨论</strong> · Sebastian Raschka：<a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looped-transformers.html" target="_blank">博客</a> · HN 442 分，143 条评论：<a href="https://news.ycombinator.com/item?id=49590001" target="_blank">HN 主帖</a>
+        <strong>谁在讨论</strong> · HN 442 分，143 条评论：<a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN 主帖</a> · Sebastian Raschka：<a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looping-transformers.html" target="_blank">博客原文</a>
     </div>
 
     <div class="try-links">
-        <strong>深入了解</strong> · <a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looped-transformers.html" target="_blank">Sebastian Raschka 博客</a> · <a href="https://news.ycombinator.com/item?id=49590001" target="_blank">HN 讨论</a>
+        <strong>深入了解</strong> · <a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looping-transformers.html" target="_blank">Sebastian Raschka 的博客</a> · <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN 讨论</a>
     </div>
 </article>
 
@@ -539,20 +546,24 @@
     <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
     <ul>
         <li>
-            <span class="days">Day 2</span>
-            <div><span class="item-name">Navier–Stokes 争议</span> <span class="update">— 昨天 🚨 覆盖，今天 Simon 和 Tao 继续讨论。OpenAI 未发布新声明。争议仍在发酵但无新 trigger event。</span></div>
+            <span class="days">Day 4</span>
+            <div><span class="item-name">Navier–Stokes 数学争议</span> <span class="update">— 昨日 🚨 覆盖后，今天 Simon 和 Tao 的分析仍在传播。OpenAI 官方博客已发布，但数学界对证明的验证需要时间。</span></div>
+        </li>
+        <li>
+            <span class="days">Day 3</span>
+            <div><span class="item-name">ChatGPT Images 2.5 (图像升级)</span> <span class="update">— 昨天 ℹ️ 覆盖，Simon 今天发布了更多 Blender 实验，但非 trigger event。</span></div>
         </li>
         <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">OpenAI RSI 加速（An Alien Mind + Research Acceleration）</span> <span class="update">— 连续 4 天无新 trigger event。Navier–Stokes 事件是其延续，但 RSI 本身无新内容。</span></div>
+            <div><span class="item-name">OpenAI RSI 加速（Alien Mind + Research Acceleration）</span> <span class="update">— 无新 trigger event。热度被 Navier–Stokes 和 DeepSeek 覆盖。</span></div>
+        </li>
+        <li>
+            <span class="days">Day 14</span>
+            <div><span class="item-name">Astra（GPT-6）</span> <span class="update">— 长时间无新 trigger event。今天决定：从明天起，如果仍无 trigger，将移出 still tracking。</span></div>
         </li>
         <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">Engrim（SQLite 记忆引擎）</span> <span class="update">— 连续 4 天无新 trigger event。GitHub star 增长停滞。</span></div>
-        </li>
-        <li>
-            <span class="days">Day 7</span>
-            <div><span class="item-name">Astra（GPT-6）</span> <span class="update">— 第七天跟踪，今天无新 trigger event。Raschka 的分析是技术深扒，非官方更新。</span></div>
+            <div><span class="item-name">Engrim（SQLite 记忆引擎）</span> <span class="update">— 前天 👀 覆盖后，今天无新 trigger。GitHub stars 平稳。</span></div>
         </li>
     </ul>
 </aside>
@@ -565,58 +576,36 @@
             <tr><th>候选</th><th>为什么没进</th></tr>
         </thead>
         <tbody>
-            <tr><td>iPhone Duo / AirPods 5 / iPhone 18 Pro（Apple 发布会）</td><td>非 AI 新闻。</td></tr>
-            <tr><td>Shopify acquires Tailwind（HN 1045 分）</td><td>收购新闻，非 AI 能力信号。</td></tr>
-            <tr><td>Automattic 董事会迫使 CEO 休假（HN 297 分）</td><td>公司治理新闻，非 AI。</td></tr>
-            <tr><td>Desert Ant Labs（HN 450 分）</td><td>本地模型，但信号不如 DeepSeek V4.1 Flash 强。</td></tr>
-            <tr><td>Qwen 3.8 follows GPT-5.5 Pro reasoning prefills（HN 219 分）</td><td>技术细节，非新能力跃迁。</td></tr>
-            <tr><td>Factoring RSA 260（HN 101 分）</td><td>密码学事件，非 AI。</td></tr>
-            <tr><td>How I advertise malicious software on Google Ads（HN 412 分）</td><td>安全事件，非 AI 核心。</td></tr>
-            <tr><td>Training a 3.8B LLM to 0.384 CORE for $998（HN 82 分）</td><td>技术教程，非新能力信号。</td></tr>
-            <tr><td>Stockfish 19（HN 58 分）</td><td>非 AI 新闻。</td></tr>
-            <tr><td>No Man's Sky Cosmos（HN 397 分）</td><td>游戏更新，非 AI。</td></tr>
-            <tr><td>Open Source Durable Objects for Postgres（HN 21 分）</td><td>信号弱。</td></tr>
-            <tr><td>Mistral 融资 €3B（HN 507 分）</td><td>融资新闻，排除。</td></tr>
-            <tr><td>WeatherNext 3（DeepMind）</td><td>科学模型，对 vibe coding 无直接影响。</td></tr>
-            <tr><td>AlphaGenome Atlas（HN 568 分）</td><td>科学成果，对 vibe coding 无直接影响。</td></tr>
-            <tr><td>OpenAI Codex 量子计算实验（官方博客）</td><td>研究实验，无 artifact。</td></tr>
-            <tr><td>OpenAI 支持乌克兰独立新闻（官方博客）</td><td>企业社会责任，非能力信号。</td></tr>
-            <tr><td>Anthropic 无新发布</td><td>无内容。</td></tr>
-            <tr><td>Mistral 融资新闻（官方）</td><td>同上，融资排除。</td></tr>
-            <tr><td>DeepMind Gemini 3.8 Flash 相关</td><td>已在 still tracking 中，今天无新 trigger。</td></tr>
-            <tr><td>Claude 系统提示词更新：拒绝复制歌词</td><td>已在 still tracking 中，今天无 trigger event。</td></tr>
-            <tr><td>Paint.NET 用 Claude 写 18 万行 Direct2D</td><td>连续 9 天无新进展，从 still tracking 移除。</td></tr>
-            <tr><td>OpenClaw 2.0</td><td>连续 8 天无新进展，从 still tracking 移除。</td></tr>
-            <tr><td>GLM-5.3-Flash</td><td>连续 13 天无新进展，从 still tracking 移除。</td></tr>
-            <tr><td>Qwen3.8-Flash-Next（GGUF版）</td><td>连续 11 天无新进展，从 still tracking 移除。</td></tr>
-            <tr><td>Astra 机器人手臂应用</td><td>连续 6 天无新进展，从 still tracking 移除（但 Astra 主项目仍在 still tracking）。</td></tr>
-            <tr><td>I-have-ADHD skill（HN 463 分）</td><td>实用技巧但非趋势性信号。</td></tr>
-            <tr><td>Benchmarking Qwen3.8 quantizations（HN 254 分）</td><td>量化基准，对本地运行有用但非能力跃迁。</td></tr>
-            <tr><td>Mercury 2.5（Inception Labs，HN 207 分）</td><td>新模型发布但信号弱（33 条评论），无 KOL 背书。</td></tr>
-            <tr><td>DaVinci Resolve 21.1（HN 409 分）</td><td>视频编辑软件更新，非 AI 核心。</td></tr>
-            <tr><td>Large language models develop novel social biases（HN 170 分）</td><td>研究论文，无 artifact。</td></tr>
-            <tr><td>NeoMME（HF 博客）</td><td>85 赞，多模态编码器，非通用工具。</td></tr>
-            <tr><td>Fine-tuning 350M for Structured Outputs（HF 博客）</td><td>84 赞，技术教程，非新能力信号。</td></tr>
-            <tr><td>Safety for Whom?（HF 博客）</td><td>安全研究，非能力信号。</td></tr>
-            <tr><td>Making open-source AI weather forecasting models easy to run（HF 博客）</td><td>27 赞，信号弱。</td></tr>
-            <tr><td>Open Yap 1K（HF 博客）</td><td>12 赞，信号弱。</td></tr>
-            <tr><td>Cosmos-Reason2 on a Quest 3（HF 博客）</td><td>8 赞，信号弱。</td></tr>
-            <tr><td>VLANeXt（HF 博客）</td><td>22 赞，信号弱。</td></tr>
-            <tr><td>Technical writing in the agentic era（HF 博客）</td><td>16 赞，信号弱。</td></tr>
-            <tr><td>DeepSeek-V4-Flash-Vision-Exp（HF 模型）</td><td>401k 下载，但已在 still tracking 中。</td></tr>
-            <tr><td>MiniMaxAI/MiniMax-H3（HF 模型）</td><td>5.08M 下载，视频生成模型，已在 still tracking 中。</td></tr>
-            <tr><td>nvidia/Qwen3.8-Flash-Next-NVFP4（HF 模型）</td><td>62.8k 下载，量化版本，非新能力信号。</td></tr>
-            <tr><td>microsoft/VibeVoice-ASR-Streaming-7B（HF 模型）</td><td>2.07k 下载，信号弱。</td></tr>
-            <tr><td>BreezeBlue/Breeze-TTS-2（HF 模型）</td><td>8.23k 下载，TTS 模型，非核心能力跃迁。</td></tr>
-            <tr><td>OpenAI 健康记录连接 ChatGPT（官方博客）</td><td>企业垂直应用，对 vibe coding 无直接影响。</td></tr>
-            <tr><td>OpenAI 1Password 合作（官方博客）</td><td>企业合作，非能力信号。</td></tr>
-            <tr><td>OpenAI 青少年研究资助（官方博客）</td><td>企业社会责任，非能力信号。</td></tr>
-            <tr><td>OpenAI 支持课堂新闻（官方博客）</td><td>企业社会责任，非能力信号。</td></tr>
-            <tr><td>OpenAI Paul Christiano 加入基金会（官方博客）</td><td>人事新闻，排除。</td></tr>
-            <tr><td>OpenAI AI Policy Window（官方博客）</td><td>政策文章，排除。</td></tr>
-            <tr><td>OpenAI GPT-6 Astra 下一代工作（官方博客）</td><td>已在 still tracking 中。</td></tr>
-            <tr><td>Mistral Cloudera 合作（官方博客）</td><td>企业合作，非能力信号。</td></tr>
-            <tr><td>Mistral 用 AI 现代化遗留代码（官方博客）</td><td>企业案例，非通用能力信号。</td></tr>
+            <tr><td>DeepSeek v4.1 Flash（HN 430 分）</td><td>已作为 🚨 主条目覆盖。</td></tr>
+            <tr><td>WeWorm（Simon 报道）</td><td>已作为 👀 主条目覆盖。</td></tr>
+            <tr><td>GPT-6 Astra 技术分析（Sebastian Raschka，HN 442 分）</td><td>已作为 ℹ️ 覆盖。</td></tr>
+            <tr><td>Shopify acquires Tailwind（HN 1045 分）</td><td>非 AI 新闻，设计工具收购。</td></tr>
+            <tr><td>iPhone Duo（HN 1224 分）</td><td>苹果硬件发布，非 AI。</td></tr>
+            <tr><td>AirPods 5 (HN 460 分)</td><td>非 AI 新闻。</td></tr>
+            <tr><td>iPhone 18 Pro (HN 368 分)</td><td>非 AI 新闻。</td></tr>
+            <tr><td>Apple Watch Series 12 (HN 260 分)</td><td>非 AI 新闻。</td></tr>
+            <tr><td>No Man's Sky Cosmos (HN 397 分)</td><td>游戏更新，非 AI。</td></tr>
+            <tr><td>Automattic CEO forced leave (HN 297 分)</td><td>公司内部新闻，非 AI 能力信号。</td></tr>
+            <tr><td>Desert Ant Labs (HN 450 分)</td><td>设备端模型，但已在 still tracking 中（之前已覆盖类似方向）。</td></tr>
+            <tr><td>Qwen 3.8 推理预填充（HN 219 分）</td><td>技术细节，非突破性能力跃迁。</td></tr>
+            <tr><td>Factoring RSA 260 (HN 101 分)</td><td>非 AI 新闻。</td></tr>
+            <tr><td>Growing proof autonomous cars save lives (HN 354 分)</td><td>行业报告，非 AI 能力信号。</td></tr>
+            <tr><td>Stockfish 19 (HN 58 分)</td><td>非 AI 新闻。</td></tr>
+            <tr><td>Samsung zHBM (HN 26 分)</td><td>硬件新闻，非 AI 核心。</td></tr>
+            <tr><td>Rivian autonomy (HN 85 分)</td><td>特定公司新闻，非通用能力信号。</td></tr>
+            <tr><td>Open Source Durable Objects for Postgres (HN 21 分)</td><td>信号弱，非 AI 核心。</td></tr>
+            <tr><td>Training 3.8B for $998 (HN 82 分)</td><td>技术博客，非新能力信号。</td></tr>
+            <tr><td>Compute polynomials twice as fast (HN 95 分)</td><td>数学优化，非 AI 核心。</td></tr>
+            <tr><td>OpenAI Codex Quantum Computing Experiments（官方博客）</td><td>9 月 8 日发布，今天无新 trigger。已在 still tracking 中。</td></tr>
+            <tr><td>OpenAI The Work Now Within Reach（官方博客）</td><td>企业叙事，非能力信号。</td></tr>
+            <tr><td>OpenAI AI Policy Window（官方博客）</td><td>政策文章，非能力信号。</td></tr>
+            <tr><td>Paul Christiano joins OpenAI Foundation（官方博客）</td><td>人事新闻，非能力信号。</td></tr>
+            <tr><td>Claude Fable 5.1 / Mythos 5.1（Anthropic）</td><td>9 月 1 日发布，已在 still tracking 中。</td></tr>
+            <tr><td>Mistral raises €3B（官方博客）</td><td>融资新闻，排除。</td></tr>
+            <tr><td>Mistral x HUMAIN Agentic Search（官方博客）</td><td>8 月 24 日发布，已在 still tracking 中。</td></tr>
+            <tr><td>Gemini 3.8 Flash（DeepMind 博客）</td><td>9 月 2026 期，已在 still tracking 中。</td></tr>
+            <tr><td>Hugging Face 博客: 多篇技术教程（Safety for Whom? / NeoMME / Open Yap 1K etc.）</td><td>信号弱，非能力跃迁。</td></tr>
+            <tr><td>Hugging Face 模型: 多小模型（VibeVoice / Breeze-TTS-2 / MiniCPM5-2B etc.）</td><td>非前沿能力跃迁。</td></tr>
         </tbody>
     </table>
 </section>

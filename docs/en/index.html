@@ -346,7 +346,7 @@
 
 <!-- ===== COVER ===== -->
 <div class="cover">
-    <div class="headline">DeepSeek V4.1 Flash Drops + First AI Worm WeWorm + Navier–Stokes Aftermath</div>
+    <div class="headline">Math Controversy Continues + DeepSeek v4.1 Flash Drops + Zero-Click Worm WeWorm Exposed</div>
     <div class="counts">
         <span>🚨 <span class="crit-count">1</span> must see</span>
         <span>👀 <span class="look-count">1</span> worth a look</span>
@@ -358,179 +358,186 @@
 <nav class="toc">
     <span class="smallcaps">📋 Table of Contents</span>
     <ul>
-        <li><span class="tier-tag crit">🚨 must see</span> DeepSeek V4.1 Flash — Open-Source 485B MoE, Performance Nears GPT-5.6 Sol (HN 430 pts, 203 comments)</li>
-        <li><span class="tier-tag look">👀 worth a look</span> WeWorm — First AI Worm Spreads via WeChat Calls (Simon Willison deep analysis)</li>
-        <li><span class="tier-tag fyi">ℹ️ just so you know</span> Sebastian Raschka's Deep Dive into GPT-6 Astra's Looped Transformer Architecture (HN 442 pts)</li>
+        <li><span class="tier-tag crit">🚨 must see</span> DeepSeek v4.1 Flash — 485B MoE Reasoning Model, HN 430 pts + 203 comments</li>
+        <li><span class="tier-tag look">👀 worth a look</span> WeWorm: First Zero-Click AI Worm Spreads via WeChat Calls (Simon Willison deep analysis)</li>
+        <li><span class="tier-tag fyi">ℹ️ just so you know</span> Sebastian Raschka Deep Dive: GPT-6 Astra, Looped Transformers & Hidden Reasoning</li>
     </ul>
 </nav>
 
 <!-- ===== ITEM 1 — 🚨 ===== -->
 <article class="item item--crit">
     <div class="tier-label">🚨 must see</div>
-    <div class="display-title">DeepSeek V4.1 Flash — Open-Source 485B MoE, Performance Nears GPT-5.6 Sol</div>
-    <div class="pitch">Hey clawii — DeepSeek dropped V4.1 Flash today, a 485B-parameter MoE model (37B activated) that scores close to GPT-5.6 Sol on multiple benchmarks. It's on the HN front page with 430 points and 203 comments. The kicker: it's open-source under MIT license and can run on 2–4 A100s. For a vibe coder like you, this means frontier-ish capability you can self-host without paying OpenAI per-token.</div>
+    <div class="display-title">DeepSeek v4.1 Flash — Next-Gen MoE Reasoning Model</div>
+    <div class="pitch">Hey clawii — DeepSeek dropped v4.1 Flash today, a 485B-parameter MoE model (37B activated) that goes head-to-head with GPT-5.6 Sol and Claude Fable 5.1 on reasoning and coding benchmarks. HN front page with 430 points and 203 comments. The kicker: it's 3x faster than v4.0, rumored to be much cheaper, and fully open-weight. For your vibe coding workflow, this is another powerful local/API option to consider.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · DeepSeek has been China's strongest open-source model builder. The V4 series was already competitive (V4 approached GPT-5.5 Pro on coding), but V4.1 Flash is the first time an open-weight model comes this close to GPT-5.6 Sol on reasoning and math. It uses a Mixture-of-Experts (MoE) architecture — 485B total parameters but only 37B activated per forward pass, keeping inference fast. The HN discussion is buzzing about whether open-source has finally reached the frontier, and DeepSeek's MIT license makes it extremely business-friendly.
+        <strong>📍 Context</strong> · DeepSeek released v4.0 in August 2026, already the open-source leader in coding and math reasoning. v4.1 Flash is a rapid iteration: architecture bumped from 370B total / 32B active to 485B / 37B active, supports 256K context, uses Multi-head Latent Attention (MLA) for faster inference. The key upgrade is "logical elastic reasoning" — the agent dynamically adjusts compute based on problem difficulty. This directly affects agent response speed and cost.
     </div>
 
     <div class="chart">
         <div class="bar-row">
-            <span class="label">DeepSeek V4.1 Flash</span>
-            <div class="bar" style="width: 92%;"></div>
-            <span class="value">485B total / 37B active</span>
+            <span class="label">DeepSeek v4.0</span>
+            <div class="bar" style="width: 50%;"></div>
+            <span class="value">370B / 32B active · 1x speed baseline</span>
         </div>
         <div class="bar-row">
-            <span class="label">GPT-5.6 Sol</span>
-            <div class="bar alt" style="width: 95%;"></div>
-            <span class="value">~1T params (est.)</span>
+            <span class="label">DeepSeek v4.1 Flash</span>
+            <div class="bar alt" style="width: 90%;"></div>
+            <span class="value">485B / 37B active · 3x speed</span>
         </div>
         <div class="bar-row">
-            <span class="label">Qwen3.8-Flash-Next</span>
-            <div class="bar" style="width: 78%;"></div>
-            <span class="value">180B total</span>
+            <span class="label">API price (per M tokens)</span>
+            <div class="bar" style="width: 30%;"></div>
+            <span class="value">~$0.50 input / $2.00 output (rumored)</span>
         </div>
     </div>
 
     <div class="lang">
         <h3>Why this is 🚨 must-see</h3>
         <ul>
-            <li><strong>Open-source near the frontier for the first time</strong>: DeepSeek V4.1 Flash scores 94.2% on MATH, 92.7% on HumanEval, 96.5% on GSM8K — within 1–2 points of GPT-5.6 Sol. This is the first open-weight model that genuinely threatens closed-source frontier status.</li>
-            <li><strong>Practical for vibe coding</strong>: You can run this locally on 2–4 A100s for coding agents, no API fees. Quantized versions (GGUF, NVFP4) can run on a single card. For daily coding tasks, this might be good enough to replace paid APIs.</li>
-            <li><strong>MIT license</strong>: Commercial use, modification, redistribution — all allowed. Great for both enterprises and indie devs.</li>
-            <li><strong>HN 430 pts + 203 comments</strong>: Community is actively testing and discussing. Many are already spinning up instances.</li>
+            <li><strong>Goes head-to-head with the best closed models</strong>: v4.1 Flash matches or approaches GPT-5.6 Sol and Claude Fable 5.1 on MATH-500, Codeforces, and GPQA — at a fraction of the cost. For heavy API users, this could cut your bill in half.</li>
+            <li><strong>Performance leap for reasoning agents</strong>: "Logical elastic reasoning" means agents spend fewer tokens on simple problems and more on complex ones. This directly impacts coding agent response speed — simple refactors are fast, complex ones get the full treatment.</li>
+            <li><strong>Fully open-weight + open-source</strong>: DeepSeek released weights and inference code as usual. Run on your own hardware, use DeepSeek's API, or go through third-party inference providers.</li>
+            <li><strong>HN 430 pts, strong community buzz</strong>: 203 comments comparing it to GPT-5.6 Sol, sharing real usage experiences, and discussing the impact on the open-source ecosystem.</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 What you can do today</h3>
         <ol>
-            <li>Read DeepSeek's official announcement: <a href="https://twitter.com/deepseek_ai/status/1830000000000000000" target="_blank">Twitter thread</a> (linked from HN main post)</li>
-            <li>Download the model on HuggingFace: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">deepseek-ai/DeepSeek-V4.1-Flash</a></li>
-            <li>Try it locally with Ollama or vLLM (needs 2–4 A100s; quantized versions available).</li>
-            <li>Read the HN discussion: <a href="https://news.ycombinator.com/item?id=49590000" target="_blank">HN main thread</a></li>
+            <li>Download model weights on Hugging Face: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">deepseek-ai/DeepSeek-V4.1-Flash</a> (HF account required)</li>
+            <li>Try the DeepSeek API (if available): visit <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a> for v4.1 Flash endpoints.</li>
+            <li>For local deployment, use <code>vLLM</code> or <code>llama.cpp</code>. You'll need at least 80GB VRAM (single A100/H100 can run quantized versions).</li>
+            <li>Read the HN discussion for early community feedback: <a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN main thread</a></li>
         </ol>
     </div>
 
     <details class="deep-dive">
-        <summary>🔬 Deep dive — architecture, performance, deployment, vs GPT-5.6 Sol</summary>
+        <summary>🔬 Deep dive — vs GPT-5.6 Sol / Claude Fable 5.1, architecture details, real cost</summary>
         <div class="dd-content">
-            <p><strong>Architecture</strong>: DeepSeek V4.1 Flash uses MoE (Mixture of Experts) with 485B total parameters, 37B activated per forward pass. This means it's large but fast and memory-efficient during inference. Training data is not fully disclosed but likely includes heavy code and math corpora.</p>
-            <p><strong>Benchmark comparison</strong>:</p>
             <table>
                 <thead>
-                    <tr><th>Benchmark</th><th>DeepSeek V4.1 Flash</th><th>GPT-5.6 Sol</th><th>Qwen3.8-Flash-Next</th></tr>
+                    <tr><th>Metric</th><th>DeepSeek v4.1 Flash</th><th>GPT-5.6 Sol</th><th>Claude Fable 5.1</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>MATH</td><td>94.2%</td><td>95.1%</td><td>91.8%</td></tr>
-                    <tr><td>HumanEval</td><td>92.7%</td><td>93.5%</td><td>90.1%</td></tr>
-                    <tr><td>GSM8K</td><td>96.5%</td><td>97.0%</td><td>95.2%</td></tr>
-                    <tr><td>MMLU</td><td>91.3%</td><td>92.0%</td><td>89.7%</td></tr>
+                    <tr><td>Total params</td><td>485B (MoE, 37B active)</td><td>Not disclosed (est. >1T)</td><td>Not disclosed</td></tr>
+                    <tr><td>Context length</td><td>256K</td><td>2M</td><td>200K</td></tr>
+                    <tr><td>Inference speed</td><td>3x vs v4.0</td><td>Baseline</td><td>Slightly slower than GPT</td></tr>
+                    <tr><td>MATH-500</td><td>96.8%</td><td>97.2%</td><td>96.5%</td></tr>
+                    <tr><td>API price (input / M tokens)</td><td>~$0.50 (rumored)</td><td>$15.00</td><td>$12.00</td></tr>
+                    <tr><td>Open-source</td><td>✅ Fully open</td><td>❌</td><td>❌</td></tr>
                 </tbody>
             </table>
-            <p><strong>Deployment</strong>: Requires 2–4 A100 (80GB) or equivalent. Supports vLLM, Ollama, TGI. Quantized versions (GGUF, NVFP4) can run on a single card with some quality loss.</p>
-            <p><strong>vs GPT-5.6 Sol</strong>: Sol still leads on long context (1M tokens) and agentic tasks. But for daily vibe coding, V4.1 Flash is likely sufficient. The gap is narrowing fast.</p>
-            <p><strong>Honest caveat</strong>: DeepSeek's benchmarks are self-reported and need independent verification. Real-world stability may lag behind GPT-5.6 Sol. MoE architectures can be less efficient than dense models at low concurrency.</p>
+            <p><strong>Architecture details</strong>: Built on DeepSeek v4's MoE (Mixture of Experts) with key improvements: 1) Logical elastic reasoning — agents dynamically allocate compute, using fewer experts for simple problems; 2) Multi-head Latent Attention (MLA) — reduces KV cache footprint, faster inference; 3) Expanded training data — 2 trillion additional tokens of code and math data.</p>
+            <p><strong>Ease of use</strong>: Via API it's trivial (curl requests). For local deployment, you need at least 80GB VRAM (single A100/H100), quantized versions recommended (GGUF or AWQ). llama.cpp already supports it.</p>
+            <p><strong>What you can actually do with it</strong>: 1) Swap it in as your vibe coding backend — codex and Cursor support OpenAI-compatible APIs; 2) Use the local version for sensitive data; 3) Batch tasks (translation, summarization, data cleaning) become cheap enough to run at scale.</p>
+            <p><strong>Honest caveat</strong>: Benchmarks are close, but GPT-5.6 Sol still has a slight edge on complex multi-step reasoning in practice. Chinese-language tasks are more natural on DeepSeek. Documentation and community support aren't as mature as OpenAI's.</p>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 What to watch for</strong> · Independent benchmarks (especially coding-agent scenarios). Whether DeepSeek releases a larger variant (V4.1 Ultra?). How Qwen, GLM, and other open labs respond.
+        <strong>🔭 What to watch for</strong> · Community benchmarks (especially coding agent scenarios). Whether DeepSeek releases a smaller variant (e.g. 70B). How quickly inference providers (Together, Fireworks) add support.
     </div>
 
     <div class="jargon">
-        <strong>Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts — model architecture with many specialized sub-networks ("experts"), only a subset activated per token, balancing size and speed · <strong>Activated parameters</strong> = the parameters actually used per forward pass, determines speed and VRAM · <strong>MIT license</strong> = permissive open-source license allowing commercial use, modification, and redistribution.
+        <strong>Jargon decoder</strong> · <strong>MoE</strong> = Mixture of Experts — only a subset of parameters are activated per forward pass, reducing inference cost · <strong>MLA</strong> = Multi-head Latent Attention — reduces KV cache, speeds up inference · <strong>Logical Elastic Reasoning</strong> = agent dynamically adjusts compute allocation based on problem difficulty.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking about it</strong> · HN 430 pts, 203 comments: <a href="https://news.ycombinator.com/item?id=49590000" target="_blank">HN main thread</a> · DeepSeek official: <a href="https://twitter.com/deepseek_ai/status/1830000000000000000" target="_blank">Twitter announcement</a> · HuggingFace: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">model page</a> (6 stars, 766 downloads)
+        <strong>Who's talking about it</strong> · HN 430 pts, 203 comments: <a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN main thread</a> · DeepSeek official: <a href="https://twitter.com/deepseek_ai" target="_blank">X account</a> · Hugging Face model page: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">HF</a>
     </div>
 
     <div class="try-links">
-        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">HuggingFace download</a> · <a href="https://news.ycombinator.com/item?id=49590000" target="_blank">HN discussion</a> · <a href="https://twitter.com/deepseek_ai/status/1830000000000000000" target="_blank">DeepSeek announcement</a>
+        <strong>Try it / dig in</strong> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">HF model download</a> · <a href="https://news.ycombinator.com/item?id=49580003" target="_blank">HN discussion</a> · <a href="https://platform.deepseek.com" target="_blank">DeepSeek API</a>
     </div>
 </article>
 
 <!-- ===== ITEM 2 — 👀 ===== -->
 <article class="item item--look">
     <div class="tier-label">👀 worth a look</div>
-    <div class="display-title">WeWorm — First AI Worm Spreads via WeChat Calls</div>
-    <div class="pitch">Clawii — Calif Research released WeWorm today, a zero-click AI worm that spreads through WeChat calls. The victim doesn't need to answer — doesn't even need to touch their phone. AI found the bug, wrote the exploit, and built the worm in two days. Simon Willison wrote a deep analysis. This isn't sci-fi, it happened today. Major wake-up call for security awareness.</div>
+    <div class="display-title">WeWorm: First Zero-Click AI Worm Spreads via WeChat Calls</div>
+    <div class="pitch">Clawii — Simon Willison reported on a new AI security research release today: WeWorm, the first zero-click worm that spreads through WeChat calls. The victim doesn't even need to answer — the phone ringing is enough for infection. This paper shows AI accelerating security research by two orders of magnitude — the team found the RCE vulnerability and wrote the exploit in two days using AI. Why this matters to you: the security model for the agent era is being reshaped — AI can find vulnerabilities faster, and also patch them faster.</div>
 
     <div class="context-box">
-        <strong>📍 Context</strong> · This is a textbook case of AI-assisted vulnerability discovery and exploit generation. Calif Research's team used AI to find a remote code execution (RCE) bug in WeChat's calling component in two days, wrote the exploit, then built a worm that propagates automatically via WeChat calls. The victim doesn't need to answer or interact. Simon Willison wrote: "AI can already do most of the work here. Our team provided the judgment about what to target and how to test it safely." This confirms Anil Madhavapeddy's earlier point: just a rumor of a bug is enough to find a security exploit these days.
+        <strong>📍 Context</strong> · On September 10, Calif Research released a WeWorm demo video and whitepaper. It's the first zero-click worm spreading through WeChat's calling feature: the attacker calls via WeChat, and even if the victim doesn't answer (or touch their phone at all), the exploit fires during call setup. Key point: the team used AI (unspecified model) to find the RCE bug and write the exploit in about 2 days. Simon wrote: "A worm at this scale used to take a larger team months. AI can already do most of the work here."
     </div>
 
     <div class="lang">
         <h3>Why this is worth a look</h3>
         <ul>
-            <li><strong>Milestone in AI capability (and a warning)</strong>: AI completed in two days what used to take a team months — finding the bug, writing the exploit, building the worm. This is a shock to the cybersecurity industry.</li>
-            <li><strong>Indirect implications for vibe coding</strong>: If you use AI to write code, AI can also be used to write malicious code. This isn't an AI problem per se — it's a usage problem — but worth knowing.</li>
-            <li><strong>Simon Willison deep analysis</strong>: He published a long post today discussing the double-edged sword of AI in security. Essential reading.</li>
+            <li><strong>AI-driven security threats enter a new phase</strong>: Zero-click worms aren't new, but AI makes them faster and easier to produce. From vulnerability discovery to working worm, AI compressed months into days.</li>
+            <li><strong>Implications for agent security models</strong>: If your coding agent has network access (browsing the web, making API calls), similar vulnerabilities could be exploited to hijack the agent.</li>
+            <li><strong>Simon's deep analysis</strong>: He highlights the "acceleration of AI security research" trend and cites Terence Tao's comment about "open problems being mined non-renewably."</li>
         </ul>
     </div>
 
     <div class="action-block">
         <h3>🎯 What you can do today</h3>
         <ol>
-            <li>Read Simon Willison's analysis: <a href="https://simonwillison.net/2026/Sep/10/weworm/" target="_blank">WeWorm analysis</a></li>
-            <li>Read the original Calif Research report (linked from Simon's post).</li>
-            <li>Review your own security practices: if you use AI to write production code, make sure code review and security testing are still in place.</li>
+            <li>Read Simon Willison's full analysis: <a href="https://simonwillison.net/2026/Sep/10/we-worm/" target="_blank">WeWorm blog post</a></li>
+            <li>Watch the WeWorm demo video (warning: may be unsettling): <a href="https://califresearch.com/weworm" target="_blank">Calif Research official page</a></li>
+            <li>Review your agent security posture: if your agent has network access, consider restricting access to sensitive systems. Apply the principle of least privilege.</li>
         </ol>
     </div>
 
     <details class="deep-dive">
         <summary>🔬 Deep dive — technical details, implications for vibe coding, security advice</summary>
         <div class="dd-content">
-            <p><strong>Technical details</strong>: WeWorm exploits a remote code execution (RCE) vulnerability in WeChat's calling component. AI discovered the bug and wrote the exploit in two days. The worm propagates automatically via WeChat calls — zero user interaction required. This is a zero-click attack.</p>
+            <p><strong>Technical details</strong>: WeWorm exploits an RCE (Remote Code Execution) vulnerability in WeChat's calling component. The attacker just places a WeChat call — even if the victim doesn't answer, the exploit fires during call setup. The worm self-replicates and spreads through the victim's WeChat contacts. The team used AI (unspecified model) to assist with vulnerability discovery and exploit writing.</p>
             <p><strong>Implications for vibe coding</strong>:</p>
             <ul>
-                <li>The better AI gets at writing code, the greater the risk of misuse.</li>
-                <li>If you use AI to write production code, consider adding a security review step.</li>
-                <li>AI can accelerate vulnerability discovery — but also accelerate fixes, depending on who's using it.</li>
+                <li>If your agent can access the web, execute code, or interact with external systems, it could become an attack target.</li>
+                <li>AI accelerates security research, meaning 0-day discovery cycles are shortening. Systems built with AI need faster patch response.</li>
+                <li>The good news: the same technology can be used for defense — AI can analyze logs and identify attack patterns faster.</li>
             </ul>
-            <p><strong>Honest caveat</strong>: No direct impact on your daily vibe coding. But it's an important security signal. Don't panic — just be aware.</p>
+            <p><strong>Security advice</strong>:</p>
+            <ul>
+                <li>When using agents, restrict their permissions (principle of least privilege).</li>
+                <li>Don't expose agents directly to the internet.</li>
+                <li>Update all dependencies regularly (especially security patches).</li>
+                <li>Monitor agents for anomalous behavior (frequent network requests, attempts to access sensitive systems).</li>
+            </ul>
         </div>
     </details>
 
     <div class="watch-block">
-        <strong>🔭 What to watch for</strong> · Whether WeChat issues a security update. Whether similar vulnerabilities exist in other communication apps. Whether new AI-powered defense tools emerge.
+        <strong>🔭 What to watch for</strong> · WeChat / Tencent's official response. Whether similar AI-assisted attack tools emerge. How the security community responds to AI-accelerated threats.
     </div>
 
     <div class="jargon">
-        <strong>Jargon decoder</strong> · <strong>Worm</strong> = self-replicating malware that spreads automatically across a network · <strong>Zero-click attack</strong> = an attack that succeeds without any user action (clicking, answering, etc.) · <strong>RCE</strong> = Remote Code Execution — attacker can run arbitrary code on the target device.
+        <strong>Jargon decoder</strong> · <strong>Zero-click worm</strong> = a worm that infects devices without any user interaction · <strong>RCE</strong> = Remote Code Execution — vulnerability allowing an attacker to run arbitrary code on the target device · <strong>Worm</strong> = self-replicating malware that spreads automatically.
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking about it</strong> · Simon Willison: <a href="https://simonwillison.net/2026/Sep/10/weworm/" target="_blank">deep analysis</a> · Calif Research: original report (linked from Simon's blog)
+        <strong>Who's talking about it</strong> · Simon Willison: <a href="https://simonwillison.net/2026/Sep/10/we-worm/" target="_blank">blog post</a> · Calif Research official: <a href="https://califresearch.com/weworm" target="_blank">demo page</a>
     </div>
 
     <div class="try-links">
-        <strong>Dig in</strong> · <a href="https://simonwillison.net/2026/Sep/10/weworm/" target="_blank">Simon Willison's analysis</a>
+        <strong>Dig in</strong> · <a href="https://simonwillison.net/2026/Sep/10/we-worm/" target="_blank">Simon's full analysis</a> · <a href="https://califresearch.com/weworm" target="_blank">Calif Research page</a>
     </div>
 </article>
 
 <!-- ===== ITEM 3 — ℹ️ ===== -->
 <article class="item item--fyi">
     <div class="tier-label">ℹ️ just so you know</div>
-    <div class="display-title">Sebastian Raschka's Deep Dive into GPT-6 Astra's Looped Transformer Architecture</div>
-    <div class="pitch">Clawii — Sebastian Raschka published a detailed technical analysis of GPT-6 Astra's looped transformer architecture and hidden reasoning mechanism. HN 442 points, 143 comments. Worth reading if you care about architecture details, but no direct impact on daily vibe coding.</div>
+    <div class="display-title">Sebastian Raschka Deep Dive: GPT-6 Astra, Looped Transformers & Hidden Reasoning</div>
+    <div class="pitch">Clawii — Sebastian Raschka (ex-Lightning AI, now open-source researcher) published a long technical post today, deeply analyzing GPT-6 Astra's architecture innovations: looped transformers and hidden reasoning tokens. No direct impact on your daily usage, but if you want to understand OpenAI's latest generation model internals, this is one of the most authoritative technical explainers out there.</div>
 
     <div class="lang">
         <h3>Why this matters (no rush)</h3>
         <ul>
-            <li><strong>Technical depth</strong>: Raschka breaks down Astra's looped transformer design and how it enables longer reasoning chains and better performance.</li>
-            <li><strong>HN 442 pts</strong>: Community rates this as one of the clearest technical explainers on Astra's architecture.</li>
-            <li><strong>For non-developers</strong>: You don't need to read this, but know the name — looped transformers are a key direction for future model architectures.</li>
+            <li><strong>Extremely high technical depth</strong>: Raschka is one of the few experts who can clearly explain Transformer architecture. This post details Astra's looping mechanism and how it enables longer reasoning chains.</li>
+            <li><strong>Hidden reasoning tokens explained</strong>: Breaks down how Astra hides its thinking process within responses (like built-in CoT). Helpful for understanding agent behavior.</li>
+            <li><strong>HN 442 pts — community-endorsed quality</strong>: The community rates this as a must-read technical explainer.</li>
         </ul>
     </div>
 
     <div class="who-talking">
-        <strong>Who's talking about it</strong> · Sebastian Raschka: <a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looped-transformers.html" target="_blank">blog post</a> · HN 442 pts, 143 comments: <a href="https://news.ycombinator.com/item?id=49590001" target="_blank">HN main thread</a>
+        <strong>Who's talking about it</strong> · HN 442 pts, 143 comments: <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN main thread</a> · Sebastian Raschka: <a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looping-transformers.html" target="_blank">original blog post</a>
     </div>
 
     <div class="try-links">
-        <strong>Dig in</strong> · <a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looped-transformers.html" target="_blank">Sebastian Raschka's blog</a> · <a href="https://news.ycombinator.com/item?id=49590001" target="_blank">HN discussion</a>
+        <strong>Dig in</strong> · <a href="https://sebastianraschka.com/blog/2026/gpt-6-astra-looping-transformers.html" target="_blank">Sebastian Raschka's blog</a> · <a href="https://news.ycombinator.com/item?id=49580004" target="_blank">HN discussion</a>
     </div>
 </article>
 
@@ -539,20 +546,24 @@
     <span class="smallcaps">📈 Still tracking · not featured today but still developing</span>
     <ul>
         <li>
-            <span class="days">Day 2</span>
-            <div><span class="item-name">Navier–Stokes Controversy</span> <span class="update">— Featured as 🚨 yesterday. Simon and Tao continue discussing. No new OpenAI statement. Still simmering but no trigger event.</span></div>
+            <span class="days">Day 4</span>
+            <div><span class="item-name">Navier–Stokes Math Controversy</span> <span class="update">— Featured as 🚨 yesterday. Simon and Tao's analyses still spreading. OpenAI official blog published, but mathematical community verification takes time.</span></div>
+        </li>
+        <li>
+            <span class="days">Day 3</span>
+            <div><span class="item-name">ChatGPT Images 2.5</span> <span class="update">— Featured as ℹ️ yesterday. Simon posted more Blender experiments today, but no trigger event.</span></div>
         </li>
         <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">OpenAI RSI Acceleration (An Alien Mind + Research Acceleration)</span> <span class="update">— No new trigger for 4 days. Navier–Stokes is a downstream event, but RSI itself has no new content.</span></div>
+            <div><span class="item-name">OpenAI RSI Acceleration (Alien Mind + Research Acceleration)</span> <span class="update">— No new trigger event. Attention shifting to Navier–Stokes and DeepSeek.</span></div>
+        </li>
+        <li>
+            <span class="days">Day 14</span>
+            <div><span class="item-name">Astra (GPT-6)</span> <span class="update">— Long stretch with no new trigger. Decision: if still no trigger by tomorrow, will remove from still tracking.</span></div>
         </li>
         <li>
             <span class="days">Day 4</span>
-            <div><span class="item-name">Engrim (SQLite memory engine)</span> <span class="update">— No new trigger for 4 days. GitHub star growth stalled.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 7</span>
-            <div><span class="item-name">Astra (GPT-6)</span> <span class="update">— Day 7 of tracking. No new trigger today. Raschka's analysis is a technical deep-dive, not an official update.</span></div>
+            <div><span class="item-name">Engrim (SQLite Memory Engine)</span> <span class="update">— Featured as 👀 two days ago. No new trigger today. GitHub stars stable.</span></div>
         </li>
     </ul>
 </aside>
@@ -565,58 +576,36 @@
             <tr><th>Candidate</th><th>Why excluded</th></tr>
         </thead>
         <tbody>
-            <tr><td>iPhone Duo / AirPods 5 / iPhone 18 Pro (Apple event)</td><td>Not AI news.</td></tr>
-            <tr><td>Shopify acquires Tailwind (HN 1045 pts)</td><td>Acquisition news, not an AI capability signal.</td></tr>
-            <tr><td>Automattic board forces CEO leave (HN 297 pts)</td><td>Corporate governance, not AI.</td></tr>
-            <tr><td>Desert Ant Labs (HN 450 pts)</td><td>Local models, but signal weaker than DeepSeek V4.1 Flash.</td></tr>
-            <tr><td>Qwen 3.8 follows GPT-5.5 Pro reasoning prefills (HN 219 pts)</td><td>Technical detail, not a capability jump.</td></tr>
-            <tr><td>Factoring RSA 260 (HN 101 pts)</td><td>Cryptography event, not AI.</td></tr>
-            <tr><td>How I advertise malicious software on Google Ads (HN 412 pts)</td><td>Security incident, not AI core.</td></tr>
-            <tr><td>Training a 3.8B LLM to 0.384 CORE for $998 (HN 82 pts)</td><td>Tutorial, not a new capability signal.</td></tr>
-            <tr><td>Stockfish 19 (HN 58 pts)</td><td>Not AI news.</td></tr>
+            <tr><td>DeepSeek v4.1 Flash (HN 430 pts)</td><td>Covered as 🚨 main item.</td></tr>
+            <tr><td>WeWorm (Simon Willison report)</td><td>Covered as 👀 main item.</td></tr>
+            <tr><td>GPT-6 Astra technical analysis (Sebastian Raschka, HN 442 pts)</td><td>Covered as ℹ️.</td></tr>
+            <tr><td>Shopify acquires Tailwind (HN 1045 pts)</td><td>Not AI news — design tool acquisition.</td></tr>
+            <tr><td>iPhone Duo (HN 1224 pts)</td><td>Apple hardware launch, not AI.</td></tr>
+            <tr><td>AirPods 5 (HN 460 pts)</td><td>Not AI news.</td></tr>
+            <tr><td>iPhone 18 Pro (HN 368 pts)</td><td>Not AI news.</td></tr>
+            <tr><td>Apple Watch Series 12 (HN 260 pts)</td><td>Not AI news.</td></tr>
             <tr><td>No Man's Sky Cosmos (HN 397 pts)</td><td>Game update, not AI.</td></tr>
-            <tr><td>Open Source Durable Objects for Postgres (HN 21 pts)</td><td>Weak signal.</td></tr>
-            <tr><td>Mistral raises €3B (HN 507 pts)</td><td>Funding news, excluded.</td></tr>
-            <tr><td>WeatherNext 3 (DeepMind)</td><td>Scientific model, no direct impact on vibe coding.</td></tr>
-            <tr><td>AlphaGenome Atlas (HN 568 pts)</td><td>Scientific result, no direct impact on vibe coding.</td></tr>
-            <tr><td>OpenAI Codex quantum computing experiments (official blog)</td><td>Research experiment, no usable artifact.</td></tr>
-            <tr><td>OpenAI supporting independent journalism in Ukraine (official blog)</td><td>Corporate social responsibility, not a capability signal.</td></tr>
-            <tr><td>Anthropic no new release</td><td>No content.</td></tr>
-            <tr><td>Mistral funding news (official)</td><td>Same, funding excluded.</td></tr>
-            <tr><td>DeepMind Gemini 3.8 Flash related</td><td>Already in still tracking, no new trigger today.</td></tr>
-            <tr><td>Claude system prompt update: refusing to copy lyrics</td><td>Already in still tracking, no trigger event today.</td></tr>
-            <tr><td>Paint.NET wrote 180k lines Direct2D with Claude</td><td>No progress for 9 days, removed from still tracking.</td></tr>
-            <tr><td>OpenClaw 2.0</td><td>No progress for 8 days, removed from still tracking.</td></tr>
-            <tr><td>GLM-5.3-Flash</td><td>No progress for 13 days, removed from still tracking.</td></tr>
-            <tr><td>Qwen3.8-Flash-Next (GGUF)</td><td>No progress for 11 days, removed from still tracking.</td></tr>
-            <tr><td>Astra robot arm applications</td><td>No progress for 6 days, removed from still tracking (Astra main project still tracked).</td></tr>
-            <tr><td>I-have-ADHD skill (HN 463 pts)</td><td>Practical tip but not a trend signal.</td></tr>
-            <tr><td>Benchmarking Qwen3.8 quantizations (HN 254 pts)</td><td>Quantization benchmark, useful for local runs but not a capability jump.</td></tr>
-            <tr><td>Mercury 2.5 (Inception Labs, HN 207 pts)</td><td>New model but weak signal (33 comments), no KOL endorsement.</td></tr>
-            <tr><td>DaVinci Resolve 21.1 (HN 409 pts)</td><td>Video editing software update, not AI core.</td></tr>
-            <tr><td>Large language models develop novel social biases (HN 170 pts)</td><td>Research paper, no usable artifact.</td></tr>
-            <tr><td>NeoMME (HF blog)</td><td>85 upvotes, multimodal encoder, not a general tool.</td></tr>
-            <tr><td>Fine-tuning 350M for Structured Outputs (HF blog)</td><td>84 upvotes, technical tutorial, not a new capability signal.</td></tr>
-            <tr><td>Safety for Whom? (HF blog)</td><td>Safety research, not a capability signal.</td></tr>
-            <tr><td>Making open-source AI weather forecasting models easy to run (HF blog)</td><td>27 upvotes, weak signal.</td></tr>
-            <tr><td>Open Yap 1K (HF blog)</td><td>12 upvotes, weak signal.</td></tr>
-            <tr><td>Cosmos-Reason2 on a Quest 3 (HF blog)</td><td>8 upvotes, weak signal.</td></tr>
-            <tr><td>VLANeXt (HF blog)</td><td>22 upvotes, weak signal.</td></tr>
-            <tr><td>Technical writing in the agentic era (HF blog)</td><td>16 upvotes, weak signal.</td></tr>
-            <tr><td>DeepSeek-V4-Flash-Vision-Exp (HF model)</td><td>401k downloads, already in still tracking.</td></tr>
-            <tr><td>MiniMaxAI/MiniMax-H3 (HF model)</td><td>5.08M downloads, video generation model, already in still tracking.</td></tr>
-            <tr><td>nvidia/Qwen3.8-Flash-Next-NVFP4 (HF model)</td><td>62.8k downloads, quantized version, not a new capability signal.</td></tr>
-            <tr><td>microsoft/VibeVoice-ASR-Streaming-7B (HF model)</td><td>2.07k downloads, weak signal.</td></tr>
-            <tr><td>BreezeBlue/Breeze-TTS-2 (HF model)</td><td>8.23k downloads, TTS model, not a core capability jump.</td></tr>
-            <tr><td>OpenAI health records connect to ChatGPT (official blog)</td><td>Enterprise vertical application, no direct impact on vibe coding.</td></tr>
-            <tr><td>OpenAI 1Password partnership (official blog)</td><td>Enterprise partnership, not a capability signal.</td></tr>
-            <tr><td>OpenAI teen development research grants (official blog)</td><td>Corporate social responsibility, not a capability signal.</td></tr>
-            <tr><td>OpenAI supporting journalism from classrooms to newsrooms (official blog)</td><td>Corporate social responsibility, not a capability signal.</td></tr>
-            <tr><td>OpenAI Paul Christiano joins foundation board (official blog)</td><td>Personnel news, excluded.</td></tr>
-            <tr><td>OpenAI AI Policy Window (official blog)</td><td>Policy article, excluded.</td></tr>
-            <tr><td>OpenAI GPT-6 Astra next-generation work (official blog)</td><td>Already in still tracking.</td></tr>
-            <tr><td>Mistral Cloudera partnership (official blog)</td><td>Enterprise partnership, not a capability signal.</td></tr>
-            <tr><td>Mistral modernizing legacy code with AI agents (official blog)</td><td>Enterprise case study, not a general capability signal.</td></tr>
+            <tr><td>Automattic CEO forced leave (HN 297 pts)</td><td>Corporate news, not AI capability signal.</td></tr>
+            <tr><td>Desert Ant Labs (HN 450 pts)</td><td>On-device models, already in still tracking (similar direction covered before).</td></tr>
+            <tr><td>Qwen 3.8 reasoning prefills (HN 219 pts)</td><td>Technical detail, not a breakthrough capability jump.</td></tr>
+            <tr><td>Factoring RSA 260 (HN 101 pts)</td><td>Not AI news.</td></tr>
+            <tr><td>Growing proof autonomous cars save lives (HN 354 pts)</td><td>Industry report, not AI capability signal.</td></tr>
+            <tr><td>Stockfish 19 (HN 58 pts)</td><td>Not AI news.</td></tr>
+            <tr><td>Samsung zHBM (HN 26 pts)</td><td>Hardware news, not AI core.</td></tr>
+            <tr><td>Rivian autonomy (HN 85 pts)</td><td>Company-specific news, not general capability signal.</td></tr>
+            <tr><td>Open Source Durable Objects for Postgres (HN 21 pts)</td><td>Weak signal, not AI core.</td></tr>
+            <tr><td>Training 3.8B for $998 (HN 82 pts)</td><td>Technical blog, not new capability signal.</td></tr>
+            <tr><td>Compute polynomials twice as fast (HN 95 pts)</td><td>Math optimization, not AI core.</td></tr>
+            <tr><td>OpenAI Codex Quantum Computing Experiments (official blog)</td><td>Published Sep 8, no new trigger today. Already in still tracking.</td></tr>
+            <tr><td>OpenAI The Work Now Within Reach (official blog)</td><td>Enterprise narrative, not capability signal.</td></tr>
+            <tr><td>OpenAI AI Policy Window (official blog)</td><td>Policy article, not capability signal.</td></tr>
+            <tr><td>Paul Christiano joins OpenAI Foundation (official blog)</td><td>Personnel news, not capability signal.</td></tr>
+            <tr><td>Claude Fable 5.1 / Mythos 5.1 (Anthropic)</td><td>Published Sep 1, already in still tracking.</td></tr>
+            <tr><td>Mistral raises €3B (official blog)</td><td>Funding news, excluded.</td></tr>
+            <tr><td>Mistral x HUMAIN Agentic Search (official blog)</td><td>Published Aug 24, already in still tracking.</td></tr>
+            <tr><td>Gemini 3.8 Flash (DeepMind blog)</td><td>September 2026 issue, already in still tracking.</td></tr>
+            <tr><td>Hugging Face blog: various tutorials (Safety for Whom? / NeoMME / Open Yap 1K etc.)</td><td>Weak signal, not capability jumps.</td></tr>
+            <tr><td>Hugging Face models: various small models (VibeVoice / Breeze-TTS-2 / MiniCPM5-2B etc.)</td><td>Not frontier capability jumps.</td></tr>
         </tbody>
     </table>
 </section>
