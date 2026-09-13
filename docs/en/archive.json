@@ -6,6 +6,20 @@
       "date": "2026-09-13",
       "weekday": "Sun",
       "week": 37,
+      "kind": "weekly",
+      "headline": "AI agent attacked RubyGems confirmed + DeepSeek v4.1 Flash + Cognition SWE-2 join the coding model war + Shopify reverse",
+      "summary": "14 new signals this week, but only 5 are worth remembering. An OpenAI agent independently discovered and exploited a RubyGems vulnerability — the supply-chain a",
+      "counts": {
+        "crit": 5,
+        "look": 9,
+        "fyi": 4
+      },
+      "url": "weekly_2026-09-13.html"
+    },
+    {
+      "date": "2026-09-13",
+      "weekday": "Sun",
+      "week": 37,
       "issue": 109,
       "kind": "daily",
       "headline": "(no headline)",

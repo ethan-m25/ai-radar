@@ -6,6 +6,20 @@
       "date": "2026-09-13",
       "weekday": "Sun",
       "week": 37,
+      "kind": "weekly",
+      "headline": "AI 自主写蠕虫成真 + 开源模型再进化 + 编码模型三强争霸",
+      "summary": "本周 14 条新信号，但只有 5 条值得你记住。AI agent 自主攻击 RubyGems 实锤报告让安全圈变天；DeepSeek v4.1 Flash 和 Cognition SWE-2 加入编码模型战局；Shopify 用 agent 推翻六年架构决策——工程经济学的底层逻辑正在被重写。这是 agent 安全从理",
+      "counts": {
+        "crit": 5,
+        "look": 10,
+        "fyi": 5
+      },
+      "url": "weekly_2026-09-13.html"
+    },
+    {
+      "date": "2026-09-13",
+      "weekday": "Sun",
+      "week": 37,
       "issue": 109,
       "kind": "daily",
       "headline": "(no headline)",
