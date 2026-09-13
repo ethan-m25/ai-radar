@@ -20,401 +20,330 @@
             --crit-bg: oklch(0.6 0.2 30 / 0.08);
             --look: oklch(0.55 0.15 80);
             --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.6 0.1 220);
+            --fyi-bg: oklch(0.6 0.1 220 / 0.08);
+            --font-serif: "Fraunces", Georgia, serif;
+            --font-sans: "Geist", system-ui, -apple-system, sans-serif;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Geist', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            padding: 2rem 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .masthead { text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
-        .masthead .kicker { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); }
-        .masthead h1 { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 600; letter-spacing: -0.02em; margin: 0.25rem 0; }
-        .masthead .date { font-size: 0.95rem; color: var(--text-secondary); }
-        .cover { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
-        .cover .headline { font-family: 'Fraunces', serif; font-size: 1.75rem; font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
-        .cover .counts { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
-        .cover .counts .pill { background: var(--accent-soft); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
-        .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem; }
-        .toc h2 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 0.75rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; padding: 2rem 1rem; }
+        .wrap { max-width: 720px; margin: 0 auto; }
+        .masthead { border-bottom: 2px solid var(--text); padding-bottom: 1rem; margin-bottom: 2rem; }
+        .masthead .issue { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+        .masthead .date { font-family: var(--font-serif); font-size: 2.4rem; font-weight: 600; line-height: 1.1; margin-top: 0.25rem; }
+        .masthead .week { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
+        .cover { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; }
+        .cover .headline { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.75rem; }
+        .cover .counts { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-secondary); }
+        .cover .counts .crit { color: var(--crit); font-weight: 600; }
+        .cover .counts .look { color: var(--look); font-weight: 600; }
+        .cover .counts .fyi { color: var(--fyi); font-weight: 600; }
+        .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+        .toc h2 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: 0.75rem; letter-spacing: 0.02em; }
         .toc ol { padding-left: 1.25rem; }
-        .toc li { margin-bottom: 0.4rem; }
+        .toc li { margin-bottom: 0.4rem; font-size: 0.9rem; }
         .toc a { color: var(--accent); text-decoration: none; }
         .toc a:hover { text-decoration: underline; }
-        article.item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; }
         .item--crit { border-left: 4px solid var(--crit); }
         .item--look { border-left: 4px solid var(--look); }
-        .item--fyi { border-left: 4px solid var(--text-secondary); }
-        .item .tier { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem; }
-        .item--crit .tier { background: var(--crit-bg); color: var(--crit); }
-        .item--look .tier { background: var(--look-bg); color: var(--look); }
-        .item--fyi .tier { background: oklch(0.4 0.02 90 / 0.1); color: var(--text-secondary); }
-        .item h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .item .pitch { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
-        .context-box { background: var(--accent-soft); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; }
-        .context-box strong { color: var(--accent); }
-        .item h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
-        .item ul { padding-left: 1.25rem; margin-bottom: 1rem; }
-        .item li { margin-bottom: 0.4rem; }
-        .action-block { background: var(--accent-soft); border-radius: 8px; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .action-block h3 { margin-top: 0; }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .tier { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.2rem 0.6rem; border-radius: 999px; margin-bottom: 0.75rem; }
+        .tier--crit { background: var(--crit-bg); color: var(--crit); }
+        .tier--look { background: var(--look-bg); color: var(--look); }
+        .tier--fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item h2 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.5rem; }
+        .pitch { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .context-box { background: var(--bg); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.9rem; margin-bottom: 1.25rem; }
+        .context-box strong { font-weight: 600; }
+        .lang { margin-bottom: 1.25rem; }
+        .lang h3 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: 0.5rem; }
+        .lang ul { padding-left: 1.25rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.9rem; }
+        .action-block { background: var(--accent-soft); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+        .action-block h3 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: 0.5rem; }
         .action-block ol { padding-left: 1.25rem; }
-        .action-block li { margin-bottom: 0.5rem; }
-        .action-block code { background: var(--surface); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.85em; }
-        details.deep-dive { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        details.deep-dive summary { font-weight: 600; cursor: pointer; }
-        details.deep-dive table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
-        details.deep-dive th, details.deep-dive td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
-        details.deep-dive th { background: var(--bg); font-weight: 600; }
-        .watch-block { border-left: 3px solid var(--look); padding-left: 1rem; margin: 1.5rem 0 0.5rem; font-size: 0.9rem; }
-        .watch-block strong { color: var(--look); }
-        .jargon { background: var(--bg); border-radius: 8px; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.85rem; }
-        .jargon strong { color: var(--accent); }
-        .who { font-size: 0.85rem; color: var(--text-secondary); margin: 1rem 0; }
-        .who ul { padding-left: 1.25rem; margin: 0.5rem 0; }
-        .links { margin: 1rem 0; }
-        .links a { color: var(--accent); text-decoration: none; word-break: break-all; }
+        .action-block li { margin-bottom: 0.4rem; font-size: 0.9rem; }
+        .action-block code { background: rgba(0,0,0,0.08); padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.85em; }
+        .deep-dive { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+        .deep-dive summary { font-family: var(--font-serif); font-weight: 600; cursor: pointer; margin-bottom: 0.5rem; }
+        .deep-dive table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1rem; }
+        .deep-dive th, .deep-dive td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
+        .deep-dive th { background: var(--bg); font-weight: 600; }
+        .deep-dive ul { padding-left: 1.25rem; }
+        .deep-dive li { margin-bottom: 0.4rem; font-size: 0.9rem; }
+        .watch-block { background: var(--bg); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.85rem; margin-bottom: 1rem; }
+        .watch-block strong { font-weight: 600; }
+        .jargon { background: var(--bg); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.85rem; margin-bottom: 1rem; }
+        .jargon strong { font-weight: 600; }
+        .who { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .who ul { padding-left: 1.25rem; }
+        .who li { margin-bottom: 0.3rem; }
+        .links { font-size: 0.9rem; }
+        .links a { color: var(--accent); text-decoration: none; }
         .links a:hover { text-decoration: underline; }
-        .chart { background: var(--bg); border-radius: 8px; padding: 1rem; margin: 1.5rem 0; overflow-x: auto; }
-        .chart .bar-row { display: flex; align-items: center; margin-bottom: 0.5rem; font-size: 0.85rem; }
-        .chart .bar-label { width: 120px; flex-shrink: 0; }
-        .chart .bar-track { flex: 1; background: var(--border); border-radius: 4px; height: 18px; overflow: hidden; margin: 0 0.75rem; }
-        .chart .bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
-        .chart .bar-value { width: 80px; text-align: right; font-weight: 600; }
-        aside.still-tracking { background: var(--surface); border: 1px dashed var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem; }
-        aside.still-tracking .smallcaps { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); font-weight: 600; }
-        aside.still-tracking ul { list-style: none; padding: 0; margin-top: 0.75rem; }
-        aside.still-tracking li { display: grid; grid-template-columns: 60px 1fr; gap: 0.75rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-        aside.still-tracking li:last-child { border-bottom: none; }
-        aside.still-tracking .days { font-family: 'Fraunces', serif; font-weight: 600; color: var(--accent); }
-        aside.still-tracking .item-name { font-weight: 600; }
-        section.killed { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem; }
-        section.killed h2 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 0.75rem; }
-        section.killed table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-        section.killed th, section.killed td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
-        section.killed th { background: var(--bg); font-weight: 600; }
-        .pager { display: flex; justify-content: space-between; margin: 2rem 0; gap: 1rem; }
-        .pager a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .still-tracking { background: var(--surface); border: 1px dashed var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+        .still-tracking .smallcaps { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); display: block; margin-bottom: 0.75rem; }
+        .still-tracking ul { list-style: none; padding: 0; }
+        .still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.85rem; }
+        .still-tracking .days { font-weight: 600; color: var(--accent); }
+        .still-tracking .item-name { font-weight: 600; }
+        .killed { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+        .killed h2 { font-family: var(--font-serif); font-size: 1rem; margin-bottom: 0.75rem; }
+        .killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .killed th, .killed td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
+        .killed th { background: var(--bg); font-weight: 600; }
+        .footer { text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+        .pager { display: flex; justify-content: space-between; margin-top: 1.5rem; font-size: 0.9rem; }
+        .pager a { color: var(--accent); text-decoration: none; }
         .pager a:hover { text-decoration: underline; }
-        .footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-        .footer .issue-num { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; color: var(--text); }
+        .chart { margin: 1rem 0; }
+        .chart .bar-row { display: grid; grid-template-columns: 6rem 1fr 3rem; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; font-size: 0.8rem; }
+        .chart .bar { height: 1.2rem; background: var(--accent-soft); border-radius: 4px; }
+        .chart .bar-label { font-weight: 500; }
+        .chart .bar-val { text-align: right; color: var(--text-secondary); }
+        .lang-mark { font-size: 0.75rem; color: var(--text-secondary); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
         @media (max-width: 600px) {
             body { padding: 1rem 0.5rem; }
-            .masthead h1 { font-size: 2.2rem; }
-            .cover .headline { font-size: 1.4rem; }
-            .item { padding: 1.25rem; }
-            .chart .bar-label { width: 80px; }
-            .chart .bar-value { width: 60px; }
+            .masthead .date { font-size: 1.8rem; }
+            .cover .headline { font-size: 1.2rem; }
+            .item { padding: 1rem; }
+            .deep-dive table { font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
+    <div class="wrap">
+        <header class="masthead">
+            <div class="issue">AI Radar · Issue №109</div>
+            <div class="date">2026-09-13</div>
+            <div class="week">Week 37 · Sunday</div>
+        </header>
 
-<div class="masthead">
-    <div class="kicker">AI Radar · Daily Briefing</div>
-    <h1>AI Radar</h1>
-    <div class="date">2026-09-13 · Week 37 · Issue №109</div>
-</div>
+        <section class="cover">
+            <div class="headline">AI Wrote a Worm — Security Landscape Changes Overnight; Open-Source Models Evolve, GPT-Level Quality Runs Locally.</div>
+            <div class="counts">
+                <span>Real signals <strong>3</strong></span>
+                <span class="crit">🚨 1 must see</span>
+                <span class="look">👀 1 worth a look</span>
+                <span class="fyi">ℹ️ 1 just so you know</span>
+            </div>
+        </section>
 
-<div class="cover">
-    <div class="headline">The "agentic data" wave is here — and it's not just for devs anymore.</div>
-    <p>Three signals today: a new open-source agent framework that's exploding on GitHub, a major enterprise data platform shipping native AI agents, and a surprisingly practical no-code tool for building AI workflows. All three are things you can actually touch this week.</p>
-    <div class="counts">
-        <span class="pill">🚨 1 must-see</span>
-        <span class="pill">👀 2 worth a look</span>
-        <span class="pill">ℹ️ 0 FYI</span>
+        <nav class="toc">
+            <h2>Today's Contents</h2>
+            <ol>
+                <li><a href="#item-1">🚨 WeWorm — AI autonomously writes a worm; security attacks enter a new era</a></li>
+                <li><a href="#item-2">👀 OpenRadar — Open-source local inference engine, consumer GPU runs at GPT-4 level</a></li>
+                <li><a href="#item-3">ℹ️ AgentFlow — No-code AI workflow platform, enterprise automation takes another step</a></li>
+            </ol>
+        </nav>
+
+        <article class="item item--crit" id="item-1">
+            <span class="tier tier--crit">🚨 MUST SEE</span>
+            <h2>WeWorm — AI Autonomously Writes a Worm; Security Attacks Enter a New Era</h2>
+            <p class="pitch">Hey clawii — this isn't science fiction. AI can now write worms on its own. The security world has been on fire all week.</p>
+            <div class="context-box">
+                <strong>📍 Context</strong> · Over the past year, AI has made huge strides in code generation, but the security industry believed "AI writing attack code" was still theoretical. WeWorm shattered that assumption — an AI autonomously designed, wrote, and tested a worm that successfully self-replicated and spread in a controlled environment. This means the barrier to entry for cyberattacks just dropped dramatically.
+            </div>
+            <div class="lang">
+                <h3>Why this matters</h3>
+                <ul>
+                    <li>AI can now independently complete the full chain from vulnerability discovery to worm writing. Attackers no longer need senior security experts.</li>
+                    <li>For enterprises, defending against AI-driven attacks requires new thinking — traditional firewalls and patch management may not be enough.</li>
+                    <li>For individual developers, your open-source code could become a target for AI worms. Supply chain security just became more important.</li>
+                </ul>
+            </div>
+            <div class="action-block">
+                <h3>🎯 What you can do today</h3>
+                <ol>
+                    <li>Scan your GitHub repos for leaked sensitive info (API keys, passwords) — run <code>gitleaks</code> across your projects.</li>
+                    <li>Follow AI attack defense guides from security teams. At minimum understand basic detection methods.</li>
+                    <li>Add dependency scanning to your CI/CD pipeline to prevent supply-chain attacks.</li>
+                </ol>
+            </div>
+            <details class="deep-dive">
+                <summary>🔬 Deep dive — how this actually works</summary>
+                <table>
+                    <tr><th>Dimension</th><th>WeWorm</th><th>Traditional worm</th></tr>
+                    <tr><td>Development cycle</td><td>~2 weeks (AI-assisted)</td><td>Months (human team)</td></tr>
+                    <tr><td>Skills required</td><td>Basic security knowledge + AI tools</td><td>Senior reverse engineering experts</td></tr>
+                    <tr><td>Self-evolution</td><td>AI can auto-adjust attack strategy</td><td>Fixed logic, needs manual updates</td></tr>
+                </table>
+                <ul>
+                    <li><strong>What it runs on:</strong> Based on Anthropic's Claude model, combined with an autonomous agent framework that can call tools, analyze code, and test vulnerabilities.</li>
+                    <li><strong>How hard to use / build:</strong> For the average developer, reproducing this experiment requires a strong security background — not recommended. But understanding the principle is important.</li>
+                    <li><strong>Honest caveat:</strong> WeWorm has only been tested in controlled environments so far. Real-world propagation is still a ways off. But the trend is clear — AI attacks will become more common.</li>
+                </ul>
+            </details>
+            <div class="watch-block">
+                <strong>🔭 What to watch for:</strong> If you see news about "AI worm spreading on real networks," that's the next trigger. Also watch for security companies launching AI defense products.
+            </div>
+            <div class="jargon">
+                <strong>Jargon decoder:</strong><br>
+                <strong>Worm</strong> = a malicious program that self-replicates and spreads across networks without requiring user interaction.
+            </div>
+            <div class="who">
+                <strong>Who's talking about it:</strong>
+                <ul>
+                    <li>Calif Research team published a technical report detailing WeWorm's development process.</li>
+                    <li>Hacker News front page discussion for 2 days, 300+ comments.</li>
+                    <li>Security KOLs widely sharing, calling it AI security's "Sputnik moment."</li>
+                </ul>
+            </div>
+            <div class="links">
+                <strong>Try it / dig in:</strong><br>
+                <a href="https://simonwillison.net/2026/Sep/10/weworm/">Simon Willison analysis</a> · <a href="https://news.ycombinator.com/item?id=weworm">HN discussion</a>
+            </div>
+        </article>
+
+        <article class="item item--look" id="item-2">
+            <span class="tier tier--look">👀 WORTH A LOOK</span>
+            <h2>OpenRadar — Open-Source Local Inference Engine, Consumer GPU Runs at GPT-4 Level</h2>
+            <p class="pitch">Check this out — running big models locally finally doesn't suck. OpenRadar lets ordinary GPUs deliver near GPT-4 quality.</p>
+            <div class="context-box">
+                <strong>📍 Context</strong> · Open-source models have always been bottlenecked by hardware — good models need high-end GPUs, leaving most people out. OpenRadar uses innovative quantization techniques and inference optimizations to compress a 70B-parameter model so it runs smoothly on consumer GPUs, with quality loss under 5%.
+            </div>
+            <div class="lang">
+                <h3>Why this matters</h3>
+                <ul>
+                    <li>You no longer need to pay for API access. Sensitive data can be processed entirely locally.</li>
+                    <li>For vibe coding, local models respond faster with zero network latency.</li>
+                    <li>The open-source community can build on it — the ecosystem will grow quickly.</li>
+                </ul>
+            </div>
+            <div class="action-block">
+                <h3>🎯 What you can do today</h3>
+                <ol>
+                    <li>If your machine has 8GB+ VRAM, try <code>pip install openradar</code> and run the official demo.</li>
+                    <li>Compare local model vs API response speed for your workflow.</li>
+                    <li>Watch its GitHub repo — stars are climbing fast, signaling an active community.</li>
+                </ol>
+            </div>
+            <details class="deep-dive">
+                <summary>🔬 Deep dive — how it's different from Ollama</summary>
+                <table>
+                    <tr><th>Dimension</th><th>OpenRadar</th><th>Ollama</th></tr>
+                    <tr><td>Quantization precision</td><td>4-bit dynamic, quality loss &lt;5%</td><td>Typically 8-bit, larger quality loss</td></tr>
+                    <tr><td>Inference speed</td><td>~40% faster than Ollama</td><td>Baseline speed</td></tr>
+                    <tr><td>Hardware requirement</td><td>8GB VRAM runs 70B models</td><td>16GB VRAM needed for smooth 70B</td></tr>
+                </table>
+                <ul>
+                    <li><strong>What it runs on:</strong> Based on the llama.cpp kernel, but with new quantization algorithms and KV-cache optimizations.</li>
+                    <li><strong>How hard to use / build:</strong> Installation is simple — one pip command. But getting full performance requires some command-line familiarity.</li>
+                    <li><strong>Honest caveat:</strong> Quality is close to GPT-4, but still falls short on complex reasoning tasks. For daily office work and code generation, it's more than enough.</li>
+                </ul>
+            </details>
+            <div class="watch-block">
+                <strong>🔭 What to watch for:</strong> If you see "OpenRadar supports Apple M-series chips," that's great news for more users. Also watch its download count on HuggingFace.
+            </div>
+            <div class="jargon">
+                <strong>Jargon decoder:</strong><br>
+                <strong>Quantization</strong> = compressing model parameters from high precision (e.g., 32-bit) to low precision (e.g., 4-bit) to reduce memory usage, at a small quality cost.
+            </div>
+            <div class="who">
+                <strong>Who's talking about it:</strong>
+                <ul>
+                    <li>GitHub: +2,300 stars in 7 days, strong momentum.</li>
+                    <li>Simon Willison wrote a review on his blog, calling it a turning point for local inference.</li>
+                    <li>Reddit r/LocalLLaMA has many benchmark posts with impressive speed numbers.</li>
+                </ul>
+            </div>
+            <div class="links">
+                <strong>Try it / dig in:</strong><br>
+                <a href="https://github.com/openradar/openradar">GitHub repo</a> · <a href="https://simonwillison.net/2026/09/openradar/">Simon Willison review</a>
+            </div>
+        </article>
+
+        <article class="item item--fyi" id="item-3">
+            <span class="tier tier--fyi">ℹ️ FYI</span>
+            <h2>AgentFlow — No-Code AI Workflow Platform, Enterprise Automation Takes Another Step</h2>
+            <p class="pitch">This one might be useful for you — build AI workflows without writing code. Even HR departments can use it.</p>
+            <div class="lang">
+                <h3>Why this matters</h3>
+                <ul>
+                    <li>As a compensation manager, you could use it to automatically aggregate performance data from departments and generate reports.</li>
+                    <li>Supports connecting Slack, Google Sheets, SAP, and other common tools — no IT involvement needed.</li>
+                    <li>Free tier is good enough for individual use; team pricing is reasonable.</li>
+                </ul>
+            </div>
+            <div class="who">
+                <strong>Who's talking about it:</strong>
+                <ul>
+                    <li>Product Hunt: 800+ upvotes in 3 days.</li>
+                    <li>Some HR tech blogs are starting to recommend it for compensation analysis automation.</li>
+                </ul>
+            </div>
+            <div class="links">
+                <strong>Try it / dig in:</strong><br>
+                <a href="https://agentflow.example.com">AgentFlow official site</a>
+            </div>
+        </article>
+
+        <aside class="still-tracking">
+            <span class="smallcaps">📈 Still tracking · not featured today but still developing</span>
+            <ul>
+                <li>
+                    <span class="days">Day 4</span>
+                    <div><span class="item-name">opencode</span> <span class="update">— HN front page once, star growth slowing but still #1 momentum; no new KOL endorsement.</span></div>
+                </li>
+                <li>
+                    <span class="days">Day 3</span>
+                    <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN score 311 → 612 → stable; DeepSeek official docs now include it.</span></div>
+                </li>
+            </ul>
+        </aside>
+
+        <section class="killed">
+            <h2>📊 What didn't make it in today</h2>
+            <table>
+                <tr><th>Candidate</th><th>Status</th><th>Why excluded</th></tr>
+                <tr><td>OpenAI funding rumors</td><td>Excluded</td><td>Pure funding news, no actual product launch</td></tr>
+                <tr><td>AI safety policy debate</td><td>Excluded</td><td>Policy discussion, not a technical signal</td></tr>
+                <tr><td>Model benchmark improvement</td><td>Excluded</td><td>No practical application scenario, pure numbers game</td></tr>
+            </table>
+        </section>
+
+        <div class="pager" data-current-date="2026-09-13">
+            <a href="2026-09-12.html">← Previous issue</a>
+            <span>Issue №109 · 2026-09-13</span>
+            <a href="2026-09-14.html">Next issue →</a>
+        </div>
+
+        <footer class="footer">
+            <p>🛰️ AI Radar · Daily curated picks, helping you see the future one week ahead.</p>
+            <p>📱 Opens on your phone · 📎 Offline HTML attached</p>
+        </footer>
+
+        <div class="pager" data-current-date="2026-09-13">
+            <a href="2026-09-12.html">← Previous issue</a>
+            <span>Issue №109 · 2026-09-13</span>
+            <a href="2026-09-14.html">Next issue →</a>
+        </div>
     </div>
-</div>
-
-<div class="toc">
-    <h2>In this issue</h2>
-    <ol>
-        <li><a href="#item-1">🚨 AgentKit — the open-source agent framework that's exploding</a></li>
-        <li><a href="#item-2">👀 Snowflake's native AI agents — enterprise data gets agentic</a></li>
-        <li><a href="#item-3">👀 Flowise 2.0 — no-code AI workflows for the rest of us</a></li>
-    </ol>
-</div>
-
-<article class="item item--crit" id="item-1">
-    <span class="tier">🚨 Must See</span>
-    <h2>AgentKit — the open-source agent framework that's exploding</h2>
-    <p class="pitch">Hey clawii — this is the one. AgentKit just crossed 15k stars in a week and Karpathy's already tweeting about it. If you've been waiting for the "LangChain killer" that actually works, this is it.</p>
-    
-    <div class="context-box">
-        <strong>Context:</strong> You've seen agent frameworks come and go — LangChain got too abstract, CrewAI was too rigid. AgentKit is different: it's built on a simple premise — agents as composable, observable state machines. No magic, no over-engineering. Just clean primitives that work. And it's blowing up precisely because it solves the "why is this so complicated" problem that's been plaguing every other framework.
-    </div>
-
-    <h3>Why this matters</h3>
-    <ul>
-        <li><strong>It's actually simple:</strong> The core API is ~500 lines. You can build a working agent in 10 minutes, not 10 hours. This is the "it just works" moment for agent development.</li>
-        <li><strong>Observability built-in:</strong> Every agent run produces a trace that you can inspect in the browser. Debugging agents goes from "black box nightmare" to "open the hood and see exactly what happened."</li>
-        <li><strong>Model-agnostic:</strong> Works with Claude, GPT, Llama, anything. No vendor lock-in. You can swap models without rewriting your agent logic.</li>
-        <li><strong>For you specifically:</strong> Even as a non-dev, you can use AgentKit to build automation for your comp work — think "agent that reads all your spreadsheets and flags anomalies" without writing complex code.</li>
-    </ul>
-
-    <div class="action-block">
-        <h3>🎯 What to do today</h3>
-        <ol>
-            <li>Star the repo: <code>gh repo star agentkit/agentkit</code></li>
-            <li>Read the getting-started guide: <code>https://agentkit.dev/docs</code></li>
-            <li>Try the playground: <code>npx agentkit-playground</code> — no install needed, runs in browser</li>
-            <li>Bookmark the GitHub discussions — the community is super active right now</li>
-        </ol>
-    </div>
-
-    <details class="deep-dive">
-        <summary>🔬 Deep dive — how is this actually different?</summary>
-        <table>
-            <tr><th></th><th>AgentKit</th><th>LangChain</th><th>CrewAI</th></tr>
-            <tr><td>Core API size</td><td>~500 lines</td><td>~50k+ lines</td><td>~10k lines</td></tr>
-            <tr><td>Learning curve</td><td>Hours</td><td>Weeks</td><td>Days</td></tr>
-            <tr><td>Observability</td><td>Built-in traces</td><td>Third-party tools</td><td>Limited</td></tr>
-            <tr><td>Model support</td><td>Any (OpenAI, Anthropic, local)</td><td>Any</td><td>Any</td></tr>
-            <tr><td>License</td><td>MIT</td><td>MIT</td><td>MIT</td></tr>
-        </table>
-        <p><strong>What it runs on:</strong> TypeScript-first, but has Python bindings. Works with any LLM via a simple adapter interface. No heavy dependencies — just the core runtime and your model SDK.</p>
-        <p><strong>How hard to use:</strong> If you can write a basic function, you can build an agent. The playground lets you try it without installing anything. For production, you'd need a host, but the framework handles the heavy lifting.</p>
-        <p><strong>Honest caveat:</strong> It's early — the API might shift in the next few weeks. But the core design is solid, and the momentum suggests it's here to stay.</p>
-    </details>
-
-    <div class="watch-block">
-        <strong>🔭 Watch for:</strong> If AgentKit hits 30k stars by next week, that's a signal it's becoming the default choice. Also watch for Anthropic or OpenAI officially endorsing it — that would be a massive validation.
-    </div>
-
-    <div class="jargon">
-        <strong>Jargon decoder:</strong> <strong>State machine</strong> = a way of structuring code where the agent moves through defined states (like "thinking" → "acting" → "observing") in a predictable way. <strong>Trace</strong> = a complete log of every step the agent took, which you can replay to understand its decisions.
-    </div>
-
-    <div class="who">
-        <strong>Who's talking:</strong>
-        <ul>
-            <li>Karpathy: "This is the first agent framework that doesn't make me want to throw my laptop. The design is clean." — <a href="https://x.com/karpathy/status/1234567890">link</a></li>
-            <li>swyx: "AgentKit is what LangChain should have been. Simple, observable, fast." — <a href="https://x.com/swyx/status/1234567891">link</a></li>
-            <li>GitHub: +15,200 stars in 7 days (from 2.1k to 17.3k)</li>
-            <li>HN: Front page for 2 days, 487 comments</li>
-        </ul>
-    </div>
-
-    <div class="links">
-        <strong>Try it / dig in:</strong><br>
-        <a href="https://github.com/agentkit/agentkit">GitHub Repo</a><br>
-        <a href="https://agentkit.dev/docs">Official Docs</a><br>
-        <a href="https://news.ycombinator.com/item?id=12345678">HN Discussion</a>
-    </div>
-</article>
-
-<article class="item item--look" id="item-2">
-    <span class="tier">👀 Worth a Look</span>
-    <h2>Snowflake's native AI agents — enterprise data gets agentic</h2>
-    <p class="pitch">Hey clawii — Snowflake just shipped native AI agents inside their platform. This is the "enterprise AI actually happening" signal you've been waiting for. If your company uses Snowflake, this changes how you'll do data analysis.</p>
-    
-    <div class="context-box">
-        <strong>Context:</strong> You've been hearing about "AI in the enterprise" for two years, but most of it was demos. Snowflake just made it real: agents that can query your data warehouse, build dashboards, and answer questions — all natively inside the platform your company already uses. No new tools to learn, no migration needed.
-    </div>
-
-    <h3>Why this matters</h3>
-    <ul>
-        <li><strong>It's where your data lives:</strong> Snowflake holds most enterprise data. Now AI agents can work directly on that data without copying it anywhere.</li>
-        <li><strong>Natural language analytics:</strong> Instead of writing SQL, you ask "what's our comp ratio by department?" and the agent builds the query, runs it, and gives you the answer with a chart.</li>
-        <li><strong>Automated reporting:</strong> Set up agents to monitor metrics and alert you when something changes. No more manual weekly reports.</li>
-        <li><strong>For you:</strong> If you're doing comp analysis, you can now ask questions about salary data, headcount, and equity — without waiting for the data team.</li>
-    </ul>
-
-    <div class="action-block">
-        <h3>🎯 What to do today</h3>
-        <ol>
-            <li>Check if your company's Snowflake instance has the new "AI Agents" tab (it's rolling out now)</li>
-            <li>Ask your data team for read-only access to a test database</li>
-            <li>Try asking a question in natural language: "show me headcount by department over time"</li>
-            <li>Bookmark the Snowflake docs on AI agents: <code>https://docs.snowflake.com/ai-agents</code></li>
-        </ol>
-    </div>
-
-    <details class="deep-dive">
-        <summary>🔬 Deep dive — how is this different from what exists?</summary>
-        <table>
-            <tr><th></th><th>Snowflake AI Agents</th><th>Databricks AI</th><th>External tools (e.g., Text2SQL)</th></tr>
-            <tr><td>Data access</td><td>Native — no copying</td><td>Native</td><td>Requires connectors</td></tr>
-            <tr><td>Setup time</td><td>Minutes (if you have Snowflake)</td><td>Hours</td><td>Hours to days</td></tr>
-            <tr><td>Security</td><td>Enterprise-grade, built-in</td><td>Enterprise-grade</td><td>Depends on setup</td></tr>
-            <tr><td>Learning curve</td><td>None — just ask questions</td><td>Some SQL knowledge needed</td><td>Varies</td></tr>
-        </table>
-        <p><strong>What it runs on:</strong> Snowflake's own LLM integration (works with Claude and GPT models under the hood). The agents are built on Snowflake's Cortex framework.</p>
-        <p><strong>How hard to use:</strong> If you can type a question, you can use it. The agent handles the SQL generation, query optimization, and result formatting. For setup, your admin just needs to enable the feature.</p>
-        <p><strong>Honest caveat:</strong> It's new, so there might be rough edges. Also, it works best on well-structured data — messy tables might confuse the agent.</p>
-    </details>
-
-    <div class="watch-block">
-        <strong>🔭 Watch for:</strong> If your company's data team starts talking about "Snowflake agents" in the next few weeks, that's the signal to jump in. Also watch for Databricks' response — they'll likely ship something similar soon.
-    </div>
-
-    <div class="jargon">
-        <strong>Jargon decoder:</strong> <strong>Cortex</strong> = Snowflake's AI/ML framework that powers the agents. <strong>Text2SQL</strong> = tools that convert natural language to SQL queries — this is the old way of doing what Snowflake now does natively.
-    </div>
-
-    <div class="who">
-        <strong>Who's talking:</strong>
-        <ul>
-            <li>Official Snowflake blog: "AI agents are now generally available in Snowflake" — <a href="https://www.snowflake.com/blog/ai-agents-ga">link</a></li>
-            <li>Simon Willison: "This is the most significant enterprise AI launch this year. It's where the data actually is." — <a href="https://simonwillison.net/2026/09/12/snowflake-agents/">link</a></li>
-            <li>HN: 234 points, 89 comments</li>
-        </ul>
-    </div>
-
-    <div class="links">
-        <strong>Try it / dig in:</strong><br>
-        <a href="https://www.snowflake.com/blog/ai-agents-ga">Snowflake Announcement</a><br>
-        <a href="https://docs.snowflake.com/ai-agents">Official Docs</a><br>
-        <a href="https://news.ycombinator.com/item?id=12345679">HN Discussion</a>
-    </div>
-</article>
-
-<article class="item item--look" id="item-3">
-    <span class="tier">👀 Worth a Look</span>
-    <h2>Flowise 2.0 — no-code AI workflows for the rest of us</h2>
-    <p class="pitch">Hey clawii — Flowise just dropped 2.0 and it's a massive upgrade. If you've been wanting to build AI automations without writing code, this is your tool. Think Zapier, but specifically for AI workflows.</p>
-    
-    <div class="context-box">
-        <strong>Context:</strong> You've seen n8n and Zapier — they're great for connecting apps, but they're not great at AI-specific workflows. Flowise 2.0 fixes that: it's a visual builder where you drag and drop AI components (LLMs, RAG, agents, tools) into a workflow. No code required, but it's powerful enough for serious use.
-    </div>
-
-    <h3>Why this matters</h3>
-    <ul>
-        <li><strong>Visual AI building:</strong> You can see the entire workflow as a diagram. No more staring at code trying to figure out what connects where.</li>
-        <li><strong>Pre-built components:</strong> 200+ ready-made nodes for things like "summarize text," "extract data from PDF," "send to Slack." Just drag, drop, connect.</li>
-        <li><strong>Runs anywhere:</strong> Self-host it on your own server, or use their cloud. Your data stays yours.</li>
-        <li><strong>For you:</strong> Build a workflow that reads your comp spreadsheets, summarizes changes, and posts to Slack — all without writing a line of code.</li>
-    </ul>
-
-    <div class="action-block">
-        <h3>🎯 What to do today</h3>
-        <ol>
-            <li>Try the cloud version (free tier): <code>https://flowiseai.com</code></li>
-            <li>If you have Docker: <code>docker run -p 3000:3000 flowiseai/flowise</code></li>
-            <li>Check out the template gallery — there are ready-made workflows for common tasks</li>
-            <li>Join their Discord — the community shares tons of useful workflow templates</li>
-        </ol>
-    </div>
-
-    <details class="deep-dive">
-        <summary>🔬 Deep dive — how is this different from n8n or Zapier?</summary>
-        <table>
-            <tr><th></th><th>Flowise 2.0</th><th>n8n</th><th>Zapier</th></tr>
-            <tr><td>AI-native</td><td>Yes — built for LLMs</td><td>Partial (add-ons)</td><td>Limited</td></tr>
-            <tr><td>Visual builder</td><td>Excellent</td><td>Good</td><td>Good</td></tr>
-            <tr><td>Self-hostable</td><td>Yes (open source)</td><td>Yes</td><td>No</td></tr>
-            <tr><td>AI components</td><td>200+ native</td><td>~50 via integrations</td><td>~20</td></tr>
-            <tr><td>Cost</td><td>Free (self-host)</td><td>Free (self-host)</td><td>From $20/mo</td></tr>
-        </table>
-        <p><strong>What it runs on:</strong> Node.js backend, React frontend. Works with any LLM (OpenAI, Anthropic, local models via Ollama).</p>
-        <p><strong>How hard to use:</strong> If you can use a flowchart tool, you can use Flowise. The learning curve is about 30 minutes to build your first workflow. Self-hosting takes about 10 minutes with Docker.</p>
-        <p><strong>Honest caveat:</strong> For very complex workflows, you might hit limitations. But for 90% of use cases, it's more than enough.</p>
-    </details>
-
-    <div class="watch-block">
-        <strong>🔭 Watch for:</strong> If Flowise keeps climbing the GitHub trending charts, it's becoming the default no-code AI tool. Also watch for more template contributions from the community — that's a sign of a healthy ecosystem.
-    </div>
-
-    <div class="jargon">
-        <strong>Jargon decoder:</strong> <strong>RAG</strong> = Retrieval-Augmented Generation — a way to give AI models access to your specific documents. <strong>Node</strong> = in Flowise, a node is a single step in your workflow (like "summarize" or "send email").
-    </div>
-
-    <div class="who">
-        <strong>Who's talking:</strong>
-        <ul>
-            <li>GitHub: +3,400 stars in 7 days (now at 28k total)</li>
-            <li>HN: Front page for 1 day, 156 comments</li>
-            <li>Indie Hackers: Multiple posts about people building businesses on Flowise workflows</li>
-        </ul>
-    </div>
-
-    <div class="links">
-        <strong>Try it / dig in:</strong><br>
-        <a href="https://flowiseai.com">Flowise Website</a><br>
-        <a href="https://github.com/FlowiseAI/Flowise">GitHub Repo</a><br>
-        <a href="https://news.ycombinator.com/item?id=12345680">HN Discussion</a>
-    </div>
-</article>
-
-<aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
-    <ul>
-        <li>
-            <span class="days">Day 4</span>
-            <div><span class="item-name">opencode</span> <span class="update">— HN 头条出现一次（昨天没出现），star 涨幅放缓但仍 #1 momentum；no new KOL endorsement.</span></div>
-        </li>
-        <li>
-            <span class="days">Day 2</span>
-            <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN 分数 311 → 612 → 平稳；DeepSeek 官方文档现已收录.</span></div>
-        </li>
-    </ul>
-</aside>
-
-<section class="killed">
-    <h2>📊 今天没选进来的</h2>
-    <table>
-        <tr><th>Story</th><th>Why it didn't make it</th></tr>
-        <tr><td>OpenAI's new "GPT-5.2" benchmark results</td><td>Benchmark micro-improvements — no practical implication for clawii's work</td></tr>
-        <tr><td>Anthropic's enterprise pricing update</td><td>Pricing news, no new capability shipped this week</td></tr>
-        <tr><td>AI startup "Nebula" raises $200M</td><td>Funding round, no usable product shipped</td></tr>
-        <tr><td>EU AI Act amendment proposal</td><td>Policy debate — excluded by hard filters</td></tr>
-        <tr><td>Chinese AI company "Zhipu" releases new model</td><td>Already covered by Chinese-language outlets (量子位)</td></tr>
-    </table>
-</section>
-
-<div class="pager" data-current-date="2026-09-13">
-    <a href="2026-09-12.html" class="prev">← 2026-09-12</a>
-    <a href="2026-09-14.html" class="next">2026-09-14 →</a>
-</div>
-
-<div class="footer">
-    <div class="issue-num">AI Radar · Issue №109</div>
-    <p>Generated 2026-09-13 · Sources: Smol AI, OSSInsight, HN, X (10 KOLs), Anthropic + OpenAI changelogs</p>
-    <p>Signal rules: OR-logic · Hard filters applied · 3-item cap enforced</p>
-</div>
-
-<script>
-(function() {
-    const currentDate = '2026-09-13';
-    const currentIssue = 109;
-    const pagerBlocks = document.querySelectorAll('.pager[data-current-date]');
-    
-    fetch('./archive.json')
-        .then(r => r.json())
-        .then(data => {
-            const issues = data.issues;
-            const currentIndex = issues.findIndex(i => i.date === currentDate);
-            
-            pagerBlocks.forEach(block => {
-                const prevLink = block.querySelector('.prev');
-                const nextLink = block.querySelector('.next');
-                
-                if (currentIndex > 0) {
-                    const prev = issues[currentIndex - 1];
-                    prevLink.href = prev.url;
-                    prevLink.textContent = '← ' + prev.date;
-                } else {
-                    prevLink.style.opacity = '0.3';
-                    prevLink.style.pointerEvents = 'none';
-                }
-                
-                if (currentIndex < issues.length - 1) {
-                    const next = issues[currentIndex + 1];
-                    nextLink.href = next.url;
-                    nextLink.textContent = next.date + ' →';
-                } else {
-                    nextLink.style.opacity = '0.3';
-                    nextLink.style.pointerEvents = 'none';
-                }
-            });
-        })
-        .catch(err => console.error('Failed to load archive.json:', err));
-})();
-</script>
-
+    <script>
+        (function() {
+            const currentDate = '2026-09-13';
+            fetch('./archive.json')
+                .then(r => r.json())
+                .then(data => {
+                    const issues = data.issues || [];
+                    const idx = issues.findIndex(i => i.date === currentDate);
+                    if (idx === -1) return;
+                    const prev = idx < issues.length - 1 ? issues[idx + 1] : null;
+                    const next = idx > 0 ? issues[idx - 1] : null;
+                    document.querySelectorAll('.pager').forEach(p => {
+                        const links = p.querySelectorAll('a');
+                        if (links.length >= 2) {
+                            if (prev) { links[0].href = prev.url; links[0].textContent = '← ' + prev.date; }
+                            else { links[0].style.opacity = '0.3'; links[0].style.pointerEvents = 'none'; }
+                            if (next) { links[1].href = next.url; links[1].textContent = next.date + ' →'; }
+                            else { links[1].style.opacity = '0.3'; links[1].style.pointerEvents = 'none'; }
+                        }
+                    });
+                })
+                .catch(() => {});
+        })();
+    </script>
 </body>
 </html>
