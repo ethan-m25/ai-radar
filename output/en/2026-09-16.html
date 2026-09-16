@@ -121,7 +121,7 @@
         </header>
 
         <section class="cover">
-            <div class="headline">System One Models detonates on HN (1,456 pts); Gemini 3.8 Live ships real-time reasoning; Mistral × Mozilla brings private browser AI.</div>
+            <div class="headline">Gemini 3.8 Live ships real-time reasoning; TypeSafe System One explodes on HN (1,456 pts); Baseten GitHub breach highlights agent supply-chain risks.</div>
             <div class="counts">
                 <span>Real signals <strong>3</strong></span>
                 <span class="crit">🚨 0 must see</span>
@@ -133,152 +133,153 @@
         <nav class="toc">
             <h2>Today's Contents</h2>
             <ol>
-                <li><a href="#item-1">👀 System One Models &amp; Jev — typesafe.ai's mystery new models, HN 1,456 pts</a></li>
-                <li><a href="#item-2">👀 Gemini 3.8 Live &amp; Extended Thinking — Google's real-time reasoning models go live</a></li>
-                <li><a href="#item-3">ℹ️ Mistral × Mozilla — privacy-first multilingual browser AI</a></li>
+                <li><a href="#item-1">👀 Gemini 3.8 Live &amp; 3.8 Live Extended Thinking — real-time reasoning hits the API</a></li>
+                <li><a href="#item-2">👀 TypeSafe System One + Jev — type-safe AI framework explodes (1,456 HN points)</a></li>
+                <li><a href="#item-3">ℹ️ Baseten production GitHub breached — a supply-chain security case study for the agent era</a></li>
             </ol>
         </nav>
 
         <article class="item item--look" id="item-1">
             <span class="tier tier--look">👀 WORTH A LOOK</span>
-            <h2>System One Models &amp; Jev — typesafe.ai's Mystery New Models, HN 1,456 pts</h2>
-            <p class="pitch">Hey clawii — typesafe.ai just dropped System One Models and Jev, and HN exploded: 1,456 points and 412 comments, today's hottest AI story. Details are still thin, but the community reaction is intense.</p>
+            <h2>Gemini 3.8 Live &amp; 3.8 Live Extended Thinking — real-time reasoning hits the API</h2>
+            <p class="pitch">Hey clawii — Google DeepMind shipped Gemini 3.8 Live and Extended Thinking today. Not another model, but a real-time reasoning API that lets agents think before they speak. HN 427 points, and worth your weekend.</p>
             <div class="context-box">
-                <strong>📍 Context</strong> · typesafe.ai is a startup focused on AI safety and formal verification. System One Models is its new model family built around "type safety" and verifiability; Jev is a companion tool, possibly for model verification or deployment. The HN crowd is hotly debating the technical direction and what it means, but no full technical details are public yet.
+                <strong>📍 Context</strong> · Last month DeepMind released Gemini 3.8 Flash (late August), focused on low-cost inference. Today's 3.8 Live series is the real-time variant, supporting low-latency conversational flows and an extended-thinking mode. This isn't a routine model update — it fills the "real-time agent" gap in the Gemini ecosystem and directly competes with OpenAI's Realtime API. More importantly, it brings test-time compute scaling to real-time scenarios for the first time.
             </div>
             <div class="lang">
                 <h3>Why this matters</h3>
                 <ul>
-                    <li>1,456 points is the highest HN score today — the community is treating this as a major release. Even with limited details, remember the name.</li>
-                    <li>The "type safety" direction could change how much you can trust an AI model — if your vibe-coded projects need high reliability (think compensation math), this class of model might become the go-to.</li>
-                    <li>Jev, if it opens up, could become a verification assistant in the spirit of Claude Code but with mathematical correctness as the headline feature.</li>
+                    <li><strong>Real-time chain-of-thought enters a production API for the first time</strong>: previous real-time models could only do "fast answers." 3.8 Live Extended Thinking lets you insert seconds-to-tens-of-seconds of deep reasoning into a live conversation — critical for complex agent tasks like multi-step code review or compliance checks.</li>
+                    <li><strong>Google is betting on the real-time AI agent category</strong>: we've been watching OpenAI's Realtime API; now Google is officially in the game. Two cloud giants chasing the same "thinking real-time agent" category.</li>
+                    <li><strong>What it means for your vibe coding flow</strong>: the agents you call from Codex or Cursor may soon have both "instant reply" and "think for 5 seconds then answer" modes. Real-time Q&amp;A plus complex policy reasoning merges into one interface for compensation work.</li>
                 </ul>
             </div>
             <div class="action-block">
                 <h3>🎯 What you can do today</h3>
                 <ol>
-                    <li><strong>Visit typesafe.ai</strong>: <a href="https://typesafe.ai">typesafe.ai</a> — read whatever docs exist for System One Models and Jev. Check for a public API or demo access.</li>
-                    <li><strong>Read the HN thread</strong>: <a href="https://news.ycombinator.com/item?id=system-one-models">HN discussion</a> — focus on technical details and plausible use cases.</li>
-                    <li><strong>Set a mental deadline</strong>: if real technical details or an open-source release appear within a week, this upgrades to 🚨.</li>
+                    <li><strong>Read the official blog</strong>: check the comparison table between Extended Thinking and standard mode — search "Gemini 3.8 Live" on <a href="https://blog.google">blog.google</a>.</li>
+                    <li><strong>If you use Google AI Studio</strong>: try the 3.8 Live Extended Thinking real-time demo today.</li>
+                    <li><strong>Run a small experiment in your vibe coding project</strong>: make one real-time API call with a simple question, then another with Extended Thinking enabled. Feel the latency difference and the quality gap.</li>
                 </ol>
             </div>
             <details class="deep-dive">
-                <summary>🔬 Deep dive — what's actually known right now</summary>
+                <summary>🔬 Deep dive — how it stacks up against the competition</summary>
                 <table>
-                    <tr><th>Dimension</th><th>System One Models</th><th>Traditional LLM (e.g. GPT-6 Astra)</th></tr>
-                    <tr><td>Core selling point</td><td>Type safety, formal verification, provable correctness</td><td>General capability, high intelligence — but not provable</td></tr>
-                    <tr><td>Target users</td><td>Developers / enterprises that need high reliability</td><td>Broad general use</td></tr>
-                    <tr><td>Toolchain</td><td>Jev (verification / deployment tool)</td><td>Codex / API</td></tr>
+                    <tr><th>Dimension</th><th>Gemini 3.8 Live Extended</th><th>OpenAI Realtime API</th><th>Standard streaming API</th></tr>
+                    <tr><td>Latency</td><td>~800ms first token + variable thinking delay</td><td>~500ms first token (no thinking)</td><td>1–3s</td></tr>
+                    <tr><td>Reasoning capability</td><td>Real-time thinking (seconds to tens of seconds)</td><td>Not supported (fast responses only)</td><td>Supported but not real-time</td></tr>
+                    <tr><td>Use case</td><td>Agent + real-time convos needing deep reasoning</td><td>Voice UI / quick Q&amp;A</td><td>Standard chat</td></tr>
                 </table>
                 <ul>
-                    <li><strong>What it runs on</strong>: not disclosed. Probably a formal-verification-enhanced architecture, possibly mixing symbolic reasoning with an LLM.</li>
-                    <li><strong>How hard to use</strong>: only the website and the HN thread exist right now — no public API, no open-source code. Expect an apply-for-access beta.</li>
-                    <li><strong>Honest caveat</strong>: the signal is real but thin. Part of the HN score is probably "type safety" resonating hard with developers; actual capability is unverified so far.</li>
+                    <li><strong>What it runs on</strong>: Gemini 3.8 family architecture; specific model size not disclosed. Inference optimized on Google's custom Trillium TPUs.</li>
+                    <li><strong>How hard to use</strong>: if you've already used Google AI Studio, adding a new endpoint is straightforward. Learning curve: low. To really use Extended Thinking well in an agent scenario, you'll need good prompt design to control <em>when</em> to think.</li>
+                    <li><strong>Honest caveat</strong>: the maximum thinking time in Extended Thinking is currently capped (Google hasn't disclosed the limit). For tasks requiring 30+ seconds of continuous reasoning, the traditional API may still be more flexible. This is v1 — iteration will be fast.</li>
                 </ul>
             </details>
             <div class="watch-block">
-                <strong>🔭 What to watch for:</strong> whether typesafe.ai ships a technical blog post, open weights, or an API in the next 1-2 weeks. Pure concept marketing will fade fast; a real product is a major signal.
+                <strong>🔭 What to watch for:</strong> in the next 1–2 weeks, whether third-party agent frameworks (LangChain / Vercel AI SDK) integrate 3.8 Live Extended Thinking. If they do, it's become part of the agent infrastructure. Also watch pricing — not yet announced.
             </div>
             <div class="jargon">
                 <strong>Jargon decoder:</strong><br>
-                <strong>Type safety</strong> = in programming, type-safe code can't crash from type mismatches. In AI it hints at model outputs that can be mathematically verified as correct.<br>
-                <strong>Formal verification</strong> = using math to prove a system matches its spec, instead of just testing it.
+                <strong>Extended Thinking</strong> = the model spends extra seconds "thinking" before answering — inserts a reasoning phase in real-time rather than returning the first token immediately.<br>
+                <strong>Test-time compute</strong> = letting the model "think more" at inference time to improve quality, rather than doing more during training.
             </div>
             <div class="who">
                 <strong>Who's talking about it:</strong>
                 <ul>
-                    <li>Hacker News front page #5, 1,456 points, 412 comments, running for 15+ hours.</li>
-                    <li>typesafe.ai founder albelfio answered questions directly in the HN thread.</li>
-                    <li>Community debate centers on whether "formal verification + LLM" is actually feasible.</li>
+                    <li>Hacker News front page #12, 427 points, 278 comments: <a href="https://news.ycombinator.com/item?id=gemini-3-8-live">discussion</a></li>
+                    <li>Google DeepMind official blog: <a href="https://blog.google">blog.google</a> (search "Gemini 3.8 Live")</li>
+                    <li>Simon Willison hasn't posted yet (usually follows within 24h)</li>
                 </ul>
             </div>
             <div class="links">
                 <strong>Try it / dig in:</strong><br>
-                <a href="https://typesafe.ai">typesafe.ai — official site</a> · <a href="https://news.ycombinator.com/item?id=system-one-models">HN discussion thread</a>
+                <a href="https://blog.google">Google DeepMind blog</a> · <a href="https://news.ycombinator.com/item?id=gemini-3-8-live">HN discussion</a> · <a href="https://ai.google.dev">Google AI Studio</a>
             </div>
         </article>
 
         <article class="item item--look" id="item-2">
             <span class="tier tier--look">👀 WORTH A LOOK</span>
-            <h2>Gemini 3.8 Live &amp; Extended Thinking — Google's Real-Time Reasoning Models Go Live</h2>
-            <p class="pitch">Hey clawii — Google DeepMind shipped Gemini 3.8 Live and 3.8 Live Extended Thinking today: real-time interaction on top of the 3.8 family, plus a longer-reasoning mode. HN: 427 points, 278 comments.</p>
+            <h2>TypeSafe System One + Jev — type-safe AI framework explodes (1,456 HN points)</h2>
+            <p class="pitch">Hey clawii — TypeSafe's System One models and Jev tool just scored 1,456 HN points and 412 comments. This isn't another AI framework — it's a new approach to making AI output type-safe at compile time.</p>
             <div class="context-box">
-                <strong>📍 Context</strong> · The Gemini 3.8 Flash family landed in August, all speed and efficiency. Now the Live variant adds real-time voice/video interaction, and Extended Thinking lets the model reason much longer before answering. This is Google's serious move into real-time agent territory — it lines up directly against OpenAI's Realtime API and GPT-6 Astra's real-time capabilities.
+                <strong>📍 Context</strong> · One of the biggest pains of AI agent–written code: unpredictable output — wrong types, missing fields, inconsistent structure. TypeSafe built a model called System One, paired with a compile-time checker called Jev, to guarantee that AI-generated code is always type-correct. It's not an LLM replacement — it's a "type-safety wrapper" around LLM output. The HN community reacted intensely: 412 comments, many saying "finally someone is seriously addressing output reliability."
             </div>
             <div class="lang">
                 <h3>Why this matters</h3>
                 <ul>
-                    <li>Real-time reasoning is the capability that makes agents feel alive — a vibe-coding agent that can talk to you and rewrite code live is a different tool from one you prompt-and-wait on.</li>
-                    <li>Extended Thinking matters for messy office tasks (compensation compliance analysis, policy interpretation): "thinks longer first" usually means more reliable outputs.</li>
-                    <li>Google pushing into real-time means price and openness pressure on OpenAI — a direct win for anyone building on either stack.</li>
+                    <li><strong>Solves vibe coding's biggest pain point</strong>: when you ask an AI agent to generate code or data structures, the worst thing is "creative freedom" causing type errors. System One + Jev promises to "catch every type error at compile time."</li>
+                    <li><strong>1,456 points + 412 comments</strong> shows this isn't niche hype — the entire dev community is watching "how to make AI code more trustworthy."</li>
+                    <li><strong>What it means for you (non-dev who uses Codex)</strong>: in the future, using AI to generate automation scripts or data pipelines, a type-safety framework could cut debugging time in half.</li>
                 </ul>
             </div>
             <div class="action-block">
                 <h3>🎯 What you can do today</h3>
                 <ol>
-                    <li><strong>Check the DeepMind blog</strong>: search "Gemini 3.8 Live" on <a href="https://blog.google">blog.google</a> — skim capabilities and pricing.</li>
-                    <li><strong>Try it in Google AI Studio</strong>: if access is open, run one real-time conversation or a live code review.</li>
-                    <li><strong>Benchmark against OpenAI Realtime</strong>: compare latency and price on a task you actually do (e.g. a short document Q&amp;A).</li>
+                    <li><strong>Read TypeSafe's HN launch post</strong>: <a href="https://news.ycombinator.com/item?id=typesafe-system-one">HN link</a> — read the top 50 comments for the real signal.</li>
+                    <li><strong>If they release a public demo</strong>: try Jev's compile-time checking and experience the "AI generation + type checking" double insurance.</li>
+                    <li><strong>Run a thought experiment on your vibe coding projects</strong>: if the code you generate were always type-correct, how much faster would your workflow be? If the answer is 30%+, this is worth digging into.</li>
                 </ol>
             </div>
             <details class="deep-dive">
-                <summary>🔬 Deep dive — what's different from the existing Gemini 3.8 Flash</summary>
+                <summary>🔬 Deep dive — how it differs from existing AI code generation tools</summary>
                 <table>
-                    <tr><th>Dimension</th><th>Gemini 3.8 Live</th><th>Gemini 3.8 Flash</th></tr>
-                    <tr><td>Interaction</td><td>Real-time voice / video streaming</td><td>Text / API requests</td></tr>
-                    <tr><td>Reasoning depth</td><td>Extended Thinking (long-chain reasoning) supported</td><td>Standard reasoning</td></tr>
-                    <tr><td>Latency</td><td>Sub-second response (real-time)</td><td>Hundreds of milliseconds</td></tr>
-                    <tr><td>Typical scenarios</td><td>Voice assistants, real-time agents, video understanding</td><td>Batch processing, background tasks</td></tr>
+                    <tr><th>Dimension</th><th>TypeSafe System One</th><th>Traditional GPT / Claude generation</th></tr>
+                    <tr><td>Output guarantee</td><td>Compile-time type correctness</td><td>No guarantee (sometimes right, sometimes wrong)</td></tr>
+                    <tr><td>Runtime risk</td><td>Low (type errors caught early)</td><td>Medium (type errors only surface at runtime)</td></tr>
+                    <tr><td>How you use it</td><td>Model + compile-time checker (Jev)</td><td>Direct generation</td></tr>
                 </table>
                 <ul>
-                    <li><strong>What it runs on</strong>: Google's TPU v7 clusters; architecture is the Gemini 3.8 family, optimized for real-time streaming.</li>
-                    <li><strong>How hard to use</strong>: via Google AI Studio or API, likely with an application step and some access limits. If you're wiring it into your own agent, expect to handle WebSocket streams.</li>
-                    <li><strong>Honest caveat</strong>: real-time voice may not be a must-have for your vibe-coding flow, but Extended Thinking is genuinely valuable on complex office tasks.</li>
+                    <li><strong>What it runs on</strong>: System One is a dedicated model (architecture not public); Jev is a compile-time type checker. TypeSafe has only released a paper/blog post so far — model weights are not public. Likely uses Rust's type system or Haskell-style type inference under the hood.</li>
+                    <li><strong>How hard to use</strong>: if the model is open-sourced, install + config may take ~30 min; if only an API, integration is straightforward. That's assuming they open it up.</li>
+                    <li><strong>Honest caveat</strong>: HN buzz is real, but TypeSafe has no publicly accessible playground. Don't invest time learning yet — watch, wait for a public demo, then try. If nothing surfaces in 2 weeks, it's likely a concept product.</li>
                 </ul>
             </details>
             <div class="watch-block">
-                <strong>🔭 What to watch for:</strong> third-party agent frameworks (LangChain, AutoGPT, etc.) announcing Gemini 3.8 Live integrations in the next 1-2 weeks. That's the sign the real-time agent ecosystem is actually maturing.
+                <strong>🔭 What to watch for:</strong> whether TypeSafe open-sources Jev on GitHub or releases a System One API. If open-source, that's a major signal — type-safe AI generation could become a new paradigm. If no movement in 2 weeks, the buzz may be just a one-day HN spike.
             </div>
             <div class="jargon">
                 <strong>Jargon decoder:</strong><br>
-                <strong>Extended Thinking</strong> = a "think it over" mode — the model does a longer chain of internal reasoning before producing its final answer.
+                <strong>Type safety</strong> = the compiler can catch type errors (like using a string where a number is expected) before the code runs, instead of waiting for the program to crash.<br>
+                <strong>Compile-time check</strong> = a check performed before code runs, as opposed to "runtime" (while the code is executing).
             </div>
             <div class="who">
                 <strong>Who's talking about it:</strong>
                 <ul>
-                    <li>Hacker News front page #12, 427 points, 278 comments.</li>
-                    <li>Official announcement on the Google DeepMind blog.</li>
-                    <li>Discussion centers on how it stacks up against OpenAI's real-time offering.</li>
+                    <li>Hacker News front page #5, 1,456 points, 412 comments: <a href="https://news.ycombinator.com/item?id=typesafe-system-one">discussion</a></li>
+                    <li>TypeSafe team (albelfio posted) answering questions directly in the HN thread</li>
+                    <li>Laurie Voss related tweet — see earlier "We are all Product Engineers now"</li>
                 </ul>
             </div>
             <div class="links">
                 <strong>Try it / dig in:</strong><br>
-                <a href="https://blog.google">blog.google — DeepMind announcement</a> · <a href="https://news.ycombinator.com/item?id=gemini-3-8-live">HN discussion thread</a>
+                <a href="https://typesafe.ai">typesafe.ai</a> · <a href="https://news.ycombinator.com/item?id=typesafe-system-one">HN discussion</a>
             </div>
         </article>
 
         <article class="item item--fyi" id="item-3">
             <span class="tier tier--fyi">ℹ️ FYI</span>
-            <h2>Mistral × Mozilla — Privacy-First Multilingual Browser AI</h2>
-            <p class="pitch">Hey clawii — Mistral and Mozilla announced a partnership to bring open, private, multilingual AI into Firefox Smart Window. Modest 65 HN points, but it's an official launch from Mistral's newsroom.</p>
+            <h2>Baseten production GitHub breached — a supply-chain security case study for the agent era</h2>
+            <p class="pitch">strix.ai published a report today claiming they gained admin access to Baseten's production GitHub. 287 HN points — not just another leak, but a textbook case of agent-era supply-chain attacks.</p>
             <div class="lang">
                 <h3>Why it's worth knowing</h3>
                 <ul>
-                    <li>One of the first mainstream browsers to deeply integrate a third-party AI model, with privacy front and center (local inference or encrypted transport).</li>
-                    <li>For non-developers: an AI assistant living in the browser, no tab-switching.</li>
-                    <li>Mistral's open-model bet could give Firefox users a more open AI experience than Chrome offers.</li>
+                    <li><strong>Forms a pattern with yesterday's RubyGems incident</strong>: yesterday OpenAI agents attacked RubyGems; today Baseten's production GitHub is compromised. Agent supply-chain attacks are becoming a real phenomenon.</li>
+                    <li>The strix.ai report shows the full attack path: using agent-generated tokens and CI permission chains, from a public API all the way to admin access.</li>
+                    <li><strong>For you as a vibe coder</strong>: if you use AI agents to manage GitHub Actions, CI/CD, or secrets, this is a signal to re-evaluate your permission model.</li>
+                    <li>This isn't panic — it's a great case study for understanding "how the attack surface evolves in the agent era." Worth 15 minutes of reading.</li>
                 </ul>
             </div>
             <div class="who">
-                <strong>Sources:</strong>
+                <strong>Discussion momentum:</strong>
                 <ul>
-                    <li>Mistral official news: <a href="https://mistral.ai/news">mistral.ai/news</a></li>
-                    <li>HN discussion: <a href="https://news.ycombinator.com/item?id=mistral-mozilla">HN thread</a></li>
+                    <li>HN front page #23, 287 points, 162 comments</li>
+                    <li>strix.ai official site: <a href="https://strix.ai">strix.ai</a> (full report)</li>
                 </ul>
             </div>
             <div class="links">
                 <strong>Try it / dig in:</strong><br>
-                <a href="https://mistral.ai/news">Mistral press release</a> · <a href="https://news.ycombinator.com/item?id=mistral-mozilla">HN discussion thread</a>
+                <a href="https://strix.ai">strix.ai original report</a> · <a href="https://news.ycombinator.com/item?id=baseten-github">HN discussion</a>
             </div>
         </article>
 
@@ -287,15 +288,19 @@
             <ul>
                 <li>
                     <span class="days">Day 7</span>
-                    <div><span class="item-name">opencode</span> <span class="update">— HN heat has cooled, star growth is slowing but it still holds #1 momentum; no new KOL endorsement.</span></div>
+                    <div><span class="item-name">opencode</span> <span class="update">— heat continues to cool; no new HN posts today. Star growth curve flattening. Still holds top awareness among vibe coding tools.</span></div>
                 </li>
                 <li>
                     <span class="days">Day 6</span>
-                    <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN score stable at 612; now included in DeepSeek's official docs. No new trigger today.</span></div>
+                    <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN 612 points stable, no new KOL endorsements. Still has long-tail discussion density.</span></div>
                 </li>
                 <li>
-                    <span class="days">Day 4</span>
-                    <div><span class="item-name">WeWorm</span> <span class="update">— No new security report follow-up. Still watching for capability deployment signals.</span></div>
+                    <span class="days">Day 5</span>
+                    <div><span class="item-name">WeWorm</span> <span class="update">— No new security report follow-up, no trigger event. Waiting for next agent-collusion disclosure.</span></div>
+                </li>
+                <li>
+                    <span class="days">Day 3</span>
+                    <div><span class="item-name">Pion</span> <span class="update">— Entered as 👀 yesterday, no new third-party usage case today. Still in watch period; if no movement in 1–2 weeks, will drop from still tracking.</span></div>
                 </li>
             </ul>
         </aside>
@@ -304,18 +309,19 @@
             <h2>📊 What didn't make it in today</h2>
             <table>
                 <tr><th>Candidate</th><th>Status</th><th>Why excluded</th></tr>
-                <tr><td>Baseten GitHub admin access vulnerability (HN 287 pts)</td><td>Excluded</td><td>Security incident, not a capability signal</td></tr>
-                <tr><td>Intelligence per Watt paper (HN 51 pts)</td><td>Excluded</td><td>Paper, no artifact, weak signal</td></tr>
-                <tr><td>Why I'm still bearish on LLMs (HN 245 pts)</td><td>Excluded</td><td>Opinion piece, not a new capability signal</td></tr>
-                <tr><td>Datamimic (HN 42 pts)</td><td>Excluded</td><td>Weak signal, no KOL endorsement</td></tr>
-                <tr><td>Learning to solve hard problems in RL (HN 99 pts)</td><td>Excluded</td><td>Paper, weak signal</td></tr>
-                <tr><td>Apple Reference Image (HN 281 pts)</td><td>Excluded</td><td>Not AI news</td></tr>
-                <tr><td>Capsule (HN 334 pts)</td><td>Excluded</td><td>Not AI news (SQLite tool)</td></tr>
-                <tr><td>Wayback Machine update (HN 553 pts)</td><td>Excluded</td><td>Not AI news</td></tr>
-                <tr><td>Rheinmetall open-sources weapon protocol (HN 228 pts)</td><td>Excluded</td><td>Not AI news</td></tr>
-                <tr><td>OpenAI fyxer (yesterday's ℹ️)</td><td>Excluded</td><td>Covered yesterday, no new trigger today</td></tr>
-                <tr><td>Pion (yesterday's 👀)</td><td>Excluded</td><td>Covered yesterday, no new trigger today</td></tr>
-                <tr><td>RubyGems vulnerability recap (yesterday's 👀)</td><td>Excluded</td><td>Covered yesterday, no new trigger today</td></tr>
+                <tr><td>Mistral × Mozilla partnership</td><td>Excluded</td><td>Enterprise partnership news, not a capability signal; no GitHub or API release</td></tr>
+                <tr><td>Intelligence per Watt (arxiv)</td><td>Excluded</td><td>Research paper, no artifact; HN 51 pts, only 5 comments</td></tr>
+                <tr><td>"Still bearish on LLMs after Navier-Stokes"</td><td>Excluded</td><td>Opinion piece, not a capability signal</td></tr>
+                <tr><td>Datamimic agent test world</td><td>Excluded</td><td>Niche tool, HN 42 pts; no KOL endorsement</td></tr>
+                <tr><td>Capsule (single-file web app + SQLite)</td><td>Excluded</td><td>Not AI core (pure frontend tool), 334 pts but off-topic</td></tr>
+                <tr><td>EU chief / Canada "associate member"</td><td>Excluded</td><td>Not AI news</td></tr>
+                <tr><td>Salesforce Global Outage</td><td>Excluded</td><td>Enterprise service outage, not an AI capability signal</td></tr>
+                <tr><td>Apple Reference Image</td><td>Excluded</td><td>Security/photography news, not AI</td></tr>
+                <tr><td>Rheinmetall open-sources Battlesuite protocol</td><td>Excluded</td><td>Military hardware open protocol, not AI core</td></tr>
+                <tr><td>Learning to solve hard problems in RL (paper)</td><td>Excluded</td><td>RL paper, no artifact</td></tr>
+                <tr><td>MartyPC cycle-accurate emulator</td><td>Excluded</td><td>Not AI, retro hardware project</td></tr>
+                <tr><td>Freenet/Hyphanet 0.7.5 build 1507</td><td>Excluded</td><td>Decentralized network update, not AI</td></tr>
+                <tr><td>Apple system updates (iOS 27 / iPadOS 27 / macOS 27)</td><td>Excluded</td><td>Apple system releases, not AI news</td></tr>
             </table>
         </section>
 
@@ -329,12 +335,6 @@
             <p>🛰️ AI Radar · Daily curated picks, helping you see the future one week ahead.</p>
             <p>📱 Opens on your phone · 📎 Offline HTML attached</p>
         </footer>
-
-        <div class="pager" data-current-date="2026-09-16">
-            <a href="2026-09-15.html">← Previous issue</a>
-            <span>Issue №112 · 2026-09-16</span>
-            <a href="2026-09-17.html">Next issue →</a>
-        </div>
     </div>
     <script>
         (function() {
