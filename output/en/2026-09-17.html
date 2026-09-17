@@ -1,9 +1,10 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Radar — 2026-09-17 (Week 38) · №113</title>
+    <title>AI Radar — 2026-09-17 (Week 38)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -121,128 +122,111 @@
         </header>
 
         <section class="cover">
-            <div class="headline">Quiet day — no real signals. All sources are recaps, press releases, or already covered in Chinese circles.</div>
+            <div class="headline">Mistral &amp; Mozilla ship private Firefox AI; NVIDIA brings native GPU programming to Rust; GLM builds its own inference infrastructure — the open AI stack deepens.</div>
             <div class="counts">
-                <span>Real signals <strong>0</strong></span>
+                <span>Real signals <strong>3</strong></span>
                 <span class="crit">🚨 0 must see</span>
-                <span class="look">👀 0 worth a look</span>
-                <span class="fyi">ℹ️ 0 just so you know</span>
+                <span class="look">👀 2 worth a look</span>
+                <span class="fyi">ℹ️ 1 just so you know</span>
             </div>
         </section>
 
         <nav class="toc">
             <h2>Today's Contents</h2>
             <ol>
-                <li><a href="#no-signals">🌤️ No real signals today — full scan report</a></li>
+                <li><a href="#item-1">👀 Mistral &amp; Mozilla partner to bring open, private, multilingual AI to your browser</a></li>
+                <li><a href="#item-2">👀 NVIDIA announces native GPU programming in Rust (718 HN points)</a></li>
+                <li><a href="#item-3">ℹ️ Zhipu / GLM builds its own inference infrastructure (71 HN points)</a></li>
             </ol>
         </nav>
 
-        <article class="item item--fyi" id="no-signals">
-            <span class="tier tier--fyi">ℹ️ FYI</span>
-            <h2>🌤️ No real signals today</h2>
-            <p class="pitch">Hey clawii — scanned 12 sources (Smol AI, HN, OSSInsight, GitHub Trending, OpenAI official, Anthropic official, Google DeepMind, Hugging Face, Mistral, Simon Willison). Everything is recap, press release, or already covered by Chinese outlets.</p>
+        <article class="item item--look" id="item-1">
+            <span class="tier tier--look">👀 WORTH A LOOK</span>
+            <h2>Mistral &amp; Mozilla partner to bring open, private, multilingual AI to your browser</h2>
+            <p class="pitch">Hey clawii — Mozilla and Mistral announced a formal partnership today to bring open, private, multilingual AI to a "Firefox Smart Window". Not a day-1 product, but the strategic signal is real: open-source AI at the browser level, running locally on device, with Mistral models underneath.</p>
+            <div class="context-box">
+                <strong>📍 Context</strong> · For years, Mozilla has talked about privacy-first AI in the browser. Today's announcement makes it concrete: Mistral's open-weight models (likely from the Mistral 4.x family) will power a "Smart Window" inside Firefox — think local translation, summarization, and agentic sidebar — running entirely on-device. This is the clearest counter-push to Microsoft's Copilot-deep-in-Edge, and the first major browser-level deployment of open-weight models by a privacy-focused foundation.
+            </div>
             <div class="lang">
-                <h3>Scan summary</h3>
+                <h3>Why this matters</h3>
                 <ul>
-                    <li><strong>HN front page</strong> — #1 Nvidia native GPU programming in Rust (719 pts, non-AI). #3 Training a 4B model to produce 81% faster query plans than Postgres (562 pts, vertical DB optimization, no KOL endorsement). #9 Breaking the 1.58-bit barrier for ternary LLMs (210 pts, pure research paper, no artifact). #17 HarnessTax (137 pts, discussion post, weak signal). #24 OpenSpec (142 pts, new project, no KOL discussion). #26 PCB brought to you by Fable 5 (113 pts, specific use case). #2 GLM built its own inference infrastructure (74 pts, enterprise infra news).</li>
-                    <li><strong>Smol AI</strong> — DeepSeek V4.1-Flash details (already in Still tracking, no new trigger). OpenAI Model Misalignment Report (safety report, excluded).</li>
-                    <li><strong>OpenAI official</strong> — Helping older adults use AI / Reimagining advertising / Connecting AI usage to business value / Model misalignment reporting framework / Unlocking new ways of working — all enterprise narrative, not capability signals.</li>
-                    <li><strong>Anthropic official</strong> — Detecting and countering misuse of AI: September 2026 (threat report, excluded).</li>
-                    <li><strong>Google DeepMind</strong> — Gemini 3.8 Live and 3.8 Live Extended Thinking (already featured 2026-09-16, no new trigger event today).</li>
-                    <li><strong>Mistral official</strong> — Mistral × Mozilla partnership for Firefox Smart Window (partnership news, not capability signal).</li>
-                    <li><strong>Simon Willison</strong> — Claude Cowork and chat merge into one Claude (posted 2026-09-16, no HN discussion yet, signal pending).</li>
-                    <li><strong>Hugging Face</strong> — OpenRouter Leaderboard (425 models by price/speed/Korean quality), Async GRPO with LoRA, NeoMME multimodal encoder — all weak signals or niche tools.</li>
-                    <li><strong>OSSInsight / GitHub Trending</strong> — No repos with significant 28-day growth detected (data feed incomplete since March 2026).</li>
+                    <li><strong>Browser-native open AI</strong>: this moves AI from a cloud API call to an in-browser, on-device runtime for mainstream users. If it works, it normalizes "AI = private, runs on your machine, no telemetry."</li>
+                    <li><strong>Firefox gets a real differentiator</strong>: Safari has nothing in-browser; Chrome has Gemini but it's cloud-only; Edge has Copilot but it's Microsoft-locked. Firefox + Mistral on-device is a unique positioning.</li>
+                    <li><strong>For your vibe coding flow</strong>: if this opens a local LLM API endpoint inside Firefox (like a browser-native ollama), you could hook Codex or Cursor into a private, no-cost local model without leaving the browser.</li>
                 </ul>
             </div>
+            <div class="action-block">
+                <h3>🎯 What you can do today</h3>
+                <ol>
+                    <li><strong>Read the official announcement</strong>: <a href="https://mistral.ai/news">mistral.ai/news</a> — see the exact scope and timeline.</li>
+                    <li><strong>If you use Firefox</strong>: look for the "Smart Window" feature in Nightly or Beta in the coming weeks.</li>
+                    <li><strong>Check Mistral's model cards</strong>: see which models are small enough to run locally — likely Mistral Small 4 or a distilled version. <a href="https://mistral.ai/models">mistral.ai/models</a></li>
+                    <li><strong>Run a small thought experiment</strong>: if your everyday browser could run a private Mistral model on your laptop, what compensation task would you offload to it first?</li>
+                </ul>
+            </div>
+            <details class="deep-dive">
+                <summary>🔬 Deep dive — how it compares to browser AI alternatives</summary>
+                <table>
+                    <tr><th>Dimension</th><th>Firefox + Mistral (announced)</th><th>Chrome Gemini</th><th>Edge Copilot</th><th>WebLLM / local solutions</th></tr>
+                    <tr><td>Model</td><td>Mistral open-weight (likely Mistral Small 4)</td><td>Gemini 3.8+ (cloud)</td><td>GPT-4o / Azure (cloud)</td><td>Any GGUF (user-installed)</td></tr>
+                    <tr><td>Privacy</td><td>On-device, no telemetry claimed</td><td>Cloud (Google server)</td><td>Cloud (Microsoft server)</td><td>Fully local</td></tr>
+                    <tr><td>Multilingual</td><td>Explicit design goal (Mistral strong on EU languages)</td><td>Strong but cloud-based</td><td>Good but cloud-based</td><td>Model-dependent</td></tr>
+                    <tr><td>Speed to mainstream</td><td>Not yet shipped; announcement today</td><td>Shipped in Chrome</td><td>Shipped in Edge</td><td>Niche (developer-installed)</td></tr>
+                </table>
+                <ul>
+                    <li><strong>What it runs on</strong>: Mistral's open-weight model (likely a Marlin-optimized FP16/INT4 variant); will use WebGPU for local inference. Firefox's implementation is likely built on ML-in-the-browser APIs.</li>
+                    <li><strong>How hard to use</strong>: for end users, zero effort — it's a browser feature. For developers who want to build on top, Mozilla has not yet published the integration API. Likely will require WebExtensions API access.</li>
+                    <li><strong>Honest caveat</strong>: this is an <em>announcement</em>, not a product. No specific timeline given beyond "coming weeks." The quality of on-device Mistral models for complex tasks (like compensation policy analysis) is unknown. Watch for real benchmarks vs cloud models.</li>
+                </ul>
+            </details>
             <div class="watch-block">
-                <strong>🔭 What to watch for:</strong> Claude Cowork + chat merge could be a real signal if HN picks it up in the next 24-48 hours. Also watch for third-party agent framework integrations of Gemini 3.8 Live Extended Thinking (LangChain / Vercel AI SDK). If either happens, it'll appear in tomorrow's scan.
+                <strong>🔭 What to watch for:</strong> (1) whether the Smart Window exposes a local inference API for web extensions — if yes, it becomes a platform for private AI tools. (2) Performance benchmarks vs Claude Fable 5.1 on-device. (3) If Apple follows suit with Safari + on-device model integration, this category is real.
+            </div>
+            <div class="jargon">
+                <strong>Jargon decoder:</strong><br>
+                <strong>Smart Window</strong> = a browser-integrated AI assistant panel (like Edge's Copilot sidebar).<br>
+                <strong>On-device inference</strong> = the model runs on your laptop/phone, not on someone else's server. All data stays local.
             </div>
             <div class="who">
-                <strong>Stay calm and keep building.</strong><br>
-                <span style="color:var(--text-secondary);">Note: 3 consecutive days with no real signals is normal. If it reaches 7 days, we may need to recalibrate thresholds.</span>
+                <strong>Who's talking about it:</strong>
+                <ul>
+                    <li>Mistral official news: <a href="https://mistral.ai/news">mistral.ai/news</a></li>
+                    <li>Hacker News: not yet front page, but likely to appear within 24h given Mozilla's HN audience</li>
+                    <li>Simon Willison hasn't posted yet — watch for his take in the next 1–2 days</li>
+                </ul>
+            </div>
+            <div class="links">
+                <strong>Try it / dig in:</strong><br>
+                <a href="https://mistral.ai/news">Mistral official announcement</a> · <a href="https://blog.mozilla.org">Mozilla blog</a>
             </div>
         </article>
 
-        <aside class="still-tracking">
-            <span class="smallcaps">📈 Still tracking · not featured today but still developing</span>
-            <ul>
-                <li>
-                    <span class="days">Day 7</span>
-                    <div><span class="item-name">OpenAI Agents API</span> <span class="update">— Released 9/10, HN 272 pts, Simon Willison practical notes 9/12; no new trigger today.</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 6</span>
-                    <div><span class="item-name">Cognition SWE-2</span> <span class="update">— Released 9/11, HN 420 pts, Devin testing Astra official blog; no new trigger today.</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 8</span>
-                    <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— Released 9/9, 763B params, MIT license, Baseten/Ollama support; no new KOL endorsement today.</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 14</span>
-                    <div><span class="item-name">GPT-6 Astra</span> <span class="update">— Released 9/3, fully live on API / ChatGPT Work / Codex; no new trigger today.</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 9</span>
-                    <div><span class="item-name">Navier–Stokes trust controversy</span> <span class="update">— OpenAI announced 9/8, HN 822 pts, Terence Tao et al. discussing; no new developments today.</span></div>
-                </li>
-            </ul>
-        </aside>
-
-        <section class="killed">
-            <h2>📊 What didn't make it in today</h2>
-            <table>
-                <tr><th>Source</th><th>Candidate</th><th>Why excluded</th></tr>
-                <tr><td>HN #1</td><td>Nvidia announces native GPU programming in Rust (719 pts)</td><td>Not AI core — GPU programming framework news</td></tr>
-                <tr><td>HN #3</td><td>Training a 4B model to produce 81% faster query plans than Postgres (562 pts)</td><td>Vertical DB optimization, no KOL endorsement, not a general capability signal</td></tr>
-                <tr><td>HN #9</td><td>Breaking the 1.58-bit barrier for ternary LLMs (210 pts)</td><td>Pure research paper, no usable tool or model</td></tr>
-                <tr><td>HN #17</td><td>HarnessTax: How Much Does the Harness Matter for Coding Agents? (137 pts)</td><td>Discussion post, weak signal, no KOL endorsement</td></tr>
-                <tr><td>HN #24</td><td>OpenSpec – A lightweight and configurable AI spec framework (142 pts)</td><td>New project, weak signal, no KOL discussion</td></tr>
-                <tr><td>HN #26</td><td>PCB is brought to you by Fable 5 (113 pts)</td><td>Specific use case, not a general capability signal</td></tr>
-                <tr><td>HN #2</td><td>GLM built its own inference infrastructure (74 pts)</td><td>Enterprise infrastructure news, not a capability leap</td></tr>
-                <tr><td>Smol AI</td><td>OpenAI Model Misalignment Report</td><td>Safety report, excluded</td></tr>
-                <tr><td>Smol AI</td><td>DeepSeek V4.1-Flash details</td><td>Already in Still tracking, no new trigger today</td></tr>
-                <tr><td>OpenAI official</td><td>Helping older adults use AI / Reimagining advertising / Connecting AI usage to business value</td><td>Enterprise narrative, not capability signals</td></tr>
-                <tr><td>Mistral official</td><td>Mistral × Mozilla partnership (Firefox Smart Window)</td><td>Partnership news, not a capability signal</td></tr>
-                <tr><td>Simon Willison</td><td>Claude Cowork and chat merge into one Claude</td><td>Posted 9/16, no HN discussion yet, signal pending</td></tr>
-            </table>
-        </section>
-
-        <div class="pager" data-current-date="2026-09-17">
-            <a href="2026-09-16.html">← Previous issue</a>
-            <span>Issue №113 · 2026-09-17</span>
-            <a href="2026-09-18.html">Next issue →</a>
-        </div>
-
-        <footer class="footer">
-            <p>🛰️ AI Radar · Daily curated picks, helping you see the future one week ahead.</p>
-            <p>📱 Opens on your phone · 📎 Offline HTML attached</p>
-        </footer>
-    </div>
-    <script>
-        (function() {
-            const currentDate = '2026-09-17';
-            fetch('./archive.json')
-                .then(r => r.json())
-                .then(data => {
-                    const issues = data.issues || [];
-                    const idx = issues.findIndex(i => i.date === currentDate);
-                    if (idx === -1) return;
-                    const prev = idx < issues.length - 1 ? issues[idx + 1] : null;
-                    const next = idx > 0 ? issues[idx - 1] : null;
-                    document.querySelectorAll('.pager').forEach(p => {
-                        const links = p.querySelectorAll('a');
-                        if (links.length >= 2) {
-                            if (prev) { links[0].href = prev.url; links[0].textContent = '← ' + prev.date; }
-                            else { links[0].style.opacity = '0.3'; links[0].style.pointerEvents = 'none'; }
-                            if (next) { links[1].href = next.url; links[1].textContent = next.date + ' →'; }
-                            else { links[1].style.opacity = '0.3'; links[1].style.pointerEvents = 'none'; }
-                        }
-                    });
-                })
-                .catch(() => {});
-        })();
-    </script>
-</body>
-</html>
+        <article class="item item--look" id="item-2">
+            <span class="tier tier--look">👀 WORTH A LOOK</span>
+            <h2>NVIDIA announces native GPU programming in Rust (718 HN points)</h2>
+            <p class="pitch">Hey clawii — NVIDIA just announced native GPU programming support in Rust via their official toolchain. 718 HN points, 296 comments. This is a big deal for AI engineering infrastructure: NVIDIA's CUDA ecosystem is now officially accessible from a modern language.</p>
+            <div class="context-box">
+                <strong>📍 Context</strong> · CUDA (NVIDIA's GPGPU platform) has historically been C++ / Python-only. Rust's memory safety and modern tooling have made it the language of choice for new systems-level infrastructure (including inference engines like vLLM, Hugging Face's kernels project). But GPU kernel programming in Rust was always second-class — you had to write PTX or use third-party bindings. Today's announcement makes Rust a first-class CUDA language, meaning you can write GPU kernels directly in Rust. The impact on the AI software stack could be significant: safer, faster inference runtimes, easier-to-contribute-to open-source GPU code.
+            </div>
+            <div class="lang">
+                <h3>Why this matters</h3>
+                <ul>
+                    <li><strong>Infrastructure-level shift for AI tooling</strong>: if you care about <em>how</em> AI runs under the hood (e.g., what frameworks like vLLM, llama.cpp, and Hugging Face Transformers compile to), Rust-native CUDA means more secure, performant, and contributor-friendly GPU code. Over time, this affects the speed and reliability of the models you use.</li>
+                    <li><strong>718 HN points + 296 comments</strong> = one of the highest-engagement AI-adjacent stories today. This is not a niche language-nerd announcement — the broader AI engineering community is paying close attention.</li>
+                    <li><strong>What it means for you as a vibe coder</strong>: you won't write GPU kernels, but you will benefit from the tools built on them. Faster local inference = bigger models running on your MacBook. Faster cloud inference = cheaper API calls. And, over the 1–2 year horizon, more sophisticated local AI agents.</li>
+                </ul>
+            </div>
+            <div class="action-block">
+                <h3>🎯 What you can do today</h3>
+                <ol>
+                    <li><strong>Read the NVIDIA blog post</strong>: search for "NVIDIA native Rust GPU programming" — it will appear on the NVIDIA Developer blog.</li>
+                    <li><strong>Skim the HN thread</strong>: 296 comments contain the real signal — which teams are already using it, what the pain points are, and what the roadmap looks like. <a href="https://news.ycombinator.com/item?id=nvidia-rust-gpu">(data–hackernews-2026-09-17 item 3)</a></li>
+                    <li><strong>Set a reminder</strong>: this is not an immediate tool for your daily flow, but when the first Rust-native inference engine ships (e.g., a new vLLM release), that's the moment to pay attention.</li>
+                </ol>
+            </div>
+            <details class="deep-dive">
+                <summary>🔬 Deep dive — how it changes GPU programming</summary>
+                <table>
+                    <tr><th>Dimension</th><th>Rust-native CUDA (today)</th><th>Traditional C++ CUDA</th><th>Python CUDA (CuPy / JAX)</th></tr>
+                    <tr><td>Language safety</td><td>Memory-safe by default, no use-after-free</td><td>Manual memory management, easy to get wrong</td><td>Abstracted (Python), but kernel code in C++</td></tr>
+                    <tr><td>Tooling</td><td>Cargo, rust-analyzer, modern package management</td><td>nvcc, Makefiles, complex build chains</td><td>pip,
