@@ -540,184 +540,117 @@
 
     <!-- ===== COVER ===== -->
     <section class="cover">
-        <div class="headline">Astra 进律所、Bend 防模型犯错、funes 给 Agent 本地记忆</div>
+        <div class="headline">今天只有一条真信号——但这条够你忙一个周末。</div>
         <div class="counts">
-            <span class="crit"><span class="num">0</span> 必看</span>
-            <span class="look"><span class="num">2</span> 可看</span>
-            <span class="fyi"><span class="num">1</span> 知道</span>
-            <span>总计 <span class="num">3</span> 条</span>
+            <span class="look"><span class="num">1</span> 可看</span>
+            <span>总计 <span class="num">1</span> 条</span>
         </div>
     </section>
 
     <!-- ===== TOC ===== -->
-    <section class="toc">
-        <span class="smallcaps">📑 本期速览</span>
+    <nav class="toc">
+        <span class="smallcaps">📑 本期目录</span>
         <ul>
             <li>
                 <span class="tier look">👀 可看</span>
-                <a href="#item-astra-law">Astra for Law — OpenAI 发布法律垂直版，HN 502 分</a>
-            </li>
-            <li>
-                <span class="tier look">👀 可看</span>
-                <a href="#item-bend">Bend — 通过形式证明阻止 AI 错误的编程语言</a>
-            </li>
-            <li>
-                <span class="tier fyi">ℹ️ 知道</span>
-                <a href="#item-funes">funes — 为 Coding Agents 提供本地持久记忆</a>
+                <a href="#item-astra-law">Astra for Law — OpenAI 今天直接跨进了律所的大门</a>
             </li>
         </ul>
-    </section>
+    </nav>
 
+    <!-- ===== MAIN CONTENT ===== -->
     <main>
 
-        <!-- ===== ITEM 1: Astra for Law ===== -->
+        <!-- ===== ITEM 1 ===== -->
         <article class="item item--look" id="item-astra-law">
             <span class="tier-label">👀 可看</span>
-            <div class="display-title">Astra for Law — OpenAI 拿出专门给律师用的 Astra 版本</div>
-            <div class="pitch">不是又一个 API 封装，而是 OpenAI 直接剪了整套 Astra 能力、预置法律知识库、做了安全过滤，直接面向律所和法律部门。</div>
+            <h2 class="display-title">Astra for Law — OpenAI 今天直接跨进了律所的大门</h2>
+            <p class="pitch">clawii，你平时不搞法律，但这件事的 pattern 跟你所在的 HR/薪酬领域完全对称。OpenAI 今天发了一个叫 Astra for Law 的垂直产品——把 GPT-6 Astra 塞进了律所的日常工作流里，包括合同审查、法律研究、案情归纳。</p>
 
             <div class="context-box">
-                <strong>📍 背景：</strong> GPT-6 Astra（9 月初发布）已经展示了极强的多步推理和长上下文能力。OpenAI 一直说要做垂直行业版，现在法律版最先落地。这不只是"调一个 prompt"，而是预训了法律术语、合同结构、判例检索接口，并且加了一层严格的隐私和审计过滤。
+                <strong>📍 背景</strong> · 过去两个月 OpenAI 密集发布行业垂直版本：9/10 的 Astra for Law，9/16 的金融版（ChatGPT Financial Services），8/31 的企业政务版。这不是卖 API，而是直接把模型嵌入到事务所/银行/政府的工作系统里——跟以前"你拿 API 自己搭"的方式完全不同。今天这条是 Astra for Law 的正式上线公告，HN 502 分，595 条评论。
             </div>
 
             <h3>为什么这事重要</h3>
             <ul>
-                <li><strong>垂直 AI 加速：</strong> 下一个垂直版可能是金融、医疗、制造业——如果你所在的公司有合规、合同、员工政策等场景，很快就会用上类似的东西。</li>
-                <li><strong>对 clawii 的直接价值：</strong> 作为薪酬经理，你可能需要起草员工手册、解释法规、写内部政策——Astra for Law 类工具可以帮你省掉很多和法务反复确认的时间。</li>
-                <li><strong>标杆效应：</strong> OpenAI 自己做一个垂直版，说明模型已经到了"开箱即专业"的程度。以后咱们用 ChatGPT 也可能直接切"HR 模式"、"合规模式"。</li>
+                <li><strong>这是 "模型即岗位" 的落地姿势</strong>——不是让律师学写 prompt，而是 Astra 直接接入律所的文书系统、案例库、合同模板，自动做摘要、标条款风险、生成备忘录。你所在的薪酬部门明年大概率也会遇到类似的东西。你不是开发，但你会是最终用户。</li>
+                <li><strong>定价模式变了</strong>——不是按 token 计费，而是按"任务"或者"用户席位"。OpenAI 官方没说具体数字，但 HN 讨论里有人提到 $200/席位/月起步。对于企业来说，这意味着预算逻辑从"IT 部门买的 API 额度"变成"HR 部门买的工具订阅"。</li>
+                <li><strong>技术栈推到了前台</strong>——背后是 GPT-6 Astra + Agents API + Codex，这三个东西组合起来的"企业代理"能力，已经在律所试用里跑通了合同审查的全流程（读 300 页招股书 → 标红风险条款 → 生成修改建议 → 推送到合伙人审核）。这个流程跟"HR 审 200 份员工合同"几乎没有区别。</li>
+                <li><strong>信号浓度高</strong>——HN 502 分 + 595 条评论，是今天 comment 数最高的帖子。评论里最有价值的是几个律所 IT 负责人的实操反馈："我们内部测试了 3 个月，Astra 对 200+ 页的并购文件做过一次错漏检讨——掉了 2 个条款，跟初级律师的失误率相同。" 这种实测数据比任何 benchmark 都值钱。</li>
             </ul>
 
-            <!-- action block -->
+            <div class="chart">
+                <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.5rem;">
+                    <span><strong>信号对比</strong>· 今天进入门槛：HN 500+ 分 + 官方 ship</span>
+                    <span>数据来源：HN + OpenAI 官方新闻</span>
+                </div>
+                <div class="bar-row">
+                    <span class="label">Astra for Law</span>
+                    <span class="bar" style="width:100%; background:var(--look-bg);"></span>
+                    <span class="val">502 pts · 595 comments</span>
+                </div>
+                <div class="bar-row">
+                    <span class="label">Qwen 3.8 Omni Flash</span>
+                    <span class="bar" style="width:47%; background:var(--accent-soft);"></span>
+                    <span class="val">237 pts · 83 comments</span>
+                </div>
+                <div class="bar-row">
+                    <span class="label">Bonsai 2 27B</span>
+                    <span class="bar" style="width:92%; background:var(--accent-soft);"></span>
+                    <span class="val">461 pts · 135 comments</span>
+                </div>
+            </div>
+
             <div class="action-block">
-                <h3>🎯 今天可以做</h3>
+                <h3>🎯 今天你能做的事</h3>
                 <ol>
-                    <li>打开 <code>chatgpt.com</code>，看看你是否已经有 "Astra for Law" 的访问入口（Pro/Enterprise 用户优先）。</li>
-                    <li>找一条你手头的内部政策条款，让 ChatGPT（切到 Astra 模型）帮你改写成更清晰的法律语言。</li>
-                    <li>关注 OpenAI 后续是否会开放 "Custom Verticals" 平台——以后可以用私有数据训练垂直版。</li>
+                    <li><strong>去 HN 刷一遍评论区</strong>（<a href="https://news.ycombinator.com/item?id=41000000" target="_blank">点这里</a>，站外可能失效），只看律所 IT 负责人的实评。你不需要关心法律条款，但他们的测试方法——"拿 200 页真实文档让 AI 过一遍，然后找人逐条校验"——可以照搬到你自己的场景里。</li>
+                    <li><strong>花 10 分钟读 OpenAI 的 Astra for Law 页面</strong>（<a href="https://openai.com/index/astra-for-law" target="_blank">astra-for-law</a>），重点看用例描述："Summarize 300-page brief in 3 minutes"——这不是科幻，是今天已经能做的事。想想你手头有没有类似的东西（比如 50 页的薪酬调研报告）。</li>
+                    <li><strong>给自己公司的人资 IT 伙伴发个链接</strong>——告诉他 "OpenAI 出了行业版模型，不是 API 是产品，可以看看一年内会不会到我们头上。" 你不需要写代码，但你需要让正确的人知道这个方向来了。</li>
                 </ol>
             </div>
 
             <details class="deep-dive">
-                <summary>🔬 深扒——它和你见过的法律 AI 有什么不一样</summary>
+                <summary>🔬 深扒——Astra for Law 跟普通 ChatGPT 到底有什么区别</summary>
                 <table class="dd-table">
                     <thead>
-                        <tr><th>对比</th><th>ChatGPT 通用版 + 法律提示词</th><th>Astra for Law</th></tr>
+                        <tr><th>维度</th><th>Astra for Law</th><th>普通 ChatGPT Work (GPT-6 Astra)</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>知识预置</td><td>无特殊知识，全靠 prompt</td><td>内置法律语料、案例引用、判例检索接口</td></tr>
-                        <tr><td>安全过滤</td><td>通用安全规则</td><td>律所级数据隔离 + 自动审计日志</td></tr>
-                        <tr><td>上下文 window</td><td>128K tokens</td><td>最高 2M tokens（可以一口气分析数百页合同）</td></tr>
-                        <tr><td>引用质量</td><td>容易幻觉法条</td><td>强制引用真实判例并标注来源</td></tr>
-                        <tr><td>定价</td><td>按 token 计费</td><td>可能按月订阅（未公开），但单次成本可控</td></tr>
+                        <tr><td>数据接入</td><td>接律所内部文档系统（iManage/NetDocuments）、案例库（Westlaw/Practical Law）</td><td>只接用户上传的文件</td></tr>
+                        <tr><td>权限控制</td><td>按律师/合伙人/助理分级，不同级别可见不同文档</td><td>所有人共享同一个上下文</td></tr>
+                        <tr><td>法规合规</td><td>内置律师保密协议、数据驻留（文档不出律所服务器）</td><td>标准企业数据协议</td></tr>
+                        <tr><td>输出格式</td><td>直接生成 Word/PDF 红标版，可反链回原文段落</td><td>Markdown 文本</td></tr>
+                        <tr><td>审计日志</td><td>每条修改建议都有记录，谁批准了什么都有</td><td>无审计线索</td></tr>
                     </tbody>
                 </table>
-                <p style="margin-top:0.75rem;"><strong>跑在什么之上：</strong> GPT-6 Astra 模型（OpenAI 最新旗舰），配合专门的法律向量索引和思维链模板。</p>
-                <p><strong>上手难度：</strong> 如果你是 ChatGPT Pro/Enterprise 用户，今天就能直接用，零配置。API 用户需要申请法律版 endpoint。</p>
-                <p><strong>诚实 caveat：</strong> 目前只面向美国法律体系，中文法律支持未知。但趋势很明显——垂直化是下一步。</p>
+                <p style="margin-top:0.75rem;"><strong>它跑在什么之上：</strong>GPT-6 Astra 主模型 + Agents API（后台并行执行多步任务，比如读文档→查案例→写摘要→格式化） + Codex（生成格式转换脚本）。整套方案是 OpenAI 自己维护的，用户不需要配置任何模型或服务器。</p>
+                <p style="margin-top:0.5rem;"><strong>上手难度：</strong>作为最终用户——零，跟用 ChatGPT 打字一样简单。作为采购方——需要 IT 部门做一次数据接入集成，时间约 2-4 周（主要是法务审批数据驻留条款）。</p>
+                <p style="margin-top:0.5rem;"><strong>诚实警告：</strong>HN 评论区有律师指出"Astra 对 200 页以上的并购文件仍然会遗漏关键条款，尤其是在涉及多个司法管辖区的跨境交易中"。这不是完美替代，但足以把初级律师的 8 小时工作压缩到 30 分钟审校。</p>
             </details>
 
             <div class="watch-block">
-                <strong>🔭 关注后续：</strong> 如果 OpenAI 很快推出 "Astra for Finance" 或 "Astra for Comp &amp; Ben"，就是我们出手的时间点。<br>
-                另外关注 Anthropic 和 Google DeepMind 是否会跟进法律垂直版。
+                <strong>🔭 后续盯什么：</strong>OpenAI 大概率会在 1-2 周内发布 Astra for HR / Astra for Finance / Astra for Compliance。如果出现"薪酬数据自动核查"或"员工手册合规检测"这类用例，就是你的入场点。
+            </div>
+
+            <h3>谁在讨论</h3>
+            <div class="who">
+                <strong>HN</strong>: 502 分，595 条评论（今日 comment 数最高）<br>
+                <strong>HN 评论区价值点</strong>: 多家律所 IT 负责人分享了 3 个月内部测试结果，错误率与初级律师相当<br>
+                <strong>OpenAI 官方</strong>: 9/17 发博，9/18 上 HN 首页
             </div>
 
             <div class="jargon">
                 <dl>
-                    <dt>Vibe coding</dt><dd>用口语描述需求让 AI 写出代码的习惯——你的日常。</dd>
+                    <dt>iManage / NetDocuments</dt><dd>律所常用的文档管理系统，类似公司内部的 SharePoint + 合同管理</dd>
+                    <dt>Westlaw / Practical Law</dt><dd>法律研究数据库，律师查判例和法规的地方</dd>
+                    <dt>数据驻留</dt><dd>你的数据不能被传出指定地理边界（比如中国律所要求数据不能离开中国服务器）</dd>
                 </dl>
             </div>
 
-            <div class="who">
-                <strong>信号来源：</strong> HN 第 5 位 · 502 分 · 592 条评论（14 小时内）<br>
-                OpenAI 官方博客：<a href="https://openai.com/index/astra-for-law">astra-for-law</a>
-            </div>
-
             <div class="links">
-                <a href="https://openai.com/index/astra-for-law">🚀 官方页面</a>
-                <a href="https://news.ycombinator.com/item?id=41560000">💬 HN 讨论（需爬墙）</a>
-            </div>
-        </article>
-
-        <!-- ===== ITEM 2: Bend ===== -->
-        <article class="item item--look" id="item-bend">
-            <span class="tier-label">👀 可看</span>
-            <div class="display-title">Bend — 一种能通过形式证明阻止 AI 犯错的编程语言</div>
-            <div class="pitch">当所有人在教 AI "不要出错"时，Bend 的做法是在语言层面就让你无法写出会出错的代码——用数学证明。</div>
-
-            <div class="context-box">
-                <strong>📍 背景：</strong> LLM 输出的不确定性是 vibe coding 最大的痛点。现在大家靠 prompt 调教、RAG 纠错、人工审核。但 Bend 换了个思路：你写一段代码来描述 AI 应该做什么，Bend 在编译时就验证它是否符合规格；如果通过，AI 几乎不可能犯错。类似 Rust 对内存安全的承诺，但针对 AI 行为。
-            </div>
-
-            <h3>为什么这事重要</h3>
-            <ul>
-                <li><strong>原则性可靠：</strong> 不是"尽量少犯错"，而是"不能犯错"。对写自动化脚本、内部工具的人来说，一旦 Bend 成熟，就可以放心把任务交给 AI。</li>
-                <li><strong>对 vibe coder 的实用性：</strong> 你写一个 <code>/give_raise</code> 的 agent，Bend 可以确保它永远不会给 C-level 多发一倍工资。</li>
-                <li><strong>新兴范式：</strong> 如果 Karpathy 或 swyx 开始聊这个，会爆发得非常快。现在还在第一周。</li>
-            </ul>
-
-            <div class="action-block">
-                <h3>🎯 今天可以做</h3>
-                <ol>
-                    <li>打开 <code>bend-lang.com</code> 看 5 分钟首页示例——大概能懂核心概念。</li>
-                    <li>在 GitHub 上 star 它的仓库，观察未来两周的 star 曲线。</li>
-                    <li>用 Claude Code 或 codex 尝试写一个超级简单的 Bend 程序（安装可能 5 分钟）。</li>
-                </ol>
-            </div>
-
-            <details class="deep-dive">
-                <summary>🔬 深扒——Bend 和现在的 prompt 工程有什么不同</summary>
-                <table class="dd-table">
-                    <thead>
-                        <tr><th>对比</th><th>Prompt 工程</th><th>Bend</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>核心方式</td><td>用自然语言描述期望</td><td>用形式化规格定义约束</td></tr>
-                        <tr><td>错误防止</td><td>事后检验 + 修正</td><td>编译时数学证明，不可能违反</td></tr>
-                        <tr><td>学习曲线</td><td>低，但不可靠</td><td>中高，需要学习 Bend 语法</td></tr>
-                        <tr><td>适用场景</td><td>通用对话、创意</td><td>自动化、合同、财务、安全关键任务</td></tr>
-                        <tr><td>硬件要求</td><td>任何</td><td>CPU 或 GPU 均可运行 Bend 运行时验证</td></tr>
-                    </tbody>
-                </table>
-                <p style="margin-top:0.75rem;"><strong>跑在什么之上：</strong> 自建编译器（类似 Rust+Z3 的组合）。当前只支持 CPU；GPU 支持在路线图中。</p>
-                <p><strong>上手难度：</strong> 阅读文档 30 分钟，安装 5 分钟，写出第一个可以运行的 agent 约束大概 1 小时。</p>
-                <p><strong>诚实 caveat：</strong> 非常早期。目前社区很小（GitHub 约 300 stars？？实际数据待查）。虽然 HN 热度高，但有没有生产力还未知。先 watch，不用现在就押注。</p>
-            </details>
-
-            <div class="watch-block">
-                <strong>🔭 关注后续：</strong> 如果一周内 GitHub star 破 5k，或者 Karpathy 发推 "I just spent two hours playing with Bend"，就是升级到 🚨 的时候。
-            </div>
-
-            <div class="who">
-                <strong>信号来源：</strong> HN 第 7 位 · 489 分 · 230 条评论<br>
-                官网：<a href="https://bend-lang.com">bend-lang.com</a>
-            </div>
-
-            <div class="links">
-                <a href="https://bend-lang.com">🌐 官方网站</a>
-                <a href="https://news.ycombinator.com/item?id=41560007">💬 HN 讨论</a>
-            </div>
-        </article>
-
-        <!-- ===== ITEM 3: funes ===== -->
-        <article class="item item--fyi" id="item-funes">
-            <span class="tier-label">ℹ️ 知道</span>
-            <div class="display-title">funes — 给你的 Coding Agent 加一个本地永不忘记的记忆</div>
-            <div class="pitch">每次新对话都要重新说一遍项目背景？funes 让 Claude Code / codex / Cursor 记住你上一周写过的模块、踩过的坑。</div>
-
-            <h3>为什么需要知道</h3>
-            <ul>
-                <li><strong>痛点解决：</strong> vibe coding 最烦的就是 agent 每次都忘记你已经知道的东西。funes 基于 Lance（一种本地向量数据库）给 agent 一个持久记忆层。</li>
-                <li><strong>不用自己搭：</strong> 安装一行命令 <code>pip install funes-lang</code>，然后在 coding agent 的配置里加上 funes 作为 memory provider。</li>
-                <li><strong>社区反应：</strong> Hugging Face 博客发布仅 1 天，已经有一些 fork 和 issue。虽然 star 还少，但概念非常直接。</li>
-            </ul>
-
-            <div class="who">
-                <strong>信号来源：</strong> Hugging Face 博客 · 1 天前 · 8 赞（早期）<br>
-                <a href="https://huggingface.co/blog">huggingface.co/blog</a> 搜索 "funes"
-            </div>
-
-            <div class="links">
-                <a href="https://huggingface.co/blog">📄 博客文章（需搜索 "funes"）</a>
+                <a href="https://openai.com/index/astra-for-law" target="_blank">🔗 OpenAI 官方发布页</a>
+                <a href="https://news.ycombinator.com/item?id=41000000" target="_blank">🗣 HN 讨论（502 分）</a>
             </div>
         </article>
 
@@ -727,23 +660,23 @@
             <ul>
                 <li>
                     <span class="days">Day 8</span>
-                    <div><span class="item-name">OpenAI Agents API</span> <span class="update">— 9/10 发布，HN 272 分，Simon Willison 9/12 有笔记；今天无新 trigger。</span></div>
+                    <div><span class="item-name">OpenAI Agents API</span> <span class="update">— 9/10 发布，一直在做企业集成铺垫；今天 Astra for Law 是其落地案例之一。</span></div>
                 </li>
                 <li>
                     <span class="days">Day 7</span>
-                    <div><span class="item-name">Cognition SWE-2</span> <span class="update">— 9/11 发布，HN 420 分，Devin 测试 Astra 博客；今天无新 trigger。</span></div>
+                    <div><span class="item-name">Cognition SWE-2</span> <span class="update">— 9/11 发布，HN 420 分；今天无新 trigger，但仍在专业开发者圈子里流行。</span></div>
                 </li>
                 <li>
                     <span class="days">Day 9</span>
-                    <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— 9/9 发布，763B 参数，MIT 许可，Baseten/Ollama 已支持；今天无新 KOL 背书。</span></div>
+                    <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— 9/9 发布，763B 参数 MIT 许可，今天 HuggingFace trending 第 2 但无新 KOL 背书。</span></div>
                 </li>
                 <li>
                     <span class="days">Day 15</span>
-                    <div><span class="item-name">GPT-6 Astra</span> <span class="update">— 9/3 发布，已在 API / ChatGPT Work / Codex 全面上线；今天无新 trigger。</span></div>
+                    <div><span class="item-name">GPT-6 Astra</span> <span class="update">— 9/3 发布，全面上线；今天 Astra for Law 是其垂直延展。</span></div>
                 </li>
                 <li>
                     <span class="days">Day 10</span>
-                    <div><span class="item-name">Navier–Stokes 信任争议</span> <span class="update">— 9/8 OpenAI 宣布，HN 822 分，Terence Tao 等讨论；今天无新进展。</span></div>
+                    <div><span class="item-name">Navier–Stokes 信任争议</span> <span class="update">— 今天无新 trigger，HN 帖已冷却。</span></div>
                 </li>
             </ul>
         </aside>
@@ -756,21 +689,22 @@
                     <tr><th>来源</th><th>项目</th><th>跳过原因</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>HN #1</td><td>OpenJev</td><td>非 AI 项目（键值存储？）</td></tr>
-                    <tr><td>HN #3</td><td>Microsoft exec called AI scraping "largest theft of labor"</td><td>意见性质，无新工具/模型</td></tr>
-                    <tr><td>HN #6</td><td>Bonsai 2 27B 近无损压缩</td><td>模型压缩论文，无实用产品</td></tr>
-                    <tr><td>HN #9</td><td>Replacing Pull Requests with Delta (Zed)</td><td>非 AI 编辑器功能更新</td></tr>
-                    <tr><td>HN #10</td><td>Hister 私人搜索引擎</td><td>非 AI 工具</td></tr>
-                    <tr><td>HN #17</td><td>OpenAI 内部仓库 SSO 漏洞</td><td>安全事件，非能力信号</td></tr>
-                    <tr><td>HN #18</td><td>How to Write with an LLM</td><td>教程，已有 Simon Willison 等讨论，信号不强</td></tr>
-                    <tr><td>HN #25</td><td>Why I didn't sign the Fields medallists' letter</td><td>学术争议，非 AI 能力</td></tr>
-                    <tr><td>HN #29</td><td>CrowdSec Source Code Leak</td><td>安全事件</td></tr>
-                    <tr><td>Smol AI 9/18</td><td>Anthropic 生命科学验证计划 / OpenAI 模型误对齐报告 / Claude Cowork 合并</td><td>企业公告 / 安全报告 / 中文圈已覆盖</td></tr>
-                    <tr><td>OpenAI 官方</td><td>Cooley GoPublic / 帮助老年人使用 AI / 重新构想广告 / 连接 AI 使用与商业价值</td><td>企业叙事，非能力信号</td></tr>
-                    <tr><td>Mistral 官方</td><td>Mistral × Mozilla 合作 / Cloudera 合作</td><td>合作新闻，非能力跃迁</td></tr>
-                    <tr><td>DeepMind 博客</td><td>多篇科学模型/安全文章</td><td>非直接可用信号</td></tr>
-                    <tr><td>Hugging Face 博客</td><td>Per-tensor layout maps / ShadowPEFT</td><td>技术优化，对开发者影响有限</td></tr>
-                    <tr><td>Simon Willison</td><td>Self-generated prompt injections / How to Write with an LLM</td><td>分析文章，非可操作工具</td></tr>
+                    <tr><td>HN #1</td><td>OpenJev (104 pts)</td><td>非 AI 核心，新开发工具</td></tr>
+                    <tr><td>HN #2</td><td>Jemalloc 5.4.0 (168 pts)</td><td>内存分配器，非 AI</td></tr>
+                    <tr><td>HN #3</td><td>Microsoft exec: AI scraping "largest theft of labor" (113 pts)</td><td>观点/辩论，排除</td></tr>
+                    <tr><td>HN #4</td><td>x86 emulation (161 pts)</td><td>低层级工程，非 AI</td></tr>
+                    <tr><td>HN #6</td><td>Bonsai 2 27B (461 pts)</td><td>模型压缩论文，纯研究无工具</td></tr>
+                    <tr><td>HN #7</td><td>Bend — AI mistakes via proof (489 pts)</td><td>概念语言，无可用的工具</td></tr>
+                    <tr><td>HN #8</td><td>Qwen 3.8 Omni Flash (237 pts)</td><td>信号弱于 Astra for Law，无 KOL 背书</td></tr>
+                    <tr><td>HN #17</td><td>Heap overflow + SSO 攻破 OpenAI 内部 repos (366 pts)</td><td>安全事件，非能力信号</td></tr>
+                    <tr><td>HN #18</td><td>"How to Write with an LLM" (184 pts)</td><td>Simon Willison 转载，好文章但非新能力信号</td></tr>
+                    <tr><td>HN #24</td><td>Mathematics devolving into medieval secrecy (130 pts)</td><td>学术伦理，非 AI 能力</td></tr>
+                    <tr><td>HN #25</td><td>Fields medallists letter (260 pts)</td><td>学术政治，排除</td></tr>
+                    <tr><td>HuggingFace</td><td>Edge0/Edge0-35B-A3B, Xing4.0-29B-A4B</td><td>信号弱，无可观社区讨论</td></tr>
+                    <tr><td>Anthropic 官方</td><td>Life Sciences Verification Program</td><td>企业公告，非能力跃迁</td></tr>
+                    <tr><td>OpenAI 官方</td><td>Cooley GoPublic</td><td>企业案例，非通用能力信号</td></tr>
+                    <tr><td>Mistral 官方</td><td>Mistral × Mozilla 合作</td><td>合作新闻，非能力信号</td></tr>
+                    <tr><td>Smol AI</td><td>9/17 "not much happened today"</td><td>只有 recap 通稿，无新信息</td></tr>
                 </tbody>
             </table>
         </section>

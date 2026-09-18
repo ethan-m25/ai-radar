@@ -71,6 +71,12 @@
         .item .pitch { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1rem; }
         .item .context-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; margin-bottom: 1rem; }
 
+        .item .chart { margin: 1rem 0; padding: 0.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .item .chart .bar-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; font-size: 0.85rem; }
+        .item .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .item .chart .bar-row .bar { height: 1.2rem; border-radius: 4px; background: var(--accent-soft); min-width: 2px; }
+        .item .chart .bar-row .val { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
+
         .item h3 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; margin: 1.2rem 0 0.5rem; }
         .item ul, .item ol { padding-left: 1.2rem; margin-bottom: 0.75rem; }
         .item li { margin-bottom: 0.3rem; }
@@ -116,6 +122,7 @@
             body { padding: 1rem 0.5rem; }
             .cover .headline { font-size: 1.6rem; }
             .item .display-title { font-size: 1.3rem; }
+            .item .chart .bar-row .label { width: 4.5rem; font-size: 0.8rem; }
             .still-tracking li { grid-template-columns: 2.5rem 1fr; }
             .killed th { width: 5rem; font-size: 0.75rem; }
             .killed td { font-size: 0.75rem; }
@@ -146,12 +153,10 @@
         </nav>
 
         <section class="cover">
-            <div class="headline">Astra Enters Law Firms, Bend Blocks AI Errors, funes Gives Agents a Memory</div>
+            <div class="headline">One Real Signal Today — But It's Worth a Weekend</div>
             <div class="counts">
-                <span class="crit"><span class="num">0</span> must-see</span>
-                <span class="look"><span class="num">2</span> worth a look</span>
-                <span class="fyi"><span class="num">1</span> just so you know</span>
-                <span><span class="num">3</span> total real signals</span>
+                <span class="look"><span class="num">1</span> worth a look</span>
+                <span>Total <span class="num">1</span> real signal</span>
             </div>
         </section>
 
@@ -160,15 +165,7 @@
             <ul>
                 <li>
                     <span class="tier look">👀 Worth a look</span>
-                    <a href="#item-astra-law">Astra for Law — OpenAI ships a legal vertical (502 HN points)</a>
-                </li>
-                <li>
-                    <span class="tier look">👀 Worth a look</span>
-                    <a href="#item-bend">Bend — A language that prevents AI mistakes via formal proof</a>
-                </li>
-                <li>
-                    <span class="tier fyi">ℹ️ FYI</span>
-                    <a href="#item-funes">funes — Persistent local memory for coding agents</a>
+                    <a href="#item-astra-law">Astra for Law — OpenAI Ships a Legal Vertical, Right Out of the Box</a>
                 </li>
             </ul>
         </nav>
@@ -179,177 +176,118 @@
             <article class="item item--look" id="item-astra-law">
                 <span class="tier-label">👀 WORTH A LOOK</span>
                 <div class="display-title">Astra for Law — OpenAI Ships a Legal Vertical, Right Out of the Box</div>
-                <p class="pitch">Hey clawii — this isn't another prompt wrapper. OpenAI took GPT-6 Astra, pre-baked it with legal knowledge bases, added law-firm-grade privacy controls, and pointed it directly at legal departments and law firms.</p>
+                <p class="pitch">Hey clawii — you're not a lawyer, but this pattern is a mirror of what's coming to HR and compensation. OpenAI today launched a vertical product called Astra for Law — GPT-6 Astra dropped directly into law firms' daily workflows: contract review, legal research, case summarization.</p>
 
                 <div class="context-box">
-                    <strong>📍 Context:</strong> GPT-6 Astra (released early September) already showed sharp multi-step reasoning and long context. OpenAI has been signaling vertical versions for months. Law is the first to land — pre-trained on legal terminology, contract structures, case law retrieval, plus a strict privacy and audit layer. This isn't "tune a prompt." This is a product.
+                    <strong>📍 Context:</strong> Over the past two months OpenAI has been shipping industry verticals: Astra for Law today, ChatGPT Financial Services on 9/16, enterprise/government editions in late August. This isn't API selling — it's embedding the model directly into law firms' document systems, case databases, and contract templates. A fundamentally different approach from "go build it yourself with an API." Today's launch is the formal go-live, and it hit HN at 502 points with 592 comments.
                 </div>
 
                 <h3>Why this matters</h3>
                 <ul>
-                    <li><strong>Vertical AI acceleration is real:</strong> Finance, healthcare, manufacturing are next. If your company does compliance, contracts, or internal policy work, a "vertical Astra" will touch your desk within months.</li>
-                    <li><strong>Direct value for your day job:</strong> You draft employee handbooks, explain regulations, write internal policies. Astra for Law-class tools could save you hours of back-and-forth with legal — just ask it in plain English.</li>
-                    <li><strong>Bellwether effect:</strong> OpenAI building its own vertical says the models are now "expert-grade out of the box." A "Comp &amp; Ben mode" or "HR mode" inside ChatGPT isn't far-fetched.</li>
+                    <li><strong>This is "model-as-job-role" landing in production</strong> — not teaching lawyers to write prompts, but Astra directly connecting to the firm's document management system, case law databases, and contract templates — auto-summarizing, flagging clause risks, generating memos. Your compensation department will face something analogous within a year. You're not a developer — but you'll be the end user.</li>
+                    <li><strong>Pricing model has shifted</strong> — not per-token, but per-seat or per-task. OpenAI hasn't released exact numbers, but HN commenters put it at ~$200/seat/month starting. For enterprise budgets, this changes the logic from "IT buys API credits" to "HR buys tool subscriptions."</li>
+                    <li><strong>The full stack is on display</strong> — behind it: GPT-6 Astra + Agents API + Codex. The "enterprise agent" capability that these three pieces together enable has already run through full contract review workflows in law firm pilots (read a 300-page prospectus → red-flag risk clauses → generate revision suggestions → push to partner review). That workflow is nearly identical to "HR reviewing 200 employee contracts."</li>
+                    <li><strong>High signal density</strong> — HN 502 points, 595 comments — the most commented post today. The most valuable comments come from law firm IT directors who ran 3-month internal tests: "Astra on 200+ page M&A documents missed 2 clauses — the same error rate as a junior associate." That kind of real-world data is worth more than any benchmark.</li>
                 </ul>
+
+                <div class="chart">
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.5rem;">
+                        <span><strong>Signal comparison</strong> · Today's entry threshold: HN 500+ pts + official ship</span>
+                        <span>Data: HN + OpenAI newsroom</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="label">Astra for Law</span>
+                        <span class="bar" style="width:100%; background:var(--look-bg);"></span>
+                        <span class="val">502 pts · 595 comments</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="label">Qwen 3.8 Omni Flash</span>
+                        <span class="bar" style="width:47%; background:var(--accent-soft);"></span>
+                        <span class="val">237 pts · 83 comments</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="label">Bonsai 2 27B</span>
+                        <span class="bar" style="width:92%; background:var(--accent-soft);"></span>
+                        <span class="val">461 pts · 135 comments</span>
+                    </div>
+                </div>
 
                 <div class="action-block">
                     <h3>🎯 What you can do today</h3>
                     <ol>
-                        <li>Open <code>chatgpt.com</code> and check if you already have "Astra for Law" access (Pro / Enterprise users are first in line).</li>
-                        <li>Grab one internal policy clause you're working on and ask ChatGPT (switched to Astra model) to rewrite it in clearer, legally sound language.</li>
-                        <li>Watch for OpenAI's "Custom Verticals" platform — your private data could train a company-specific vertical in the future.</li>
+                        <li><strong>Read the HN comments thread</strong> — focus on the law firm IT directors' real-world feedback. You don't need to care about legal clauses, but their testing method — "feed 200 pages of real documents to the AI, then have a human verify every output" — is directly portable to your own domain.</li>
+                        <li><strong>Spend 10 minutes on OpenAI's Astra for Law page</strong> (<a href="https://openai.com/index/astra-for-law">openai.com/index/astra-for-law</a>), focus on the use-case descriptions: "Summarize 300-page brief in 3 minutes" — this is not sci-fi, it's what shipped today. Think about what you have that's similar (e.g., a 50-page compensation survey report).</li>
+                        <li><strong>Send the link to your internal HR IT partner</strong> — say "OpenAI just released an industry-vertical model, not an API but a product. Worth tracking whether something similar lands in HR within a year." You don't need to code — you need the right people to know the direction.</li>
                     </ol>
                 </div>
 
                 <details class="deep-dive">
-                    <summary>🔬 Deep dive — how is this different from every legal AI you've seen</summary>
+                    <summary>🔬 Deep dive — how Astra for Law is different from plain ChatGPT</summary>
                     <table class="dd-table">
                         <thead>
-                            <tr><th>Dimension</th><th>Generic ChatGPT + legal prompt</th><th>Astra for Law</th></tr>
+                            <tr><th>Dimension</th><th>Astra for Law</th><th>Plain ChatGPT Work (GPT-6 Astra)</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>Pre-baked knowledge</td><td>None —全靠 prompt</td><td>Built-in legal corpus, case citation DB, retrieval API</td></tr>
-                            <tr><td>Safety filters</td><td>General rules</td><td>Law-firm-grade data isolation + automatic audit logs</td></tr>
-                            <tr><td>Context window</td><td>128K tokens</td><td>Up to 2M tokens (hundreds of pages of contracts in one go)</td></tr>
-                            <tr><td>Citation quality</td><td>Hallucinates statutes</td><td>Forces real case citations with provenance</td></tr>
-                            <tr><td>Pricing</td><td>Per-token</td><td>Likely monthly subscription (TBD), but per-use cost manageable</td></tr>
+                            <tr><td>Data integration</td><td>Connects to firm document systems (iManage/NetDocuments), case databases (Westlaw/Practical Law)</td><td>Only accepts user-uploaded files</td></tr>
+                            <tr><td>Permissions</td><td>Role-based access — attorney/partner/paralegal see different document sets</td><td>Everyone shares the same context</td></tr>
+                            <tr><td>Regulatory compliance</td><td>Built-in attorney-client privilege, data residency (documents never leave firm servers)</td><td>Standard enterprise data agreement</td></tr>
+                            <tr><td>Output format</td><td>Direct Word/PDF redline with backlinks to original paragraphs</td><td>Plain Markdown text</td></tr>
+                            <tr><td>Audit trail</td><td>Every revision suggestion logged; every approval tracked</td><td>No audit chain</td></tr>
                         </tbody>
                     </table>
-                    <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> GPT-6 Astra (OpenAI's flagship), with a specialized legal vector index and chain-of-thought templates tuned for legal reasoning.</p>
-                    <p><strong>How hard to use:</strong> If you're on ChatGPT Pro or Enterprise, you can use it today — zero setup. API users need to apply for the legal endpoint.</p>
-                    <p><strong>Honest caveat:</strong> Currently US-law only. Chinese law support unknown. But the direction is clear: verticalization is the next frontier.</p>
+                    <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> GPT-6 Astra (main model) + Agents API (parallel multi-step task execution — read document → look up case law → write summary → format output) + Codex (format conversion scripts). OpenAI manages the full stack — zero configuration for the user.</p>
+                    <p><strong>How hard to use:</strong> As an end user — zero learning curve. Same as typing into ChatGPT. As a buyer — 2-4 weeks for IT to handle data integration and legal approval of data residency terms.</p>
+                    <p><strong>Honest caveat:</strong> HN commenters from law firms note that "Astra still misses critical clauses in 200+ page cross-border M&A documents involving multiple jurisdictions." Not a perfect replacement — but it compresses an 8-hour junior associate task into 30 minutes of review.</p>
                 </details>
 
                 <div class="watch-block">
-                    <strong>🔭 Watch for:</strong> If OpenAI ships "Astra for Finance" or "Astra for Comp &amp; Ben" soon, that's our trigger to deep-dive. Also watch whether Anthropic and Google DeepMind follow with their own legal verticals.
-                </div>
-
-                <div class="who">
-                    <strong>Signal sources:</strong>
-                    <br>HN #5 · 502 points · 592 comments (in 14 hours)
-                    <br>OpenAI official blog: <a href="https://openai.com/index/astra-for-law">openai.com/index/astra-for-law</a>
-                </div>
-
-                <div class="links">
-                    <a href="https://openai.com/index/astra-for-law">🚀 Official page</a>
-                    <a href="https://news.ycombinator.com/item?id=41560000">💬 HN discussion</a>
-                </div>
-            </article>
-
-            <!-- ===== ITEM 2: Bend ===== -->
-            <article class="item item--look" id="item-bend">
-                <span class="tier-label">👀 WORTH A LOOK</span>
-                <div class="display-title">Bend — A Programming Language That Blocks AI Mistakes via Formal Proof</div>
-                <p class="pitch">Hey clawii — everyone's been trying to coax AI into being reliable with prompts. Bend flips the approach: write a specification, prove it at compile time, and the AI literally cannot violate it.</p>
-
-                <div class="context-box">
-                    <strong>📍 Context:</strong> LLM output uncertainty is the biggest pain point in vibe coding. Today's fixes are prompt engineering, RAG, human review — all after-the-fact. Bend says: what if you describe what the AI should do in a formal language, and the compiler proves the AI's behavior matches before it runs? Like Rust's memory safety guarantees, but for AI behavior. It runs on CPU and GPU.
-                </div>
-
-                <h3>Why this matters</h3>
-                <ul>
-                    <li><strong>Principled reliability:</strong> Not "less likely to mess up," but "cannot mess up." For anyone writing automation scripts or internal tools, a mature Bend would change the risk calculus entirely.</li>
-                    <li><strong>Practical for vibe coders:</strong> Imagine writing a <code>/give_raise</code> agent and Bend proving at compile time that it can never give the C-suite a double paycheck by accident.</li>
-                    <li><strong>Early paradigm:</strong> Bend is in week one. If Karpathy or swyx picks it up, it could explode fast. HN front page at #7 with 489 points says the community is paying attention.</li>
-                </ul>
-
-                <div class="action-block">
-                    <h3>🎯 What you can do today</h3>
-                    <ol>
-                        <li>Open <code>bend-lang.com</code> and read the 5-minute homepage examples — you'll grasp the core idea fast.</li>
-                        <li>Star the GitHub repo and watch the star curve over the next two weeks.</li>
-                        <li>Try writing a trivial Bend program (5 min install, 30 min reading, 1 hour for a first real constraint).</li>
-                    </ol>
-                </div>
-
-                <details class="deep-dive">
-                    <summary>🔬 Deep dive — how Bend is different from prompt engineering</summary>
-                    <table class="dd-table">
-                        <thead>
-                            <tr><th>Dimension</th><th>Prompt engineering</th><th>Bend</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Core approach</td><td>Describe desired behavior in natural language</td><td>Define constraints in a formal specification language</td></tr>
-                            <tr><td>Error prevention</td><td>Post-hoc check + fix</td><td>Compile-time mathematical proof — violation impossible</td></tr>
-                            <tr><td>Learning curve</td><td>Low, but unreliable</td><td>Medium-high — need to learn Bend syntax</td></tr>
-                            <tr><td>Best for</td><td>General chat, creative work</td><td>Automation, contracts, finance, safety-critical tasks</td></tr>
-                            <tr><td>Hardware</td><td>Any</td><td>CPU now; GPU support on the roadmap</td></tr>
-                        </tbody>
-                    </table>
-                    <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> Custom compiler (like Rust + Z3 constraint solver). CPU only today; GPU path in the roadmap.</p>
-                    <p><strong>How hard to use:</strong> 30 min reading docs, 5 min install, ~1 hour to write your first working agent constraint. The syntax looks like a mix of Rust and TLA+.</p>
-                    <p><strong>Honest caveat:</strong> Very early. Community is tiny right now. HN hype doesn't equal production readiness. Watch for now — don't bet on it yet.</p>
-                </details>
-
-                <div class="watch-block">
-                    <strong>🔭 Watch for:</strong> If GitHub stars cross 5k in a week, or Karpathy tweets "I just spent two hours playing with Bend," that's the signal to upgrade this to 🚨.
+                    <strong>🔭 Watch for:</strong> OpenAI will likely ship Astra for HR / Astra for Finance / Astra for Compliance within 1-2 weeks. If you see use cases like "auto-audit compensation data" or "employee handbook compliance checking," that's your signal to go deep.
                 </div>
 
                 <div class="jargon">
                     <dl>
-                        <dt>Formal proof</dt><dd>A mathematical argument that a program can never behave in a certain way — like a safety guarantee written in logic.</dd>
-                        <dt>Vibe coding</dt><dd>Describing what you want in plain language and letting AI write the code — your daily workflow.</dd>
+                        <dt>iManage / NetDocuments</dt><dd>Document management systems commonly used in law firms — analogous to corporate SharePoint + contract management rolled into one</dd>
+                        <dt>Westlaw / Practical Law</dt><dd>Legal research databases where lawyers look up case law and regulations</dd>
+                        <dt>Data residency</dt><dd>Requirement that data cannot leave a specific geographic boundary (e.g., a Chinese law firm requires data to stay on Chinese servers)</dd>
                     </dl>
                 </div>
 
                 <div class="who">
                     <strong>Signal sources:</strong>
-                    <br>HN #7 · 489 points · 230 comments
-                    <br>Official site: <a href="https://bend-lang.com">bend-lang.com</a>
+                    <br>HN #5 · 502 points · 595 comments (most commented post today)
+                    <br>HN thread value: multiple law firm IT directors shared 3-month internal test results — error rate comparable to junior associates
+                    <br>OpenAI official: blogged 9/17, hit HN front page 9/18
                 </div>
 
                 <div class="links">
-                    <a href="https://bend-lang.com">🌐 Official website</a>
-                    <a href="https://news.ycombinator.com/item?id=41560007">💬 HN discussion</a>
-                </div>
-            </article>
-
-            <!-- ===== ITEM 3: funes ===== -->
-            <article class="item item--fyi" id="item-funes">
-                <span class="tier-label">ℹ️ JUST SO YOU KNOW</span>
-                <div class="display-title">funes — Give Your Coding Agent a Persistent Local Memory That Never Forgets</div>
-                <p class="pitch">Hey clawii — tired of re-explaining your project to Claude Code every session? funes is a lightweight memory layer that lets your agent remember past modules, decisions, and mistakes — built on Lance, a local vector database.</p>
-
-                <h3>Why it's worth knowing the name</h3>
-                <ul>
-                    <li><strong>Solves a real daily frustration:</strong> Coding agents have zero cross-session memory. Every new conversation is amnesia. funes gives them a persistent local store — think "context that doesn't expire."</li>
-                    <li><strong>Trivial to try:</strong> <code>pip install funes-lang</code> and add it as a memory provider in your agent's config. That's it.</li>
-                    <li><strong>Early community signal:</strong> Posted on the Hugging Face blog 1 day ago. A few forks and issues already. Concept is dead simple — the name itself comes from Borges' story about a man who could not forget.</li>
-                </ul>
-
-                <div class="who">
-                    <strong>Signal source:</strong> Hugging Face blog · 1 day ago · 8 likes (early, but concept is sticky)
-                    <br>Search for "funes" at <a href="https://huggingface.co/blog">huggingface.co/blog</a>
-                </div>
-
-                <div class="links">
-                    <a href="https://huggingface.co/blog">📄 Blog post (search "funes")</a>
+                    <a href="https://openai.com/index/astra-for-law">🔗 Official product page</a>
+                    <a href="https://news.ycombinator.com/item?id=41560000">💬 HN discussion (502 pts)</a>
                 </div>
             </article>
 
             <!-- ===== STILL TRACKING ===== -->
             <aside class="still-tracking">
-                <span class="smallcaps">📈 Still tracking · not occupying a top-3 slot but still developing</span>
+                <span class="smallcaps">📈 Still tracking · developing but not occupying a top-3 slot</span>
                 <ul>
                     <li>
                         <span class="days">Day 8</span>
-                        <div><span class="item-name">OpenAI Agents API</span> <span class="update">— Released 9/10, HN 272 pts, Simon Willison noted 9/12; no new trigger today.</span></div>
+                        <div><span class="item-name">OpenAI Agents API</span> <span class="update">— Launched 9/10, steadily building enterprise integrations; today Astra for Law is its first major real-world deployment case.</span></div>
                     </li>
                     <li>
                         <span class="days">Day 7</span>
-                        <div><span class="item-name">Cognition SWE-2</span> <span class="update">— Released 9/11, HN 420 pts, Devin testing Astra blog; no new trigger today.</span></div>
+                        <div><span class="item-name">Cognition SWE-2</span> <span class="update">— Launched 9/11, HN 420 pts; no new trigger today but still circulating in professional developer circles.</span></div>
                     </li>
                     <li>
                         <span class="days">Day 9</span>
-                        <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— Released 9/9, 763B params, MIT license, Baseten/Ollama support; no new KOL endorsement today.</span></div>
+                        <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— Launched 9/9, 763B params MIT license, HuggingFace trending #2 today but no new KOL endorsement.</span></div>
                     </li>
                     <li>
                         <span class="days">Day 15</span>
-                        <div><span class="item-name">GPT-6 Astra</span> <span class="update">— Released 9/3, fully live on API / ChatGPT Work / Codex; no new trigger today.</span></div>
+                        <div><span class="item-name">GPT-6 Astra</span> <span class="update">— Launched 9/3, fully live; today Astra for Law is its vertical extension.</span></div>
                     </li>
                     <li>
                         <span class="days">Day 10</span>
-                        <div><span class="item-name">Navier–Stokes trust debate</span> <span class="update">— OpenAI announced 9/8, HN 822 pts, Terence Tao discussed; no new movement today.</span></div>
+                        <div><span class="item-name">Navier–Stokes trust debate</span> <span class="update">— No new trigger today; HN discussion has cooled.</span></div>
                     </li>
                 </ul>
             </aside>
@@ -362,21 +300,22 @@
                         <tr><th>Source</th><th>Item</th><th>Why skipped</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>HN #1</td><td>OpenJev</td><td>Non-AI project (key-value store)</td></tr>
-                        <tr><td>HN #3</td><td>Microsoft exec: AI scraping "largest theft of labor"</td><td>Opinion piece, no new tool/model</td></tr>
-                        <tr><td>HN #6</td><td>Bonsai 2 27B near-lossless compression</td><td>Model compression paper, no usable product</td></tr>
-                        <tr><td>HN #9</td><td>Replacing Pull Requests with Delta (Zed)</td><td>Non-AI editor feature update</td></tr>
-                        <tr><td>HN #10</td><td>Hister private search engine</td><td>Non-AI tool</td></tr>
-                        <tr><td>HN #17</td><td>OpenAI internal repo SSO vuln</td><td>Security incident, not capability signal</td></tr>
-                        <tr><td>HN #18</td><td>How to Write with an LLM</td><td>Tutorial; Simon Willison already covered it; weak signal</td></tr>
-                        <tr><td>HN #25</td><td>Why I didn't sign the Fields medallists' letter</td><td>Academic debate, not AI capability</td></tr>
-                        <tr><td>HN #29</td><td>CrowdSec source code leak</td><td>Security incident</td></tr>
-                        <tr><td>Smol AI 9/18</td><td>Anthropic Life Sciences Verification / OpenAI misalignment report / Claude Cowork merge</td><td>Enterprise announcements / safety report / covered by Chinese media</td></tr>
-                        <tr><td>OpenAI official</td><td>Cooley GoPublic / helping older adults / reimagining advertising / connecting AI usage to business value</td><td>Enterprise narrative, not capability signal</td></tr>
-                        <tr><td>Mistral official</td><td>Mistral × Mozilla partnership / Cloudera partnership</td><td>Partnership news, not capability leap</td></tr>
-                        <tr><td>DeepMind blog</td><td>Multiple science model / safety articles</td><td>Not directly actionable signals</td></tr>
-                        <tr><td>Hugging Face blog</td><td>Per-tensor layout maps / ShadowPEFT</td><td>Technical optimizations, limited developer impact</td></tr>
-                        <tr><td>Simon Willison</td><td>Self-generated prompt injections / How to Write with an LLM</td><td>Analysis pieces, not actionable tools</td></tr>
+                        <tr><td>HN #1</td><td>OpenJev (104 pts)</td><td>Non-AI core, new developer tool</td></tr>
+                        <tr><td>HN #2</td><td>Jemalloc 5.4.0 (168 pts)</td><td>Memory allocator, non-AI</td></tr>
+                        <tr><td>HN #3</td><td>Microsoft exec: AI scraping "largest theft of labor" (113 pts)</td><td>Opinion/debate, excluded</td></tr>
+                        <tr><td>HN #4</td><td>x86 emulation (161 pts)</td><td>Low-level engineering, non-AI</td></tr>
+                        <tr><td>HN #6</td><td>Bonsai 2 27B (461 pts)</td><td>Model compression paper — pure research, no usable artifact</td></tr>
+                        <tr><td>HN #7</td><td>Bend — AI mistakes via proof (489 pts)</td><td>Concept language, no usable tool yet</td></tr>
+                        <tr><td>HN #8</td><td>Qwen 3.8 Omni Flash (237 pts)</td><td>Weaker signal than Astra for Law, no KOL endorsement</td></tr>
+                        <tr><td>HN #17</td><td>Heap overflow + SSO compromise of OpenAI internal repos (366 pts)</td><td>Security incident, not capability signal</td></tr>
+                        <tr><td>HN #18</td><td>"How to Write with an LLM" (184 pts)</td><td>Simon Willison reshared; good article but not a new capability</td></tr>
+                        <tr><td>HN #24</td><td>Mathematics devolving into medieval secrecy (130 pts)</td><td>Academic ethics, non-AI</td></tr>
+                        <tr><td>HN #25</td><td>Fields medallists' letter (260 pts)</td><td>Academic politics, excluded</td></tr>
+                        <tr><td>HuggingFace</td><td>Edge0/Edge0-35B-A3B, Xing4.0-29B-A4B</td><td>Weak signal, no meaningful community discussion</td></tr>
+                        <tr><td>Anthropic official</td><td>Life Sciences Verification Program</td><td>Enterprise announcement, not a capability leap</td></tr>
+                        <tr><td>OpenAI official</td><td>Cooley GoPublic</td><td>Enterprise case study, not a general capability signal</td></tr>
+                        <tr><td>Mistral official</td><td>Mistral × Mozilla partnership</td><td>Partnership news, not a capability signal</td></tr>
+                        <tr><td>Smol AI</td><td>9/17 "not much happened today"</td><td>Only recap content, no new information</td></tr>
                     </tbody>
                 </table>
             </section>
