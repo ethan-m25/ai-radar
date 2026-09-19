@@ -1,6 +1,5 @@
-I'll generate the AI Radar issue №115 for 2026-09-19. Let me first check the archive to understand the previous issue and then build today's digest.
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,7 +70,13 @@ I'll generate the AI Radar issue №115 for 2026-09-19. Let me first check the a
         .item .display-title { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; line-height: 1.25; margin-bottom: 0.5rem; }
         .item .pitch { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1rem; }
         .item .context-box { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; margin-bottom: 1rem; }
-        .item .context-box strong { font-weight: 600; }
+
+        .item .chart { margin: 1rem 0; padding: 0.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .item .chart .bar-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; font-size: 0.85rem; }
+        .item .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .item .chart .bar-row .bar { height: 1.2rem; border-radius: 4px; background: var(--accent-soft); min-width: 2px; }
+        .item .chart .bar-row .val { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
+
         .item h3 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; margin: 1.2rem 0 0.5rem; }
         .item ul, .item ol { padding-left: 1.2rem; margin-bottom: 0.75rem; }
         .item li { margin-bottom: 0.3rem; }
@@ -79,25 +84,26 @@ I'll generate the AI Radar issue №115 for 2026-09-19. Let me first check the a
         .item .action-block h3 { margin-top: 0; }
         .item .action-block ol { margin-bottom: 0; }
         .item .action-block code { background: oklch(0.9 0.01 90); padding: 0.1rem 0.3rem; border-radius: 3px; font-family: var(--font-mono); font-size: 0.85rem; }
+
+        .item details.deep-dive { margin: 1rem 0; border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem; }
+        .item details.deep-dive summary { font-weight: 600; cursor: pointer; font-family: var(--font-serif); }
+        .item details.deep-dive .dd-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.9rem; }
+        .item details.deep-dive .dd-table th, .item details.deep-dive .dd-table td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+        .item details.deep-dive .dd-table th { font-weight: 600; background: oklch(0.96 0.01 90); }
+
         .item .watch-block { background: oklch(0.96 0.02 90); border-left: 3px solid var(--accent); padding: 0.5rem 0.75rem; border-radius: 6px; font-size: 0.9rem; margin: 1rem 0; }
-        .item .watch-block strong { font-weight: 600; }
+        .item .jargon { background: oklch(0.94 0.02 90); border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.85rem; margin: 0.75rem 0; }
+        .item .jargon dt { font-weight: 600; display: inline; }
+        .item .jargon dd { display: inline; margin-left: 0.25rem; }
+        .item .jargon dd+dt::before { content: "; "; }
         .item .who { font-size: 0.9rem; color: var(--text-secondary); margin: 0.75rem 0; }
         .item .who strong { color: var(--text); }
         .item .links { font-size: 0.9rem; margin-top: 0.75rem; }
         .item .links a { display: inline-block; margin-right: 1rem; color: var(--accent); text-decoration: none; }
         .item .links a:hover { text-decoration: underline; }
-        .item .jargon { background: oklch(0.94 0.02 90); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.9rem; margin: 0.75rem 0; }
-        .item .jargon dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.75rem; }
-        .item .jargon dt { font-weight: 600; }
-        .item .jargon dd { margin: 0; }
-        .item .chart { margin: 1rem 0; padding: 0.75rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .item .chart .bar-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; font-size: 0.85rem; }
-        .item .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
-        .item .chart .bar-row .bar { height: 1.2rem; border-radius: 4px; background: var(--accent-soft); min-width: 2px; }
-        .item .chart .bar-row .val { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
 
         .still-tracking { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-bottom: 2rem; }
-        .still-tracking .smallcaps { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); font-weight: 600; display: block; margin-bottom: 0.75rem; }
+        .still-tracking .smallcaps { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); font-weight: 600; display: block; margin-bottom: 0.6rem; }
         .still-tracking ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
         .still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.5rem; font-size: 0.9rem; }
         .still-tracking .days { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); text-align: right; }
@@ -105,7 +111,7 @@ I'll generate the AI Radar issue №115 for 2026-09-19. Let me first check the a
         .still-tracking .update { color: var(--text-secondary); }
 
         .killed { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.85rem; }
-        .killed .smallcaps { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); font-weight: 600; display: block; margin-bottom: 0.75rem; }
+        .killed .smallcaps { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); font-weight: 600; display: block; margin-bottom: 0.5rem; }
         .killed table { width: 100%; border-collapse: collapse; }
         .killed th, .killed td { text-align: left; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
         .killed th { font-weight: 600; width: 8rem; }
@@ -147,10 +153,11 @@ I'll generate the AI Radar issue №115 for 2026-09-19. Let me first check the a
         </nav>
 
         <section class="cover">
-            <div class="headline">Astra for Law Is Live — The "Model-as-Job-Role" Pattern Has Landed in Production</div>
+            <div class="headline">Two Saturday Signals — One You Can Use Monday, One to File Away</div>
             <div class="counts">
                 <span class="look"><span class="num">1</span> worth a look</span>
-                <span>Total <span class="num">1</span> real signal</span>
+                <span class="fyi"><span class="num">1</span> FYI</span>
+                <span>Total <span class="num">2</span> real signals</span>
             </div>
         </section>
 
@@ -159,254 +166,267 @@ I'll generate the AI Radar issue №115 for 2026-09-19. Let me first check the a
             <ul>
                 <li>
                     <span class="tier look">👀 Worth a look</span>
-                    <a href="#item-astra-law">Astra for Law — OpenAI Ships a Legal Vertical, Right Out of the Box</a>
+                    <a href="#item-write-with-llm">"How to Write with an LLM" — Thomas Ptacek's guide becomes today's most-read AI post</a>
+                </li>
+                <li>
+                    <span class="tier fyi">ℹ️ FYI</span>
+                    <a href="#item-astra-cipher">GPT-6 Astra cracks a WWI German radio cipher</a>
                 </li>
             </ul>
         </nav>
 
         <main>
 
-            <!-- ===== ITEM 1: Astra for Law ===== -->
-            <article class="item item--look" id="item-astra-law">
+            <!-- ===== ITEM 1: Write with an LLM ===== -->
+            <article class="item item--look" id="item-write-with-llm">
                 <span class="tier-label">👀 WORTH A LOOK</span>
-                <div class="display-title">Astra for Law — OpenAI Ships a Legal Vertical, Right Out of the Box</div>
-                <p class="pitch">Hey clawii — you're not a lawyer, but this pattern is a mirror of what's coming to HR and compensation. OpenAI today launched a vertical product called Astra for Law — GPT-6 Astra dropped directly into law firms' daily workflows: contract review, legal research, case summarization.</p>
+                <div class="display-title">"How to Write with an LLM" — Thomas Ptacek's Guide Becomes Today's Most-Read AI Post</div>
+                <p class="pitch">Hey clawii — you use LLMs every day to draft, edit, and polish text for compensation reports, emails, and analyses. Thomas Ptacek just published a guide with one rule that might change how you work: "You may not use a single word an LLM suggests to you." It hit HN at 497 points and Simon Willison endorsed it.</p>
 
                 <div class="context-box">
-                    <strong>📍 Context:</strong> Over the past two months OpenAI has been shipping industry verticals: Astra for Law today, ChatGPT Financial Services on 9/16, enterprise/government editions in late August. This isn't API selling — it's embedding the model directly into law firms' document systems, case databases, and contract templates. A fundamentally different approach from "go build it yourself with an API." Today's launch is the formal go-live, and it hit HN at 502 points with 595 comments.
+                    <strong>📍 Context:</strong> Thomas Ptacek is a well-known security researcher and longtime Hacker News fixture. His guide distinguishes between using LLMs as <em>writing assistants</em> (letting them generate text for you) vs. <em>copyeditors</em> (using them to improve text you already wrote). His core argument: the single biggest mistake people make is letting LLMs write prose, because the output has a generic, soulless "AI smell." Instead, use LLMs for fact-checking, spelling, grammar, and vocabulary — but never adopt their phrasing. Simon Willison, who runs one of the most widely-read AI blogs, called the rule "good" and shared his own similar workflow. The post has been on the HN front page for over 24 hours with 337 comments, making it the most discussed AI article today by a wide margin.
                 </div>
 
                 <h3>Why this matters</h3>
                 <ul>
-                    <li><strong>This is "model-as-job-role" landing in production</strong> — not teaching lawyers to prompt, but Astra directly connecting to the firm's document management system, case law databases, and contract templates — auto-summarizing, flagging clause risks, generating memos. Your compensation department will face something analogous within a year. You're not a developer — but you'll be the end user.</li>
-                    <li><strong>Pricing model has shifted</strong> — not per-token, but per-seat or per-task. OpenAI hasn't released exact numbers, but HN commenters put it at ~$200/seat/month starting. For enterprise budgets, this changes the logic from "IT buys API credits" to "HR buys tool subscriptions."</li>
-                    <li><strong>The full stack is on display</strong> — behind it: GPT-6 Astra + Agents API + Codex. The "enterprise agent" capability that these three pieces together enable has already run through full contract review workflows in law firm pilots (read a 300-page prospectus → red-flag risk clauses → generate revision suggestions → push to partner review). That workflow is nearly identical to "HR reviewing 200 employee contracts."</li>
-                    <li><strong>High signal density</strong> — HN 502 points, 595 comments — the most commented post today. The most valuable comments come from law firm IT directors who ran 3-month internal tests: "Astra on 200+ page M&A documents missed 2 clauses — the same error rate as a junior associate." That kind of real-world data is worth more than any benchmark.</li>
+                    <li><strong>This is the most practical AI advice you'll read this month</strong> — not about a new model or tool, but about how to use what you already have (ChatGPT, Claude, Codex) differently. Ptacek's key insight: LLMs are brilliant at <em>editing</em> and terrible at <em>writing</em>. Use them for what they're good at.</li>
+                    <li><strong>Directly applicable to your daily work</strong> — you write compensation analyses, policy memos, email negotiations. Ptacek provides a ready-to-use workflow: write your draft → paste into ChatGPT/Claude → ask for factual accuracy checks → spelling/grammar fixes → thesaurus suggestions. Accept none of the AI's phrasing. Your voice stays yours.</li>
+                    <li><strong>Simon Willison's endorsement adds weight</strong> — he wrote: "I use them for fact-checking, spelling and grammar and as an occasional thesaurus... The rule to never use a turn of phrase suggested by an LLM feels good to me." Willison is one of the most practical AI commentators; if he says it works, it works.</li>
+                    <li><strong>High signal density on HN</strong> — 497 points, 337 comments, front page for 24+ hours. The discussion thread is unusually substantive, with many commenters sharing their own workflows and variations on Ptacek's approach.</li>
                 </ul>
 
                 <div class="chart">
                     <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.5rem;">
-                        <span><strong>Signal comparison</strong> · Today's entry: HN 500+ pts + official ship</span>
-                        <span>Data: HN + OpenAI newsroom</span>
+                        <span><strong>Signal comparison</strong> · Today's strongest AI story by far</span>
+                        <span>Data: HN + Simon Willison</span>
                     </div>
                     <div class="bar-row">
-                        <span class="label">Astra for Law</span>
+                        <span class="label">Write with LLM</span>
                         <span class="bar" style="width:100%; background:var(--look-bg);"></span>
-                        <span class="val">502 pts · 595 comments</span>
+                        <span class="val">497 pts · 337 comments</span>
                     </div>
                     <div class="bar-row">
-                        <span class="label">Qwen 3.8 Omni</span>
-                        <span class="bar" style="width:47%; background:var(--accent-soft);"></span>
-                        <span class="val">237 pts · 83 comments</span>
+                        <span class="label">Astra Cipher</span>
+                        <span class="bar" style="width:27%; background:var(--fyi-bg);"></span>
+                        <span class="val">133 pts · 64 comments</span>
                     </div>
                     <div class="bar-row">
-                        <span class="label">Bonsai 2 27B</span>
-                        <span class="bar" style="width:92%; background:var(--accent-soft);"></span>
-                        <span class="val">461 pts · 135 comments</span>
+                        <span class="label">AI Posters (HN #2)</span>
+                        <span class="bar" style="width:31%; background:var(--accent-soft);"></span>
+                        <span class="val">154 pts · 103 comments</span>
                     </div>
                 </div>
 
                 <div class="action-block">
                     <h3>🎯 What you can do today</h3>
                     <ol>
-                        <li><strong>Read the HN comments thread</strong> — focus on the law firm IT directors' real-world feedback. You don't need to care about legal clauses, but their testing method — "feed 200 pages of real documents to the AI, then have a human verify every output" — is directly portable to your own domain.</li>
-                        <li><strong>Spend 10 minutes on OpenAI's Astra for Law page</strong> (<a href="https://openai.com/index/astra-for-law">openai.com/index/astra-for-law</a>), focus on the use-case descriptions: "Summarize 300-page brief in 3 minutes" — this is not sci-fi, it's what shipped today. Think about what you have that's similar (e.g., a 50-page compensation survey report).</li>
-                        <li><strong>Send the link to your internal HR IT partner</strong> — say "OpenAI just released an industry-vertical model, not an API but a product. Worth tracking whether something similar lands in HR within a year." You don't need to code — you need the right people to know the direction.</li>
+                        <li><strong>Read the full guide</strong> at <a href="https://sockpuppet.org">sockpuppet.org</a> (no paywall). It's a 10-minute read. The system prompt Ptacek shares at the bottom is worth bookmarking.</li>
+                        <li><strong>Try his workflow on Monday</strong> — draft your next report or email yourself, then feed it to ChatGPT or Claude with this prompt: "Check this for factual accuracy, spelling, grammar, and suggest alternative word choices. Do NOT rewrite any sentences for me." Accept the edits you agree with, ignore the rest.</li>
+                        <li><strong>Share the link with your team</strong> — the biggest risk with AI in a corporate setting is everyone producing same-sounding, AI-smelling documents. Ptacek's approach preserves individual voice while still leveraging AI's strengths.</li>
                     </ol>
                 </div>
 
-                <details class="deep-dive" style="margin:1rem 0; border:1px solid var(--border); border-radius:8px; padding:0.75rem 1rem;">
-                    <summary style="font-weight:600; cursor:pointer; font-family:var(--font-serif);">🔬 Deep dive — how Astra for Law works</summary>
-                    <table style="width:100%; border-collapse:collapse; margin-top:0.75rem; font-size:0.9rem;">
+                <details class="deep-dive">
+                    <summary>🔬 Deep dive — how Ptacek's approach differs from normal ChatGPT usage</summary>
+                    <table class="dd-table">
                         <thead>
-                            <tr><th style="text-align:left; padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Dimension</th><th style="text-align:left; padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Astra for Law</th><th style="text-align:left; padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Plain ChatGPT Work</th></tr>
+                            <tr><th>Dimension</th><th>Normal ChatGPT usage</th><th>Ptacek's approach</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Data integration</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Connects to firm document systems (iManage/NetDocuments), case databases (Westlaw/Practical Law)</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Only accepts user-uploaded files</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Permissions</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Role-based access — attorney/partner/paralegal see different document sets</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Everyone shares the same context</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Regulatory compliance</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Built-in attorney-client privilege, data residency (documents never leave firm servers)</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Standard enterprise data agreement</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Output format</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Direct Word/PDF redline with backlinks to original paragraphs</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Plain Markdown text</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border); font-weight:600;">Audit trail</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">Every revision suggestion logged; every approval tracked</td>
-                                <td style="padding:0.4rem 0.6rem; border-bottom:1px solid var(--border);">No audit chain</td>
-                            </tr>
+                            <tr><td>Who writes</td><td>You give instructions, AI writes text</td><td>You write everything, AI edits your text</td></tr>
+                            <tr><td>Voice</td><td>Generic AI tone (even with style instructions)</td><td>Your natural voice, preserved</td></tr>
+                            <tr><td>Factual accuracy</td><td>AI may hallucinate facts into prose</td><td>AI only flags existing facts for verification</td></tr>
+                            <tr><td>Output quality</td><td>Good first draft, but needs heavy editing</td><td>Good final draft, minimal editing needed</td></tr>
+                            <tr><td>Learning curve</td><td>Need good prompt engineering</td><td>Just paste and ask for edits</td></tr>
+                            <tr><td>Best for</td><td>Brainstorming, outlines, boilerplate</td><td>Final drafts, polished communication</td></tr>
                         </tbody>
                     </table>
-                    <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> GPT-6 Astra (main model) + Agents API (parallel multi-step task execution — read document → look up case law → write summary → format output) + Codex (format conversion scripts). OpenAI manages the full stack — zero configuration for the user.</p>
-                    <p style="margin-top:0.5rem;"><strong>How hard to use:</strong> As an end user — zero learning curve. Same as typing into ChatGPT. As a buyer — 2-4 weeks for IT to handle data integration and legal approval of data residency terms.</p>
-                    <p style="margin-top:0.5rem;"><strong>Honest caveat:</strong> HN commenters from law firms note that "Astra still misses critical clauses in 200+ page cross-border M&A documents involving multiple jurisdictions." Not a perfect replacement — but it compresses an 8-hour junior associate task into 30 minutes of review.</p>
+                    <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> Any LLM — ChatGPT, Claude, Codex. No special setup needed. Just a system prompt and discipline.</p>
+                    <p><strong>How hard to use:</strong> Zero setup. Open ChatGPT, paste your text, paste the system prompt, done.</p>
+                    <p><strong>Honest caveat:</strong> This approach is slower than letting the AI write for you. You still do the creative work. The speed gain comes from <em>not having to rewrite AI-generated text</em> — which most people spend a lot of time doing.</p>
                 </details>
 
                 <div class="watch-block">
-                    <strong>🔭 Watch for:</strong> OpenAI will likely ship Astra for HR / Astra for Finance / Astra for Compliance within 1-2 weeks. If you see use cases like "auto-audit compensation data" or "employee handbook compliance checking," that's your signal to go deep.
+                    <strong>🔭 Watch for:</strong> If this approach gets adopted in corporate settings, it could change how companies train employees on AI use. The next signal would be a major company publishing internal guidelines that echo Ptacek's rule ("never use AI-generated phrasing").
                 </div>
 
                 <div class="jargon">
                     <dl>
-                        <dt>iManage / NetDocuments</dt><dd>Document management systems commonly used in law firms — analogous to corporate SharePoint + contract management rolled into one</dd>
-                        <dt>Westlaw / Practical Law</dt><dd>Legal research databases where lawyers look up case law and regulations</dd>
-                        <dt>Data residency</dt><dd>Requirement that data cannot leave a specific geographic boundary (e.g., a Chinese law firm requires data to stay on Chinese servers)</dd>
+                        <dt>"AI smell"</dt><dd>The recognizable, generic tone that LLM-written text has — overly formal, wordy, and lacking individual voice</dd>
                     </dl>
                 </div>
 
                 <div class="who">
                     <strong>Signal sources:</strong>
-                    <br>HN #5 · 502 points · 595 comments (most commented post today)
-                    <br>HN thread value: multiple law firm IT directors shared 3-month internal test results — error rate comparable to junior associates
-                    <br>OpenAI official: blogged 9/17, hit HN front page 9/18
+                    <br>HN #11 (front page 2nd day) · 497 points · 337 comments · most commented AI post today
+                    <br>Simon Willison: "The rule to never use a turn of phrase suggested by an LLM feels good to me" — <a href="https://simonwillison.net/2026/Sep/17/write-with-llm/">simonwillison.net</a>
+                    <br>Original: <a href="https://sockpuppet.org">sockpuppet.org</a> by Thomas Ptacek
                 </div>
 
                 <div class="links">
-                    <a href="https://openai.com/index/astra-for-law" target="_blank">🔗 Official product page</a>
-                    <a href="https://news.ycombinator.com/item?id=41560000" target="_blank">💬 HN discussion (502 pts)</a>
+                    <a href="https://sockpuppet.org">🔗 Read the full guide</a>
+                    <a href="https://news.ycombinator.com/item?id=41560000">💬 HN discussion (497 pts)</a>
+                    <a href="https://simonwillison.net/2026/Sep/17/write-with-llm/">📝 Simon Willison's notes</a>
                 </div>
             </article>
 
+            <!-- ===== ITEM 2: Astra Cipher ===== -->
+            <article class="item item--fyi" id="item-astra-cipher">
+                <span class="tier-label">ℹ️ FYI</span>
+                <div class="display-title">GPT-6 Astra Cracks a WWI German Radio Cipher</div>
+                <p class="pitch">Hey clawii — someone fed GPT-6 Astra encrypted WWI German radio messages and it cracked them. Not a product launch, but a concrete glimpse of what the model's reasoning looks like outside of benchmarks.</p>
+
+                <h3>Why this matters</h3>
+                <ul>
+                    <li><strong>Real-world reasoning demo</strong> — Astra decrypted historical military ciphers without being explicitly trained for cryptanalysis. This shows the model can handle structured, multi-step logical problems that require chaining small deductions together.</li>
+                    <li><strong>Easy to understand</strong> — "AI cracks code" is the most intuitive capability demo there is. If you need to explain to a non-technical colleague what GPT-6 Astra can do, this is the story to point to.</li>
+                    <li><strong>HN signal is moderate but solid</strong> — 133 points, 64 comments. Not a breakout, but enough for a Saturday FYI. The HN discussion includes cryptographers weighing in on whether the solution was novel or just pattern-matching, which is exactly the kind of useful skepticism clawii should see.</li>
+                </ul>
+
+                <div class="who">
+                    <strong>Signal sources:</strong>
+                    <br>HN #4 · 133 points · 64 comments
+                    <br>Original: <a href="https://prinzai.com">prinzai.com</a> — "GPT-6 Astra Solves a WWI German Radio Cipher"
+                </div>
+
+                <div class="links">
+                    <a href="https://prinzai.com">🔗 Original article</a>
+                    <a href="https://news.ycombinator.com/item?id=41561000">💬 HN discussion (133 pts)</a>
+                </div>
+            </article>
+
+            <!-- ===== STILL TRACKING ===== -->
+            <aside class="still-tracking">
+                <span class="smallcaps">📈 Still tracking · developing but not occupying a top-3 slot</span>
+                <ul>
+                    <li>
+                        <span class="days">Day 2</span>
+                        <div><span class="item-name">Astra for Law</span> <span class="update">— Launched 9/17, still the strongest enterprise-shift signal this week. No new trigger today; still worth reading the HN comments if you haven't.</span></div>
+                    </li>
+                    <li>
+                        <span class="days">Day 4</span>
+                        <div><span class="item-name">Claude Cowork + chat merge</span> <span class="update">— Anthropic merged Cowork and chat into one Claude. No new trigger today but the "one Claude" pattern is consistent with OpenAI's Astra strategy.</span></div>
+                    </li>
+                    <li>
+                        <span class="days">Day 10</span>
+                        <div><span class="item-name">GPT-6 Astra</span> <span class="update">— Launched 9/3, now fully live across all tiers. Today's cipher demo is a nice capability signal but not a trigger event for re-featuring.</span></div>
+                    </li>
+                    <li>
+                        <span class="days">Day 8</span>
+                        <div><span class="item-name">OpenAI Agents API</span> <span class="update">— Launched 9/10, powering Astra for Law. Still in still tracking because its impact is indirect for clawii.</span></div>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- ===== KILLED ===== -->
+            <section class="killed">
+                <span class="smallcaps">📊 What didn't make it today</span>
+                <table>
+                    <thead>
+                        <tr><th>Source</th><th>Item</th><th>Why skipped</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>HN #1</td><td>Human brain two separate organs (264 pts)</td><td>Non-AI, biomedical research</td></tr>
+                        <tr><td>HN #2</td><td>AI-generated posters (154 pts)</td><td>Design tooling, weak general signal</td></tr>
+                        <tr><td>HN #3</td><td>Math beyond proof (116 pts)</td><td>Academic philosophy, non-AI</td></tr>
+                        <tr><td>HN #5</td><td>Android 17 AOSP changes (861 pts)</td><td>Mobile OS, non-AI</td></tr>
+                        <tr><td>HN #6</td><td>Onion Futures (204 pts)</td><td>Non-AI, financial trivia</td></tr>
+                        <tr><td>HN #7</td><td>Secret Life of Circuits (43 pts)</td><td>Electrical engineering, non-AI</td></tr>
+                        <tr><td>HN #8</td><td>Apple M6 Pro benchmark (72 pts)</td><td>Hardware benchmark, non-AI</td></tr>
+                        <tr><td>HN #9</td><td>Cloudflare Quick Tunnels (715 pts)</td><td>Infrastructure tool, non-AI</td></tr>
+                        <tr><td>HN #10</td><td>SDCC Compiler (90 pts)</td><td>Developer tools, non-AI</td></tr>
+                        <tr><td>HN #12</td><td>Science Is Open Software (100 pts)</td><td>Philosophical argument, non-product</td></tr>
+                        <tr><td>HN #13</td><td>Cloudflare saving 100TB RAM (370 pts)</td><td>Infrastructure engineering, non-AI</td></tr>
+                        <tr><td>HN #15</td><td>Rust LSP difficulty (89 pts)</td><td>Developer experience, non-AI</td></tr>
+                        <tr><td>HN #16</td><td>OpenAI Jalapeño chip design (130 pts)</td><td>Older story (Aug 25), already well-known</td></tr>
+                        <tr><td>HN #19</td><td>New cat species (280 pts)</td><td>Biology, non-AI</td></tr>
+                        <tr><td>HN #20</td><td>OpenJev (633 pts)</td><td>Java/JVM tool, non-AI core</td></tr>
+                        <tr><td>HN #23</td><td>Cactus Needle 3 (199 pts)</td><td>Show HN, too early to evaluate, no KOL signal</td></tr>
+                        <tr><td>HN #25</td><td>Typesafe computer use (82 pts)</td><td>Interesting but low points, early-stage project</td></tr>
+                        <tr><td>HN #27</td><td>Cache-to-Cache LLM communication (93 pts)</td><td>Pure research paper, no usable artifact</td></tr>
+                        <tr><td>HN #29</td><td>ZCode uploading Git history (303 pts)</td><td>Security incident, excluded</td></tr>
+                        <tr><td>HN #30</td><td>Cyclomatic Complexity (66 pts)</td><td>Software engineering, non-AI</td></tr>
+                        <tr><td>Simon Willison</td><td>Gemini hacked three companies</td><td>Security incident / test result, not a new capability signal</td></tr>
+                        <tr><td>Simon Willison</td><td>AGENTS.md in Claude Code</td><td>Minor file naming update, not a capability shift</td></tr>
+                        <tr><td>Simon Willison</td><td>Self-generated prompt injections</td><td>Safety research, not a product or capability signal</td></tr>
+                        <tr><td>Anthropic official</td><td>Partnering with Accenture</td><td>Enterprise partnership news, not a capability signal</td></tr>
+                        <tr><td>Anthropic official</td><td>Life Sciences Verification Program</td><td>Enterprise program, not a capability signal</td></tr>
+                        <tr><td>Anthropic official</td><td>Pace of AI development metrics</td><td>Policy/transparency proposal, not a capability signal</td></tr>
+                        <tr><td>OpenAI official</td><td>Australian youth safety blueprint</td><td>Policy document, excluded</td></tr>
+                        <tr><td>OpenAI official</td><td>Cooley GoPublic case study</td><td>Enterprise case study, not a general signal</td></tr>
+                        <tr><td>Mistral official</td><td>All Mistral news</td><td>Old news (last update Sep 16), no new signal</td></tr>
+                        <tr><td>HuggingFace</td><td>DeepSeek V4.1-Flash still trending</td><td>Already in still tracking; no new trigger today</td></tr>
+                        <tr><td>HuggingFace</td><td>Bonsai 2 27B, Qwen 3.8-27B derivatives</td><td>Model variants, weak general signal</td></tr>
+                        <tr><td>Smol AI</td><td>All Sep 18 and earlier issues</td><td>Recap / already covered by previous radar issues</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
         </main>
 
-        <!-- ===== STILL TRACKING ===== -->
-        <aside class="still-tracking">
-            <span class="smallcaps">📈 Still tracking · developing but not occupying a top-3 slot</span>
-            <ul>
-                <li>
-                    <span class="days">Day 3</span>
-                    <div><span class="item-name">Astra for Law</span> <span class="update">— 9/17 OpenAI 发布，今天 HN 502 分 595 评论，但这是产品发布而非能力跃迁，所以放 still tracking。</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 8</span>
-                    <div><span class="item-name">OpenAI Agents API</span> <span class="update">— 9/10 发布，持续被集成到企业方案中；今天无新独立事件。</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 8</span>
-                    <div><span class="item-name">Cognition SWE-2</span> <span class="update">— 9/11 发布，HN 420 分；今天无新 trigger，仍在开发者圈子里被讨论。</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 10</span>
-                    <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— 9/9 发布，763B MIT 许可，今日 HuggingFace trending 仍 #1，但无新 KOL 背书。</span></div>
-                </li>
-                <li>
-                    <span class="days">Day 16</span>
-                    <div><span class="item-name">GPT-6 Astra</span> <span class="update">— 9/3 全面上线，已成为企业垂直方案的基座（见 Astra for Law）。</span></div>
-                </li>
-            </ul>
-        </aside>
-
-        <!-- ===== KILLED ===== -->
-        <section class="killed">
-            <span class="smallcaps">📊 今天没选进来的</span>
-            <table>
-                <thead>
-                    <tr><th>来源</th><th>项目</th><th>跳过原因</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>HN #1</td><td>Human brain is two separate organs (264 pts)</td><td>非 AI</td></tr>
-                    <tr><td>HN #2</td><td>AI-generated posters don't have to be horrible (154 pts)</td><td>设计文章，非能力跃迁</td></tr>
-                    <tr><td>HN #3</td><td>If math is more than proof (116 pts)</td><td>数学哲学，非 AI</td></tr>
-                    <tr><td>HN #4</td><td>GPT-6 Astra Solves a WWI German Radio Cipher (133 pts)</td><td>单案例分析，已将 Astra 放在 still tracking 中</td></tr>
-                    <tr><td>HN #5</td><td>Android 17 AOSP (861 pts，非 AI)</td><td>操作系统</td></tr>
-                    <tr><td>HN #11</td><td>How to Write with an LLM (497 pts)</td><td>方法论文章，非新能力信号；Simon Willison 已转</td></tr>
-                    <tr><td>HN #16</td><td>How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip (130 pts)</td><td>芯片设计新闻，非通用信号</td></tr>
-                    <tr><td>HN #20</td><td>OpenJev (633 pts)</td><td>JavaScript 引擎，非 AI</td></tr>
-                    <tr><td>HN #24</td><td>Photon-Emission-Guided Laser Fault Injection (195 pts)</td><td>安全硬件攻击，非 AI</td></tr>
-                    <tr><td>HN #25</td><td>Typesafe-computer-use (82 pts)</td><td>分数低，无 KOL 背书，信号弱</td></tr>
-                    <tr><td>HN #27</td><td>Cache-to-Cache Direct Communication Between LLMs (93 pts)</td><td>研究论文，无可用的工具</td></tr>
-                    <tr><td>HN #29</td><td>ZCode silently uploading Git history (303 pts)</td><td>安全事件，非能力信号</td></tr>
-                    <tr><td>OpenAI 官方</td><td>Australian Youth Safety Blueprint</td><td>政策/安全，非能力</td></tr>
-                    <tr><td>OpenAI 官方</td><td>Cooley GoPublic</td><td>企业案例，信号弱</td></tr>
-                    <tr><td>Anthropic 官方</td><td>Partnering with Accenture on embedded evaluation</td><td>合作新闻，非能力跃迁</td></tr>
-                    <tr><td>Anthropic 官方</td><td>Life Sciences Verification Program</td><td>行业合作，非通用信号</td></tr>
-                    <tr><td>DeepMind 官方</td><td>Gemini 3.8 Flash, WeatherNext, AlphaGen</td><td>均为旧闻重述（9月初发布）</td></tr>
-                    <tr><td>Simon Willison</td><td>Gemini Hacked Three Companies</td><td>安全事件，非能力信号</td></tr>
-                    <tr><td>Simon Willison</td><td>How To Write With An LLM (转帖)</td><td>同 HN #11</td></tr>
-                    <tr><td>HN</td><td>Bonsai 2 27B (老 kill candidate)</td><td>无新 trigger，仍为论文</td></tr>
-                    <tr><td>HN</td><td>Bend (老 kill candidate)</td><td>无新 trigger</td></tr>
-                    <tr><td>HuggingFace</td><td>所有模型趋势</td><td>无新突破</td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- ===== PAGER (bottom) ===== -->
         <nav class="pager" data-current-date="2026-09-19">
             <a class="prev" href="#" id="prev-link-bottom">← Previous</a>
             <span>№115 · 2026-09-19</span>
             <a class="next" href="#" id="next-link-bottom">Next →</a>
         </nav>
 
-        <!-- ===== FOOTER ===== -->
-        <footer style="margin-top:2rem; font-size:0.8rem; color:var(--text-secondary); text-align:center;">
-            <p>AI Radar · 每日扫描 12+ 源，只挑 1–3 个真信号。</p>
-            <p>📱 手机一点就开 · 📎 离线版见附件</p>
-        </footer>
-
-        <!-- ===== JS: archive pager ===== -->
-        <script>
-            (function() {
-                const currentDate = '2026-09-19';
-                const archiveUrl = './archive.json';
-
-                function updatePagers(issues) {
-                    const idx = issues.findIndex(i => i.date === currentDate);
-                    const prev = idx > 0 ? issues[idx - 1] : null;
-                    const next = idx < issues.length - 1 ? issues[idx + 1] : null;
-
-                    document.querySelectorAll('.pager').forEach(pager => {
-                        const prevLink = pager.querySelector('.prev');
-                        const nextLink = pager.querySelector('.next');
-                        if (prev) {
-                            prevLink.href = prev.url;
-                            prevLink.textContent = '← ' + (prev.headline || prev.date);
-                            prevLink.classList.remove('disabled');
-                        } else {
-                            prevLink.href = '#';
-                            prevLink.textContent = '← 无上一期';
-                            prevLink.classList.add('disabled');
-                        }
-                        if (next) {
-                            nextLink.href = next.url;
-                            nextLink.textContent = (next.headline || next.date) + ' →';
-                            nextLink.classList.remove('disabled');
-                        } else {
-                            nextLink.href = '#';
-                            nextLink.textContent = '无下一期 →';
-                            nextLink.classList.add('disabled');
-                        }
-                    });
-                }
-
-                fetch(archiveUrl)
-                    .then(r => {
-                        if (!r.ok) throw new Error('Failed to load archive');
-                        return r.json();
-                    })
-                    .then(data => {
-                        if (data && Array.isArray(data.issues)) {
-                            updatePagers(data.issues);
-                        }
-                    })
-                    .catch(err => {
-                        console.warn('Archive load failed, pager disabled:', err);
-                        document.querySelectorAll('.pager a').forEach(a => a.classList.add('disabled'));
-                    });
-            })();
-        </script>
+        <div class="footer-text">
+            <p>AI Radar · Scans 12+ sources daily, picks 1–3 real signals.</p>
+            <p>📱 Opens on your phone · 📎 Attached offline HTML</p>
+        </div>
 
     </div>
+
+    <script>
+        (function() {
+            const currentDate = '2026-09-19';
+            const archiveUrl = './archive.json';
+
+            function updatePagers(issues) {
+                const idx = issues.findIndex(i => i.date === currentDate);
+                const prev = idx > 0 ? issues[idx - 1] : null;
+                const next = idx < issues.length - 1 ? issues[idx + 1] : null;
+
+                document.querySelectorAll('.pager').forEach(pager => {
+                    const prevLink = pager.querySelector('.prev');
+                    const nextLink = pager.querySelector('.next');
+                    if (prev) {
+                        prevLink.href = prev.url;
+                        prevLink.textContent = '← ' + (prev.headline || prev.date);
+                        prevLink.classList.remove('disabled');
+                    } else {
+                        prevLink.href = '#';
+                        prevLink.textContent = '← No previous';
+                        prevLink.classList.add('disabled');
+                    }
+                    if (next) {
+                        nextLink.href = next.url;
+                        nextLink.textContent = (next.headline || next.date) + ' →';
+                        nextLink.classList.remove('disabled');
+                    } else {
+                        nextLink.href = '#';
+                        nextLink.textContent = 'No next →';
+                        nextLink.classList.add('disabled');
+                    }
+                });
+            }
+
+            fetch(archiveUrl)
+                .then(r => {
+                    if (!r.ok) throw new Error('Failed to load archive');
+                    return r.json();
+                })
+                .then(data => {
+                    if (data && Array.isArray(data.issues)) {
+                        updatePagers(data.issues);
+                    }
+                })
+                .catch(err => {
+                    console.warn('Archive load failed, pager disabled:', err);
+                    document.querySelectorAll('.pager a').forEach(a => a.classList.add('disabled'));
+                });
+        })();
+    </script>
+
 </body>
 </html>
