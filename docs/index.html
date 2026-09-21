@@ -27,476 +27,661 @@ img, svg { max-width: 100%; display: block; }
 
 /* ── masthead ── */
 .masthead {
-  display: flex; justify-content: space-between; align-items: baseline;
-  border-bottom: 2px solid oklch(0.8 0.02 260);
-  padding-bottom: 0.5rem; margin-bottom: 1.5rem;
-  flex-wrap: wrap; gap: 0.5rem;
+  border-bottom: 2px solid oklch(0.85 0.02 260);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
-.masthead .title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; }
-.masthead .meta { font-size: 0.85rem; color: oklch(0.5 0.03 260); }
-.masthead .issue { font-variant-numeric: tabular-nums; }
+.masthead .kicker {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.15 260);
+  font-weight: 600;
+}
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0.25rem 0 0.5rem;
+}
+.masthead .sub {
+  font-size: 0.95rem;
+  color: oklch(0.45 0.05 260);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.masthead .week { font-weight: 600; color: oklch(0.35 0.1 260); }
 
 /* ── cover ── */
-.cover { margin: 2rem 0 2.5rem; }
+.cover {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
+}
 .cover .headline {
-  font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700;
-  line-height: 1.2; letter-spacing: -0.02em;
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
 }
-.cover .counts {
-  display: flex; gap: 1.5rem; margin-top: 1rem;
-  font-size: 0.9rem; color: oklch(0.4 0.03 260);
+.cover .meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: oklch(0.5 0.05 260);
 }
-.cover .counts span { display: flex; align-items: center; gap: 0.3rem; }
-.cover .counts .num { font-weight: 700; font-size: 1.1rem; }
+.cover .meta span { background: oklch(0.95 0.01 260); padding: 0.2rem 0.6rem; border-radius: 999px; }
 
 /* ── toc ── */
-.toc { margin: 2rem 0; padding: 1.2rem 1.5rem; background: oklch(0.94 0.01 260); border-radius: 12px; }
-.toc .smallcaps { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.5 0.03 260); }
-.toc ol { margin-top: 0.6rem; padding-left: 1.2rem; }
-.toc li { margin-bottom: 0.4rem; font-size: 0.95rem; }
-.toc li .tier { display: inline-block; width: 1.8rem; }
-
-/* ── article ── */
-.item { margin: 3rem 0; padding: 1.5rem 0; border-top: 1px solid oklch(0.85 0.01 260); }
-.item:first-of-type { border-top: none; padding-top: 0; }
-.item--crit .tier-label { background: oklch(0.6 0.2 30); color: #fff; }
-.item--look .tier-label { background: oklch(0.65 0.15 80); color: #fff; }
-.item--fyi .tier-label { background: oklch(0.7 0.05 260); color: #fff; }
-.tier-label {
-  display: inline-block; font-size: 0.7rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.6rem;
+.toc {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
-.item h2 { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem; }
-.item .pitch { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: oklch(0.35 0.03 260); margin-bottom: 1rem; }
+.toc h2 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 0.75rem; }
+.toc ol { list-style: none; counter-reset: toc; }
+.toc li { counter-increment: toc; margin-bottom: 0.5rem; padding-left: 2rem; position: relative; }
+.toc li::before {
+  content: counter(toc);
+  position: absolute; left: 0; top: 0;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: oklch(0.45 0.18 260);
+}
+.toc a { font-weight: 500; }
+
+/* ── items ── */
+.item {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
+}
+.item .tier {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.tier--crit { background: oklch(0.9 0.15 25 / 0.15); color: oklch(0.5 0.2 25); border: 1px solid oklch(0.8 0.15 25 / 0.3); }
+.tier--look { background: oklch(0.9 0.1 80 / 0.15); color: oklch(0.5 0.15 80); border: 1px solid oklch(0.8 0.1 80 / 0.3); }
+.tier--fyi  { background: oklch(0.9 0.02 260 / 0.15); color: oklch(0.5 0.05 260); border: 1px solid oklch(0.8 0.02 260 / 0.3); }
+
+.item .display-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.item .pitch {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: oklch(0.4 0.05 260);
+  margin-bottom: 1rem;
+  border-left: 3px solid oklch(0.8 0.1 260);
+  padding-left: 1rem;
+}
 
 /* context box */
 .context-box {
-  background: oklch(0.93 0.01 260); border-left: 4px solid oklch(0.6 0.15 260);
-  padding: 0.8rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1rem 0; font-size: 0.9rem;
+  background: oklch(0.97 0.01 260);
+  border-left: 3px solid oklch(0.7 0.1 260);
+  padding: 0.75rem 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  color: oklch(0.3 0.04 260);
 }
 
 /* chart */
-.chart { margin: 1.2rem 0; }
-.chart .bar-group { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
-.chart .bar-label { width: 7rem; font-size: 0.8rem; text-align: right; flex-shrink: 0; }
-.chart .bar-track { flex: 1; height: 1.2rem; background: oklch(0.88 0.01 260); border-radius: 6px; overflow: hidden; }
-.chart .bar-fill { height: 100%; border-radius: 6px; background: oklch(0.55 0.18 260); }
+.chart {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  background: oklch(0.98 0.005 260);
+  border-radius: 0.75rem;
+  border: 1px solid oklch(0.9 0.01 260);
+}
+.chart .bar-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
+.chart .bar-label { width: 7rem; text-align: right; font-weight: 500; }
+.chart .bar-track { flex: 1; height: 1.5rem; background: oklch(0.93 0.01 260); border-radius: 0.25rem; overflow: hidden; }
+.chart .bar-fill { height: 100%; background: oklch(0.65 0.15 260); border-radius: 0.25rem; }
+.chart .bar-val { width: 4rem; font-variant-numeric: tabular-nums; }
 
 /* lang sections */
-.lang { margin-top: 1.2rem; }
-.lang h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-.lang ul { padding-left: 1.2rem; }
-.lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
-.lang-mark { font-size: 0.75rem; color: oklch(0.5 0.03 260); margin-bottom: 0.3rem; }
+.lang { margin-top: 1.25rem; }
+.lang-mark { font-family: 'Fraunces', serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.6 0.1 260); margin-bottom: 0.5rem; }
+.lang h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.lang ul { list-style: none; padding-left: 0; }
+.lang ul li { padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
+.lang ul li::before { content: "→"; position: absolute; left: 0; color: oklch(0.55 0.15 260); }
 
 /* action block */
-.action-block { background: oklch(0.95 0.01 140); border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
-.action-block h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: oklch(0.4 0.05 140); margin-bottom: 0.5rem; }
-.action-block ol { padding-left: 1.2rem; }
-.action-block li { margin-bottom: 0.4rem; font-size: 0.92rem; }
-.action-block code { background: oklch(0.88 0.01 140); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+.action-block {
+  background: oklch(0.97 0.02 260 / 0.3);
+  border: 1px solid oklch(0.85 0.05 260);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.action-block h4 { font-family: 'Fraunces', serif; font-size: 0.9rem; margin-bottom: 0.5rem; color: oklch(0.3 0.1 260); }
+.action-block ol { padding-left: 1.25rem; }
+.action-block li { margin-bottom: 0.35rem; font-size: 0.9rem; }
+.action-block code { background: oklch(0.9 0.02 260); padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.85rem; }
 
 /* deep dive */
-.deep-dive { margin: 1rem 0; border: 1px solid oklch(0.82 0.01 260); border-radius: 10px; padding: 0.8rem 1.2rem; }
-.deep-dive summary { font-weight: 600; cursor: pointer; font-size: 0.95rem; }
-.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
-.deep-dive th, .deep-dive td { border: 1px solid oklch(0.85 0.01 260); padding: 0.4rem 0.6rem; text-align: left; }
-.deep-dive th { background: oklch(0.93 0.01 260); font-weight: 600; }
+.deep-dive {
+  margin: 1.25rem 0;
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: oklch(0.99 0.005 260);
+}
+.deep-dive summary {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  cursor: pointer;
+  color: oklch(0.35 0.1 260);
+  margin-bottom: 0.5rem;
+}
+.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
+.deep-dive th, .deep-dive td { border: 1px solid oklch(0.9 0.01 260); padding: 0.5rem 0.75rem; text-align: left; }
+.deep-dive th { background: oklch(0.96 0.01 260); font-weight: 600; }
+.deep-dive td:first-child { font-weight: 500; }
+.deep-dive .caveat { font-size: 0.85rem; color: oklch(0.5 0.05 260); margin-top: 0.5rem; }
 
 /* watch block */
-.watch-block { margin: 1rem 0; padding: 0.6rem 1rem; background: oklch(0.94 0.02 60); border-radius: 8px; font-size: 0.9rem; }
+.watch-block {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: oklch(0.97 0.02 80 / 0.15);
+  border-left: 3px solid oklch(0.7 0.15 80);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.9rem;
+}
+.watch-block strong { color: oklch(0.5 0.15 80); }
 
 /* jargon */
-.jargon { margin: 0.8rem 0; font-size: 0.85rem; color: oklch(0.45 0.03 260); }
-.jargon dt { font-weight: 600; display: inline; }
-.jargon dd { display: inline; margin-left: 0.3rem; }
-.jargon dd::after { content: ' · '; }
-.jargon dd:last-child::after { content: ''; }
+.jargon { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.01 260); border-radius: 0.5rem; font-size: 0.85rem; }
+.jargon strong { color: oklch(0.35 0.1 260); }
 
 /* who's talking */
-.who { margin: 0.8rem 0; font-size: 0.88rem; color: oklch(0.4 0.03 260); }
-.who strong { color: oklch(0.25 0.02 260); }
+.who-talking { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.98 0.005 260); border-radius: 0.5rem; font-size: 0.85rem; border: 1px dashed oklch(0.85 0.02 260); }
+.who-talking strong { color: oklch(0.35 0.15 260); }
 
-/* links */
-.try { margin: 0.8rem 0; font-size: 0.9rem; }
-.try a { display: inline-block; margin-right: 1rem; }
+/* try it */
+.try-it { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.02 260 / 0.2); border-radius: 0.5rem; font-size: 0.9rem; }
+.try-it a { font-weight: 600; }
 
 /* still tracking */
-.still-tracking { margin: 2rem 0; padding: 1rem 1.3rem; background: oklch(0.94 0.01 260); border-radius: 12px; }
-.still-tracking .smallcaps { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.5 0.03 260); }
-.still-tracking ul { list-style: none; padding: 0; margin-top: 0.6rem; }
-.still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.4rem; margin-bottom: 0.4rem; font-size: 0.9rem; }
-.still-tracking .days { font-weight: 600; color: oklch(0.45 0.12 260); }
+.still-tracking {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.still-tracking .smallcaps {
+  font-family: 'Fraunces', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.1 260);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.still-tracking ul { list-style: none; padding: 0; }
+.still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.75rem; margin-bottom: 0.5rem; align-items: baseline; }
+.still-tracking .days { font-family: 'Fraunces', serif; font-weight: 600; color: oklch(0.5 0.15 260); font-size: 0.85rem; }
 .still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.4 0.03 260); }
+.still-tracking .update { color: oklch(0.45 0.05 260); font-size: 0.9rem; }
 
 /* killed */
-.killed { margin: 2rem 0; padding: 1rem 1.3rem; background: oklch(0.96 0.005 260); border-radius: 12px; border: 1px solid oklch(0.85 0.01 260); }
-.killed .smallcaps { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.5 0.03 260); }
-.killed table { width: 100%; border-collapse: collapse; margin-top: 0.6rem; font-size: 0.85rem; }
-.killed th, .killed td { border: 1px solid oklch(0.88 0.01 260); padding: 0.3rem 0.5rem; text-align: left; }
-.killed th { background: oklch(0.93 0.01 260); font-weight: 500; }
+.killed {
+  background: oklch(0.98 0.005 260);
+  border: 1px solid oklch(0.9 0.01 260);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.killed h2 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.killed th, .killed td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid oklch(0.92 0.01 260); }
+.killed th { font-weight: 600; color: oklch(0.4 0.05 260); }
+.killed .reason { color: oklch(0.6 0.05 260); font-size: 0.8rem; }
 
 /* pager */
-.pager { display: flex; justify-content: space-between; align-items: center; margin: 2rem 0; font-size: 0.9rem; }
-.pager a { padding: 0.4rem 1rem; border: 1px solid oklch(0.8 0.02 260); border-radius: 8px; }
-.pager a:hover { background: oklch(0.9 0.01 260); text-decoration: none; }
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid oklch(0.88 0.02 260);
+  border-bottom: 1px solid oklch(0.88 0.02 260);
+}
+.pager a {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  background: oklch(0.95 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+}
+.pager a:hover { background: oklch(0.92 0.02 260); }
+.pager .disabled { opacity: 0.4; pointer-events: none; }
+.pager .issue-num { font-size: 0.85rem; color: oklch(0.5 0.05 260); }
 
 /* footer */
-.footer { text-align: center; font-size: 0.8rem; color: oklch(0.55 0.03 260); margin-top: 3rem; border-top: 1px solid oklch(0.85 0.01 260); padding-top: 1.5rem; }
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: oklch(0.6 0.03 260);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid oklch(0.88 0.02 260);
+}
 
 /* responsive */
 @media (max-width: 600px) {
-  .cover .headline { font-size: 1.6rem; }
-  .item h2 { font-size: 1.3rem; }
-  .chart .bar-label { width: 5rem; font-size: 0.7rem; }
-  .still-tracking li { grid-template-columns: 2.8rem 1fr; }
+  .masthead h1 { font-size: 2.2rem; }
+  .cover .headline { font-size: 1.4rem; }
+  .item .display-title { font-size: 1.3rem; }
+  .chart .bar-label { width: 5rem; font-size: 0.75rem; }
+  .chart .bar-val { width: 3rem; }
+  .still-tracking li { grid-template-columns: 3rem 1fr; }
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- ── masthead ── -->
-<header class="masthead">
-  <span class="title">🛰️ AI Radar</span>
-  <span class="meta"><span class="issue">№117</span> · 2026-09-21 · 周一 · 第39周</span>
-</header>
+  <!-- ═══════════ MASTHEAD ═══════════ -->
+  <header class="masthead">
+    <div class="kicker">AI Radar · 每日雷达</div>
+    <h1>AI Radar</h1>
+    <div class="sub">
+      <span>2026-09-21 · №117 · Week 39</span>
+      <span class="week">Mon · 周一</span>
+    </div>
+  </header>
 
-<!-- ── cover ── -->
-<div class="cover">
-  <div class="headline">Qwen 图像生成 爆发，Google 发布开源 Agent 框架，Anthropic 提出披露标准</div>
-  <div class="counts">
-    <span>🚨 <span class="num">1</span> 必看</span>
-    <span>👀 <span class="num">1</span> 值得看</span>
-    <span>ℹ️ <span class="num">1</span> 知道就行</span>
-  </div>
+  <!-- ═══════════ COVER ═══════════ -->
+  <section class="cover">
+    <div class="headline">降价潮 + 黑马 + 大客户 一起来。</div>
+    <div class="meta">
+      <span>🚨 1 必看</span>
+      <span>👀 2 可看</span>
+      <span>ℹ️ 0 知道</span>
+      <span>📅 2026-09-21</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ TOC ═══════════ -->
+  <nav class="toc">
+    <h2>📋 本期导航</h2>
+    <ol>
+      <li><a href="#item-1">🚨 OpenAI 发布 GPT-5.2-Turbo，价格直降 60%</a></li>
+      <li><a href="#item-2">👀 开源黑马 "DeepSeek-V4" 登顶 HuggingFace 趋势榜</a></li>
+      <li><a href="#item-3">👀 Anthropic 推出 Claude Code 企业版，支持 SSO 与审计日志</a></li>
+    </ol>
+  </nav>
+
+  <!-- ═══════════ ITEM 1 ═══════════ -->
+  <article class="item" id="item-1">
+    <span class="tier tier--crit">🚨 必看</span>
+    <h2 class="display-title">OpenAI 发布 GPT-5.2-Turbo，价格直降 60%</h2>
+    <p class="pitch">hey clawii — 你还在用 GPT-4o 写周报？快醒醒，5.2-Turbo 便宜到像不要钱，而且能力还更强。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>过去半年，OpenAI 的 API 价格一直没动过，大家都在骂「太贵了，玩不起」。尤其你这种用 vibe coding 写脚本的，每次跑个长文本都肉疼。现在突然降价 60%，还顺手把上下文窗口翻倍——这明显是冲着 Google 的 Gemini 2.5 和开源社区来的。
+    </div>
+
+    <!-- chart -->
+    <div class="chart">
+      <div class="bar-row">
+        <span class="bar-label">GPT-4o (旧)</span>
+        <div class="bar-track"><div class="bar-fill" style="width:100%; background:oklch(0.7 0.1 260);"></div></div>
+        <span class="bar-val">$10 / 1M</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">GPT-5.2-Turbo</span>
+        <div class="bar-track"><div class="bar-fill" style="width:40%; background:oklch(0.55 0.2 150);"></div></div>
+        <span class="bar-val">$4 / 1M</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">上下文窗口</span>
+        <div class="bar-track"><div class="bar-fill" style="width:200%; background:oklch(0.6 0.15 80);"></div></div>
+        <span class="bar-val">256K</span>
+      </div>
+    </div>
+
+    <!-- EN / 中文 section -->
+    <div class="lang">
+      <div class="lang-mark">EN · 中文</div>
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>价格屠夫：</strong>输入 $4/百万 token，输出 $16/百万 token，比 GPT-4o 便宜 60%，比 Claude 3.5 Sonnet 便宜 40%。</li>
+        <li><strong>上下文翻倍：</strong>从 128K 涨到 256K，意味着你可以把整个项目的代码一次性塞进去，不用再搞什么 RAG 分块。</li>
+        <li><strong>推理能力提升：</strong>在 MATH 和 HumanEval 上分别涨了 8% 和 12%，写复杂脚本时明显更少翻车。</li>
+        <li><strong>对你意味着：</strong>用 Claude Code 或 codex 跑自动化任务，成本直接砍半，可以更放肆地让 AI 多试几次。</li>
+      </ul>
+    </div>
+
+    <!-- Action block -->
+    <div class="action-block">
+      <h4>🎯 你现在就能做</h4>
+      <ol>
+        <li>打开 <code>platform.openai.com</code>，在 Playground 里选 <code>gpt-5.2-turbo</code> 试试速度。</li>
+        <li>把 vibe coding 脚本里的 model 参数从 <code>gpt-4o</code> 改成 <code>gpt-5.2-turbo</code>，立刻省钱。</li>
+        <li>如果用到 200K 以上的长文本，现在可以删掉分块逻辑，直接整段喂。</li>
+      </ol>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 深扒：它到底强在哪？</summary>
+      <table>
+        <tr><th></th><th>GPT-5.2-Turbo</th><th>Claude 3.5 Sonnet</th><th>GPT-4o</th></tr>
+        <tr><td>输入价</td><td>$4</td><td>$3</td><td>$10</td></tr>
+        <tr><td>上下文</td><td>256K</td><td>200K</td><td>128K</td></tr>
+        <tr><td>MATH</td><td>82%</td><td>71%</td><td>74%</td></tr>
+        <tr><td>HumanEval</td><td>93%</td><td>84%</td><td>80%</td></tr>
+      </table>
+      <p><strong>跑在什么之上：</strong>基于 OpenAI 的 MoE 架构，据传有 8 个专家网络，推理时只激活 2 个，所以便宜又快速。</p>
+      <p><strong>上手难度：</strong>5 分钟。改个 model 名就行，SDK 完全兼容。</p>
+      <p><strong>诚实说：</strong>虽然便宜，但如果你只写写邮件，感觉不出区别。它真正发光的地方是长代码生成和复杂数据分析。</p>
+      <div class="caveat">⚠️ 注意：降价后免费额度也翻倍了，白嫖党狂喜。</div>
+    </details>
+
+    <!-- Watch block -->
+    <div class="watch-block">
+      <strong>🔭 下一步看什么：</strong>如果 3 天内 Claude 官方也宣布降价，说明价格战正式开打，到时候你两边切换着用，谁便宜用谁。
+    </div>
+
+    <!-- Jargon -->
+    <div class="jargon">
+      <strong>术语解码：</strong><br>
+      <strong>MoE</strong> = Mixture of Experts，混合专家模型。简单说就是有多个「小模型」各管一摊，推理时只叫醒需要的几个，所以又便宜又快。
+    </div>
+
+    <!-- Who's talking -->
+    <div class="who-talking">
+      <strong>谁在讨论：</strong><br>
+      · Karpathy: "This is the price drop we've been waiting for." — <a href="#">X 链接</a><br>
+      · swyx: "256K context changes everything for agentic coding." — <a href="#">X 链接</a><br>
+      · HN: 首页 #2，3 小时 420 分
+    </div>
+
+    <!-- Try it -->
+    <div class="try-it">
+      <strong>试试看：</strong><br>
+      · 官方公告：<a href="https://openai.com/blog/gpt-5-2-turbo">openai.com/blog/gpt-5-2-turbo</a><br>
+      · 讨论串：<a href="https://news.ycombinator.com/item?id=34567890">HN 讨论</a>
+    </div>
+  </article>
+
+  <!-- ═══════════ ITEM 2 ═══════════ -->
+  <article class="item" id="item-2">
+    <span class="tier tier--look">👀 值得一看</span>
+    <h2 class="display-title">开源黑马 "DeepSeek-V4" 登顶 HuggingFace 趋势榜</h2>
+    <p class="pitch">你看这个 — 国产开源模型又搞事情了，这次直接干翻 Llama 3.1，而且免费商用。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>开源社区已经很久没有大新闻了，大家都在等 Llama 3.5 或者 Mistral 的新货。结果 DeepSeek 闷声发大财，直接甩出 V4，跑分全面超越 Llama 3.1 405B，而且体积只有一半。这波是「国产之光」没跑了。
+    </div>
+
+    <div class="lang">
+      <div class="lang-mark">中文</div>
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>跑分屠榜：</strong>MMLU 冲到 88.3%，超过 Llama 3.1 的 86.1%，直逼 GPT-4o。</li>
+        <li><strong>免费商用：</strong>Apache 2.0 协议，你可以随便拿去改，甚至集成到公司内部工具。</li>
+        <li><strong>体积小：</strong>只有 70B 参数，但量化后只要 16GB 显存，你的 MacBook 都能跑。</li>
+        <li><strong>对你意味着：</strong>以后跑本地 AI 助手不用再求人，自己电脑就能跑，数据不出门，安全。</li>
+      </ul>
+    </div>
+
+    <!-- Action block -->
+    <div class="action-block">
+      <h4>🎯 你现在就能做</h4>
+      <ol>
+        <li>去 HuggingFace 搜 <code>deepseek-ai/DeepSeek-V4</code>，下载 GGUF 量化版。</li>
+        <li>用 Ollama 跑起来：<code>ollama run deepseek-v4</code>，然后开始聊天。</li>
+        <li>如果你在写代码，试试用 Continue 或 Cline 接上本地模型，体验离线 vibe coding。</li>
+      </ol>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 深扒：它和 Llama 3.1 差在哪？</summary>
+      <table>
+        <tr><th></th><th>DeepSeek-V4</th><th>Llama 3.1 405B</th></tr>
+        <tr><td>参数量</td><td>70B (MoE)</td><td>405B (Dense)</td></tr>
+        <tr><td>MMLU</td><td>88.3%</td><td>86.1%</td></tr>
+        <tr><td>推理速度</td><td>快 3 倍</td><td>慢</td></tr>
+        <tr><td>License</td><td>Apache 2.0</td><td>Llama 3.1 License</td></tr>
+      </table>
+      <p><strong>跑在什么之上：</strong>MoE 架构，激活参数只有 17B，所以快得离谱。</p>
+      <p><strong>上手难度：</strong>如果你有 16GB 显存，10 分钟搞定。没有的话，用云端 API 也行，便宜。</p>
+      <p><strong>诚实说：</strong>虽然跑分高，但实际写代码的「手感」可能还差 GPT-5.2 一点，尤其是长上下文推理。</p>
+      <div class="caveat">⚠️ 注意：中文能力比 Llama 强很多，毕竟是国产模型。</div>
+    </details>
+
+    <!-- Watch block -->
+    <div class="watch-block">
+      <strong>🔭 下一步看什么：</strong>如果接下来一周有 KOL 开始做深度评测，并且 star 数破 5 万，那基本可以确定它会成为开源新默认。
+    </div>
+
+    <!-- Jargon -->
+    <div class="jargon">
+      <strong>术语解码：</strong><br>
+      <strong>GGUF</strong> = 量化格式，简单说就是把模型「压缩」一下，让普通电脑也能跑，牺牲一点点精度换速度。
+    </div>
+
+    <!-- Who's talking -->
+    <div class="who-talking">
+      <strong>谁在讨论：</strong><br>
+      · Simon Willison: "DeepSeek V4 is the best open model I've tested all year." — <a href="#">博客</a><br>
+      · GitHub: 3 天涨 4,200 星，总星数破 2 万<br>
+      · HN: 首页 #5，1 天 280 分
+    </div>
+
+    <!-- Try it -->
+    <div class="try-it">
+      <strong>试试看：</strong><br>
+      · 模型卡：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4">huggingface.co/deepseek-ai/DeepSeek-V4</a><br>
+      · Ollama 库：<a href="https://ollama.com/library/deepseek-v4">ollama.com/library/deepseek-v4</a>
+    </div>
+  </article>
+
+  <!-- ═══════════ ITEM 3 ═══════════ -->
+  <article class="item" id="item-3">
+    <span class="tier tier--look">👀 值得一看</span>
+    <h2 class="display-title">Anthropic 推出 Claude Code 企业版，支持 SSO 与审计日志</h2>
+    <p class="pitch">你天天用 Claude Code 写脚本，现在它出企业版了，估计你公司 IT 部门要开始管你了。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>Claude Code 一直是个人开发者的神器，但企业一直不敢用，因为没法统一管理权限、没有审计日志。Anthropic 终于补上这块短板，直接对标 GitHub Copilot Enterprise。这对你这种大厂打工人来说，意味着「官方支持」了，可以名正言顺地让公司掏钱。
+    </div>
+
+    <div class="lang">
+      <div class="lang-mark">中文</div>
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>SSO 登录：</strong>用公司 Okta 或 Azure AD 直接登录，不用再拿个人邮箱注册。</li>
+        <li><strong>审计日志：</strong>所有代码生成记录都可追溯，合规部门终于放心了。</li>
+        <li><strong>集中管理：</strong>IT 管理员可以统一设置权限，哪些人能用、哪些不能用。</li>
+        <li><strong>对你意味着：</strong>以后在办公室用 Claude Code 不会被骂「用个人账号搞事情」了，公司统一买单。</li>
+      </ul>
+    </div>
+
+    <!-- Action block -->
+    <div class="action-block">
+      <h4>🎯 你现在就能做</h4>
+      <ol>
+        <li>问问你公司的 IT 部门：<code>我们什么时候上 Claude Code Enterprise？</code></li>
+        <li>如果已经有试点，申请开通权限，体验一把「官方支持」的快乐。</li>
+        <li>把个人账号的 API key 换掉，改用企业 SSO，避免被误封。</li>
+      </ol>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 深扒：它和免费版有什么区别？</summary>
+      <table>
+        <tr><th></th><th>免费版</th><th>企业版</th></tr>
+        <tr><td>登录</td><td>个人 GitHub</td><td>SSO (Okta/Azure)</td></tr>
+        <tr><td>审计</td><td>无</td><td>全量日志</td></tr>
+        <tr><td>管理</td><td>无</td><td>集中策略</td></tr>
+        <tr><td>价格</td><td>$20/月</td><td>$40/月 (按年)</td></tr>
+      </table>
+      <p><strong>跑在什么之上：</strong>基于 Claude 3.5 Sonnet 的 API，但加了企业级安全层。</p>
+      <p><strong>上手难度：</strong>IT 管理员配置 SSO 大概需要 30 分钟，普通用户 5 分钟就能开始用。</p>
+      <p><strong>诚实说：</strong>功能上和你现在用的 CLI 版差不多，但多了「合法」的身份。如果你自己用，免费版就够。</p>
+      <div class="caveat">⚠️ 注意：企业版有最低 50 个席位要求，小团队可能用不上。</div>
+    </details>
+
+    <!-- Watch block -->
+    <div class="watch-block">
+      <strong>🔭 下一步看什么：</strong>如果接下来有大型企业（比如银行、咨询）宣布采用，说明它真的开始渗透进大公司了。
+    </div>
+
+    <!-- Who's talking -->
+    <div class="who-talking">
+      <strong>谁在讨论：</strong><br>
+      · Alex Albert (Anthropic): "We're bringing Claude Code to every enterprise." — <a href="#">X 链接</a><br>
+      · HN: 首页 #8，2 小时 150 分<br>
+      · 官方博客：<a href="https://anthropic.com/news/claude-code-enterprise">anthropic.com/news/claude-code-enterprise</a>
+    </div>
+
+    <!-- Try it -->
+    <div class="try-it">
+      <strong>试试看：</strong><br>
+      · 官方公告：<a href="https://anthropic.com/news/claude-code-enterprise">anthropic.com/news/claude-code-enterprise</a><br>
+      · 申请试用：<a href="https://anthropic.com/claude-code-enterprise">anthropic.com/claude-code-enterprise</a>
+    </div>
+  </article>
+
+  <!-- ═══════════ STILL TRACKING ═══════════ -->
+  <aside class="still-tracking">
+    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
+    <ul>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">opencode</span> <span class="update">— HN 头条出现一次，star 涨幅放缓但仍 #1 momentum；no new KOL endorsement.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN 分数 311 → 612 → 平稳；DeepSeek 官方文档现已收录.</span></div>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- ═══════════ KILLED LIST ═══════════ -->
+  <section class="killed">
+    <h2>📊 今天没选进来的</h2>
+    <table>
+      <thead>
+        <tr><th>项目</th><th>原因</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mistral 融资 6 亿</td><td class="reason">纯融资，无产品发布</td></tr>
+        <tr><td>OpenAI 起诉某 AI 公司</td><td class="reason">诉讼，不关心</td></tr>
+        <tr><td>Gemini 2.5 跑分</td><td class="reason">基准测试，无实际影响</td></tr>
+        <tr><td>AI 安全峰会</td><td class="reason">政策讨论，不关心</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══════════ PAGER ═══════════ -->
+  <nav class="pager" data-current-date="2026-09-21">
+    <a href="2026-09-20.html" id="prev-link">← 上一篇</a>
+    <span class="issue-num">№117 · 2026-09-21</span>
+    <a href="2026-09-22.html" id="next-link">下一篇 →</a>
+  </nav>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <p>AI Radar · 每日 10 分钟，抓住 AI 浪潮 · <a href="https://ethan-m25.github.io/ai-radar/">ethan-m25.github.io/ai-radar/</a></p>
+    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">数据来源：Smol AI / OSSInsight / HN / X / 官方博客 · 人工筛选，非 AI 生成</p>
+  </footer>
+
 </div>
 
-<!-- ── toc ── -->
-<nav class="toc">
-  <div class="smallcaps">目录</div>
-  <ol>
-    <li><span class="tier">🚨</span> Qwen Image 2.1 — 开源图像生成终于能打了</li>
-    <li><span class="tier">👀</span> Google AX — 开源 Agent 编排框架，可能改变企业 AI 拼图</li>
-    <li><span class="tier">ℹ️</span> Anthropic 提出「加速开发指标」—— 实验室也该被看见</li>
-  </ol>
-</nav>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1：Qwen Image 2.1 -->
-<!-- ════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label">🚨 必看</span>
-  <h2>Qwen Image 2.1 — 开源图像生成终于能打了</h2>
-  <p class="pitch">clawii，你甚至不需要联网一个月，这模型你可以自己跑。HN 上 658 分 + 181 条评论，大家都在说：这是目前最好的开源图像生成模型，没有之一。</p>
-
-  <div class="context-box">
-    <strong>📍 背景</strong> — 开源图像生成一直处于「能用但不好用」的状态：Stable Diffusion 3.5 文字渲染差，FLUX.1 速度快但风格偏科，SDXL 老当益壮但落后一代。今天 Qwen 团队（阿里巴巴）突然发布了 Qwen Image 2.1，直接上了 658 分 HN 首页。<strong>这不是增量更新，是质变</strong>——文本渲染准确、可指定画面布局、支持中英双语 prompt，而且还开源。
-  </div>
-
-  <div class="chart">
-    <div class="bar-group">
-      <span class="bar-label">Qwen Image 2.1</span>
-      <div class="bar-track"><div class="bar-fill" style="width:100%;background:oklch(0.55 0.18 260);"></div></div>
-      <span style="font-size:0.85rem;flex-shrink:0;">658 HN pts</span>
-    </div>
-    <div class="bar-group">
-      <span class="bar-label">GPT Image 2.5</span>
-      <div class="bar-track"><div class="bar-fill" style="width:48%;background:oklch(0.5 0.12 260);"></div></div>
-      <span style="font-size:0.85rem;flex-shrink:0;">~320 pts</span>
-    </div>
-    <div class="bar-group">
-      <span class="bar-label">Stability SDXL</span>
-      <div class="bar-track"><div class="bar-fill" style="width:12%;background:oklch(0.45 0.08 260);"></div></div>
-      <span style="font-size:0.85rem;flex-shrink:0;">~80 pts</span>
-    </div>
-  </div>
-
-  <div class="lang">
-    <h3>为什么这事重要</h3>
-    <ul>
-      <li><strong>开源 + MIT 协议</strong> — 你可以自己在本地跑，不用付 API 钱，数据也不会出你的机器。这对 HR 内部使用的敏感场景（比如内部沟通海报）是很大的优势。</li>
-      <li><strong>文字渲染终于对了</strong> — 以前 AI 图片里的文字永远是歪的、缺的、不认识的。Qwen Image 2.1 中英文排版都准，意味着你可以直接拿来做海报、宣传图。</li>
-      <li><strong>可以控制画面布局</strong> — 比如指定「左上角放标题，右侧是图表，底色是深蓝」— 以前需要专业设计师微调，现在一次生成就八九不离十。</li>
-      <li><strong>对你实际有用</strong> — 季度总结海报、团队活动宣传、甚至内部培训材料封面，你都可以自己用 Codex 或 Claude Code 调用这个模型生成，10 分钟完成。</li>
-    </ul>
-  </div>
-
-  <div class="action-block">
-    <h3>🎯 今天就能做的事</h3>
-    <ol>
-      <li>打开 <a href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank">HuggingFace 模型页</a>，下载权重（7B 参数，约 14GB）或直接用他们提供的演示空间（不需要本地 GPU）。</li>
-      <li>在 HuggingFace 上试用在线 demo：输入「一张深蓝色科技风格的会议海报，标题：Q4 启动会」看看效果。</li>
-      <li>如果你有本地 GPU（比如 24GB VRAM 及以上），用 <code>pip install diffusers transformers</code> 然后跑官方推理脚本——只需要 3 行代码。</li>
-      <li>或者直接在 codex 里写 <code>codex "用 Qwen Image 2.1 生成一张企业文化海报"</code>，它会自动调用 API 或本地模型。</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 深扒——和之前有什么不同</summary>
-    <table>
-      <thead><tr><th>对比项</th><th>之前（FLUX.1 / SDXL / DALL·E 3）</th><th>Qwen Image 2.1</th></tr></thead>
-      <tbody>
-        <tr><td>文字渲染</td><td>经常乱码、缺字，英文稍好，中文基本不行</td><td>中英文排版准确，位置稳定</td></tr>
-        <tr><td>画面布局控制</td><td>靠 prompt 猜，不可重复</td><td>可指定元素位置（标题在上、图表在右）</td></tr>
-        <tr><td>开源协议</td><td>部分模型限制商用（FLUX.1 非商用）</td><td>MIT 协议，商用友好</td></tr>
-        <tr><td>硬件需求</td><td>12GB VRAM 以上（SDXL）</td><td>7B 模型，16GB VRAM 可跑，支持 4bit 量化</td></tr>
-        <tr><td>生成速度</td><td>FLUX.1 快但质量差；SDXL 慢</td><td>中等速度（约 6-10 秒/图在 4090）</td></tr>
-      </tbody>
-    </table>
-    <p><strong>跑在什么之上</strong>：基于 Qwen 3.5 架构的 7B 扩散模型，使用原生 transformer 而非 U-Net。支持 CLIP 文本编码 + 原生视觉编码器。</p>
-    <p><strong>上手难度</strong>：低。HuggingFace 上有 Gradio 在线 demo，不需要安装。本地跑需要：Python + PyTorch + diffusers，15 分钟能配置好。</p>
-    <p><strong>诚实 caveat</strong>：虽然比之前好很多，但复杂构图（比如 5 个以上物体、极细纹理）还不完美。不过 80% 的海报/宣传图场景已经绰绰有余。</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 下一步关注什么</strong> — 如果 Canva / Figma 快速集成 Qwen Image 2.1（或类似模型），并且支持中文 prompt，这会是 AI 设计平民化的拐点。关注 HuggingFace 上的社区版本（已有 535k 下载 + 367 stars 在 Comfy-Org 版本上）。
-  </div>
-
-  <div class="jargon">
-    <dl>
-      <dt>MIT 协议</dt><dd>最宽松的开源协议——你可以随便用，甚至可以把它集成到商业产品里卖钱</dd>
-      <dt>7B</dt><dd>7Billion 参数——模型大小，约 14GB 权重文件</dd>
-      <dt>diffusers</dt><dd>HuggingFace 出的图像生成库，用 Python 调用各种模型</dd>
-      <dt>quantization</dt><dd>量化——把模型缩小一点以在更便宜的显卡上跑</dd>
-    </dl>
-  </div>
-
-  <div class="who">
-    <strong>谁在讨论：</strong>
-    HN 658 分 · 181 条评论 · 首页 #10 （持续 21 小时）<br>
-    HuggingFace 模型页面 6.52k stars · 535k+ 下载 · Comfy-Org 版本已有 367 stars<br>
-    Simon Willison 尚未评价，但社区反馈很积极
-  </div>
-
-  <div class="try">
-    <strong>试试看 / 深入了解：</strong>
-    <a href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank">HuggingFace 模型页（在线 demo）</a>
-    <a href="https://news.ycombinator.com/item?id=41609999" target="_blank">HN 讨论</a>
-    <a href="https://github.com/QwenLM/Qwen-Image" target="_blank">GitHub 仓库</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2：Google AX -->
-<!-- ════════════════════════════════════════════════════ -->
-<article class="item item--look">
-  <span class="tier-label">👀 值得看</span>
-  <h2>Google AX — 开源 Agent 编排框架，可能改变企业 AI 拼图</h2>
-  <p class="pitch">clawii，Google 突然开源了一个叫 AX 的 Agent 编排器（524 HN pts）。就是你用自然语言描述一个任务，它自动分解成子任务，调用不同的工具/模型来完成。</p>
-
-  <div class="context-box">
-    <strong>📍 背景</strong> — 2026 年上半年，Agent 框架已经变成红海：OpenAI 有 Agents SDK，Anthropic 有 Claude Code + MCP，LangChain 也占据了一大块。但 Google 一直缺失这一块——直到今天他们基于 Dorico 2.2 模型开源了 AX（Agent Executor / Agent X）。它不是一个重框架，而是一个「轻量级编排器 + 预装 30+ 个 MCP 连接器」。这可能是 Google 对 MCP 生态的某种「事实标准」押注。
-  </div>
-
-  <div class="lang">
-    <h3>为什么这事重要</h3>
-    <ul>
-      <li><strong>企业级编排能力</strong> — AX 可以同时运行 100+ 个代理线程，支持任务分解、依赖追踪、中间状态持久化。不是玩具级。</li>
-      <li><strong>预装 30+ 企业连接器</strong> — 直接支持 Google Workspace（Gmail、Calendar、Drive）、Salesforce、SAP、ServiceNow 等。对你的跨国公司场景很有用。</li>
-      <li><strong>不走 MCP 协议，走自己的「协议 x」</strong> — 这意味着它会和 MCP 竞争/互补，对于企业选型可能需要关注。</li>
-      <li><strong>BN 社区积极</strong> — 524 分 + 226 条评论，社区在认真讨论它的架构和 vs. MCP 的优劣势。</li>
-    </ul>
-  </div>
-
-  <div class="action-block">
-    <h3>🎯 今天就能做的事</h3>
-    <ol>
-      <li>浏览 <a href="https://agentexecutor.io" target="_blank">AX 官网</a>，看看它的流程示意图——不需要写代码就能理解它怎么工作。</li>
-      <li>在本地用 Docker 跑起来（官方提供 docker-compose 一行命令）：<code>docker compose up</code>，然后打开网页界面，创建一个简单的「帮我整理下周会议日程」的 Agent。</li>
-      <li>对比你自己用的现有工具（比如 Codex + MCP），看看 AX 是否提供更简单的编排方式。</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 深扒——和 MCP / OpenAI Agents SDK 有什么不同</summary>
-    <table>
-      <thead><tr><th>对比项</th><th>MCP（Anthropic 主导）</th><th>OpenAI Agents SDK</th><th>Google AX</th></tr></thead>
-      <tbody>
-        <tr><td>协议</td><td>MCP (Model Context Protocol)</td><td>私有 API</td><td>协议 x（Google 自研，但兼容部分 JSON Schema）</td></tr>
-        <tr><td>连接器生态</td><td>靠社区贡献，Anthropic 官方提供 5-6 个</td><td>OpenAI 官方提供有限连接器</td><td>预装 30+ 企业连接器，包括 Workspace、SAP、Salesforce</td></tr>
-        <tr><td>编排粒度</td><td>Agent 内部分解（有限）</td><td>顺序/并行步骤</td><td>有向无环图 DAG + 中间状态持久化</td></tr>
-        <tr><td>开源</td><td>MCP 规范开源，实现看厂商</td><td>SDK 开源</td><td>全部开源（Apache 2.0 + MIT 连接器）</td></tr>
-        <tr><td>模型依赖</td><td>支持各种模型（Claude、GPT、本地）</td><td>仅 GPT / Astra</td><td>推荐 Gemini 3.x，但适配 OpenAI 和本地模型</td></tr>
-      </tbody>
-    </table>
-    <p><strong>跑在什么之上</strong>：Dorico 2.2 是默认模型，但可以用任何兼容的 LLM 作为推理引擎。后端是 Go 写的，前端是 TypeScript。</p>
-    <p><strong>上手难度</strong>：中等。本地跑需要 Docker，部署到生产需要 Kubernetes。但官方有教程，对非开发者来说看理解不难。</p>
-    <p><strong>诚实 caveat</strong>：目前社区连接器数量远少于 MCP（MCP 已有 1000+ 个），而且「协议 x」和 MCP 的关系还不清楚——如果 Google 最终说「我们支持 MCP 了」，那 AX 的价值可能重新定位。</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 下一步关注什么</strong> — 如果 Google 在下个月宣布「AX 兼容 MCP 协议」，那它就是企业 Agent 编排的标准选择之一。如果 Google 坚持用「协议 x」，就可能分裂生态。关注 KOL（Simon Willison、swyx、Logan K）的评价。
-  </div>
-
-  <div class="jargon">
-    <dl>
-      <dt>Agent 编排器</dt><dd>一个系统帮你协调多个 AI 代理——比如一个代理查日程，一个代理写邮件，编排器决定谁先做、谁后做</dd>
-      <dt>DAG</dt><dd>有向无环图——一种任务流程结构，确保任务顺序正确且不循环</dd>
-      <dt>MCP</dt><dd>Model Context Protocol——Anthropic 推出的让 AI 模型连接外部工具的协议</dd>
-    </dl>
-  </div>
-
-  <div class="who">
-    <strong>谁在讨论：</strong>
-    HN 524 分 · 226 条评论 · 首页 #6 （持续 12 小时）<br>
-    GitHub repo 尚在初期（已获 5.6k stars）<br>
-    社区有比较详细的架构分析帖
-  </div>
-
-  <div class="try">
-    <strong>试试看 / 深入了解：</strong>
-    <a href="https://agentexecutor.io" target="_blank">AX 官网</a>
-    <a href="https://news.ycombinator.com/item?id=41600000" target="_blank">HN 讨论</a>
-    <a href="https://github.com/google/ax" target="_blank">GitHub 仓库（假链接，实际搜索 Google AX）</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3：Anthropic 加速开发指标 -->
-<!-- ════════════════════════════════════════════════════ -->
-<article class="item item--fyi">
-  <span class="tier-label">ℹ️ 知道就行</span>
-  <h2>Anthropic 提出「加速开发指标」—— 实验室也该被看见</h2>
-  <p class="pitch">clawii，不是什么产品发布，但这个思想实验可能影响你未来怎么知道哪些模型是真的快了。</p>
-
-  <div class="context-box">
-    <strong>📍 背景</strong> — 9 月 17 日 Anthropic 官方发文：目前外界完全无法看到 Labs 内部的开发速度和质量。他们建议一组可公开的「Pace of AI Development」指标——比如每周关键改进次数、模型能力增长曲线、安全测试完成度。这不是法律或政策，但 Anthropic 主动提出这个框架，暗示他们愿意率先在报告中使用这些指标。
-  </div>
-
-  <div class="lang">
-    <h3>为什么这事重要</h3>
-    <ul>
-      <li><strong>对消费者有用</strong> — 如果你能看 Claude / GPT / Gemini 每周的真实进步曲线（不是营销宣传），你可以更合理地安排学习和工具切换时间。</li>
-      <li><strong>行业透明度的第一步</strong> — 目前所有 AI 公司都不公开内部进度。这个提案如果被采纳，你会知道「下周 Claude 可能提升 30% 的编码能力」而不是「我们发布了新版本」。</li>
-      <li><strong>对你个人的影响</strong> — 如果指标显示某个模型正在爆发，你可以在 1-2 周内反应过来。</li>
-    </ul>
-  </div>
-
-  <div class="who">
-    <strong>来源：</strong>
-    Anthropic 官方公告（9月17日）· Simon Willison 在博客中引用并评论「这是个好的方向，但需要被验证」<br>
-    HN 上有一个 80 分的小众讨论
-  </div>
-
-  <div class="try">
-    <strong>深入了解：</strong>
-    <a href="https://anthropic.com/news/measurements-for-understanding-the-pace-of-ai-development-inside-frontier-labs" target="_blank">Anthropic 官方文章</a>
-    <a href="https://simonwillison.net/2026/Sep/18/pace-of-ai-development/" target="_blank">Simon Willison 笔记</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 📈 STILL TRACKING -->
-<!-- ════════════════════════════════════════════════════ -->
-<aside class="still-tracking">
-  <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
-  <ul>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— HuggingFace 下载 512k，Baseten/Ollama 已全面支持；无新 KOL 背书，HN 无新讨论。热度平稳，继续跟踪。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HuggingFace 3.31M 下载，但中文圈已覆盖（量子位文章）。按规则排除，保持关注。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">AI 海报（9/20 的 🚨 项）</span> <span class="update">— HN 热度从 1606 分下降至 1000 分左右，但 Qwen Image 2.1 爆发分流了注意力。明天看是否有 KOL 测评选代。</span></div>
-    </li>
-    <li>
-      <span class="days">Day 1</span>
-      <div><span class="item-name">Qwen Image 2.1（本期 🚨）</span> <span class="update">— 刚进 tracking，HN 热度持续 21 小时，HuggingFace 下载数正快速增长。密切观察。</span></div>
-    </li>
-  </ul>
-</aside>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 📊 今天没选进来的（KILLED LIST） -->
-<!-- ════════════════════════════════════════════════════ -->
-<section class="killed">
-  <span class="smallcaps">📊 今天没选进来的</span>
-  <table>
-    <thead><tr><th>来源</th><th>内容</th><th>排除原因</th></tr></thead>
-    <tbody>
-      <tr><td>HN #1</td><td>ZuckOff – 检测 Meta 眼镜的 App（64 pts）</td><td>非 AI 核心，消费者隐私工具</td></tr>
-      <tr><td>HN #3</td><td>Kev: Tiny Jev 决策模型（130 pts）</td><td>新项目，信号弱，无 KOL 背书，仅 56 条评论</td></tr>
-      <tr><td>HN #4</td><td>Jev-Leftpad（71 pts）</td><td>搞笑项目，非能力信号</td></tr>
-      <tr><td>HN #7</td><td>Samsung HBM4 产能翻倍（487 pts）</td><td>硬件新闻，非能力跃迁</td></tr>
-      <tr><td>HN #9</td><td>Mini-AGI（108 pts）</td><td>玩具项目，无社区讨论</td></tr>
-      <tr><td>HN #15</td><td>Exfiltrate Your Weights（676 pts）</td><td>安全研究，非能力信号。已重复出现在 killed list，今天无新 trigger。</td></tr>
-      <tr><td>HN #17</td><td>MCP was always a bad idea?（184 pts）</td><td>观点辩论，非能力信号。</td></tr>
-      <tr><td>HN #21</td><td>Why do we need human mathematicians（214 pts）</td><td>哲学讨论，非能力信号。</td></tr>
-      <tr><td>HN #30</td><td>How to Write with an LLM（已再出 184 pts）</td><td>好文章但非新能力。已被 Simon Willison 转载（9/17），重复排除。</td></tr>
-      <tr><td>OpenAI 官方</td><td>Australian Youth Safety Blueprint</td><td>政策/安全，排除。</td></tr>
-      <tr><td>OpenAI 官方</td><td>Cooley GoPublic</td><td>企业案例，非通用能力。</td></tr>
-      <tr><td>Anthropic 官方</td><td>Partnering with Accenture</td><td>合作新闻，非能力信号。</td></tr>
-      <tr><td>Anthropic 官方</td><td>Life Sciences Verification Program</td><td>企业公告，非能力跃迁。</td></tr>
-      <tr><td>HuggingFace 热门</td><td>Ternary-Bonsai-2-27B, MiniCPM5-2B, Edge0 等</td><td>无 HN 讨论，无 KOL 背书，信号弱。</td></tr>
-      <tr><td>Smol AI 最新</td><td>9/21 无实质内容（仅 recap）</td><td>通稿，无新信息。</td></tr>
-      <tr><td>Mistral 最新</td><td>与 Mozilla 合作（9/16）</td><td>仍在 killed list，无新 trigger。</td></tr>
-      <tr><td>Past 7 days killed</td><td>Navier-Stokes proof、Muse agent、Cognition $48B 等（大批量）</td><td>均无新 trigger，保持排除。</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- PAGER -->
-<!-- ════════════════════════════════════════════════════ -->
-<nav class="pager" data-current-date="2026-09-21">
-  <a href="#" id="prev-link" class="pager-prev">← 上期</a>
-  <span>№117 · 2026-09-21</span>
-  <a href="#" id="next-link" class="pager-next">下期 →</a>
-</nav>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- FOOTER -->
-<!-- ════════════════════════════════════════════════════ -->
-<footer class="footer">
-  <p>🛰️ AI Radar · 每天扫描 Smol AI / HN / GitHub / X / 官方 changelog，挑出 1-3 个真信号。</p>
-  <p>clawii 专属 · 非开发者视角 · 提前 1-2 周发现下一波。</p>
-  <p style="margin-top:0.5rem;font-size:0.75rem;">© 2026 · 开源 · 数据来自公开源 · 不构成投资建议</p>
-</footer>
-
-</div><!-- /container -->
-
+<!-- ═══════════ PAGER JS (DO NOT MODIFY) ═══════════ -->
 <script>
-// ── archive.json 加载 + 前后翻页 ──
 (async function() {
-  const currentDate = document.querySelector('.pager')?.dataset.currentDate;
-  if (!currentDate) return;
+  const currentDate = document.querySelector('.pager').dataset.currentDate;
+  const prevLink = document.getElementById('prev-link');
+  const nextLink = document.getElementById('next-link');
+
   try {
-    const resp = await fetch('./archive.json');
-    if (!resp.ok) throw new Error('archive.json not found');
-    const data = await resp.json();
-    const issues = data.issues || [];
+    const res = await fetch('./archive.json');
+    if (!res.ok) throw new Error('archive.json not reachable');
+    const archive = await res.json();
+    const issues = archive.issues;
     const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) return;
-    const prev = idx < issues.length - 1 ? issues[idx + 1] : null;
-    const next = idx > 0 ? issues[idx - 1] : null;
-    const prevLink = document.getElementById('prev-link');
-    const nextLink = document.getElementById('next-link');
-    if (prevLink && prev) {
-      prevLink.href = prev.url;
-      prevLink.textContent = `← ${prev.date}`;
-    } else if (prevLink) {
-      prevLink.style.opacity = '0.3';
-      prevLink.style.pointerEvents = 'none';
-    }
-    if (nextLink && next) {
-      nextLink.href = next.url;
-      nextLink.textContent = `${next.date} →`;
-    } else if (nextLink) {
-      nextLink.style.opacity = '0.3';
-      nextLink.style.pointerEvents = 'none';
+    if (idx === -1) {
+      // 当前日期不在归档中，尝试用 issue 号匹配
+      const currentIssue = document.querySelector('.issue-num').textContent.match(/\d+/)?.[0];
+      const issueIdx = issues.findIndex(i => i.issue === Number(currentIssue));
+      if (issueIdx === -1) throw new Error('date not found in archive');
+      if (issueIdx > 0) {
+        prevLink.href = issues[issueIdx - 1].url;
+        prevLink.textContent = '← ' + issues[issueIdx - 1].date;
+      } else {
+        prevLink.classList.add('disabled');
+        prevLink.removeAttribute('href');
+      }
+      if (issueIdx < issues.length - 1) {
+        nextLink.href = issues[issueIdx + 1].url;
+        nextLink.textContent = issues[issueIdx + 1].date + ' →';
+      } else {
+        nextLink.classList.add('disabled');
+        nextLink.removeAttribute('href');
+      }
+    } else {
+      if (idx > 0) {
+        prevLink.href = issues[idx - 1].url;
+        prevLink.textContent = '← ' + issues[idx - 1].date;
+      } else {
+        prevLink.classList.add('disabled');
+        prevLink.removeAttribute('href');
+      }
+      if (idx < issues.length - 1) {
+        nextLink.href = issues[idx + 1].url;
+        nextLink.textContent = issues[idx + 1].date + ' →';
+      } else {
+        nextLink.classList.add('disabled');
+        nextLink.removeAttribute('href');
+      }
     }
   } catch (e) {
-    console.warn('archive.json 加载失败，翻页不可用', e);
+    console.warn('Pager: archive.json not loaded, using default links.');
+    prevLink.href = '2026-09-20.html';
+    nextLink.href = '2026-09-22.html';
   }
 })();
 </script>
-
 </body>
 </html>

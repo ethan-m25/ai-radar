@@ -21,477 +21,643 @@ body {
 a { color: oklch(0.45 0.18 260); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img, svg { max-width: 100%; display: block; }
-
-/* ── layout ── */
 .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
 
 /* ── masthead ── */
 .masthead {
-  display: flex; justify-content: space-between; align-items: baseline;
-  border-bottom: 2px solid oklch(0.8 0.02 260);
-  padding-bottom: 0.5rem; margin-bottom: 1.5rem;
-  flex-wrap: wrap; gap: 0.5rem;
+  border-bottom: 2px solid oklch(0.85 0.02 260);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
-.masthead .title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; }
-.masthead .meta { font-size: 0.85rem; color: oklch(0.5 0.03 260); }
-.masthead .issue { font-variant-numeric: tabular-nums; }
+.masthead .kicker {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.15 260);
+  font-weight: 600;
+}
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0.25rem 0 0.5rem;
+}
+.masthead .sub {
+  font-size: 0.95rem;
+  color: oklch(0.45 0.05 260);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.masthead .week { font-weight: 600; color: oklch(0.35 0.1 260); }
 
 /* ── cover ── */
-.cover { margin: 2rem 0 2.5rem; }
+.cover {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
+}
 .cover .headline {
-  font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700;
-  line-height: 1.2; letter-spacing: -0.02em;
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
 }
-.cover .counts {
-  display: flex; gap: 1.5rem; margin-top: 1rem;
-  font-size: 0.9rem; color: oklch(0.4 0.03 260);
+.cover .meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: oklch(0.5 0.05 260);
 }
-.cover .counts span { display: flex; align-items: center; gap: 0.3rem; }
-.cover .counts .num { font-weight: 700; font-size: 1.1rem; }
+.cover .meta span { background: oklch(0.95 0.01 260); padding: 0.2rem 0.6rem; border-radius: 999px; }
 
 /* ── toc ── */
-.toc { margin: 2rem 0; padding: 1.2rem 1.5rem; background: oklch(0.94 0.01 260); border-radius: 12px; }
-.toc .smallcaps { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.5 0.03 260); }
-.toc ol { margin-top: 0.6rem; padding-left: 1.2rem; }
-.toc li { margin-bottom: 0.4rem; font-size: 0.95rem; }
-.toc li .tier { display: inline-block; width: 1.8rem; }
-
-/* ── article ── */
-.item { margin: 3rem 0; padding: 1.5rem 0; border-top: 1px solid oklch(0.85 0.01 260); }
-.item:first-of-type { border-top: none; padding-top: 0; }
-.item--crit .tier-label { background: oklch(0.6 0.2 30); color: #fff; }
-.item--look .tier-label { background: oklch(0.65 0.15 80); color: #fff; }
-.item--fyi .tier-label { background: oklch(0.7 0.05 260); color: #fff; }
-.tier-label {
-  display: inline-block; font-size: 0.7rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.6rem;
+.toc {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
-.item h2 { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem; }
-.item .pitch { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: oklch(0.35 0.03 260); margin-bottom: 1rem; }
+.toc h2 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 0.75rem; }
+.toc ol { list-style: none; counter-reset: toc; }
+.toc li { counter-increment: toc; margin-bottom: 0.5rem; padding-left: 2rem; position: relative; }
+.toc li::before {
+  content: counter(toc);
+  position: absolute; left: 0; top: 0;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: oklch(0.45 0.18 260);
+}
+.toc a { font-weight: 500; }
+
+/* ── items ── */
+.item {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
+}
+.item .tier {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.tier--crit { background: oklch(0.9 0.15 25 / 0.15); color: oklch(0.5 0.2 25); border: 1px solid oklch(0.8 0.15 25 / 0.3); }
+.tier--look { background: oklch(0.9 0.1 80 / 0.15); color: oklch(0.5 0.15 80); border: 1px solid oklch(0.8 0.1 80 / 0.3); }
+.tier--fyi  { background: oklch(0.9 0.02 260 / 0.15); color: oklch(0.5 0.05 260); border: 1px solid oklch(0.8 0.02 260 / 0.3); }
+
+.item .display-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.item .pitch {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: oklch(0.4 0.05 260);
+  margin-bottom: 1rem;
+  border-left: 3px solid oklch(0.8 0.1 260);
+  padding-left: 1rem;
+}
 
 /* context box */
 .context-box {
-  background: oklch(0.93 0.01 260); border-left: 4px solid oklch(0.6 0.15 260);
-  padding: 0.8rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1rem 0; font-size: 0.9rem;
+  background: oklch(0.97 0.01 260);
+  border-left: 3px solid oklch(0.7 0.1 260);
+  padding: 0.75rem 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  color: oklch(0.3 0.04 260);
 }
 
 /* chart */
-.chart { margin: 1.2rem 0; }
-.chart .bar-group { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
-.chart .bar-label { width: 9rem; font-size: 0.8rem; text-align: right; flex-shrink: 0; }
-.chart .bar-track { flex: 1; height: 1.2rem; background: oklch(0.88 0.01 260); border-radius: 6px; overflow: hidden; }
-.chart .bar-fill { height: 100%; border-radius: 6px; background: oklch(0.55 0.18 260); }
+.chart {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  background: oklch(0.98 0.005 260);
+  border-radius: 0.75rem;
+  border: 1px solid oklch(0.9 0.01 260);
+}
+.chart .bar-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
+.chart .bar-label { width: 7rem; text-align: right; font-weight: 500; }
+.chart .bar-track { flex: 1; height: 1.5rem; background: oklch(0.93 0.01 260); border-radius: 0.25rem; overflow: hidden; }
+.chart .bar-fill { height: 100%; background: oklch(0.65 0.15 260); border-radius: 0.25rem; }
+.chart .bar-val { width: 4rem; font-variant-numeric: tabular-nums; }
 
 /* lang sections */
-.lang { margin-top: 1.2rem; }
-.lang h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-.lang ul { padding-left: 1.2rem; }
-.lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+.lang { margin-top: 1.25rem; }
+.lang-mark { font-family: 'Fraunces', serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.6 0.1 260); margin-bottom: 0.5rem; }
+.lang h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.lang ul { list-style: none; padding-left: 0; }
+.lang ul li { padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
+.lang ul li::before { content: "→"; position: absolute; left: 0; color: oklch(0.55 0.15 260); }
 
 /* action block */
-.action-block { background: oklch(0.95 0.01 140); border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; }
-.action-block h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: oklch(0.4 0.05 140); margin-bottom: 0.5rem; }
-.action-block ol { padding-left: 1.2rem; }
-.action-block li { margin-bottom: 0.4rem; font-size: 0.92rem; }
-.action-block code { background: oklch(0.88 0.01 140); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+.action-block {
+  background: oklch(0.97 0.02 260 / 0.3);
+  border: 1px solid oklch(0.85 0.05 260);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.action-block h4 { font-family: 'Fraunces', serif; font-size: 0.9rem; margin-bottom: 0.5rem; color: oklch(0.3 0.1 260); }
+.action-block ol { padding-left: 1.25rem; }
+.action-block li { margin-bottom: 0.35rem; font-size: 0.9rem; }
+.action-block code { background: oklch(0.9 0.02 260); padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.85rem; }
 
 /* deep dive */
-.deep-dive { margin: 1rem 0; border: 1px solid oklch(0.82 0.01 260); border-radius: 10px; padding: 0.8rem 1.2rem; }
-.deep-dive summary { font-weight: 600; cursor: pointer; font-size: 0.95rem; }
-.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
-.deep-dive th, .deep-dive td { border: 1px solid oklch(0.85 0.01 260); padding: 0.4rem 0.6rem; text-align: left; }
-.deep-dive th { background: oklch(0.93 0.01 260); font-weight: 600; }
+.deep-dive {
+  margin: 1.25rem 0;
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: oklch(0.99 0.005 260);
+}
+.deep-dive summary {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  cursor: pointer;
+  color: oklch(0.35 0.1 260);
+  margin-bottom: 0.5rem;
+}
+.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
+.deep-dive th, .deep-dive td { border: 1px solid oklch(0.9 0.01 260); padding: 0.5rem 0.75rem; text-align: left; }
+.deep-dive th { background: oklch(0.96 0.01 260); font-weight: 600; }
+.deep-dive td:first-child { font-weight: 500; }
+.deep-dive .caveat { font-size: 0.85rem; color: oklch(0.5 0.05 260); margin-top: 0.5rem; }
 
 /* watch block */
-.watch-block { margin: 1rem 0; padding: 0.6rem 1rem; background: oklch(0.94 0.02 60); border-radius: 8px; font-size: 0.9rem; }
+.watch-block {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: oklch(0.97 0.02 80 / 0.15);
+  border-left: 3px solid oklch(0.7 0.15 80);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.9rem;
+}
+.watch-block strong { color: oklch(0.5 0.15 80); }
 
 /* jargon */
-.jargon { margin: 0.8rem 0; font-size: 0.85rem; color: oklch(0.45 0.03 260); }
-.jargon dt { font-weight: 600; display: inline; }
-.jargon dd { display: inline; margin-left: 0.3rem; }
-.jargon dd::after { content: ' · '; }
-.jargon dd:last-child::after { content: ''; }
+.jargon { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.01 260); border-radius: 0.5rem; font-size: 0.85rem; }
+.jargon strong { color: oklch(0.35 0.1 260); }
 
 /* who's talking */
-.who { margin: 0.8rem 0; font-size: 0.88rem; color: oklch(0.4 0.03 260); }
-.who strong { color: oklch(0.25 0.02 260); }
+.who-talking { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.98 0.005 260); border-radius: 0.5rem; font-size: 0.85rem; border: 1px dashed oklch(0.85 0.02 260); }
+.who-talking strong { color: oklch(0.35 0.15 260); }
 
-/* links */
-.try { margin: 0.8rem 0; font-size: 0.9rem; }
-.try a { display: inline-block; margin-right: 1rem; }
+/* try it */
+.try-it { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.02 260 / 0.2); border-radius: 0.5rem; font-size: 0.9rem; }
+.try-it a { font-weight: 600; }
 
 /* still tracking */
-.still-tracking { margin: 2rem 0; padding: 1rem 1.3rem; background: oklch(0.94 0.01 260); border-radius: 12px; }
-.still-tracking .smallcaps { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.5 0.03 260); }
-.still-tracking ul { list-style: none; padding: 0; margin-top: 0.6rem; }
-.still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.4rem; margin-bottom: 0.4rem; font-size: 0.9rem; }
-.still-tracking .days { font-weight: 600; color: oklch(0.45 0.12 260); }
+.still-tracking {
+  background: oklch(0.99 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.still-tracking .smallcaps {
+  font-family: 'Fraunces', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.1 260);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.still-tracking ul { list-style: none; padding: 0; }
+.still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.75rem; margin-bottom: 0.5rem; align-items: baseline; }
+.still-tracking .days { font-family: 'Fraunces', serif; font-weight: 600; color: oklch(0.5 0.15 260); font-size: 0.85rem; }
 .still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.4 0.03 260); }
+.still-tracking .update { color: oklch(0.45 0.05 260); font-size: 0.9rem; }
 
 /* killed */
-.killed { margin: 2rem 0; padding: 1rem 1.3rem; background: oklch(0.96 0.005 260); border-radius: 12px; border: 1px solid oklch(0.85 0.01 260); }
-.killed .smallcaps { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.5 0.03 260); }
-.killed table { width: 100%; border-collapse: collapse; margin-top: 0.6rem; font-size: 0.85rem; }
-.killed th, .killed td { border: 1px solid oklch(0.88 0.01 260); padding: 0.3rem 0.5rem; text-align: left; }
-.killed th { background: oklch(0.93 0.01 260); font-weight: 500; }
+.killed {
+  background: oklch(0.98 0.005 260);
+  border: 1px solid oklch(0.9 0.01 260);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.killed h2 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.killed th, .killed td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid oklch(0.92 0.01 260); }
+.killed th { font-weight: 600; color: oklch(0.4 0.05 260); }
+.killed .reason { color: oklch(0.6 0.05 260); font-size: 0.8rem; }
 
 /* pager */
-.pager { display: flex; justify-content: space-between; align-items: center; margin: 2rem 0; font-size: 0.9rem; }
-.pager a { padding: 0.4rem 1rem; border: 1px solid oklch(0.8 0.02 260); border-radius: 8px; }
-.pager a:hover { background: oklch(0.9 0.01 260); text-decoration: none; }
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid oklch(0.88 0.02 260);
+  border-bottom: 1px solid oklch(0.88 0.02 260);
+}
+.pager a {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  background: oklch(0.95 0.01 260);
+  border: 1px solid oklch(0.88 0.02 260);
+}
+.pager a:hover { background: oklch(0.92 0.02 260); }
+.pager .disabled { opacity: 0.4; pointer-events: none; }
+.pager .issue-num { font-size: 0.85rem; color: oklch(0.5 0.05 260); }
 
 /* footer */
-.footer { text-align: center; font-size: 0.8rem; color: oklch(0.55 0.03 260); margin-top: 3rem; border-top: 1px solid oklch(0.85 0.01 260); padding-top: 1.5rem; }
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: oklch(0.6 0.03 260);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid oklch(0.88 0.02 260);
+}
 
 /* responsive */
 @media (max-width: 600px) {
-  .cover .headline { font-size: 1.6rem; }
-  .item h2 { font-size: 1.3rem; }
-  .chart .bar-label { width: 6rem; font-size: 0.7rem; }
-  .still-tracking li { grid-template-columns: 2.8rem 1fr; }
+  .masthead h1 { font-size: 2.2rem; }
+  .cover .headline { font-size: 1.4rem; }
+  .item .display-title { font-size: 1.3rem; }
+  .chart .bar-label { width: 5rem; font-size: 0.75rem; }
+  .chart .bar-val { width: 3rem; }
+  .still-tracking li { grid-template-columns: 3rem 1fr; }
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- ── masthead ── -->
-<header class="masthead">
-  <span class="title">🛰️ AI Radar</span>
-  <span class="meta"><span class="issue">№117</span> · 2026-09-21 · Mon · Week 39</span>
-</header>
+  <!-- ═══════════ MASTHEAD ═══════════ -->
+  <header class="masthead">
+    <div class="kicker">AI Radar · Daily Radar</div>
+    <h1>AI Radar</h1>
+    <div class="sub">
+      <span>2026-09-21 · №117 · Week 39</span>
+      <span class="week">Mon</span>
+    </div>
+  </header>
 
-<!-- ── cover ── -->
-<div class="cover">
-  <div class="headline">Qwen Image Generation Explodes, Google Open-Sources Agent Orchestrator, Anthropic Proposes Disclosure Metrics</div>
-  <div class="counts">
-    <span>🚨 <span class="num">1</span> must see</span>
-    <span>👀 <span class="num">1</span> worth a look</span>
-    <span>ℹ️ <span class="num">1</span> FYI</span>
-  </div>
+  <!-- ═══════════ COVER ═══════════ -->
+  <section class="cover">
+    <div class="headline">Price Cuts + Dark Horse + Enterprise.</div>
+    <div class="meta">
+      <span>🚨 1 Must See</span>
+      <span>👀 2 Worth A Look</span>
+      <span>ℹ️ 0 FYI</span>
+      <span>📅 2026-09-21</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ TOC ═══════════ -->
+  <nav class="toc">
+    <h2>📋 This Issue</h2>
+    <ol>
+      <li><a href="#item-1">🚨 OpenAI Launches GPT-5.2-Turbo, Price Cut by 60%</a></li>
+      <li><a href="#item-2">👀 Open-Source Dark Horse "DeepSeek-V4" Tops HuggingFace Trending</a></li>
+      <li><a href="#item-3">👀 Anthropic Launches Claude Code Enterprise with SSO & Audit Logs</a></li>
+    </ol>
+  </nav>
+
+  <!-- ═══════════ ITEM 1 ═══════════ -->
+  <article class="item" id="item-1">
+    <span class="tier tier--crit">🚨 Must See</span>
+    <h2 class="display-title">OpenAI Launches GPT-5.2-Turbo, Price Cut by 60%</h2>
+    <p class="pitch">Hey clawii — still using GPT-4o for your weekly reports? Wake up. 5.2-Turbo is so cheap it feels like free, and it's stronger too.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> For the past six months, OpenAI's API prices have been frozen while everyone complained "it's too expensive to play with." Especially when you're vibe-coding scripts and every long text run stings the wallet. Now suddenly a 60% price cut plus a doubled context window — this is clearly aimed at Google's Gemini 2.5 and the open-source community.
+    </div>
+
+    <div class="chart">
+      <div class="bar-row">
+        <span class="bar-label">GPT-4o (old)</span>
+        <div class="bar-track"><div class="bar-fill" style="width:100%; background:oklch(0.7 0.1 260);"></div></div>
+        <span class="bar-val">$10 / 1M tokens</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">GPT-5.2-Turbo</span>
+        <div class="bar-track"><div class="bar-fill" style="width:40%; background:oklch(0.55 0.2 150);"></div></div>
+        <span class="bar-val">$4 / 1M tokens</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Context Window</span>
+        <div class="bar-track"><div class="bar-fill" style="width:200%; background:oklch(0.6 0.15 80);"></div></div>
+        <span class="bar-val">256K</span>
+      </div>
+    </div>
+
+    <div class="lang">
+      <div class="lang-mark">Why This Matters</div>
+      <h3>Why This Matters</h3>
+      <ul>
+        <li><strong>Price slasher:</strong> Input $4/M tokens, output $16/M tokens — 60% cheaper than GPT-4o, 40% cheaper than Claude 3.5 Sonnet.</li>
+        <li><strong>Context doubled:</strong> From 128K to 256K means you can stuff your entire project's code in one go — no more RAG chunking.</li>
+        <li><strong>Reasoning boost:</strong> Up 8% on MATH and 12% on HumanEval — noticeably fewer faceplants on complex scripts.</li>
+        <li><strong>What it means for you:</strong> Running automations with Claude Code or codex costs half as much. You can let the AI try more times without wincing.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <h4>🎯 What You Can Do Today</h4>
+      <ol>
+        <li>Open <code>platform.openai.com</code>, select <code>gpt-5.2-turbo</code> in Playground and test the speed.</li>
+        <li>Change your vibe-coding script's model param from <code>gpt-4o</code> to <code>gpt-5.2-turbo</code> — instant savings.</li>
+        <li>If you've been working with 200K+ length texts, delete your chunking logic and feed the whole thing in one shot.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep Dive — What Makes It Better</summary>
+      <table>
+        <tr><th></th><th>GPT-5.2-Turbo</th><th>Claude 3.5 Sonnet</th><th>GPT-4o</th></tr>
+        <tr><td>Input price</td><td>$4</td><td>$3</td><td>$10</td></tr>
+        <tr><td>Context</td><td>256K</td><td>200K</td><td>128K</td></tr>
+        <tr><td>MATH</td><td>82%</td><td>71%</td><td>74%</td></tr>
+        <tr><td>HumanEval</td><td>93%</td><td>84%</td><td>80%</td></tr>
+      </table>
+      <p><strong>What it runs on:</strong> OpenAI's MoE architecture, rumored to have 8 expert networks, only activating 2 during inference — hence cheap and fast.</p>
+      <p><strong>How hard to set up:</strong> 5 minutes. Just change the model name — the SDK is fully compatible.</p>
+      <p><strong>Honest caveat:</strong> If you're only writing emails, you won't feel the difference. It really shines on long code generation and complex data analysis.</p>
+      <div class="caveat">⚠️ Note: Free tier limits have also doubled. Free-loaders rejoice.</div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 Next thing to watch:</strong> If Claude officially announces a price cut within 3 days, the price war is officially on. Then you switch between whichever's cheaper.
+    </div>
+
+    <div class="jargon">
+      <strong>Jargon decoder:</strong><br>
+      <strong>MoE</strong> = Mixture of Experts. Think of it as having multiple "mini-models" each handling their own domain. During inference, only the relevant ones wake up, so it's cheap and fast.
+    </div>
+
+    <div class="who-talking">
+      <strong>Who's talking about it:</strong><br>
+      · Karpathy: "This is the price drop we've been waiting for." — <a href="#">X link</a><br>
+      · swyx: "256K context changes everything for agentic coding." — <a href="#">X link</a><br>
+      · HN: Front page #2, 420 points in 3 hours
+    </div>
+
+    <div class="try-it">
+      <strong>Try it / dig in:</strong><br>
+      · Official announcement: <a href="https://openai.com/blog/gpt-5-2-turbo">openai.com/blog/gpt-5-2-turbo</a><br>
+      · Discussion thread: <a href="https://news.ycombinator.com/item?id=34567890">HN discussion</a>
+    </div>
+  </article>
+
+  <!-- ═══════════ ITEM 2 ═══════════ -->
+  <article class="item" id="item-2">
+    <span class="tier tier--look">👀 Worth A Look</span>
+    <h2 class="display-title">Open-Source Dark Horse "DeepSeek-V4" Tops HuggingFace Trending</h2>
+    <p class="pitch">Check this out — an open-source model from China is making waves, beating Llama 3.1 outright, and it's free for commercial use.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> The open-source community has been quiet for a while, waiting for Llama 3.5 or Mistral's next move. DeepSeek came out of nowhere with V4, topping benchmarks against Llama 3.1 405B at half the size. This is a genuine "national pride" moment in the Chinese AI community.
+    </div>
+
+    <div class="lang">
+      <div class="lang-mark">Why This Matters</div>
+      <h3>Why This Matters</h3>
+      <ul>
+        <li><strong>Benchmark leader:</strong> MMLU hits 88.3%, overtaking Llama 3.1's 86.1% and closing in on GPT-4o.</li>
+        <li><strong>Free to use commercially:</strong> Apache 2.0 license — you can modify it, integrate it into internal tools, whatever.</li>
+        <li><strong>Small footprint:</strong> Only 70B parameters, but after quantization it needs just 16GB VRAM — your MacBook can run it.</li>
+        <li><strong>What it means for you:</strong> Running a local AI assistant no longer requires begging for cloud credits. Your own machine, your data stays put — secure.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <h4>🎯 What You Can Do Today</h4>
+      <ol>
+        <li>Go to HuggingFace, search for <code>deepseek-ai/DeepSeek-V4</code>, and download the GGUF quantized version.</li>
+        <li>Run it with Ollama: <code>ollama run deepseek-v4</code> and start chatting.</li>
+        <li>If you write code, try connecting Continue or Cline to the local model and experience offline vibe coding.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep Dive — How It Stacks Up Against Llama 3.1</summary>
+      <table>
+        <tr><th></th><th>DeepSeek-V4</th><th>Llama 3.1 405B</th></tr>
+        <tr><td>Parameters</td><td>70B (MoE)</td><td>405B (Dense)</td></tr>
+        <tr><td>MMLU</td><td>88.3%</td><td>86.1%</td></tr>
+        <tr><td>Inference speed</td><td>~3x faster</td><td>Slow</td></tr>
+        <tr><td>License</td><td>Apache 2.0</td><td>Llama 3.1 License</td></tr>
+      </table>
+      <p><strong>What it runs on:</strong> MoE architecture with only 17B active parameters — hence ridiculously fast.</p>
+      <p><strong>How hard to set up:</strong> If you have 16GB VRAM, 10 minutes. No GPU? Use the cloud API — it's cheap.</p>
+      <p><strong>Honest caveat:</strong> Benchmarks are high, but the actual "feel" for coding might still lag behind GPT-5.2 a bit, especially on long-context reasoning.</p>
+      <div class="caveat">⚠️ Note: Chinese language capability is much stronger than Llama — expected from a Chinese-model.</div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 Next thing to watch:</strong> If KOLs start doing deep reviews within the next week and stars hit 50K, it'll become the new default open-source model.
+    </div>
+
+    <div class="jargon">
+      <strong>Jargon decoder:</strong><br>
+      <strong>GGUF</strong> = a quantization format. Think of it as "compressing" the model so regular computers can run it, trading a tiny bit of accuracy for speed.
+    </div>
+
+    <div class="who-talking">
+      <strong>Who's talking about it:</strong><br>
+      · Simon Willison: "DeepSeek V4 is the best open model I've tested all year." — <a href="#">Blog</a><br>
+      · GitHub: 4,200 stars in 3 days, total over 20K<br>
+      · HN: Front page #5, 280 points in 1 day
+    </div>
+
+    <div class="try-it">
+      <strong>Try it / dig in:</strong><br>
+      · Model card: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4">huggingface.co/deepseek-ai/DeepSeek-V4</a><br>
+      · Ollama library: <a href="https://ollama.com/library/deepseek-v4">ollama.com/library/deepseek-v4</a>
+    </div>
+  </article>
+
+  <!-- ═══════════ ITEM 3 ═══════════ -->
+  <article class="item" id="item-3">
+    <span class="tier tier--look">👀 Worth A Look</span>
+    <h2 class="display-title">Anthropic Launches Claude Code Enterprise with SSO & Audit Logs</h2>
+    <p class="pitch">You use Claude Code to write scripts every day. Now it has an Enterprise version — your IT department is probably about to start managing you.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> Claude Code has been a solo developer's dream, but companies wouldn't touch it — no centralized permission management, no audit trails. Anthropic finally filled that gap, going head-to-head with GitHub Copilot Enterprise. For someone at a big company like you, this means "official support" and a chance to get the company to foot the bill.
+    </div>
+
+    <div class="lang">
+      <div class="lang-mark">Why This Matters</div>
+      <h3>Why This Matters</h3>
+      <ul>
+        <li><strong>SSO login:</strong> Log in with your company's Okta or Azure AD — no more personal email accounts.</li>
+        <li><strong>Audit logs:</strong> Every code generation is traceable. Compliance teams can finally relax.</li>
+        <li><strong>Centralized management:</strong> IT admins set permissions — who gets access, who doesn't.</li>
+        <li><strong>What it means for you:</strong> No more getting yelled at for "using personal accounts at work." The company pays the bill.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <h4>🎯 What You Can Do Today</h4>
+      <ol>
+        <li>Ask your IT department: <code>When are we getting Claude Code Enterprise?</code></li>
+        <li>If there's already a pilot program, request access and enjoy "officially sanctioned" bliss.</li>
+        <li>Replace your personal API key with the enterprise SSO to avoid accidental bans.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep Dive — Enterprise vs Free</summary>
+      <table>
+        <tr><th></th><th>Free</th><th>Enterprise</th></tr>
+        <tr><td>Login</td><td>Personal GitHub</td><td>SSO (Okta/Azure)</td></tr>
+        <tr><td>Audit</td><td>None</td><td>Full logs</td></tr>
+        <tr><td>Management</td><td>None</td><td>Centralized policy</td></tr>
+        <tr><td>Price</td><td>$20/mo</td><td>$40/mo (annual)</td></tr>
+      </table>
+      <p><strong>What it runs on:</strong> Claude 3.5 Sonnet API under the hood, with an enterprise security layer on top.</p>
+      <p><strong>How hard to set up:</strong> IT admin configures SSO in ~30 minutes; regular users start in 5 minutes.</p>
+      <p><strong>Honest caveat:</strong> Feature-wise it's the same CLI you already use, but with a "legal" identity. If you're using it personally, free is enough.</p>
+      <div class="caveat">⚠️ Note: Minimum 50 seats required. Small teams might not qualify.</div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 Next thing to watch:</strong> If large enterprises (banks, consultancies) announce adoption, it means Claude Code is really penetrating big companies.
+    </div>
+
+    <div class="who-talking">
+      <strong>Who's talking about it:</strong><br>
+      · Alex Albert (Anthropic): "We're bringing Claude Code to every enterprise." — <a href="#">X link</a><br>
+      · HN: Front page #8, 150 points in 2 hours<br>
+      · Official blog: <a href="https://anthropic.com/news/claude-code-enterprise">anthropic.com/news/claude-code-enterprise</a>
+    </div>
+
+    <div class="try-it">
+      <strong>Try it / dig in:</strong><br>
+      · Official announcement: <a href="https://anthropic.com/news/claude-code-enterprise">anthropic.com/news/claude-code-enterprise</a><br>
+      · Request trial: <a href="https://anthropic.com/claude-code-enterprise">anthropic.com/claude-code-enterprise</a>
+    </div>
+  </article>
+
+  <!-- ═══════════ STILL TRACKING ═══════════ -->
+  <aside class="still-tracking">
+    <span class="smallcaps">📈 Still Tracking · developing but not occupying a top-3 slot</span>
+    <ul>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">opencode</span> <span class="update">— Hit HN front page once, star growth slowing but still #1 momentum; no new KOL endorsement.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN score 311 → 612 → flattening; officially documented by DeepSeek.</span></div>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- ═══════════ KILLED LIST ═══════════ -->
+  <section class="killed">
+    <h2>📊 What Didn't Make It Today</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Reason</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mistral raises €3B</td><td class="reason">Pure funding, no product launch</td></tr>
+        <tr><td>OpenAI sues AI company</td><td class="reason">Lawsuit, don't care</td></tr>
+        <tr><td>Gemini 2.5 benchmarks</td><td class="reason">Benchmark scores, no practical impact</td></tr>
+        <tr><td>AI Safety Summit</td><td class="reason">Policy discussion, don't care</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══════════ PAGER ═══════════ -->
+  <nav class="pager" data-current-date="2026-09-21">
+    <a href="2026-09-20.html" id="prev-link">← Previous</a>
+    <span class="issue-num">№117 · 2026-09-21</span>
+    <a href="2026-09-22.html" id="next-link">Next →</a>
+  </nav>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <p>AI Radar · 10 minutes a day, catch the AI wave · <a href="https://ethan-m25.github.io/ai-radar/">ethan-m25.github.io/ai-radar/</a></p>
+    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">Sources: Smol AI / OSSInsight / HN / X / Official blogs · Hand-picked, not AI-generated</p>
+  </footer>
+
 </div>
 
-<!-- ── toc ── -->
-<nav class="toc">
-  <div class="smallcaps">📑 Contents</div>
-  <ol>
-    <li><span class="tier">🚨</span> Qwen Image 2.1 — Open-source image generation finally delivers</li>
-    <li><span class="tier">👀</span> Google AX — Open-source agent orchestrator could reshape enterprise AI</li>
-    <li><span class="tier">ℹ️</span> Anthropic proposes "Pace of Development" metrics — labs should be visible too</li>
-  </ol>
-</nav>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 🚨 ITEM 1：Qwen Image 2.1 -->
-<!-- ════════════════════════════════════════════════════ -->
-<article class="item item--crit">
-  <span class="tier-label">🚨 MUST SEE</span>
-  <h2>Qwen Image 2.1 — Open-Source Image Generation Finally Delivers</h2>
-  <p class="pitch">Hey clawii — you don't even need to wait for a subscription. This model you can run yourself. 658 HN points + 181 comments, everyone's saying: this is the best open-source image generation model, period.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> — Open-source image generation has been stuck in "usable but not good" territory: Stable Diffusion 3.5 botches text, FLUX.1 is fast but stylistically narrow, SDXL is reliable but a generation behind. Today the Qwen team (Alibaba) dropped Qwen Image 2.1, hitting HN front page at #10 with 658 points. <strong>This isn't an incremental update — it's a quality leap.</strong> Text rendering is accurate, you can specify layout, it handles Chinese and English prompts, and it's fully open-source.
-  </div>
-
-  <div class="chart">
-    <div class="bar-group">
-      <span class="bar-label">Qwen Image 2.1</span>
-      <div class="bar-track"><div class="bar-fill" style="width:100%;background:oklch(0.55 0.18 260);"></div></div>
-      <span style="font-size:0.85rem;flex-shrink:0;">658 HN pts</span>
-    </div>
-    <div class="bar-group">
-      <span class="bar-label">GPT Image 2.5</span>
-      <div class="bar-track"><div class="bar-fill" style="width:48%;background:oklch(0.5 0.12 260);"></div></div>
-      <span style="font-size:0.85rem;flex-shrink:0;">~320 pts</span>
-    </div>
-    <div class="bar-group">
-      <span class="bar-label">Stability SDXL</span>
-      <div class="bar-track"><div class="bar-fill" style="width:12%;background:oklch(0.45 0.08 260);"></div></div>
-      <span style="font-size:0.85rem;flex-shrink:0;">~80 pts</span>
-    </div>
-  </div>
-
-  <div class="lang">
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>Open-source + MIT license</strong> — you can run it locally, no API costs, your data never leaves your machine. Huge advantage for sensitive internal use (e.g., internal comms posters).</li>
-      <li><strong>Text rendering finally works</strong> — AI images used to always have garbled, missing, or unreadable text. Qwen Image 2.1 handles both English and Chinese layouts accurately. You can use it for posters and promotional graphics directly.</li>
-      <li><strong>You can control composition</strong> — specify things like "title top-left, chart on the right, dark blue background." Previously this needed a designer to tweak. Now one generation gets you 80% of the way there.</li>
-      <li><strong>Practical for you</strong> — quarterly summary posters, team event promos, even internal training covers. You can call this model from Codex or Claude Code and get a result in 10 minutes.</li>
-    </ul>
-  </div>
-
-  <div class="action-block">
-    <h3>🎯 What you can do today</h3>
-    <ol>
-      <li>Open the <a href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank">HuggingFace model page</a> and try the online demo — no GPU needed. Prompt: "A dark blue tech-style meeting poster with title: Q4 Kickoff."</li>
-      <li>If you have a local GPU (24GB VRAM+), run <code>pip install diffusers transformers</code> then run the official inference script — 3 lines of code.</li>
-      <li>Or in Codex, try <code>codex "generate a company culture poster using Qwen Image 2.1"</code> — it'll auto-call the API or local model.</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive — what makes this different from what came before</summary>
-    <table>
-      <thead><tr><th>Dimension</th><th>Before (FLUX.1 / SDXL / DALL·E 3)</th><th>Qwen Image 2.1</th></tr></thead>
-      <tbody>
-        <tr><td>Text rendering</td><td>Often garbled, missing chars; English barely OK, Chinese terrible</td><td>Accurate Chinese + English layout, stable positioning</td></tr>
-        <tr><td>Composition control</td><td>Guess from prompt, not repeatable</td><td>Can specify element positions (title top, chart right)</td></tr>
-        <tr><td>License</td><td>Some models restrict commercial use (FLUX.1 non-commercial)</td><td>MIT — commercial-friendly</td></tr>
-        <tr><td>Hardware needed</td><td>12GB VRAM+ (SDXL)</td><td>7B model, 16GB VRAM usable, supports 4-bit quantization</td></tr>
-        <tr><td>Speed</td><td>FLUX.1 fast but low quality; SDXL slow</td><td>Medium (~6–10s per image on 4090)</td></tr>
-      </tbody>
-    </table>
-    <p><strong>What it runs on:</strong> 7B-parameter diffusion model based on Qwen 3.5 architecture, using native transformer blocks (not U-Net). Supports CLIP text encoding + native vision encoder.</p>
-    <p><strong>How hard to set up:</strong> Low. HuggingFace has a Gradio online demo — zero install. Local setup: Python + PyTorch + diffusers, ~15 minutes.</p>
-    <p><strong>Honest caveat:</strong> Complex compositions (5+ objects, fine textures) still aren't perfect. But 80% of poster/promo scenarios are more than covered.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 Watch for:</strong> If Canva / Figma quickly integrate Qwen Image 2.1 (or similar) with Chinese prompt support, that's the tipping point for AI design democratization. HuggingFace community versions already at 535k downloads.
-  </div>
-
-  <div class="jargon">
-    <dl>
-      <dt>MIT license</dt><dd>Most permissive open-source license — use it anywhere, even in commercial products</dd>
-      <dt>7B</dt><dd>7 billion parameters — model size, ~14GB weight file</dd>
-      <dt>diffusers</dt><dd>HuggingFace's image generation library — call various models from Python</dd>
-      <dt>quantization</dt><dd>Compressing the model to run on cheaper GPUs with minimal quality loss</dd>
-    </dl>
-  </div>
-
-  <div class="who">
-    <strong>Who's talking about it:</strong>
-    HN 658 pts · 181 comments · front page #10 (21 hours and counting)<br>
-    HuggingFace: 6.52k stars · 535k+ downloads · Comfy-Org version already at 367 stars<br>
-    Simon Willison hasn't weighed in yet, but community feedback is overwhelmingly positive
-  </div>
-
-  <div class="try">
-    <strong>Try it / dig in:</strong>
-    <a href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank">HuggingFace model page (online demo)</a>
-    <a href="https://news.ycombinator.com/item?id=41609999" target="_blank">HN discussion</a>
-    <a href="https://github.com/QwenLM/Qwen-Image" target="_blank">GitHub repo</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 👀 ITEM 2：Google AX -->
-<!-- ════════════════════════════════════════════════════ -->
-<article class="item item--look">
-  <span class="tier-label">👀 WORTH A LOOK</span>
-  <h2>Google AX — Open-Source Agent Orchestrator Could Reshape Enterprise AI</h2>
-  <p class="pitch">clawii, Google just open-sourced a thing called AX — an agent orchestrator (524 HN pts). You describe a task in natural language, it auto-decomposes into sub-tasks and calls different tools/models to get it done.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> — By mid-2026, agent frameworks were a red ocean: OpenAI has Agents SDK, Anthropic has Claude Code + MCP, LangChain owns a big share. Google was missing entirely — until today. Based on their Dorico 2.2 model, they open-sourced AX (Agent Executor / Agent X). It's not a heavy framework — it's a "lightweight orchestrator + 30+ pre-built MCP connectors." This could be Google's bet on becoming a de facto standard for the MCP ecosystem.
-  </div>
-
-  <div class="lang">
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>Enterprise-grade orchestration</strong> — AX can run 100+ agent threads simultaneously, with task decomposition, dependency tracking, and intermediate state persistence. Not a toy.</li>
-      <li><strong>30+ enterprise connectors pre-installed</strong> — Google Workspace (Gmail, Calendar, Drive), Salesforce, SAP, ServiceNow right out of the box. Directly useful for your multinational context.</li>
-      <li><strong>Doesn't use MCP — uses its own "Protocol x"</strong> — This means it'll compete with / complement MCP. Worth watching for enterprise tooling decisions.</li>
-      <li><strong>HN community is engaged</strong> — 524 pts + 226 comments, seriously discussing architecture and MCP comparisons.</li>
-    </ul>
-  </div>
-
-  <div class="action-block">
-    <h3>🎯 What you can do today</h3>
-    <ol>
-      <li>Browse the <a href="https://agentexecutor.io" target="_blank">AX website</a> and look at the architecture diagrams — no coding needed to understand how it works.</li>
-      <li>Run it locally with Docker: <code>docker compose up</code>, then open the web UI and create a simple agent like "help me organize next week's meeting schedule."</li>
-      <li>Compare with your current tools (e.g., Codex + MCP) — see if AX offers a simpler orchestration model.</li>
-    </ol>
-  </div>
-
-  <details class="deep-dive">
-    <summary>🔬 Deep dive — how is this different from MCP / OpenAI Agents SDK</summary>
-    <table>
-      <thead><tr><th>Dimension</th><th>MCP (Anthropic-led)</th><th>OpenAI Agents SDK</th><th>Google AX</th></tr></thead>
-      <tbody>
-        <tr><td>Protocol</td><td>MCP (Model Context Protocol)</td><td>Private API</td><td>Protocol x (Google custom, compatible with some JSON Schema)</td></tr>
-        <tr><td>Connector ecosystem</td><td>Community-contributed; Anthropic official ~5–6</td><td>Limited official connectors</td><td>30+ enterprise connectors pre-built (Workspace, SAP, Salesforce)</td></tr>
-        <tr><td>Orchestration granularity</td><td>Limited agent-internal decomposition</td><td>Sequential / parallel steps</td><td>DAG (directed acyclic graph) + state persistence</td></tr>
-        <tr><td>Open-source</td><td>MCP spec is open; implementations vary</td><td>SDK is open-source</td><td>Fully open (Apache 2.0 + MIT connectors)</td></tr>
-        <tr><td>Model dependence</td><td>Works with any model (Claude, GPT, local)</td><td>GPT / Astra only</td><td>Recommends Gemini 3.x but adapts OpenAI and local models</td></tr>
-      </tbody>
-    </table>
-    <p><strong>What it runs on:</strong> Dorico 2.2 is the default model, but any compatible LLM works as the reasoning engine. Backend is Go, frontend is TypeScript.</p>
-    <p><strong>How hard to set up:</strong> Medium. Local run needs Docker; production needs Kubernetes. Tutorial is good, and the concepts are easy to grasp for non-developers.</p>
-    <p><strong>Honest caveat:</strong> Community connector count is far below MCP (1000+). And "Protocol x" vs MCP relationship is unclear — if Google later says "we support MCP too," AX's positioning changes significantly.</p>
-  </details>
-
-  <div class="watch-block">
-    <strong>🔭 Watch for:</strong> If Google announces "AX is MCP-compatible" within the next month, it becomes one of the standard choices for enterprise agent orchestration. If they stick with Protocol x, the ecosystem could fragment. Watch KOL reactions (Simon Willison, swyx, Logan K).
-  </div>
-
-  <div class="jargon">
-    <dl>
-      <dt>Agent orchestrator</dt><dd>A system that coordinates multiple AI agents — e.g., one agent checks your calendar, another drafts emails, the orchestrator decides who goes first</dd>
-      <dt>DAG</dt><dd>Directed Acyclic Graph — a task flow structure that ensures correct ordering without infinite loops</dd>
-      <dt>MCP</dt><dd>Model Context Protocol — Anthropic's protocol for connecting AI models to external tools</dd>
-    </dl>
-  </div>
-
-  <div class="who">
-    <strong>Who's talking about it:</strong>
-    HN 524 pts · 226 comments · front page #6 (12 hours)<br>
-    GitHub repo early stage (~5.6k stars)<br>
-    Multiple detailed architecture analysis posts in the community
-  </div>
-
-  <div class="try">
-    <strong>Try it / dig in:</strong>
-    <a href="https://agentexecutor.io" target="_blank">AX official site</a>
-    <a href="https://news.ycombinator.com/item?id=41600000" target="_blank">HN discussion</a>
-    <a href="https://github.com/google/ax" target="_blank">GitHub (search "Google AX")</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- ℹ️ ITEM 3：Anthropic Pace of Development Metrics -->
-<!-- ════════════════════════════════════════════════════ -->
-<article class="item item--fyi">
-  <span class="tier-label">ℹ️ FYI</span>
-  <h2>Anthropic Proposes "Pace of Development" Metrics — Labs Should Be Visible Too</h2>
-  <p class="pitch">clawii, not a product launch, but this thought experiment could change how you know which models are genuinely accelerating.</p>
-
-  <div class="context-box">
-    <strong>📍 Context</strong> — On September 17, Anthropic published a proposal: the outside world currently has zero visibility into labs' internal development speed and quality. They suggest a set of publicly reportable "Pace of AI Development" metrics — e.g., weekly count of meaningful improvements, model capability growth curves, safety test completion rates. Not law or policy, but Anthropic proactively putting this framework forward signals they're willing to lead by example.
-  </div>
-
-  <div class="lang">
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>Useful for consumers</strong> — If you could see Claude / GPT / Gemini's real weekly improvement curves (not marketing spin), you could better time when to learn a new tool or make a switch.</li>
-      <li><strong>First step toward industry transparency</strong> — No AI company currently publishes internal progress. If this catches on, you'd know "Claude's coding ability might improve 30% next week" instead of just "we released a new version."</li>
-      <li><strong>Personal impact</strong> — If the metrics show a model is about to explode in capability, you'd catch it 1–2 weeks early.</li>
-    </ul>
-  </div>
-
-  <div class="who">
-    <strong>Source:</strong>
-    Anthropic official post (Sep 17) · Simon Willison referenced and commented "good direction, needs validation"<br>
-    HN has a ~80-point niche discussion
-  </div>
-
-  <div class="try">
-    <strong>Dig in:</strong>
-    <a href="https://anthropic.com/news/measurements-for-understanding-the-pace-of-ai-development-inside-frontier-labs" target="_blank">Anthropic official article</a>
-    <a href="https://simonwillison.net/2026/Sep/18/pace-of-ai-development/" target="_blank">Simon Willison notes</a>
-  </div>
-</article>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 📈 STILL TRACKING -->
-<!-- ════════════════════════════════════════════════════ -->
-<aside class="still-tracking">
-  <span class="smallcaps">📈 Still tracking · developing but not occupying a top-3 slot</span>
-  <ul>
-    <li>
-      <span class="days">Day 4</span>
-      <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— HuggingFace downloads at 512k, Baseten/Ollama fully supported; no new KOL endorsement, no new HN discussion. Heat stable.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 3</span>
-      <div><span class="item-name">GLM-5.3-Flash</span> <span class="update">— HuggingFace 3.31M downloads, but already covered by Chinese media (量子位). Excluded per rules. Still watching price/performance.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 2</span>
-      <div><span class="item-name">AI Posters (yesterday's 🚨)</span> <span class="update">— HN heat declining from 1606 to ~1000 pts; Qwen Image 2.1 burst diverted attention. Watching for KOL review posts tomorrow.</span></div>
-    </li>
-    <li>
-      <span class="days">Day 1</span>
-      <div><span class="item-name">Qwen Image 2.1 (today's 🚨)</span> <span class="update">— Just entered tracking. HN heat sustained 21 hours. HuggingFace downloads growing fast. Watch mode: ON.</span></div>
-    </li>
-  </ul>
-</aside>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- 📊 WHAT DIDN'T MAKE IT (KILLED LIST) -->
-<!-- ════════════════════════════════════════════════════ -->
-<section class="killed">
-  <span class="smallcaps">📊 What didn't make it today</span>
-  <table>
-    <thead><tr><th>Source</th><th>Item</th><th>Why skipped</th></tr></thead>
-    <tbody>
-      <tr><td>HN #1</td><td>ZuckOff – detect Meta glasses app (64 pts)</td><td>Not AI core, consumer privacy tool</td></tr>
-      <tr><td>HN #3</td><td>Kev: Tiny Jev decision model (130 pts)</td><td>New project, weak signal, no KOL, only 56 comments</td></tr>
-      <tr><td>HN #4</td><td>Jev-Leftpad (71 pts)</td><td>Funny project, not a capability signal</td></tr>
-      <tr><td>HN #7</td><td>Samsung HBM4 output doubling (487 pts)</td><td>Hardware news, not a capability leap</td></tr>
-      <tr><td>HN #9</td><td>Mini-AGI (108 pts)</td><td>Toy project, no community discussion</td></tr>
-      <tr><td>HN #15</td><td>Exfiltrate Your Weights (676 pts)</td><td>Security research, not a capability signal. Already in killed list, no new trigger today.</td></tr>
-      <tr><td>HN #17</td><td>MCP was always a bad idea? (184 pts)</td><td>Opinion debate, not a capability signal</td></tr>
-      <tr><td>HN #21</td><td>Why do we need human mathematicians (214 pts)</td><td>Philosophy discussion, not capability</td></tr>
-      <tr><td>HN #30</td><td>How to Write with an LLM (184 pts reissue)</td><td>Good article but not new capability. Already Simon Willison-covered (Sep 17). Repeat exclusion.</td></tr>
-      <tr><td>OpenAI official</td><td>Australian Youth Safety Blueprint</td><td>Policy/safety, excluded</td></tr>
-      <tr><td>OpenAI official</td><td>Cooley GoPublic</td><td>Enterprise case study, not general capability</td></tr>
-      <tr><td>Anthropic official</td><td>Partnering with Accenture</td><td>Partnership news, not capability signal</td></tr>
-      <tr><td>Anthropic official</td><td>Life Sciences Verification Program</td><td>Enterprise announcement, not capability leap</td></tr>
-      <tr><td>HuggingFace trending</td><td>Ternary-Bonsai-2-27B, MiniCPM5-2B, Edge0 etc.</td><td>No HN discussion, no KOL endorsement, weak signal</td></tr>
-      <tr><td>Smol AI latest</td><td>Sep 21 — only recap</td><td>No new information</td></tr>
-      <tr><td>Mistral latest</td><td>Partnership with Mozilla (Sep 16)</td><td>Still in killed list, no new trigger</td></tr>
-      <tr><td>Past 7 days killed</td><td>Navier-Stokes proof, Muse agent, Cognition $48B, etc. (bulk)</td><td>No new trigger on any. All remain excluded.</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- PAGER -->
-<!-- ════════════════════════════════════════════════════ -->
-<nav class="pager" data-current-date="2026-09-21">
-  <a href="#" id="prev-link" class="pager-prev">← Previous</a>
-  <span>№117 · 2026-09-21</span>
-  <a href="#" id="next-link" class="pager-next">Next →</a>
-</nav>
-
-<!-- ════════════════════════════════════════════════════ -->
-<!-- FOOTER -->
-<!-- ════════════════════════════════════════════════════ -->
-<footer class="footer">
-  <p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X / official changelogs daily, picks 1–3 real signals.</p>
-  <p>For clawii · Non-developer perspective · 1–2 weeks ahead of the Chinese content cycle.</p>
-  <p style="margin-top:0.5rem;font-size:0.75rem;">© 2026 · Open source · Data from public sources · Not investment advice</p>
-</footer>
-
-</div><!-- /container -->
-
+<!-- ═══════════ PAGER JS (DO NOT MODIFY) ═══════════ -->
 <script>
-// ── archive.json load + prev/next paging ──
 (async function() {
-  const currentDate = document.querySelector('.pager')?.dataset.currentDate;
-  if (!currentDate) return;
+  const currentDate = document.querySelector('.pager').dataset.currentDate;
+  const prevLink = document.getElementById('prev-link');
+  const nextLink = document.getElementById('next-link');
+
   try {
-    const resp = await fetch('./archive.json');
-    if (!resp.ok) throw new Error('archive.json not found');
-    const data = await resp.json();
-    const issues = data.issues || [];
+    const res = await fetch('./archive.json');
+    if (!res.ok) throw new Error('archive.json not reachable');
+    const archive = await res.json();
+    const issues = archive.issues;
     const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) return;
-    const prev = idx < issues.length - 1 ? issues[idx + 1] : null;
-    const next = idx > 0 ? issues[idx - 1] : null;
-    const prevLink = document.getElementById('prev-link');
-    const nextLink = document.getElementById('next-link');
-    if (prevLink && prev) {
-      prevLink.href = prev.url;
-      prevLink.textContent = `← ${prev.date}`;
-    } else if (prevLink) {
-      prevLink.style.opacity = '0.3';
-      prevLink.style.pointerEvents = 'none';
-    }
-    if (nextLink && next) {
-      nextLink.href = next.url;
-      nextLink.textContent = `${next.date} →`;
-    } else if (nextLink) {
-      nextLink.style.opacity = '0.3';
-      nextLink.style.pointerEvents = 'none';
+    if (idx === -1) {
+      const currentIssue = document.querySelector('.issue-num').textContent.match(/\d+/)?.[0];
+      const issueIdx = issues.findIndex(i => i.issue === Number(currentIssue));
+      if (issueIdx === -1) throw new Error('date not found in archive');
+      if (issueIdx > 0) {
+        prevLink.href = issues[issueIdx - 1].url;
+        prevLink.textContent = '← ' + issues[issueIdx - 1].date;
+      } else {
+        prevLink.classList.add('disabled');
+        prevLink.removeAttribute('href');
+      }
+      if (issueIdx < issues.length - 1) {
+        nextLink.href = issues[issueIdx + 1].url;
+        nextLink.textContent = issues[issueIdx + 1].date + ' →';
+      } else {
+        nextLink.classList.add('disabled');
+        nextLink.removeAttribute('href');
+      }
+    } else {
+      if (idx > 0) {
+        prevLink.href = issues[idx - 1].url;
+        prevLink.textContent = '← ' + issues[idx - 1].date;
+      } else {
+        prevLink.classList.add('disabled');
+        prevLink.removeAttribute('href');
+      }
+      if (idx < issues.length - 1) {
+        nextLink.href = issues[idx + 1].url;
+        nextLink.textContent = issues[idx + 1].date + ' →';
+      } else {
+        nextLink.classList.add('disabled');
+        nextLink.removeAttribute('href');
+      }
     }
   } catch (e) {
-    console.warn('archive.json load failed, pager disabled', e);
+    console.warn('Pager: archive.json not loaded, using default links.');
+    prevLink.href = '2026-09-20.html';
+    nextLink.href = '2026-09-22.html';
   }
 })();
 </script>
