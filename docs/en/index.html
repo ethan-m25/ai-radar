@@ -327,10 +327,10 @@ img, svg { max-width: 100%; display: block; }
 
   <!-- ═══════════ COVER ═══════════ -->
   <section class="cover">
-    <div class="headline">Xiaomi MiMo v2.6 Enters Open-Source Front Tier + Transformers Natively Eats GGUF</div>
+    <div class="headline">Xiaomi MiMo v2.6 Open-Source Dominance + Transformers Natively Eats GGUF + Jev Decision Models</div>
     <div class="meta">
       <span>🚨 1 Must See</span>
-      <span>👀 1 Worth A Look</span>
+      <span>👀 2 Worth A Look</span>
       <span>ℹ️ 0 FYI</span>
       <span>📅 2026-09-22</span>
     </div>
@@ -342,6 +342,7 @@ img, svg { max-width: 100%; display: block; }
     <ol>
       <li><a href="#item-1">🚨 Xiaomi MiMo v2.6 Series: Open-Source Performance Closing In on GPT-5.6</a></li>
       <li><a href="#item-2">👀 HuggingFace Transformers Now Natively Supports llama.cpp Quants — No More Setup Hassle</a></li>
+      <li><a href="#item-3">👀 Jev: A New Model Shape — "Decision Models" That Output Numbers, Not Text</a></li>
     </ol>
   </nav>
 
@@ -352,7 +353,7 @@ img, svg { max-width: 100%; display: block; }
     <p class="pitch">Hey clawii — Xiaomi just dropped three open-source models out of nowhere. The Flash variant (159B params) beats Llama 3.1 405B on benchmarks, the Pro version hits 524B, and they're all MIT-licensed for commercial use.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> The open-source LLM space has been quiet since DeepSeek V4.1. Everyone's been waiting for the next contender. Xiaomi dropped MiMo v2.6 as a full family: Flash (159B MoE), Pro (524B MoE), and Distill (9B distilled). HN hit #4 with 927 points and 413 comments, and HuggingFace trending is completely dominated by the three variants.
+      <strong>📍 Context:</strong> The open-source LLM space has been quiet since DeepSeek V4.1. Everyone's been waiting for the next contender. Xiaomi dropped MiMo v2.6 as a full family: Flash (159B MoE), Pro (524B MoE), and Distill (9B distilled). HN hit #4 with 931 points and 414 comments, and HuggingFace trending is completely dominated by the three variants.
     </div>
 
     <!-- chart -->
@@ -426,7 +427,7 @@ img, svg { max-width: 100%; display: block; }
     <!-- Who's talking -->
     <div class="who-talking">
       <strong>Who's talking about it:</strong><br>
-      · HN: Front page #4, 927 points / 413 comments in 14 hours<br>
+      · HN: Front page #4, 931 points / 414 comments in 15 hours<br>
       · Artificial Analysis: "MiMo v2.6 Pro offers better price/performance than GPT-5.6 Sol" — <a href="https://artificialanalysis.ai/models/mimo-v2-6-pro">link</a><br>
       · HuggingFace: MiMo-V2.6-Flash-RL at 2.64k stars, Pro at 985 stars (just hours after release), both climbing trending charts rapidly
     </div>
@@ -515,16 +516,91 @@ img, svg { max-width: 100%; display: block; }
     </div>
   </article>
 
+  <!-- ═══════════ ITEM 3 ═══════════ -->
+  <article class="item" id="item-3">
+    <span class="tier tier--look">👀 Worth A Look</span>
+    <h2 class="display-title">Jev: A New Model Shape — "Decision Models" That Output Numbers, Not Text</h2>
+    <p class="pitch">Hey clawii — you probably haven't heard of Jev, but Simon Willison wrote 889 words about it. It's a "System One model" that takes text input and outputs classification scores / ratings / confidence values instead of generating text. For automated decision-making, this could be a new direction.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> Traditional LLMs output text, which you then need to parse to get structured results. Jev outputs floating-point numbers directly — like "is this email spam? 0.97". It's published by TypeSafe AI and called a "decision model". It was killed on 9/21 due to weak signal, but today Simon Willison published a deep review, strengthening the signal significantly.
+    </div>
+
+    <div class="lang">
+      <h3>Why This Matters</h3>
+      <ul>
+        <li><strong>New model shape:</strong> Not a chat model — purpose-built for classification, scoring, and judgment. Outputs structured data, no parsing needed.</li>
+        <li><strong>For non-developers:</strong> If you use AI for automation (auto-classifying emails, content moderation), Jev could be more reliable and cheaper than a general-purpose LLM.</li>
+        <li><strong>KOL endorsement:</strong> Simon Willison personally reviewed it — this isn't a fringe experiment.</li>
+        <li><strong>What it means for you:</strong> The future might have many "small models" each doing one thing well, rather than one giant model doing everything.</li>
+      </ul>
+    </div>
+
+    <!-- Action block -->
+    <div class="action-block">
+      <h4>🎯 What You Can Do Today</h4>
+      <ol>
+        <li>Read Simon Willison's blog: <a href="https://simonwillison.net/2026/Sep/21/jev/">Jev introduces a new shape of LLM</a></li>
+        <li>Visit TypeSafe AI's website to learn about Jev's API (currently API-only).</li>
+        <li>Think about whether you have any "yes/no" or "rating" tasks at work that could use this kind of model.</li>
+      </ol>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 Deep Dive — How It's Fundamentally Different From a Regular LLM</summary>
+      <table>
+        <tr><th></th><th>Regular LLM</th><th>Jev (System One)</th></tr>
+        <tr><td>Output</td><td>Text (token sequence)</td><td>Floating-point numbers (classification/rating/confidence)</td></tr>
+        <tr><td>Typical tasks</td><td>Chat, writing, code</td><td>Classification, judgment, scoring</td></tr>
+        <tr><td>Interpretability</td><td>Requires prompt engineering</td><td>Direct numeric output, explicit confidence</td></tr>
+        <tr><td>Speed</td><td>Slow (generates tokens)</td><td>Fast (outputs a single number)</td></tr>
+        <tr><td>Use case</td><td>Open-ended</td><td>Structured decisions</td></tr>
+      </table>
+      <p><strong>What it runs on:</strong> Based on Transformer architecture, but trained differently — the output layer is a regression head instead of a classification head. Currently API-only, no open-source weights.</p>
+      <p><strong>How hard to set up:</strong> Just call the API, but you need to understand its output format. Documentation is limited right now.</p>
+      <p><strong>Honest caveat:</strong> This is a very early proof-of-concept. Only one model (Jev) exists, the ecosystem is basically zero. Could be a flash in the pan, but worth watching.</p>
+      <div class="caveat">⚠️ Note: Not open-source — API-only. Pricing is unknown.</div>
+    </details>
+
+    <!-- Watch block -->
+    <div class="watch-block">
+      <strong>🔭 Next thing to watch:</strong> If more KOLs (like Karpathy) start discussing it, or TypeSafe AI releases more models or open-sources something, this direction might be real.
+    </div>
+
+    <!-- Jargon -->
+    <div class="jargon">
+      <strong>Jargon decoder:</strong><br>
+      <strong>System One</strong> = Borrowed from Daniel Kahneman's "System 1" thinking (fast, intuitive) — here it refers to a fast decision model.<br>
+      <strong>Regression head</strong> = The model's output layer is modified to predict continuous values instead of classification probabilities.
+    </div>
+
+    <!-- Who's talking -->
+    <div class="who-talking">
+      <strong>Who's talking about it:</strong><br>
+      · Simon Willison: "Jev introduces a new shape of LLM—System One, aka Decision Models" — <a href="https://simonwillison.net/2026/Sep/21/jev/">link</a><br>
+      · HN: No dedicated thread yet (likely drowned out by MiMo)<br>
+      · TypeSafe AI website: <a href="https://typesafe.ai/jev">typesafe.ai/jev</a>
+    </div>
+
+    <!-- Try it -->
+    <div class="try-it">
+      <strong>Try it / dig in:</strong><br>
+      · Simon Willison's blog: <a href="https://simonwillison.net/2026/Sep/21/jev/">simonwillison.net/2026/Sep/21/jev/</a><br>
+      · TypeSafe AI: <a href="https://typesafe.ai/jev">typesafe.ai/jev</a>
+    </div>
+  </article>
+
   <!-- ═══════════ STILL TRACKING ═══════════ -->
   <aside class="still-tracking">
     <span class="smallcaps">📈 Still Tracking · developing but not occupying a top-3 slot</span>
     <ul>
       <li>
-        <span class="days">Day 4</span>
+        <span class="days">Day 5</span>
         <div><span class="item-name">opencode</span> <span class="update">— Appeared on HN front page once then receded; star growth slowing but still #1 momentum; no new KOL endorsement.</span></div>
       </li>
       <li>
-        <span class="days">Day 3</span>
+        <span class="days">Day 4</span>
         <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN score stable; DeepSeek official docs have absorbed it; no new community discussion.</span></div>
       </li>
     </ul>
@@ -538,11 +614,12 @@ img, svg { max-width: 100%; display: block; }
         <tr><th>Item</th><th>Reason</th></tr>
       </thead>
       <tbody>
-        <tr><td>Jev (System One / Decision Model)</td><td class="reason">Released Sep 21; no new discussion today; signal pending observation</td></tr>
         <tr><td>Linear: AI coding made CI a bottleneck</td><td class="reason">Engineering practice discussion, not a capability leap</td></tr>
         <tr><td>Claude service status — elevated errors</td><td class="reason">Service outage, not a new capability</td></tr>
         <tr><td>OpenAI v7 release</td><td class="reason">Insufficient information; likely an internal version</td></tr>
+        <tr><td>Gemini Hacked Three Companies</td><td class="reason">Security incident, not a capability signal</td></tr>
         <tr><td>Mistral funding / partnerships</td><td class="reason">Pure funding/partnership news, no product signal</td></tr>
+        <tr><td>Jun Kim joins HuggingFace</td><td class="reason">Personnel news, not a capability signal</td></tr>
       </tbody>
     </table>
   </section>

@@ -327,10 +327,10 @@ img, svg { max-width: 100%; display: block; }
 
   <!-- ═══════════ COVER ═══════════ -->
   <section class="cover">
-    <div class="headline">小米 MiMo v2.6 杀入开源第一梯队 + Transformers 原生吃 GGUF</div>
+    <div class="headline">小米 MiMo v2.6 开源屠榜 + Transformers 原生吃 GGUF + Jev 新模型形态</div>
     <div class="meta">
       <span>🚨 1 必看</span>
-      <span>👀 1 可看</span>
+      <span>👀 2 可看</span>
       <span>ℹ️ 0 知道</span>
       <span>📅 2026-09-22</span>
     </div>
@@ -342,6 +342,7 @@ img, svg { max-width: 100%; display: block; }
     <ol>
       <li><a href="#item-1">🚨 小米发布 MiMo v2.6 系列，开源模型性能直逼 GPT-5.6</a></li>
       <li><a href="#item-2">👀 HuggingFace Transformers 原生支持 llama.cpp 量化，本地跑模型再也不用折腾</a></li>
+      <li><a href="#item-3">👀 Jev：一种全新的「决策模型」形态，输出浮点数而非文字</a></li>
     </ol>
   </nav>
 
@@ -352,7 +353,7 @@ img, svg { max-width: 100%; display: block; }
     <p class="pitch">hey clawii — 小米突然甩出三个开源模型，Flash 版 159B 参数跑分干翻 Llama 3.1 405B，Pro 版更是 524B 参数，而且全部 MIT 协议免费商用。</p>
 
     <div class="context-box">
-      <strong>📍 背景：</strong>开源大模型圈已经很久没有「惊喜」了。DeepSeek V4.1 之后，大家都在等下一个能打的开源模型。小米这次直接端出 MiMo v2.6 全家桶：Flash（159B MoE）、Pro（524B MoE）、Distill（9B 蒸馏版）。HN 冲到 #4，927 分，413 条评论，HuggingFace 趋势榜直接屠榜。
+      <strong>📍 背景：</strong>开源大模型圈已经很久没有「惊喜」了。DeepSeek V4.1 之后，大家都在等下一个能打的开源模型。小米这次直接端出 MiMo v2.6 全家桶：Flash（159B MoE）、Pro（524B MoE）、Distill（9B 蒸馏版）。HN 冲到 #4，931 分，414 条评论，HuggingFace 趋势榜直接屠榜。
     </div>
 
     <!-- chart -->
@@ -427,7 +428,7 @@ img, svg { max-width: 100%; display: block; }
     <!-- Who's talking -->
     <div class="who-talking">
       <strong>谁在讨论：</strong><br>
-      · HN: 首页 #4，14 小时 927 分，413 条评论<br>
+      · HN: 首页 #4，14 小时 931 分，414 条评论<br>
       · Artificial Analysis: "MiMo v2.6 Pro 性价比超过 GPT-5.6 Sol" — <a href="https://artificialanalysis.ai/models/mimo-v2-6-pro">链接</a><br>
       · HuggingFace: MiMo-V2.6-Flash-RL 2.64k stars，Pro 版 985 stars（刚发布几小时）
     </div>
@@ -516,16 +517,92 @@ img, svg { max-width: 100%; display: block; }
     </div>
   </article>
 
+  <!-- ═══════════ ITEM 3 ═══════════ -->
+  <article class="item" id="item-3">
+    <span class="tier tier--look">👀 值得一看</span>
+    <h2 class="display-title">Jev：一种全新的「决策模型」形态，输出浮点数而非文字</h2>
+    <p class="pitch">hey clawii — 你可能没听说过 Jev，但 Simon Willison 专门写了 889 字介绍它。这是一种「System One 模型」，输入文本，输出分类/评分/置信度，而不是生成文字。对自动化决策场景可能是个新方向。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>传统 LLM 输出文本，你需要解析才能得到结构化结果。Jev 直接输出浮点数——比如「这个邮件是垃圾邮件吗？0.97」。它由 TypeSafe AI 发布，被称为「决策模型」。之前 9/21 发布时信号弱被杀死，但今天 Simon Willison 写了深度评测，信号变强。
+    </div>
+
+    <div class="lang">
+      <div class="lang-mark">中文</div>
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>新模型形态：</strong>不是聊天模型，而是专门做分类/评分/判断的模型。输出结构化数据，不需要解析。</li>
+        <li><strong>对非开发者：</strong>如果你用 AI 做自动化（比如自动分类邮件、审核内容），Jev 可能比通用 LLM 更可靠、更便宜。</li>
+        <li><strong>KOL 背书：</strong>Simon Willison 亲自评测，说明不是小打小闹。</li>
+        <li><strong>对你意味着：</strong>未来可能有很多「小模型」专门做一件事，而不是一个通用大模型包揽一切。</li>
+      </ul>
+    </div>
+
+    <!-- Action block -->
+    <div class="action-block">
+      <h4>🎯 你现在就能做</h4>
+      <ol>
+        <li>读 Simon Willison 的博客：<a href="https://simonwillison.net/2026/Sep/21/jev/">Jev introduces a new shape of LLM</a></li>
+        <li>去 TypeSafe AI 官网了解 Jev 的 API（目前可能只有 API 访问）。</li>
+        <li>思考你的工作中有没有「是/否」或「评分」类任务，可以用这种模型替代。</li>
+      </ol>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 深扒：它和普通 LLM 有什么本质不同？</summary>
+      <table>
+        <tr><th></th><th>普通 LLM</th><th>Jev (System One)</th></tr>
+        <tr><td>输出</td><td>文本（token 序列）</td><td>浮点数（分类/评分/置信度）</td></tr>
+        <tr><td>典型任务</td><td>聊天、写作、代码</td><td>分类、判断、评分</td></tr>
+        <tr><td>可解释性</td><td>需要 prompt 工程</td><td>直接输出数值，置信度明确</td></tr>
+        <tr><td>速度</td><td>生成 token 慢</td><td>输出一个数，快得多</td></tr>
+        <tr><td>适用场景</td><td>开放域</td><td>结构化决策</td></tr>
+      </table>
+      <p><strong>跑在什么之上：</strong>基于 Transformer 架构，但训练方式不同，输出层改为回归头。目前只有 API，没有开源权重。</p>
+      <p><strong>上手难度：</strong>调用 API 即可，但需要理解它的输出格式。目前文档有限。</p>
+      <p><strong>诚实说：</strong>这是一个非常早期的概念验证。目前只有 Jev 一个模型，生态几乎为零。可能只是昙花一现，但值得关注。</p>
+      <div class="caveat">⚠️ 注意：不是开源模型，只能通过 API 使用。定价未知。</div>
+    </details>
+
+    <!-- Watch block -->
+    <div class="watch-block">
+      <strong>🔭 下一步看什么：</strong>如果接下来有更多 KOL（如 Karpathy）讨论，或者 TypeSafe AI 发布更多模型/开源，那这个方向可能真的成立。
+    </div>
+
+    <!-- Jargon -->
+    <div class="jargon">
+      <strong>术语解码：</strong><br>
+      <strong>System One</strong> = 丹尼尔·卡尼曼的「系统一」思维（快速、直觉），这里借指快速决策模型。<br>
+      <strong>回归头</strong> = 模型输出层改为预测连续数值，而不是分类概率。
+    </div>
+
+    <!-- Who's talking -->
+    <div class="who-talking">
+      <strong>谁在讨论：</strong><br>
+      · Simon Willison: "Jev introduces a new shape of LLM—System One, aka Decision Models" — <a href="https://simonwillison.net/2026/Sep/21/jev/">链接</a><br>
+      · HN: 暂无独立讨论（可能被 MiMo 淹没）<br>
+      · TypeSafe AI 官网：<a href="https://typesafe.ai/jev">typesafe.ai/jev</a>
+    </div>
+
+    <!-- Try it -->
+    <div class="try-it">
+      <strong>试试看：</strong><br>
+      · Simon Willison 博客：<a href="https://simonwillison.net/2026/Sep/21/jev/">simonwillison.net/2026/Sep/21/jev/</a><br>
+      · TypeSafe AI：<a href="https://typesafe.ai/jev">typesafe.ai/jev</a>
+    </div>
+  </article>
+
   <!-- ═══════════ STILL TRACKING ═══════════ -->
   <aside class="still-tracking">
     <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
     <ul>
       <li>
-        <span class="days">Day 4</span>
+        <span class="days">Day 5</span>
         <div><span class="item-name">opencode</span> <span class="update">— HN 头条出现一次后回落，star 涨幅放缓但仍 #1 momentum；无新 KOL 背书。</span></div>
       </li>
       <li>
-        <span class="days">Day 3</span>
+        <span class="days">Day 4</span>
         <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN 分数平稳，DeepSeek 官方文档已收录，但无新社区讨论。</span></div>
       </li>
     </ul>
@@ -539,11 +616,12 @@ img, svg { max-width: 100%; display: block; }
         <tr><th>项目</th><th>原因</th></tr>
       </thead>
       <tbody>
-        <tr><td>Jev (System One 模型)</td><td class="reason">9/21 发布，今天无新讨论，信号待观察</td></tr>
         <tr><td>Linear: AI coding 导致 CI 瓶颈</td><td class="reason">工程实践讨论，非能力跃迁</td></tr>
         <tr><td>Claude 服务状态异常</td><td class="reason">服务故障，非新能力</td></tr>
         <tr><td>OpenAI v7 发布</td><td class="reason">信息不足，可能是内部版本</td></tr>
+        <tr><td>Gemini Hacked Three Companies</td><td class="reason">安全事件，非能力信号</td></tr>
         <tr><td>Mistral 融资 / 合作</td><td class="reason">纯融资/合作，无产品信号</td></tr>
+        <tr><td>Jun Kim 加入 HuggingFace</td><td class="reason">人事新闻，非能力信号</td></tr>
       </tbody>
     </table>
   </section>
@@ -577,7 +655,6 @@ img, svg { max-width: 100%; display: block; }
     const issues = archive.issues;
     const idx = issues.findIndex(i => i.date === currentDate);
     if (idx === -1) {
-      // 当前日期不在归档中，尝试用 issue 号匹配
       const currentIssue = document.querySelector('.issue-num').textContent.match(/\d+/)?.[0];
       const issueIdx = issues.findIndex(i => i.issue === Number(currentIssue));
       if (issueIdx === -1) throw new Error('date not found in archive');
