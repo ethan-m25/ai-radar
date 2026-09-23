@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── reset & base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
@@ -22,7 +21,6 @@ a { color: oklch(0.45 0.18 260); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img, svg { max-width: 100%; display: block; }
 
-/* ── layout ── */
 .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
 
 /* ── masthead ── */
@@ -353,7 +351,7 @@ img, svg { max-width: 100%; display: block; }
     <p class="pitch">Hey clawii — Anthropic dropped Opus 5.5 yesterday and it performs about as well as their most expensive model Fable 5.1, but costs 40% less. This isn't a technical leap — it's a pricing signal. The LLM price war has officially begun.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Anthropic currently runs three product lines: Mythos (cheapest), Fable (strongest, optimized for coding and science), and Opus (balanced performance and price). Fable 5.1 launched September 1. Now Opus 5.5 absorbs most of Fable's capability at a much lower price. This is Anthropic's aggressive move to compete on price — rather than letting you switch to cheaper OpenAI models, they're cutting their own prices.
+      <strong>📍 Context:</strong> Anthropic currently runs three product lines: Mythos (cheapest), Fable (strongest, optimized for coding and science), and Opus (balanced). Fable 5.1 launched September 1. Now Opus 5.5 absorbs most of Fable's capability at a much lower price. This is Anthropic's aggressive move to compete on price — rather than letting you switch to cheaper OpenAI models, they're cutting their own prices.
     </div>
 
     <!-- chart -->
@@ -379,8 +377,8 @@ img, svg { max-width: 100%; display: block; }
       <h3>Why This Matters</h3>
       <ul>
         <li><strong>Performance matches the flagship:</strong> Opus 5.5 hits Fable 5.1 levels on most tasks — especially coding, reasoning, and writing. You don't need to pay Fable prices to get near-Fable capability.</li>
-        <li><strong>40% price cut:</strong> $15/MTok input, $60/MTok output vs Fable's $25/$100. That's real savings for enterprise users.</li>
-        <li><strong>For vibe coding users:</strong> If you're calling the API directly for automations, just switch to Opus 5.5 and cut your costs in half with no noticeable quality drop.</li>
+        <li><strong>40% price cut:</strong> $15/MTok input, $60/MTok output vs Fable's $25/$100. Real savings for enterprise users and vibe coders alike.</li>
+        <li><strong>Cache pricing also slashed:</strong> $3.75/MTok cached read vs Fable's $6.25. If your prompts have long repeated prefixes, effective cost drops even more.</li>
         <li><strong>The signal:</strong> Anthropic is proactively cutting prices. Competition is white-hot. OpenAI likely counters next.</li>
       </ul>
     </div>
@@ -390,8 +388,8 @@ img, svg { max-width: 100%; display: block; }
       <h4>🎯 What You Can Do Today</h4>
       <ol>
         <li>If you use Claude Code or the API, change your model from <code>claude-fable-5-1</code> to <code>claude-opus-5-5</code>. In Claude Code: run <code>/model</code> and select Opus 5.5.</li>
-        <li>Run a side-by-side test: same task on both models, see if the quality difference is acceptable.</li>
-        <li>If you're running OpenAI's GPT-6 Sol/Luna, consider Opus 5.5 as a backup for cost savings.</li>
+        <li>Run a side-by-side test: same task on both models, see if the quality difference is acceptable for your use case.</li>
+        <li>If you're running OpenAI's GPT-6 Sol/Luna, consider Opus 5.5 as a backup for cost-critical automations.</li>
       </ol>
     </div>
 
@@ -401,15 +399,16 @@ img, svg { max-width: 100%; display: block; }
       <table>
         <tr><th></th><th>Opus 5.5</th><th>Fable 5.1</th></tr>
         <tr><td>General performance</td><td>~Fable 5.1</td><td>Flagship</td></tr>
-        <tr><td>Coding</td><td>Slightly weaker</td><td>Stronger (R&D focused)</td></tr>
+        <tr><td>Coding</td><td>Slightly weaker on edge cases</td><td>Stronger (R&D focused)</td></tr>
         <tr><td>Scientific reasoning</td><td>On par</td><td>On par</td></tr>
         <tr><td>Context window</td><td>200K</td><td>200K</td></tr>
         <tr><td>Input price</td><td>$15/MTok</td><td>$25/MTok</td></tr>
-        <tr><td>Cache price</td><td>$3.75/MTok</td><td>$6.25/MTok</td></tr>
+        <tr><td>Output price</td><td>$60/MTok</td><td>$100/MTok</td></tr>
+        <tr><td>Cache read price</td><td>$3.75/MTok</td><td>$6.25/MTok</td></tr>
       </table>
-      <p><strong>What it runs on:</strong> Anthropic's proprietary architecture. Shares some weights with Fable 5.1 but pruned and distilled.</p>
-      <p><strong>How hard to set up:</strong> 10 seconds — just change the model name in your config.</p>
-      <p><strong>Honest caveat:</strong> If your daily work is heavily code-generation, Fable 5.1 is still worth the extra 40%. But for writing, analysis, and chat, Opus 5.5 is more than enough.</p>
+      <p><strong>What it runs on:</strong> Anthropic's proprietary architecture. Shares some weights with Fable 5.1 but pruned and distilled for efficiency.</p>
+      <p><strong>How hard to set up:</strong> 10 seconds — just change the model name in your config file or dropdown.</p>
+      <p><strong>Honest caveat:</strong> If your daily work is heavily code-generation with complex multi-file edits, Fable 5.1 is still worth the extra 40%. But for writing, analysis, chat, and basic coding, Opus 5.5 is more than enough.</p>
       <div class="caveat">⚠️ Note: Cache pricing is also reduced. If your prompts have long repeated prefixes (like long system prompts), effective cost is even lower.</div>
     </details>
 
@@ -421,16 +420,17 @@ img, svg { max-width: 100%; display: block; }
     <!-- Jargon -->
     <div class="jargon">
       <strong>Jargon decoder:</strong><br>
-      <strong>/MTok</strong> = per million tokens. The standard billing unit for AI models. 1 MTok ≈ 750,000 English words.
+      <strong>/MTok</strong> = per million tokens. The standard billing unit for AI models. 1 MTok ≈ 750,000 English words.<br>
+      <strong>Cache read</strong> = a discounted price tier when the model reuses a previously processed prompt prefix (e.g., a long system prompt). If your system prompt is identical across calls, you pay the cache rate instead of the full input rate.
     </div>
 
     <!-- Who's talking -->
     <div class="who-talking">
       <strong>Who's talking about it:</strong><br>
-      · Anthropic official: <a href="https://anthropic.com/news/claude-opus-5-5">Introducing Claude Opus 5.5</a><br>
-      · Simon Willison: "Opus 5.5 performs at the level of Claude Fable 5.1 on most work and costs 40% less"<br>
+      · Anthropic official: <a href="https://anthropic.com/news/claude-opus-5-5">Introducing Claude Opus 5.5</a> — "performs at the level of Claude Fable 5.1 on most work and costs 40% less"<br>
+      · Simon Willison: "Anthropic released Claude Opus 5.5... [it] performs at the level of Claude Fable 5.1 on most work and costs 40% less"<br>
       · HN: 1,573 points, 974 comments, front page #3<br>
-      · Artificial Analysis: "Opus 5.5 Intelligence, Performance and Price Analysis" — 298 points, front page #14
+      · Artificial Analysis: "Claude Opus 5.5 Intelligence, Performance and Price Analysis" — 298 points, front page #14
     </div>
 
     <!-- Try it -->
@@ -445,10 +445,10 @@ img, svg { max-width: 100%; display: block; }
   <article class="item" id="item-2">
     <span class="tier tier--look">👀 Worth A Look</span>
     <h2 class="display-title">OpenAI GPT-6 Sol and Luna — Flagship Splits Into "High IQ" and "High EQ" Lines</h2>
-    <p class="pitch">Check this out — OpenAI released GPT-6 Sol (high-IQ / STEM) and GPT-6 Luna (creative / dialogue / higher safety) on the same day. This isn't just a model launch — it's a product strategy fork. From now on, you use Sol for coding and Luna for emails.</p>
+    <p class="pitch">Check this out — OpenAI released GPT-6 Sol (high-IQ / STEM) and GPT-6 Luna (creative / dialogue / higher safety) on the same day as Anthropic's Opus 5.5. This isn't just a model launch — it's a product strategy fork. From now on, you use Sol for coding and Luna for emails.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> GPT-6 Astra was the general-purpose flagship released in September, the first model to reach "Critical" cybersecurity preparedness level. Now Sol and Luna are differentiated offshoots of Astra: Sol targets STEM/code/math with aggressive capability but looser guardrails; Luna targets creative writing/dialogue/safety with a softer touch. OpenAI also announced improved prompt caching, making repeated prompt prefixes faster and cheaper.
+      <strong>📍 Context:</strong> GPT-6 Astra was the general-purpose flagship released in September, the first model to reach "Critical" cybersecurity preparedness level. Now Sol and Luna are differentiated offshoots of Astra: Sol targets STEM/code/math with aggressive capability but looser guardrails; Luna targets creative writing/dialogue/safety with a softer touch. OpenAI also shipped improved prompt caching alongside, making repeated prompt prefixes faster and cheaper.
     </div>
 
     <div class="lang">
@@ -456,7 +456,7 @@ img, svg { max-width: 100%; display: block; }
       <ul>
         <li><strong>Product differentiation signal:</strong> No longer "one model does everything." Sol for STEM, Luna for humanities. Pick the model based on your task.</li>
         <li><strong>Sol breaks Enigma cipher:</strong> OpenAI demonstrated GPT-6 Astra cracking a 2005 Enigma message that had resisted solution for 21 years (670 HN points). This proves Sol/Astra has real cryptographic and reasoning advances.</li>
-        <li><strong>For vibe coding users:</strong> Use Sol for code, Luna for writing reports/emails/creative content.</li>
+        <li><strong>For vibe coding users:</strong> Use Sol for code, Luna for writing reports/emails/creative content. The distinction is actually useful in practice.</li>
         <li><strong>Better prompt caching:</strong> OpenAI announced improved caching for repeated prompt prefixes. If you use fixed system prompts, you can save 30-50% on costs.</li>
       </ul>
     </div>
@@ -467,7 +467,7 @@ img, svg { max-width: 100%; display: block; }
       <ol>
         <li>Specify the model in your API calls: use <code>gpt-6-sol</code> for coding tasks, <code>gpt-6-luna</code> for writing/dialogue.</li>
         <li>Take advantage of the new prompt caching — if your system prompt is long with repeated prefixes, enable caching to dramatically reduce costs.</li>
-        <li>Run a head-to-head test: Sol vs Opus 5.5 and see which one codes better for your workflow.</li>
+        <li>Run a head-to-head test: Sol vs Opus 5.5 and see which one codes better for your workflow. The price war means you have leverage.</li>
       </ol>
     </div>
 
@@ -480,40 +480,44 @@ img, svg { max-width: 100%; display: block; }
         <tr><td>Safety guardrails</td><td>Looser (professional use)</td><td>Tighter (consumer-facing)</td></tr>
         <tr><td>Typical use case</td><td>Programming, data analysis, science</td><td>Customer service, content creation, education</td></tr>
         <tr><td>Price</td><td>Same as Astra</td><td>Same as Astra</td></tr>
-        <tr><td>Context</td><td>128K</td><td>128K</td></tr>
+        <tr><td>Context window</td><td>128K</td><td>128K</td></tr>
+        <tr><td>Architecture base</td><td>GPT-6 Astra (looped transformer)</td><td>GPT-6 Astra (looped transformer)</td></tr>
       </table>
-      <p><strong>What it runs on:</strong> Built on GPT-6 Astra architecture with different post-training (RLHF) and fine-tuning.</p>
-      <p><strong>How hard to set up:</strong> 10 seconds — just change the model name.</p>
-      <p><strong>Honest caveat:</strong> The performance gap between Sol and Luna isn't huge yet. The differentiation is more about product positioning than technical breakthrough. But the trend is clear: models will keep fragmenting.</p>
-      <div class="caveat">⚠️ Note: Sol has looser safety guardrails. If you're processing sensitive content, add your own safeguards.</div>
+      <p><strong>What it runs on:</strong> Built on GPT-6 Astra architecture with different post-training (RLHF) and fine-tuning. The base is a looped transformer — a modest architectural tweak with layer reuse and adaptive computation passes.</p>
+      <p><strong>How hard to set up:</strong> 10 seconds — just change the model name in your config.</p>
+      <p><strong>Honest caveat:</strong> The performance gap between Sol and Luna isn't huge yet. The differentiation is more about product positioning than technical breakthrough. But the trend is clear: models will keep fragmenting into specialized variants.</p>
+      <div class="caveat">⚠️ Note: Sol has looser safety guardrails. If you're processing sensitive content, add your own safeguards. Also: prompt caching improvement blog is live at openai.com.</div>
     </details>
 
     <!-- Watch block -->
     <div class="watch-block">
-      <strong>🔭 Next thing to watch:</strong> OpenAI may launch more vertical models next (GPT-6 Finance, GPT-6 Legal). Watch whether Sol and Luna actually drive clear use-case separation.
+      <strong>🔭 Next thing to watch:</strong> OpenAI may launch more vertical models next (GPT-6 Finance, GPT-6 Legal). Watch whether Sol and Luna actually drive clear use-case separation in the real world.
     </div>
 
     <!-- Jargon -->
     <div class="jargon">
       <strong>Jargon decoder:</strong><br>
       <strong>STEM</strong> = Science, Technology, Engineering, Mathematics.<br>
-      <strong>RLHF</strong> = Reinforcement Learning from Human Feedback. A training technique that aligns model outputs with human preferences.
+      <strong>RLHF</strong> = Reinforcement Learning from Human Feedback. A training technique that aligns model outputs with human preferences by learning from human ratings.<br>
+      <strong>Looped transformer</strong> = A model architecture where some layers are reused in a loop rather than stacked, reducing parameter count while preserving depth.
     </div>
 
     <!-- Who's talking -->
     <div class="who-talking">
       <strong>Who's talking about it:</strong><br>
       · OpenAI official: <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">Introducing GPT-6 Sol and Luna</a><br>
+      · OpenAI prompt caching: <a href="https://openai.com/index/better-prompt-caching-for-gpt-6">Better Prompt Caching for GPT-6</a><br>
       · HN: 1,563 points, 751 comments, front page #2<br>
-      · Simon Willison: "Hey, you know it's like super obvious if you're using AI to write your scripts" (commenting on AI writing quality)<br>
-      · OpenAI also shipped better prompt caching: <a href="https://openai.com/index/better-prompt-caching-for-gpt-6">link</a>
+      · HN: GPT-6 Astra breaks Enigma message — 670 points, 388 comments, front page #5<br>
+      · Simon Willison: covered both Sol/Luna and the Enigma breakthrough in his blog roundup
     </div>
 
     <!-- Try it -->
     <div class="try-it">
       <strong>Try it / dig in:</strong><br>
       · OpenAI blog: <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com/index/introducing-gpt-6-sol-and-luna</a><br>
-      · Prompt caching blog: <a href="https://openai.com/index/better-prompt-caching-for-gpt-6">openai.com/index/better-prompt-caching-for-gpt-6</a>
+      · Prompt caching blog: <a href="https://openai.com/index/better-prompt-caching-for-gpt-6">openai.com/index/better-prompt-caching-for-gpt-6</a><br>
+      · Enigma breakthrough: <a href="https://cryptocellar.org">cryptocellar.org</a> (HN #5)
     </div>
   </article>
 
@@ -530,10 +534,10 @@ img, svg { max-width: 100%; display: block; }
     <div class="lang">
       <h3>Why This Matters</h3>
       <ul>
-        <li><strong>New category gets legitimized:</strong> Simon Willison's review is effectively industry recognition. Jev is not a traditional LLM — it's a "decision engine" that takes natural language and outputs structured numbers.</li>
-        <li><strong>OpenAI potentially following:</strong> HN discussion "OpenAI is well positioned to fast-follow Jev" (296 points) suggests the big players are watching this space.</li>
-        <li><strong>JevBench launches:</strong> The community has already created JevBench, a reproducible benchmark for decision models. An ecosystem is forming.</li>
-        <li><strong>What this means for you:</strong> Future "judgment models" could handle moderation, classification, and scoring tasks more cheaply and reliably than general-purpose LLMs.</li>
+        <li><strong>New category gets legitimized:</strong> Simon Willison's review is effectively industry recognition. Jev is not a traditional LLM — it's a "decision engine" that takes natural language and outputs structured numbers instead of text.</li>
+        <li><strong>OpenAI potentially following:</strong> HN discussion "OpenAI is well positioned to fast-follow Jev" (296 points) suggests the big players are watching this space. If OpenAI ships a similar product, the category is confirmed.</li>
+        <li><strong>JevBench launches:</strong> The community has already created JevBench, a reproducible benchmark for decision models. An ecosystem is forming around a 2-week-old product.</li>
+        <li><strong>What this means for you:</strong> Future "judgment models" could handle moderation, classification, and scoring tasks more cheaply and reliably than general-purpose LLMs — directly useful for HR tasks like resume screening or survey analysis.</li>
       </ul>
     </div>
 
@@ -541,9 +545,9 @@ img, svg { max-width: 100%; display: block; }
     <div class="action-block">
       <h4>🎯 What You Can Do Today</h4>
       <ol>
-        <li>Read Simon Willison's review: <a href="https://simonwillison.net/2026/Sep/21/jev/">Jev introduces a new shape of LLM</a></li>
-        <li>Visit TypeSafe AI's website to read the Jev API docs.</li>
-        <li>Think about whether you have any "yes/no" or "rating" tasks at work (resume scoring, email classification) where Jev could replace a traditional LLM.</li>
+        <li>Read Simon Willison's review: <a href="https://simonwillison.net/2026/Sep/21/jev/">simonwillison.net/2026/Sep/21/jev/</a></li>
+        <li>Visit TypeSafe AI's website to read the Jev API docs and understand the pricing.</li>
+        <li>Think about whether you have any "yes/no" or "rating" tasks at work (resume scoring, email classification, sentiment analysis) where Jev could replace a general-purpose LLM call — cheaper and faster.</li>
       </ol>
     </div>
 
@@ -551,29 +555,31 @@ img, svg { max-width: 100%; display: block; }
     <details class="deep-dive">
       <summary>🔬 Deep Dive — How Jev Works and What Makes It Different</summary>
       <table>
-        <tr><th></th><th>Traditional LLM</th><th>Jev (System One)</th></tr>
-        <tr><td>Output type</td><td>Text (token sequence)</td><td>Floating-point numbers (classification/rating/confidence)</td></tr>
-        <tr><td>Typical use case</td><td>Chat, writing, code</td><td>Classification, judgment, scoring</td></tr>
-        <tr><td>Interpretability</td><td>Requires prompt engineering</td><td>Direct numeric output with explicit confidence</td></tr>
-        <tr><td>Speed</td><td>Slow (generates tokens)</td><td>Fast (outputs a single number)</td></tr>
-        <tr><td>Use case</td><td>Open-ended</td><td>Structured decisions</td></tr>
+        <tr><th></th><th>Traditional LLM</th><th>Jev (System One / Decision Model)</th></tr>
+        <tr><td>Output type</td><td>Text (token sequence)</td><td>Floating-point numbers (classification / rating / confidence)</td></tr>
+        <tr><td>Typical use case</td><td>Chat, writing, code generation</td><td>Classification, judgment, scoring, moderation</td></tr>
+        <tr><td>Interpretability</td><td>Requires prompt engineering and parsing</td><td>Direct numeric output with explicit confidence value</td></tr>
+        <tr><td>Speed</td><td>Slow (generates many tokens)</td><td>Fast (outputs a single number)</td></tr>
+        <tr><td>Use case scope</td><td>Open-ended generation</td><td>Structured decisions</td></tr>
+        <tr><td>Hallucination risk</td><td>High (generates text freely)</td><td>Lower (constrained to numeric output)</td></tr>
       </table>
-      <p><strong>What it runs on:</strong> Based on Transformer architecture but with a regression output head instead of a classification head. Currently API-only, no open-source weights.</p>
-      <p><strong>How hard to set up:</strong> Just call the API, but you need to understand Jev's output format. Documentation is limited right now.</p>
-      <p><strong>Honest caveat:</strong> This is a very early proof of concept. Only one model (Jev) exists, the ecosystem is basically zero. Could be a flash in the pan, but the signal is now worth monitoring.</p>
-      <div class="caveat">⚠️ Note: Not open-source — API-only. Pricing not yet public. Community has created JevBench for reproducible comparisons.</div>
+      <p><strong>What it runs on:</strong> Based on Transformer architecture but with a regression output head instead of a classification head. Currently API-only, no open-source weights available.</p>
+      <p><strong>How hard to set up:</strong> Just call the API, but you need to understand Jev's structured output format. Documentation is still early — expect some trial and error.</p>
+      <p><strong>Honest caveat:</strong> This is a very early proof of concept. Only one model (Jev) exists, the ecosystem is essentially zero, and pricing isn't fully public yet. Could be a flash in the pan, but the signal is now worth monitoring. The Simon Willison endorsement is the strongest validation so far.</p>
+      <div class="caveat">⚠️ Note: Not open-source — API-only. Pricing not yet public. Community has created JevBench for reproducible comparisons. Watch for fast-follow from OpenAI.</div>
     </details>
 
     <!-- Watch block -->
     <div class="watch-block">
-      <strong>🔭 Next thing to watch:</strong> If more KOLs review it in the coming week, or if OpenAI/Google ship a similar product, this direction is confirmed.
+      <strong>🔭 Next thing to watch:</strong> If more KOLs review it in the coming week, or if OpenAI/Google ships a similar decision-model product, this direction is confirmed and the category becomes real. Also watch for Jev pricing to go public.
     </div>
 
     <!-- Jargon -->
     <div class="jargon">
       <strong>Jargon decoder:</strong><br>
-      <strong>System One</strong> = Borrowed from Kahneman's "System 1" thinking (fast, intuitive) — here it refers to a fast decision model.<br>
-      <strong>Regression head</strong> = The model's output layer is modified to predict continuous values instead of classification probabilities.
+      <strong>System One</strong> = Borrowed from Kahneman's "System 1" thinking (fast, intuitive, automatic) — here it refers to a fast decision model that outputs judgments rather than generating text.<br>
+      <strong>Regression head</strong> = The model's output layer is modified to predict continuous values (like a score from 0 to 1) instead of classification probabilities.<br>
+      <strong>JevBench</strong> = Community-created benchmark for evaluating decision models on classification and scoring tasks.
     </div>
 
     <!-- Who's talking -->
@@ -583,6 +589,7 @@ img, svg { max-width: 100%; display: block; }
       · HN: #1 "Jev in 25 Lines of Python" (204 points, 67 comments)<br>
       · HN: #26 "OpenAI is well positioned to fast-follow Jev" (296 points, 209 comments)<br>
       · HN: #27 "JevBench, a reproducible benchmark for typed decision models" (111 points, 28 comments)<br>
+      · HuggingFace blog: "What Is Jev AI? A Practical Guide to System One and Executable Decisions" (2 days ago)<br>
       · TypeSafe AI: <a href="https://typesafe.ai/jev">typesafe.ai/jev</a>
     </div>
 
@@ -601,15 +608,15 @@ img, svg { max-width: 100%; display: block; }
     <ul>
       <li>
         <span class="days">Day 6</span>
-        <div><span class="item-name">opencode</span> <span class="update">— Appeared on HN front page once then receded; star growth slowing but still #1 momentum; no new KOL endorsement.</span></div>
+        <div><span class="item-name">opencode</span> <span class="update">— HN front page appearance receded; star growth slowing but still #1 momentum; no new KOL endorsement this week.</span></div>
       </li>
       <li>
         <span class="days">Day 5</span>
-        <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN score stable; DeepSeek official docs have absorbed it; no new community discussion.</span></div>
+        <div><span class="item-name">DeepSeek Reasonix / V4.1-Flash</span> <span class="update">— HN score stable; DeepSeek official docs have absorbed it; no new community discussion or KOL signal.</span></div>
       </li>
       <li>
         <span class="days">Day 2</span>
-        <div><span class="item-name">Transformers GGUF native</span> <span class="update">— HF official blog post with 43 likes; community starting to test with <code>pip install</code>, but no massive discussion yet.</span></div>
+        <div><span class="item-name">Transformers GGUF native</span> <span class="update">— HF official blog post with 43 likes; community starting to test with <code>pip install</code>, but no massive discussion or real-world usage reports yet.</span></div>
       </li>
     </ul>
   </aside>
@@ -622,13 +629,15 @@ img, svg { max-width: 100%; display: block; }
         <tr><th>Item</th><th>Reason</th></tr>
       </thead>
       <tbody>
-        <tr><td>GPT-6 Astra cracks Enigma</td><td class="reason">Follow-up coverage, not a new release — already folded into the Sol/Luna story</td></tr>
-        <tr><td>Unreal Agent (HN #17)</td><td class="reason">New project, 199 points but no KOL endorsement, signal too weak</td></tr>
-        <tr><td>Gemini 3.8 Flash / Cyber release</td><td class="reason">Google official launch but no HN discussion, weak signal</td></tr>
-        <tr><td>Pentagon AI misjudgment led to missile strike</td><td class="reason">Safety/policy news, not a capability signal</td></tr>
-        <tr><td>"Data-only attacks are easier than you think"</td><td class="reason">Security paper, not AI core</td></tr>
-        <tr><td>WordPress path traversal vulnerability</td><td class="reason">Security bug, not AI-related</td></tr>
-        <tr><td>Grammarly sends unhinged messages on cancellation</td><td class="reason">Product bug, not a capability signal</td></tr>
+        <tr><td>GPT-6 Astra breaks Enigma cipher (HN #5, 670 pts)</td><td class="reason">Related to Sol/Luna launch — folded into Item 2's context rather than standalone</td></tr>
+        <tr><td>Unreal Agent (HN #17, 199 pts)</td><td class="reason">New project, 199 points but no KOL endorsement, signal too weak for top-3</td></tr>
+        <tr><td>Gemini 3.8 Flash / Cyber release (Google DeepMind)</td><td class="reason">Official launch but no HN discussion, weak community signal</td></tr>
+        <tr><td>Pentagon: overreliance on AI contributed to missile strike (HN #16, 676 pts)</td><td class="reason">Safety/policy news, not a capability signal — excluded by hard filter</td></tr>
+        <tr><td>"Data-only attacks are easier than you think" (HN #9, 54 pts)</td><td class="reason">Security paper, not AI core capability</td></tr>
+        <tr><td>WordPress path traversal vulnerability (HN #15, 196 pts)</td><td class="reason">Security bug in a web framework, not AI-related</td></tr>
+        <tr><td>Grammarly sends unhinged messages on cancellation (HN #22, 179 pts)</td><td class="reason">Product bug / customer service story, not a capability signal</td></tr>
+        <tr><td>Exfiltrate Your Weights (HN — from killed list re-evaluation)</td><td class="reason">Re-evaluated: still a security research paper, no usable artifact, signal unchanged</td></tr>
+        <tr><td>Step 5 Preview (HN — from killed list re-evaluation)</td><td class="reason">Re-evaluated: still a new model preview, no KOL endorsement, signal too weak</td></tr>
       </tbody>
     </table>
   </section>
@@ -643,7 +652,7 @@ img, svg { max-width: 100%; display: block; }
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
     <p>AI Radar · 10 minutes a day, catch the AI wave · <a href="https://ethan-m25.github.io/ai-radar/">ethan-m25.github.io/ai-radar/</a></p>
-    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">Sources: Smol AI / OSSInsight / HN / X / Official blogs · Hand-picked, not AI-generated</p>
+    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">Sources: Smol AI / OSSInsight / HN / X / OpenAI &amp; Anthropic &amp; Google DeepMind &amp; Mistral official blogs · Hand-picked, not AI-generated</p>
   </footer>
 
 </div>

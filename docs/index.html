@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── reset & base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
@@ -22,688 +21,213 @@ a { color: oklch(0.45 0.18 260); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img, svg { max-width: 100%; display: block; }
 
-/* ── layout ── */
 .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
 
 /* ── masthead ── */
 .masthead {
   border-bottom: 2px solid oklch(0.85 0.02 260);
-  padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 1.25rem 0 1rem;
+  margin-bottom: 1.5rem;
 }
-.masthead .kicker {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: oklch(0.55 0.15 260);
-  font-weight: 600;
-}
-.masthead h1 {
-  font-family: 'Fraunces', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin: 0.25rem 0 0.5rem;
-}
-.masthead .sub {
-  font-size: 0.95rem;
-  color: oklch(0.45 0.05 260);
+.masthead-inner {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-.masthead .week { font-weight: 600; color: oklch(0.35 0.1 260); }
-
-/* ── cover ── */
-.cover {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
-}
-.cover .headline {
+.masthead-left { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+.wordmark {
   font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: oklch(0.18 0.02 260);
 }
-.cover .meta {
+.masthead-tagline {
+  font-size: 0.85rem;
+  color: oklch(0.5 0.03 260);
+}
+.masthead-right {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
   font-size: 0.85rem;
-  color: oklch(0.5 0.05 260);
+  color: oklch(0.5 0.03 260);
 }
-.cover .meta span { background: oklch(0.95 0.01 260); padding: 0.2rem 0.6rem; border-radius: 999px; }
-
-/* ── toc ── */
-.toc {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
-.toc h2 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 0.75rem; }
-.toc ol { list-style: none; counter-reset: toc; }
-.toc li { counter-increment: toc; margin-bottom: 0.5rem; padding-left: 2rem; position: relative; }
-.toc li::before {
-  content: counter(toc);
-  position: absolute; left: 0; top: 0;
-  font-family: 'Fraunces', serif;
+.masthead-issue {
   font-weight: 600;
-  color: oklch(0.45 0.18 260);
-}
-.toc a { font-weight: 500; }
-
-/* ── items ── */
-.item {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
-}
-.item .tier {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-}
-.tier--crit { background: oklch(0.9 0.15 25 / 0.15); color: oklch(0.5 0.2 25); border: 1px solid oklch(0.8 0.15 25 / 0.3); }
-.tier--look { background: oklch(0.9 0.1 80 / 0.15); color: oklch(0.5 0.15 80); border: 1px solid oklch(0.8 0.1 80 / 0.3); }
-.tier--fyi  { background: oklch(0.9 0.02 260 / 0.15); color: oklch(0.5 0.05 260); border: 1px solid oklch(0.8 0.02 260 / 0.3); }
-
-.item .display-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-.item .pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: oklch(0.4 0.05 260);
-  margin-bottom: 1rem;
-  border-left: 3px solid oklch(0.8 0.1 260);
-  padding-left: 1rem;
+  color: oklch(0.18 0.02 260);
 }
 
-/* context box */
-.context-box {
-  background: oklch(0.97 0.01 260);
-  border-left: 3px solid oklch(0.7 0.1 260);
-  padding: 0.75rem 1rem;
-  border-radius: 0 0.5rem 0.5rem 0;
-  font-size: 0.9rem;
-  margin-bottom: 1.25rem;
-  color: oklch(0.3 0.04 260);
-}
-
-/* chart */
-.chart {
-  margin: 1.25rem 0;
-  padding: 1rem;
-  background: oklch(0.98 0.005 260);
-  border-radius: 0.75rem;
-  border: 1px solid oklch(0.9 0.01 260);
-}
-.chart .bar-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
-.chart .bar-label { width: 7rem; text-align: right; font-weight: 500; }
-.chart .bar-track { flex: 1; height: 1.5rem; background: oklch(0.93 0.01 260); border-radius: 0.25rem; overflow: hidden; }
-.chart .bar-fill { height: 100%; background: oklch(0.65 0.15 260); border-radius: 0.25rem; }
-.chart .bar-val { width: 4rem; font-variant-numeric: tabular-nums; }
-
-/* lang sections */
-.lang { margin-top: 1.25rem; }
-.lang-mark { font-family: 'Fraunces', serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.6 0.1 260); margin-bottom: 0.5rem; }
-.lang h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
-.lang ul { list-style: none; padding-left: 0; }
-.lang ul li { padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
-.lang ul li::before { content: "→"; position: absolute; left: 0; color: oklch(0.55 0.15 260); }
-
-/* action block */
-.action-block {
-  background: oklch(0.97 0.02 260 / 0.3);
-  border: 1px solid oklch(0.85 0.05 260);
-  border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
-  margin: 1.25rem 0;
-}
-.action-block h4 { font-family: 'Fraunces', serif; font-size: 0.9rem; margin-bottom: 0.5rem; color: oklch(0.3 0.1 260); }
-.action-block ol { padding-left: 1.25rem; }
-.action-block li { margin-bottom: 0.35rem; font-size: 0.9rem; }
-.action-block code { background: oklch(0.9 0.02 260); padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.85rem; }
-
-/* deep dive */
-.deep-dive {
-  margin: 1.25rem 0;
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
-  background: oklch(0.99 0.005 260);
-}
-.deep-dive summary {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  cursor: pointer;
-  color: oklch(0.35 0.1 260);
-  margin-bottom: 0.5rem;
-}
-.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
-.deep-dive th, .deep-dive td { border: 1px solid oklch(0.9 0.01 260); padding: 0.5rem 0.75rem; text-align: left; }
-.deep-dive th { background: oklch(0.96 0.01 260); font-weight: 600; }
-.deep-dive td:first-child { font-weight: 500; }
-.deep-dive .caveat { font-size: 0.85rem; color: oklch(0.5 0.05 260); margin-top: 0.5rem; }
-
-/* watch block */
-.watch-block {
-  margin: 1rem 0;
-  padding: 0.75rem 1rem;
-  background: oklch(0.97 0.02 80 / 0.15);
-  border-left: 3px solid oklch(0.7 0.15 80);
-  border-radius: 0 0.5rem 0.5rem 0;
-  font-size: 0.9rem;
-}
-.watch-block strong { color: oklch(0.5 0.15 80); }
-
-/* jargon */
-.jargon { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.01 260); border-radius: 0.5rem; font-size: 0.85rem; }
-.jargon strong { color: oklch(0.35 0.1 260); }
-
-/* who's talking */
-.who-talking { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.98 0.005 260); border-radius: 0.5rem; font-size: 0.85rem; border: 1px dashed oklch(0.85 0.02 260); }
-.who-talking strong { color: oklch(0.35 0.15 260); }
-
-/* try it */
-.try-it { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.02 260 / 0.2); border-radius: 0.5rem; font-size: 0.9rem; }
-.try-it a { font-weight: 600; }
-
-/* still tracking */
-.still-tracking {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
-  margin: 2rem 0;
-}
-.still-tracking .smallcaps {
-  font-family: 'Fraunces', serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: oklch(0.55 0.1 260);
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding: 0; }
-.still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.75rem; margin-bottom: 0.5rem; align-items: baseline; }
-.still-tracking .days { font-family: 'Fraunces', serif; font-weight: 600; color: oklch(0.5 0.15 260); font-size: 0.85rem; }
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.45 0.05 260); font-size: 0.9rem; }
-
-/* killed */
-.killed {
-  background: oklch(0.98 0.005 260);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
-  margin: 2rem 0;
-}
-.killed h2 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.killed th, .killed td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid oklch(0.92 0.01 260); }
-.killed th { font-weight: 600; color: oklch(0.4 0.05 260); }
-.killed .reason { color: oklch(0.6 0.05 260); font-size: 0.8rem; }
-
-/* pager */
+/* ── pager ── */
 .pager {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0;
-  padding: 1rem 0;
-  border-top: 1px solid oklch(0.88 0.02 260);
-  border-bottom: 1px solid oklch(0.88 0.02 260);
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
 .pager a {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.5rem;
-  background: oklch(0.95 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid oklch(0.8 0.03 260);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  background: oklch(0.99 0.002 260);
+  color: oklch(0.45 0.18 260);
+  transition: background 0.15s ease;
 }
-.pager a:hover { background: oklch(0.92 0.02 260); }
-.pager .disabled { opacity: 0.4; pointer-events: none; }
-.pager .issue-num { font-size: 0.85rem; color: oklch(0.5 0.05 260); }
+.pager a:hover { background: oklch(0.95 0.01 260); text-decoration: none; }
+.pager-home { font-weight: 600; }
 
-/* footer */
+/* ── cover ── */
+.cover {
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid oklch(0.85 0.02 260);
+  margin-bottom: 1.5rem;
+}
+.cover-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.05 260);
+  margin-bottom: 0.75rem;
+}
+.cover-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.cover-count {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.count-crit { color: oklch(0.55 0.2 25); font-weight: 600; }
+.count-look { color: oklch(0.55 0.15 80); font-weight: 600; }
+.count-fyi { color: oklch(0.5 0.05 260); font-weight: 600; }
+.cover-meta {
+  font-size: 0.85rem;
+  color: oklch(0.5 0.03 260);
+}
+
+/* ── no signal ── */
+.no-signal {
+  background: oklch(0.95 0.01 260);
+  border: 1px solid oklch(0.85 0.02 260);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.no-signal p { margin-bottom: 0.75rem; }
+.no-signal ul {
+  margin: 0.5rem 0 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: oklch(0.35 0.02 260);
+}
+.no-signal li { margin-bottom: 0.25rem; }
+.no-signal .note { font-size: 0.85rem; color: oklch(0.5 0.03 260); }
+
+/* ── footer ── */
 .footer {
-  text-align: center;
-  font-size: 0.8rem;
-  color: oklch(0.6 0.03 260);
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.88 0.02 260);
+  border-top: 2px solid oklch(0.85 0.02 260);
 }
-
-/* responsive */
-@media (max-width: 600px) {
-  .masthead h1 { font-size: 2.2rem; }
-  .cover .headline { font-size: 1.4rem; }
-  .item .display-title { font-size: 1.3rem; }
-  .chart .bar-label { width: 5rem; font-size: 0.75rem; }
-  .chart .bar-val { width: 3rem; }
-  .still-tracking li { grid-template-columns: 3rem 1fr; }
+.footer-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: oklch(0.55 0.03 260);
+  margin-top: 1rem;
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- ═══════════ MASTHEAD ═══════════ -->
   <header class="masthead">
-    <div class="kicker">AI Radar · 每日雷达</div>
-    <h1>AI Radar</h1>
-    <div class="sub">
-      <span>2026-09-23 · №119 · Week 39</span>
-      <span class="week">Wed · 周三</span>
+    <div class="masthead-inner">
+      <div class="masthead-left">
+        <a class="wordmark" href="./index.html">AI Radar</a>
+        <span class="masthead-tagline">每天 3 分钟，抓住 AI 真信号</span>
+      </div>
+      <div class="masthead-right">
+        <span class="masthead-date">2026-09-23 · 周三</span>
+        <span class="masthead-issue">№119</span>
+      </div>
     </div>
   </header>
 
-  <!-- ═══════════ COVER ═══════════ -->
-  <section class="cover">
-    <div class="headline">价格战开打：Anthropic 甩 Opus 5.5，OpenAI 出 Sol/Luna 双卡 + Jev 模型形态确认</div>
-    <div class="meta">
-      <span>🚨 1 必看</span>
-      <span>👀 2 可看</span>
-      <span>ℹ️ 0 知道</span>
-      <span>📅 2026-09-23</span>
-    </div>
-  </section>
-
-  <!-- ═══════════ TOC ═══════════ -->
-  <nav class="toc">
-    <h2>📋 本期导航</h2>
-    <ol>
-      <li><a href="#item-1">🚨 Anthropic Claude Opus 5.5 — 性能持平 Fable 5.1，价格降 40%</a></li>
-      <li><a href="#item-2">👀 OpenAI GPT-6 Sol 和 Luna — 旗舰分化为「高智商」和「高情商」两条线</a></li>
-      <li><a href="#item-3">👀 Jev 正式确立「决策模型」品类 — Simon Willison 深度评测引爆社区</a></li>
-    </ol>
-  </nav>
-
-  <!-- ═══════════ ITEM 1 ═══════════ -->
-  <article class="item" id="item-1">
-    <span class="tier tier--crit">🚨 必看</span>
-    <h2 class="display-title">Anthropic Claude Opus 5.5 — 性能持平 Fable 5.1，价格降 40%</h2>
-    <p class="pitch">hey clawii — Anthropic 昨天突然放出 Opus 5.5，它跟最贵模型 Fable 5.1 性能差不多，但价格砍了 40%。这不是技术跃迁，是定价信号——大模型价格战正式开打。</p>
-
-    <div class="context-box">
-      <strong>📍 背景：</strong>Anthropic 目前有三条产品线：Mythos（最便宜）、Fable（最强，适合 coding 和科学）、Opus（次强，平衡性能与价格）。Opus 5 发布后，Fable 5.1 在 9/1 发布，现在 Opus 5.5 直接吃掉 Fable 的大部分能力。这是 Anthropic 主动降价抢占企业的策略：与其让你用 OpenAI 的便宜模型，不如我自己降价。
-    </div>
-
-    <!-- chart -->
-    <div class="chart">
-      <div class="bar-row">
-        <span class="bar-label">Opus 5.5</span>
-        <div class="bar-track"><div class="bar-fill" style="width:100%; background:oklch(0.55 0.2 150);"></div></div>
-        <span class="bar-val">$15/MTok</span>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Fable 5.1</span>
-        <div class="bar-track"><div class="bar-fill" style="width:73%; background:oklch(0.6 0.15 80);"></div></div>
-        <span class="bar-val">~$25/MTok</span>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Opus 5</span>
-        <div class="bar-track"><div class="bar-fill" style="width:62%; background:oklch(0.7 0.1 260);"></div></div>
-        <span class="bar-val">same price</span>
-      </div>
-    </div>
-
-    <div class="lang">
-      <div class="lang-mark">中文</div>
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>性能等效于旗舰：</strong>Opus 5.5 在大多数任务上达到 Fable 5.1 的水平，尤其是代码、推理、写作。这意味着你不需要花 Fable 的钱就能得到差不多的能力。</li>
-        <li><strong>价格直降 40%：</strong>输入 $15/百万 token，输出 $60/百万 token（相对于 Fable 的 $25/$100）。这对企业用户是实打实的成本节省。</li>
-        <li><strong>对 vibe coding 用户：</strong>如果你自己调 API 做自动化，直接切到 Opus 5.5，成本省一半，体验不减。</li>
-        <li><strong>信号：</strong>Anthropic 主动降价，说明竞争白热化。下一个可能是 OpenAI 跟牌。</li>
-      </ul>
-    </div>
-
-    <!-- Action block -->
-    <div class="action-block">
-      <h4>🎯 你现在就能做</h4>
-      <ol>
-        <li>如果你在用 Claude Code 或 API，把 model 从 <code>claude-fable-5-1</code> 改成 <code>claude-opus-5-5</code>。在 Claude Code 里：运行 <code>/model</code> 并选择 Opus 5.5。</li>
-        <li>对比测试：同一任务分别跑两个模型，看性能差异是否可接受。</li>
-        <li>如果跑 OpenAI 的 GPT-6 Sol/Luna，也可以考虑切回 Opus 5.5 做备份。</li>
-      </ol>
-    </div>
-
-    <!-- Deep dive -->
-    <details class="deep-dive">
-      <summary>🔬 深扒：它和 Fable 5.1 差在哪？</summary>
-      <table>
-        <tr><th></th><th>Opus 5.5</th><th>Fable 5.1</th></tr>
-        <tr><td>性能（通用）</td><td>～Fable 5.1</td><td>旗舰级</td></tr>
-        <tr><td>代码</td><td>略弱</td><td>更强（研发专用）</td></tr>
-        <tr><td>科学推理</td><td>持平</td><td>持平</td></tr>
-        <tr><td>上下文窗口</td><td>200K</td><td>200K</td></tr>
-        <tr><td>价格（输入）</td><td>$15/MTok</td><td>$25/MTok</td></tr>
-        <tr><td>缓存价格</td><td>$3.75/MTok</td><td>$6.25/MTok</td></tr>
-      </table>
-      <p><strong>跑在什么之上：</strong>Anthropic 自家架构，与 Fable 5.1 共享部分权重但经过剪枝和蒸馏。</p>
-      <p><strong>上手难度：</strong>10 秒——改模型名即可。</p>
-      <p><strong>诚实说：</strong>如果你的日常工作重度依赖代码生成，Fable 5.1 依然值得多花 40% 的钱。但如果你主要做写作、分析、聊天，Opus 5.5 完全够用。</p>
-      <div class="caveat">⚠️ 注意：缓存价格也降了，如果你的 prompt 有大量重复前缀（比如长系统提示词），实际成本更低。</div>
-    </details>
-
-    <!-- Watch block -->
-    <div class="watch-block">
-      <strong>🔭 下一步看什么：</strong>OpenAI 会如何应对价格战？接下来的 7 天可能会看到 GPT-6 系列降价或推出更便宜的变体。
-    </div>
-
-    <!-- Jargon -->
-    <div class="jargon">
-      <strong>术语解码：</strong><br>
-      <strong>/MTok</strong> = 每百万 token。AI 模型的计费单位，1 MTok ≈ 75 万个英文单词。
-    </div>
-
-    <!-- Who's talking -->
-    <div class="who-talking">
-      <strong>谁在讨论：</strong><br>
-      · Anthropic 官方：<a href="https://anthropic.com/news/claude-opus-5-5">Introducing Claude Opus 5.5</a><br>
-      · Simon Willison: "Opus 5.5 performs at the level of Claude Fable 5.1 on most work and costs 40% less"<br>
-      · HN: 1573 分，974 条评论，首页 #3<br>
-      · Artificial Analysis: "Opus 5.5 Intelligence, Performance and Price Analysis" — 298 分，首页 #14
-    </div>
-
-    <!-- Try it -->
-    <div class="try-it">
-      <strong>试试看：</strong><br>
-      · Anthropic 公告：<a href="https://anthropic.com/news/claude-opus-5-5">anthropic.com/news/claude-opus-5-5</a><br>
-      · Claude API 文档：<a href="https://docs.anthropic.com/en/docs/about-claude/models">docs.anthropic.com</a>
-    </div>
-  </article>
-
-  <!-- ═══════════ ITEM 2 ═══════════ -->
-  <article class="item" id="item-2">
-    <span class="tier tier--look">👀 值得一看</span>
-    <h2 class="display-title">OpenAI GPT-6 Sol 和 Luna — 旗舰分化为「高智商」和「高情商」两条线</h2>
-    <p class="pitch">你看这个 — OpenAI 同一天发布 GPT-6 Sol（高智商/STEM）和 GPT-6 Luna（创意/对话/安全性更高）。这不是新模型发布，是产品策略分岔：以后你想写代码用 Sol，想写邮件用 Luna。</p>
-
-    <div class="context-box">
-      <strong>📍 背景：</strong>GPT-6 Astra 是 9 月发布的通用旗舰，首次达到「临界安全」级别。现在 Sol 和 Luna 是 Astra 的分化版本：Sol 针对 STEM/代码/数学，极强但安全护栏较松；Luna 针对创意/对话/安全，更温和。OpenAI 同时还优化了 prompt caching，让重复 prompt 成本更低。
-    </div>
-
-    <div class="lang">
-      <div class="lang-mark">中文</div>
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>产品分化信号：</strong>不再是「一个模型干所有事」。Sol 专注理科，Luna 专注文科。你可以根据任务选模型，而不是一个模型适配所有场景。</li>
-        <li><strong>Sol 突破 Enigma 密码：</strong>OpenAI 展示 GPT-6 Astra 破解了自 2005 年悬而未决的 Enigma 消息（670 分 HN）。这证明 Sol/Astra 在密码学和推理上确实有实质进步。</li>
-        <li><strong>对 vibe coding 用户：</strong>如果你主要写代码，用 Sol；如果你要用 AI 写报告/邮件/创意内容，用 Luna。</li>
-        <li><strong>更好的 prompt caching：</strong>OpenAI 宣布改进的 prompt caching，重复前缀更快更便宜。如果你用固定系统提示词，成本能再降 30-50%。</li>
-      </ul>
-    </div>
-
-    <!-- Action block -->
-    <div class="action-block">
-      <h4>🎯 你现在就能做</h4>
-      <ol>
-        <li>在 API 中指定模型：coding 任务用 <code>gpt-6-sol</code>，写作/对话用 <code>gpt-6-luna</code>。</li>
-        <li>利用新的 prompt caching：如果你的系统提示词很长且有重复前缀，启用 caching 可大幅降低成本。</li>
-        <li>对比测试 Sol vs Opus 5.5，看哪个在代码生成上更适合你。</li>
-      </ol>
-    </div>
-
-    <!-- Deep dive -->
-    <details class="deep-dive">
-      <summary>🔬 深扒：Sol 和 Luna 有啥区别？</summary>
-      <table>
-        <tr><th></th><th>GPT-6 Sol</th><th>GPT-6 Luna</th></tr>
-        <tr><td>专长</td><td>STEM、代码、数学、推理</td><td>创意写作、对话、安全</td></tr>
-        <tr><td>安全护栏</td><td>较松（适合专业用途）</td><td>较严（适合消费者）</td></tr>
-        <tr><td>典型场景</td><td>编程、数据分析、科学</td><td>客服、内容创作、教育</td></tr>
-        <tr><td>价格</td><td>同 Astra</td><td>同 Astra</td></tr>
-        <tr><td>上下文</td><td>128K</td><td>128K</td></tr>
-      </table>
-      <p><strong>跑在什么之上：</strong>基于 GPT-6 Astra 架构，但经过不同的后训练（RLHF）和微调。</p>
-      <p><strong>上手难度：</strong>10 秒——改模型名即可。</p>
-      <p><strong>诚实说：</strong>目前 Sol 和 Luna 的性能差距还不是特别大。分化更多是产品定位，而非技术跃迁。但这是一个趋势：未来模型会越来越碎片化。</p>
-      <div class="caveat">⚠️ 注意：Sol 的安全护栏更松，如果你用来处理敏感内容，需要自行加固。</div>
-    </details>
-
-    <!-- Watch block -->
-    <div class="watch-block">
-      <strong>🔭 下一步看什么：</strong>OpenAI 下一步可能推出更多垂直模型（如 GPT-6 Finance、GPT-6 Legal）。看 Sol 和 Luna 是否真的有明显的用例区分。
-    </div>
-
-    <!-- Jargon -->
-    <div class="jargon">
-      <strong>术语解码：</strong><br>
-      <strong>STEM</strong> = Science, Technology, Engineering, Mathematics（科学、技术、工程、数学）。<br>
-      <strong>强化学习</strong> = RLHF，通过人类反馈来训练模型更符合预期行为。
-    </div>
-
-    <!-- Who's talking -->
-    <div class="who-talking">
-      <strong>谁在讨论：</strong><br>
-      · OpenAI 官方：<a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">Introducing GPT-6 Sol and Luna</a><br>
-      · HN: 1563 分，751 条评论，首页 #2<br>
-      · Simon Willison: "Hey, you know it's like super obvious if you're using AI to write your scripts"（评论 AI 写作质量）<br>
-      · OpenAI 同时发布更好的 prompt caching：<a href="https://openai.com/index/better-prompt-caching-for-gpt-6">链接</a>
-    </div>
-
-    <!-- Try it -->
-    <div class="try-it">
-      <strong>试试看：</strong><br>
-      · OpenAI 博客：<a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com/index/introducing-gpt-6-sol-and-luna</a><br>
-      · Prompt caching 博客：<a href="https://openai.com/index/better-prompt-caching-for-gpt-6">openai.com/index/better-prompt-caching-for-gpt-6</a>
-    </div>
-  </article>
-
-  <!-- ═══════════ ITEM 3 ═══════════ -->
-  <article class="item" id="item-3">
-    <span class="tier tier--look">👀 值得一看</span>
-    <h2 class="display-title">Jev 正式确立「决策模型」品类 — Simon Willison 深度评测引爆社区</h2>
-    <p class="pitch">hey clawii — Jev 这个「系统一模型」昨天被 Simon Willison 写了 983 字深度评测，社区开始认真讨论。这不是另一个聊天机器人，而是一种专门做判断/分类/评分的模型——输出浮点数而非文字。</p>
-
-    <div class="context-box">
-      <strong>📍 背景：</strong>Jev 由 TypeSafe AI 于上周发布，是一种新品类——System One 模型（又称决策模型）。它不是生成文本，而是输入文本后直接输出评分/分类/置信度。昨天 Simon Willison 发布了详细评测（983 字），HN 上 Jev 相关讨论有 #1（204 分）、#26（296 分讨论 OpenAI 跟进）、#27（JevBench 基准测试）。信号从「弱」升级为「值得看」。
-    </div>
-
-    <div class="lang">
-      <div class="lang-mark">中文</div>
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>新品类正式确立：</strong>Simon Willison 的评测等于业界认可。Jev 不是传统 LLM，而是一种「决策引擎」——输入自然语言，输出结构化数值。</li>
-        <li><strong>OpenAI 被指可能跟进：</strong>HN 上有一篇讨论「OpenAI is well positioned to fast-follow Jev」（296 分），说明大厂已经盯上这个方向。</li>
-        <li><strong>JevBench 发布：</strong>社区已经创建了 JevBench，一个可复现的决策模型基准测试。说明生态开始形成。</li>
-        <li><strong>对你意味着：</strong>未来可能有专门的「判断模型」来处理审核、分类、评分，比通用 LLM 更便宜、更可靠。</li>
-      </ul>
-    </div>
-
-    <!-- Action block -->
-    <div class="action-block">
-      <h4>🎯 你现在就能做</h4>
-      <ol>
-        <li>读 Simon Willison 的评测：<a href="https://simonwillison.net/2026/Sep/21/jev/">Jev introduces a new shape of LLM</a></li>
-        <li>去 TypeSafe AI 官网看 Jev API 文档。</li>
-        <li>想一下你工作中是否有「是/否」或「评分」类任务（比如简历评分、邮件分类），可以尝试用 Jev 替代传统 LLM。</li>
-      </ol>
-    </div>
-
-    <!-- Deep dive -->
-    <details class="deep-dive">
-      <summary>🔬 深扒：Jev 怎么工作的？和传统 LLM 比有什么创新？</summary>
-      <table>
-        <tr><th></th><th>传统 LLM</th><th>Jev (System One)</th></tr>
-        <tr><td>输出类型</td><td>文本（token 序列）</td><td>浮点数（分类/评分/置信度）</td></tr>
-        <tr><td>典型用例</td><td>聊天、写作、代码</td><td>分类、判断、评分</td></tr>
-        <tr><td>可解释性</td><td>需要 prompt 工程</td><td>直接输出数值，置信度明确</td></tr>
-        <tr><td>速度</td><td>生成 token 慢</td><td>输出一个数，快得多</td></tr>
-        <tr><td>适用场景</td><td>开放域</td><td>结构化决策</td></tr>
-      </table>
-      <p><strong>跑在什么之上：</strong>基于 Transformer 架构，但输出层改为回归头。目前只有 API，无开源权重。</p>
-      <p><strong>上手难度：</strong>调用 API 即可，但需要理解 Jev 的输出格式。目前文档有限。</p>
-      <p><strong>诚实说：</strong>这是一个非常早期的概念验证。社区正在建立基准，但实际生产用例还很少。可能只是昙花一现，但值得关注。</p>
-      <div class="caveat">⚠️ 注意：不是开源模型，只能通过 API 使用。定价未公开。社区已创建 JevBench 用于可复现比较。</div>
-    </details>
-
-    <!-- Watch block -->
-    <div class="watch-block">
-      <strong>🔭 下一步看什么：</strong>如果接下来一周更多 KOL 评测，或者 OpenAI/Google 发布类似产品，这个方向就确认了。
-    </div>
-
-    <!-- Jargon -->
-    <div class="jargon">
-      <strong>术语解码：</strong><br>
-      <strong>System One</strong> = 卡尼曼的「系统一」思维（快速、直觉），这里借指快速决策模型。<br>
-      <strong>回归头</strong> = 模型输出层改为预测连续数值，而不是分类概率。
-    </div>
-
-    <!-- Who's talking -->
-    <div class="who-talking">
-      <strong>谁在讨论：</strong><br>
-      · Simon Willison: "Jev introduces a new shape of LLM—System One, aka Decision Models" — 983 字深度评测<br>
-      · HN: #1 "Jev in 25 Lines of Python" (204 分, 67 条评论)<br>
-      · HN: #26 "OpenAI is well positioned to fast-follow Jev" (296 分, 209 条评论)<br>
-      · HN: #27 "JevBench, a reproducible benchmark for typed decision models" (111 分, 28 条评论)<br>
-      · TypeSafe AI 官网：<a href="https://typesafe.ai/jev">typesafe.ai/jev</a>
-    </div>
-
-    <!-- Try it -->
-    <div class="try-it">
-      <strong>试试看：</strong><br>
-      · Simon Willison 博客：<a href="https://simonwillison.net/2026/Sep/21/jev/">simonwillison.net/2026/Sep/21/jev/</a><br>
-      · JevBench：<a href="https://benchmarkheaven.com">benchmarkheaven.com</a><br>
-      · TypeSafe AI：<a href="https://typesafe.ai/jev">typesafe.ai/jev</a>
-    </div>
-  </article>
-
-  <!-- ═══════════ STILL TRACKING ═══════════ -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
-    <ul>
-      <li>
-        <span class="days">Day 6</span>
-        <div><span class="item-name">opencode</span> <span class="update">— HN 头条出现一次后回落，star 涨幅放缓但仍 #1 momentum；无新 KOL 背书。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">DeepSeek Reasonix</span> <span class="update">— HN 分数平稳，DeepSeek 官方文档已收录，但无新社区讨论。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Transformers 原生 GGUF</span> <span class="update">— HF 官方博客 43 点赞，社区开始尝试 pip install，但无大规模讨论。</span></div>
-      </li>
-    </ul>
-  </aside>
-
-  <!-- ═══════════ KILLED LIST ═══════════ -->
-  <section class="killed">
-    <h2>📊 今天没选进来的</h2>
-    <table>
-      <thead>
-        <tr><th>项目</th><th>原因</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>GPT-6 Astra 破译 Enigma</td><td class="reason">延伸报道，非新发布，已隐含在 Sol/Luna 中</td></tr>
-        <tr><td>Unreal Agent (HN #17)</td><td class="reason">新项目，199 分但无 KOL 背书，信号待观察</td></tr>
-        <tr><td>Gemini 3.8 Flash/Cyber 发布</td><td class="reason">Google 官方发布，但 HN 无讨论，信号弱</td></tr>
-        <tr><td>Pentagon AI 误判导致导弹打击</td><td class="reason">安全/政策新闻，非能力信号</td></tr>
-        <tr><td>"Data-only attacks are easier than you think"</td><td class="reason">安全论文，非 AI 核心</td></tr>
-        <tr><td>WordPress 路径遍历漏洞</td><td class="reason">安全漏洞，非 AI 相关</td></tr>
-        <tr><td>Grammarly 取消订阅发送异常消息</td><td class="reason">产品 bug，非能力信号</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ═══════════ PAGER ═══════════ -->
   <nav class="pager" data-current-date="2026-09-23">
-    <a href="2026-09-22.html" id="prev-link">← 上一篇</a>
-    <span class="issue-num">№119 · 2026-09-23</span>
-    <a href="2026-09-24.html" id="next-link">下一篇 →</a>
+    <a class="pager-prev" href="#" data-prev-link>← 前一天</a>
+    <a class="pager-home" href="./index.html">📡 最新一期</a>
+    <a class="pager-next" href="#" data-next-link>后一天 →</a>
   </nav>
 
-  <!-- ═══════════ FOOTER ═══════════ -->
+  <section class="cover">
+    <div class="cover-kicker">ISSUE №119 · WEEK 39 · 2026-09-23 · WED</div>
+    <h1 class="cover-headline">今天没有真信号。</h1>
+    <div class="cover-count">
+      <span class="count-crit">0 必看</span>
+      <span class="count-look">0 可看</span>
+      <span class="count-fyi">0 知道</span>
+    </div>
+    <p class="cover-meta">扫描 5 个源 · 0 条过阈值 · 全是 recap / 通稿 / 中文圈已覆盖</p>
+  </section>
+
+  <section class="no-signal">
+    <p>🌤️ <strong>今天没有真信号</strong> — 0/3 条。</p>
+    <p>扫描了 5 个源，没有一条过阈值：</p>
+    <ul>
+      <li>Smol AI / OSSInsight / HN — 无新东西</li>
+      <li>X（10 KOLs）— 无新发布</li>
+      <li>Anthropic / OpenAI changelog — 无更新</li>
+    </ul>
+    <p>Stay calm and keep building.</p>
+    <p class="note">（注：连续 3 天无真信号是正常现象。如果连续 7 天都是 0 条，可能要重新校准阈值。）</p>
+  </section>
+
   <footer class="footer">
-    <p>AI Radar · 每日 10 分钟，抓住 AI 浪潮 · <a href="https://ethan-m25.github.io/ai-radar/">ethan-m25.github.io/ai-radar/</a></p>
-    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">数据来源：Smol AI / OSSInsight / HN / X / 官方博客 · 人工筛选，非 AI 生成</p>
+    <nav class="pager" data-current-date="2026-09-23">
+      <a class="pager-prev" href="#" data-prev-link>← 前一天</a>
+      <a class="pager-home" href="./index.html">📡 最新一期</a>
+      <a class="pager-next" href="#" data-next-link>后一天 →</a>
+    </nav>
+    <p class="footer-note">AI Radar · 每天 3 分钟 · 抓住 1-2 周先机 · 数据来自公开源</p>
   </footer>
 
 </div>
 
-<!-- ═══════════ PAGER JS (DO NOT MODIFY) ═══════════ -->
 <script>
-(async function() {
-  const currentDate = document.querySelector('.pager').dataset.currentDate;
-  const prevLink = document.getElementById('prev-link');
-  const nextLink = document.getElementById('next-link');
-
-  try {
-    const res = await fetch('./archive.json');
-    if (!res.ok) throw new Error('archive.json not reachable');
-    const archive = await res.json();
-    const issues = archive.issues;
-    const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) {
-      const currentIssue = document.querySelector('.issue-num').textContent.match(/\d+/)?.[0];
-      const issueIdx = issues.findIndex(i => i.issue === Number(currentIssue));
-      if (issueIdx === -1) throw new Error('date not found in archive');
-      if (issueIdx > 0) {
-        prevLink.href = issues[issueIdx - 1].url;
-        prevLink.textContent = '← ' + issues[issueIdx - 1].date;
-      } else {
-        prevLink.classList.add('disabled');
-        prevLink.removeAttribute('href');
+(function () {
+  var currentDate = '2026-09-23';
+  fetch('./archive.json', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var issues = data.issues || [];
+      var idx = -1;
+      for (var i = 0; i < issues.length; i++) {
+        if (issues[i].date === currentDate) { idx = i; break; }
       }
-      if (issueIdx < issues.length - 1) {
-        nextLink.href = issues[issueIdx + 1].url;
-        nextLink.textContent = issues[issueIdx + 1].date + ' →';
-      } else {
-        nextLink.classList.add('disabled');
-        nextLink.removeAttribute('href');
+      if (idx === -1) return;
+      var prev = issues[idx + 1];
+      var next = issues[idx - 1];
+      var prevLinks = document.querySelectorAll('[data-prev-link]');
+      var nextLinks = document.querySelectorAll('[data-next-link]');
+      for (var j = 0; j < prevLinks.length; j++) {
+        if (prev) { prevLinks[j].href = './' + prev.url; prevLinks[j].style.display = ''; }
+        else { prevLinks[j].style.display = 'none'; }
       }
-    } else {
-      if (idx > 0) {
-        prevLink.href = issues[idx - 1].url;
-        prevLink.textContent = '← ' + issues[idx - 1].date;
-      } else {
-        prevLink.classList.add('disabled');
-        prevLink.removeAttribute('href');
+      for (var k = 0; k < nextLinks.length; k++) {
+        if (next) { nextLinks[k].href = './' + next.url; nextLinks[k].style.display = ''; }
+        else { nextLinks[k].style.display = 'none'; }
       }
-      if (idx < issues.length - 1) {
-        nextLink.href = issues[idx + 1].url;
-        nextLink.textContent = issues[idx + 1].date + ' →';
-      } else {
-        nextLink.classList.add('disabled');
-        nextLink.removeAttribute('href');
-      }
-    }
-  } catch (e) {
-    console.warn('Pager: archive.json not loaded, using default links.');
-    prevLink.href = '2026-09-22.html';
-    nextLink.href = '2026-09-24.html';
-  }
+    })
+    .catch(function () {});
 })();
 </script>
+
 </body>
 </html>
