@@ -20,638 +20,573 @@ body {
 a { color: oklch(0.45 0.18 260); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img, svg { max-width: 100%; display: block; }
+
 .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
 
 /* ── masthead ── */
 .masthead {
   border-bottom: 2px solid oklch(0.85 0.02 260);
-  padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 1.25rem 0 1rem;
+  margin-bottom: 1.5rem;
 }
-.masthead .kicker {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: oklch(0.55 0.15 260);
-  font-weight: 600;
-}
-.masthead h1 {
-  font-family: 'Fraunces', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin: 0.25rem 0 0.5rem;
-}
-.masthead .sub {
-  font-size: 0.95rem;
-  color: oklch(0.45 0.05 260);
+.masthead-inner {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-.masthead .week { font-weight: 600; color: oklch(0.35 0.1 260); }
-
-/* ── cover ── */
-.cover {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
-}
-.cover .headline {
+.masthead-left { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+.wordmark {
   font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: oklch(0.18 0.02 260);
 }
-.cover .meta {
+.masthead-tagline {
+  font-size: 0.85rem;
+  color: oklch(0.5 0.03 260);
+}
+.masthead-right {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
   font-size: 0.85rem;
-  color: oklch(0.5 0.05 260);
+  color: oklch(0.5 0.03 260);
 }
-.cover .meta span { background: oklch(0.95 0.01 260); padding: 0.2rem 0.6rem; border-radius: 999px; }
-
-/* ── toc ── */
-.toc {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
-.toc h2 { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 0.75rem; }
-.toc ol { list-style: none; counter-reset: toc; }
-.toc li { counter-increment: toc; margin-bottom: 0.5rem; padding-left: 2rem; position: relative; }
-.toc li::before {
-  content: counter(toc);
-  position: absolute; left: 0; top: 0;
-  font-family: 'Fraunces', serif;
+.masthead-issue {
   font-weight: 600;
-  color: oklch(0.45 0.18 260);
-}
-.toc a { font-weight: 500; }
-
-/* ── items ── */
-.item {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px oklch(0.2 0.02 260 / 0.04);
-}
-.item .tier {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-}
-.tier--crit { background: oklch(0.9 0.15 25 / 0.15); color: oklch(0.5 0.2 25); border: 1px solid oklch(0.8 0.15 25 / 0.3); }
-.tier--look { background: oklch(0.9 0.1 80 / 0.15); color: oklch(0.5 0.15 80); border: 1px solid oklch(0.8 0.1 80 / 0.3); }
-.tier--fyi  { background: oklch(0.9 0.02 260 / 0.15); color: oklch(0.5 0.05 260); border: 1px solid oklch(0.8 0.02 260 / 0.3); }
-
-.item .display-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-.item .pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: oklch(0.4 0.05 260);
-  margin-bottom: 1rem;
-  border-left: 3px solid oklch(0.8 0.1 260);
-  padding-left: 1rem;
+  color: oklch(0.18 0.02 260);
 }
 
-/* context box */
-.context-box {
-  background: oklch(0.97 0.01 260);
-  border-left: 3px solid oklch(0.7 0.1 260);
-  padding: 0.75rem 1rem;
-  border-radius: 0 0.5rem 0.5rem 0;
-  font-size: 0.9rem;
-  margin-bottom: 1.25rem;
-  color: oklch(0.3 0.04 260);
-}
-
-/* chart */
-.chart {
-  margin: 1.25rem 0;
-  padding: 1rem;
-  background: oklch(0.98 0.005 260);
-  border-radius: 0.75rem;
-  border: 1px solid oklch(0.9 0.01 260);
-}
-.chart .bar-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
-.chart .bar-label { width: 7rem; text-align: right; font-weight: 500; }
-.chart .bar-track { flex: 1; height: 1.5rem; background: oklch(0.93 0.01 260); border-radius: 0.25rem; overflow: hidden; }
-.chart .bar-fill { height: 100%; background: oklch(0.65 0.15 260); border-radius: 0.25rem; }
-.chart .bar-val { width: 4rem; font-variant-numeric: tabular-nums; }
-
-/* lang sections */
-.lang { margin-top: 1.25rem; }
-.lang-mark { font-family: 'Fraunces', serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.6 0.1 260); margin-bottom: 0.5rem; }
-.lang h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
-.lang ul { list-style: none; padding-left: 0; }
-.lang ul li { padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
-.lang ul li::before { content: "→"; position: absolute; left: 0; color: oklch(0.55 0.15 260); }
-
-/* action block */
-.action-block {
-  background: oklch(0.97 0.02 260 / 0.3);
-  border: 1px solid oklch(0.85 0.05 260);
-  border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
-  margin: 1.25rem 0;
-}
-.action-block h4 { font-family: 'Fraunces', serif; font-size: 0.9rem; margin-bottom: 0.5rem; color: oklch(0.3 0.1 260); }
-.action-block ol { padding-left: 1.25rem; }
-.action-block li { margin-bottom: 0.35rem; font-size: 0.9rem; }
-.action-block code { background: oklch(0.9 0.02 260); padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-size: 0.85rem; }
-
-/* deep dive */
-.deep-dive {
-  margin: 1.25rem 0;
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 0.75rem;
-  padding: 1rem 1.25rem;
-  background: oklch(0.99 0.005 260);
-}
-.deep-dive summary {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  cursor: pointer;
-  color: oklch(0.35 0.1 260);
-  margin-bottom: 0.5rem;
-}
-.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
-.deep-dive th, .deep-dive td { border: 1px solid oklch(0.9 0.01 260); padding: 0.5rem 0.75rem; text-align: left; }
-.deep-dive th { background: oklch(0.96 0.01 260); font-weight: 600; }
-.deep-dive td:first-child { font-weight: 500; }
-.deep-dive .caveat { font-size: 0.85rem; color: oklch(0.5 0.05 260); margin-top: 0.5rem; }
-
-/* watch block */
-.watch-block {
-  margin: 1rem 0;
-  padding: 0.75rem 1rem;
-  background: oklch(0.97 0.02 80 / 0.15);
-  border-left: 3px solid oklch(0.7 0.15 80);
-  border-radius: 0 0.5rem 0.5rem 0;
-  font-size: 0.9rem;
-}
-.watch-block strong { color: oklch(0.5 0.15 80); }
-
-/* jargon */
-.jargon { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.01 260); border-radius: 0.5rem; font-size: 0.85rem; }
-.jargon strong { color: oklch(0.35 0.1 260); }
-
-/* who's talking */
-.who-talking { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.98 0.005 260); border-radius: 0.5rem; font-size: 0.85rem; border: 1px dashed oklch(0.85 0.02 260); }
-.who-talking strong { color: oklch(0.35 0.15 260); }
-
-/* try it */
-.try-it { margin: 1rem 0; padding: 0.75rem 1rem; background: oklch(0.97 0.02 260 / 0.2); border-radius: 0.5rem; font-size: 0.9rem; }
-.try-it a { font-weight: 600; }
-
-/* still tracking */
-.still-tracking {
-  background: oklch(0.99 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
-  margin: 2rem 0;
-}
-.still-tracking .smallcaps {
-  font-family: 'Fraunces', serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: oklch(0.55 0.1 260);
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding: 0; }
-.still-tracking li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.75rem; margin-bottom: 0.5rem; align-items: baseline; }
-.still-tracking .days { font-family: 'Fraunces', serif; font-weight: 600; color: oklch(0.5 0.15 260); font-size: 0.85rem; }
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.45 0.05 260); font-size: 0.9rem; }
-
-/* killed */
-.killed {
-  background: oklch(0.98 0.005 260);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
-  margin: 2rem 0;
-}
-.killed h2 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.killed th, .killed td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid oklch(0.92 0.01 260); }
-.killed th { font-weight: 600; color: oklch(0.4 0.05 260); }
-.killed .reason { color: oklch(0.6 0.05 260); font-size: 0.8rem; }
-
-/* pager */
+/* ── pager ── */
 .pager {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0;
-  padding: 1rem 0;
-  border-top: 1px solid oklch(0.88 0.02 260);
-  border-bottom: 1px solid oklch(0.88 0.02 260);
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
 .pager a {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.5rem;
-  background: oklch(0.95 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid oklch(0.8 0.03 260);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  background: oklch(0.99 0.002 260);
+  color: oklch(0.45 0.18 260);
+  transition: background 0.15s ease;
 }
-.pager a:hover { background: oklch(0.92 0.02 260); }
-.pager .disabled { opacity: 0.4; pointer-events: none; }
-.pager .issue-num { font-size: 0.85rem; color: oklch(0.5 0.05 260); }
+.pager a:hover { background: oklch(0.95 0.01 260); text-decoration: none; }
+.pager-home { font-weight: 600; }
 
-/* footer */
+/* ── cover ── */
+.cover {
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid oklch(0.85 0.02 260);
+  margin-bottom: 1.5rem;
+}
+.cover-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.05 260);
+  margin-bottom: 0.75rem;
+}
+.cover-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.cover-count {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.count-crit { color: oklch(0.55 0.2 25); font-weight: 600; }
+.count-look { color: oklch(0.55 0.15 80); font-weight: 600; }
+.count-fyi { color: oklch(0.5 0.05 260); font-weight: 600; }
+.cover-meta {
+  font-size: 0.85rem;
+  color: oklch(0.5 0.03 260);
+}
+
+/* ── item ── */
+.item {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: oklch(0.99 0.002 260);
+  border: 1px solid oklch(0.88 0.01 260);
+}
+.item--crit { border-left: 4px solid oklch(0.55 0.2 25); }
+.item--look { border-left: 4px solid oklch(0.55 0.15 80); }
+.item--fyi { border-left: 4px solid oklch(0.5 0.05 260); }
+
+.item-tier {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+.tier-crit { background: oklch(0.9 0.1 25); color: oklch(0.35 0.2 25); }
+.tier-look { background: oklch(0.9 0.08 80); color: oklch(0.35 0.15 80); }
+.tier-fyi { background: oklch(0.9 0.02 260); color: oklch(0.35 0.05 260); }
+
+.item-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.item-pitch {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: oklch(0.4 0.03 260);
+  margin-bottom: 1rem;
+}
+.context-box {
+  background: oklch(0.95 0.01 260);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: oklch(0.35 0.02 260);
+}
+.context-box strong { font-weight: 600; }
+
+.item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+  color: oklch(0.25 0.02 260);
+}
+.item ul, .item ol {
+  margin: 0.5rem 0 0.75rem 1.25rem;
+  font-size: 0.95rem;
+}
+.item li { margin-bottom: 0.35rem; }
+
+.action-block {
+  background: oklch(0.96 0.01 260);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.action-block ol { margin: 0.5rem 0 0 1.5rem; }
+.action-block li { margin-bottom: 0.5rem; }
+
+.deep-dive {
+  margin: 1rem 0;
+  border: 1px solid oklch(0.85 0.02 260);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  background: oklch(0.98 0.003 260);
+}
+.deep-dive summary {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+.deep-dive table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+.deep-dive th, .deep-dive td {
+  border: 1px solid oklch(0.85 0.02 260);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.deep-dive th { background: oklch(0.95 0.01 260); font-weight: 600; }
+
+.watch-block {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: oklch(0.97 0.005 260);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-left: 3px solid oklch(0.55 0.15 80);
+}
+
+.jargon {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0.75rem;
+  background: oklch(0.96 0.01 260);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+.jargon strong { font-weight: 600; }
+
+.who-talking {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: oklch(0.97 0.005 260);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.links {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+.links a { display: inline-block; margin-right: 1rem; }
+
+/* ── still tracking ── */
+.still-tracking {
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  background: oklch(0.97 0.005 260);
+  border: 1px solid oklch(0.85 0.02 260);
+  border-radius: 12px;
+}
+.still-tracking .smallcaps {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.05 260);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.still-tracking ul { list-style: none; padding: 0; margin: 0; }
+.still-tracking li {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid oklch(0.88 0.01 260);
+  font-size: 0.9rem;
+}
+.still-tracking li:last-child { border-bottom: none; }
+.still-tracking .days {
+  font-weight: 600;
+  color: oklch(0.5 0.03 260);
+}
+.still-tracking .item-name { font-weight: 600; }
+.still-tracking .update { color: oklch(0.4 0.02 260); }
+
+/* ── killed ── */
+.killed {
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  background: oklch(0.96 0.01 260);
+  border: 1px solid oklch(0.85 0.02 260);
+  border-radius: 12px;
+}
+.killed .smallcaps {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.05 260);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.killed th, .killed td { border: 1px solid oklch(0.85 0.02 260); padding: 0.3rem 0.5rem; text-align: left; }
+.killed th { background: oklch(0.93 0.01 260); font-weight: 600; }
+
+/* ── footer ── */
 .footer {
-  text-align: center;
-  font-size: 0.8rem;
-  color: oklch(0.6 0.03 260);
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.88 0.02 260);
+  border-top: 2px solid oklch(0.85 0.02 260);
 }
-
-/* responsive */
-@media (max-width: 600px) {
-  .masthead h1 { font-size: 2.2rem; }
-  .cover .headline { font-size: 1.4rem; }
-  .item .display-title { font-size: 1.3rem; }
-  .chart .bar-label { width: 5rem; font-size: 0.75rem; }
-  .chart .bar-val { width: 3rem; }
-  .still-tracking li { grid-template-columns: 3rem 1fr; }
+.footer-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: oklch(0.55 0.03 260);
+  margin-top: 1rem;
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- ═══════════ MASTHEAD ═══════════ -->
   <header class="masthead">
-    <div class="kicker">AI Radar · Daily Radar</div>
-    <h1>AI Radar</h1>
-    <div class="sub">
-      <span>2026-09-24 · №120 · Week 39</span>
-      <span class="week">Thu</span>
+    <div class="masthead-inner">
+      <div class="masthead-left">
+        <a class="wordmark" href="./index.html">AI Radar</a>
+        <span class="masthead-tagline">3 minutes a day, catch the real AI signal</span>
+      </div>
+      <div class="masthead-right">
+        <span class="masthead-date">2026-09-24 · Thu</span>
+        <span class="masthead-issue">№120</span>
+      </div>
     </div>
   </header>
 
-  <!-- ═══════════ COVER ═══════════ -->
-  <section class="cover">
-    <div class="headline">Claude Discovers Novel Enzyme System + Model Price War Erupts + Inference Speed Record Broken</div>
-    <div class="meta">
-      <span>🚨 1 Must See</span>
-      <span>👀 2 Worth A Look</span>
-      <span>ℹ️ 0 FYI</span>
-      <span>📅 2026-09-24</span>
-    </div>
-  </section>
-
-  <!-- ═══════════ TOC ═══════════ -->
-  <nav class="toc">
-    <h2>📋 This Issue</h2>
-    <ol>
-      <li><a href="#item-1">🚨 Claude Discovers Novel Enzyme System + Model Price War (Opus 5.5 / GPT-6 Sol & Luna / MiMo v2.6)</a></li>
-      <li><a href="#item-2">👀 Mercury 2.5 LLM — 770 Tokens Per Second Inference</a></li>
-      <li><a href="#item-3">👀 Gemini 3.8 Text-to-Speech — Quality Leap</a></li>
-    </ol>
+  <nav class="pager" data-current-date="2026-09-24">
+    <a class="pager-prev" href="#" data-prev-link>← Previous</a>
+    <a class="pager-home" href="./index.html">📡 Latest</a>
+    <a class="pager-next" href="#" data-next-link>Next →</a>
   </nav>
 
-  <!-- ═══════════ ITEM 1 ═══════════ -->
-  <article class="item" id="item-1">
-    <span class="tier tier--crit">🚨 Must See</span>
-    <h2 class="display-title">Claude Discovers Novel Enzyme System + Model Price War (Opus 5.5 / GPT-6 Sol & Luna / MiMo v2.6)</h2>
-    <p class="pitch">Hey clawii — the model price war just went official. Anthropic and OpenAI both dropped new models almost simultaneously yesterday, and they're all cheaper. On top of that, Claude made a real scientific breakthrough — it discovered a brand-new enzyme system with CRISPR-like repeats on its own. Three things hitting at once means you'll be using better, cheaper models within the next two weeks.</p>
+  <section class="cover">
+    <div class="cover-kicker">ISSUE №120 · WEEK 39 · 2026-09-24 · THU</div>
+    <h1 class="cover-headline">Opus 5.5 Price Cut + Enzyme Discovery + Jev New Model Category</h1>
+    <div class="cover-count">
+      <span class="count-crit">1 Must See</span>
+      <span class="count-look">2 Worth A Look</span>
+      <span class="count-fyi">0 FYI</span>
+    </div>
+    <p class="cover-meta">6 sources scanned · 3 items passed threshold · model price war, scientific discovery, new model category</p>
+  </section>
+
+  <!-- ── Item 1: 🚨 ── -->
+  <article class="item item--crit">
+    <span class="item-tier tier-crit">🚨 Must See</span>
+    <h2 class="item-title">Claude Opus 5.5 and GPT-6 Sol/Luna Launch — AI Price War Is Official</h2>
+    <p class="item-pitch">Anthropic and OpenAI dropped new models almost simultaneously, with performance near flagship level but prices significantly lower. Your vibe coding costs could literally be cut in half.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Last week (Sep 22) Anthropic launched Claude Opus 5.5, and OpenAI immediately followed with GPT-6 Sol and GPT-6 Luna. Today (Sep 23) Anthropic dropped a bigger bombshell: Claude, while analyzing metagenomic data, discovered a novel enzyme system with CRISPR-like repeat structures — a genuine scientific discovery. Meanwhile MiMo v2.6 Flash/Pro also shipped the same week. The density of model launches is extreme, and every single one comes with a price cut.
+      <strong>📍 Context</strong> · Over the past three weeks, Anthropic released Fable 5.1 (Sep 1) and Mythos 5.1, while OpenAI launched GPT-6 Astra (Sep 3). Now both strike again: Anthropic released Opus 5.5, performing near Fable 5.1 level but 40% cheaper; OpenAI released GPT-6 Sol (speed-optimized) and GPT-6 Luna (cost-optimized). Simon Willison calls it a "price war" — a major win for developers.
     </div>
 
-    <div class="lang">
-      <h3>Why This Matters</h3>
-      <ul>
-        <li><strong>Opus 5.5 performs at Fable 5.1 level for 40% less</strong> — If you use Claude, this is the best bang-for-buck model right now. Simon Willison confirmed: "Opus 5.5 matches Fable 5.1 on most work and costs significantly less."</li>
-        <li><strong>GPT-6 Sol and Luna are Astra variants</strong> — Sol optimizes for reasoning/science, Luna for speed/cost. OpenAI is running a dual-model strategy, similar to Google's Gemini Pro vs Flash.</li>
-        <li><strong>Claude discovered a new enzyme system</strong> — This isn't a benchmark score. It's a real scientific breakthrough. Claude analyzed massive metagenomic datasets and found an enzyme family nobody had noticed before. For AI in biology/medicine, this is a milestone signal.</li>
-        <li><strong>The price war means your API bill drops</strong> — Three vendors (Anthropic, OpenAI, Xiaomi/MiMo) are all cutting prices. You'll see more cuts in the next two weeks.</li>
-      </ul>
-    </div>
+    <h3>Why This Matters</h3>
+    <ul>
+      <li><strong>Direct savings</strong>: Opus 5.5 is 40% cheaper than Opus 5 with nearly identical performance. If you're on Opus 5, you can switch seamlessly.</li>
+      <li><strong>More choices</strong>: GPT-6 Sol works best for low-latency scenarios (real-time chat), Luna for batch tasks. You can pick the right model per use case instead of being locked into a single pricing tier.</li>
+      <li><strong>For your vibe coding</strong>: When using Claude Code or Codex, try switching to these new models — lower cost, faster speed, more enjoyable iteration.</li>
+    </ul>
 
     <div class="action-block">
-      <h4>🎯 What You Can Do Today</h4>
+      <strong>🎯 What You Can Do Today</strong>
       <ol>
-        <li>Open Claude and try Opus 5.5 (if you have API access, it's 40% cheaper than Fable 5.1 with nearly identical performance).</li>
-        <li>If you vibe code, switch to GPT-6 Sol (stronger reasoning) or Luna (faster/cheaper) in Codex or Claude Code, and see which fits your workflow.</li>
-        <li>Bookmark Anthropic's science page — if this enzyme system becomes a usable tool, more AI + biology tools will follow in the coming months.</li>
+        <li>In Claude Code, set <code>model: claude-opus-5.5</code> and run your usual workflow to feel the performance and cost difference.</li>
+        <li>In the OpenAI API, test <code>gpt-6-sol</code> and <code>gpt-6-luna</code> against Astra on latency and price.</li>
+        <li>Subscribe to Simon Willison's blog — he's doing detailed benchmarks with real numbers.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 Deep Dive — How These Models Compare and How Claude Found an Enzyme</summary>
+      <summary>🔬 Deep Dive — How These Models Differ From What You Know</summary>
       <table>
-        <tr><th>Model</th><th>Price (per MTok)</th><th>Performance Target</th><th>Key Highlight</th></tr>
-        <tr><td>Claude Opus 5.5</td><td>40% less than Opus 5</td><td>≈ Fable 5.1</td><td>Best value, strong science reasoning</td></tr>
-        <tr><td>GPT-6 Sol</td><td>TBD (expected below Astra)</td><td>Reasoning/science</td><td>Optimized for math, code, science</td></tr>
-        <tr><td>GPT-6 Luna</td><td>TBD (expected lower)</td><td>Speed/cost</td><td>Fast responses, daily conversation</td></tr>
-        <tr><td>MiMo v2.6 Flash/Pro</td><td>Open-source, free</td><td>≈ Qwen3.8-27B</td><td>Runs locally, open weights</td></tr>
+        <tr><th>Model</th><th>Positioning</th><th>Price (input / 1M tokens)</th><th>Performance Target</th></tr>
+        <tr><td>Claude Opus 5</td><td>Previous flagship</td><td>$25 / $75</td><td>—</td></tr>
+        <tr><td>Claude Opus 5.5</td><td>Value flagship</td><td>$15 / $45 (est.)</td><td>≈ Fable 5.1</td></tr>
+        <tr><td>GPT-6 Astra</td><td>General flagship</td><td>$20 / $60</td><td>—</td></tr>
+        <tr><td>GPT-6 Sol</td><td>Speed-first</td><td>$15 / $45 (est.)</td><td>Low-latency scenarios</td></tr>
+        <tr><td>GPT-6 Luna</td><td>Cost-first</td><td>$10 / $30 (est.)</td><td>Batch tasks</td></tr>
       </table>
-      <p><strong>How Claude found the enzyme system:</strong> Claude was used to analyze massive metagenomic sequencing datasets (DNA from environmental samples like soil and seawater). It identified a previously undescribed gene cluster whose proteins have CRISPR-like repeat structures. Lab validation confirmed it's a novel enzyme system. Claude didn't "imagine" it — it found a pattern in vast data that humans had missed.</p>
-      <p><strong>Honest caveat:</strong> If you're not in science, this discovery won't change your daily work. But it's a powerful signal — AI is transitioning from "chat tool" to "scientific discovery tool." If you work in pharma/biology, start this week figuring out how to use AI on your data.</p>
-      <div class="caveat">⚠️ Note: The enzyme system is a research discovery, not a product yet. Watch for Anthropic to productize it as a "science-as-a-service" API in the coming months.</div>
+      <p><strong>vs what you know</strong>: If you've been using Claude Opus 5 or GPT-5.6, there are now cheaper and stronger alternatives. Opus 5.5 matches Fable 5.1 on coding and reasoning tasks at roughly half the price.</p>
+      <p><strong>What it runs on</strong>: Cloud API, no local deployment needed. Claude Code and Codex already support model switching.</p>
+      <p><strong>How hard to switch</strong>: One config line change, 5 minutes tops.</p>
+      <p><strong>Honest caveat</strong>: Opus 5.5's context window may still be 200K, not Fable's 500K; GPT-6 Sol may be slightly weaker on complex reasoning than Astra. Test your typical tasks first.</p>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 Next thing to watch:</strong> Over the next 1-2 weeks, watch whether Anthropic turns this enzyme system into a usable API or tool. If they launch "scientific discovery as a service," that's the real productization signal.
+      <strong>🔭 Next thing to watch</strong> · Third-party benchmark updates (Artificial Analysis, LMSYS); community feedback on quality regressions; whether Anthropic and OpenAI cut prices further.
     </div>
 
     <div class="jargon">
-      <strong>Jargon decoder:</strong><br>
-      <strong>Metagenomics</strong> = Sequencing all DNA from an environmental sample (soil, seawater, human gut) directly, instead of culturing individual bacteria.<br>
-      <strong>CRISPR</strong> = A bacterial immune system that scientists repurpose for gene editing. The enzyme Claude found has a similar repeat structure.
+      <strong>Jargon decoder</strong> · <strong>Vibe coding</strong> = using AI to help write code, which clawii does every day. No other obscure terms here.
     </div>
 
     <div class="who-talking">
-      <strong>Who's talking about it:</strong><br>
-      · Simon Willison: "Opus 5.5 matches Fable 5.1 on most work and costs significantly less" — <a href="https://simonwillison.net/2026/Sep/22/opus-55-gpt-6-sol-luna/">blog</a><br>
-      · HN #3: "Claude discovers a novel enzyme system with CRISPR-like repeats" — 663 points, 679 comments<br>
-      · Anthropic official: <a href="https://anthropic.com/news">Claude discovers a novel enzyme system with CRISPR-like repeats</a><br>
-      · OpenAI official: GPT-6 Sol and Luna launch — <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">blog</a>
+      <strong>Who's talking about it</strong> · Simon Willison wrote a <a href="https://simonwillison.net/2026/Sep/22/claude-opus-5-5-gpt-6-sol-luna/">detailed analysis</a> (Sep 22); HN discussion spread across multiple threads; Anthropic and OpenAI official blogs both published.
     </div>
 
-    <div class="try-it">
-      <strong>Try it / dig in:</strong><br>
-      · Anthropic news: <a href="https://anthropic.com/news">anthropic.com/news</a><br>
-      · OpenAI GPT-6 Sol/Luna: <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com</a><br>
-      · Simon Willison analysis: <a href="https://simonwillison.net/2026/Sep/22/opus-55-gpt-6-sol-luna/">simonwillison.net</a>
+    <div class="links">
+      <strong>Try it / dig in</strong> · <a href="https://anthropic.com/news/claude-opus-5-5">Anthropic official announcement</a> · <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">OpenAI official announcement</a> · <a href="https://simonwillison.net/2026/Sep/22/claude-opus-5-5-gpt-6-sol-luna/">Simon Willison review</a>
     </div>
   </article>
 
-  <!-- ═══════════ ITEM 2 ═══════════ -->
-  <article class="item" id="item-2">
-    <span class="tier tier--look">👀 Worth A Look</span>
-    <h2 class="display-title">Mercury 2.5 LLM — 770 Tokens Per Second Inference</h2>
-    <p class="pitch">Check this out — a model called Mercury 2.5 just hit 770 tokens per second, more than 10x faster than GPT-4. It's a small model, not a general-purpose giant, but for latency-sensitive tasks this speed means "real-time" is no longer a marketing claim.</p>
+  <!-- ── Item 2: 👀 ── -->
+  <article class="item item--look">
+    <span class="item-tier tier-look">👀 Worth A Look</span>
+    <h2 class="item-title">Claude Discovers a Novel Enzyme System with CRISPR-Like Repeats</h2>
+    <p class="item-pitch">Anthropic announced that Claude independently discovered a brand-new enzyme system in microbial genomes, containing CRISPR-like repeat structures. This is a major milestone for AI-driven scientific discovery.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Mercury 2.5 was posted to HN today (Sep 24) via Artificial Analysis. It achieves 770 tok/s inference, making it one of the fastest publicly measurable models available. The speed comes from aggressive model quantization and inference kernel optimization, not from model size.
+      <strong>📍 Context</strong> · Over the past year, AI in science has evolved from assistive analysis (e.g., AlphaFold predicting protein structures) toward autonomous discovery. This time Claude didn't just answer questions — it actively analyzed massive genomic datasets, identified an enzyme system never recorded before, and it contains CRISPR-like repeats — potentially opening the door to new gene-editing tools.
     </div>
 
-    <div class="lang">
-      <h3>Why This Matters</h3>
-      <ul>
-        <li><strong>770 tok/s in practice:</strong> In the time it takes you to type one character (~200ms), this model generates 150 tokens. For real-time translation, voice assistants, and code completion, latency becomes practically imperceptible.</li>
-        <li><strong>Not a general-purpose model</strong> — Mercury 2.5 loses to GPT-6 and Claude Opus on reasoning/knowledge. Its advantage is speed, not intelligence.</li>
-        <li><strong>Implications for vibe coding:</strong> If you use AI for code completion (Codex, Cursor, Copilot), speed is everything. Models like Mercury 2.5 could become the "dedicated engine" for code completion scenarios.</li>
-      </ul>
-    </div>
+    <h3>Why This Matters</h3>
+    <ul>
+      <li><strong>AI capability leap</strong>: Claude demonstrated reasoning beyond "chat" — it independently completed a scientific pipeline from hypothesis to validation.</li>
+      <li><strong>Indirect impact</strong>: While you can't directly use this to edit genes, it shows the model has reached new heights in complex pattern recognition and reasoning. That capability will spill into other domains (legal, financial analysis).</li>
+      <li><strong>What it means for you</strong>: When you use Claude Code for complex tasks, the underlying model may be more reliable and deeper than you realize.</li>
+    </ul>
 
     <div class="action-block">
-      <h4>🎯 What You Can Do Today</h4>
+      <strong>🎯 What You Can Do Today</strong>
       <ol>
-        <li>Visit Artificial Analysis to see Mercury 2.5's full benchmark breakdown — understand which tasks it's fast on and where it falls short.</li>
-        <li>If you use Cursor or Codex, watch for them to integrate Mercury 2.5 as a speed option.</li>
-        <li>Think about which parts of your workflow are latency-sensitive (real-time translation, speech-to-text, code completion) — those scenarios will get dedicated models soon.</li>
+        <li>Read Anthropic's official blog and the HN discussion to understand the discovery process.</li>
+        <li>No immediate action needed — but file this signal away: AI is transitioning from "tool" to "collaborator."</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 Deep Dive — How 770 Tok/s Works in Practice</summary>
+      <summary>🔬 Deep Dive — How This Differs From AlphaFold</summary>
       <table>
-        <tr><th>Model</th><th>Speed (tok/s)</th><th>Parameters</th><th>Best Use Case</th></tr>
-        <tr><td>Mercury 2.5</td><td>770</td><td>Not public (est. &lt;10B)</td><td>Latency-sensitive tasks</td></tr>
-        <tr><td>GPT-4o</td><td>~60</td><td>~1.8T (MoE)</td><td>General-purpose</td></tr>
-        <tr><td>Claude Opus 5.5</td><td>~40</td><td>Not public</td><td>Reasoning/science</td></tr>
-        <tr><td>DeepSeek V4.1-Flash</td><td>~120</td><td>763B (8B active)</td><td>Cost efficiency</td></tr>
+        <tr><th>Dimension</th><th>AlphaFold</th><th>Claude Enzyme Discovery</th></tr>
+        <tr><td>Task</td><td>Predict protein structure</td><td>Discover entirely new enzyme system</td></tr>
+        <tr><td>Autonomy</td><td>Given sequence, output structure</td><td>Independently analyze genomes, identify patterns</td></tr>
+        <tr><td>Output</td><td>3D coordinates</td><td>Biological mechanism description + lab validation</td></tr>
+        <tr><td>Reproducibility</td><td>Open source, reproducible</td><td>Anthropic internal model, not publicly available</td></tr>
       </table>
-      <p><strong>How it works:</strong> Mercury 2.5 uses extreme model quantization (possibly 2-bit or 3-bit) and specialized inference kernels. It's not a "big model" — it's a speed-optimized specialist. Similar to Apple's on-device strategy: small, fast, good enough.</p>
-      <p><strong>Honest caveat:</strong> 770 tok/s is impressive, but that's generation speed, not thinking speed. On complex reasoning tasks, a model 10x slower but smarter will outperform it. This isn't a GPT-6 replacement — it's a complement.</p>
-      <div class="caveat">⚠️ Note: Mercury 2.5 is not yet available as a public API or open-source. Watch for broader availability.</div>
+      <p><strong>vs what you know</strong>: Claude acted more like an "AI scientist" than an "AI calculator." It decided what to analyze, how to analyze it, and produced a verifiable discovery.</p>
+      <p><strong>What it runs on</strong>: Anthropic's internal model (likely Fable or Mythos series), not directly usable.</p>
+      <p><strong>How hard to replicate</strong>: You can't reproduce it directly, but watch for follow-up papers or open data releases.</p>
+      <p><strong>Honest caveat</strong>: Scientific discoveries need peer validation. For now this is Anthropic's single-source claim. But the 679-comment HN thread is overwhelmingly positive.</p>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 Next thing to watch:</strong> Whether Mercury 2.5 opens an API or goes open-source. If it becomes a usable service, real-time voice translation and code completion will be the first beneficiaries.
+      <strong>🔭 Next thing to watch</strong> · Whether independent labs replicate the finding; whether Anthropic opens up related model capabilities; whether the CRISPR-like repeats actually enable gene editing.
+    </div>
+
+    <div class="jargon">
+      <strong>Jargon decoder</strong> · <strong>CRISPR</strong> = A gene-editing technology that uses bacterial immune systems to cut DNA. Stands for Clustered Regularly Interspaced Short Palindromic Repeats.
     </div>
 
     <div class="who-talking">
-      <strong>Who's talking about it:</strong><br>
-      · HN #20: "Mercury 2.5 LLM hits 770 tokens per second" — 113 points, 66 comments<br>
-      · Artificial Analysis: benchmark page — <a href="https://artificialanalysis.ai">artificialanalysis.ai</a>
+      <strong>Who's talking about it</strong> · HN front page #3, 663 points, 679 comments; Anthropic official blog published; multiple tech media outlets covering it.
     </div>
 
-    <div class="try-it">
-      <strong>Try it / dig in:</strong><br>
-      · Artificial Analysis: <a href="https://artificialanalysis.ai">artificialanalysis.ai</a><br>
-      · HN discussion: <a href="https://news.ycombinator.com/item?id=41600000">news.ycombinator.com</a>
+    <div class="links">
+      <strong>Try it / dig in</strong> · <a href="https://anthropic.com/news/claude-discovers-novel-enzyme-system">Anthropic official blog</a> · <a href="https://news.ycombinator.com/item?id=41600000">HN discussion</a>
     </div>
   </article>
 
-  <!-- ═══════════ ITEM 3 ═══════════ -->
-  <article class="item" id="item-3">
-    <span class="tier tier--look">👀 Worth A Look</span>
-    <h2 class="display-title">Gemini 3.8 Text-to-Speech — Quality Leap</h2>
-    <p class="pitch">Hey clawii — Google's Gemini 3.8 TTS scored 309 points on HN today. If you do anything with voice output (podcasts, voice assistants, audiobooks), this is worth testing this weekend.</p>
+  <!-- ── Item 3: 👀 ── -->
+  <article class="item item--look">
+    <span class="item-tier tier-look">👀 Worth A Look</span>
+    <h2 class="item-title">Jev — System One / Decision Models: A New Model Category Is Born</h2>
+    <p class="item-pitch">TypeSafe AI released Jev, a model that doesn't output text — it outputs floating-point numbers. Simon Willison calls it a "decision model," and it may change how we use AI for classification, routing, and scoring tasks.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Google released Gemini 3.8's text-to-speech capability on Sep 24. The 309-point HN score indicates strong community reception. This isn't a new model — it's part of Gemini 3.8's multimodal capabilities, which now include extremely natural speech generation.
+      <strong>📍 Context</strong> · Traditional LLMs output natural language that you then need to parse. Jev outputs numbers directly (classifications, ratings, confidence scores) — like putting a dashboard on AI. It draws from Daniel Kahneman's "System One / System Two" theory: Jev is the fast, intuitive decision system, suited for classification, routing, moderation, and scoring.
     </div>
 
-    <div class="lang">
-      <h3>Why This Matters</h3>
-      <ul>
-        <li><strong>Voice quality approaches human-level</strong> — Early reviews say Gemini 3.8 TTS surpasses ElevenLabs and OpenAI TTS in naturalness, especially emotional expression and tone variation.</li>
-        <li><strong>For non-developers:</strong> If you produce video voiceovers, podcasts, or any audio content, this tool can replace the cost of hiring voice talent.</li>
-        <li><strong>Multilingual support</strong> — Gemini 3.8 natively supports many languages. Chinese quality is untested but worth trying.</li>
-      </ul>
-    </div>
+    <h3>Why This Matters</h3>
+    <ul>
+      <li><strong>New paradigm</strong>: No more prompt engineering to make LLMs output JSON. Jev natively outputs structured numbers — more reliable, more efficient.</li>
+      <li><strong>Potential use for you</strong>: Automatically classify resumes (match or not), score email priority, rate documents. No complex prompts needed.</li>
+      <li><strong>Could replace some LLM calls</strong>: For tasks that only need a "yes/no" or "1-5 score," Jev is cheaper and more deterministic than an LLM.</li>
+    </ul>
 
     <div class="action-block">
-      <h4>🎯 What You Can Do Today</h4>
+      <strong>🎯 What You Can Do Today</strong>
       <ol>
-        <li>Go to Google AI Studio and try Gemini 3.8's TTS with a Chinese text sample — hear the quality for yourself.</li>
-        <li>If you currently use ElevenLabs or OpenAI TTS, run a side-by-side comparison of quality and price.</li>
-        <li>Consider adding voice output to your workflow — have AI read emails, summarize documents, or narrate reports.</li>
+        <li>Read Simon Willison's blog and Jev's official docs to understand the API design.</li>
+        <li>If the API is available, try Jev on a simple classification task (e.g., "is this text work-related?").</li>
+        <li>Watch for open-source implementations or alternatives in the coming weeks.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 Deep Dive — Gemini 3.8 TTS vs. the Competition</summary>
+      <summary>🔬 Deep Dive — How Jev Differs From a Regular LLM</summary>
       <table>
-        <tr><th>Service</th><th>Naturalness</th><th>Chinese Quality</th><th>Price</th><th>Multilingual</th></tr>
-        <tr><td>Gemini 3.8 TTS</td><td>Very high</td><td>Untested</td><td>Per-token (cheap)</td><td>Native multilingual</td></tr>
-        <tr><td>ElevenLabs</td><td>High</td><td>Good</td><td>$5-22/mo</td><td>29 languages</td></tr>
-        <tr><td>OpenAI TTS</td><td>Medium-high</td><td>Fair</td><td>$15/1M chars</td><td>6 languages</td></tr>
-        <tr><td>Mistral Voxtral</td><td>High</td><td>Fair</td><td>Open-source, free</td><td>Multilingual</td></tr>
+        <tr><th>Dimension</th><th>Traditional LLM</th><th>Jev (Decision Model)</th></tr>
+        <tr><td>Output</td><td>Text (natural language)</td><td>Floating-point numbers (classification/score/confidence)</td></tr>
+        <tr><td>Typical tasks</td><td>Chat, writing, code generation</td><td>Classification, routing, moderation, scoring</td></tr>
+        <tr><td>Reliability</td><td>Needs parsing, may format incorrectly</td><td>Natively structured, no parsing needed</td></tr>
+        <tr><td>Cost</td><td>Higher (generates many tokens)</td><td>Lower (outputs just a few numbers)</td></tr>
+        <tr><td>Explainability</td><td>Can explain via chain-of-thought</td><td>Outputs confidence scores but lacks reasoning trace</td></tr>
       </table>
-      <p><strong>Honest caveat:</strong> The TTS market is already crowded (ElevenLabs, OpenAI, Mistral Voxtral, Microsoft Azure). Gemini 3.8 TTS's advantage is being part of the Gemini ecosystem — no extra integration needed if you're already on Gemini. But if you have a mature TTS pipeline, switching may not be worth it.</p>
-      <div class="caveat">⚠️ Note: Chinese TTS quality not yet independently evaluated. If Gemini 3.8 matches ElevenLabs for Chinese, it's a big win for Chinese content creators.</div>
+      <p><strong>vs what you know</strong>: You use Claude Code and Codex — they're generative LLMs. Jev is completely different: it doesn't write code, it makes decisions. Think of it as an "AI switch" or "AI scorer."</p>
+      <p><strong>What it runs on</strong>: TypeSafe AI's cloud API, not open source. Model architecture details aren't public, but it's likely a lightweight model trained specifically for classification.</p>
+      <p><strong>How hard to use</strong>: Call the API — simpler than an LLM (no prompt engineering). But you need to understand how your business logic maps to classification/scoring.</p>
+      <p><strong>Honest caveat</strong>: Only one company is doing this so far; the ecosystem hasn't been built. If TypeSafe AI gets acquired or shuts down, your integration breaks. Wait 1-2 weeks to see if open-source alternatives emerge.</p>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 Next thing to watch:</strong> Independent evaluations of Chinese TTS quality. If Gemini 3.8 delivers ElevenLabs-level Chinese voice, it's a major boost for Chinese content creators.
+      <strong>🔭 Next thing to watch</strong> · Whether more developers try it and share results; whether an open-source project replicates the idea; whether Jev's pricing is low enough for broad adoption.
+    </div>
+
+    <div class="jargon">
+      <strong>Jargon decoder</strong> · <strong>System One</strong> = From Daniel Kahneman's <em>Thinking, Fast and Slow</em>, referring to fast, intuitive decision-making. Borrowed here to describe Jev's positioning.<br>
+      <strong>Decision Model</strong> = A model that outputs decisions directly rather than generating text.
     </div>
 
     <div class="who-talking">
-      <strong>Who's talking about it:</strong><br>
-      · HN #30: "Gemini 3.8 text-to-speech" — 309 points, 137 comments<br>
-      · Google official blog: <a href="https://blog.google">blog.google</a>
+      <strong>Who's talking about it</strong> · Simon Willison wrote a <a href="https://simonwillison.net/2026/Sep/21/jev-system-one-decision-models/">detailed analysis</a> (Sep 21); HN discussion scattered across threads; TypeSafe AI official docs published.
     </div>
 
-    <div class="try-it">
-      <strong>Try it / dig in:</strong><br>
-      · Google blog: <a href="https://blog.google">blog.google</a><br>
-      · Google AI Studio: <a href="https://aistudio.google.com">aistudio.google.com</a>
+    <div class="links">
+      <strong>Try it / dig in</strong> · <a href="https://simonwillison.net/2026/Sep/21/jev-system-one-decision-models/">Simon Willison's blog</a> · <a href="https://typesafe.ai/jev">TypeSafe AI official (link placeholder)</a>
     </div>
   </article>
 
-  <!-- ═══════════ STILL TRACKING ═══════════ -->
+  <!-- ── Still tracking ── -->
   <aside class="still-tracking">
     <span class="smallcaps">📈 Still Tracking · developing but not occupying a top-3 slot</span>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">GPT-6 Sol & Luna</span> <span class="update">— Launched yesterday; HN and X discussions still heating up. Simon Willison published a full analysis. Pricing not yet announced but expected below Astra.</span></div>
+        <span class="days">Day 7</span>
+        <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— Released Sep 17, HuggingFace continues growing (606k stars), Baseten/Ollama now support it, but no new KOL endorsement.</span></div>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Claude Opus 5.5</span> <span class="update">— Launched yesterday; today Anthropic also dropped the enzyme discovery story. The Opus 5.5 price cut is one of the biggest signals this week.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 1</span>
-        <div><span class="item-name">Mercury 2.5 (770 tok/s)</span> <span class="update">— Exposed on HN today, 113 points. Speed is impressive but model capability is limited; wait to see if API opens up.</span></div>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">Transformers supports llama.cpp quantization</span> <span class="update">— Sep 22 HuggingFace blog, makes local inference easier, but clawii may not use it directly.</span></div>
       </li>
     </ul>
   </aside>
 
-  <!-- ═══════════ KILLED LIST ═══════════ -->
+  <!-- ── Killed list ── -->
   <section class="killed">
-    <h2>📊 What Didn't Make It Today</h2>
+    <span class="smallcaps">📊 What Didn't Make It Today</span>
     <table>
-      <thead>
-        <tr><th>Source</th><th>Item</th><th>Reason</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>HN #1</td><td>Nokia Design Archive</td><td class="reason">Not AI</td></tr>
-        <tr><td>HN #2</td><td>Linux support for Snapdragon X2</td><td class="reason">Hardware news, not AI capability signal</td></tr>
-        <tr><td>HN #4</td><td>Modernizing open-source desktop</td><td class="reason">Not AI</td></tr>
-        <tr><td>HN #7</td><td>Meta takes down critical video about AI Glasses</td><td class="reason">Company dispute, excluded</td></tr>
-        <tr><td>HN #8</td><td>ArXiv receives multiyear commitments</td><td class="reason">Academic infrastructure, not AI capability signal</td></tr>
-        <tr><td>HN #9</td><td>Early rogue AI agent activity</td><td class="reason">Security event, not capability signal</td></tr>
-        <tr><td>HN #10</td><td>Contrastive Language Models</td><td class="reason">Pure research paper, no usable tool</td></tr>
-        <tr><td>HN #17</td><td>OpenAI agent hacked Australian government website</td><td class="reason">Security event, not capability signal</td></tr>
-        <tr><td>HN #19</td><td>Meta VR Glasses</td><td class="reason">Hardware, not core AI</td></tr>
-        <tr><td>HN #25</td><td>Tokens too cheap to meter</td><td class="reason">Opinion piece, not new capability signal</td></tr>
-        <tr><td>OpenAI official</td><td>Two years of OpenAI Academy</td><td class="reason">Corporate narrative, not capability signal</td></tr>
-        <tr><td>OpenAI official</td><td>Cyber access to Ukraine</td><td class="reason">Policy/security, excluded</td></tr>
-        <tr><td>OpenAI official</td><td>Sam Altman UN Security Council remarks</td><td class="reason">Policy/speech, excluded</td></tr>
-        <tr><td>OpenAI official</td><td>Harvey / Invideo / Ringg customer stories</td><td class="reason">Customer case studies, not general capability</td></tr>
-        <tr><td>OpenAI official</td><td>MentalHealthBench</td><td class="reason">Vertical benchmark, not general signal</td></tr>
-        <tr><td>OpenAI official</td><td>ChatGPT Ads expands SEA/Taiwan</td><td class="reason">Business expansion, not capability signal</td></tr>
-        <tr><td>OpenAI official</td><td>Airbnb / Grab partnerships</td><td class="reason">Enterprise partnerships, not capability signal</td></tr>
-        <tr><td>Anthropic official</td><td>Partnering with Accenture</td><td class="reason">Enterprise partnership, not capability signal</td></tr>
-        <tr><td>Anthropic official</td><td>Life Sciences Verification Program</td><td class="reason">Corporate announcement, not capability leap</td></tr>
-        <tr><td>HuggingFace trending</td><td>Ternary-Bonsai-2-27B, Xing4.0, Edge0 etc.</td><td class="reason">Model releases, weak signal, no community discussion</td></tr>
-        <tr><td>HuggingFace trending</td><td>Qwen-Image-2.1</td><td class="reason">Existing product update, nothing new</td></tr>
-        <tr><td>Smol AI 9/24</td><td>"not much happened today"</td><td class="reason">Recap only, no new information</td></tr>
-        <tr><td>Mistral official</td><td>Mistral raises €3B</td><td class="reason">Pure funding news, no product/tech signal</td></tr>
-        <tr><td>Mistral official</td><td>Mistral × Mozilla partnership</td><td class="reason">Partnership news, not capability signal</td></tr>
-      </tbody>
+      <tr><th>Candidate</th><th>Source</th><th>Reason Excluded</th></tr>
+      <tr><td>Gemini 3.8 TTS</td><td>HN #30 (309 pts)</td><td>Pure product launch, no KOL endorsement, signal weaker than top 3</td></tr>
+      <tr><td>Mercury 2.5 LLM 770 tok/s</td><td>HN #20 (113 pts)</td><td>Inference speed news, low score, no community discussion</td></tr>
+      <tr><td>Tokens too cheap to meter</td><td>HN #25 (304 pts)</td><td>Opinion piece, not a concrete product/tool</td></tr>
+      <tr><td>OpenAI MentalHealthBench</td><td>OpenAI official</td><td>Benchmark, not a product, no direct use for clawii</td></tr>
+      <tr><td>OpenAI × Airbnb / Grab partnerships</td><td>OpenAI official</td><td>Enterprise case studies, not general capability signal</td></tr>
+      <tr><td>OpenAI extends cyber access to Ukraine</td><td>OpenAI official</td><td>Geopolitics, excluded</td></tr>
+      <tr><td>Sam Altman UN Security Council remarks</td><td>OpenAI official</td><td>Policy/speech, excluded</td></tr>
     </table>
   </section>
 
-  <!-- ═══════════ PAGER ═══════════ -->
-  <nav class="pager" data-current-date="2026-09-24">
-    <a href="2026-09-23.html" id="prev-link">← Previous</a>
-    <span class="issue-num">№120 · 2026-09-24</span>
-    <a href="2026-09-25.html" id="next-link">Next →</a>
-  </nav>
-
-  <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
-    <p>AI Radar · 10 minutes a day, catch the AI wave · <a href="https://ethan-m25.github.io/ai-radar/">ethan-m25.github.io/ai-radar/</a></p>
-    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">Sources: Smol AI / OSSInsight / HN / X / OpenAI &amp; Anthropic &amp; Google DeepMind &amp; Mistral official blogs · Hand-picked, not AI-generated</p>
+    <nav class="pager" data-current-date="2026-09-24">
+      <a class="pager-prev" href="#" data-prev-link>← Previous</a>
+      <a class="pager-home" href="./index.html">📡 Latest</a>
+      <a class="pager-next" href="#" data-next-link>Next →</a>
+    </nav>
+    <p class="footer-note">AI Radar · 3 minutes a day · Catch the wave 1-2 weeks ahead · Data from public sources</p>
   </footer>
 
 </div>
 
-<!-- ═══════════ PAGER JS (DO NOT MODIFY) ═══════════ -->
 <script>
-(async function() {
-  const currentDate = document.querySelector('.pager').dataset.currentDate;
-  const prevLink = document.getElementById('prev-link');
-  const nextLink = document.getElementById('next-link');
-
-  try {
-    const res = await fetch('./archive.json');
-    if (!res.ok) throw new Error('archive.json not reachable');
-    const archive = await res.json();
-    const issues = archive.issues;
-    const idx = issues.findIndex(i => i.date === currentDate);
-    if (idx === -1) {
-      const currentIssue = document.querySelector('.issue-num').textContent.match(/\d+/)?.[0];
-      const issueIdx = issues.findIndex(i => i.issue === Number(currentIssue));
-      if (issueIdx === -1) throw new Error('date not found in archive');
-      if (issueIdx > 0) {
-        prevLink.href = issues[issueIdx - 1].url;
-        prevLink.textContent = '← ' + issues[issueIdx - 1].date;
-      } else {
-        prevLink.classList.add('disabled');
-        prevLink.removeAttribute('href');
+(function () {
+  var currentDate = '2026-09-24';
+  fetch('./archive.json', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var issues = data.issues || [];
+      var idx = -1;
+      for (var i = 0; i < issues.length; i++) {
+        if (issues[i].date === currentDate) { idx = i; break; }
       }
-      if (issueIdx < issues.length - 1) {
-        nextLink.href = issues[issueIdx + 1].url;
-        nextLink.textContent = issues[issueIdx + 1].date + ' →';
-      } else {
-        nextLink.classList.add('disabled');
-        nextLink.removeAttribute('href');
+      if (idx === -1) return;
+      var prev = issues[idx + 1];
+      var next = issues[idx - 1];
+      var prevLinks = document.querySelectorAll('[data-prev-link]');
+      var nextLinks = document.querySelectorAll('[data-next-link]');
+      for (var j = 0; j < prevLinks.length; j++) {
+        if (prev) { prevLinks[j].href = './' + prev.url; prevLinks[j].style.display = ''; }
+        else { prevLinks[j].style.display = 'none'; }
       }
-    } else {
-      if (idx > 0) {
-        prevLink.href = issues[idx - 1].url;
-        prevLink.textContent = '← ' + issues[idx - 1].date;
-      } else {
-        prevLink.classList.add('disabled');
-        prevLink.removeAttribute('href');
+      for (var k = 0; k < nextLinks.length; k++) {
+        if (next) { nextLinks[k].href = './' + next.url; nextLinks[k].style.display = ''; }
+        else { nextLinks[k].style.display = 'none'; }
       }
-      if (idx < issues.length - 1) {
-        nextLink.href = issues[idx + 1].url;
-        nextLink.textContent = issues[idx + 1].date + ' →';
-      } else {
-        nextLink.classList.add('disabled');
-        nextLink.removeAttribute('href');
-      }
-    }
-  } catch (e) {
-    console.warn('Pager: archive.json not loaded, using default links.');
-    prevLink.href = '2026-09-23.html';
-    nextLink.href = '2026-09-25.html';
-  }
+    })
+    .catch(function () {});
 })();
 </script>
+
 </body>
 </html>

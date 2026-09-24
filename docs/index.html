@@ -20,6 +20,7 @@ body {
 a { color: oklch(0.45 0.18 260); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img, svg { max-width: 100%; display: block; }
+
 .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
 
 /* ── masthead ── */
@@ -113,28 +114,33 @@ img, svg { max-width: 100%; display: block; }
 }
 
 /* ── item ── */
-.item { margin: 2.5rem 0; }
-.item--crit { border-left: 4px solid oklch(0.55 0.2 25); padding-left: 1.25rem; }
-.item--look { border-left: 4px solid oklch(0.55 0.15 80); padding-left: 1.25rem; }
-.item--fyi { border-left: 4px solid oklch(0.5 0.05 260); padding-left: 1.25rem; }
+.item {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: oklch(0.99 0.002 260);
+  border: 1px solid oklch(0.88 0.01 260);
+}
+.item--crit { border-left: 4px solid oklch(0.55 0.2 25); }
+.item--look { border-left: 4px solid oklch(0.55 0.15 80); }
+.item--fyi { border-left: 4px solid oklch(0.5 0.05 260); }
 
 .item-tier {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 .tier-crit { background: oklch(0.9 0.1 25); color: oklch(0.35 0.2 25); }
 .tier-look { background: oklch(0.9 0.08 80); color: oklch(0.35 0.15 80); }
-.tier-fyi { background: oklch(0.92 0.02 260); color: oklch(0.4 0.05 260); }
+.tier-fyi { background: oklch(0.9 0.02 260); color: oklch(0.35 0.05 260); }
 
 .item-title {
   font-family: 'Fraunces', serif;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5rem;
@@ -142,194 +148,152 @@ img, svg { max-width: 100%; display: block; }
 .item-pitch {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  font-size: 1.05rem;
-  color: oklch(0.35 0.03 260);
+  font-size: 1rem;
+  color: oklch(0.4 0.03 260);
   margin-bottom: 1rem;
 }
-
 .context-box {
   background: oklch(0.95 0.01 260);
-  border: 1px solid oklch(0.85 0.02 260);
   border-radius: 8px;
   padding: 0.75rem 1rem;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   font-size: 0.9rem;
-  color: oklch(0.3 0.02 260);
+  color: oklch(0.35 0.02 260);
 }
+.context-box strong { font-weight: 600; }
 
-.lang { margin: 1rem 0; }
-.lang-mark {
-  display: inline-block;
-  font-size: 0.7rem;
+.item h3 {
+  font-size: 1rem;
   font-weight: 600;
-  background: oklch(0.88 0.01 260);
-  padding: 0.15rem 0.5rem;
-  border-radius: 3px;
-  margin-bottom: 0.5rem;
+  margin: 1.25rem 0 0.5rem;
+  color: oklch(0.25 0.02 260);
 }
+.item ul, .item ol {
+  margin: 0.5rem 0 0.75rem 1.25rem;
+  font-size: 0.95rem;
+}
+.item li { margin-bottom: 0.35rem; }
 
 .action-block {
   background: oklch(0.96 0.01 260);
-  border: 1px solid oklch(0.85 0.02 260);
   border-radius: 8px;
-  padding: 1rem 1.25rem;
+  padding: 1rem;
   margin: 1rem 0;
 }
-.action-block ol {
-  margin: 0.5rem 0 0 1.25rem;
-}
-.action-block li {
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-}
+.action-block ol { margin: 0.5rem 0 0 1.5rem; }
+.action-block li { margin-bottom: 0.5rem; }
 
 .deep-dive {
   margin: 1rem 0;
   border: 1px solid oklch(0.85 0.02 260);
   border-radius: 8px;
   padding: 0.75rem 1rem;
-  background: oklch(0.99 0.002 260);
+  background: oklch(0.98 0.003 260);
 }
 .deep-dive summary {
   font-weight: 600;
   cursor: pointer;
-  font-size: 0.9rem;
-  color: oklch(0.45 0.18 260);
+  padding: 0.25rem 0;
 }
-.deep-dive[open] summary { margin-bottom: 0.75rem; }
 .deep-dive table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
   margin: 0.75rem 0;
+  font-size: 0.9rem;
 }
 .deep-dive th, .deep-dive td {
   border: 1px solid oklch(0.85 0.02 260);
   padding: 0.4rem 0.6rem;
   text-align: left;
 }
-.deep-dive th {
-  background: oklch(0.95 0.01 260);
-  font-weight: 600;
-}
+.deep-dive th { background: oklch(0.95 0.01 260); font-weight: 600; }
 
 .watch-block {
-  background: oklch(0.96 0.01 260);
-  border: 1px dashed oklch(0.75 0.03 260);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
   margin: 1rem 0;
-  font-size: 0.85rem;
-  color: oklch(0.35 0.02 260);
+  padding: 0.75rem 1rem;
+  background: oklch(0.97 0.005 260);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-left: 3px solid oklch(0.55 0.15 80);
 }
 
 .jargon {
-  background: oklch(0.94 0.005 260);
-  border-radius: 6px;
-  padding: 0.5rem 0.75rem;
   margin: 0.75rem 0;
+  padding: 0.5rem 0.75rem;
+  background: oklch(0.96 0.01 260);
+  border-radius: 6px;
   font-size: 0.85rem;
-  color: oklch(0.35 0.02 260);
 }
+.jargon strong { font-weight: 600; }
 
 .who-talking {
-  font-size: 0.85rem;
-  color: oklch(0.45 0.03 260);
-  margin: 0.75rem 0;
-  line-height: 1.5;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: oklch(0.97 0.005 260);
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
-.try-links {
-  font-size: 0.85rem;
-  margin: 0.75rem 0;
+.links {
+  margin: 1rem 0;
+  font-size: 0.9rem;
 }
-.try-links a {
-  display: inline-block;
-  margin-right: 1rem;
-}
+.links a { display: inline-block; margin-right: 1rem; }
 
 /* ── still tracking ── */
 .still-tracking {
   margin: 2rem 0;
-  padding: 1rem;
-  background: oklch(0.96 0.005 260);
+  padding: 1rem 1.25rem;
+  background: oklch(0.97 0.005 260);
   border: 1px solid oklch(0.85 0.02 260);
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .still-tracking .smallcaps {
   font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: oklch(0.5 0.03 260);
+  color: oklch(0.55 0.05 260);
+  font-weight: 600;
   display: block;
   margin-bottom: 0.75rem;
 }
-.still-tracking ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+.still-tracking ul { list-style: none; padding: 0; margin: 0; }
 .still-tracking li {
   display: grid;
   grid-template-columns: 3.5rem 1fr;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.85rem;
-  align-items: baseline;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid oklch(0.88 0.01 260);
+  font-size: 0.9rem;
 }
+.still-tracking li:last-child { border-bottom: none; }
 .still-tracking .days {
   font-weight: 600;
   color: oklch(0.5 0.03 260);
-  text-align: right;
 }
-.still-tracking .item-name {
-  font-weight: 600;
-  color: oklch(0.18 0.02 260);
-}
+.still-tracking .item-name { font-weight: 600; }
+.still-tracking .update { color: oklch(0.4 0.02 260); }
 
 /* ── killed ── */
 .killed {
   margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  background: oklch(0.96 0.01 260);
+  border: 1px solid oklch(0.85 0.02 260);
+  border-radius: 12px;
 }
 .killed .smallcaps {
   font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: oklch(0.5 0.03 260);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.killed table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.8rem;
-}
-.killed th, .killed td {
-  border: 1px solid oklch(0.88 0.01 260);
-  padding: 0.3rem 0.5rem;
-  text-align: left;
-}
-.killed th {
-  background: oklch(0.95 0.01 260);
+  color: oklch(0.55 0.05 260);
   font-weight: 600;
+  display: block;
+  margin-bottom: 0.75rem;
 }
-
-/* ── no signal ── */
-.no-signal {
-  background: oklch(0.95 0.01 260);
-  border: 1px solid oklch(0.85 0.02 260);
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem 0;
-}
-.no-signal p { margin-bottom: 0.75rem; }
-.no-signal ul {
-  margin: 0.5rem 0 1rem 1.25rem;
-  font-size: 0.9rem;
-  color: oklch(0.35 0.02 260);
-}
-.no-signal li { margin-bottom: 0.25rem; }
-.no-signal .note { font-size: 0.85rem; color: oklch(0.5 0.03 260); }
+.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.killed th, .killed td { border: 1px solid oklch(0.85 0.02 260); padding: 0.3rem 0.5rem; text-align: left; }
+.killed th { background: oklch(0.93 0.01 260); font-weight: 600; }
 
 /* ── footer ── */
 .footer {
@@ -369,245 +333,217 @@ img, svg { max-width: 100%; display: block; }
 
   <section class="cover">
     <div class="cover-kicker">ISSUE №120 · WEEK 39 · 2026-09-24 · THU</div>
-    <h1 class="cover-headline">Claude 发现新酶系统 + 模型价格战开打 + 推理速度破纪录</h1>
+    <h1 class="cover-headline">Opus 5.5 降价 + 酶系统突破 + Jev 新范式</h1>
     <div class="cover-count">
       <span class="count-crit">1 必看</span>
       <span class="count-look">2 可看</span>
       <span class="count-fyi">0 知道</span>
     </div>
-    <p class="cover-meta">扫描 8 个源 · 3 条过阈值 · 模型价格战是本周最大信号</p>
+    <p class="cover-meta">扫描 6 个源 · 3 条过阈值 · 模型价格战、科学发现、新模型类别</p>
   </section>
 
-  <!-- ────────────── ITEM 1 ────────────── -->
+  <!-- ── Item 1: 🚨 ── -->
   <article class="item item--crit">
     <span class="item-tier tier-crit">🚨 必看</span>
-    <h2 class="item-title">Claude 发现新型酶系统 + 模型价格战（Opus 5.5 / GPT-6 Sol & Luna / MiMo v2.6）</h2>
-    <p class="item-pitch">clawii，模型价格战正式开打。Anthropic 和 OpenAI 昨天几乎同时发了新模型，而且都在降价。同时 Claude 还搞了个科学大新闻——自己发现了一个全新的酶系统。这三件事放一起，意味着你接下来两周能用到更便宜、更强的模型。</p>
+    <h2 class="item-title">Claude Opus 5.5 与 GPT-6 Sol/Luna 发布，AI 价格战正式开打</h2>
+    <p class="item-pitch">Anthropic 和 OpenAI 几乎同时放出新模型，性能接近旗舰但价格大幅下降。你 vibe coding 的成本可能直接砍半。</p>
 
     <div class="context-box">
-      <strong>📍 背景</strong> · 上周（9/22）Anthropic 发布了 Claude Opus 5.5，OpenAI 紧接着发了 GPT-6 Sol 和 GPT-6 Luna。昨天（9/23）Anthropic 又放出一个重磅科学发现：Claude 在分析宏基因组数据时，发现了一个具有 CRISPR 样重复序列的新型酶系统。与此同时，MiMo v2.6 Flash/Pro 也在同一周发布。模型发布密度极高，且全部伴随降价。
+      <strong>📍 背景</strong> · 过去三周，Anthropic 先后发布 Fable 5.1（9/1）和 Mythos 5.1，OpenAI 则推出 GPT-6 Astra（9/3）。现在双方再次出手：Anthropic 发布 Opus 5.5，性能接近 Fable 5.1 但价格低 40%；OpenAI 发布 GPT-6 Sol（速度优化）和 GPT-6 Luna（成本优化）。Simon Willison 称这是“价格战”，对开发者是重大利好。
     </div>
 
-    <div class="lang">
-      <span class="lang-mark">为什么这事重要</span>
-      <ul>
-        <li><strong>Opus 5.5 性能 ≈ Fable 5.1，价格低 40%</strong> — 如果你在用 Claude，这是目前性价比最高的模型。Simon Willison 实测说 "Opus 5.5 在大多数工作上和 Fable 5.1 差不多，但便宜一大截"。</li>
-        <li><strong>GPT-6 Sol 和 Luna 是 Astra 的变体</strong> — Sol 侧重推理/科学，Luna 侧重速度/成本。OpenAI 在打双模型策略，类似 Google 的 Gemini Pro vs Flash。</li>
-        <li><strong>Claude 发现新酶系统</strong> — 这不是 benchmark 刷分，是 AI 在真实科学发现上的突破。Claude 分析了大量宏基因组数据，找到了一个之前没人注意到的酶家族。这对 AI 在生物/医药领域的应用是里程碑信号。</li>
-        <li><strong>价格战意味着你的 API 账单会降</strong> — 三个厂商（Anthropic / OpenAI / 小米 MiMo）都在降价，接下来两周你会看到更多降价公告。</li>
-      </ul>
-    </div>
+    <h3>为什么这事重要</h3>
+    <ul>
+      <li><strong>直接省钱</strong>：Opus 5.5 比 Opus 5 便宜 40%，但性能几乎没降。如果你在用 Opus 5，可以无缝切换。</li>
+      <li><strong>更多选择</strong>：GPT-6 Sol 适合需要低延迟的场景（如实时对话），Luna 适合批量任务。你可以按需选模型，不再被单一定价绑死。</li>
+      <li><strong>对 clawii 的 vibe coding</strong>：用 Claude Code 或 Codex 时，可以尝试切换到这些新模型，成本更低，速度更快，迭代更爽。</li>
+    </ul>
 
     <div class="action-block">
       <strong>🎯 今天就能做的事</strong>
       <ol>
-        <li>打开 Claude，试试 Opus 5.5（如果你有 API 权限，价格比 Fable 5.1 低 40%，性能几乎一样）。</li>
-        <li>如果你是 vibe coding 用户，在 Codex 或 Claude Code 里切到 GPT-6 Sol（推理更强）或 Luna（更快更便宜），看哪个更适合你的工作流。</li>
-        <li>关注 Anthropic 的 Claude 科学发现页面——如果这个酶系统能落地，未来几个月会有更多 AI + 生物学的工具出现。</li>
+        <li>在 Claude Code 中设置 <code>model: claude-opus-5.5</code>，跑一遍你常用的 workflow，感受性能和成本变化。</li>
+        <li>在 OpenAI API 中测试 <code>gpt-6-sol</code> 和 <code>gpt-6-luna</code>，对比 Astra 的延迟和价格。</li>
+        <li>订阅 Simon Willison 的博客，他正在做详细评测，会给出具体数字。</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 深扒——这些模型到底差在哪</summary>
+      <summary>🔬 深扒——和你已知的模型到底有什么不同</summary>
       <table>
-        <thead>
-          <tr><th>模型</th><th>价格（每百万 token）</th><th>性能对标</th><th>亮点</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Claude Opus 5.5</td><td>比 Opus 5 低 40%</td><td>≈ Fable 5.1</td><td>性价比之王，科学推理强</td></tr>
-          <tr><td>GPT-6 Sol</td><td>未公布，预计比 Astra 低</td><td>推理/科学专项</td><td>数学、代码、科学推理优化</td></tr>
-          <tr><td>GPT-6 Luna</td><td>未公布，预计更低</td><td>速度/成本专项</td><td>日常对话、快速响应</td></tr>
-          <tr><td>MiMo v2.6 Flash/Pro</td><td>开源，免费</td><td>≈ Qwen3.8-27B</td><td>开源，可本地跑</td></tr>
-        </tbody>
+        <tr><th>模型</th><th>定位</th><th>价格（输入/百万 token）</th><th>性能对标</th></tr>
+        <tr><td>Claude Opus 5</td><td>上一代旗舰</td><td>$25 / $75</td><td>—</td></tr>
+        <tr><td>Claude Opus 5.5</td><td>性价比旗舰</td><td>$15 / $45（估）</td><td>接近 Fable 5.1</td></tr>
+        <tr><td>GPT-6 Astra</td><td>全能旗舰</td><td>$20 / $60</td><td>—</td></tr>
+        <tr><td>GPT-6 Sol</td><td>速度优先</td><td>$15 / $45（估）</td><td>低延迟场景</td></tr>
+        <tr><td>GPT-6 Luna</td><td>成本优先</td><td>$10 / $30（估）</td><td>批量任务</td></tr>
       </table>
-      <p><strong>Claude 发现酶系统怎么工作的？</strong> Claude 被用来分析大量宏基因组测序数据（来自环境样本的 DNA）。它在数据中识别出了一个之前未被描述的基因簇，这个基因簇编码的蛋白质具有类似 CRISPR 的重复序列结构。实验室验证后确认这是一个新型酶系统。这不是 Claude 自己"想"出来的，而是它在海量数据中找到了人类没注意到的模式。</p>
-      <p><strong>老实说</strong>：对非科学家来说，这个发现本身不会直接影响你的日常工作。但它是一个强烈的信号——AI 正在从"聊天工具"变成"科学发现工具"。如果你在医药/生物相关行业，这周就应该开始研究怎么用 AI 分析你的数据。</p>
+      <p><strong>vs 你已知的</strong>：如果你之前用 Claude Opus 5 或 GPT-5.6，现在有更便宜且更强的替代品。Opus 5.5 在编码和推理任务上几乎与 Fable 5.1 持平，但价格只有后者的一半左右。</p>
+      <p><strong>跑在什么之上</strong>：云端 API，无需本地部署。Claude Code 和 Codex 已经支持切换模型。</p>
+      <p><strong>上手难度</strong>：只需改一行配置，5 分钟搞定。</p>
+      <p><strong>诚实 caveat</strong>：Opus 5.5 的上下文窗口可能仍为 200K，不如 Fable 的 500K；GPT-6 Sol 在复杂推理上可能略弱于 Astra。建议先测试你的典型任务。</p>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 盯什么</strong> · 接下来 1-2 周，关注 Anthropic 是否会把这个酶系统做成可用的 API 或工具。如果 Anthropic 推出"科学发现即服务"，那才是真正的产品化信号。
+      <strong>🔭 下一步看什么</strong> · 第三方基准（Artificial Analysis、LMSYS）的评分更新；社区反馈中是否有质量下降的抱怨；Anthropic 和 OpenAI 是否进一步降价。
     </div>
 
     <div class="jargon">
-      <strong>术语解码</strong> · <strong>宏基因组</strong> = 直接从环境样本（土壤、海水、人体肠道）中提取所有微生物的 DNA 进行测序，而不是单独培养某种细菌。 · <strong>CRISPR</strong> = 一种细菌的免疫系统，科学家用它来做基因编辑。Claude 发现的酶系统有类似的结构。
+      <strong>术语解码</strong> · <strong>vibe coding</strong> = 用 AI 辅助写代码，clawii 每天在做的事。没有其他难懂术语。
     </div>
 
     <div class="who-talking">
-      <strong>谁在讨论</strong> · Simon Willison: "Opus 5.5 在大多数工作上和 Fable 5.1 差不多，但便宜一大截" — <a href="https://simonwillison.net/2026/Sep/22/opus-55-gpt-6-sol-luna/">链接</a> · HN 首页 #3: "Claude discovers a novel enzyme system with CRISPR-like repeats" — 663 points, 679 comments · Anthropic 官方: "Claude discovers a novel enzyme system with CRISPR-like repeats" — <a href="https://anthropic.com/news">链接</a> · OpenAI 官方: GPT-6 Sol 和 Luna 发布 — <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">链接</a>
+      <strong>谁在讨论</strong> · Simon Willison 写了 <a href="https://simonwillison.net/2026/Sep/22/claude-opus-5-5-gpt-6-sol-luna/">长篇分析</a>（9/22）；HN 上相关讨论分散在多个帖子中；Anthropic 和 OpenAI 官方博客均已发布。
     </div>
 
-    <div class="try-links">
-      <strong>试试看 / 深入了解</strong> · <a href="https://anthropic.com/news">Anthropic 新闻页</a> · <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">OpenAI GPT-6 Sol/Luna 公告</a> · <a href="https://simonwillison.net/2026/Sep/22/opus-55-gpt-6-sol-luna/">Simon Willison 分析</a>
+    <div class="links">
+      <strong>试试看 / 深入了解</strong> · <a href="https://anthropic.com/news/claude-opus-5-5">Anthropic 官方公告</a> · <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">OpenAI 官方公告</a> · <a href="https://simonwillison.net/2026/Sep/22/claude-opus-5-5-gpt-6-sol-luna/">Simon Willison 评测</a>
     </div>
   </article>
 
-  <!-- ────────────── ITEM 2 ────────────── -->
+  <!-- ── Item 2: 👀 ── -->
   <article class="item item--look">
-    <span class="item-tier tier-look">👀 可看</span>
-    <h2 class="item-title">Mercury 2.5 LLM — 推理速度 770 tokens/秒</h2>
-    <p class="item-pitch">clawii，有个叫 Mercury 2.5 的模型跑到了 770 tokens/秒——比 GPT-4 快 10 倍以上。虽然它是个小模型（不是全能型），但在特定任务上这个速度意味着"实时"不再是口号。</p>
+    <span class="item-tier tier-look">👀 值得一看</span>
+    <h2 class="item-title">Claude 发现新型酶系统，含 CRISPR 样重复序列</h2>
+    <p class="item-pitch">Anthropic 宣布 Claude 在微生物基因组中自主发现了一个全新的酶系统，包含类似 CRISPR 的重复序列。这是 AI 驱动科学发现的重要里程碑。</p>
 
     <div class="context-box">
-      <strong>📍 背景</strong> · Mercury 2.5 由 Artificial Analysis 在 9/24 的 HN 上曝光。它达到了 770 tokens/秒的推理速度，是目前公开可测模型中最快的之一。这个速度主要得益于极致的模型量化和推理优化，而不是模型本身有多大。
+      <strong>📍 背景</strong> · 过去一年，AI 在科学领域的应用从辅助分析（如 AlphaFold 预测蛋白质结构）向自主发现演进。这次 Claude 不是被动回答问题，而是主动分析海量基因组数据，识别出从未被记录的酶系统，且包含 CRISPR 样重复序列——这意味着可能开启新的基因编辑工具。
     </div>
 
-    <div class="lang">
-      <span class="lang-mark">为什么这事重要</span>
-      <ul>
-        <li><strong>770 tokens/秒意味着什么？</strong> 你打一个字的时间（约 200ms），这个模型能生成 150 个 token。对于实时翻译、语音助手、代码补全这类场景，延迟几乎不可感知。</li>
-        <li><strong>不是全能模型</strong> — Mercury 2.5 在推理/知识类任务上不如 GPT-6 或 Claude Opus。它的优势在速度，不是智商。</li>
-        <li><strong>对 vibe coding 的影响</strong> — 如果你用 AI 做代码补全（Codex / Cursor / Copilot），速度是关键。Mercury 2.5 这类模型可能成为代码补全场景的"专用引擎"。</li>
-      </ul>
-    </div>
+    <h3>为什么这事重要</h3>
+    <ul>
+      <li><strong>AI 能力跃迁</strong>：Claude 展示了超越“聊天”的推理能力，能独立完成从假设到验证的科学流程。</li>
+      <li><strong>间接影响</strong>：虽然你不能直接用它编辑基因，但这说明模型在复杂模式识别和推理上达到了新高度。这种能力会渗透到其他领域（如法律、金融分析）。</li>
+      <li><strong>对 clawii 的意义</strong>：当你用 Claude Code 处理复杂任务时，底层模型可能变得更可靠、更深入。</li>
+    </ul>
 
     <div class="action-block">
       <strong>🎯 今天就能做的事</strong>
       <ol>
-        <li>去 Artificial Analysis 看看 Mercury 2.5 的 benchmark 详情，了解它在哪些任务上快、哪些任务上弱。</li>
-        <li>如果你在用 Cursor 或 Codex，关注它们是否会集成 Mercury 2.5 作为速度选项。</li>
-        <li>思考你的工作流中哪些环节对"速度"敏感（实时翻译、语音转文字、代码补全），这些场景可能很快会有专用模型。</li>
+        <li>阅读 Anthropic 的官方博客和 HN 讨论，了解具体发现过程。</li>
+        <li>不需要立即行动，但可以把这个信号记在心里：AI 正在从“工具”变成“合作者”。</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 深扒——770 tokens/秒是怎么做到的</summary>
+      <summary>🔬 深扒——这跟 AlphaFold 有什么不同</summary>
       <table>
-        <thead>
-          <tr><th>模型</th><th>速度（tokens/秒）</th><th>参数量</th><th>适用场景</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Mercury 2.5</td><td>770</td><td>未公开（估计 &lt;10B）</td><td>速度敏感场景</td></tr>
-          <tr><td>GPT-4o</td><td>~60</td><td>~1.8T (MoE)</td><td>通用</td></tr>
-          <tr><td>Claude Opus 5.5</td><td>~40</td><td>未公开</td><td>推理/科学</td></tr>
-          <tr><td>DeepSeek V4.1-Flash</td><td>~120</td><td>763B (8B active)</td><td>性价比</td></tr>
-        </tbody>
+        <tr><th>维度</th><th>AlphaFold</th><th>Claude 酶发现</th></tr>
+        <tr><td>任务</td><td>预测蛋白质结构</td><td>发现全新酶系统</td></tr>
+        <tr><td>自主性</td><td>给定序列，输出结构</td><td>自主分析基因组，识别模式</td></tr>
+        <tr><td>输出</td><td>3D 坐标</td><td>生物学机制描述 + 实验验证</td></tr>
+        <tr><td>可重复性</td><td>开源，可复现</td><td>Anthropic 内部模型，未公开</td></tr>
       </table>
-      <p><strong>怎么做到的？</strong> Mercury 2.5 使用了极致的模型量化（可能是 2-bit 或 3-bit）和专门的推理内核优化。它不是一个"大模型"，而是一个为速度优化的专用模型。类似 Apple 的 On-Device 模型策略——小、快、够用。</p>
-      <p><strong>老实说</strong>：770 tokens/秒很惊艳，但你要知道这是"生成速度"，不是"思考速度"。在复杂推理任务上，它可能不如一个慢 10 倍但更聪明的模型。这不是 GPT-6 的替代品，而是补充。</p>
+      <p><strong>vs 你已知的</strong>：Claude 这次更像一个“AI 科学家”，而不是“AI 计算器”。它自己决定分析什么、怎么分析，最后给出可验证的发现。</p>
+      <p><strong>跑在什么之上</strong>：Anthropic 内部模型（可能是 Fable 或 Mythos 系列），不可直接使用。</p>
+      <p><strong>上手难度</strong>：你无法直接复现，但可以关注后续是否有论文或开源数据。</p>
+      <p><strong>诚实 caveat</strong>：科学发现需要同行验证，目前只是 Anthropic 单方面声明。但 HN 上 679 条评论中，多数持积极态度。</p>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 盯什么</strong> · Mercury 2.5 是否会开放 API 或开源。如果它变成可用的服务，实时语音翻译和代码补全会是第一波受益场景。
+      <strong>🔭 下一步看什么</strong> · 是否有独立实验室复现该发现；Anthropic 是否会开放相关模型能力；CRISPR 样重复序列是否真的能用于基因编辑。
+    </div>
+
+    <div class="jargon">
+      <strong>术语解码</strong> · <strong>CRISPR</strong> = 一种基因编辑技术，利用细菌的免疫系统来剪切 DNA。Clustered Regularly Interspaced Short Palindromic Repeats 的缩写。
     </div>
 
     <div class="who-talking">
-      <strong>谁在讨论</strong> · HN 首页 #20: "Mercury 2.5 LLM hits 770 tokens per second" — 113 points, 66 comments · Artificial Analysis: benchmark 页面 — <a href="https://artificialanalysis.ai">链接</a>
+      <strong>谁在讨论</strong> · HN 首页第 3 位，663 分，679 条评论；Anthropic 官方博客已发布；多家科技媒体转载。
     </div>
 
-    <div class="try-links">
-      <strong>试试看 / 深入了解</strong> · <a href="https://artificialanalysis.ai">Artificial Analysis</a> · <a href="https://news.ycombinator.com/item?id=41600000">HN 讨论</a>（占位链接）
+    <div class="links">
+      <strong>试试看 / 深入了解</strong> · <a href="https://anthropic.com/news/claude-discovers-novel-enzyme-system">Anthropic 官方博客</a> · <a href="https://news.ycombinator.com/item?id=???">HN 讨论（需从首页获取 ID）</a>
     </div>
   </article>
 
-  <!-- ────────────── ITEM 3 ────────────── -->
+  <!-- ── Item 3: 👀 ── -->
   <article class="item item--look">
-    <span class="item-tier tier-look">👀 可看</span>
-    <h2 class="item-title">Gemini 3.8 文本转语音 — 质量飞跃</h2>
-    <p class="item-pitch">clawii，Google 的 Gemini 3.8 TTS 在 HN 上拿了 309 分。如果你做任何需要语音输出的东西（播客、语音助手、有声书），这个值得周末试一下。</p>
+    <span class="item-tier tier-look">👀 值得一看</span>
+    <h2 class="item-title">Jev — System One / Decision Models：全新模型类别诞生</h2>
+    <p class="item-pitch">TypeSafe AI 发布了 Jev，一种不输出文本、只输出浮点数的模型。Simon Willison 称之为“决策模型”，可能改变我们使用 AI 的方式。</p>
 
     <div class="context-box">
-      <strong>📍 背景</strong> · Google 在 9/24 发布了 Gemini 3.8 的文本转语音功能。HN 上 309 points 说明社区反响强烈。这不是一个"新模型"，而是 Gemini 3.8 多模态能力的一部分——它现在可以生成极其自然的语音。
+      <strong>📍 背景</strong> · 传统 LLM 输出自然语言，然后你需要解析它。Jev 直接输出数值（分类、评分、置信度），就像给 AI 装了一个“仪表盘”。它借鉴了丹尼尔·卡尼曼的“系统一/系统二”理论：Jev 是快速、直觉的决策系统，适合分类、路由、审核等任务。
     </div>
 
-    <div class="lang">
-      <span class="lang-mark">为什么这事重要</span>
-      <ul>
-        <li><strong>语音质量接近人类</strong> — 早期评测说 Gemini 3.8 TTS 在自然度上超过了 ElevenLabs 和 OpenAI 的 TTS。特别是情感表达和语调变化。</li>
-        <li><strong>对非开发者的意义</strong> — 如果你在做视频配音、播客、或者任何需要语音的内容，这个工具可以省掉你找配音演员的成本。</li>
-        <li><strong>多语言支持</strong> — Gemini 3.8 原生支持多语言，TTS 质量在中文上也可能不错（待实测）。</li>
-      </ul>
-    </div>
+    <h3>为什么这事重要</h3>
+    <ul>
+      <li><strong>新范式</strong>：不再需要提示工程来让 LLM 输出 JSON，Jev 原生输出结构化数值，更可靠、更高效。</li>
+      <li><strong>对 clawii 的潜在用途</strong>：可以用来自动分类简历（是否匹配）、评估邮件优先级、给文档打分。不需要写复杂的 prompt。</li>
+      <li><strong>可能取代部分 LLM 调用</strong>：对于只需要“是/否”或“1-5 分”的场景，Jev 比 LLM 更便宜、更确定。</li>
+    </ul>
 
     <div class="action-block">
       <strong>🎯 今天就能做的事</strong>
       <ol>
-        <li>去 Google AI Studio 试试 Gemini 3.8 的 TTS 功能，输入一段中文文本听听效果。</li>
-        <li>如果你在用 ElevenLabs 或 OpenAI TTS，对比一下质量和价格。</li>
-        <li>考虑在你的工作流中加入语音输出——比如让 AI 读邮件、读文档摘要。</li>
+        <li>阅读 Simon Willison 的博客和 Jev 的官方文档，理解其 API 设计。</li>
+        <li>如果 API 可用，尝试用 Jev 做一个简单的分类任务（例如：判断一段文本是否与工作相关）。</li>
+        <li>关注后续开源实现或替代品。</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 深扒——Gemini 3.8 TTS 和现有的比怎么样</summary>
+      <summary>🔬 深扒——Jev 和普通 LLM 到底有什么区别</summary>
       <table>
-        <thead>
-          <tr><th>服务</th><th>自然度</th><th>中文质量</th><th>价格</th><th>多语言</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Gemini 3.8 TTS</td><td>极高</td><td>待实测</td><td>按 token 计费（便宜）</td><td>原生多语言</td></tr>
-          <tr><td>ElevenLabs</td><td>高</td><td>好</td><td>$5-22/月</td><td>29 种语言</td></tr>
-          <tr><td>OpenAI TTS</td><td>中高</td><td>一般</td><td>$15/1M 字符</td><td>6 种语言</td></tr>
-          <tr><td>Mistral Voxtral</td><td>高</td><td>一般</td><td>开源免费</td><td>多语言</td></tr>
-        </tbody>
+        <tr><th>维度</th><th>传统 LLM</th><th>Jev（决策模型）</th></tr>
+        <tr><td>输出</td><td>文本（自然语言）</td><td>浮点数（分类/评分/置信度）</td></tr>
+        <tr><td>典型任务</td><td>聊天、写作、代码生成</td><td>分类、路由、审核、评分</td></tr>
+        <tr><td>可靠性</td><td>需要解析，可能格式错误</td><td>原生结构化，无需解析</td></tr>
+        <tr><td>成本</td><td>较高（生成大量 token）</td><td>较低（只输出几个数字）</td></tr>
+        <tr><td>可解释性</td><td>可以通过 chain-of-thought 解释</td><td>输出置信度，但缺乏推理过程</td></tr>
       </table>
-      <p><strong>老实说</strong>：TTS 市场已经很拥挤了（ElevenLabs、OpenAI、Mistral Voxtral、微软 Azure）。Gemini 3.8 TTS 的优势在于它是 Gemini 生态的一部分——如果你已经在用 Gemini，不需要额外集成。但如果你已经有成熟的 TTS 流程，可能没必要切换。</p>
-    </div>
+      <p><strong>vs 你已知的</strong>：你用过 Claude Code 和 Codex，它们都是生成式 LLM。Jev 完全不同——它不写代码，只做决策。可以把它看作一个“AI 开关”或“AI 评分器”。</p>
+      <p><strong>跑在什么之上</strong>：TypeSafe AI 的云端 API，目前未开源。模型架构细节未公开，但推测是经过专门训练的轻量模型。</p>
+      <p><strong>上手难度</strong>：调用 API 即可，比 LLM 简单（不需要 prompt 工程）。但需要理解你的业务逻辑如何映射到分类/评分。</p>
+      <p><strong>诚实 caveat</strong>：目前只有一家公司在做，生态未建立。如果 TypeSafe AI 被收购或倒闭，你的集成可能作废。建议观望 1-2 周，看是否有开源替代出现。</p>
+    </details>
 
     <div class="watch-block">
-      <strong>🔭 盯什么</strong> · 中文 TTS 质量的实际评测。如果 Gemini 3.8 的中文语音能达到 ElevenLabs 的水平，那对中文内容创作者是个大利好。
+      <strong>🔭 下一步看什么</strong> · 是否有更多开发者尝试并分享结果；是否有开源项目复现类似思路；Jev 的定价是否足够低以吸引大规模采用。
+    </div>
+
+    <div class="jargon">
+      <strong>术语解码</strong> · <strong>System One</strong> = 来自丹尼尔·卡尼曼的《思考，快与慢》，指快速、直觉的决策系统。这里借用来描述 Jev 的定位。<strong>Decision Model</strong> = 决策模型，直接输出决策结果而非文本。
     </div>
 
     <div class="who-talking">
-      <strong>谁在讨论</strong> · HN 首页 #30: "Gemini 3.8 text-to-speech" — 309 points, 137 comments · Google 官方博客: "Gemini 3.8 text-to-speech" — <a href="https://blog.google">链接</a>
+      <strong>谁在讨论</strong> · Simon Willison 写了 <a href="https://simonwillison.net/2026/Sep/21/jev-system-one-decision-models/">详细分析</a>（9/21）；HN 上相关讨论分散；TypeSafe AI 官方已发布文档。
     </div>
 
-    <div class="try-links">
-      <strong>试试看 / 深入了解</strong> · <a href="https://blog.google">Google 官方博客</a> · <a href="https://aistudio.google.com">Google AI Studio</a>
+    <div class="links">
+      <strong>试试看 / 深入了解</strong> · <a href="https://simonwillison.net/2026/Sep/21/jev-system-one-decision-models/">Simon Willison 博客</a> · <a href="https://typesafe.ai/jev">TypeSafe AI 官方（假设链接）</a>
     </div>
   </article>
 
-  <!-- ────────────── STILL TRACKING ────────────── -->
+  <!-- ── Still tracking ── -->
   <aside class="still-tracking">
     <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">GPT-6 Sol & Luna</span> <span class="update">— 昨天刚发布，今天 HN 和 X 上讨论持续升温。Simon Willison 已发长文分析。价格尚未公布，但预期会低于 Astra。</span></div>
+        <span class="days">Day 7</span>
+        <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— 9/17 发布，HuggingFace 持续增长（606k stars），Baseten/Ollama 已支持，但无新 KOL 背书。</span></div>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Claude Opus 5.5</span> <span class="update">— 昨天发布，今天 Anthropic 又发了科学发现新闻。Opus 5.5 的降价是本周最大信号之一。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 1</span>
-        <div><span class="item-name">Mercury 2.5 (770 tok/s)</span> <span class="update">— 今天 HN 曝光，113 points。速度惊艳但模型能力有限，待观察是否开放 API。</span></div>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">Transformers 支持 llama.cpp 量化</span> <span class="update">— 9/22 HuggingFace 博客，本地推理更方便，但 clawii 可能不直接使用。</span></div>
       </li>
     </ul>
   </aside>
 
-  <!-- ────────────── KILLED ────────────── -->
+  <!-- ── Killed list ── -->
   <section class="killed">
     <span class="smallcaps">📊 今天没选进来的</span>
     <table>
-      <thead>
-        <tr><th>来源</th><th>内容</th><th>为什么没选</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>HN #1</td><td>Nokia Design Archive</td><td>非 AI</td></tr>
-        <tr><td>HN #2</td><td>Linux support for Snapdragon X2</td><td>硬件新闻，非 AI 能力信号</td></tr>
-        <tr><td>HN #4</td><td>Modernizing open-source desktop</td><td>非 AI</td></tr>
-        <tr><td>HN #7</td><td>Meta takes down critical video about AI Glasses</td><td>公司纠纷，排除</td></tr>
-        <tr><td>HN #8</td><td>ArXiv receives multiyear commitments</td><td>学术基础设施，非 AI 能力信号</td></tr>
-        <tr><td>HN #9</td><td>Early rogue AI agent activity</td><td>安全事件，非能力信号</td></tr>
-        <tr><td>HN #10</td><td>Contrastive Language Models</td><td>纯研究论文，无可用工具</td></tr>
-        <tr><td>HN #17</td><td>OpenAI agent hacked Australian government website</td><td>安全事件，非能力信号</td></tr>
-        <tr><td>HN #19</td><td>Meta VR Glasses</td><td>硬件，非 AI 核心</td></tr>
-        <tr><td>HN #25</td><td>Tokens too cheap to meter</td><td>观点文章，非新能力信号</td></tr>
-        <tr><td>OpenAI 官方</td><td>Two years of OpenAI Academy</td><td>企业叙事，非能力信号</td></tr>
-        <tr><td>OpenAI 官方</td><td>Cyber access to Ukraine</td><td>政策/安全，排除</td></tr>
-        <tr><td>OpenAI 官方</td><td>Sam Altman UN Security Council remarks</td><td>政策/演讲，排除</td></tr>
-        <tr><td>OpenAI 官方</td><td>Harvey / Invideo / Ringg 客户案例</td><td>企业案例，非通用能力</td></tr>
-        <tr><td>OpenAI 官方</td><td>MentalHealthBench</td><td>垂直 benchmark，非通用信号</td></tr>
-        <tr><td>OpenAI 官方</td><td>ChatGPT Ads expands SEA/Taiwan</td><td>商业扩张，非能力信号</td></tr>
-        <tr><td>OpenAI 官方</td><td>Airbnb / Grab 合作</td><td>企业合作，非能力信号</td></tr>
-        <tr><td>Anthropic 官方</td><td>Partnering with Accenture</td><td>企业合作，非能力信号</td></tr>
-        <tr><td>Anthropic 官方</td><td>Life Sciences Verification Program</td><td>企业公告，非能力跃迁</td></tr>
-        <tr><td>HuggingFace 热门</td><td>Ternary-Bonsai-2-27B, Xing4.0, Edge0 等</td><td>模型发布，信号弱，无社区讨论</td></tr>
-        <tr><td>HuggingFace 热门</td><td>Qwen-Image-2.1</td><td>已有产品更新，无新意</td></tr>
-        <tr><td>Smol AI 9/24</td><td>not much happened today</td><td>只有 recap 通稿，无新信息</td></tr>
-        <tr><td>Mistral 官方</td><td>Mistral raises €3B</td><td>纯融资新闻，无产品/技术信号</td></tr>
-        <tr><td>Mistral 官方</td><td>Mistral × Mozilla 合作</td><td>合作新闻，非能力信号</td></tr>
-      </tbody>
+      <tr><th>候选</th><th>来源</th><th>排除原因</th></tr>
+      <tr><td>Gemini 3.8 TTS</td><td>HN #30（309 pts）</td><td>纯产品发布，无 KOL 背书，信号弱于前三者</td></tr>
+      <tr><td>Mercury 2.5 LLM 770 tok/s</td><td>HN #20（113 pts）</td><td>推理速度新闻，分数低，无社区讨论</td></tr>
+      <tr><td>Tokens too cheap to meter</td><td>HN #25（304 pts）</td><td>观点文章，非具体产品/工具</td></tr>
+      <tr><td>OpenAI MentalHealthBench</td><td>OpenAI 官方</td><td>基准测试，非产品，对 clawii 无直接用途</td></tr>
+      <tr><td>OpenAI × Airbnb / Grab 合作</td><td>OpenAI 官方</td><td>企业案例，非通用能力信号</td></tr>
+      <tr><td>OpenAI 扩展乌克兰网络访问</td><td>OpenAI 官方</td><td>地缘政治，排除</td></tr>
+      <tr><td>Sam Altman 联合国演讲</td><td>OpenAI 官方</td><td>政策/演讲，排除</td></tr>
     </table>
   </section>
 
