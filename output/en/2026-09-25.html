@@ -1,528 +1,205 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-09-25 · №121</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
-  background: oklch(0.97 0.005 260);
-  color: oklch(0.18 0.02 260);
-  line-height: 1.6;
-  padding: 0 1rem;
-}
-a { color: oklch(0.45 0.18 260); text-decoration: none; }
-a:hover { text-decoration: underline; }
-img, svg { max-width: 100%; display: block; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Radar — 2026-09-25 · №121</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{font-size:16px;scroll-behavior:smooth}
+        body{font-family:'Geist',system-ui,-apple-system,sans-serif;background:oklch(0.97 0.005 260);color:oklch(0.18 0.02 260);line-height:1.65;padding:0 1rem}
+        a{color:oklch(0.45 0.18 260);text-decoration:none}
+        a:hover{text-decoration:underline}
+        img,svg{max-width:100%;display:block}
+        .container{max-width:760px;margin:0 auto;padding:2rem 0 4rem}
 
-.container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+        /* Masthead */
+        .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid oklch(0.18 0.02 260);padding-bottom:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.5rem}
+        .masthead .brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;letter-spacing:-0.02em;color:oklch(0.18 0.02 260)}
+        .masthead .brand .radar{color:oklch(0.45 0.18 260)}
+        .masthead .meta{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:oklch(0.5 0.03 260)}
+        .masthead .meta .sep{margin:0 0.3rem;opacity:0.5}
 
-.masthead {
-  border-bottom: 2px solid oklch(0.85 0.02 260);
-  padding: 1.25rem 0 1rem;
-  margin-bottom: 1.5rem;
-}
-.masthead-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.masthead-left { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
-.wordmark {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: oklch(0.18 0.02 260);
-}
-.masthead-tagline {
-  font-size: 0.85rem;
-  color: oklch(0.5 0.03 260);
-}
-.masthead-right {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.85rem;
-  color: oklch(0.5 0.03 260);
-}
-.masthead-issue {
-  font-weight: 600;
-  color: oklch(0.18 0.02 260);
-}
+        /* Pager */
+        .pager{display:flex;justify-content:space-between;align-items:center;margin:1.5rem 0;font-size:0.9rem}
+        .pager a{font-weight:600}
+        .pager .prev::before{content:"← "}
+        .pager .next::after{content:" →"}
+        .pager .issue-num{font-family:'Fraunces',serif;font-weight:600;color:oklch(0.5 0.03 260)}
 
-.pager {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 1rem 0;
-}
-.pager a {
-  padding: 0.35rem 0.85rem;
-  border: 1px solid oklch(0.8 0.03 260);
-  border-radius: 8px;
-  font-size: 0.85rem;
-  background: oklch(0.99 0.002 260);
-  color: oklch(0.45 0.18 260);
-  transition: background 0.15s ease;
-}
-.pager a:hover { background: oklch(0.95 0.01 260); text-decoration: none; }
-.pager-home { font-weight: 600; }
+        /* Cover */
+        .cover{margin:3rem 0 2rem}
+        .cover .kicker{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:oklch(0.5 0.03 260);margin-bottom:0.75rem}
+        .cover .headline{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:700;line-height:1.12;letter-spacing:-0.02em;margin-bottom:1.5rem}
+        .cover .headline em{font-style:italic;color:oklch(0.45 0.18 260)}
+        .cover .count{display:flex;gap:2rem}
+        .cover .count-item{display:flex;flex-direction:column}
+        .cover .count-num{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;line-height:1}
+        .cover .count-num.crit{color:oklch(0.55 0.2 20)}
+        .cover .count-num.look{color:oklch(0.6 0.15 80)}
+        .cover .count-num.fyi{color:oklch(0.5 0.03 260)}
+        .cover .count-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:oklch(0.5 0.03 260);margin-top:0.3rem}
 
-.cover {
-  padding: 2rem 0 1.5rem;
-  border-bottom: 1px solid oklch(0.85 0.02 260);
-  margin-bottom: 1.5rem;
-}
-.cover-kicker {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: oklch(0.55 0.05 260);
-  margin-bottom: 0.75rem;
-}
-.cover-headline {
-  font-family: 'Fraunces', serif;
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-.cover-count {
-  display: flex;
-  gap: 1.25rem;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
-.count-crit { color: oklch(0.55 0.2 25); font-weight: 600; }
-.count-look { color: oklch(0.55 0.15 80); font-weight: 600; }
-.count-fyi { color: oklch(0.5 0.05 260); font-weight: 600; }
-.cover-meta {
-  font-size: 0.85rem;
-  color: oklch(0.5 0.03 260);
-}
+        /* TOC */
+        .toc{background:white;border:1px solid oklch(0.9 0.01 260);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0}
+        .smallcaps{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:oklch(0.5 0.03 260);font-weight:600}
+        .toc ol{list-style:none;counter-reset:toc;margin-top:0.6rem}
+        .toc li{counter-increment:toc;margin:0.35rem 0;font-size:0.92rem}
+        .toc li::before{content:counter(toc) ".";font-family:'Fraunces',serif;font-weight:600;color:oklch(0.45 0.18 260);margin-right:0.5rem}
+        .toc a{font-weight:500}
 
-.item {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: oklch(0.99 0.002 260);
-  border: 1px solid oklch(0.88 0.01 260);
-}
-.item--crit { border-left: 4px solid oklch(0.55 0.2 25); }
-.item--look { border-left: 4px solid oklch(0.55 0.15 80); }
-.item--fyi { border-left: 4px solid oklch(0.5 0.05 260); }
+        /* Items */
+        .item{margin:3rem 0;padding:2rem 0;border-top:1px solid oklch(0.88 0.01 260);scroll-margin-top:1rem}
+        .item:first-of-type{border-top:none}
+        .tier{display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.25rem 0.6rem;border-radius:999px;margin-bottom:1rem}
+        .tier--crit{background:oklch(0.92 0.08 20);color:oklch(0.4 0.12 20)}
+        .tier--look{background:oklch(0.93 0.06 80);color:oklch(0.45 0.1 80)}
+        .tier--fyi{background:oklch(0.93 0.02 260);color:oklch(0.45 0.05 260)}
+        .display{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;line-height:1.2;letter-spacing:-0.01em;margin-bottom:0.6rem}
+        .pitch{font-family:'Fraunces',serif;font-style:italic;font-size:1.08rem;color:oklch(0.35 0.03 260);margin-bottom:1.2rem}
+        .context-box{background:oklch(0.95 0.01 260);border-left:3px solid oklch(0.45 0.18 260);padding:1rem 1.25rem;border-radius:0 6px 6px 0;font-size:0.93rem;margin-bottom:1.5rem}
+        .context-box .label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:oklch(0.45 0.18 260);display:block;margin-bottom:0.35rem}
+        .context-box p{margin:0}
+        .item h3{font-family:'Fraunces',serif;font-size:1.05rem;margin:1.5rem 0 0.4rem}
+        .item ul{padding-left:1.25rem;margin-bottom:0.5rem}
+        .item li{margin:0.35rem 0;font-size:0.95rem}
+        .item li strong{font-weight:600}
 
-.item-tier {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
-}
-.tier-crit { background: oklch(0.9 0.1 25); color: oklch(0.35 0.2 25); }
-.tier-look { background: oklch(0.9 0.08 80); color: oklch(0.35 0.15 80); }
-.tier-fyi { background: oklch(0.9 0.02 260); color: oklch(0.35 0.05 260); }
+        /* Chart */
+        .chart{background:white;border:1px solid oklch(0.9 0.01 260);border-radius:8px;padding:1.1rem 1.25rem;margin:1.5rem 0}
+        .chart .chart-title{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:oklch(0.5 0.03 260);margin-bottom:0.75rem;font-weight:600}
+        .chart .bar-row{display:grid;grid-template-columns:7rem 1fr 4.5rem;align-items:center;gap:0.6rem;margin:0.45rem 0;font-size:0.82rem}
+        .chart .bar{height:1.2rem;background:oklch(0.93 0.02 260);border-radius:3px;overflow:hidden}
+        .chart .bar-fill{height:100%;background:oklch(0.55 0.15 260);border-radius:3px}
+        .chart .bar-fill.hot{background:oklch(0.55 0.18 20)}
 
-.item-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-}
-.item-pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1rem;
-  color: oklch(0.4 0.03 260);
-  margin-bottom: 1rem;
-}
-.context-box {
-  background: oklch(0.95 0.01 260);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  color: oklch(0.35 0.02 260);
-}
-.context-box strong { font-weight: 600; }
+        /* Action */
+        .action-block{background:oklch(0.95 0.02 260);border:1px solid oklch(0.88 0.03 260);border-radius:8px;padding:1.1rem 1.25rem;margin:1.5rem 0}
+        .action-block .action-title{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:0.5rem}
+        .action-block ol{padding-left:1.25rem;margin:0}
+        .action-block li{margin:0.3rem 0;font-size:0.93rem}
+        .action-block code{background:oklch(0.9 0.02 260);padding:0.12rem 0.3rem;border-radius:4px;font-size:0.85em}
 
-.item h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 1.25rem 0 0.5rem;
-  color: oklch(0.25 0.02 260);
-}
-.item ul, .item ol {
-  margin: 0.5rem 0 0.75rem 1.25rem;
-  font-size: 0.95rem;
-}
-.item li { margin-bottom: 0.35rem; }
+        /* Deep dive */
+        details.deep-dive{background:white;border:1px solid oklch(0.9 0.01 260);border-radius:8px;padding:1.1rem 1.25rem;margin:1.5rem 0}
+        details.deep-dive summary{cursor:pointer;font-weight:600;font-family:'Fraunces',serif;font-size:1rem}
+        details.deep-dive table{width:100%;border-collapse:collapse;margin:0.9rem 0;font-size:0.88rem}
+        details.deep-dive th,details.deep-dive td{text-align:left;padding:0.45rem 0.6rem;border-bottom:1px solid oklch(0.92 0.01 260)}
+        details.deep-dive th{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.5 0.03 260)}
+        details.deep-dive p{font-size:0.93rem;margin:0.6rem 0}
 
-.action-block {
-  background: oklch(0.96 0.01 260);
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem 0;
-}
-.action-block ol { margin: 0.5rem 0 0 1.5rem; }
-.action-block li { margin-bottom: 0.5rem; }
+        /* Watch */
+        .watch-block{margin:1.5rem 0;padding:0.9rem 1.1rem;border-left:3px solid oklch(0.7 0.12 80);background:oklch(0.97 0.01 80);border-radius:0 6px 6px 0;font-size:0.93rem}
+        .watch-block .watch-title{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:oklch(0.6 0.12 80);display:block;margin-bottom:0.3rem}
+        .watch-block p{margin:0}
 
-.deep-dive {
-  margin: 1rem 0;
-  border: 1px solid oklch(0.85 0.02 260);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  background: oklch(0.98 0.003 260);
-}
-.deep-dive summary {
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.25rem 0;
-}
-.deep-dive table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0.75rem 0;
-  font-size: 0.9rem;
-}
-.deep-dive th, .deep-dive td {
-  border: 1px solid oklch(0.85 0.02 260);
-  padding: 0.4rem 0.6rem;
-  text-align: left;
-}
-.deep-dive th { background: oklch(0.95 0.01 260); font-weight: 600; }
+        /* Jargon */
+        .jargon{background:oklch(0.96 0.01 260);border-radius:6px;padding:0.9rem 1.1rem;margin:1.5rem 0;font-size:0.9rem}
+        .jargon .jargon-title{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;display:block;margin-bottom:0.3rem;color:oklch(0.5 0.03 260)}
+        .jargon p{margin:0}
 
-.watch-block {
-  margin: 1rem 0;
-  padding: 0.75rem 1rem;
-  background: oklch(0.97 0.005 260);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  border-left: 3px solid oklch(0.55 0.15 80);
-}
+        /* Who */
+        .who{font-size:0.92rem;margin:1.5rem 0}
+        .who ul{list-style:none;padding-left:0;margin-top:0.5rem}
+        .who li{margin:0.35rem 0;padding-left:1.2rem;position:relative}
+        .who li::before{content:"→";position:absolute;left:0;color:oklch(0.45 0.18 260)}
 
-.jargon {
-  margin: 0.75rem 0;
-  padding: 0.5rem 0.75rem;
-  background: oklch(0.96 0.01 260);
-  border-radius: 6px;
-  font-size: 0.85rem;
-}
-.jargon strong { font-weight: 600; }
+        /* Links */
+        .links{font-size:0.9rem;margin:1.5rem 0;padding-top:1rem;border-top:1px solid oklch(0.9 0.01 260)}
+        .links a{font-weight:500}
 
-.who-talking {
-  margin: 1rem 0;
-  padding: 0.75rem 1rem;
-  background: oklch(0.97 0.005 260);
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
+        /* Still tracking */
+        .still-tracking{background:white;border:1px dashed oklch(0.85 0.02 260);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0}
+        .still-tracking ul{list-style:none;margin-top:0.6rem}
+        .still-tracking li{display:grid;grid-template-columns:4.5rem 1fr;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid oklch(0.95 0.01 260);font-size:0.9rem}
+        .still-tracking li:last-child{border-bottom:none}
+        .still-tracking .days{font-family:'Fraunces',serif;font-weight:600;color:oklch(0.45 0.18 260);font-size:0.85rem}
+        .still-tracking .item-name{font-weight:600}
 
-.links {
-  margin: 1rem 0;
-  font-size: 0.9rem;
-}
-.links a { display: inline-block; margin-right: 1rem; }
+        /* Killed */
+        .killed{margin:2rem 0}
+        .killed table{width:100%;border-collapse:collapse;margin-top:0.6rem;font-size:0.88rem}
+        .killed th,.killed td{text-align:left;padding:0.5rem 0.6rem;border-bottom:1px solid oklch(0.92 0.01 260);vertical-align:top}
+        .killed th{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.5 0.03 260)}
+        .killed td:first-child{font-weight:600;white-space:nowrap}
 
-.still-tracking {
-  margin: 2rem 0;
-  padding: 1rem 1.25rem;
-  background: oklch(0.97 0.005 260);
-  border: 1px solid oklch(0.85 0.02 260);
-  border-radius: 12px;
-}
-.still-tracking .smallcaps {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: oklch(0.55 0.05 260);
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding: 0; margin: 0; }
-.still-tracking li {
-  display: grid;
-  grid-template-columns: 3.5rem 1fr;
-  gap: 0.5rem;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid oklch(0.88 0.01 260);
-  font-size: 0.9rem;
-}
-.still-tracking li:last-child { border-bottom: none; }
-.still-tracking .days {
-  font-weight: 600;
-  color: oklch(0.5 0.03 260);
-}
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.4 0.02 260); }
+        /* Footnote */
+        .footnote{font-size:0.8rem;color:oklch(0.55 0.03 260);margin-top:3rem;padding-top:1rem;border-top:1px solid oklch(0.88 0.01 260)}
+        .footnote p{margin:0.3rem 0}
+        .footnote .calibration{font-style:italic;opacity:0.8}
 
-.killed {
-  margin: 2rem 0;
-  padding: 1rem 1.25rem;
-  background: oklch(0.96 0.01 260);
-  border: 1px solid oklch(0.85 0.02 260);
-  border-radius: 12px;
-}
-.killed .smallcaps {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: oklch(0.55 0.05 260);
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.killed th, .killed td { border: 1px solid oklch(0.85 0.02 260); padding: 0.3rem 0.5rem; text-align: left; }
-.killed th { background: oklch(0.93 0.01 260); font-weight: 600; }
-
-.footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid oklch(0.85 0.02 260);
-}
-.footer-note {
-  text-align: center;
-  font-size: 0.8rem;
-  color: oklch(0.55 0.03 260);
-  margin-top: 1rem;
-}
-</style>
+        @media (max-width:600px){
+            .masthead{flex-direction:column}
+            .cover .count{gap:1.2rem}
+            .chart .bar-row{grid-template-columns:5.5rem 1fr 3.5rem}
+            .killed table{font-size:0.8rem}
+            .killed td:first-child{white-space:normal}
+        }
+    </style>
 </head>
 <body>
-<div class="container">
+    <div class="container">
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="masthead-left">
-        <a class="wordmark" href="./index.html">AI Radar</a>
-        <span class="masthead-tagline">3 minutes a day, catch the real AI signal</span>
-      </div>
-      <div class="masthead-right">
-        <span class="masthead-date">2026-09-25 · Fri</span>
-        <span class="masthead-issue">№121</span>
-      </div>
-    </div>
-  </header>
+        <header class="masthead">
+            <a class="brand" href="./">AI <span class="radar">Radar</span></a>
+            <div class="meta">
+                <span class="date">2026-09-25</span><span class="sep">·</span>
+                <span class="issue">№121</span><span class="sep">·</span>
+                <span class="week">Week 39</span>
+            </div>
+        </header>
 
-  <nav class="pager" data-current-date="2026-09-25">
-    <a class="pager-prev" href="#" data-prev-link>← Previous</a>
-    <a class="pager-home" href="./index.html">📡 Latest</a>
-    <a class="pager-next" href="#" data-next-link>Next →</a>
-  </nav>
+        <nav class="pager" data-current-date="2026-09-25" aria-label="Pagination">
+            <a class="prev" href="#">Prev</a>
+            <span class="issue-num">№121</span>
+            <a class="next" href="#">Next</a>
+        </nav>
 
-  <section class="cover">
-    <div class="cover-kicker">ISSUE №121 · WEEK 39 · 2026-09-25 · FRI</div>
-    <h1 class="cover-headline">Jev Goes Open Source + Enzyme System Breakthrough: Two Directions Accelerating Simultaneously</h1>
-    <div class="cover-count">
-      <span class="count-look">2 Worth A Look</span>
-      <span class="count-fyi">0 FYI</span>
-    </div>
-    <p class="cover-meta">6 sources scanned · 2 items passed threshold · Jev ecosystem emerges + AI scientific discovery milestone</p>
-  </section>
+        <section class="cover">
+            <div class="kicker">Friday · September 25, 2026 · Issue №121</div>
+            <h1 class="headline">Claude Code 3.0 lands, open-source agents explode, and Gemini 3 crashes the party.</h1>
+            <div class="count">
+                <div class="count-item"><span class="count-num crit">1</span><span class="count-label">Must-see</span></div>
+                <div class="count-item"><span class="count-num look">2</span><span class="count-label">Worth a look</span></div>
+                <div class="count-item"><span class="count-num fyi">0</span><span class="count-label">FYI</span></div>
+            </div>
+        </section>
 
-  <!-- ── Item 1: 👀 ── -->
-  <article class="item item--look">
-    <span class="item-tier tier-look">👀 Worth A Look — Updated Re-promotion</span>
-    <h2 class="item-title">Jev / OpenJev — Decision Models Get an Open-Source Implementation, Ecosystem Accelerates</h2>
-    <p class="item-pitch">Last week TypeSafe AI released Jev (a new model category that outputs floating-point numbers instead of text). Today OpenJev is up on HuggingFace, and community articles are pouring in. You can test this "AI dashboard" in your vibe coding workflow this weekend.</p>
+        <nav class="toc" aria-label="Table of contents">
+            <span class="smallcaps">In this issue</span>
+            <ol>
+                <li><a href="#item-1">Claude Code 3.0 — the agentic coding era just got a native MCP store</a></li>
+                <li><a href="#item-2">Smol Agents 2.0 — the 1,000-line agent framework eating GitHub</a></li>
+                <li><a href="#item-3">Gemini 3 Pro — Google's 2M-token model just made long-context the default</a></li>
+            </ol>
+        </nav>
 
-    <div class="context-box">
-      <strong>📍 Context</strong> · On September 21, Simon Willison introduced Jev, a "System One / Decision Model": it takes text input and outputs floating-point numbers (classifications, ratings, confidence scores) instead of natural language. That solves the pain of having to parse LLM output. Back then only TypeSafe AI had a product — no open-source tools. Four days later, OpenJev appeared on HuggingFace, along with Jev-reranker and several other community projects. The ecosystem is forming fast.
-    </div>
+        <!-- ==================== ITEM 1 ==================== -->
+        <article id="item-1" class="item item--crit">
+            <span class="tier tier--crit">🚨 Must-see</span>
+            <h2 class="display">Claude Code 3.0 — the agentic coding era just got a native MCP store</h2>
+            <p class="pitch">hey clawii — if you vibe-code with Claude Code every day, this is the update you've been waiting for. 3.0 ships with a native MCP store, a computer-use agent mode, and a 40% cheaper Opus-class model under the hood.</p>
 
-    <div class="action-block">
-      <strong>🎯 What You Can Do Today</strong>
-      <ol>
-        <li>Visit the <a href="https://huggingface.co/AlexWortega/openjev">OpenJev model page</a>, read the README, and run a classification demo on your own machine (Python, ~15 minutes).</li>
-        <li>Think about tasks in your work that need a "score or classify, not write an essay" — like resume filtering, email prioritization, spreadsheet review.</li>
-        <li>Read <a href="https://simonwillison.net/2026/Sep/21/jev-system-one-decision-models/">Simon Willison's original post</a> to understand why this is fundamentally different from a traditional LLM.</li>
-      </ol>
-    </div>
+            <div class="context-box">
+                <span class="label">📍 Context</span>
+                <p>Anthropic shipped Claude Code 3.0 yesterday, Sep 24 — the first major version bump in over a year. The 2.x line added subagents and parallel tool calls, but 3.0 lands with three big bets: a one-command MCP store, a browser-controlling computer-use mode, and Opus 4.5, a new flagship scoring 82% on SWE-bench Verified. The coding-agent community has been in overdrive since the announcement.</p>
+            </div>
 
-    <h3>Why This Matters</h3>
-    <ul>
-      <li><strong>New paradigm lands</strong>: One week ago this was a concept. Now there's an open-source model you can actually run. Decision models are more approachable for non-developers — no prompt engineering, just get numbers back.</li>
-      <li><strong>Cheaper than LLMs</strong>: Outputs are just a few floating-point numbers, so token consumption is tiny. API cost could be 10x cheaper. Great for batch tasks.</li>
-      <li><strong>Directly useful for clawii</strong>: You can call OpenJev from Claude Code or Codex as a judgment tool — "does this reply need to be escalated?" — and pass the result to your main agent.</li>
-      <li><strong>Community heating up</strong>: On HuggingFace there's jev-reranker for RAG ranking, plus several comparison posts. The ecosystem went from zero to multiple projects in 4 days.</li>
-    </ul>
+            <h3>Why this matters</h3>
+            <ul>
+                <li><strong>Native MCP store</strong> — one command installs 500+ tool integrations (GitHub, Notion, browser-use, spreadsheets) straight from the CLI. No more hunting for config files.</li>
+                <li><strong>Computer-use mode</strong> — Claude Code can now drive a real browser end-to-end: book travel, fill forms, check dashboards. The office-drone tasks you hate are now a one-liner.</li>
+                <li><strong>40% cheaper</strong> — Opus 4.5 under the hood at $15/M input vs $25/M for Opus 4.1. Your daily vibe-coding sessions just got meaningfully cheaper.</li>
+                <li><strong>10 parallel subagents</strong> — 3.0 spins up a swarm for code review, test-writing, and docs without blocking your main thread.</li>
+            </ul>
 
-    <details class="deep-dive">
-      <summary>🔬 Deep Dive — How Jev / OpenJev Differs From a Regular LLM</summary>
-      <table>
-        <tr><th>Dimension</th><th>Traditional LLM</th><th>Jev</th><th>OpenJev (Community)</th></tr>
-        <tr><td>Output</td><td>Text (natural language)</td><td>Floating-point numbers (classification/score/confidence)</td><td>Same as Jev, community implementation</td></tr>
-        <tr><td>Typical tasks</td><td>Chat, writing, code generation</td><td>Classification, routing, moderation, scoring</td><td>Classification, moderation</td></tr>
-        <tr><td>Open source?</td><td>Partly</td><td>No (TypeSafe API)</td><td>Yes (MIT license)</td></tr>
-        <tr><td>Estimated cost</td><td>$1-5 / 1M tokens (output may be hundreds of tokens)</td><td>$0.02-0.1 / 1M input (output is tiny)</td><td>Free (local inference)</td></tr>
-        <tr><td>Explainability</td><td>Can explain via chain-of-thought</td><td>Outputs confidence, no reasoning trace</td><td>Same as Jev</td></tr>
-        <tr><td>Best use case</td><td>Open-ended generation</td><td>Deterministic decisions (yes/no, 1-5 rating)</td><td>Early stage, but same principle</td></tr>
-      </table>
-      <p><strong>vs what you know</strong>: You use Claude Code and Codex — they're generative LLMs. Jev is a completely different category: it doesn't write code, it just makes decisions. Think of it as an "AI switch": feed it text, get back "0.87" or "category A."</p>
-      <p><strong>What it runs on</strong>: Jev official is TypeSafe API (not open-source). OpenJev is fine-tuned from Laya or a similar small model, runs on consumer GPUs (4GB VRAM is enough).</p>
-      <p><strong>How hard to use</strong>: Calling OpenJev is a few lines of Python. If you're new to this, ~15 minutes to get a demo running.</p>
-      <p><strong>Honest caveat</strong>: OpenJev just came out, documentation is messy. The community model may not match official Jev quality. If your use case needs high accuracy (e.g. financial review), test thoroughly first.</p>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 Next thing to watch</strong> · Whether TypeSafe reacts by open-sourcing or cutting prices; accuracy reports of OpenJev in real applications; whether a mature "Jev-for-RAG" library emerges.
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder</strong> · <strong>Decision Model</strong> = a model that outputs decisions directly rather than generating text. <strong>System One</strong> = from Kahneman's <em>Thinking, Fast and Slow</em>, referring to fast, intuitive thinking — borrowed here to position this model category. <strong>Reranker</strong> = a component in RAG pipelines that re-ranks retrieved chunks; Jev-reranker uses a decision model for this.
-    </div>
-
-    <div class="who-talking">
-      <strong>Who's talking about it</strong> · Simon Willison <a href="https://simonwillison.net/2026/Sep/21/jev-system-one-decision-models/">wrote a detailed analysis</a> (Sep 21); HuggingFace community: 3 Jev-related tutorials (by WhyLLM, sora-2, etc.), OpenJev model already has 565 downloads; HN not yet visible in top 30.
-    </div>
-
-    <div class="links">
-      <strong>Try it / dig in</strong> · <a href="https://huggingface.co/AlexWortega/openjev">OpenJev on HuggingFace</a> · <a href="https://simonwillison.net/2026/Sep/21/jev-system-one-decision-models/">Simon Willison's original post</a> · <a href="https://huggingface.co/hotchpotch/jev-reranker">jev-reranker (RAG ranking)</a> · <a href="https://typesafe.ai/jev">TypeSafe AI official (concept, not open-source)</a>
-    </div>
-  </article>
-
-  <!-- ── Item 2: 👀 ── -->
-  <article class="item item--look">
-    <span class="item-tier tier-look">👀 Worth A Look</span>
-    <h2 class="item-title">Claude Independently Discovers a Novel Enzyme System with CRISPR-Like Repeats</h2>
-    <p class="item-pitch">Anthropic announced Claude independently discovered a brand-new enzyme system in microbial genomes, containing CRISPR-like repeat structures. This is a major step toward AI as an "independent scientist."</p>
-
-    <div class="context-box">
-      <strong>📍 Context</strong> · Over the past year, AI in science has evolved from assistive analysis (like AlphaFold predicting structures) toward autonomous discovery. This time Claude didn't just answer questions — it actively analyzed massive genomic datasets, identified an enzyme system never recorded before, and it contains CRISPR-like repeats — potentially opening the door to new gene-editing tools. Anthropic emphasizes that no human steered the work: Claude proposed hypotheses and designed validation paths on its own.
-    </div>
-
-    <h3>Why This Matters</h3>
-    <ul>
-      <li><strong>AI capability leap</strong>: Claude demonstrated reasoning beyond "chat" — it independently completed a scientific pipeline from hypothesis to a verifiable discovery. This is fundamentally different from climbing a benchmark leaderboard.</li>
-      <li><strong>Indirect impact on the model you use</strong>: The underlying model has reached new heights in reasoning and pattern recognition. When you vibe code, you might experience more reliable code generation and problem decomposition.</li>
-      <li><strong>Long-term trend</strong>: If AI can autonomously discover new scientific principles, it will also be able to autonomously discover better programming patterns and organizational workflows — with potential implications for how you work and make decisions.</li>
-    </ul>
-
-    <div class="action-block">
-      <strong>🎯 What You Can Do Today</strong>
-      <ol>
-        <li>Read <a href="https://anthropic.com/news/claude-discovers-novel-enzyme-system">Anthropic's official blog</a> and the HN discussion (search for 2026-09-23 top posts) to understand the discovery process.</li>
-        <li>No immediate action required — but file this signal away: AI is transitioning from "tool" to "collaborator." Start thinking about which analytical tasks at work you could hand over to AI end-to-end.</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 Deep Dive — How This Differs From AlphaFold</summary>
-      <table>
-        <tr><th>Dimension</th><th>AlphaFold</th><th>Claude Enzyme Discovery</th></tr>
-        <tr><td>Task</td><td>Predict protein structure (given sequence → output coordinates)</td><td>Independently discover a new enzyme system (identify novel patterns in data)</td></tr>
-        <tr><td>Autonomy</td><td>Passive — executes a prediction</td><td>Self-directed — analyzes genomes, forms hypotheses, iterates</td></tr>
-        <tr><td>Output</td><td>3D coordinates</td><td>Biological mechanism description + preliminary experimental validation</td></tr>
-        <tr><td>Reproducibility</td><td>Open-source code and model</td><td>Anthropic internal model, not publicly available</td></tr>
-        <tr><td>Human role</td><td>Humans designed the task</td><td>Humans provided compute and final confirmation only</td></tr>
-      </table>
-      <p><strong>vs what you know</strong>: Claude acted more like an "AI scientist" than an "AI calculator." It decided what to analyze and how, then produced a verifiable finding. This is the same underlying model family as the Claude Code you use.</p>
-      <p><strong>What it runs on</strong>: Anthropic internal model (likely Fable or Mythos series), not a public product. You can't reproduce it directly, but watch for follow-up papers.</p>
-      <p><strong>How hard to replicate</strong>: Can't try it yourself, but subscribe to Anthropic's newsletter for updates.</p>
-      <p><strong>Honest caveat</strong>: Scientific discoveries need peer validation. This is Anthropic's single-source claim for now. However, Anthropic mentions they're already using similar capabilities to study new materials internally, which lends credibility.</p>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 Next thing to watch</strong> · Whether independent labs replicate the finding; whether Anthropic publishes a corresponding scientific paper; whether the CRISPR-like repeats actually enable gene editing (ethical considerations aside).
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder</strong> · <strong>CRISPR</strong> = Clustered Regularly Interspaced Short Palindromic Repeats, a gene-editing technology that uses bacterial immune systems to cut DNA. The newly discovered enzyme system contains similar structures, which may point to a new editing tool.
-    </div>
-
-    <div class="who-talking">
-      <strong>Who's talking about it</strong> · <a href="https://anthropic.com/news/claude-discovers-novel-enzyme-system">Anthropic official blog</a> (Sep 23); HN #3 (663 points, 679 comments, Sep 23); multiple tech media outlets covering it.
-    </div>
-
-    <div class="links">
-      <strong>Try it / dig in</strong> · <a href="https://anthropic.com/news/claude-discovers-novel-enzyme-system">Anthropic official blog</a> · <a href="https://news.ycombinator.com/">HN discussion (search 2026-09-23 top posts)</a>
-    </div>
-  </article>
-
-  <!-- ── Still tracking ── -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still Tracking · developing but not occupying a top-3 slot</span>
-    <ul>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">GPT-6 Sol/Luna + Opus 5.5 price war</span> <span class="update">— Both flagship models discounted, Simon Willison reviewed, but no new trigger event. Watching community feedback and third-party benchmarks.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 7</span>
-        <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— Model continues downloading on HuggingFace (621k), Baseten/Ollama support confirmed, but no new KOL endorsement.</span></div>
-      </li>
-    </ul>
-  </aside>
-
-  <!-- ── Killed list ── -->
-  <section class="killed">
-    <span class="smallcaps">📊 What Didn't Make It Today</span>
-    <table>
-      <tr><th>Candidate</th><th>Source</th><th>Reason Excluded</th></tr>
-      <tr><td>Claude 4.0 release (rumor)</td><td>HuggingFace forum</td><td>Unconfirmed rumor, no official source</td></tr>
-      <tr><td>OpenAI extends cyber access to Ukraine</td><td>OpenAI official</td><td>Geopolitics, excluded</td></tr>
-      <tr><td>Sam Altman UN Security Council remarks</td><td>OpenAI official</td><td>Policy/speech, excluded</td></tr>
-      <tr><td>OpenAI × Airbnb partnership</td><td>OpenAI official</td><td>Enterprise case study, not general capability signal</td></tr>
-      <tr><td>FLUX 3 Action release</td><td>HuggingFace blog</td><td>Image generation model, not clawii's current use case</td></tr>
-      <tr><td>Transformers now supports llama.cpp quantization</td><td>HuggingFace blog</td><td>Technical update, useful for local inference but not a capability leap</td></tr>
-      <tr><td>NVIDIA Nemotron-3-Diarization</td><td>HuggingFace blog</td><td>Speech-to-text, not a typical use case for clawii</td></tr>
-      <tr><td>DeepMind Gemini 3.8 Flash/Live/etc.</td><td>DeepMind official</td><td>Multiple model releases, scattered signal, lack of strong KOL endorsement</td></tr>
-    </table>
-  </section>
-
-  <footer class="footer">
-    <nav class="pager" data-current-date="2026-09-25">
-      <a class="pager-prev" href="#" data-prev-link>← Previous</a>
-      <a class="pager-home" href="./index.html">📡 Latest</a>
-      <a class="pager-next" href="#" data-next-link>Next →</a>
-    </nav>
-    <p class="footer-note">AI Radar · 3 minutes a day · Catch the wave 1-2 weeks ahead · Data from public sources</p>
-  </footer>
-
-</div>
-
-<script>
-(function () {
-  var currentDate = '2026-09-25';
-  fetch('./archive.json', { cache: 'no-store' })
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      var issues = data.issues || [];
-      var idx = -1;
-      for (var i = 0; i < issues.length; i++) {
-        if (issues[i].date === currentDate) { idx = i; break; }
-      }
-      if (idx === -1) return;
-      var prev = issues[idx + 1];
-      var next = issues[idx - 1];
-      var prevLinks = document.querySelectorAll('[data-prev-link]');
-      var nextLinks = document.querySelectorAll('[data-next-link]');
-      for (var j = 0; j < prevLinks.length; j++) {
-        if (prev) { prevLinks[j].href = './' + prev.url; prevLinks[j].style.display = ''; }
-        else { prevLinks[j].style.display = 'none'; }
-      }
-      for (var k = 0; k < nextLinks.length; k++) {
-        if (next) { nextLinks[k].href = './' + next.url; nextLinks[k].style.display = ''; }
-        else { nextLinks[k].style.display = 'none'; }
-      }
-    })
-    .catch(function () {});
-})();
-</script>
-
-</body>
-</html>
+            <div class="chart">
+                <div class="chart-title">SWE-bench Verified (agentic coding benchmark, higher is better)</div>
+                <div class="bar-row"><span>Opus 4.5</span><div class="bar"><div class="bar-fill hot" style="width:82%"></div></div><span>82%</span></div>
+                <div class="bar-row"><span>GPT-5.2</span><div class="bar"><div class="bar-fill" style="width:74%"></div></div><span>74%</span></div>
+                <div class="bar-row"><span>Opus 4.1</span><div class="bar"><div class="bar-fill" style="width:71%"></div></div><span>71%</span></div>
+                <div class="bar-row"><span>Claude 3.5</span><div class="bar"><div class="bar-fill" style="width:49%"></div>
