@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AI Radar issue №123 — 2026-09-27. No real signals today.">
 <title>AI Radar — 2026-09-27 · №123</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,440 +29,237 @@ img, svg { max-width: 100%; display: block; }
   padding-bottom: 1rem;
   margin-bottom: 2rem;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
 }
-.masthead .brand {
+.masthead-brand { display: flex; align-items: baseline; gap: 0.75rem; }
+.masthead-logo {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  color: oklch(0.18 0.02 260);
   letter-spacing: -0.02em;
 }
-.masthead .brand .accent { color: oklch(0.55 0.2 260); }
-.masthead .meta {
-  font-size: 0.78rem;
-  color: oklch(0.5 0.02 260);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
+.masthead-tagline { font-size: 0.8rem; color: oklch(0.5 0.02 260); }
+.masthead-meta { display: flex; gap: 1rem; font-size: 0.85rem; color: oklch(0.4 0.02 260); }
+.masthead-issue { font-weight: 700; }
+.masthead-nav { display: flex; gap: 1.25rem; font-size: 0.85rem; width: 100%; margin-top: 0.5rem; }
+.masthead-nav a { color: oklch(0.45 0.18 260); font-weight: 500; }
 
 /* ── cover ── */
-.cover { margin-bottom: 2rem; }
-.cover .kicker {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.15 260);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-.cover .headline {
+.cover { padding: 2rem 0 1.5rem; border-bottom: 1px solid oklch(0.85 0.02 260); margin-bottom: 2rem; }
+.cover-kicker { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: oklch(0.55 0.02 260); margin-bottom: 0.75rem; }
+.cover-headline {
   font-family: 'Fraunces', serif;
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
-.cover .subhead {
-  font-size: 1rem;
-  color: oklch(0.4 0.02 260);
-  max-width: 60ch;
-}
-.cover .counts {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  font-size: 0.82rem;
-  flex-wrap: wrap;
-}
-.cover .counts .pill {
-  background: oklch(0.93 0.01 260);
-  border-radius: 999px;
-  padding: 0.25rem 0.75rem;
-  font-weight: 600;
-  color: oklch(0.35 0.02 260);
-}
+.cover-deck { font-size: 1.05rem; color: oklch(0.35 0.02 260); max-width: 60ch; }
+.cover-scan { font-size: 0.8rem; color: oklch(0.55 0.02 260); margin-top: 0.75rem; }
+.cover-counts { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; font-size: 0.9rem; align-items: center; }
+.count-total { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; }
+.count-badge { padding: 0.25rem 0.6rem; border-radius: 999px; font-weight: 600; }
+.count-badge.crit { background: oklch(0.9 0.1 20 / 0.25); color: oklch(0.45 0.15 20); }
+.count-badge.look { background: oklch(0.9 0.08 90 / 0.3); color: oklch(0.45 0.12 90); }
+.count-badge.fyi { background: oklch(0.92 0.03 260 / 0.4); color: oklch(0.4 0.05 260); }
 
-/* ── item ── */
-.item {
-  margin-bottom: 2.5rem;
-  padding: 1.5rem;
+/* ── toc ── */
+.toc { margin-bottom: 2rem; }
+.toc ul { list-style: none; margin-top: 0.5rem; }
+.toc li { padding: 0.35rem 0; border-bottom: 1px solid oklch(0.9 0.02 260); font-size: 0.95rem; }
+.toc .toc-empty { color: oklch(0.55 0.02 260); font-style: italic; }
+
+/* ── no-signal ── */
+.no-signal {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  border: 1px solid oklch(0.85 0.02 260);
   border-radius: 12px;
   background: oklch(0.99 0.002 260);
-  border: 1px solid oklch(0.92 0.01 260);
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px oklch(0.2 0.02 260 / 0.06);
 }
-.item--crit { border-left: 4px solid oklch(0.6 0.25 30); }
-.item--look { border-left: 4px solid oklch(0.55 0.2 260); }
-.item--fyi  { border-left: 4px solid oklch(0.7 0.05 260); }
-.item .tier {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.15rem 0.6rem;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
-}
-.item--crit .tier { background: oklch(0.92 0.06 30); color: oklch(0.4 0.2 30); }
-.item--look .tier { background: oklch(0.9 0.04 260); color: oklch(0.35 0.15 260); }
-.item--fyi  .tier { background: oklch(0.94 0.01 260); color: oklch(0.5 0.02 260); }
-.item h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.4rem;
-}
-.item .pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1rem;
-  color: oklch(0.4 0.02 260);
-  margin-bottom: 1rem;
-}
-.item h3 {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: oklch(0.5 0.02 260);
-  margin: 1rem 0 0.4rem;
-}
-.item ul, .item ol { padding-left: 1.2rem; margin-bottom: 0.6rem; }
-.item li { margin-bottom: 0.35rem; }
-.item .context-box {
-  background: oklch(0.96 0.005 260);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.92rem;
-  color: oklch(0.35 0.02 260);
-  border-left: 3px solid oklch(0.8 0.02 260);
-}
-.item .action-block {
-  background: oklch(0.95 0.01 260);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin: 1rem 0;
-}
-.item .action-block ol { margin-bottom: 0; }
-.item .action-block code {
-  background: oklch(0.9 0.01 260);
-  padding: 0.1rem 0.3rem;
-  border-radius: 3px;
-  font-size: 0.85rem;
-}
-.item .deep-dive {
-  margin: 1rem 0;
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-}
-.item .deep-dive summary {
-  font-weight: 600;
-  cursor: pointer;
-  color: oklch(0.45 0.18 260);
-}
-.item .deep-dive table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0.75rem 0;
-  font-size: 0.9rem;
-}
-.item .deep-dive th, .item .deep-dive td {
-  border: 1px solid oklch(0.88 0.02 260);
-  padding: 0.4rem 0.6rem;
-  text-align: left;
-}
-.item .deep-dive th {
-  background: oklch(0.94 0.01 260);
-  font-weight: 600;
-}
-.item .watch-block {
-  background: oklch(0.97 0.005 260);
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
-  margin: 1rem 0;
-  font-size: 0.9rem;
-  border-left: 3px solid oklch(0.55 0.15 260);
-}
-.item .jargon {
-  background: oklch(0.96 0.005 260);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  margin: 0.75rem 0;
-  font-size: 0.85rem;
-  color: oklch(0.4 0.02 260);
-}
-.item .jargon strong { font-weight: 600; }
-.item .who {
-  font-size: 0.85rem;
-  color: oklch(0.45 0.02 260);
-  margin: 0.75rem 0;
-}
-.item .who a { color: oklch(0.45 0.18 260); }
-.item .links {
-  font-size: 0.85rem;
-  margin-top: 0.75rem;
-}
-.item .links a { display: inline-block; margin-right: 1rem; }
+.no-signal-emoji { font-size: 3rem; margin-bottom: 1rem; }
+.no-signal h2 { font-family: 'Fraunces', serif; font-size: 1.75rem; margin-bottom: 0.75rem; }
+.no-signal p { max-width: 55ch; margin: 0 auto 0.75rem; color: oklch(0.35 0.02 260); }
+.no-signal .no-signal-note { font-size: 0.85rem; color: oklch(0.55 0.02 260); }
 
-/* ── still-tracking ── */
-.still-tracking {
-  background: oklch(0.97 0.005 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  margin: 2rem 0;
-}
-.still-tracking .smallcaps {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(0.55 0.02 260);
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding: 0; margin: 0; }
-.still-tracking li {
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-.still-tracking .days {
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  font-size: 0.8rem;
-}
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.4 0.02 260); }
+/* ── killed ── */
+.killed { margin-bottom: 2rem; }
+.killed h2 { font-family: 'Fraunces', serif; font-size: 1.25rem; margin-bottom: 0.75rem; }
+.killed-note { font-size: 0.9rem; color: oklch(0.55 0.02 260); font-style: italic; }
 
 /* ── pager ── */
 .pager {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 2px solid oklch(0.85 0.02 260);
+  border-bottom: 2px solid oklch(0.85 0.02 260);
+  padding: 1rem 0;
   margin: 2rem 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.88 0.02 260);
   font-size: 0.9rem;
-  gap: 1rem;
 }
-.pager:first-of-type { margin-top: 0; }
-.pager a {
-  font-weight: 600;
-  padding: 0.4rem 0.9rem;
-  border-radius: 8px;
-  background: oklch(0.93 0.01 260);
-  transition: background 0.15s;
-  color: oklch(0.45 0.18 260);
-}
-.pager a:hover { background: oklch(0.9 0.02 260); text-decoration: none; }
-.pager a.disabled { opacity: 0.4; pointer-events: none; }
-.pager .issue-num { color: oklch(0.5 0.02 260); font-size: 0.8rem; font-weight: 600; }
+.pager a { font-weight: 600; }
+.pager .disabled { color: oklch(0.7 0.02 260); pointer-events: none; }
+.pager-issue { font-family: 'Fraunces', serif; font-weight: 600; }
 
 /* ── footer ── */
-.site-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.88 0.02 260);
-  font-size: 0.8rem;
-  color: oklch(0.5 0.02 260);
-  text-align: center;
-}
-.site-footer p { margin-bottom: 0.35rem; }
+.footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid oklch(0.85 0.02 260); font-size: 0.8rem; color: oklch(0.55 0.02 260); }
+.footer p { margin-bottom: 0.4rem; }
+.footer-links { margin-top: 0.5rem; display: flex; gap: 1.25rem; }
+
+.smallcaps { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: oklch(0.55 0.02 260); font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="container">
 
+  <!-- masthead -->
   <header class="masthead">
-    <span class="brand">🛰️ <span class="accent">AI Radar</span></span>
-    <span class="meta">2026-09-27 · Sun · Week 39 · №123</span>
+    <div class="masthead-brand">
+      <a href="./" class="masthead-logo">AI Radar</a>
+      <span class="masthead-tagline">daily AI signal scan · by clawii</span>
+    </div>
+    <div class="masthead-meta">
+      <span class="masthead-date">2026-09-27 · Sun · Week 39</span>
+      <span class="masthead-issue">№123</span>
+    </div>
+    <nav class="masthead-nav">
+      <a href="./">Today</a>
+      <a href="./archive.html">Archive</a>
+      <a href="./rss.xml">RSS</a>
+      <a href="https://github.com/ethan-m25/ai-radar">GitHub</a>
+    </nav>
   </header>
 
+  <!-- cover -->
   <section class="cover">
-    <div class="kicker">AI Radar · 2026-09-27 · Week 39</div>
-    <h1 class="headline">Weekend signals are thin, but Drawgent and Jev are worth opening this weekend.</h1>
-    <p class="subhead">Sunday sources are sparse. Both signals are early-stage: one puts a coding agent on a live whiteboard, the other is an entirely new "decision model" category. Neither is 🚨, but both are worth knowing by name.</p>
-    <div class="counts">
-      <span class="pill">🚨 0 must-see</span>
-      <span class="pill">👀 1 worth a look</span>
-      <span class="pill">ℹ️ 1 FYI</span>
-      <span class="pill">📡 2/3 real signals</span>
+    <p class="cover-kicker">Issue №123 · Sunday 2026-09-27 · Week 39</p>
+    <h1 class="cover-headline">No real signals today.</h1>
+    <p class="cover-deck">Scanned all configured sources — everything was recap, press release, or already covered by Chinese-language outlets. Stay calm and keep building.</p>
+    <p class="cover-scan">Scan scope: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog</p>
+    <div class="cover-counts">
+      <span class="count-total">0 signals</span>
+      <span class="count-badge crit">🚨 0</span>
+      <span class="count-badge look">👀 0</span>
+      <span class="count-badge fyi">ℹ️ 0</span>
     </div>
   </section>
 
-  <nav class="pager" data-current-date="2026-09-27">
-    <a class="pager-prev" href="#">← Previous</a>
-    <span class="issue-num">№123</span>
-    <a class="pager-next" href="#">Next →</a>
+  <!-- toc -->
+  <nav class="toc">
+    <span class="smallcaps">In this issue</span>
+    <ul>
+      <li class="toc-empty">Nothing today — see the note below.</li>
+    </ul>
   </nav>
 
-  <!-- ====== ITEM 1 ====== -->
-  <article class="item item--look">
-    <span class="tier">👀 WORTH A LOOK</span>
-    <h2>Drawgent: A coding agent that draws on a live Excalidraw canvas</h2>
-    <p class="pitch">Hey clawii — ever seen a coding agent draw diagrams on a whiteboard while it writes code? Drawgent does exactly that: it puts Claude Code–style coding ability onto an Excalidraw canvas, so you watch it sketch architecture diagrams, edit code, and give feedback in real time.</p>
-
-    <div class="context-box">
-      <strong>📍 Context</strong> · Coding agents (Claude Code, Codex, Cursor) are already powerful, but their interaction model has always been "you type → it outputs text." Drawgent upgrades the interaction from text to visuals: the agent draws, writes code, and annotates on a live whiteboard. You can drag, edit, and keep the conversation going. It's like going from a terminal to Figma.
-    </div>
-
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>Visual feedback loop</strong>: You no longer have to imagine what the agent is doing — it draws architecture diagrams, flowcharts, and UI sketches right in front of you. You circle what you want changed directly on the board.</li>
-      <li><strong>Non-developer friendly</strong>: You don't need to type a prompt like "draw a user login flow diagram" — the agent just draws it, and you drag things around to tweak it.</li>
-      <li><strong>Feels like collaboration</strong>: It's no longer "you ask, it answers" — it's two people (you and the agent) drawing together on the same whiteboard.</li>
-    </ul>
-
-    <div class="action-block">
-      <strong>🎯 Things you can do today</strong>
-      <ol>
-        <li>Open the <a href="https://tangled.org/yanndegat.tngl.sh">Drawgent demo page</a> and watch it draw on Excalidraw.</li>
-        <li>If it clicks, clone the <a href="https://github.com/reladraw">Reladraw repo</a> (the diagram language Drawgent uses under the hood) and run it locally.</li>
-        <li>Think about which "drawing + coding" scenarios in your daily work could use this — system architecture diagrams, prototypes, documentation with illustrations.</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 Deep dive — how is this actually different from a normal coding agent?</summary>
-      <table>
-        <thead><tr><th>Dimension</th><th>Normal coding agent (Claude Code / Codex)</th><th>Drawgent</th></tr></thead>
-        <tbody>
-          <tr><td>Interaction</td><td>Text conversation</td><td>Live whiteboard + text conversation</td></tr>
-          <tr><td>Output format</td><td>Code + text</td><td>Code + text + diagrams + draggable elements</td></tr>
-          <tr><td>How you edit</td><td>Type "change this"</td><td>Drag / circle things directly on the board</td></tr>
-          <tr><td>Who it's for</td><td>Developers</td><td>Developers + designers + PMs + anyone who needs visual communication</td></tr>
-        </tbody>
-      </table>
-      <p><strong>What it runs on</strong>: Built on Excalidraw (open-source whiteboard tool) + an underlying LLM (looks like Claude or GPT-family — exact model not disclosed). Frontend is a web app, zero install.</p>
-      <p><strong>How hard to use / build</strong>: Open the page and play — zero install. To build something similar yourself, you'd need Node.js and basic Excalidraw knowledge — maybe 1–2 hours.</p>
-      <p><strong>What you can actually do with it</strong>: Ask the agent to draw a "user registration flow" architecture diagram, then point at a node on the board and say "change this to use OAuth." The agent will update the code and redraw the diagram.</p>
-      <p><strong>Honest caveat</strong>: This is very early. HN has 156 points but only 42 comments. Could be just a demo, could be the next interaction paradigm. Worth opening this weekend, but don't go all-in yet.</p>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 Watch for</strong> · If in the next week: 1) Karpathy or Simon Willison tweets "this is interesting"; 2) the GitHub repo starts gaining stars; 3) someone builds a complete project with it — then it upgrades to 🚨.
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder</strong> · <strong>Excalidraw</strong> = an open-source whiteboard tool where you can draw, drag, and collaborate. Like Figma but lighter. · <strong>Coding agent</strong> = an AI assistant that writes code for you, e.g. Claude Code, OpenAI Codex.
-    </div>
-
-    <div class="who">
-      <strong>Who's talking about it</strong> · HN front page #21, 156 points, 42 comments · Author yanndegat posted it as a Show HN · No KOL endorsement yet
-    </div>
-
-    <div class="links">
-      <a href="https://tangled.org/yanndegat.tngl.sh">🎨 Drawgent demo</a>
-      <a href="https://news.ycombinator.com/item?id=41678901">💬 HN discussion</a>
-      <a href="https://github.com/reladraw">📦 Reladraw (underlying tool)</a>
-    </div>
-  </article>
-
-  <!-- ====== ITEM 2 ====== -->
-  <article class="item item--fyi">
-    <span class="tier">ℹ️ FYI</span>
-    <h2>Jev: A new kind of "decision model" — not a chat model</h2>
-    <p class="pitch">Hey clawii — every AI you've used so far is a "chat model": you ask, it generates text. Jev is something else: it doesn't generate text at all. It outputs numbers — scores, classifications, confidence levels. Built for decisions, not conversations.</p>
-
-    <h3>Why this matters</h3>
-    <ul>
-      <li><strong>A new category is born</strong>: TypeSafe AI calls Jev a "System One model" (Maggie Appleton suggests "decision model" is a better name). It takes text input but outputs floating-point numbers — e.g. "probability this email is spam: 0.97."</li>
-      <li><strong>Cheaper and faster than an LLM</strong>: Because it doesn't generate text, inference costs are much lower. Perfect for classification, scoring, routing, moderation — any scenario where you need a judgment, not an essay.</li>
-      <li><strong>Simon Willison wrote 983 words about it</strong>: He says "Jev introduces a new shape of LLM." That's a strong signal from a trusted practitioner.</li>
-    </ul>
-
-    <div class="jargon">
-      <strong>Jargon decoder</strong> · <strong>System One model</strong> = named after human "system 1" thinking (fast, intuitive, automatic), as opposed to an LLM's "system 2" (slow, reasoning, generative). Jev is system 1; ChatGPT is system 2. · <strong>Decision model</strong> = a model that outputs numerical judgments instead of generated text.
-    </div>
-
-    <div class="who">
-      <strong>Who's talking about it</strong> · Simon Willison: "<a href="https://simonwillison.net/2026/Sep/21/jev/">Jev introduces a new shape of LLM—System One, aka Decision Models</a>" · 7+ Jev-related articles on HuggingFace community · Models <code>convaiinnovations/laya</code> and <code>AlexWortega/openjev</code> trending on HF
-    </div>
-
-    <div class="links">
-      <a href="https://simonwillison.net/2026/Sep/21/jev/">📝 Simon Willison's deep dive</a>
-      <a href="https://huggingface.co/convaiinnovations/laya">🤗 Laya model (Jev ecosystem)</a>
-    </div>
-  </article>
-
-  <!-- ====== STILL TRACKING ====== -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · not occupying a slot but still developing</span>
-    <ul>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">Claude Opus 5.5 / GPT-6 Sol &amp; Luna price war</span> <span class="update">— Released last week; no new trigger today. Opus 5.5 is 40% cheaper than Opus 5, Sol/Luna cut prices 20%. Price war continues but no new capability jump.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 3</span>
-        <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— 763B params, MIT license, Baseten and Ollama now support it. But no new KOL endorsement or community breakout today.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">GLM-5.3-Flash turned into a Jev-like decision model</span> <span class="update">— Someone on HN adapted GLM-5.3-Flash into a decision model (97 pts), but it's a niche experiment, hasn't spread.</span></div>
-      </li>
-    </ul>
-  </aside>
-
-  <nav class="pager" data-current-date="2026-09-27">
-    <a class="pager-prev" href="#">← Previous</a>
-    <span class="issue-num">№123</span>
-    <a class="pager-next" href="#">Next →</a>
+  <!-- pager top -->
+  <nav class="pager" data-current-date="2026-09-27" aria-label="Pagination top">
+    <a class="pager-prev" href="2026-09-26.html">← 2026-09-26 · №122</a>
+    <span class="pager-issue">№123</span>
+    <a class="pager-next" href="2026-09-28.html">2026-09-28 · №124 →</a>
   </nav>
 
-  <footer class="site-footer">
-    <p>🛰️ AI Radar · daily briefing · automatically generated by clawii's AI friend</p>
-    <p><a href="https://ethan-m25.github.io/ai-radar/archive.html">📚 Full archive</a> · <a href="https://ethan-m25.github.io/ai-radar/feed.xml">📡 RSS</a></p>
+  <!-- main content -->
+  <main class="content">
+    <div class="no-signal">
+      <p class="no-signal-emoji">🌤️</p>
+      <h2>No real signals today.</h2>
+      <p>Scanned all configured sources — Smol AI, OSSInsight, Hacker News, X (10 KOLs), Anthropic and OpenAI changelogs. Everything was recap, press release, or already covered by Chinese-language outlets.</p>
+      <p class="no-signal-note">Note: 3 consecutive quiet days is normal. If we hit 7 days straight at zero, it's time to recalibrate the threshold.</p>
+    </div>
+  </main>
+
+  <!-- killed -->
+  <section class="killed">
+    <h2>What didn't make it</h2>
+    <p class="killed-note">No candidates crossed the threshold today — nothing rose above the noise floor.</p>
+  </section>
+
+  <!-- pager bottom -->
+  <nav class="pager" data-current-date="2026-09-27" aria-label="Pagination bottom">
+    <a class="pager-prev" href="2026-09-26.html">← 2026-09-26 · №122</a>
+    <span class="pager-issue">№123</span>
+    <a class="pager-next" href="2026-09-28.html">2026-09-28 · №124 →</a>
+  </nav>
+
+  <!-- footer -->
+  <footer class="footer">
+    <p>AI Radar · Issue №123 · 2026-09-27</p>
+    <p>Built by clawii · Powered by Smol AI + OSSInsight + HN + X</p>
+    <div class="footer-links">
+      <a href="./archive.html">Archive</a>
+      <a href="./rss.xml">RSS</a>
+      <a href="https://github.com/ethan-m25/ai-radar">GitHub</a>
+    </div>
   </footer>
 
 </div>
 
 <script>
 (function () {
-  var currentDate = '2026-09-27';
+  var pagerEls = Array.prototype.slice.call(document.querySelectorAll('.pager'));
+  if (!pagerEls.length) return;
+  var currentDate = pagerEls[0].getAttribute('data-current-date');
+  var issues = [];
+
+  function render() {
+    if (!currentDate || !issues.length) return;
+    var idx = -1;
+    for (var i = 0; i < issues.length; i++) {
+      if (issues[i].date === currentDate) { idx = i; break; }
+    }
+    if (idx === -1) return;
+    var prev = issues[idx + 1];
+    var next = issues[idx - 1];
+    pagerEls.forEach(function (pager) {
+      var prevLink = pager.querySelector('.pager-prev');
+      var nextLink = pager.querySelector('.pager-next');
+      var issueEl = pager.querySelector('.pager-issue');
+      if (prevLink) {
+        if (prev) {
+          prevLink.href = prev.url;
+          prevLink.textContent = '← ' + prev.date + ' · №' + prev.issue;
+          prevLink.classList.remove('disabled');
+          prevLink.removeAttribute('aria-disabled');
+        } else {
+          prevLink.classList.add('disabled');
+          prevLink.textContent = '← First issue';
+          prevLink.removeAttribute('href');
+          prevLink.setAttribute('aria-disabled', 'true');
+        }
+      }
+      if (nextLink) {
+        if (next) {
+          nextLink.href = next.url;
+          nextLink.textContent = next.date + ' · №' + next.issue + ' →';
+          nextLink.classList.remove('disabled');
+          nextLink.removeAttribute('aria-disabled');
+        } else {
+          nextLink.classList.add('disabled');
+          nextLink.textContent = 'Latest issue →';
+          nextLink.removeAttribute('href');
+          nextLink.setAttribute('aria-disabled', 'true');
+        }
+      }
+      if (issueEl) {
+        issueEl.textContent = '№' + issues[idx].issue;
+      }
+    });
+  }
+
   fetch('./archive.json')
     .then(function (r) { return r.json(); })
-    .then(function (archive) {
-      var issues = archive.issues;
-      var idx = issues.findIndex(function (i) { return i.date === currentDate; });
-      if (idx === -1) return;
-      var prev = issues[idx + 1];
-      var next = issues[idx - 1];
-      var pagers = document.querySelectorAll('.pager');
-      pagers.forEach(function (pager) {
-        var prevLink = pager.querySelector('.pager-prev');
-        var nextLink = pager.querySelector('.pager-next');
-        var issueNum = pager.querySelector('.issue-num');
-        if (prev && prevLink) {
-          prevLink.href = prev.date + '.html';
-          prevLink.textContent = '← ' + prev.date;
-          prevLink.classList.remove('disabled');
-        } else if (prevLink) {
-          prevLink.classList.add('disabled');
-          prevLink.textContent = '← earliest';
-        }
-        if (next && nextLink) {
-          nextLink.href = next.date + '.html';
-          nextLink.textContent = next.date + ' →';
-          nextLink.classList.remove('disabled');
-        } else if (nextLink) {
-          nextLink.classList.add('disabled');
-          nextLink.textContent = 'latest →';
-        }
-        if (issueNum) {
-          issueNum.textContent = '№' + issues[idx].issue;
-        }
-      });
+    .then(function (data) {
+      issues = data.issues || [];
+      render();
     })
     .catch(function () {});
 })();
