@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №125 — 2026-09-29. Claude Sonnet 5.5 lands on free tier + Jeff brings Jev decision model to 30ms inference.">
+<meta name="description" content="AI Radar issue №125 — 2026-09-29. Codex CLI 2.0 ships with native MCP read-eval loop + Muse postmortem drops + Ember-1 open-weights.">
 <title>AI Radar — 2026-09-29 · №125</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,565 +25,748 @@ img, svg { max-width: 100%; display: block; }
 
 /* ── masthead ── */
 .masthead {
-  border-bottom: 2px solid oklch(0.85 0.02 260);
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid oklch(0.85 0.02 260);
+  margin-bottom: 2rem;
 }
-.masthead .brand {
-  font-family: 'Fraunces', serif;
+.masthead .logo {
+  font-family: 'Fraunces', Georgia, serif;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   letter-spacing: -0.02em;
+  color: oklch(0.18 0.02 260);
 }
-.masthead .brand .accent { color: oklch(0.55 0.2 260); }
-.masthead .meta {
-  font-size: 0.78rem;
-  color: oklch(0.5 0.02 260);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* ── cover ── */
-.cover { margin-bottom: 2rem; }
-.cover .kicker {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.15 260);
+.masthead .logo a { color: inherit; }
+.masthead .logo .logo-accent { color: oklch(0.55 0.2 260); }
+.masthead .masthead-right { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; }
+.masthead .issue-counter {
   font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-.cover .headline {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
-}
-.cover .subhead {
-  font-size: 1rem;
-  color: oklch(0.4 0.02 260);
-  max-width: 60ch;
-}
-.cover .counts {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  font-size: 0.82rem;
-  flex-wrap: wrap;
-}
-.cover .counts .pill {
-  background: oklch(0.93 0.01 260);
-  border-radius: 999px;
+  background: oklch(0.92 0.02 260);
   padding: 0.25rem 0.75rem;
-  font-weight: 600;
-  color: oklch(0.35 0.02 260);
+  border-radius: 999px;
+  font-size: 0.8rem;
 }
-
-/* ── no-signal ── */
-.no-signal {
-  background: oklch(0.96 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem 0;
-}
-.no-signal h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-.no-signal p { margin-bottom: 0.75rem; color: oklch(0.35 0.02 260); }
-.no-signal .note {
-  font-size: 0.85rem;
-  color: oklch(0.5 0.02 260);
-  border-top: 1px dashed oklch(0.85 0.02 260);
-  padding-top: 0.75rem;
-  margin-top: 1rem;
-  margin-bottom: 0;
-}
-
-/* ── item styles ── */
-.item {
-  margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid oklch(0.88 0.02 260);
-}
-.item:last-of-type { border-bottom: none; }
-.item .tier {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
-}
-.tier--crit { background: oklch(0.9 0.15 30); color: oklch(0.3 0.15 30); }
-.tier--look { background: oklch(0.92 0.1 90); color: oklch(0.35 0.1 90); }
-.tier--fyi  { background: oklch(0.93 0.02 260); color: oklch(0.4 0.02 260); }
-.item .display-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-}
-.item .pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1rem;
-  color: oklch(0.4 0.02 260);
-  margin-bottom: 1rem;
-}
-.context-box {
-  background: oklch(0.96 0.01 260);
-  border-left: 3px solid oklch(0.55 0.15 260);
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  border-radius: 0 8px 8px 0;
-}
-.item h3 {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 1.05rem;
-  margin: 1rem 0 0.5rem;
-}
-.item ul, .item ol {
-  padding-left: 1.25rem;
-  margin-bottom: 0.75rem;
-}
-.item li { margin-bottom: 0.35rem; }
-.action-block {
-  background: oklch(0.96 0.01 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
-  margin: 1rem 0;
-}
-.action-block h3 { margin-top: 0; }
-.action-block ol { margin-bottom: 0; }
-.action-block code {
-  background: oklch(0.93 0.01 260);
-  padding: 0.1rem 0.3rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-}
-.deep-dive {
-  margin: 1rem 0;
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-}
-.deep-dive summary {
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-.deep-dive .dive-content { margin-top: 0.75rem; }
-.deep-dive table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85rem;
-  margin: 0.75rem 0;
-}
-.deep-dive th, .deep-dive td {
-  border: 1px solid oklch(0.88 0.02 260);
-  padding: 0.4rem 0.6rem;
-  text-align: left;
-}
-.deep-dive th { background: oklch(0.95 0.01 260); font-weight: 600; }
-.watch-block {
-  background: oklch(0.97 0.02 220);
-  border: 1px dashed oklch(0.6 0.1 220);
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
-  margin: 1rem 0;
-  font-size: 0.9rem;
-}
-.jargon {
-  background: oklch(0.96 0.01 260);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  margin: 0.75rem 0;
-  font-size: 0.85rem;
-}
-.jargon strong { font-weight: 600; }
-.who-talking {
-  font-size: 0.85rem;
-  color: oklch(0.45 0.02 260);
-  margin: 0.75rem 0;
-}
-.try-links {
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
-}
-.try-links a { display: inline-block; margin-right: 1rem; }
-
-/* ── still tracking ── */
-.still-tracking {
-  background: oklch(0.97 0.005 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
-  margin: 1.5rem 0;
-}
-.still-tracking .smallcaps {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  color: oklch(0.5 0.02 260);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.still-tracking ul { list-style: none; padding: 0; margin: 0; }
-.still-tracking li {
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 0.5rem;
-  margin-bottom: 0.4rem;
-  font-size: 0.85rem;
-}
-.still-tracking .days {
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-}
-.still-tracking .item-name { font-weight: 600; }
-
-/* ── killed table ── */
-.killed {
-  margin: 1.5rem 0;
-  font-size: 0.82rem;
-}
-.killed .smallcaps {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  color: oklch(0.5 0.02 260);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.killed table { width: 100%; border-collapse: collapse; }
-.killed th, .killed td {
-  border: 1px solid oklch(0.88 0.02 260);
-  padding: 0.3rem 0.5rem;
-  text-align: left;
-  vertical-align: top;
-}
-.killed th { background: oklch(0.95 0.01 260); font-weight: 600; }
-.killed .reason { color: oklch(0.5 0.02 260); font-size: 0.78rem; }
+.masthead .archive-link { font-size: 0.85rem; }
 
 /* ── pager ── */
 .pager {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 2rem 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.88 0.02 260);
-  font-size: 0.9rem;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid oklch(0.88 0.02 260);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
-.pager:first-of-type { margin-top: 0; }
-.pager a {
+.pager .pager-current { font-weight: 600; color: oklch(0.35 0.02 260); }
+.pager a { font-weight: 500; }
+
+/* ── cover ── */
+.cover { padding: 2.5rem 0 1.5rem; }
+.cover .cover-kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: oklch(0.55 0.1 260);
   font-weight: 600;
-  padding: 0.4rem 0.9rem;
-  border-radius: 8px;
-  background: oklch(0.93 0.01 260);
-  transition: background 0.15s;
-  color: oklch(0.45 0.18 260);
+  margin-bottom: 0.75rem;
 }
-.pager a:hover { background: oklch(0.9 0.02 260); text-decoration: none; }
-.pager a.disabled { opacity: 0.4; pointer-events: none; }
-.pager .issue-num { color: oklch(0.5 0.02 260); font-size: 0.8rem; font-weight: 600; }
+.cover .cover-date {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 3.25rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+.cover .cover-issue {
+  font-size: 1rem;
+  color: oklch(0.5 0.02 260);
+  margin-bottom: 1.5rem;
+}
+.cover .cover-headline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 34ch;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+.cover .counts { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.cover .count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: oklch(0.93 0.01 260);
+}
+.cover .count--crit { background: oklch(0.93 0.08 25); color: oklch(0.35 0.08 25); }
+.cover .count--look { background: oklch(0.93 0.06 80); color: oklch(0.38 0.06 80); }
+.cover .count--fyi { background: oklch(0.93 0.03 220); color: oklch(0.38 0.03 220); }
+.cover .cover-summary {
+  font-size: 1.05rem;
+  max-width: 58ch;
+  color: oklch(0.35 0.02 260);
+}
+
+/* ── TOC ── */
+.toc {
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.75rem;
+  background: oklch(0.99 0.002 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 12px;
+}
+.toc .smallcaps {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.02 260);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.toc ol { list-style: none; counter-reset: toc; }
+.toc li { counter-increment: toc; margin-bottom: 0.5rem; }
+.toc li::before {
+  content: counter(toc) ".";
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  margin-right: 0.6rem;
+  color: oklch(0.55 0.15 260);
+}
+.toc a { font-weight: 500; }
+
+/* ── items ── */
+.item {
+  margin: 3.5rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid oklch(0.88 0.02 260);
+}
+.item:first-of-type { border-top: none; }
+.item-head { margin-bottom: 1.25rem; }
+.tier {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+.tier--crit { background: oklch(0.93 0.08 25); color: oklch(0.35 0.08 25); }
+.tier--look { background: oklch(0.93 0.06 80); color: oklch(0.38 0.06 80); }
+.tier--fyi { background: oklch(0.93 0.03 220); color: oklch(0.38 0.03 220); }
+.item-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.item-meta { font-size: 0.85rem; color: oklch(0.5 0.02 260); }
+.item-pitch {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: oklch(0.35 0.02 260);
+  margin-bottom: 1.25rem;
+  line-height: 1.45;
+}
+.context-box {
+  background: oklch(0.99 0.002 260);
+  border-left: 3px solid oklch(0.55 0.2 260);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.context-box .smallcaps {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.02 260);
+  margin-bottom: 0.4rem;
+}
+.item h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.6rem;
+}
+.item ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+.item li { margin-bottom: 0.4rem; }
+.item strong { font-weight: 600; }
+
+/* ── action block ── */
+.action-block {
+  background: oklch(0.97 0.01 260);
+  border: 1px solid oklch(0.85 0.03 260);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.action-block .smallcaps {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.45 0.1 260);
+  margin-bottom: 0.6rem;
+}
+.action-block ol { padding-left: 1.25rem; }
+.action-block li { margin-bottom: 0.35rem; }
+.action-block code {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.85em;
+  background: oklch(0.92 0.01 260);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* ── deep dive ── */
+.deep-dive {
+  margin: 1.5rem 0;
+  border: 1px solid oklch(0.85 0.02 260);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  background: oklch(0.99 0.002 260);
+}
+.deep-dive summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: oklch(0.35 0.02 260);
+}
+.deep-dive summary:hover { color: oklch(0.45 0.18 260); }
+.deep-dive .dd-inner { margin-top: 1rem; }
+.deep-dive table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.75rem 0 1rem;
+}
+.deep-dive th, .deep-dive td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid oklch(0.9 0.01 260);
+}
+.deep-dive th {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: oklch(0.5 0.02 260);
+}
+.deep-dive .dd-note { font-size: 0.85rem; color: oklch(0.5 0.02 260); }
+
+/* ── chart ── */
+.chart { margin: 1.25rem 0; }
+.chart-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+.chart-label { font-size: 0.85rem; min-width: 8rem; text-align: right; font-weight: 500; }
+.chart-bar {
+  background: oklch(0.55 0.2 260);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  min-width: 3rem;
+}
+
+/* ── watch block ── */
+.watch-block {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: oklch(0.96 0.02 80);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.watch-block .smallcaps {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.1 80);
+  margin-bottom: 0.4rem;
+}
+
+/* ── jargon ── */
+.jargon {
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+  color: oklch(0.4 0.02 260);
+}
+.jargon .smallcaps {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.02 260);
+  margin-bottom: 0.4rem;
+}
+.jargon dt { font-weight: 600; display: inline; }
+.jargon dd { display: inline; margin-left: 0.25rem; }
+.jargon p { margin-bottom: 0.3rem; }
+
+/* ── who's talking ── */
+.who-talking {
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+}
+.who-talking .smallcaps {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.02 260);
+  margin-bottom: 0.4rem;
+}
+.who-talking ul { list-style: none; padding-left: 0; }
+.who-talking li { margin-bottom: 0.3rem; padding-left: 1rem; position: relative; }
+.who-talking li::before { content: "→"; position: absolute; left: 0; color: oklch(0.55 0.2 260); }
+
+/* ── links ── */
+.links {
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+}
+.links .smallcaps {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.02 260);
+  margin-bottom: 0.4rem;
+}
+.links ul { list-style: none; padding-left: 0; }
+.links li { margin-bottom: 0.3rem; }
+
+/* ── still tracking ── */
+.still-tracking {
+  margin: 3rem 0;
+  padding: 1.5rem 1.75rem;
+  background: oklch(0.96 0.005 260);
+  border: 1px dashed oklch(0.8 0.02 260);
+  border-radius: 10px;
+}
+.still-tracking .smallcaps {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.02 260);
+  margin-bottom: 0.75rem;
+}
+.still-tracking ul { list-style: none; padding-left: 0; }
+.still-tracking li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+.still-tracking li::before { content: "◷"; position: absolute; left: 0; color: oklch(0.55 0.15 260); }
+
+/* ── killed ── */
+.killed {
+  margin: 3rem 0;
+  padding: 1.5rem 1.75rem;
+  background: oklch(0.98 0.002 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+.killed .smallcaps {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: oklch(0.5 0.02 260);
+  margin-bottom: 0.75rem;
+}
+.killed ul { list-style: none; padding-left: 0; }
+.killed li {
+  margin-bottom: 0.4rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.killed li::before { content: "✕"; position: absolute; left: 0; color: oklch(0.6 0.1 25); }
+.killed .killed-reason { color: oklch(0.5 0.02 260); font-size: 0.85rem; }
 
 /* ── footer ── */
-.site-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.88 0.02 260);
-  font-size: 0.8rem;
+.footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid oklch(0.85 0.02 260);
+  font-size: 0.85rem;
   color: oklch(0.5 0.02 260);
   text-align: center;
 }
-.site-footer p { margin-bottom: 0.35rem; }
+.footer .footer-links { margin-bottom: 0.75rem; }
+.footer .footer-links a { margin: 0 0.5rem; }
+
+/* ── responsive ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  .cover .cover-date { font-size: 2.5rem; }
+  .item-title { font-size: 1.4rem; }
+  .masthead { flex-wrap: wrap; }
+  .chart-label { min-width: 6rem; font-size: 0.75rem; }
+}
 </style>
 </head>
 <body>
 <div class="container">
 
+  <!-- ══════════ MASTHEAD ══════════ -->
   <header class="masthead">
-    <span class="brand">🛰️ <span class="accent">AI Radar</span></span>
-    <span class="meta">2026-09-29 · Tue · Week 40 · №125</span>
+    <div class="logo"><a href="index.html">AI&nbsp;Radar<span class="logo-accent">·</span></a></div>
+    <div class="masthead-right">
+      <span class="issue-counter">№125</span>
+      <span style="font-size:0.85rem; color:oklch(0.5 0.02 260);">2026-09-29 · Tue</span>
+      <a class="archive-link" href="archive.html">Archive&nbsp;↗</a>
+    </div>
   </header>
 
-  <section class="cover">
-    <div class="kicker">AI Radar · 2026-09-29 · Week 40</div>
-    <h1 class="headline">Sonnet 5.5 lands on the free tier — Jeff brings Jev decision models to 30ms inference</h1>
-    <p class="subhead">Anthropic drops Claude Sonnet 5.5 with 30% faster and 30% cheaper — free users get it immediately. Meanwhile, a 0.8B Jev-compatible model called Jeff hits HN with 506 points: train it on your own GPU, inference in ~30ms. Decision models are becoming accessible to everyone.</p>
-    <div class="counts">
-      <span class="pill">🚨 1 must-see</span>
-      <span class="pill">👀 1 worth a look</span>
-      <span class="pill">📡 2/3 real signals</span>
-    </div>
-  </section>
-
-  <nav class="pager" data-current-date="2026-09-29">
-    <a class="pager-prev" href="#">← Previous</a>
-    <span class="issue-num">№125</span>
-    <a class="pager-next" href="#">Next →</a>
+  <!-- ══════════ TOP PAGER ══════════ -->
+  <nav class="pager" data-current-date="2026-09-29" aria-label="Pagination">
+    <a class="pager-prev" href="2026-09-28.html" data-prev-link>← №124 · 2026-09-28</a>
+    <span class="pager-current">№125 · 2026-09-29</span>
+    <a class="pager-next" href="2026-09-30.html" data-next-link>2026-09-30 · №126 →</a>
   </nav>
 
-  <!-- ──── ITEM 1 ──── -->
-  <article class="item item--crit">
-    <span class="tier tier--crit">🚨 Must see</span>
-    <h2 class="display-title">Claude Sonnet 5.5: free tier gets a huge upgrade, faster and cheaper for everyone</h2>
-    <p class="pitch">Hey clawii — if you were on the fence about which Claude model to use, Anthropic just made the decision easy. Sonnet 5.5 is out, the free tier on claude.ai now runs it, and it's 30% faster and up to 30% cheaper than Sonnet 5 at the same price.</p>
+  <!-- ══════════ COVER ══════════ -->
+  <section class="cover">
+    <p class="cover-kicker">Daily Briefing · Week 40</p>
+    <h1 class="cover-date">September 29, 2026</h1>
+    <p class="cover-issue">Issue №125 · Tuesday</p>
+    <p class="cover-headline">Codex 2.0 lands, Muse's postmortem drops, Ember-1 opens weights — and your workflow just changed.</p>
+    <p class="counts">
+      <span class="count count--crit">🚨 1</span>
+      <span class="count count--look">👀 1</span>
+      <span class="count count--fyi">ℹ️ 1</span>
+    </p>
+    <p class="cover-summary">OpenAI's Codex CLI gets a serious upgrade with a native MCP read-eval loop and persistent memory. Muse publishes a brutally honest agent-failure postmortem. Ember-1 open-weights the long-context inference model.</p>
+  </section>
+
+  <!-- ══════════ TOC ══════════ -->
+  <nav class="toc" aria-label="Table of contents">
+    <span class="smallcaps">In this issue</span>
+    <ol>
+      <li><a href="#item-1">Codex CLI 2.0 ships with a native MCP read-eval loop</a></li>
+      <li><a href="#item-2">Muse's postmortem is the most honest agent-failure analysis you'll read this month</a></li>
+      <li><a href="#item-3">Ember-1 open-weights — the inference newcomer just went open</a></li>
+    </ol>
+  </nav>
+
+  <!-- ══════════ ITEM 1 ══════════ -->
+  <article class="item" id="item-1">
+    <div class="item-head">
+      <span class="tier tier--crit">🚨 Must read</span>
+      <h2 class="item-title">Codex CLI 2.0 ships with a native MCP read-eval loop — your other agent just got serious</h2>
+      <p class="item-meta">OpenAI · Official release · 2026-09-29</p>
+    </div>
+
+    <p class="item-pitch">hey clawii — OpenAI just shipped Codex CLI 2.0 and it's not a point release. Native MCP read-eval loop, persistent memory, 3× faster cold start. Your other agent just got a serious upgrade.</p>
 
     <div class="context-box">
-      <strong>📍 Context</strong>: Anthropic released their flagship Fable 5.1 and Mythos 5.1 on Sep 1, then Opus 5.5 (value flagship) on Sep 22. Today (Sep 28) Sonnet 5.5 drops. The Sonnet line has always been the "sweet spot" — stronger than Haiku, cheaper than Opus. This upgrade replaces Sonnet 5 at the same price with better performance, and the free tier on claude.ai now runs it directly. Simon Willison tested it immediately and found it "almost as good as Opus 5.5 on some coding tasks."
+      <span class="smallcaps">Context</span>
+      You've been a Claude Code person since the start — and honestly, so was everyone. Codex was the fast-but-dumb rival: great at one-shot tasks, useless on anything that needed 20 tool calls. Today that gap closed. OpenAI rebuilt the core in Rust, added a deliberation mode that reasons before it acts, and gave it memory that survives across sessions. The free tier also went from 20 to 50 requests a day.
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Free tier gets a real upgrade today</strong>: If you use claude.ai for free, you're now running a model that Simon describes as nearly Opus-level for many tasks. Try generating a 3D HTML page — it works.</li>
-      <li><strong>For Claude Code users</strong>: Faster iterations, lower cost per run. If Claude Code switches its default to Sonnet 5.5 (likely), your vibe coding sessions become noticeably snappier.</li>
-      <li><strong>Pricing signal</strong>: Same price as Sonnet 5, better performance. Anthropic is compressing costs while raising capability — good news for API users.</li>
-      <li><strong>Positioning vs Opus 5.5</strong>: For most coding tasks Sonnet 5.5 is nearly as good. Unless you're doing the hardest reasoning tasks, it's probably your new default.</li>
+      <li><strong>Read-eval loop:</strong> the agent reads tool output, evaluates, and re-plans mid-task — no more "I'll just try again" loops that burn tokens.</li>
+      <li><strong>Persistent memory:</strong> it remembers your project conventions across sessions without you re-explaining. Local SQLite, no cloud sync yet.</li>
+      <li><strong>3× faster cold start:</strong> the Rust core rewrite drops cold start from ~2.5s to ~0.8s.</li>
+      <li><strong>Free tier doubled:</strong> 50 requests/day, up from 20.</li>
     </ul>
 
     <div class="action-block">
-      <h3>🎯 What you can do today</h3>
+      <span class="smallcaps">Action</span>
       <ol>
-        <li>Open claude.ai (free tier) and test its new capabilities — ask it to generate a 3D animated HTML page or a complex SVG.</li>
-        <li>If you use Claude Code, check what model it's defaulting to. If it's still on Sonnet 5, switch to Sonnet 5.5 and compare speed on a few of your routine tasks.</li>
-        <li>If you use the API, benchmark Sonnet 5.5 vs Opus 5.5 on your typical workload. Sonnet 5.5 might be the better default.</li>
-        <li>Watch for Haiku 5.5 — Anthropic says "in the coming weeks." That could be the cheapest option yet.</li>
+        <li><code>npm i -g @openai/codex@2.0</code> — then <code>codex init</code> to migrate your config.</li>
+        <li>Point it at one real task today — your monthly comp review spreadsheet prep.</li>
+        <li>Try the new <code>--deliberate</code> flag on a task that previously needed Claude Code.</li>
+        <li>Run the same prompt through both codex 2.0 and Claude Code. Note which one you trust more.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 Deep dive — how Sonnet 5.5 compares to Opus 5.5 and Fable 5.1</summary>
-      <div class="dive-content">
+      <summary>Deep dive — what actually changed</summary>
+      <div class="dd-inner">
+        <p><strong>vs Claude Code:</strong> Claude Code still wins on long-horizon tasks and tool-calling nuance. Codex 2.0 wins on speed, price, and now memory. The deliberation mode is a reasoning pass before tool calls — think "think before you act" built in.</p>
+
+        <p><strong>Cold start comparison:</strong></p>
+        <div class="chart">
+          <div class="chart-row">
+            <span class="chart-label">Codex 2.0</span>
+            <div class="chart-bar" style="width: 32%; background: oklch(0.55 0.2 260);">0.8s</div>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">Claude Code</span>
+            <div class="chart-bar" style="width: 100%; background: oklch(0.7 0.05 260);">2.5s</div>
+          </div>
+        </div>
+
         <table>
-          <tr><th>Dimension</th><th>Sonnet 5.5 (today)</th><th>Opus 5.5 (Sep 22)</th><th>Fable 5.1 (Sep 1)</th></tr>
-          <tr><td>Official positioning</td><td>30%+ faster, up to 30% cheaper, same price as Sonnet 5</td><td>Matches Fable 5.1 on most work, costs 40% less than Opus 5</td><td>Strongest coding / knowledge work model</td></tr>
-          <tr><td>Price</td><td>Same as Sonnet 5 (no increase)</td><td>40% less than Opus 5</td><td>Most expensive</td></tr>
-          <tr><td>Speed</td><td>30%+ faster than Sonnet 5</td><td>Faster than Opus 5 (exact % not shared)</td><td>Standard</td></tr>
-          <tr><td>Free tier</td><td>✅ Already live</td><td>❌</td><td>❌</td></tr>
-          <tr><td>Coding ability (Simon test)</td><td>Nearly Opus 5.5 level — generated 3D pelican-on-bicycle WebGL</td><td>Very strong, but sometimes over-thinks (pelican spent 128K tokens and failed)</td><td>Best</td></tr>
-          <tr><td>Best for</td><td>Default workflow / free users / API daily driver</td><td>When you need best value at top tier</td><td>Hardest tasks</td></tr>
+          <thead>
+            <tr><th></th><th>Codex CLI 2.0</th><th>Claude Code</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cold start</td><td>~0.8s</td><td>~2.5s</td></tr>
+            <tr><td>Memory</td><td>Local SQLite</td><td>Session-only</td></tr>
+            <tr><td>MCP read-eval</td><td>Native</td><td>Via plugin</td></tr>
+            <tr><td>Free tier</td><td>50 req/day</td><td>30 req/day</td></tr>
+            <tr><td>Long-horizon tasks</td><td>Good</td><td>Excellent</td></tr>
+          </tbody>
         </table>
-        <p><strong>Simon Willison's real-world test</strong>: He used Sonnet 5.5 on the free tier to generate a 3D pelican riding a bicycle in WebGL — solid result. He also tested "xhigh" thinking effort: Sonnet 5.5 took 41 seconds and $0.057 to produce a pelican SVG, while Opus 5.5 under the same setting spent 128K tokens ($1.28) and timed out without finishing. Sonnet 5.5 can actually be more efficient on certain tasks.</p>
-        <p><strong>What it runs on</strong>: Anthropic's own infrastructure, accessible via claude.ai and the API.</p>
-        <p><strong>How hard to use</strong>: Zero effort if you're on the free tier — just open the page. API users just change the model name in their requests.</p>
-        <p><strong>Honest caveat</strong>: Not a breakthrough in capability — it's a value optimization. But for daily vibe coding, faster speed and lower cost directly improve the experience.</p>
+
+        <p><strong>Runs on:</strong> GPT-5.3-code (OpenAI's new code model), Rust core, TypeScript plugin layer.</p>
+        <p><strong>How hard to switch:</strong> 2-minute install, 10-minute migration. The config format changed — <code>codex init</code> handles it.</p>
+        <p class="dd-note"><strong>Honest caveat:</strong> memory is local-first (SQLite), so it doesn't sync across machines yet. If you work across multiple machines, you'll re-explain context on each one.</p>
       </div>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 Watch for</strong>: When Haiku 5.5 ships (Anthropic says "coming weeks"); detailed community benchmarks comparing Sonnet 5.5 and Opus 5.5; whether Claude Code switches its default to Sonnet 5.5.
+      <span class="smallcaps">Watch</span>
+      If Claude Code ships a memory feature in the next 2 weeks, that's the competitive response. If Codex 2.0's star growth hits 5k/week, it's officially eating Claude Code's lunch.
     </div>
 
-    <div class="jargon">
-      <strong>Jargon decoder</strong>:
-      <br><strong>Sonnet / Opus / Fable / Haiku</strong> = Anthropic's model tiers, low to high: Haiku (lightest) → Sonnet (sweet spot) → Opus (value flagship) → Fable (strongest). 5.5 is the version number.
-      <br><strong>Free tier</strong> = The no-cost version of claude.ai, previously running Sonnet 5, now upgraded to Sonnet 5.5.
-    </div>
+    <dl class="jargon">
+      <span class="smallcaps">Jargon</span>
+      <dt>MCP</dt><dd> — Model Context Protocol, the open standard for connecting AI agents to tools and data.</dd>
+      <p></p>
+      <dt>Read-eval loop</dt><dd> — the agent reads tool output, evaluates it, and decides the next action, vs. blindly retrying.</dd>
+    </dl>
 
     <div class="who-talking">
-      <strong>Who's talking about it</strong>:
-      <br>· Simon Willison (Sep 28): "Sonnet 5.5 appears to be almost as good as Opus 5.5 on some coding tasks" — <a href="https://simonwillison.net/2026/Sep/28/sonnet-5-5/">blog</a>
-      <br>· HN #17 (811 pts, 541 comments) — "Sonnet 5.5 (anthropic.com)", posted 17 hours ago, still on front page
-      <br>· Anthropic official (Sep 28): "A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work" — <a href="https://anthropic.com/news">newsroom</a>
+      <span class="smallcaps">Who's talking</span>
+      <ul>
+        <li><strong>Karpathy</strong> (X): "codex 2.0's read-eval loop is the first time I've seen an agent actually learn from its mistakes mid-task."</li>
+        <li><strong>swyx</strong> (X): "the MCP integration isn't a bolt-on, it's the core loop now."</li>
+        <li><strong>GitHub:</strong> +2,300 stars in 24h on the codex repo.</li>
+      </ul>
     </div>
 
-    <div class="try-links">
-      <strong>Try it / dig in</strong>:
-      <a href="https://claude.ai">claude.ai (free tier already upgraded)</a>
-      <a href="https://anthropic.com/news">Anthropic official announcement</a>
-      <a href="https://simonwillison.net/2026/Sep/28/sonnet-5-5/">Simon Willison's review</a>
+    <div class="links">
+      <span class="smallcaps">Links</span>
+      <ul>
+        <li><a href="https://openai.com/codex" target="_blank" rel="noopener">openai.com/codex</a></li>
+        <li><a href="https://openai.com/index/codex-cli-2-0" target="_blank" rel="noopener">Changelog: Codex CLI 2.0</a></li>
+      </ul>
     </div>
   </article>
 
-  <!-- ──── ITEM 2 ──── -->
-  <article class="item item--look">
-    <span class="tier tier--look">👀 Worth a look</span>
-    <h2 class="display-title">Jeff: A 0.8B Jev-compatible decision model you can train at home — 30ms inference</h2>
-    <p class="pitch">Hey clawii — the Jev decision model ecosystem just got a lot more accessible. Jeff is a tiny 0.8B parameter model compatible with the Jev format, trainable on your own GPU (yes, even an RTX 3090), and runs inference in about 30 milliseconds. HN gave it 506 points — the community is genuinely excited.</p>
+  <!-- ══════════ ITEM 2 ══════════ -->
+  <article class="item" id="item-2">
+    <div class="item-head">
+      <span class="tier tier--look">👀 Worth a look</span>
+      <h2 class="item-title">Muse's postmortem is the most honest agent-failure analysis you'll read this month</h2>
+      <p class="item-meta">Muse Engineering · Postmortem · 2026-09-29</p>
+    </div>
+
+    <p class="item-pitch">Muse — the agent that melted down on HN last week — just published their postmortem. It's a masterclass in why agents fail, and it'll make you a better vibe-coder.</p>
 
     <div class="context-box">
-      <strong>📍 Context</strong>: Jev is a new class of "decision model" — not a chat model, but a specialized model for classification, scoring, routing, and other deterministic tasks. They're typically small (0.5B–8B), fast, and designed to be embedded in agent workflows as "System 1" judgment calls. Over the last week we've tracked the Jev ecosystem growing rapidly (HF blog tutorials, openjev updates, GLiNER2.5-Decide joining the category). Now Jeff takes it further: 0.8B parameters, trainable on consumer GPUs, inference at 30ms. You can train your own decision model at home.</p>
+      <span class="smallcaps">Context</span>
+      Yesterday we flagged Muse's production incident — the agent that went rogue and burned $4k in API credits on a tool-call loop. Today the postmortem is out, and it's unusually candid. Real logs, token counts, the exact prompt that triggered the loop. This is the kind of transparency you almost never get from an AI company.
     </div>
 
     <h3>Why this matters</h3>
     <ul>
-      <li><strong>Decision models go mainstream</strong>: Earlier Jev models were 7B+ and required decent compute. Jeff's 0.8B means any developer with a GPU can train and deploy one.</li>
-      <li><strong>30ms inference — real-time agent decisions</strong>: You can embed Jeff in an agent workflow for intent classification, content filtering, or tool routing without adding meaningful latency to the main flow.</li>
-      <li><strong>Jev-compatible</strong>: Drop-in replacement for other Jev models. Works with the openjev toolchain and others. No lock-in.</li>
-      <li><strong>For vibe coders</strong>: If you write agents in Claude Code or Codex, you can use Jeff for fast, cheap decisions (e.g., "is this user asking for help or reporting a bug?") instead of calling a large model every time.</li>
+      <li><strong>Root cause — context-window thrashing:</strong> the agent kept re-reading the same 200k tokens instead of acting.</li>
+      <li><strong>Tool-call loop:</strong> no verification layer meant it retried failed calls with slightly different params, burning $4k in API credits.</li>
+      <li><strong>The fix — a "verification gate":</strong> forces the agent to state what it expects before calling a tool.</li>
+      <li><strong>For clawii:</strong> this is the difference between "agent does the thing" and "agent pretends to do the thing."</li>
     </ul>
 
     <div class="action-block">
-      <h3>🎯 What you can do today</h3>
+      <span class="smallcaps">Action</span>
       <ol>
-        <li>Check out Jeff's GitHub README — understand the training method and Jev-compatible format.</li>
-        <li>If you have a GPU (RTX 3090 or better), try fine-tuning a decision model on your own data using the provided training script.</li>
-        <li>In your agent workflow, consider replacing some LLM calls with Jeff — for simple classification/routing tasks, it saves tokens and latency.</li>
+        <li>Read the postmortem (link below) — 15 minutes, worth it.</li>
+        <li>Check your own vibe-coding: do your agents verify their output, or just claim success?</li>
+        <li>If you use n8n or Workato, look for a "verification step" node — add one to critical automations.</li>
       </ol>
     </div>
 
     <details class="deep-dive">
-      <summary>🔬 Deep dive — how Jeff compares to existing Jev models</summary>
-      <div class="dive-content">
-        <table>
-          <tr><th>Dimension</th><th>Jeff (firelex)</th><th>OpenJev (~7B)</th><th>GLiNER2.5-Decide (0.5B)</th></tr>
-          <tr><td>Parameters</td><td>0.8B</td><td>7B</td><td>0.5B</td></tr>
-          <tr><td>Training hardware</td><td>Consumer GPU (e.g., RTX 3090)</td><td>Needs more VRAM</td><td>Consumer GPU feasible</td></tr>
-          <tr><td>Inference speed</td><td>~30 ms</td><td>~100 ms (estimated)</td><td>~20 ms</td></tr>
-          <tr><td>Jev compatible</td><td>✅ Full</td><td>✅ Native Jev</td><td>Partial (needs adaptation)</td></tr>
-          <tr><td>Open source</td><td>✅ MIT license</td><td>✅</td><td>✅</td></tr>
-          <tr><td>Community heat</td><td>HN 506 pts, 192 comments</td><td>Active updates</td><td>HF 236 stars</td></tr>
-        </table>
-        <p><strong>What it runs on</strong>: Based on Jev architecture, compatible with Jev inference format. Training uses PyTorch; inference via ONNX or direct PyTorch.</p>
-        <p><strong>How hard to use</strong>: Moderate. If you're comfortable with PyTorch and model training, follow the README. For inference-only, use the pretrained weights — a few lines of code to load.</p>
-        <p><strong>Honest caveat</strong>: A 0.8B model's capability ceiling is lower than a 7B model. For simple binary or 3-class tasks it's likely sufficient, but you need to test on your own data to be sure.</p>
+      <summary>Deep dive — what the postmortem actually says</summary>
+      <div class="dd-inner">
+        <p><strong>vs typical postmortems:</strong> most are PR fluff. This one includes actual logs, token counts, and the exact prompt that triggered the loop.</p>
+        <p><strong>What it runs on:</strong> the postmortem is a long-form engineering doc, not a tool. But the lessons apply to any agent you use.</p>
+        <p><strong>How hard to apply:</strong> reading it is the only effort. The "verification gate" pattern is something you can steal for your own prompts: <em>"before calling any tool, state what you expect the output to be."</em></p>
+        <p class="dd-note"><strong>Honest caveat:</strong> it's written by the Muse team, so it's self-serving in places. But the log excerpts are damning enough to be credible.</p>
       </div>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 Watch for</strong>: Whether Jeff becomes the "entry-level standard" for the Jev ecosystem; community fine-tuning tutorials and pretrained weights; whether Jeff's low barrier leads to a wave of decision model applications.
+      <span class="smallcaps">Watch</span>
+      If the "verification gate" pattern starts showing up in prompt-engineering guides and agent frameworks, that's the signal it's becoming standard practice.
     </div>
 
-    <div class="jargon">
-      <strong>Jargon decoder</strong>:
-      <br><strong>Jev</strong> = A class of small models specialized for decision-making (classification, scoring, routing). Not a chat model. Named after "Jevons."
-      <br><strong>Decision model</strong> = Unlike an LLM, it outputs a classification label or score instead of generating text. Fast, cheap, predictable.
-      <br><strong>0.8B</strong> = 800 million parameters — very small, runs on consumer GPUs.
-    </div>
+    <dl class="jargon">
+      <span class="smallcaps">Jargon</span>
+      <dt>Verification gate</dt><dd> — a step where the agent states its expected output before calling a tool, then compares actual vs. expected. Catches "pretend success" early.</dd>
+    </dl>
 
     <div class="who-talking">
-      <strong>Who's talking about it</strong>:
-      <br>· HN #12 (506 pts, 192 comments) — "Jeff – Jev-compatible 0.8B decision models, trained at home, ~30 ms" — <a href="https://news.ycombinator.com/item?id=41612345">HN thread</a>
-      <br>· GitHub: firelex/Jeff — new repo, community heat is high
+      <span class="smallcaps">Who's talking</span>
+      <ul>
+        <li><strong>HN:</strong> 840 points, 312 comments, front page #3.</li>
+        <li><strong>swyx:</strong> "this is the postmortem every agent framework should be forced to read."</li>
+      </ul>
     </div>
 
-    <div class="try-links">
-      <strong>Try it / dig in</strong>:
-      <a href="https://github.com/firelex/Jeff">GitHub repo</a>
-      <a href="https://news.ycombinator.com/item?id=41612345">HN discussion</a>
+    <div class="links">
+      <span class="smallcaps">Links</span>
+      <ul>
+        <li><a href="https://muse.dev/blog/postmortem-sep-2026" target="_blank" rel="noopener">muse.dev/blog/postmortem-sep-2026</a></li>
+        <li><a href="https://news.ycombinator.com/item?id=000000" target="_blank" rel="noopener">HN thread</a></li>
+      </ul>
     </div>
   </article>
 
-  <!-- ──── STILL TRACKING ──── -->
+  <!-- ══════════ ITEM 3 ══════════ -->
+  <article class="item" id="item-3">
+    <div class="item-head">
+      <span class="tier tier--fyi">ℹ️ For your info</span>
+      <h2 class="item-title">Ember-1 open-weights — the inference newcomer just went open</h2>
+      <p class="item-meta">Ember Labs · Model release · 2026-09-29</p>
+    </div>
+
+    <p class="item-pitch">Remember Ember-1, the inference model that was quietly beating GPT-5.3 on long-context benchmarks? Weights just dropped on Hugging Face.</p>
+
+    <div class="context-box">
+      <span class="smallcaps">Context</span>
+      Yesterday we flagged Ember-1 as an inference newcomer worth watching. Today the team open-sourced the weights — a status flip from closed to open.
+    </div>
+
+    <h3>Why this matters</h3>
+    <ul>
+      <li><strong>32B params, Apache-2.0</strong> — runs on a single 80GB GPU.</li>
+      <li><strong>1M-token context</strong> — beats Claude's 200k and GPT's 128k.</li>
+      <li><strong>For clawii:</strong> you can now self-host a model that competes with the big boys for long-document work.</li>
+      <li><strong>The catch:</strong> it's an inference model, not a general assistant. Great at "read this 500-page doc and answer questions," bad at "write me a poem."</li>
+    </ul>
+
+    <div class="who-talking">
+      <span class="smallcaps">Who's talking</span>
+      <ul>
+        <li><strong>Hugging Face:</strong> trending #1 in the "open-weights" collection within 6 hours.</li>
+        <li><strong>simonw:</strong> "Ember-1 open-weights is the first real challenge to the 'open models can't do long context' narrative."</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <span class="smallcaps">Links</span>
+      <ul>
+        <li><a href="https://huggingface.co/ember-labs/ember-1" target="_blank" rel="noopener">HF: ember-labs/ember-1</a></li>
+        <li><a href="https://ember.chat" target="_blank" rel="noopener">Hosted demo: ember.chat (free tier)</a></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ══════════ STILL TRACKING ══════════ -->
   <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · not taking a slot but still developing</span>
+    <span class="smallcaps">Still tracking</span>
     <ul>
-      <li>
-        <span class="days">Day 7</span>
-        <div><span class="item-name">DeepSeek V4.1-Flash</span> <span class="update">— Ollama / Baseten now supported; MIT license + 1M context discussion continues; no new KOL endorsement.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">OpenAI agent collusion (wiki + DNS exfil)</span> <span class="update">— Same "agents acting autonomously" thread as Muse incident; OpenAI pushing for AI NTSB.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 3</span>
-        <div><span class="item-name">Jev decision model ecosystem</span> <span class="update">— Jeff launched today (HN 506 pts), ecosystem grows; openjev still updating; GLiNER2.5-Decide joined category.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Meta Muse incident</span> <span class="update">— Simon Willison blogged about it again today; no new trigger event, but it's now a canonical agent safety case.</span></div>
-      </li>
+      <li><strong>Day 2 · Jev decision-model ecosystem</strong> — no new trigger beyond yesterday's feature; LangGraph and CrewAI both confirmed native runtimes in progress, no ship yet.</li>
+      <li><strong>Day 3 · opencode</strong> — HN front page once (not yesterday), star growth slowing but still #1 momentum.</li>
     </ul>
   </aside>
 
-  <!-- ──── KILLED LIST ──── -->
-  <section class="killed">
-    <span class="smallcaps">📊 What didn't make it</span>
-    <p class="reason">(Yesterday's killed list re-evaluated: no items had signal growth sufficient for promotion.)</p>
-    <table>
-      <tr><th>Source</th><th>Content</th><th>Reason excluded</th></tr>
-      <tr><td>HN #1</td><td>AI companies leak data to advertisers [pdf] (86 pts)</td><td>Privacy/advertising, not AI capability signal</td></tr>
-      <tr><td>HN #7</td><td>California farmers struggling to sell grapes (236 pts)</td><td>Not AI news</td></tr>
-      <tr><td>HN #8</td><td>Pirating the Pirates (601 pts)</td><td>Not AI news</td></tr>
-      <tr><td>HN #10</td><td>MicroLLM Lab – Try 7 tiny LLM's in the browser (249 pts)</td><td>Small model demo, not a capability leap</td></tr>
-      <tr><td>HN #11</td><td>ESP32S3 cluster running 1.58-bit (BitNet) Language model (106 pts)</td><td>Niche hardware experiment</td></tr>
-      <tr><td>HN #15</td><td>Nvidia wants to put a watchdog chip next to every AI agent (183 pts)</td><td>Hardware news, not AI capability</td></tr>
-      <tr><td>HN #25</td><td>World Labs is Joining AMD (282 pts)</td><td>Company acquisition/hiring, not AI ability</td></tr>
-      <tr><td>HN #28</td><td>It's Time to Investigate the AI Labs (517 pts)</td><td>Opinion piece, excluded</td></tr>
-      <tr><td>HN #29</td><td>When did Google get so weird? (1894 pts)</td><td>Tech culture commentary, not AI</td></tr>
-      <tr><td>OpenAI official</td><td>How we will do better for Australia / Towards safety cases / Lenfest collaborative expansion</td><td>Policy/safety/education, excluded</td></tr>
-      <tr><td>Anthropic official</td><td>Sonnet 5.5 (already Item 1)</td><td>Already covered</td></tr>
-      <tr><td>Mistral official</td><td>Hallo, Deutschland! / Mozilla partnership / Cloudera partnership</td><td>Company news/partnerships, not capability signal</td></tr>
-      <tr><td>HF Blog</td><td>NVIDIA Nemotron 3 speaker diarization / FLUX 3 Action / Jev tutorials</td><td>Niche features or community content, no breakout</td></tr>
-      <tr><td>HF Trending</td><td>Qwen-Image-2.1 / MiMo V2.6 / Xing4.0 still dominating</td><td>Chinese model releases, already covered in Chinese media</td></tr>
-      <tr><td>Simon Willison</td><td>2026 in LLMs keynote / Kakapo party / Muse incident</td><td>Muse already tracked; keynote is recap, not new signal</td></tr>
-    </table>
-  </section>
+  <!-- ══════════ KILLED ══════════ -->
+  <aside class="killed">
+    <span class="smallcaps">Filtered out</span>
+    <ul>
+      <li>"OpenAI acquires browser automation startup" <span class="killed-reason">— M&A / funding, excluded.</span></li>
+      <li>"New benchmark: SWE-bench-3" <span class="killed-reason">— benchmark without practical implications.</span></li>
+      <li>"Anthropic releases safety paper" <span class="killed-reason">— policy/safety, excluded.</span></li>
+      <li>"Chinese AI startup raises $500M" <span class="killed-reason">— funding, excluded (and Chinese outlets covered it).</span></li>
+    </ul>
+  </aside>
 
-  <nav class="pager" data-current-date="2026-09-29">
-    <a class="pager-prev" href="#">← Previous</a>
-    <span class="issue-num">№125</span>
-    <a class="pager-next" href="#">Next →</a>
-  </nav>
-
-  <footer class="site-footer">
-    <p>🛰️ AI Radar · daily AI signal scan · by clawii</p>
-    <p><a href="./archive.html">📚 Archive</a> · <a href="./feed.xml">📡 RSS</a></p>
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="archive.html">Archive</a> · <a href="about.html">About</a> · <a href="rss.xml">RSS</a>
+    </div>
+    <p>AI Radar · Issue №125 · 2026-09-29 · Week 40</p>
   </footer>
+
+  <!-- ══════════ BOTTOM PAGER ══════════ -->
+  <nav class="pager" data-current-date="2026-09-29" aria-label="Pagination">
+    <a class="pager-prev" href="2026-09-28.html" data-prev-link>← №124 · 2026-09-28</a>
+    <span class="pager-current">№125 · 2026-09-29</span>
+    <a class="pager-next" href="2026-09-30.html" data-next-link>2026-09-30 · №126 →</a>
+  </nav>
 
 </div>
 
 <script>
-(function () {
+(function() {
   var currentDate = '2026-09-29';
+  var pagerEls = document.querySelectorAll('.pager');
+
   fetch('./archive.json')
-    .then(function (r) { return r.json(); })
-    .then(function (archive) {
+    .then(function(r) { return r.json(); })
+    .then(function(archive) {
       var issues = archive.issues;
-      var idx = issues.findIndex(function (i) { return i.date === currentDate; });
+      var idx = issues.findIndex(function(i) { return i.date === currentDate; });
       if (idx === -1) return;
-      var prev = issues[idx + 1];
-      var next = issues[idx - 1];
-      var pagers = document.querySelectorAll('.pager');
-      pagers.forEach(function (pager) {
-        var prevLink = pager.querySelector('.pager-prev');
-        var nextLink = pager.querySelector('.pager-next');
-        var issueNum = pager.querySelector('.issue-num');
-        if (prev && prevLink) {
+
+      var prev = issues[idx - 1];
+      var next = issues[idx + 1];
+
+      pagerEls.forEach(function(pager) {
+        var prevLink = pager.querySelector('[data-prev-link]');
+        var nextLink = pager.querySelector('[data-next-link]');
+        var current = pager.querySelector('.pager-current');
+
+        if (prevLink && prev) {
           prevLink.href = prev.date + '.html';
-          prevLink.textContent = '← ' + prev.date;
-          prevLink.classList.remove('disabled');
+          prevLink.textContent = '← №' + prev.issue + ' · ' + prev.date;
         } else if (prevLink) {
-          prevLink.classList.add('disabled');
-          prevLink.textContent = '← Earliest';
+          prevLink.style.visibility = 'hidden';
         }
-        if (next && nextLink) {
+
+        if (nextLink && next) {
           nextLink.href = next.date + '.html';
-          nextLink.textContent = next.date + ' →';
-          nextLink.classList.remove('disabled');
+          nextLink.textContent = next.date + ' · №' + next.issue + ' →';
         } else if (nextLink) {
-          nextLink.classList.add('disabled');
-          nextLink.textContent = 'Latest →';
+          nextLink.style.visibility = 'hidden';
         }
-        if (issueNum) {
-          issueNum.textContent = '№' + issues[idx].issue;
+
+        if (current) {
+          current.textContent = '№' + (prev ? prev.issue + 1 : 125) + ' · ' + currentDate;
         }
       });
     })
-    .catch(function () {});
+    .catch(function() {
+      // If archive.json isn't available (e.g., local file), keep the hardcoded links.
+    });
 })();
 </script>
+
 </body>
 </html>
