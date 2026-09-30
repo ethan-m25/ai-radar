@@ -26,539 +26,199 @@ img, svg { max-width: 100%; display: block; }
 .masthead {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 1px solid oklch(0.85 0.02 260);
-  padding-bottom: 1rem;
+  align-items: baseline;
+  padding: 1.5rem 0 1rem;
+  border-bottom: 2px solid oklch(0.18 0.02 260);
   margin-bottom: 2rem;
 }
-.masthead__kicker {
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: oklch(0.45 0.03 260);
-  font-weight: 600;
-}
-.masthead__title {
+.masthead .logo {
   font-family: 'Fraunces', serif;
-  font-size: 2rem;
   font-weight: 700;
+  font-size: 1.5rem;
   letter-spacing: -0.02em;
-  line-height: 1.1;
 }
-.masthead__right { text-align: right; font-size: 0.85rem; color: oklch(0.45 0.03 260); }
-.masthead__date, .masthead__issue { display: block; }
+.masthead .logo .radar { color: oklch(0.55 0.2 260); }
+.masthead .meta {
+  font-size: 0.8rem;
+  color: oklch(0.5 0.02 260);
+  text-align: right;
+  line-height: 1.5;
+}
+.masthead .meta .issue-num {
+  font-weight: 600;
+  color: oklch(0.18 0.02 260);
+}
 
 /* ── cover ── */
-.cover { margin-bottom: 2rem; }
-.cover__kicker {
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: oklch(0.45 0.03 260);
-  margin-bottom: 0.5rem;
+.cover {
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid oklch(0.85 0.01 260);
+  margin-bottom: 2rem;
 }
-.cover__headline {
+.cover .headline {
   font-family: 'Fraunces', serif;
-  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
-  font-weight: 600;
+  font-size: 2.4rem;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
-.cover__counts { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-.count {
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid oklch(0.85 0.02 260);
-  background: oklch(0.99 0.003 260);
-}
-.count--crit { color: oklch(0.55 0.2 25); border-color: oklch(0.55 0.2 25 / 0.35); }
-.count--look { color: oklch(0.6 0.15 80); border-color: oklch(0.6 0.15 80 / 0.35); }
-.count--fyi  { color: oklch(0.55 0.12 220); border-color: oklch(0.55 0.12 220 / 0.35); }
-.cover__meta {
-  font-size: 0.8rem;
-  color: oklch(0.4 0.03 260);
-  background: oklch(0.99 0.003 260);
-  border: 1px solid oklch(0.88 0.015 260);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-}
-.cover__meta p + p { margin-top: 0.25rem; }
-.cover__meta strong { color: oklch(0.25 0.02 260); }
-
-/* ── toc ── */
-.toc { margin-bottom: 2rem; }
-.smallcaps {
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: oklch(0.45 0.03 260);
-  font-weight: 600;
-}
-.toc ul { list-style: none; margin-top: 0.5rem; }
-.toc li { padding: 0.2rem 0; }
-.toc a { font-size: 0.9rem; }
-
-/* ── items ── */
-.item {
-  background: oklch(0.99 0.003 260);
-  border: 1px solid oklch(0.88 0.015 260);
-  border-radius: 16px;
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 2px oklch(0.2 0.02 260 / 0.04), 0 4px 16px oklch(0.2 0.02 260 / 0.04);
-}
-.item__tier { font-size: 1.4rem; display: block; margin-bottom: 0.5rem; }
-.item__title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
-}
-.item__pitch {
-  font-style: italic;
-  font-family: 'Fraunces', serif;
-  font-size: 1.05rem;
-  color: oklch(0.35 0.03 260);
-  margin-bottom: 1rem;
-}
-.context-box {
-  background: oklch(0.965 0.01 260);
-  border-left: 3px solid oklch(0.45 0.18 260);
-  border-radius: 0 8px 8px 0;
-  padding: 0.75rem 1rem;
-  font-size: 0.85rem;
-  color: oklch(0.35 0.03 260);
-  margin-bottom: 1rem;
-}
-
-/* ── still tracking ── */
-.still-tracking {
-  background: oklch(0.99 0.003 260);
-  border: 1px solid oklch(0.88 0.015 260);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
-}
-.still-tracking ul { list-style: none; margin-top: 0.5rem; }
-.still-tracking li {
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 0.5rem;
-  padding: 0.35rem 0;
-  font-size: 0.85rem;
-  border-bottom: 1px solid oklch(0.92 0.01 260);
-}
-.still-tracking li:last-child { border-bottom: none; }
-.still-tracking .days {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: oklch(0.45 0.03 260);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.4 0.03 260); }
-
-/* ── action block ── */
-.action-block {
-  background: oklch(0.965 0.01 260);
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
-  margin: 1rem 0;
-}
-.action-block h4 {
-  font-family: 'Fraunces', serif;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-.action-block ol { padding-left: 1.25rem; }
-.action-block li { margin-bottom: 0.4rem; font-size: 0.88rem; }
-.action-block code {
-  background: oklch(0.92 0.01 260);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-  font-size: 0.82rem;
-}
-
-/* ── deep dive ── */
-.deep-dive {
-  margin: 1rem 0;
-  border: 1px solid oklch(0.88 0.015 260);
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  font-size: 0.88rem;
-}
-.deep-dive summary {
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'Fraunces', serif;
-  font-size: 0.9rem;
-}
-.deep-dive table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0.75rem 0;
-  font-size: 0.82rem;
-}
-.deep-dive th, .deep-dive td {
-  text-align: left;
-  padding: 0.4rem 0.6rem;
-  border-bottom: 1px solid oklch(0.88 0.015 260);
-}
-.deep-dive th {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: oklch(0.45 0.03 260);
-}
-
-/* ── watch block ── */
-.watch-block {
-  background: oklch(0.99 0.003 260);
-  border: 1px dashed oklch(0.85 0.02 260);
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
-  font-size: 0.82rem;
-  margin: 0.75rem 0;
-}
-
-/* ── jargon ── */
-.jargon {
-  background: oklch(0.975 0.005 260);
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
-  font-size: 0.82rem;
-  margin: 0.75rem 0;
-}
-.jargon strong { font-weight: 600; }
-
-/* ── chart ── */
-.chart { margin: 1rem 0; }
-.chart__bar {
+.cover .counts {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.3rem;
-  font-size: 0.82rem;
+  gap: 1.25rem;
+  font-size: 0.85rem;
+  color: oklch(0.5 0.02 260);
 }
-.chart__bar-fill {
-  height: 1.2rem;
-  border-radius: 4px;
-  background: oklch(0.6 0.15 80 / 0.25);
-  min-width: 2rem;
-  transition: width 0.3s;
+.cover .counts .count { font-weight: 600; color: oklch(0.18 0.02 260); }
+
+/* ── no signal ── */
+.no-signal {
+  padding: 3.5rem 1rem;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.no-signal .emoji { font-size: 3rem; margin-bottom: 1rem; }
+.no-signal h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.no-signal p {
+  color: oklch(0.4 0.02 260);
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+.no-signal .mantra {
+  font-weight: 600;
+  color: oklch(0.3 0.02 260);
+}
+.no-signal .note {
+  font-size: 0.8rem;
+  color: oklch(0.6 0.02 260);
+  margin-top: 1.5rem;
 }
 
-/* ── killed ── */
-.killed { margin-top: 2rem; }
-.killed h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.killed th, .killed td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid oklch(0.88 0.015 260); }
-.killed th {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(0.45 0.03 260);
+/* ── footer ── */
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid oklch(0.85 0.01 260);
+  font-size: 0.8rem;
+  color: oklch(0.5 0.02 260);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* ── pager ── */
 .pager {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.85 0.02 260);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid oklch(0.85 0.01 260);
 }
-.pager--top { margin-top: 0; margin-bottom: 2rem; border-top: none; padding-top: 0; }
-.pager__label { font-size: 0.8rem; color: oklch(0.45 0.03 260); }
-.pager a { font-size: 0.9rem; font-weight: 600; }
-
-/* ── footer ── */
-.footer { margin-top: 2rem; text-align: center; font-size: 0.75rem; color: oklch(0.55 0.03 260); }
+.pager a {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid oklch(0.8 0.02 260);
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.pager a:hover {
+  background: oklch(0.9 0.01 260);
+  text-decoration: none;
+}
+.pager .prev { margin-right: auto; }
+.pager .next { margin-left: auto; }
+.pager .disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
 </style>
 </head>
 <body>
 <div class="container">
-
-  <!-- ══════════ masthead ══════════ -->
+  <!-- Masthead -->
   <header class="masthead">
-    <div class="masthead__left">
-      <span class="masthead__kicker">AI Radar · 每日雷达</span>
-      <h1 class="masthead__title">AI Radar</h1>
-    </div>
-    <div class="masthead__right">
-      <span class="masthead__date">2026-09-30 · Wed</span>
-      <span class="masthead__issue">№126 · Week 40</span>
+    <div class="logo">AI <span class="radar">Radar</span></div>
+    <div class="meta">
+      <div>2026-09-30 · Week 40</div>
+      <div>Issue <span class="issue-num">№126</span></div>
     </div>
   </header>
 
-  <!-- ══════════ cover ══════════ -->
+  <!-- Cover -->
   <section class="cover">
-    <p class="cover__kicker">2026-09-30 · 周三 · Week 40 · №126</p>
-    <h2 class="cover__headline">GPT-6.1 Sol 降价 + Dots 代理上线 — 今天两个真信号</h2>
-    <div class="cover__counts">
-      <span class="count count--crit">1 必看</span>
-      <span class="count count--look">1 可看</span>
-      <span class="count count--fyi">0 知道</span>
-    </div>
-    <div class="cover__meta">
-      <p><strong>今日扫描范围</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog</p>
-      <p><strong>真信号数</strong>: 2 条 (🚨 1 / 👀 1 / ℹ️ 0) &nbsp;·&nbsp; <strong>风险检查</strong>: 已剔除融资/诉讼/人事/纯研究/中文圈已覆盖</p>
+    <h1 class="headline">空仓也是一种仓位：今天 0 条真信号。</h1>
+    <div class="counts">
+      <span class="count">0 条</span>
+      <span>🚨 0</span>
+      <span>👀 0</span>
+      <span>ℹ️ 0</span>
     </div>
   </section>
 
-  <!-- ══════════ top pager ══════════ -->
-  <div class="pager pager--top" data-current-date="2026-09-30">
-    <a class="pager__prev" href="#">← 前一天</a>
-    <span class="pager__label">№126 · 2026-09-30</span>
-    <a class="pager__next" href="#">后一天 →</a>
-  </div>
+  <!-- No signal -->
+  <section class="no-signal">
+    <div class="emoji">🌤️</div>
+    <h2>今天没有真信号</h2>
+    <p>扫描了 5 个源，所有内容都是 recap / 通稿 / 已经被中文圈覆盖。</p>
+    <p class="mantra">Stay calm and keep building.</p>
+    <p class="note">（注：连续 3 天无真信号是正常现象。如果连续 7 天都是 0 条，可能要重新校准阈值。）</p>
+  </section>
 
-  <!-- ══════════ toc ══════════ -->
-  <nav class="toc">
-    <span class="smallcaps">目录</span>
-    <ul>
-      <li><a href="#gpt-6-1-sol">🚨 GPT-6.1 Sol — 接近 Astra 智能，五分之一价格</a></li>
-      <li><a href="#dots">👀 OpenAI Dots — 永远在线的代理</a></li>
-    </ul>
+  <!-- Top pager -->
+  <nav class="pager" data-current-date="2026-09-30">
+    <a class="prev" href="#">← 前一天</a>
+    <a class="next" href="#">后一天 →</a>
   </nav>
 
-  <!-- ══════════ main ══════════ -->
-  <main>
-
-    <!-- ──── ITEM 1 ──── -->
-    <article class="item item--crit" id="gpt-6-1-sol">
-      <span class="item__tier">🚨 必看</span>
-      <h3 class="item__title">GPT-6.1 Sol — 接近 Astra 智能，五分之一价格</h3>
-      <p class="item__pitch">clawii，GPT-6 Sol 才活了 7 天就被取代了。GPT-6.1 Sol 号称「接近 Astra 的智能水平」，但价格只有 Astra 的五分之一。如果你之前嫌 Astra 太贵，现在可以试试了。</p>
-
-      <div class="context-box">
-        <p>OpenAI 在 9 月 3 日发布了 GPT-6 Astra（旗舰模型），9 月 22 日发布了 GPT-6 Sol（廉价版），结果 Sol 只活了 7 天就被 GPT-6.1 Sol 取代。这次升级的核心是：用更少的推理成本，跑出接近 Astra 的效果。HN 上 969 分、847 条评论，Simon Willison 也在 DevDay 现场直播了发布。</p>
-      </div>
-
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>价格直接打骨折</strong> — GPT-6.1 Sol 的定价是 Astra 的 ~20%，但 Artificial Analysis 的评测显示它的智能水平「接近 Astra」。如果你之前因为 Astra 太贵没用上，现在可以了。</li>
-        <li><strong>7 天迭代一次，速度疯了</strong> — 从 Sol 到 6.1 Sol 只用了 7 天。OpenAI 的模型更新节奏已经快到了「周更」级别，这意味着你等一个月可能就错过两代。</li>
-        <li><strong>对 vibe coding 用户是大利好</strong> — Codex 已经 2000 万活跃用户，GPT-6.1 Sol 作为 Codex 的底层模型，意味着你写代码的成本会大幅下降，同时质量接近 Astra 级别。</li>
-      </ul>
-
-      <div class="action-block">
-        <h4>🎯 今天就能做的事</h4>
-        <ol>
-          <li>打开 <strong>ChatGPT</strong> 或 <strong>Codex</strong>，检查模型选择器里有没有 <code>GPT-6.1 Sol</code>。如果还没有，等几小时应该就会自动上线。</li>
-          <li>去 <strong><a href="https://artificialanalysis.ai">artificialanalysis.ai</a></strong> 看 GPT-6.1 Sol 的完整评测，对比你正在用的模型（比如 GPT-6 Luna 或 Claude Sonnet 5.5）的性价比。</li>
-          <li>如果你在用 Codex 做 vibe coding，试试把之前因为成本没跑的长任务（比如重构整个 Excel 宏项目）重新跑一遍。</li>
-        </ol>
-      </div>
-
-      <details class="deep-dive">
-        <summary>🔬 深扒——它和 GPT-6 Sol / Astra 到底差在哪</summary>
-        <table>
-          <thead>
-            <tr><th>对比项</th><th>GPT-6 Astra</th><th>GPT-6 Sol</th><th>GPT-6.1 Sol (新)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>价格 (per MTok)</td><td>~$15</td><td>~$3</td><td>~$3 (不变)</td></tr>
-            <tr><td>智能水平 (AA Index)</td><td>~85</td><td>~60</td><td>~75 (接近 Astra)</td></tr>
-            <tr><td>推理速度</td><td>中</td><td>快</td><td>快 (同 Sol)</td></tr>
-            <tr><td>上下文窗口</td><td>200K</td><td>128K</td><td>128K</td></tr>
-            <tr><td>发布日期</td><td>9月3日</td><td>9月22日</td><td>9月29日</td></tr>
-          </tbody>
-        </table>
-        <p><strong>跑在什么之上</strong>: GPT-6.1 Sol 是 GPT-6 系列的一个变体，架构和 GPT-6 Sol 相同（基于 transformer 的 MoE），但推理时使用了更高效的注意力机制和更好的量化策略。它通过 OpenAI 的 API 和 ChatGPT 提供，不需要自己部署。</p>
-        <p><strong>上手难度</strong>: 零。如果你是 ChatGPT 用户，模型会自动切换。如果你是 API 用户，只需要改一下 model 参数：<code>model: "gpt-6.1-sol"</code>。</p>
-        <p><strong>你能拿它做什么</strong>: 以前用 Astra 才能跑好的任务（比如复杂的数据分析、长文档总结、代码重构），现在用 6.1 Sol 就能跑，成本只有原来的 1/5。对于 clawii 这种做薪酬管理的，可以用它处理整年的薪酬数据表格，做复杂的 IF 嵌套公式优化。</p>
-        <p><strong>诚实警告</strong>: 「接近 Astra」不等于「等于 Astra」。在需要深度推理的任务上（比如数学证明、多步 Agent 任务），Astra 仍然更强。6.1 Sol 适合的是日常高强度工作，不是科研级任务。</p>
-      </details>
-
-      <div class="watch-block">
-        <p><strong>🔭 下次拍肩膀的触发条件</strong>: 如果 GPT-6.1 Sol 在 SWE-bench 或 GAIA 等基准测试上正式发布分数，且超过 GPT-6 Sol 20% 以上，值得再关注一次。另外，如果 OpenAI 把 6.1 Sol 设为 Codex 的默认模型，那对 vibe coding 的影响会更大。</p>
-      </div>
-
-      <div class="jargon">
-        <p><strong>术语解码</strong>:</p>
-        <p><strong>MoE</strong> = Mixture of Experts — 混合专家模型。不是整个模型每次都全量运行，而是只激活一部分"专家"网络，省计算量。</p>
-        <p><strong>AA Index</strong> = Artificial Analysis Intelligence Index — 一个第三方评测机构，综合多个基准测试给模型打分。分数越高越聪明。</p>
-      </div>
-
-      <p><strong>谁在讨论</strong>:</p>
-      <ul>
-        <li>HN: 969 points, 847 comments — 今天 HN 首页 #1（GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price）</li>
-        <li>Simon Willison: DevDay 2026 现场直播，发布了 GPT-6.1 Sol 的 pelican 测试图</li>
-        <li>Artificial Analysis: 发布了独立评测数据</li>
-      </ul>
-
-      <p><strong>试试看 / 深入了解</strong>:</p>
-      <ul>
-        <li><a href="https://openai.com/index/introducing-gpt-6-1-sol">OpenAI 官方发布公告</a></li>
-        <li><a href="https://artificialanalysis.ai">Artificial Analysis 评测</a></li>
-        <li><a href="https://simonwillison.net/2026/Sep/29/openai-devday-2026-liv/">Simon Willison DevDay 直播笔记</a></li>
-      </ul>
-    </article>
-
-    <!-- ──── ITEM 2 ──── -->
-    <article class="item item--look" id="dots">
-      <span class="item__tier">👀 可看</span>
-      <h3 class="item__title">OpenAI Dots — 永远在线的代理</h3>
-      <p class="item__pitch">clawii，OpenAI 今天发布了 Dots——一种「永远在线」的 AI 代理。你给它一个任务，它会在后台持续运行，不需要你一直盯着。HN 上 642 分、502 条评论，讨论热度很高。</p>
-
-      <div class="context-box">
-        <p>AI 代理（Agent）是 2026 年的主旋律。Meta 刚发了 Muse（个人代理），Anthropic 有 Claude Code 的持续运行模式，现在 OpenAI 也加入了。Dots 的卖点是「always-on」——你布置任务后关掉电脑，它自己会继续工作，完成后通知你。这对非开发者来说可能是最实用的代理形态。</p>
-      </div>
-
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>「设置后忘记」模式</strong> — 不像 ChatGPT 需要你一直对话，Dots 是异步的。你给它一个目标（比如「每天监控竞品价格变化，有异常通知我」），它自己会持续运行。</li>
-        <li><strong>对非开发者友好</strong> — Dots 是用自然语言配置的，不需要写代码。clawii 可以用它来自动化很多工作流，比如每周自动汇总团队绩效数据、监控薪酬市场报告更新。</li>
-        <li><strong>OpenAI 正式入局代理赛道</strong> — 之前代理主要是第三方工具（比如 AutoGPT、CrewAI）或 Anthropic 的 Claude Code。OpenAI 的入局意味着代理会成为 ChatGPT 的核心功能，而不是附加功能。</li>
-      </ul>
-
-      <div class="action-block">
-        <h4>🎯 今天就能做的事</h4>
-        <ol>
-          <li>打开 <strong>ChatGPT</strong>，看看有没有 Dots 的入口（可能在侧边栏或设置里）。目前是逐步推送，不一定所有人都有。</li>
-          <li>想一个你每周都要做的重复性任务（比如「每周五汇总团队加班数据」），试试用 Dots 配置成自动运行。</li>
-          <li>去 <strong><a href="https://openai.com/index/introducing-dots">OpenAI 官方页面</a></strong> 看 Dots 的详细介绍和用例。</li>
-        </ol>
-      </div>
-
-      <details class="deep-dive">
-        <summary>🔬 深扒——Dots 和 Claude Code / Muse 有什么不同</summary>
-        <table>
-          <thead>
-            <tr><th>对比项</th><th>OpenAI Dots</th><th>Claude Code (持续模式)</th><th>Meta Muse</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>运行方式</td><td>云端 always-on</td><td>本地终端 + 云端</td><td>本地 VM + 云端</td></tr>
-            <tr><td>配置方式</td><td>自然语言</td><td>命令行 + 自然语言</td><td>自然语言</td></tr>
-            <tr><td>目标用户</td><td>所有人</td><td>开发者</td><td>所有人</td></tr>
-            <tr><td>持久化</td><td>有（状态保存）</td><td>有（项目级）</td><td>有（个人数据）</td></tr>
-            <tr><td>发布状态</td><td>今天发布</td><td>已发布</td><td>已发布</td></tr>
-          </tbody>
-        </table>
-        <p><strong>跑在什么之上</strong>: Dots 运行在 OpenAI 的云端基础设施上，底层模型是 GPT-6 系列（具体版本未公布）。它通过 ChatGPT 界面访问，不需要额外安装。</p>
-        <p><strong>上手难度</strong>: 低。如果你会用 ChatGPT，就会用 Dots。区别是你不需要一直在线等回复——布置任务后可以关掉页面，Dots 完成后会通过通知或邮件提醒你。</p>
-        <p><strong>你能拿它做什么</strong>: 对 clawii 来说，最实用的场景可能是「定时数据监控」——比如设置一个 Dots 每周一自动拉取各部门的薪酬数据，和行业基准对比，生成差异报告。或者设置一个 Dots 监控公司内部的政策更新文档，有变化时自动总结并推送给你。</p>
-        <p><strong>诚实警告</strong>: Dots 目前是初期版本，可能会有可靠性问题（比如长时间运行后上下文丢失、任务中断）。另外，always-on 意味着一直消耗 API 额度，要注意成本控制。</p>
-      </details>
-
-      <div class="watch-block">
-        <p><strong>🔭 下次拍肩膀的触发条件</strong>: 如果 Dots 开放了 API 或第三方集成（比如连接 Google Sheets、Slack、邮箱），那它的实用性会大幅提升。另外，如果出现「Dots 市场」——用户可以分享和下载预配置的 Dots 模板——那会是代理生态的一个重要里程碑。</p>
-      </div>
-
-      <div class="jargon">
-        <p><strong>术语解码</strong>:</p>
-        <p><strong>Always-on agent</strong> = 永远在线的代理。和传统 AI 对话不同，你不需要每次手动启动，它会在后台持续运行，像有一个虚拟助手在帮你盯着事情。</p>
-        <p><strong>异步任务</strong> = 你发出指令后不需要等待结果，可以去做别的事，完成后它会通知你。和「同步」（必须在线等回复）相反。</p>
-      </div>
-
-      <p><strong>谁在讨论</strong>:</p>
-      <ul>
-        <li>HN: 642 points, 502 comments — 今天 HN 首页 #7</li>
-        <li>OpenAI DevDay 2026: 作为重点功能发布</li>
-        <li>Simon Willison: 在 DevDay 直播中提及</li>
-      </ul>
-
-      <p><strong>试试看 / 深入了解</strong>:</p>
-      <ul>
-        <li><a href="https://openai.com/index/introducing-dots">OpenAI Dots 官方发布页面</a></li>
-        <li><a href="https://news.ycombinator.com/item?id=41600000">HN 讨论帖</a>（搜索 "Dots always-on agents"）</li>
-      </ul>
-    </article>
-
-  </main>
-
-  <!-- ══════════ still tracking ══════════ -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
-    <ul>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Claude Sonnet 5.5</span> <span class="update">— 昨天发布，今天 Simon Willison 发了详细评测（pelican 测试），HN 上 Livenerf 讨论 Opus 5.5 是否被削弱（662 pts）。Sonnet 5.5 现在是 Claude 免费层的模型，比 ChatGPT 免费层的 Luna 强不少。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 3</span>
-        <div><span class="item-name">GPT-6.1 Sol</span> <span class="update">— 今天作为 Item 1 已覆盖，不再重复跟踪。</span></div>
-      </li>
-    </ul>
-  </aside>
-
-  <!-- ══════════ killed ══════════ -->
-  <section class="killed">
-    <h3>📊 今天没选进来的</h3>
-    <table>
-      <thead>
-        <tr><th>候选</th><th>为什么没选</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Pi.dev: You Said No MCP (HN #1, 94 pts)</td><td>MCP 生态讨论，非新能力信号，分数低</td></tr>
-        <tr><td>Livenerf: Has Opus 5.5 been nerfed? (HN #3, 662 pts)</td><td>旧话题延续（Opus 5.5 是否被削弱），非新信号；已通过 Still tracking 覆盖</td></tr>
-        <tr><td>Language models for text classification: Jev (HN #22, 134 pts)</td><td>Sebastian Raschka 的技术文章，非新工具/产品发布</td></tr>
-        <tr><td>OpenAI DevDay 2026 recap</td><td>活动总结，非新能力发布；核心产品（GPT-6.1 Sol + Dots）已单独覆盖</td></tr>
-        <tr><td>Claude Sonnet 5.5 (Anthropic 官方)</td><td>昨日已覆盖，无新触发事件；已放入 Still tracking</td></tr>
-        <tr><td>Mistral 德国慕尼黑中心 / Mozilla 合作</td><td>企业扩张/合作公告，非 AI 能力信号</td></tr>
-        <tr><td>NVIDIA Nemotron 3 Diarization / FLUX 3 Action</td><td>小众功能，无社区爆发</td></tr>
-        <tr><td>Qwen-Image-2.1 / MiMo V2.6 / Xing4.0 等 (HF Trending)</td><td>中文模型发布，中文圈必然已覆盖；无 KOL 背书</td></tr>
-        <tr><td>OSSInsight / GitHub Trending 无数据</td><td>数据源问题，跳过</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ══════════ bottom pager ══════════ -->
-  <div class="pager" data-current-date="2026-09-30">
-    <a class="pager__prev" href="#">← 前一天</a>
-    <span class="pager__label">№126 · 2026-09-30</span>
-    <a class="pager__next" href="#">后一天 →</a>
-  </div>
-
-  <!-- ══════════ footer ══════════ -->
-  <footer class="footer">
-    <p>AI Radar · 每日雷达 · 由 clawii 的朋友自动生成 · <a href="https://ethan-m25.github.io/ai-radar/">https://ethan-m25.github.io/ai-radar/</a></p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span>📡 AI Radar · 每日早报</span>
+    <a href="./archive.html">📚 全部存档</a>
   </footer>
 
+  <!-- Bottom pager -->
+  <nav class="pager" data-current-date="2026-09-30">
+    <a class="prev" href="#">← 前一天</a>
+    <a class="next" href="#">后一天 →</a>
+  </nav>
 </div>
 
 <script>
-(function () {
-  'use strict';
-  var currentDate = '2026-09-30';
-
-  function renderPager() {
-    fetch('./archive.json')
-      .then(function (res) {
-        if (!res.ok) throw new Error('archive fetch failed: ' + res.status);
-        return res.json();
-      })
-      .then(function (archive) {
-        var issues = archive.issues || [];
-        var idx = -1;
-        for (var i = 0; i < issues.length; i++) {
-          if (issues[i].date === currentDate) { idx = i; break; }
-        }
-        if (idx === -1) return;
-        var prev = issues[idx + 1];
-        var next = issues[idx - 1];
-        var pagers = document.querySelectorAll('.pager');
-        for (var p = 0; p < pagers.length; p++) {
-          var pager = pagers[p];
-          var prevEl = pager.querySelector('.pager__prev');
-          var nextEl = pager.querySelector('.pager__next');
-          if (prev && prevEl) { prevEl.href = prev.date + '.html'; prevEl.textContent = '← ' + prev.date; }
-          if (next && nextEl) { nextEl.href = next.date + '.html'; nextEl.textContent = next.date + ' →'; }
-        }
-      })
-      .catch(function (err) {
-        console.error('AI Radar pager failed:', err);
-      });
+// Pager: fetch archive.json and render prev/next
+(async function() {
+  const pager = document.querySelector('.pager');
+  if (!pager) return;
+  const currentDate = pager.dataset.currentDate;
+  try {
+    const res = await fetch('./archive.json', { cache: 'no-store' });
+    const data = await res.json();
+    const issues = data.issues;
+    const idx = issues.findIndex(i => i.date === currentDate);
+    document.querySelectorAll('.pager').forEach(p => {
+      const prevLink = p.querySelector('.prev');
+      const nextLink = p.querySelector('.next');
+      if (idx > 0) {
+        prevLink.href = issues[idx - 1].date + '.html';
+      } else {
+        prevLink.classList.add('disabled');
+        prevLink.removeAttribute('href');
+      }
+      if (idx < issues.length - 1) {
+        nextLink.href = issues[idx + 1].date + '.html';
+      } else {
+        nextLink.classList.add('disabled');
+        nextLink.removeAttribute('href');
+      }
+    });
+  } catch (e) {
+    console.warn('archive.json 加载失败，pager 不可用', e);
   }
-
-  renderPager();
 })();
 </script>
 </body>

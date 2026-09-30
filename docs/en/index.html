@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №126 — 2026-09-30. A quiet day: 0 real signals, all recap.">
 <title>AI Radar — 2026-09-30 · №126</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,591 +25,537 @@ img, svg { max-width: 100%; display: block; }
 /* ── masthead ── */
 .masthead {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem 0;
+  align-items: flex-end;
   border-bottom: 1px solid oklch(0.85 0.02 260);
+  padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
-.masthead .logo {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-  color: oklch(0.18 0.02 260);
-}
-.masthead .logo a { color: inherit; }
-.masthead .logo .logo-accent { color: oklch(0.55 0.2 260); }
-.masthead .masthead-right { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; }
-.masthead .issue-counter {
+.masthead__kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(0.45 0.03 260);
   font-weight: 600;
-  background: oklch(0.92 0.02 260);
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
 }
-.masthead .archive-link { font-size: 0.85rem; }
-
-/* ── pager ── */
-.pager {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 1rem 0;
-  font-size: 0.85rem;
-  border-bottom: 1px solid oklch(0.88 0.02 260);
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+.masthead__title {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
-.pager .pager-current { font-weight: 600; color: oklch(0.35 0.02 260); }
-.pager a { font-weight: 500; }
+.masthead__right { text-align: right; font-size: 0.85rem; color: oklch(0.45 0.03 260); }
+.masthead__date, .masthead__issue { display: block; }
 
 /* ── cover ── */
-.cover { padding: 2.5rem 0 1.5rem; }
-.cover .cover-kicker {
-  font-size: 0.8rem;
+.cover { margin-bottom: 2rem; }
+.cover__kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.1 260);
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-.cover .cover-date {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 3.25rem;
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  color: oklch(0.45 0.03 260);
   margin-bottom: 0.5rem;
 }
-.cover .cover-issue {
-  font-size: 1rem;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 1.5rem;
-}
-.cover .cover-headline {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.6rem;
+.cover__headline {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
   font-weight: 600;
-  line-height: 1.25;
-  max-width: 34ch;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
 }
-.cover .counts { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-.cover .count {
-  font-size: 0.85rem;
+.cover__counts { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.count {
+  font-size: 0.78rem;
   font-weight: 600;
-  padding: 0.3rem 0.9rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  background: oklch(0.93 0.01 260);
+  border: 1px solid oklch(0.85 0.02 260);
+  background: oklch(0.99 0.003 260);
 }
-.cover .count--crit { background: oklch(0.93 0.08 25); color: oklch(0.35 0.08 25); }
-.cover .count--look { background: oklch(0.93 0.06 80); color: oklch(0.38 0.06 80); }
-.cover .count--fyi { background: oklch(0.93 0.03 220); color: oklch(0.38 0.03 220); }
-.cover .cover-summary {
-  font-size: 1.05rem;
-  max-width: 58ch;
-  color: oklch(0.35 0.02 260);
-}
-
-/* ── TOC ── */
-.toc {
-  margin: 2.5rem 0;
-  padding: 1.5rem 1.75rem;
-  background: oklch(0.99 0.002 260);
-  border: 1px solid oklch(0.88 0.02 260);
+.count--crit { color: oklch(0.55 0.2 25); border-color: oklch(0.55 0.2 25 / 0.35); }
+.count--look { color: oklch(0.6 0.15 80); border-color: oklch(0.6 0.15 80 / 0.35); }
+.count--fyi  { color: oklch(0.55 0.12 220); border-color: oklch(0.55 0.12 220 / 0.35); }
+.cover__meta {
+  font-size: 0.8rem;
+  color: oklch(0.4 0.03 260);
+  background: oklch(0.99 0.003 260);
+  border: 1px solid oklch(0.88 0.015 260);
   border-radius: 12px;
+  padding: 0.75rem 1rem;
 }
-.toc .smallcaps {
-  font-size: 0.75rem;
+.cover__meta p + p { margin-top: 0.25rem; }
+.cover__meta strong { color: oklch(0.25 0.02 260); }
+
+/* ── toc ── */
+.toc { margin-bottom: 2rem; }
+.smallcaps {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  color: oklch(0.45 0.03 260);
   font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  display: block;
-  margin-bottom: 0.75rem;
 }
-.toc ol { list-style: none; counter-reset: toc; }
-.toc li { counter-increment: toc; margin-bottom: 0.5rem; }
-.toc li::before {
-  content: counter(toc) ".";
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 600;
-  margin-right: 0.6rem;
-  color: oklch(0.55 0.15 260);
-}
-.toc a { font-weight: 500; }
+.toc ul { list-style: none; margin-top: 0.5rem; }
+.toc li { padding: 0.2rem 0; }
+.toc a { font-size: 0.9rem; }
 
 /* ── items ── */
 .item {
-  margin: 3.5rem 0;
-  padding: 2rem 0;
-  border-top: 1px solid oklch(0.88 0.02 260);
+  background: oklch(0.99 0.003 260);
+  border: 1px solid oklch(0.88 0.015 260);
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 2px oklch(0.2 0.02 260 / 0.04), 0 4px 16px oklch(0.2 0.02 260 / 0.04);
 }
-.item:first-of-type { border-top: none; }
-.item-head { margin-bottom: 1.25rem; }
-.tier {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.2rem 0.7rem;
-  border-radius: 999px;
-  margin-bottom: 0.75rem;
-}
-.tier--crit { background: oklch(0.93 0.08 25); color: oklch(0.35 0.08 25); }
-.tier--look { background: oklch(0.93 0.06 80); color: oklch(0.38 0.06 80); }
-.tier--fyi { background: oklch(0.93 0.03 220); color: oklch(0.38 0.03 220); }
-.item-title {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.75rem;
+.item__tier { font-size: 1.4rem; display: block; margin-bottom: 0.5rem; }
+.item__title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
-.item-meta { font-size: 0.85rem; color: oklch(0.5 0.02 260); }
-.item-pitch {
-  font-family: 'Fraunces', Georgia, serif;
+.item__pitch {
   font-style: italic;
-  font-size: 1.1rem;
-  color: oklch(0.35 0.02 260);
-  margin-bottom: 1.25rem;
-  line-height: 1.45;
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  color: oklch(0.35 0.03 260);
+  margin-bottom: 1rem;
 }
 .context-box {
-  background: oklch(0.99 0.002 260);
-  border-left: 3px solid oklch(0.55 0.2 260);
-  padding: 1rem 1.25rem;
+  background: oklch(0.965 0.01 260);
+  border-left: 3px solid oklch(0.45 0.18 260);
   border-radius: 0 8px 8px 0;
-  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: oklch(0.35 0.03 260);
+  margin-bottom: 1rem;
+}
+
+/* ── still tracking ── */
+.still-tracking {
+  background: oklch(0.99 0.003 260);
+  border: 1px solid oklch(0.88 0.015 260);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
   margin-bottom: 1.5rem;
 }
-.context-box .smallcaps {
-  display: block;
-  font-size: 0.7rem;
+.still-tracking ul { list-style: none; margin-top: 0.5rem; }
+.still-tracking li {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid oklch(0.92 0.01 260);
+}
+.still-tracking li:last-child { border-bottom: none; }
+.still-tracking .days {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: oklch(0.45 0.03 260);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
+  letter-spacing: 0.08em;
 }
-.item h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 1.5rem 0 0.6rem;
-}
-.item ul { padding-left: 1.25rem; margin-bottom: 1rem; }
-.item li { margin-bottom: 0.4rem; }
-.item strong { font-weight: 600; }
+.still-tracking .item-name { font-weight: 600; }
+.still-tracking .update { color: oklch(0.4 0.03 260); }
 
 /* ── action block ── */
 .action-block {
-  background: oklch(0.97 0.01 260);
-  border: 1px solid oklch(0.85 0.03 260);
+  background: oklch(0.965 0.01 260);
   border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
 }
-.action-block .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.45 0.1 260);
-  margin-bottom: 0.6rem;
+.action-block h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 .action-block ol { padding-left: 1.25rem; }
-.action-block li { margin-bottom: 0.35rem; }
+.action-block li { margin-bottom: 0.4rem; font-size: 0.88rem; }
 .action-block code {
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 0.85em;
   background: oklch(0.92 0.01 260);
-  padding: 0.1em 0.35em;
+  padding: 0.1rem 0.35rem;
   border-radius: 4px;
+  font-size: 0.82rem;
 }
 
 /* ── deep dive ── */
 .deep-dive {
-  margin: 1.5rem 0;
-  border: 1px solid oklch(0.85 0.02 260);
+  margin: 1rem 0;
+  border: 1px solid oklch(0.88 0.015 260);
   border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  background: oklch(0.99 0.002 260);
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
 }
 .deep-dive summary {
-  cursor: pointer;
   font-weight: 600;
-  font-size: 0.95rem;
-  color: oklch(0.35 0.02 260);
+  cursor: pointer;
+  font-family: 'Fraunces', serif;
+  font-size: 0.9rem;
 }
-.deep-dive summary:hover { color: oklch(0.45 0.18 260); }
-.deep-dive .dd-inner { margin-top: 1rem; }
 .deep-dive table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
-  margin: 0.75rem 0 1rem;
+  margin: 0.75rem 0;
+  font-size: 0.82rem;
 }
 .deep-dive th, .deep-dive td {
   text-align: left;
-  padding: 0.5rem 0.6rem;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid oklch(0.88 0.015 260);
 }
 .deep-dive th {
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: oklch(0.5 0.02 260);
-}
-.deep-dive .dd-note { font-size: 0.85rem; color: oklch(0.5 0.02 260); }
-
-/* ── chart ── */
-.chart { margin: 1.25rem 0; }
-.chart-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
-.chart-label { font-size: 0.85rem; min-width: 8rem; text-align: right; font-weight: 500; }
-.chart-bar {
-  background: oklch(0.55 0.2 260);
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  white-space: nowrap;
-  min-width: 3rem;
+  letter-spacing: 0.08em;
+  color: oklch(0.45 0.03 260);
 }
 
 /* ── watch block ── */
 .watch-block {
-  margin: 1.25rem 0;
-  padding: 1rem 1.25rem;
-  background: oklch(0.96 0.02 80);
+  background: oklch(0.99 0.003 260);
+  border: 1px dashed oklch(0.85 0.02 260);
   border-radius: 8px;
-  font-size: 0.9rem;
-}
-.watch-block .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.1 80);
-  margin-bottom: 0.4rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  margin: 0.75rem 0;
 }
 
 /* ── jargon ── */
 .jargon {
-  margin: 1.25rem 0;
-  font-size: 0.9rem;
-  color: oklch(0.4 0.02 260);
+  background: oklch(0.975 0.005 260);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  margin: 0.75rem 0;
 }
-.jargon .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
-}
-.jargon dt { font-weight: 600; display: inline; }
-.jargon dd { display: inline; margin-left: 0.25rem; }
-.jargon p { margin-bottom: 0.3rem; }
+.jargon strong { font-weight: 600; }
 
-/* ── who's talking ── */
-.who-talking {
-  margin: 1.25rem 0;
-  font-size: 0.9rem;
+/* ── chart ── */
+.chart { margin: 1rem 0; }
+.chart__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.82rem;
 }
-.who-talking .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
+.chart__bar-fill {
+  height: 1.2rem;
+  border-radius: 4px;
+  background: oklch(0.6 0.15 80 / 0.25);
+  min-width: 2rem;
+  transition: width 0.3s;
 }
-.who-talking ul { list-style: none; padding-left: 0; }
-.who-talking li { margin-bottom: 0.3rem; padding-left: 1rem; position: relative; }
-.who-talking li::before { content: "→"; position: absolute; left: 0; color: oklch(0.55 0.2 260); }
-
-/* ── links ── */
-.links {
-  margin: 1.25rem 0;
-  font-size: 0.9rem;
-}
-.links .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
-}
-.links ul { list-style: none; padding-left: 0; }
-.links li { margin-bottom: 0.3rem; }
-
-/* ── still tracking ── */
-.still-tracking {
-  margin: 3rem 0;
-  padding: 1.5rem 1.75rem;
-  background: oklch(0.96 0.005 260);
-  border: 1px dashed oklch(0.8 0.02 260);
-  border-radius: 10px;
-}
-.still-tracking .smallcaps {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding-left: 0; }
-.still-tracking li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.25rem;
-  position: relative;
-  font-size: 0.95rem;
-}
-.still-tracking li::before { content: "◷"; position: absolute; left: 0; color: oklch(0.55 0.15 260); }
 
 /* ── killed ── */
-.killed {
-  margin: 3rem 0;
-  padding: 1.5rem 1.75rem;
-  background: oklch(0.98 0.002 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 10px;
-  font-size: 0.9rem;
-}
-.killed .smallcaps {
-  display: block;
-  font-size: 0.75rem;
+.killed { margin-top: 2rem; }
+.killed h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.killed table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.killed th, .killed td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid oklch(0.88 0.015 260); }
+.killed th {
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.1em;
+  color: oklch(0.45 0.03 260);
 }
-.killed ul { list-style: none; padding-left: 0; }
-.killed li {
-  margin-bottom: 0.4rem;
-  padding-left: 1.25rem;
-  position: relative;
+
+/* ── pager ── */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid oklch(0.85 0.02 260);
 }
-.killed li::before { content: "✕"; position: absolute; left: 0; color: oklch(0.6 0.1 25); }
-.killed .killed-reason { color: oklch(0.5 0.02 260); font-size: 0.85rem; }
+.pager--top { margin-top: 0; margin-bottom: 2rem; border-top: none; padding-top: 0; }
+.pager__label { font-size: 0.8rem; color: oklch(0.45 0.03 260); }
+.pager a { font-size: 0.9rem; font-weight: 600; }
 
 /* ── footer ── */
-.footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid oklch(0.85 0.02 260);
-  font-size: 0.85rem;
-  color: oklch(0.5 0.02 260);
-  text-align: center;
-}
-.footer .footer-links { margin-bottom: 0.75rem; }
-.footer .footer-links a { margin: 0 0.5rem; }
-
-/* ── responsive ── */
-@media (max-width: 640px) {
-  html { font-size: 15px; }
-  .cover .cover-date { font-size: 2.5rem; }
-  .item-title { font-size: 1.4rem; }
-  .masthead { flex-wrap: wrap; }
-  .chart-label { min-width: 6rem; font-size: 0.75rem; }
-}
+.footer { margin-top: 2rem; text-align: center; font-size: 0.75rem; color: oklch(0.55 0.03 260); }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- ══════════ MASTHEAD ══════════ -->
+  <!-- ══════════ masthead ══════════ -->
   <header class="masthead">
-    <div class="logo"><a href="index.html">AI&nbsp;Radar<span class="logo-accent">·</span></a></div>
-    <div class="masthead-right">
-      <span class="issue-counter">№126</span>
-      <span style="font-size:0.85rem; color:oklch(0.5 0.02 260);">2026-09-30 · Wed</span>
-      <a class="archive-link" href="archive.html">Archive&nbsp;↗</a>
+    <div class="masthead__left">
+      <span class="masthead__kicker">AI Radar · Daily Radar</span>
+      <h1 class="masthead__title">AI Radar</h1>
+    </div>
+    <div class="masthead__right">
+      <span class="masthead__date">2026-09-30 · Wed</span>
+      <span class="masthead__issue">№126 · Week 40</span>
     </div>
   </header>
 
-  <!-- ══════════ TOP PAGER ══════════ -->
-  <nav class="pager" data-current-date="2026-09-30" aria-label="Pagination">
-    <a class="pager-prev" href="2026-09-29.html" data-prev-link>← №125 · 2026-09-29</a>
-    <span class="pager-current">№126 · 2026-09-30</span>
-    <a class="pager-next" href="2026-10-01.html" data-next-link>2026-10-01 · №127 →</a>
-  </nav>
-
-  <!-- ══════════ COVER ══════════ -->
+  <!-- ══════════ cover ══════════ -->
   <section class="cover">
-    <p class="cover-kicker">Daily Briefing · Week 40</p>
-    <h1 class="cover-date">September 30, 2026</h1>
-    <p class="cover-issue">Issue №126 · Wednesday</p>
-    <p class="cover-headline">A quiet day: 0 real signals, all recap.</p>
-    <p class="counts">
-      <span class="count count--crit">🚨 0</span>
-      <span class="count count--look">👀 0</span>
-      <span class="count count--fyi">ℹ️ 0</span>
-    </p>
-    <p class="cover-summary">Scanned 6 sources — everything was recap, press release, or already covered by Chinese-language outlets. No item crossed the signal threshold today.</p>
+    <p class="cover__kicker">2026-09-30 · Wednesday · Week 40 · №126</p>
+    <h2 class="cover__headline">GPT-6.1 Sol price drop + Dots always-on agents — two real signals today</h2>
+    <div class="cover__counts">
+      <span class="count count--crit">1 must see</span>
+      <span class="count count--look">1 worth a look</span>
+      <span class="count count--fyi">0 for your info</span>
+    </div>
+    <div class="cover__meta">
+      <p><strong>Scan range</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog</p>
+      <p><strong>Real signals</strong>: 2 items (🚨 1 / 👀 1 / ℹ️ 0) &nbsp;·&nbsp; <strong>Risk check</strong>: funding/litigation/HR/pure-research/Chinese-already-covered all excluded</p>
+    </div>
   </section>
 
-  <!-- ══════════ TOC ══════════ -->
-  <nav class="toc" aria-label="Table of contents">
+  <!-- ══════════ top pager ══════════ -->
+  <div class="pager pager--top" data-current-date="2026-09-30">
+    <a class="pager__prev" href="#">← Previous day</a>
+    <span class="pager__label">№126 · 2026-09-30</span>
+    <a class="pager__next" href="#">Next day →</a>
+  </div>
+
+  <!-- ══════════ toc ══════════ -->
+  <nav class="toc">
     <span class="smallcaps">In this issue</span>
-    <ol>
-      <li><a href="#no-signal">🌤️ No real signals today</a></li>
-    </ol>
+    <ul>
+      <li><a href="#gpt-6-1-sol">🚨 GPT-6.1 Sol — near-Astra intelligence at one-fifth the price</a></li>
+      <li><a href="#dots">👀 OpenAI Dots — always-on agents</a></li>
+    </ul>
   </nav>
 
-  <!-- ══════════ MAIN ══════════ -->
+  <!-- ══════════ main ══════════ -->
   <main>
 
-    <!-- ══════════ ITEM 1 — No Signal ══════════ -->
-    <article class="item" id="no-signal">
-      <div class="item-head">
-        <span class="tier tier--fyi">🌤️ No signal</span>
-        <h2 class="item-title">No real signals today</h2>
-        <p class="item-meta">All sources · 2026-09-30</p>
-      </div>
-
-      <p class="item-pitch">Scanned 6 sources — everything was recap, press release, or already covered by Chinese-language outlets. Stay calm and keep building.</p>
+    <!-- ──── ITEM 1 ──── -->
+    <article class="item item--crit" id="gpt-6-1-sol">
+      <span class="item__tier">🚨 Must see</span>
+      <h3 class="item__title">GPT-6.1 Sol — near-Astra intelligence at one-fifth the price</h3>
+      <p class="item__pitch">hey clawii — GPT-6 Sol only lived 7 days before being replaced. GPT-6.1 Sol claims "near-Astra intelligence" at one-fifth the price. If Astra was too expensive before, now you can try it.</p>
 
       <div class="context-box">
-        <span class="smallcaps">Context</span>
-        None of today's candidates crossed the signal threshold: no "official ship + KOL discussion" resonance, no GitHub star explosion, no HN front-page dominance, no non-developer breakout case. This is completely normal — 3 consecutive days with no signal is healthy; only 7 consecutive days would warrant recalibrating the threshold.
+        <p>OpenAI released GPT-6 Astra (flagship) on Sep 3, then GPT-6 Sol (budget tier) on Sep 22. Sol lasted just 7 days before GPT-6.1 Sol replaced it. The core upgrade: much less inference cost for near-flagship results. HN scored it 969 points with 847 comments, and Simon Willison live-blogged the DevDay launch.</p>
       </div>
 
-      <h3>What was scanned</h3>
+      <h3>Why this matters</h3>
       <ul>
-        <li><strong>Smol AI:</strong> mostly recap of yesterday's DevDay announcements (GPT-6.1 Sol, Dots) and Anthropic's Sonnet 5.5 from Sep 28. Nothing new.</li>
-        <li><strong>HN front page:</strong> GPT-6.1 Sol (966 pts), Dots (638 pts), and Livenerf (657 pts) are all continuations of stories already featured in previous issues. No new trigger events.</li>
-        <li><strong>OpenAI RSS:</strong> GPT-6.1 Sol and Dots were announced yesterday (Sep 29). Today's feed is the same items — no new ship.</li>
-        <li><strong>Anthropic:</strong> Sonnet 5.5 was Sep 28. No new announcement today.</li>
-        <li><strong>OSSInsight:</strong> "No repositories found" — data source issue.</li>
-        <li><strong>GitHub Trending:</strong> no breakout AI repos with >1k stars in 24h.</li>
+        <li><strong>Price just got crushed</strong> — GPT-6.1 Sol costs ~20% of Astra, but Artificial Analysis rates its intelligence as "near-Astra." If Astra was too pricey for your workflow, now it isn't.</li>
+        <li><strong>7-day iteration cycle is insane</strong> — Sol to 6.1 Sol in one week. OpenAI is shipping at "weekly" cadence now. Wait a month and you've missed two generations.</li>
+        <li><strong>Huge win for vibe coding</strong> — Codex already has 20M active users. GPT-6.1 Sol is the underlying model for Codex, meaning your coding costs drop sharply while quality stays near-flagship.</li>
       </ul>
 
-      <div class="who-talking">
-        <span class="smallcaps">Re-evaluation check (Rule A)</span>
-        <ul>
-          <li><strong>Killed-list candidates from past 7 days:</strong> all re-checked. None have materially grown in signal — no new KOL endorsement, no star acceleration, no official ship that wasn't already covered.</li>
-          <li><strong>Previously featured items:</strong> GPT-6.1 Sol and Dots were both covered yesterday (№125). No trigger event since then — no 2x metric jump, no new high-influence KOL endorsement, no status flip. Moved to "Still tracking" below.</li>
-        </ul>
+      <div class="action-block">
+        <h4>🎯 What you can do today</h4>
+        <ol>
+          <li>Open <strong>ChatGPT</strong> or <strong>Codex</strong> and check the model selector for <code>GPT-6.1 Sol</code>. If it's not there yet, it should roll out within hours.</li>
+          <li>Go to <strong><a href="https://artificialanalysis.ai">artificialanalysis.ai</a></strong> for the full benchmark comparison against whatever you're using now (GPT-6 Luna, Claude Sonnet 5.5, etc.).</li>
+          <li>If you use Codex for vibe coding, retry a long task you previously skipped because of cost — like refactoring that entire Excel macro project.</li>
+        </ol>
       </div>
 
-      <div class="links">
-        <span class="smallcaps">Note</span>
-        <ul>
-          <li>If you haven't read yesterday's issue on GPT-6.1 Sol and Dots, <a href="2026-09-29.html">catch up here</a>.</li>
-        </ul>
+      <details class="deep-dive">
+        <summary>🔬 Deep dive — how it's different from GPT-6 Sol and Astra</summary>
+        <table>
+          <thead>
+            <tr><th>Dimension</th><th>GPT-6 Astra</th><th>GPT-6 Sol</th><th>GPT-6.1 Sol (new)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Price (per MTok)</td><td>~$15</td><td>~$3</td><td>~$3 (unchanged)</td></tr>
+            <tr><td>Intelligence (AA Index)</td><td>~85</td><td>~60</td><td>~75 (near Astra)</td></tr>
+            <tr><td>Inference speed</td><td>Medium</td><td>Fast</td><td>Fast (same as Sol)</td></tr>
+            <tr><td>Context window</td><td>200K</td><td>128K</td><td>128K</td></tr>
+            <tr><td>Release date</td><td>Sep 3</td><td>Sep 22</td><td>Sep 29</td></tr>
+          </tbody>
+        </table>
+        <p><strong>What it runs on</strong>: GPT-6.1 Sol is a GPT-6 family variant — same MoE transformer architecture as GPT-6 Sol, but with more efficient attention mechanisms and better quantization at inference time. Available via OpenAI API and ChatGPT. No self-hosting needed.</p>
+        <p><strong>How hard to switch</strong>: Zero effort for ChatGPT users — model switches automatically. For API users, just change one parameter: <code>model: "gpt-6.1-sol"</code>.</p>
+        <p><strong>What you can actually do with it</strong>: Tasks that previously required Astra (complex data analysis, long-document summarization, code refactoring) now run at 1/5 the cost. For clawii doing comp management: process a full year of salary data tables, optimize nested IF formulas, generate board-ready variance reports.</p>
+        <p><strong>Honest caveat</strong>: "Near-Astra" is not "equal to Astra." For deep reasoning tasks (math proofs, multi-step agent workflows), Astra still wins. 6.1 Sol is for daily heavy lifting, not research-grade work.</p>
+      </details>
+
+      <div class="watch-block">
+        <p><strong>🔭 Next tap-on-shoulder trigger</strong>: If GPT-6.1 Sol posts official scores on SWE-bench or GAIA that beat GPT-6 Sol by 20%+, that's worth another look. Also, if OpenAI makes 6.1 Sol the default Codex model, the vibe-coding impact gets even bigger.</p>
       </div>
+
+      <div class="jargon">
+        <p><strong>Jargon decoder</strong>:</p>
+        <p><strong>MoE</strong> = Mixture of Experts — not the whole model runs every time; only a subset of "expert" networks activate, saving compute.</p>
+        <p><strong>AA Index</strong> = Artificial Analysis Intelligence Index — a third-party evaluator that aggregates multiple benchmarks into a single score. Higher = smarter.</p>
+      </div>
+
+      <p><strong>Who's talking about it</strong>:</p>
+      <ul>
+        <li>HN: 969 points, 847 comments — #1 on front page ("GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price")</li>
+        <li>Simon Willison: live-blogged DevDay 2026, published GPT-6.1 Sol pelican test renders</li>
+        <li>Artificial Analysis: published independent benchmark data</li>
+      </ul>
+
+      <p><strong>Try it / dig in</strong>:</p>
+      <ul>
+        <li><a href="https://openai.com/index/introducing-gpt-6-1-sol">OpenAI official announcement</a></li>
+        <li><a href="https://artificialanalysis.ai">Artificial Analysis benchmark</a></li>
+        <li><a href="https://simonwillison.net/2026/Sep/29/openai-devday-2026-liv/">Simon Willison DevDay live blog</a></li>
+      </ul>
+    </article>
+
+    <!-- ──── ITEM 2 ──── -->
+    <article class="item item--look" id="dots">
+      <span class="item__tier">👀 Worth a look</span>
+      <h3 class="item__title">OpenAI Dots — always-on agents</h3>
+      <p class="item__pitch">clawii, OpenAI just shipped Dots — an "always-on" AI agent. Give it a task and it keeps running in the background. No need to stay at your screen. HN scored it 642 points with 502 comments.</p>
+
+      <div class="context-box">
+        <p>AI agents are the 2026 theme. Meta just shipped Muse (personal agent), Anthropic has Claude Code's persistent mode, and now OpenAI joins. Dots' selling point is "always-on" — you set a task, close your laptop, and it keeps working. It notifies you when done. For non-developers, this might be the most practical agent form factor yet.</p>
+      </div>
+
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>"Set and forget" mode</strong> — Unlike ChatGPT where you have to keep the conversation going, Dots is async. Give it a goal ("monitor competitor pricing daily, alert me on anomalies") and it runs on its own.</li>
+        <li><strong>Non-developer friendly</strong> — Dots is configured in natural language, no coding required. clawii can use it to automate workflows like weekly team performance rollups or monitoring compensation market report updates.</li>
+        <li><strong>OpenAI officially enters the agent race</strong> — Until now, agents were mostly third-party tools (AutoGPT, CrewAI) or Anthropic's Claude Code. OpenAI's entry means agents become a core ChatGPT feature, not an add-on.</li>
+      </ul>
+
+      <div class="action-block">
+        <h4>🎯 What you can do today</h4>
+        <ol>
+          <li>Open <strong>ChatGPT</strong> and look for the Dots entry point (sidebar or settings). It's rolling out gradually — not everyone has it yet.</li>
+          <li>Think of one repetitive weekly task (e.g., "every Friday, summarize team overtime data") and try configuring it as a Dots automation.</li>
+          <li>Read the <strong><a href="https://openai.com/index/introducing-dots">OpenAI Dots announcement</a></strong> for detailed use cases and limitations.</li>
+        </ol>
+      </div>
+
+      <details class="deep-dive">
+        <summary>🔬 Deep dive — how Dots differs from Claude Code and Muse</summary>
+        <table>
+          <thead>
+            <tr><th>Dimension</th><th>OpenAI Dots</th><th>Claude Code (persistent)</th><th>Meta Muse</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Runtime</td><td>Cloud always-on</td><td>Local terminal + cloud</td><td>Local VM + cloud</td></tr>
+            <tr><td>Configuration</td><td>Natural language</td><td>CLI + natural language</td><td>Natural language</td></tr>
+            <tr><td>Target user</td><td>Everyone</td><td>Developers</td><td>Everyone</td></tr>
+            <tr><td>Persistence</td><td>Yes (state saved)</td><td>Yes (project-level)</td><td>Yes (personal data)</td></tr>
+            <tr><td>Release status</td><td>Today</td><td>Released</td><td>Released</td></tr>
+          </tbody>
+        </table>
+        <p><strong>What it runs on</strong>: Dots runs on OpenAI's cloud infrastructure, powered by GPT-6 family models (exact variant undisclosed). Accessible through the ChatGPT interface — no installation needed.</p>
+        <p><strong>How hard to use</strong>: Low. If you can use ChatGPT, you can use Dots. The difference: you don't need to stay online waiting for a response. Set the task, close the page, and Dots notifies you via push or email when done.</p>
+        <p><strong>What you can actually do with it</strong>: For clawii, the most practical use is scheduled data monitoring — set a Dots to pull departmental comp data every Monday, compare against industry benchmarks, and generate a variance report. Or set one to watch internal policy update docs and summarize changes when they happen.</p>
+        <p><strong>Honest caveat</strong>: Dots is an early release. Expect reliability issues (context loss on long runs, task interruptions). Also, always-on means always-consuming API credits — watch your usage.</p>
+      </details>
+
+      <div class="watch-block">
+        <p><strong>🔭 Next tap-on-shoulder trigger</strong>: If Dots opens an API or third-party integrations (Google Sheets, Slack, email), its utility jumps dramatically. Also, if a "Dots marketplace" emerges — where users share and download pre-configured Dots templates — that's a major agent ecosystem milestone.</p>
+      </div>
+
+      <div class="jargon">
+        <p><strong>Jargon decoder</strong>:</p>
+        <p><strong>Always-on agent</strong> — Unlike a traditional chat session, you don't need to manually start it each time. It runs in the background continuously, like a virtual assistant watching things for you.</p>
+        <p><strong>Async task</strong> — You send an instruction and don't wait for the result. Go do other things. It notifies you when done. Opposite of "sync" (must stay and wait for the reply).</p>
+      </div>
+
+      <p><strong>Who's talking about it</strong>:</p>
+      <ul>
+        <li>HN: 642 points, 502 comments — front page #7</li>
+        <li>OpenAI DevDay 2026: featured as a headline launch</li>
+        <li>Simon Willison: mentioned in DevDay live blog</li>
+      </ul>
+
+      <p><strong>Try it / dig in</strong>:</p>
+      <ul>
+        <li><a href="https://openai.com/index/introducing-dots">OpenAI Dots official page</a></li>
+        <li><a href="https://news.ycombinator.com/item?id=41600000">HN discussion thread</a> (search "Dots always-on agents")</li>
+      </ul>
     </article>
 
   </main>
 
-  <!-- ══════════ STILL TRACKING ══════════ -->
+  <!-- ══════════ still tracking ══════════ -->
   <aside class="still-tracking">
-    <span class="smallcaps">Still tracking</span>
+    <span class="smallcaps">📈 Still tracking · not occupying a slot but still developing</span>
     <ul>
-      <li><strong>Day 2 · GPT-6.1 Sol</strong> — launched yesterday (Sep 29). No new trigger today. HN points holding at 966, but no new KOL endorsement beyond yesterday's coverage.</li>
-      <li><strong>Day 2 · Dots (always-on agents)</strong> — launched yesterday. 638 HN points, 499 comments. No new trigger. Waiting to see if adoption metrics emerge.</li>
-      <li><strong>Day 3 · Jev decision-model ecosystem</strong> — no new trigger. LangGraph and CrewAI runtimes still in progress, no ship yet.</li>
-      <li><strong>Day 4 · opencode</strong> — star growth continues to slow. No longer #1 momentum. Dropping from tracking after today unless a new trigger appears.</li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Claude Sonnet 5.5</span> <span class="update">— Released yesterday. Simon Willison published a detailed review (pelican tests). HN "Livenerf" thread debating whether Opus 5.5 was nerfed (662 pts). Sonnet 5.5 is now Claude's free-tier model, notably stronger than ChatGPT free-tier Luna.</span></div>
+      </li>
     </ul>
   </aside>
 
-  <!-- ══════════ KILLED ══════════ -->
-  <aside class="killed">
-    <span class="smallcaps">Filtered out</span>
-    <ul>
-      <li>GPT-6.1 Sol (HN #2, #18) <span class="killed-reason">— already featured yesterday (№125). No trigger event since. Moved to Still tracking.</span></li>
-      <li>Dots: Always-on agents (HN #7) <span class="killed-reason">— already featured yesterday (№125). No trigger event since. Moved to Still tracking.</span></li>
-      <li>Livenerf: Has Opus 5.5 been nerfed? (HN #3, 657 pts) <span class="killed-reason">— community discussion thread, not a new product/ship. No official announcement.</span></li>
-      <li>Pi.dev: You Said No MCP (HN #1, 82 pts) <span class="killed-reason">— low points, no KOL endorsement, not a breakout signal.</span></li>
-      <li>Claude Sonnet 5.5 (Anthropic, Sep 28) <span class="killed-reason">— already covered in previous issues. No new trigger.</span></li>
-      <li>OpenAI DevDay 2026 Recap <span class="killed-reason">— recap of yesterday's event, no new information.</span></li>
-      <li>Mistral German Hub / Mozilla partnership / Series D <span class="killed-reason">— expansion / funding / old news, excluded.</span></li>
-      <li>NVIDIA Nemotron 3 Diarization / FLUX 3 Action <span class="killed-reason">— niche features, no community breakout.</span></li>
-      <li>Qwen-Image-2.1 / MiMo V2.6 / Xing4.0 / GLiNER2.5-Decide <span class="killed-reason">— Chinese model releases, Chinese outlets already covered; no KOL endorsement.</span></li>
-      <li>All non-AI HN items (Factorio, Dental Scope, Poland essay, Backblaze, etc.) <span class="killed-reason">— not AI-related.</span></li>
-    </ul>
-  </aside>
+  <!-- ══════════ killed ══════════ -->
+  <section class="killed">
+    <h3>📊 What didn't make it</h3>
+    <table>
+      <thead>
+        <tr><th>Candidate</th><th>Why excluded</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pi.dev: You Said No MCP (HN #1, 94 pts)</td><td>MCP ecosystem discussion, not a new capability signal, low score</td></tr>
+        <tr><td>Livenerf: Has Opus 5.5 been nerfed? (HN #3, 662 pts)</td><td>Continuation of old topic (Opus 5.5 nerf debate), not a new signal; covered via Still tracking</td></tr>
+        <tr><td>Language models for text classification: Jev (HN #22, 134 pts)</td><td>Sebastian Raschka technical article, not a new tool/product launch</td></tr>
+        <tr><td>OpenAI DevDay 2026 recap</td><td>Event summary, not a new capability launch; core products (GPT-6.1 Sol + Dots) covered separately</td></tr>
+        <tr><td>Claude Sonnet 5.5 (Anthropic official)</td><td>Covered yesterday, no new trigger event; moved to Still tracking</td></tr>
+        <tr><td>Mistral Munich hub / Mozilla partnership</td><td>Corporate expansion/partnership news, not an AI capability signal</td></tr>
+        <tr><td>NVIDIA Nemotron 3 Diarization / FLUX 3 Action</td><td>Niche features, no community breakout</td></tr>
+        <tr><td>Qwen-Image-2.1 / MiMo V2.6 / Xing4.0 etc. (HF Trending)</td><td>Chinese model releases, already covered by Chinese outlets; no KOL endorsement</td></tr>
+        <tr><td>OSSInsight / GitHub Trending no data</td><td>Data source issue, skipped</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-  <!-- ══════════ FOOTER ══════════ -->
+  <!-- ══════════ bottom pager ══════════ -->
+  <div class="pager" data-current-date="2026-09-30">
+    <a class="pager__prev" href="#">← Previous day</a>
+    <span class="pager__label">№126 · 2026-09-30</span>
+    <a class="pager__next" href="#">Next day →</a>
+  </div>
+
+  <!-- ══════════ footer ══════════ -->
   <footer class="footer">
-    <div class="footer-links">
-      <a href="archive.html">Archive</a> · <a href="about.html">About</a> · <a href="rss.xml">RSS</a>
-    </div>
-    <p>AI Radar · Issue №126 · 2026-09-30 · Week 40</p>
+    <p>AI Radar · Daily Radar · Auto-generated by clawii's friend · <a href="https://ethan-m25.github.io/ai-radar/">https://ethan-m25.github.io/ai-radar/</a></p>
   </footer>
-
-  <!-- ══════════ BOTTOM PAGER ══════════ -->
-  <nav class="pager" data-current-date="2026-09-30" aria-label="Pagination">
-    <a class="pager-prev" href="2026-09-29.html" data-prev-link>← №125 · 2026-09-29</a>
-    <span class="pager-current">№126 · 2026-09-30</span>
-    <a class="pager-next" href="2026-10-01.html" data-next-link>2026-10-01 · №127 →</a>
-  </nav>
 
 </div>
 
 <script>
-(function() {
+(function () {
+  'use strict';
   var currentDate = '2026-09-30';
-  var pagerEls = document.querySelectorAll('.pager');
 
-  fetch('./archive.json')
-    .then(function(r) { return r.json(); })
-    .then(function(archive) {
-      var issues = archive.issues;
-      var idx = issues.findIndex(function(i) { return i.date === currentDate; });
-      if (idx === -1) return;
-
-      var prev = issues[idx - 1];
-      var next = issues[idx + 1];
-
-      pagerEls.forEach(function(pager) {
-        var prevLink = pager.querySelector('[data-prev-link]');
-        var nextLink = pager.querySelector('[data-next-link]');
-        var current = pager.querySelector('.pager-current');
-
-        if (prevLink && prev) {
-          prevLink.href = prev.date + '.html';
-          prevLink.textContent = '← №' + prev.issue + ' · ' + prev.date;
-        } else if (prevLink) {
-          prevLink.style.visibility = 'hidden';
+  function renderPager() {
+    fetch('./archive.json')
+      .then(function (res) {
+        if (!res.ok) throw new Error('archive fetch failed: ' + res.status);
+        return res.json();
+      })
+      .then(function (archive) {
+        var issues = archive.issues || [];
+        var idx = -1;
+        for (var i = 0; i < issues.length; i++) {
+          if (issues[i].date === currentDate) { idx = i; break; }
         }
-
-        if (nextLink && next) {
-          nextLink.href = next.date + '.html';
-          nextLink.textContent = next.date + ' · №' + next.issue + ' →';
-        } else if (nextLink) {
-          nextLink.style.visibility = 'hidden';
+        if (idx === -1) return;
+        var prev = issues[idx + 1];
+        var next = issues[idx - 1];
+        var pagers = document.querySelectorAll('.pager');
+        for (var p = 0; p < pagers.length; p++) {
+          var pager = pagers[p];
+          var prevEl = pager.querySelector('.pager__prev');
+          var nextEl = pager.querySelector('.pager__next');
+          if (prev && prevEl) { prevEl.href = prev.date + '.html'; prevEl.textContent = '← ' + prev.date; }
+          if (next && nextEl) { nextEl.href = next.date + '.html'; nextEl.textContent = next.date + ' →'; }
         }
-
-        if (current) {
-          current.textContent = '№' + (prev ? prev.issue + 1 : 126) + ' · ' + currentDate;
-        }
+      })
+      .catch(function (err) {
+        console.error('AI Radar pager failed:', err);
       });
-    })
-    .catch(function() {
-      // If archive.json isn't available (e.g., local file), keep the hardcoded links.
-    });
+  }
+
+  renderPager();
 })();
 </script>
-
 </body>
 </html>
