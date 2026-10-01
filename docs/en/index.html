@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №127 — 2026-10-01. Google drops Gemini 4 Argon; Magnitude self-optimizing inference engine for agents.">
+<meta name="description" content="AI Radar issue №127 — 2026-10-01. No real signals today — 0/3.">
 <title>AI Radar — 2026-10-01 · №127</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,702 +26,188 @@ img, svg { max-width: 100%; display: block; }
 /* ── masthead ── */
 .masthead {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem 0;
+  align-items: center;
+  padding: 1.5rem 0;
   border-bottom: 1px solid oklch(0.85 0.02 260);
   margin-bottom: 2rem;
+  gap: 1rem;
 }
-.masthead .logo {
-  font-family: 'Fraunces', Georgia, serif;
+.masthead__left, .masthead__right { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: oklch(0.5 0.03 260); }
+.masthead__logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; color: oklch(0.18 0.02 260); letter-spacing: -0.02em; }
+.masthead__logo:hover { text-decoration: none; }
+.masthead__issue { font-weight: 600; color: oklch(0.18 0.02 260); }
+.masthead__archive { font-size: 0.85rem; }
+
+/* ── cover ── */
+.cover { margin-bottom: 2rem; }
+.cover__headline {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   font-weight: 700;
-  font-size: 1.35rem;
+  line-height: 1.15;
   letter-spacing: -0.02em;
-  color: oklch(0.18 0.02 260);
+  margin-bottom: 1rem;
 }
-.masthead .logo a { color: inherit; }
-.masthead .logo .logo-accent { color: oklch(0.55 0.2 260); }
-.masthead .masthead-right { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; }
-.masthead .issue-counter {
-  font-weight: 600;
-  background: oklch(0.92 0.02 260);
-  padding: 0.25rem 0.75rem;
+.cover__counts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.cover__count {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.85rem;
   border-radius: 999px;
-  font-size: 0.8rem;
+  background: oklch(0.93 0.01 260);
+  color: oklch(0.35 0.03 260);
+  font-weight: 500;
 }
-.masthead .archive-link { font-size: 0.85rem; }
+.cover__count--crit { background: oklch(0.94 0.03 25); color: oklch(0.4 0.12 25); }
+.cover__count--look { background: oklch(0.94 0.03 85); color: oklch(0.4 0.1 85); }
+.cover__count--fyi { background: oklch(0.94 0.02 220); color: oklch(0.4 0.08 220); }
+
+/* ── no signal ── */
+.no-signal {
+  background: oklch(0.99 0.005 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 16px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+.no-signal__emoji { font-size: 3rem; margin-bottom: 1rem; }
+.no-signal h2 { font-family: 'Fraunces', serif; font-size: 1.6rem; margin-bottom: 0.75rem; }
+.no-signal p { max-width: 500px; margin: 0 auto 0.5rem; color: oklch(0.4 0.02 260); }
+.no-signal__note { font-size: 0.85rem; color: oklch(0.55 0.03 260); margin-top: 1rem; }
+
+/* ── killed ── */
+.killed { margin: 2rem 0; }
+.killed__title { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.killed__empty { color: oklch(0.5 0.03 260); font-size: 0.9rem; }
 
 /* ── pager ── */
 .pager {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  align-items: center;
+  margin: 2rem 0;
   padding: 1rem 0;
-  font-size: 0.85rem;
-  border-bottom: 1px solid oklch(0.88 0.02 260);
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  border-top: 1px solid oklch(0.85 0.02 260);
+  border-bottom: 1px solid oklch(0.85 0.02 260);
+  gap: 1rem;
 }
-.pager .pager-current { font-weight: 600; color: oklch(0.35 0.02 260); }
-.pager a { font-weight: 500; }
-
-/* ── cover ── */
-.cover { padding: 2.5rem 0 1.5rem; }
-.cover .cover-kicker {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.1 260);
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-.cover .cover-date {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 3.25rem;
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.5rem;
-}
-.cover .cover-issue {
-  font-size: 1rem;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 1.5rem;
-}
-.cover .cover-headline {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.25;
-  max-width: 34ch;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.01em;
-}
-.cover .counts { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-.cover .count {
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.3rem 0.9rem;
-  border-radius: 999px;
-  background: oklch(0.93 0.01 260);
-}
-.cover .count--crit { background: oklch(0.93 0.08 25); color: oklch(0.35 0.08 25); }
-.cover .count--look { background: oklch(0.93 0.06 80); color: oklch(0.38 0.06 80); }
-.cover .count--fyi { background: oklch(0.93 0.03 220); color: oklch(0.38 0.03 220); }
-.cover .cover-summary {
-  font-size: 1.05rem;
-  max-width: 58ch;
-  color: oklch(0.35 0.02 260);
-}
-
-/* ── TOC ── */
-.toc {
-  margin: 2.5rem 0;
-  padding: 1.5rem 1.75rem;
-  background: oklch(0.99 0.002 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 12px;
-}
-.toc .smallcaps {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.toc ol { list-style: none; counter-reset: toc; }
-.toc li { counter-increment: toc; margin-bottom: 0.5rem; }
-.toc li::before {
-  content: counter(toc) ".";
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 600;
-  margin-right: 0.6rem;
-  color: oklch(0.55 0.15 260);
-}
-.toc a { font-weight: 500; }
-
-/* ── items ── */
-.item {
-  margin: 3.5rem 0;
-  padding: 2rem 0;
-  border-top: 1px solid oklch(0.88 0.02 260);
-}
-.item:first-of-type { border-top: none; }
-.item-head { margin-bottom: 1.25rem; }
-.tier {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.2rem 0.7rem;
-  border-radius: 999px;
-  margin-bottom: 0.75rem;
-}
-.tier--crit { background: oklch(0.93 0.08 25); color: oklch(0.35 0.08 25); }
-.tier--look { background: oklch(0.93 0.06 80); color: oklch(0.38 0.06 80); }
-.tier--fyi { background: oklch(0.93 0.03 220); color: oklch(0.38 0.03 220); }
-.item-title {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-}
-.item-meta { font-size: 0.85rem; color: oklch(0.5 0.02 260); }
-.item-pitch {
-  font-family: 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: oklch(0.35 0.02 260);
-  margin-bottom: 1.25rem;
-  line-height: 1.45;
-}
-.context-box {
-  background: oklch(0.99 0.002 260);
-  border-left: 3px solid oklch(0.55 0.2 260);
-  padding: 1rem 1.25rem;
-  border-radius: 0 8px 8px 0;
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-}
-.context-box .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
-}
-.item h3 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 1.5rem 0 0.6rem;
-}
-.item ul { padding-left: 1.25rem; margin-bottom: 1rem; }
-.item li { margin-bottom: 0.4rem; }
-.item strong { font-weight: 600; }
-
-/* ── action block ── */
-.action-block {
-  background: oklch(0.97 0.01 260);
-  border: 1px solid oklch(0.85 0.03 260);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
-}
-.action-block .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.45 0.1 260);
-  margin-bottom: 0.6rem;
-}
-.action-block ol { padding-left: 1.25rem; }
-.action-block li { margin-bottom: 0.35rem; }
-.action-block code {
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 0.85em;
-  background: oklch(0.92 0.01 260);
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
-}
-
-/* ── deep dive ── */
-.deep-dive {
-  margin: 1.5rem 0;
-  border: 1px solid oklch(0.85 0.02 260);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  background: oklch(0.99 0.002 260);
-}
-.deep-dive summary {
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: oklch(0.35 0.02 260);
-}
-.deep-dive summary:hover { color: oklch(0.45 0.18 260); }
-.deep-dive .dd-inner { margin-top: 1rem; }
-.deep-dive table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-  margin: 0.75rem 0 1rem;
-}
-.deep-dive th, .deep-dive td {
-  text-align: left;
-  padding: 0.5rem 0.6rem;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-}
-.deep-dive th {
-  font-weight: 600;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: oklch(0.5 0.02 260);
-}
-.deep-dive .dd-note { font-size: 0.85rem; color: oklch(0.5 0.02 260); }
-
-/* ── chart ── */
-.chart { margin: 1.25rem 0; }
-.chart-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
-.chart-label { font-size: 0.85rem; min-width: 8rem; text-align: right; font-weight: 500; }
-.chart-bar {
-  background: oklch(0.55 0.2 260);
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  white-space: nowrap;
-  min-width: 3rem;
-}
-
-/* ── watch block ── */
-.watch-block {
-  margin: 1.25rem 0;
-  padding: 1rem 1.25rem;
-  background: oklch(0.96 0.02 80);
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-.watch-block .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.1 80);
-  margin-bottom: 0.4rem;
-}
-
-/* ── jargon ── */
-.jargon {
-  margin: 1.25rem 0;
-  font-size: 0.9rem;
-  color: oklch(0.4 0.02 260);
-}
-.jargon .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
-}
-.jargon dt { font-weight: 600; display: inline; }
-.jargon dd { display: inline; margin-left: 0.25rem; }
-.jargon p { margin-bottom: 0.3rem; }
-
-/* ── who's talking ── */
-.who-talking {
-  margin: 1.25rem 0;
-  font-size: 0.9rem;
-}
-.who-talking .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
-}
-.who-talking ul { list-style: none; padding-left: 0; }
-.who-talking li { margin-bottom: 0.3rem; padding-left: 1rem; position: relative; }
-.who-talking li::before { content: "→"; position: absolute; left: 0; color: oklch(0.55 0.2 260); }
-
-/* ── links ── */
-.links {
-  margin: 1.25rem 0;
-  font-size: 0.9rem;
-}
-.links .smallcaps {
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.4rem;
-}
-.links ul { list-style: none; padding-left: 0; }
-.links li { margin-bottom: 0.3rem; }
-
-/* ── still tracking ── */
-.still-tracking {
-  margin: 3rem 0;
-  padding: 1.5rem 1.75rem;
-  background: oklch(0.96 0.005 260);
-  border: 1px dashed oklch(0.8 0.02 260);
-  border-radius: 10px;
-}
-.still-tracking .smallcaps {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding-left: 0; }
-.still-tracking li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.25rem;
-  position: relative;
-  font-size: 0.95rem;
-}
-.still-tracking li::before { content: "◷"; position: absolute; left: 0; color: oklch(0.55 0.15 260); }
-
-/* ── killed ── */
-.killed {
-  margin: 3rem 0;
-  padding: 1.5rem 1.75rem;
-  background: oklch(0.98 0.002 260);
-  border: 1px solid oklch(0.88 0.02 260);
-  border-radius: 10px;
-  font-size: 0.9rem;
-}
-.killed .smallcaps {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: oklch(0.5 0.02 260);
-  margin-bottom: 0.75rem;
-}
-.killed ul { list-style: none; padding-left: 0; }
-.killed li {
-  margin-bottom: 0.4rem;
-  padding-left: 1.25rem;
-  position: relative;
-}
-.killed li::before { content: "✕"; position: absolute; left: 0; color: oklch(0.6 0.1 25); }
-.killed .killed-reason { color: oklch(0.5 0.02 260); font-size: 0.85rem; }
+.pager__prev, .pager__next { font-size: 0.9rem; font-weight: 500; white-space: nowrap; }
+.pager__today { font-size: 0.85rem; color: oklch(0.5 0.03 260); text-align: center; }
+.is-disabled { opacity: 0.4; pointer-events: none; }
 
 /* ── footer ── */
-.footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid oklch(0.85 0.02 260);
-  font-size: 0.85rem;
-  color: oklch(0.5 0.02 260);
-  text-align: center;
-}
-.footer .footer-links { margin-bottom: 0.75rem; }
-.footer .footer-links a { margin: 0 0.5rem; }
+.footer { text-align: center; color: oklch(0.6 0.02 260); font-size: 0.8rem; padding: 2rem 0 1rem; }
 
-/* ── responsive ── */
-@media (max-width: 640px) {
-  html { font-size: 15px; }
-  .cover .cover-date { font-size: 2.5rem; }
-  .item-title { font-size: 1.4rem; }
-  .masthead { flex-wrap: wrap; }
-  .chart-label { min-width: 6rem; font-size: 0.75rem; }
+@media (max-width: 600px) {
+  .masthead { flex-wrap: wrap; justify-content: center; }
+  .masthead__left, .masthead__right { font-size: 0.75rem; }
+  .cover__headline { font-size: 1.6rem; }
+  .pager { flex-wrap: wrap; justify-content: center; }
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- ══════════ MASTHEAD ══════════ -->
+  <!-- ═══ TOP PAGER ═══ -->
+  <nav class="pager" data-current-date="2026-10-01" aria-label="Pagination">
+    <a class="pager__prev is-disabled" href="#">← Previous day</a>
+    <span class="pager__today">2026-10-01 · №127</span>
+    <a class="pager__next is-disabled" href="#">Next day →</a>
+  </nav>
+
+  <!-- ═══ MASTHEAD ═══ -->
   <header class="masthead">
-    <div class="logo"><a href="index.html">AI&nbsp;Radar<span class="logo-accent">·</span></a></div>
-    <div class="masthead-right">
-      <span class="issue-counter">№127</span>
-      <span style="font-size:0.85rem; color:oklch(0.5 0.02 260);">2026-10-01 · Thu</span>
-      <a class="archive-link" href="archive.html">Archive&nbsp;↗</a>
+    <div class="masthead__left">
+      <span class="masthead__date">2026-10-01 · Thu</span>
+      <span class="masthead__week">Week 40</span>
+    </div>
+    <div class="masthead__center">
+      <a href="./" class="masthead__logo">🛰️ AI Radar</a>
+    </div>
+    <div class="masthead__right">
+      <span class="masthead__issue">№127</span>
+      <a href="./archive.html" class="masthead__archive">Archive</a>
     </div>
   </header>
 
-  <!-- ══════════ TOP PAGER ══════════ -->
-  <nav class="pager" data-current-date="2026-10-01" aria-label="Pagination">
-    <a class="pager-prev" href="2026-09-30.html" data-prev-link>← №126 · 2026-09-30</a>
-    <span class="pager-current">№127 · 2026-10-01</span>
-    <a class="pager-next" href="2026-10-02.html" data-next-link>2026-10-02 · №128 →</a>
-  </nav>
-
-  <!-- ══════════ COVER ══════════ -->
+  <!-- ═══ COVER ═══ -->
   <section class="cover">
-    <p class="cover-kicker">Daily Briefing · Week 40</p>
-    <h1 class="cover-date">October 1, 2026</h1>
-    <p class="cover-issue">Issue №127 · Thursday</p>
-    <p class="cover-headline">Google strikes back: Gemini 4 Argon drops, HN explodes.</p>
-    <p class="counts">
-      <span class="count count--crit">🚨 1</span>
-      <span class="count count--look">👀 1</span>
-      <span class="count count--fyi">ℹ️ 0</span>
-    </p>
-    <p class="cover-summary">Google drops Gemini 4 Argon without warning — 1419 HN points, 930 comments in hours. Plus a YC S25 startup shipping a self-optimizing inference engine for agents.</p>
+    <h1 class="cover__headline">No real signals today — 0/3</h1>
+    <div class="cover__counts">
+      <span class="cover__count">Today: 0 items</span>
+      <span class="cover__count cover__count--crit">🚨 0 must-see</span>
+      <span class="cover__count cover__count--look">👀 0 worth a look</span>
+      <span class="cover__count cover__count--fyi">ℹ️ 0 fyi</span>
+    </div>
   </section>
 
-  <!-- ══════════ TOC ══════════ -->
-  <nav class="toc" aria-label="Table of contents">
-    <span class="smallcaps">In this issue</span>
-    <ol>
-      <li><a href="#gemini-4-argon">🚨 Gemini 4 Argon — Google's surprise flagship, HN 1419 pts</a></li>
-      <li><a href="#magnitude">👀 Magnitude (YC S25) — Self-optimizing inference engine for agents</a></li>
-    </ol>
-  </nav>
-
-  <!-- ══════════ MAIN ══════════ -->
-  <main>
-
-    <!-- ══════════ ITEM 1 — Gemini 4 Argon 🚨 ══════════ -->
-    <article class="item" id="gemini-4-argon">
-      <div class="item-head">
-        <span class="tier tier--crit">🚨 Must see</span>
-        <h2 class="item-title">Gemini 4 Argon — Google's surprise flagship, HN 1419 pts</h2>
-        <p class="item-meta">blog.google · 2026-10-01</p>
-      </div>
-
-      <p class="item-pitch">Hey clawii — Google dropped a new model with zero warning, and HN hit 1419 points with 930 comments in hours. This could be the opening shot of the next model war.</p>
-
-      <div class="context-box">
-        <span class="smallcaps">Context</span>
-        The model race has been white-hot: OpenAI shipped GPT‑6 Astra in early September, Anthropic followed with Fable 5.1, Opus 5.5, and Sonnet 5.5, while DeepSeek and Z.ai pushed hard on the open-source side. Google has been quiet — until today. Gemini 4 Argon appeared on blog.google without a beta, without a gradual rollout, and the community lost it.
-      </div>
-
-      <h3>Why this matters</h3>
-      <ul>
-        <li><strong>Extreme HN signal</strong>: 1419 points, 930 comments — the only real breakout post on HN today. The last time we saw this level of community reaction was GPT‑6 Astra.</li>
-        <li><strong>Google flipped from "follower" to "attacker"</strong>: Gemini 3 series had been trailing GPT‑6. Argon may directly match or exceed the current flagship.</li>
-        <li><strong>What it means for you</strong>: If Argon matches or beats Astra on reasoning, coding, and multimodality, the ceiling for what you can do with everyday tools (ChatGPT, Claude, Bard) just got pushed higher. And Google has an enormous distribution ecosystem (Bard, Google Cloud, Android).</li>
-      </ul>
-
-      <div class="action-block">
-        <span class="smallcaps">🎯 What you can do today</span>
-        <ol>
-          <li>Read the HN thread (story #3 on front page) — early hands-on reports are scattered through the comments</li>
-          <li>Refresh <a href="https://blog.google">blog.google</a> — the official post should go live within hours</li>
-          <li>If you're a Gemini / Google One Pro user, check whether Argon is available in the model switcher and try it</li>
-        </ol>
-      </div>
-
-      <details class="deep-dive">
-        <summary>🔬 Deep dive — how is this actually different from existing flagships</summary>
-        <table>
-          <thead><tr><th>Dimension</th><th>Gemini 4 Argon</th><th>GPT‑6 Astra</th><th>Claude Fable 5.1</th></tr></thead>
-          <tbody>
-            <tr><td>Launch style</td><td>Sudden drop, no preview</td><td>Pre-announced + system card</td><td>Pre-announced</td></tr>
-            <tr><td>HN points (first 15h)</td><td>1,419 (still climbing)</td><td>~2,500 (Sep 3)</td><td>~1,200</td></tr>
-            <tr><td>Likely focus areas</td><td>Reasoning, multimodality, coding</td><td>Computer use, engineering</td><td>Coding, research, writing</td></tr>
-            <tr><td>Availability</td><td>Expected in Gemini / Bard directly</td><td>API + ChatGPT all tiers</td><td>API + Claude all tiers</td></tr>
-          </tbody>
-        </table>
-        <p class="dd-note" style="margin-top:0.5rem;"><strong>Honest caveat</strong>: Information is extremely thin right now. The HN thread is all speculation and excitement. What we know for sure: the community sees this as a genuine flagship launch. The next 24 hours are critical — what we're missing is not hype, but benchmarks.</p>
-      </details>
-
-      <div class="watch-block">
-        <span class="smallcaps">🔭 What to watch next</span>
-        Official Google blog post with benchmarks; KOL takes (check if Karpathy, swyx, or Simon Willison post); actual inference speed and pricing vs Astra and Fable.
-      </div>
-
-      <dl class="jargon">
-        <dt><strong>Argon</strong></dt>
-        <dd> — Google's model code name, following the noble-gas naming pattern from Gemini 3 (Neon, Krypton, etc.). First model in the Gemini 4 family.</dd>
-      </dl>
-
-      <div class="who-talking">
-        <span class="smallcaps">Who's talking about it</span>
-        <ul>
-          <li><strong>Hacker News</strong>: 1,419 points, 930 comments — front page #3 as of Oct 1 afternoon</li>
-          <li><strong>Source</strong>: blog.google (official announcement post not yet live; community found it through early indexing)</li>
-          <li><strong>No KOL cross-validation yet</strong> — this just happened in the last few hours</li>
-        </ul>
-      </div>
-
-      <div class="links">
-        <span class="smallcaps">Try it / dig in</span>
-        <ul>
-          <li><a href="https://blog.google" target="_blank">Google Blog (refresh — post incoming)</a></li>
-          <li><a href="https://news.ycombinator.com/item?id=41788632" target="_blank">HN discussion (story #3)</a></li>
-        </ul>
-      </div>
-    </article>
-
-    <!-- ══════════ ITEM 2 — Magnitude 👀 ══════════ -->
-    <article class="item" id="magnitude">
-      <div class="item-head">
-        <span class="tier tier--look">👀 Worth a look</span>
-        <h2 class="item-title">Magnitude (YC S25) — Self-optimizing inference engine for agents</h2>
-        <p class="item-meta">github.com/magnitudedev · HN #11 · 2026-10-01</p>
-      </div>
-
-      <p class="item-pitch">Hey clawii — a YC startup just launched on HN: an inference engine that automatically optimizes speed and cost for AI agents. Think of it as "autopilot for the inference layer."</p>
-
-      <div class="context-box">
-        <span class="smallcaps">Context</span>
-        The more agents you run, the more you feel the pain of cost and latency. Right now developers manually tune model size, batch sizes, speculative decoding knobs, etc. Magnitude says it does all that automatically, keeping your agent running at optimal configuration without manual tweaking.
-      </div>
-
-      <h3>Why this matters</h3>
-      <ul>
-        <li><strong>Right direction</strong>: "Autonomous optimization for agent inference" is a real, unsolved pain point. If it works, it lowers both the mental overhead and the bill for running agents.</li>
-        <li><strong>Relevance for non-devs</strong>: When you vibe-code and call models through an agent, a self-optimizing backend means more consistent speed and lower cost without you doing anything.</li>
-        <li><strong>YC stamp</strong>: YC S25 — someone is betting money on this thesis.</li>
-      </ul>
-
-      <div class="action-block">
-        <span class="smallcaps">🎯 What you can do today</span>
-        <ol>
-          <li>Read the HN Launch thread (story #11) for community feedback and skepticism</li>
-          <li>Check the GitHub repo README to judge whether it's usable for your workflow</li>
-          <li>Watch whether the architecture gets adopted by mainstream agent frameworks (LangChain, n8n)</li>
-        </ol>
-      </div>
-
-      <details class="deep-dive">
-        <summary>🔬 Deep dive — how is this different from existing approaches</summary>
-        <table>
-          <thead><tr><th>Dimension</th><th>Magnitude</th><th>Manual tuning (vLLM / TGI)</th><th>OpenAI auto-optimization</th></tr></thead>
-          <tbody>
-            <tr><td>Optimization method</td><td>Automatic, online adjustment</td><td>Manual config</td><td>Black box</td></tr>
-            <tr><td>Target workload</td><td>AI agents (multi-turn + tool calls)</td><td>General inference</td><td>General</td></tr>
-            <tr><td>Open source</td><td>Yes (GitHub)</td><td>Yes</td><td>No</td></tr>
-            <tr><td>User profile</td><td>Developers embedding into agent systems</td><td>Ops/deployment</td><td>API users</td></tr>
-          </tbody>
-        </table>
-        <p class="dd-note" style="margin-top:0.5rem;"><strong>Honest caveat</strong>: Very early stage (Launch HN today). Community feedback is still coming in. But the direction is solid — worth putting on the radar. If it gets traction, it could become an important piece of agent infrastructure.</p>
-      </details>
-
-      <div class="watch-block">
-        <span class="smallcaps">🔭 What to watch next</span>
-        GitHub star growth (if it crosses 500 in 2 days, that's momentum); whether any KOL starts using/recommending it; comparisons with n8n / LangChain plugin ecosystems.
-      </div>
-
-      <dl class="jargon">
-        <dt><strong>Inference engine</strong></dt>
-        <dd> — The software that runs an AI model to generate responses (e.g., vLLM, Ollama). "Self-optimizing" means it automatically adjusts batch sizes, caching strategies, and other knobs to save money and time.</dd>
-      </dl>
-
-      <div class="who-talking">
-        <span class="smallcaps">Who's talking about it</span>
-        <ul>
-          <li><strong>Hacker News</strong>: Launch HN — 165 points, 84 comments (story #11)</li>
-          <li><strong>YC</strong>: S25 batch company</li>
-          <li><strong>GitHub</strong>: Just launched, star count not yet significant</li>
-        </ul>
-      </div>
-
-      <div class="links">
-        <span class="smallcaps">Try it / dig in</span>
-        <ul>
-          <li><a href="https://github.com/magnitudedev" target="_blank">GitHub repo</a></li>
-          <li><a href="https://news.ycombinator.com/item?id=41788642" target="_blank">HN Launch thread (story #11)</a></li>
-        </ul>
-      </div>
-    </article>
-
+  <!-- ═══ MAIN ═══ -->
+  <main class="content">
+    <div class="no-signal">
+      <p class="no-signal__emoji">🌤️</p>
+      <h2>No real signals today</h2>
+      <p>Scanned 0 sources — no usable fetch data available today to verify any new signal. Stay calm and keep building.</p>
+      <p class="no-signal__note">Note: 3 consecutive days with no signal is normal. If it hits 7 days straight, it's time to recalibrate the threshold.</p>
+    </div>
   </main>
 
-  <!-- ══════════ STILL TRACKING ══════════ -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · no trigger event, but ongoing</span>
-    <ul>
-      <li><strong>Day 4 · Claude Sonnet 5.5</strong> — Fully rolled out, available on free tier. Price/performance ratio still being debated. No new major KOL endorsement.</li>
-      <li><strong>Day 3 · GPT‑6.1 Sol</strong> — DevDay launch, 20% price cut. No new news today. Still ramping slowly.</li>
-      <li><strong>Day 3 · Dots (always-on agents)</strong> — Launched Sep 29. No new trigger. HN points stable, waiting for adoption metrics.</li>
-    </ul>
-  </aside>
+  <!-- ═══ WHAT DIDN'T MAKE IT ═══ -->
+  <section class="killed">
+    <h2 class="killed__title">📊 What didn't make it</h2>
+    <p class="killed__empty">No source data today — no candidates to evaluate.</p>
+  </section>
 
-  <!-- ══════════ KILLED ══════════ -->
-  <aside class="killed">
-    <span class="smallcaps">📊 What didn't make it</span>
-    <ul>
-      <li>OpenDLSS: Vulkan DLSS 5 reimplementation (HN #1) <span class="killed-reason">— not AI capability</span></li>
-      <li>GPT‑Synopsys: chip design (HN #2) <span class="killed-reason">— low points (18), enterprise collab</span></li>
-      <li>Book of Shapes: SVG patterns (HN #4) <span class="killed-reason">— not AI</span></li>
-      <li>URSALA / RAQUEL / FARRAH satellites (HN #5) <span class="killed-reason">— not AI</span></li>
-      <li>Bronze Age Collapse essay (HN #7) <span class="killed-reason">— not AI</span></li>
-      <li>Brain waves / Quanta article (HN #8) <span class="killed-reason">— not AI</span></li>
-      <li>Bloomberg terminal history (HN #13) <span class="killed-reason">— not AI</span></li>
-      <li>Netlify edge functions (HN #14) <span class="killed-reason">— infrastructure, not AI capability</span></li>
-      <li>Family replaced by technology essay (HN #16) <span class="killed-reason">— not AI</span></li>
-      <li>EDG C++ frontend goes public (HN #19) <span class="killed-reason">— not AI</span></li>
-      <li>Singapore dating app algorithm (HN #22) <span class="killed-reason">— not AI (matching algorithm)</span></li>
-      <li>AI-generated mathematics release (HN #26) <span class="killed-reason">— not a capability signal</span></li>
-      <li>OpenAI: distillation campaign / small biz <span class="killed-reason">— safety/enterprise, not new capability</span></li>
-      <li>Anthropic: Barclays partnership <span class="killed-reason">— enterprise case study, not new capability</span></li>
-      <li>Mistral: German Hub / Mozilla partnership <span class="killed-reason">— expansion/partnership, not capability</span></li>
-      <li>HF Blog: Qwen3.8-27B-pi / Jev / Nemotron <span class="killed-reason">— weak signal (&lt;10 likes), no community breakout</span></li>
-      <li>HF Trending: DeepSeek-V4.1-Flash update / Xing4.0 <span class="killed-reason">— Chinese models, no KOL endorsement, already covered by Chinese outlets</span></li>
-      <li>OSSInsight / GitHub Trending <span class="killed-reason">— data source issues, no valid data</span></li>
-    </ul>
-  </aside>
-
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="archive.html">Archive</a> · <a href="about.html">About</a> · <a href="rss.xml">RSS</a>
-    </div>
-    <p>AI Radar · Issue №127 · 2026-10-01 · Week 40</p>
-  </footer>
-
-  <!-- ══════════ BOTTOM PAGER ══════════ -->
+  <!-- ═══ BOTTOM PAGER ═══ -->
   <nav class="pager" data-current-date="2026-10-01" aria-label="Pagination">
-    <a class="pager-prev" href="2026-09-30.html" data-prev-link>← №126 · 2026-09-30</a>
-    <span class="pager-current">№127 · 2026-10-01</span>
-    <a class="pager-next" href="2026-10-02.html" data-next-link>2026-10-02 · №128 →</a>
+    <a class="pager__prev is-disabled" href="#">← Previous day</a>
+    <span class="pager__today">2026-10-01 · №127</span>
+    <a class="pager__next is-disabled" href="#">Next day →</a>
   </nav>
+
+  <footer class="footer">
+    <p>AI Radar · Daily AI signal radar · Data from Smol AI / OSSInsight / HN / X KOLs / Official changelogs</p>
+  </footer>
 
 </div>
 
 <script>
-(function() {
-  var currentDate = '2026-10-01';
-  var pagerEls = document.querySelectorAll('.pager');
-
-  fetch('./archive.json')
-    .then(function(r) { return r.json(); })
-    .then(function(archive) {
-      var issues = archive.issues;
-      var idx = issues.findIndex(function(i) { return i.date === currentDate; });
-      if (idx === -1) return;
-
-      var prev = issues[idx - 1];
-      var next = issues[idx + 1];
-
-      pagerEls.forEach(function(pager) {
-        var prevLink = pager.querySelector('[data-prev-link]');
-        var nextLink = pager.querySelector('[data-next-link]');
-        var current = pager.querySelector('.pager-current');
-
-        if (prevLink && prev) {
-          prevLink.href = prev.date + '.html';
-          prevLink.textContent = '← №' + prev.issue + ' · ' + prev.date;
-        } else if (prevLink) {
-          prevLink.style.visibility = 'hidden';
+(async () => {
+  const currentDate = '2026-10-01';
+  try {
+    const res = await fetch('./archive.json');
+    if (!res.ok) throw new Error('archive fetch failed: ' + res.status);
+    const data = await res.json();
+    const issues = Array.isArray(data.issues) ? data.issues : [];
+    const idx = issues.findIndex(i => i.date === currentDate);
+    const prev = idx > 0 ? issues[idx - 1] : null;
+    const next = (idx >= 0 && idx < issues.length - 1) ? issues[idx + 1] : null;
+    document.querySelectorAll('.pager').forEach(pager => {
+      const prevLink = pager.querySelector('.pager__prev');
+      const nextLink = pager.querySelector('.pager__next');
+      if (prevLink) {
+        if (prev) {
+          prevLink.href = prev.url;
+          prevLink.textContent = '← ' + prev.date;
+          prevLink.classList.remove('is-disabled');
+        } else {
+          prevLink.classList.add('is-disabled');
         }
-
-        if (nextLink && next) {
-          nextLink.href = next.date + '.html';
-          nextLink.textContent = next.date + ' · №' + next.issue + ' →';
-        } else if (nextLink) {
-          nextLink.style.visibility = 'hidden';
+      }
+      if (nextLink) {
+        if (next) {
+          nextLink.href = next.url;
+          nextLink.textContent = next.date + ' →';
+          nextLink.classList.remove('is-disabled');
+        } else {
+          nextLink.classList.add('is-disabled');
         }
-
-        if (current) {
-          current.textContent = '№' + (prev ? prev.issue + 1 : 127) + ' · ' + currentDate;
-        }
-      });
-    })
-    .catch(function() {
-      // If archive.json isn't available (e.g., local file), keep the hardcoded links.
+      }
     });
+  } catch (e) {
+    console.error('AI Radar pager: archive.json load failed', e);
+  }
 })();
 </script>
 

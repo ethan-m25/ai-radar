@@ -26,552 +26,189 @@ img, svg { max-width: 100%; display: block; }
 .masthead {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 1.5rem 0 1rem;
-  border-bottom: 2px solid oklch(0.18 0.02 260);
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid oklch(0.85 0.02 260);
   margin-bottom: 2rem;
+  gap: 1rem;
 }
-.masthead .logo {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: -0.02em;
-}
-.masthead .logo .radar { color: oklch(0.55 0.2 260); }
-.masthead .meta {
-  font-size: 0.8rem;
-  color: oklch(0.5 0.02 260);
-  text-align: right;
-  line-height: 1.5;
-}
-.masthead .meta .issue-num {
-  font-weight: 600;
-  color: oklch(0.18 0.02 260);
-}
+.masthead__left, .masthead__right { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: oklch(0.5 0.03 260); }
+.masthead__logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; color: oklch(0.18 0.02 260); letter-spacing: -0.02em; }
+.masthead__logo:hover { text-decoration: none; }
+.masthead__issue { font-weight: 600; color: oklch(0.18 0.02 260); }
+.masthead__archive { font-size: 0.85rem; }
 
 /* ── cover ── */
-.cover {
-  padding: 2rem 0 1.5rem;
-  border-bottom: 1px solid oklch(0.85 0.01 260);
-  margin-bottom: 2rem;
-}
-.cover .headline {
+.cover { margin-bottom: 2rem; }
+.cover__headline {
   font-family: 'Fraunces', serif;
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
-.cover .counts {
-  display: flex;
-  gap: 1.25rem;
+.cover__counts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.cover__count {
   font-size: 0.85rem;
-  color: oklch(0.5 0.02 260);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: oklch(0.93 0.01 260);
+  color: oklch(0.35 0.03 260);
+  font-weight: 500;
 }
-.cover .counts .count { font-weight: 600; color: oklch(0.18 0.02 260); }
-
-/* ── item ── */
-.item { margin-bottom: 2.5rem; }
-.item--crit { border-left: 4px solid oklch(0.6 0.22 35); padding-left: 1rem; }
-.item--look { border-left: 4px solid oklch(0.5 0.15 85); padding-left: 1rem; }
-.item--fyi { border-left: 4px solid oklch(0.6 0.05 220); padding-left: 1rem; }
-.item__tier {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.2rem 0.5rem;
-  border-radius: 3px;
-  margin-bottom: 0.5rem;
-}
-.tier--crit { background: oklch(0.85 0.15 35); color: oklch(0.3 0.18 35); }
-.tier--look { background: oklch(0.85 0.1 85); color: oklch(0.35 0.15 85); }
-.tier--fyi { background: oklch(0.85 0.03 220); color: oklch(0.35 0.05 220); }
-.item__title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.3rem;
-}
-.item__pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: oklch(0.4 0.02 260);
-  margin-bottom: 1rem;
-}
-.context-box {
-  background: oklch(0.94 0.01 260);
-  border-left: 3px solid oklch(0.6 0.1 260);
-  padding: 0.8rem 1rem;
-  margin: 1rem 0 1.2rem;
-  font-size: 0.9rem;
-  color: oklch(0.35 0.02 260);
-  border-radius: 0 4px 4px 0;
-}
-.chart {
-  margin: 1rem 0 1.2rem;
-  font-size: 0.85rem;
-}
-.chart-bar {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.4rem;
-}
-.chart-bar .label {
-  width: 120px;
-  flex-shrink: 0;
-  color: oklch(0.4 0.02 260);
-}
-.chart-bar .bar {
-  height: 18px;
-  background: oklch(0.5 0.15 260);
-  border-radius: 3px;
-  min-width: 4px;
-}
-.chart-bar .value {
-  margin-left: 0.5rem;
-  font-weight: 600;
-}
-.item h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 1rem 0 0.4rem;
-}
-.item ul { padding-left: 1.2rem; margin-bottom: 0.8rem; }
-.item li { margin-bottom: 0.3rem; }
-.action-block {
-  background: oklch(0.96 0.005 260);
-  border-radius: 6px;
-  padding: 0.8rem 1rem;
-  margin: 1rem 0;
-  font-size: 0.9rem;
-}
-.action-block h3 { margin-top: 0; }
-.action-block ol { padding-left: 1.5rem; }
-.action-block li { margin-bottom: 0.2rem; }
-details.deep-dive {
-  background: oklch(0.94 0.01 260);
-  border-radius: 6px;
-  padding: 0.8rem 1rem;
-  margin: 1rem 0;
-}
-details.deep-dive summary {
-  font-weight: 600;
-  cursor: pointer;
-  color: oklch(0.35 0.15 260);
-}
-details.deep-dive table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 0.8rem;
-  font-size: 0.88rem;
-}
-details.deep-dive th, details.deep-dive td {
-  border: 1px solid oklch(0.75 0.02 260);
-  padding: 0.4rem 0.6rem;
-  text-align: left;
-  vertical-align: top;
-}
-details.deep-dive th { font-weight: 600; background: oklch(0.9 0.01 260); }
-.watch-block {
-  margin: 0.8rem 0;
-  font-size: 0.85rem;
-  color: oklch(0.45 0.02 260);
-  border-left: 2px solid oklch(0.7 0.02 260);
-  padding-left: 0.6rem;
-}
-.jargon {
-  margin: 0.8rem 0;
-  padding: 0.5rem 0.8rem;
-  background: oklch(0.96 0.005 260);
-  border-radius: 4px;
-  font-size: 0.85rem;
-}
-.jargon dt { font-weight: 600; }
-.jargon dd { margin-left: 1rem; }
-.signals {
-  margin: 0.8rem 0;
-  font-size: 0.85rem;
-  color: oklch(0.4 0.02 260);
-}
-.signals strong { color: oklch(0.18 0.02 260); }
-.try-it {
-  margin: 0.8rem 0;
-  font-size: 0.85rem;
-}
-.try-it a { display: inline-block; margin-right: 1rem; }
-
-/* ── still-tracking ── */
-.still-tracking {
-  margin: 2rem 0;
-  padding: 0.8rem 1rem;
-  background: oklch(0.95 0.005 260);
-  border-radius: 6px;
-  font-size: 0.85rem;
-}
-.still-tracking .smallcaps {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: oklch(0.5 0.02 260);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.still-tracking ul {
-  list-style: none;
-  padding: 0;
-}
-.still-tracking li {
-  display: grid;
-  grid-template-columns: 3.5rem 1fr;
-  gap: 0.3rem 0.6rem;
-  margin-bottom: 0.3rem;
-}
-.still-tracking .days {
-  font-weight: 600;
-  color: oklch(0.4 0.02 260);
-  text-align: right;
-}
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.45 0.02 260); }
-
-/* ── killed ── */
-.killed {
-  margin: 2rem 0;
-  font-size: 0.82rem;
-  color: oklch(0.5 0.02 260);
-}
-.killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
-.killed th, .killed td {
-  border: 1px solid oklch(0.8 0.02 260);
-  padding: 0.3rem 0.5rem;
-  text-align: left;
-  vertical-align: top;
-}
-.killed th { font-weight: 600; background: oklch(0.92 0.005 260); }
-.killed td:first-child { white-space: nowrap; }
-.killed .source-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  background: oklch(0.9 0.01 260);
-  padding: 0.1rem 0.3rem;
-  border-radius: 3px;
-  margin-right: 0.3rem;
-}
+.cover__count--crit { background: oklch(0.94 0.03 25); color: oklch(0.4 0.12 25); }
+.cover__count--look { background: oklch(0.94 0.03 85); color: oklch(0.4 0.1 85); }
+.cover__count--fyi { background: oklch(0.94 0.02 220); color: oklch(0.4 0.08 220); }
 
 /* ── no signal ── */
 .no-signal {
-  padding: 3.5rem 1rem;
+  background: oklch(0.99 0.005 260);
+  border: 1px solid oklch(0.88 0.02 260);
+  border-radius: 16px;
+  padding: 3.5rem 2rem;
   text-align: center;
-  max-width: 520px;
-  margin: 0 auto;
+  margin: 2rem 0;
 }
-.no-signal .emoji { font-size: 3rem; margin-bottom: 1rem; }
-.no-signal h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.no-signal p {
-  color: oklch(0.4 0.02 260);
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-}
-.no-signal .mantra {
-  font-weight: 600;
-  color: oklch(0.3 0.02 260);
-}
-.no-signal .note {
-  font-size: 0.8rem;
-  color: oklch(0.6 0.02 260);
-  margin-top: 1.5rem;
-}
+.no-signal__emoji { font-size: 3rem; margin-bottom: 1rem; }
+.no-signal h2 { font-family: 'Fraunces', serif; font-size: 1.6rem; margin-bottom: 0.75rem; }
+.no-signal p { max-width: 500px; margin: 0 auto 0.5rem; color: oklch(0.4 0.02 260); }
+.no-signal__note { font-size: 0.85rem; color: oklch(0.55 0.03 260); margin-top: 1rem; }
 
-/* ── footer ── */
-.site-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.85 0.01 260);
-  font-size: 0.8rem;
-  color: oklch(0.5 0.02 260);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* ── killed ── */
+.killed { margin: 2rem 0; }
+.killed__title { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.killed__empty { color: oklch(0.5 0.03 260); font-size: 0.9rem; }
 
 /* ── pager ── */
 .pager {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid oklch(0.85 0.01 260);
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid oklch(0.85 0.02 260);
+  border-bottom: 1px solid oklch(0.85 0.02 260);
+  gap: 1rem;
 }
-.pager a {
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid oklch(0.8 0.02 260);
-  border-radius: 6px;
-  transition: all 0.15s;
-}
-.pager a:hover {
-  background: oklch(0.9 0.01 260);
-  text-decoration: none;
-}
-.pager .prev { margin-right: auto; }
-.pager .next { margin-left: auto; }
-.pager .disabled {
-  opacity: 0.4;
-  pointer-events: none;
+.pager__prev, .pager__next { font-size: 0.9rem; font-weight: 500; white-space: nowrap; }
+.pager__today { font-size: 0.85rem; color: oklch(0.5 0.03 260); text-align: center; }
+.is-disabled { opacity: 0.4; pointer-events: none; }
+
+/* ── footer ── */
+.footer { text-align: center; color: oklch(0.6 0.02 260); font-size: 0.8rem; padding: 2rem 0 1rem; }
+
+@media (max-width: 600px) {
+  .masthead { flex-wrap: wrap; justify-content: center; }
+  .masthead__left, .masthead__right { font-size: 0.75rem; }
+  .cover__headline { font-size: 1.6rem; }
+  .pager { flex-wrap: wrap; justify-content: center; }
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <!-- Masthead -->
+
+  <!-- ═══ 顶部翻页 ═══ -->
+  <nav class="pager" data-current-date="2026-10-01" aria-label="翻页">
+    <a class="pager__prev is-disabled" href="#">← 前一天</a>
+    <span class="pager__today">2026-10-01 · №127</span>
+    <a class="pager__next is-disabled" href="#">后一天 →</a>
+  </nav>
+
+  <!-- ═══ Masthead ═══ -->
   <header class="masthead">
-    <div class="logo">AI <span class="radar">Radar</span></div>
-    <div class="meta">
-      <div>2026-10-01 · Week 40</div>
-      <div>Issue <span class="issue-num">№127</span></div>
+    <div class="masthead__left">
+      <span class="masthead__date">2026-10-01 · 周四</span>
+      <span class="masthead__week">Week 40</span>
+    </div>
+    <div class="masthead__center">
+      <a href="./" class="masthead__logo">🛰️ AI Radar</a>
+    </div>
+    <div class="masthead__right">
+      <span class="masthead__issue">№127</span>
+      <a href="./archive.html" class="masthead__archive">归档</a>
     </div>
   </header>
 
-  <!-- Cover -->
+  <!-- ═══ Cover ═══ -->
   <section class="cover">
-    <h1 class="headline">Google 出手：Gemini 4 Argon 横空出世，HN 炸锅</h1>
-    <div class="counts">
-      <span class="count">2 条</span>
-      <span>🚨 1</span>
-      <span>👀 1</span>
-      <span>ℹ️ 0</span>
+    <h1 class="cover__headline">今天没有真信号 — 0/3</h1>
+    <div class="cover__counts">
+      <span class="cover__count">今日 0 条</span>
+      <span class="cover__count cover__count--crit">🚨 0 必看</span>
+      <span class="cover__count cover__count--look">👀 0 可看</span>
+      <span class="cover__count cover__count--fyi">ℹ️ 0 知道</span>
     </div>
   </section>
 
-  <!-- Item 1: Gemini 4 Argon 🚨 -->
-  <article class="item item--crit">
-    <span class="item__tier tier--crit">🚨 必看</span>
-    <h2 class="item__title">Gemini 4 Argon — Google 突然放出的新旗舰，Hacker News 1419 分</h2>
-    <p class="item__pitch">clawii，Google 没有预热就扔出一个新模型，HN 瞬间冲上 1419 分、930 条评论。这很可能就是下一波模型竞赛的揭幕战。</p>
-
-    <div class="context-box">
-      <strong>📍 背景</strong><br>
-      模型竞赛已经进入白热化：9 月初 OpenAI 发了 GPT‑6 Astra，Anthropic 发了 Fable 5.1 / Opus 5.5 / Sonnet 5.5，DeepSeek 和 Z.ai 也在开源侧猛追。Google 一直没有大动作，直到今天 Gemini 4 Argon 突然出现在 blog.google，没有 beta、没有缓慢 rollout，直接引爆了社区。
+  <!-- ═══ 正文 ═══ -->
+  <main class="content">
+    <div class="no-signal">
+      <p class="no-signal__emoji">🌤️</p>
+      <h2>今天没有真信号</h2>
+      <p>扫描了 0 个源（今日无可用抓取数据），无法验证任何新信号。Stay calm and keep building.</p>
+      <p class="no-signal__note">注：连续 3 天无真信号是正常现象。如果连续 7 天都是 0 条，可能要重新校准阈值。</p>
     </div>
+  </main>
 
-    <h3>为什么这事重要</h3>
-    <ul>
-      <li><strong>HN 信号极强</strong>：1419 分、930 条评论，是 10 月 1 日 HN 唯一真正爆发的帖子。这种级别的社区反应，上一轮还是 GPT‑6 Astra。</li>
-      <li><strong>Google 从「跟进」转成「突袭」</strong>：之前 Gemini 3 系列一直落后 GPT‑6，这次 Argon 可能直接对标甚至超越当前旗舰。</li>
-      <li><strong>对非开发者的影响</strong>：如果 Argon 在推理/编码/多模态上达到或超过 Astra，意味着你日常用 ChatGPT、Claude 能体验到的天花板会再次被推高，而且 Google 有庞大的生态（Bard、Google Cloud、Android）来分发。</li>
-    </ul>
-
-    <div class="action-block">
-      <h3>🎯 今天可以做的事</h3>
-      <ol>
-        <li>去 HN 帖子爬楼看早期评测：<a href="https://news.ycombinator.com/item?id=???">news.ycombinator.com</a>（页面 #3）</li>
-        <li>等 Google blog 文章出来（预计几小时内），<a href="https://blog.google">blog.google</a> 刷新看看</li>
-        <li>如果你是 Pro 用户，可以在 Gemini 界面切换模型版本试 Argon 的效果</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 深扒——它和现有旗舰到底有什么不同</summary>
-      <table>
-        <thead><tr><th>维度</th><th>Gemini 4 Argon</th><th>GPT‑6 Astra</th><th>Claude Fable 5.1</th></tr></thead>
-        <tbody>
-          <tr><td>发布方式</td><td>突然上线，无预览</td><td>预通告 + 系统卡</td><td>有预通告</td></tr>
-          <tr><td>HN 分数</td><td>1419（仍在涨）</td><td>~2500（9月3日）</td><td>~1200</td></tr>
-          <tr><td>可能重点能力</td><td>推理、多模态、代码</td><td>计算机操控、工程</td><td>代码、研究、写作</td></tr>
-          <tr><td>可用性</td><td>预计在 Gemini 中直接可用</td><td>API / ChatGPT 全平台</td><td>API / Claude 全平台</td></tr>
-        </tbody>
-      </table>
-      <p style="margin-top:0.5rem;font-size:0.88rem;"><strong>老实说</strong>：目前信息很少，HN 帖子全是猜测和兴奋。唯一可以确定的是：社区认为这是一个真正的旗舰级发布。接下来的 24 小时非常关键——我们缺的不是兴奋，是实测。</p>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 下一步盯什么：</strong>Google 官方博客文章上线后，看 benchmark 对比；KOL 的实测（Karpathy、swyx、SimonW 等人是否发帖）；实际推理速度和价格的比较。
-    </div>
-
-    <dl class="jargon">
-      <dt>Argon</dt>
-      <dd>Gemini 4 的第一款模型代号，以惰性气体命名，延续 Gemini 3 的命名风格（例如 Neon、Krypton）。</dd>
-    </dl>
-
-    <div class="signals">
-      <strong>来源信号：</strong>
-      HN 首页 #3 · 1419 分 · 930 条评论（截至 10‑01 下午） · 发布自 blog.google · 无其他源交叉验证（刚发生）
-    </div>
-
-    <div class="try-it">
-      <strong>试试看 / 深入了解：</strong>
-      <a href="https://blog.google" target="_blank">Google Blog（等文章）</a>
-      <a href="https://news.ycombinator.com/item?id=???" target="_blank">HN 讨论帖</a>
-    </div>
-  </article>
-
-  <!-- Item 2: Magnitude 👀 -->
-  <article class="item item--look">
-    <span class="item__tier tier--look">👀 值得一看</span>
-    <h2 class="item__title">Magnitude (YC S25) — 给 AI agent 自优化的推理引擎</h2>
-    <p class="item__pitch">clawii，一个 YC 公司今天在 HN 上发帖说他们做了一个能自动优化速度和成本的推理引擎，专为 agent 设计。看起来像是推理层的「无人驾驶」。</p>
-
-    <div class="context-box">
-      <strong>📍 背景</strong><br>
-      Agent 越用越多，但跑 agent 的成本和延迟是个大问题。现在开发者常常要在精度、速度、价格之间手动调参（比如选模型大小、batch size、是否用投机解码）。Magnitude 说它替你自动做这些优化，让 agent 持续跑在最优配置上。
-    </div>
-
-    <h3>为什么这事重要</h3>
-    <ul>
-      <li><strong>方向正确</strong>：agent 推理的「自动驾驶优化」是一个明确需求。如果它真的有效，可以大幅降低运行 agent 的心智负担和账单。</li>
-      <li><strong>对非开发者也有意义</strong>：你 vibe coding 时调用的模型如果背后有自优化引擎，体验会更稳定、更快、更便宜。</li>
-      <li><strong>YC 背书</strong>：YC S25，说明有人愿意投资这个方向。</li>
-    </ul>
-
-    <div class="action-block">
-      <h3>🎯 今天可以做的事</h3>
-      <ol>
-        <li>看 HN 讨论帖（<a href="https://news.ycombinator.com/item?id=???">#11</a>），了解社区反馈和质疑</li>
-        <li>去 GitHub 仓库看 README，判断是否适合自己试用</li>
-        <li>如果它是用开源模型 + 优化器，可以关注它的架构思路是否被主流采纳</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 深扒——它和现有方案有什么不同</summary>
-      <table>
-        <thead><tr><th>维度</th><th>Magnitude</th><th>手动优化 (vLLM / TGI)</th><th>OpenAI 自优化</th></tr></thead>
-        <tbody>
-          <tr><td>优化方式</td><td>自动在线调整</td><td>手动配置</td><td>黑盒</td></tr>
-          <tr><td>目标工作负载</td><td>AI agent（多轮+工具调用）</td><td>通用推理</td><td>通用</td></tr>
-          <tr><td>开源</td><td>是（GitHub）</td><td>是</td><td>否</td></tr>
-          <tr><td>面向用户</td><td>开发者嵌入 agent 系统</td><td>运维部署</td><td>API 用户</td></tr>
-        </tbody>
-      </table>
-      <p style="margin-top:0.5rem;font-size:0.88rem;"><strong>老实说</strong>：产品刚开始（Launch HN），社区反馈还需要时间。但方向对，值得放入雷达。如果它后面拿到更多关注，可能会成为 agent 基础设施的一个重要组件。</p>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 下一步盯什么：</strong>GitHub star 增长（如果两天内过 500 就算有 momentum）；是否有 KOL 开始试用推荐；是否有人把它和 n8n / LangChain 插件做对比。
-    </div>
-
-    <dl class="jargon">
-      <dt>推理引擎</dt>
-      <dd>运行 AI 模型生成回答的程序，比如 vLLM、Ollama。自优化意味着它能自动调整 batch、缓存等参数来省钱和省时。</dd>
-    </dl>
-
-    <div class="signals">
-      <strong>来源信号：</strong>
-      HN #11 · 165 分 · 84 评论 · YC S25 · GitHub 刚提交（星星数未知）
-    </div>
-
-    <div class="try-it">
-      <strong>试试看 / 深入了解：</strong>
-      <a href="https://github.com/magnitudedev" target="_blank">GitHub</a>
-      <a href="https://news.ycombinator.com/item?id=???" target="_blank">HN Launch 帖</a>
-    </div>
-  </article>
-
-  <!-- Still tracking -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
-    <ul>
-      <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">Claude Sonnet 5.5</span> <span class="update">— 已全面上线，免费层可用；性能 vs 价格比继续被社区讨论；无新 KOL 重大背书。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 3</span>
-        <div><span class="item-name">GPT‑6.1 Sol</span> <span class="update">— OpenAI DevDay 发布，降价 20%；今天没有新消息，但仍在缓慢爬坡。</span></div>
-      </li>
-    </ul>
-  </aside>
-
-  <!-- Killed list -->
+  <!-- ═══ 今天没选进来的 ═══ -->
   <section class="killed">
-    <span style="font-size:0.82rem;font-weight:600;">📊 今天没选进来的</span>
-    <table>
-      <thead><tr><th>来源</th><th>项目</th><th>原因</th></tr></thead>
-      <tbody>
-        <tr><td>HN #1</td><td>OpenDLSS</td><td>非 AI 能力</td></tr>
-        <tr><td>HN #2</td><td>GPT‑Synopsys</td><td>分数低（18），企业合作</td></tr>
-        <tr><td>HN #4</td><td>Book of Shapes</td><td>非 AI</td></tr>
-        <tr><td>HN #5</td><td>URASALA 卫星</td><td>非 AI</td></tr>
-        <tr><td>HN #7</td><td>Bronze Age Collapse</td><td>非 AI</td></tr>
-        <tr><td>HN #8</td><td>Brain waves</td><td>非 AI</td></tr>
-        <tr><td>HN #11</td><td>Magnitude</td><td>已选为 👀</td></tr>
-        <tr><td>HN #13</td><td>Bloomberg terminal</td><td>非 AI</td></tr>
-        <tr><td>HN #14</td><td>Netlify edge functions</td><td>非 AI 能力</td></tr>
-        <tr><td>HN #16</td><td>Family replaced by technology</td><td>非 AI</td></tr>
-        <tr><td>HN #19</td><td>EDG C++ frontend</td><td>非 AI</td></tr>
-        <tr><td>HN #22</td><td>Singapore dating app algorithm</td><td>非 AI</td></tr>
-        <tr><td>HN #26</td><td>AI-generated mathematics release</td><td>非能力信号</td></tr>
-        <tr><td>OpenAI 官方</td><td>Distillation campaign / Small biz</td><td>安全/企业，非新能力</td></tr>
-        <tr><td>Anthropic 官方</td><td>Barclays 合作</td><td>企业案例，非新能力</td></tr>
-        <tr><td>Mistral 官方</td><td>德国 Hub / Mozilla 合作</td><td>扩张/合作，非能力</td></tr>
-        <tr><td>HF Blog</td><td>Qwen3.8-27B-pi / Jev / Nemotron 等</td><td>信号弱（<10 likes），无社区爆发</td></tr>
-        <tr><td>HF Trending</td><td>DeepSeek-V4.1-Flash 更新 / Xing4.0 等</td><td>中文模型，无 KOL 背书</td></tr>
-        <tr><td>OSSInsight / GitHub</td><td>无有效数据</td><td>数据源问题</td></tr>
-      </tbody>
-    </table>
+    <h2 class="killed__title">📊 今天没选进来的</h2>
+    <p class="killed__empty">今日无源数据，无候选可评估。</p>
   </section>
 
-  <!-- Top pager -->
-  <nav class="pager" data-current-date="2026-10-01">
-    <a class="prev" href="#">← 前一天</a>
-    <a class="next" href="#">后一天 →</a>
+  <!-- ═══ 底部翻页 ═══ -->
+  <nav class="pager" data-current-date="2026-10-01" aria-label="翻页">
+    <a class="pager__prev is-disabled" href="#">← 前一天</a>
+    <span class="pager__today">2026-10-01 · №127</span>
+    <a class="pager__next is-disabled" href="#">后一天 →</a>
   </nav>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <span>📡 AI Radar · 每日早报</span>
-    <a href="./archive.html">📚 全部存档</a>
+  <footer class="footer">
+    <p>AI Radar · 每日 AI 信号雷达 · 数据来自 Smol AI / OSSInsight / HN / X KOL / 官方 changelog</p>
   </footer>
 
-  <!-- Bottom pager -->
-  <nav class="pager" data-current-date="2026-10-01">
-    <a class="prev" href="#">← 前一天</a>
-    <a class="next" href="#">后一天 →</a>
-  </nav>
 </div>
 
 <script>
-// Pager: fetch archive.json and render prev/next
-(async function() {
-  const pager = document.querySelector('.pager');
-  if (!pager) return;
-  const currentDate = pager.dataset.currentDate;
+(async () => {
+  const currentDate = '2026-10-01';
   try {
-    const res = await fetch('./archive.json', { cache: 'no-store' });
+    const res = await fetch('./archive.json');
+    if (!res.ok) throw new Error('archive fetch failed: ' + res.status);
     const data = await res.json();
-    const issues = data.issues;
+    const issues = Array.isArray(data.issues) ? data.issues : [];
     const idx = issues.findIndex(i => i.date === currentDate);
-    document.querySelectorAll('.pager').forEach(p => {
-      const prevLink = p.querySelector('.prev');
-      const nextLink = p.querySelector('.next');
-      if (idx > 0) {
-        prevLink.href = issues[idx - 1].date + '.html';
-      } else {
-        prevLink.classList.add('disabled');
-        prevLink.removeAttribute('href');
+    const prev = idx > 0 ? issues[idx - 1] : null;
+    const next = (idx >= 0 && idx < issues.length - 1) ? issues[idx + 1] : null;
+    document.querySelectorAll('.pager').forEach(pager => {
+      const prevLink = pager.querySelector('.pager__prev');
+      const nextLink = pager.querySelector('.pager__next');
+      if (prevLink) {
+        if (prev) {
+          prevLink.href = prev.url;
+          prevLink.textContent = '← ' + prev.date;
+          prevLink.classList.remove('is-disabled');
+        } else {
+          prevLink.classList.add('is-disabled');
+        }
       }
-      if (idx < issues.length - 1) {
-        nextLink.href = issues[idx + 1].date + '.html';
-      } else {
-        nextLink.classList.add('disabled');
-        nextLink.removeAttribute('href');
+      if (nextLink) {
+        if (next) {
+          nextLink.href = next.url;
+          nextLink.textContent = next.date + ' →';
+          nextLink.classList.remove('is-disabled');
+        } else {
+          nextLink.classList.add('is-disabled');
+        }
       }
     });
   } catch (e) {
-    console.warn('archive.json 加载失败，pager 不可用', e);
+    console.error('AI Radar pager: archive.json 加载失败', e);
   }
 })();
 </script>
+
 </body>
 </html>
