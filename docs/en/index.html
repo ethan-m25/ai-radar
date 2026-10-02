@@ -16,327 +16,309 @@ body {
   background: oklch(0.97 0.005 260);
   color: oklch(0.18 0.02 260);
   line-height: 1.6;
-  padding: 0 1rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-a { color: oklch(0.45 0.18 260); text-decoration: none; }
-a:hover { text-decoration: underline; }
-img, svg { max-width: 100%; display: block; }
-.container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
-/* ── masthead ── */
+/* Masthead */
 .masthead {
+  border-bottom: 1px solid oklch(0.88 0.015 260);
+  background: oklch(0.99 0.003 260);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+.masthead__inner {
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 16px;
 }
 .masthead__brand {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   letter-spacing: -0.02em;
 }
-.masthead__brand a { color: inherit; }
-.masthead__brand .accent { color: oklch(0.45 0.18 260); }
-.masthead__meta {
-  display: flex;
-  gap: 0.9rem;
-  align-items: center;
-  font-size: 0.8rem;
-  color: oklch(0.55 0.02 260);
-  flex-wrap: wrap;
+.masthead__date {
+  font-size: 0.78rem;
+  color: oklch(0.5 0.03 260);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
-.masthead__meta .issue-no {
+.masthead__issue {
   font-family: 'Fraunces', serif;
   font-weight: 600;
   font-size: 0.9rem;
-  color: oklch(0.18 0.02 260);
-  background: oklch(0.93 0.01 260);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+  color: oklch(0.45 0.05 260);
 }
-.masthead__nav { display: flex; gap: 1rem; font-size: 0.85rem; }
 
-/* ── pager (top & bottom) ── */
+/* Cover */
+.cover {
+  padding: 56px 0 32px;
+}
+.cover__kicker {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: oklch(0.55 0.05 260);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.cover__headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+.cover__subhead {
+  font-size: 1.05rem;
+  color: oklch(0.4 0.03 260);
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+.cover__counts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid oklch(0.88 0.015 260);
+  background: oklch(1 0 0);
+}
+.count--crit { color: oklch(0.55 0.18 25); border-color: oklch(0.85 0.12 25); background: oklch(0.98 0.02 25); }
+.count--look { color: oklch(0.45 0.12 240); border-color: oklch(0.85 0.08 240); background: oklch(0.98 0.015 240); }
+.count--fyi { color: oklch(0.5 0.03 260); border-color: oklch(0.88 0.015 260); }
+
+/* Pager */
 .pager {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-}
-.pager--bottom {
-  border-bottom: none;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
-  margin-bottom: 0;
-}
-.pager__link {
-  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid oklch(0.9 0.015 260);
+  border-bottom: 1px solid oklch(0.9 0.015 260);
+  margin: 8px 0 40px;
+}
+.pager a {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: oklch(0.4 0.1 260);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid oklch(0.88 0.015 260);
+  border-radius: 8px;
+  background: oklch(1 0 0);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.pager a:hover {
+  border-color: oklch(0.7 0.1 260);
+  color: oklch(0.3 0.1 260);
+}
+.pager__label {
+  font-size: 0.78rem;
+  color: oklch(0.55 0.03 260);
   font-weight: 500;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 999px;
-  background: oklch(1 0 0);
-  transition: border-color 0.15s, background 0.15s;
-  color: oklch(0.35 0.02 260);
-}
-.pager__link:hover { border-color: oklch(0.45 0.18 260); background: oklch(0.98 0.01 260); text-decoration: none; }
-.pager__link--next { margin-left: auto; }
-.pager__label { font-size: 0.78rem; color: oklch(0.55 0.02 260); }
-.pager__link--disabled { opacity: 0.4; pointer-events: none; }
-
-/* ── cover ── */
-.cover { margin-bottom: 2rem; }
-.cover .kicker {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.02 260);
-  margin-bottom: 0.75rem;
-}
-.cover .headline {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.2rem, 5.5vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-.cover .headline .grad {
-  background: linear-gradient(120deg, oklch(0.45 0.18 260), oklch(0.6 0.15 200));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.cover .subhead {
-  font-size: 1.05rem;
-  color: oklch(0.45 0.02 260);
-  max-width: 38em;
-  margin-bottom: 1.5rem;
-}
-.cover .meta-line {
-  font-size: 0.82rem;
-  color: oklch(0.55 0.02 260);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.5rem;
-  padding: 0.9rem 0;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-}
-.cover .meta-line strong { color: oklch(0.35 0.02 260); font-weight: 600; }
-
-/* ── count strip ── */
-.count-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
-  margin: 1.5rem 0 2.5rem;
-}
-.count-strip .count-card {
-  background: oklch(1 0 0);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 12px;
-  padding: 0.9rem 0.5rem;
   text-align: center;
 }
-.count-strip .count-num {
+
+/* No signal */
+.no-signal {
+  padding: 16px 0 48px;
+}
+.no-signal__card {
+  background: oklch(1 0 0);
+  border: 1px solid oklch(0.9 0.015 260);
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 1px 2px oklch(0.2 0.02 260 / 0.04);
+}
+.no-signal__icon { font-size: 3rem; margin-bottom: 16px; }
+.no-signal__card h2 {
   font-family: 'Fraunces', serif;
   font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
-.count-strip .count-label { font-size: 0.72rem; color: oklch(0.55 0.02 260); }
-.count-strip .count-card--crit .count-num { color: oklch(0.55 0.2 25); }
-.count-strip .count-card--look .count-num { color: oklch(0.65 0.15 75); }
-.count-strip .count-card--fyi .count-num { color: oklch(0.55 0.02 260); }
-.count-strip .count-card--track .count-num { color: oklch(0.45 0.18 260); }
+.no-signal__card p {
+  color: oklch(0.4 0.03 260);
+  max-width: 480px;
+  margin: 0 auto 8px;
+}
+.no-signal__note {
+  font-size: 0.85rem;
+  color: oklch(0.55 0.03 260) !important;
+  margin-top: 16px;
+  font-style: italic;
+}
 
-/* ── no-signal ── */
-.no-signal {
-  background: oklch(1 0 0);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
+/* Scan scope */
+.scan-scope {
+  padding: 0 0 48px;
 }
-.no-signal .emoji { font-size: 3rem; margin-bottom: 1rem; }
-.no-signal h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  margin-bottom: 0.75rem;
-}
-.no-signal p { color: oklch(0.45 0.02 260); max-width: 30em; margin: 0 auto 0.5rem; }
-.no-signal .note { font-size: 0.85rem; color: oklch(0.6 0.02 260); margin-top: 1.25rem; }
-
-/* ── section titles ── */
-.section-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 2.5rem 0 1rem;
+.scan-scope__inner {
+  font-size: 0.78rem;
+  color: oklch(0.55 0.03 260);
+  border-top: 1px solid oklch(0.9 0.015 260);
+  padding-top: 16px;
   display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
 }
-.section-title .smallcaps {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(0.55 0.02 260);
+.scan-scope__tag {
+  background: oklch(0.96 0.01 260);
+  border: 1px solid oklch(0.9 0.015 260);
+  border-radius: 6px;
+  padding: 2px 8px;
   font-weight: 500;
 }
-
-/* ── killed table ── */
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: oklch(1 0 0); border-radius: 12px; overflow: hidden; }
-.killed th, .killed td { padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid oklch(0.93 0.01 260); }
-.killed th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.55 0.02 260); background: oklch(0.98 0.005 260); }
-.killed tr:last-child td { border-bottom: none; }
-.killed .killed-reason { color: oklch(0.6 0.02 260); font-size: 0.82rem; }
-.killed .empty-note {
-  font-size: 0.85rem;
+.scan-scope__risk {
+  width: 100%;
+  margin-top: 8px;
   color: oklch(0.6 0.02 260);
-  padding: 1rem 0;
 }
 
-/* ── footer ── */
+/* Footer */
 .footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  font-size: 0.8rem;
+  padding: 24px 0 48px;
+  text-align: center;
+  font-size: 0.78rem;
   color: oklch(0.6 0.02 260);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  border-top: 1px solid oklch(0.9 0.015 260);
 }
+.footer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
-@media (max-width: 640px) {
-  .masthead { flex-direction: column; align-items: flex-start; }
-  .count-strip { grid-template-columns: repeat(2, 1fr); }
-  .cover .headline { font-size: 2rem; }
-  .no-signal { padding: 2rem 1rem; }
+/* Responsive */
+@media (max-width: 560px) {
+  .masthead__date { display: none; }
+  .pager { flex-wrap: wrap; justify-content: center; }
+  .pager__label { width: 100%; order: -1; }
+  .no-signal__card { padding: 32px 20px; }
 }
 </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- masthead -->
-  <header class="masthead">
-    <div class="masthead__brand">
-      <a href="./">AI <span class="accent">Radar</span></a>
-    </div>
-    <div class="masthead__meta">
-      <span class="issue-no">№128</span>
-      <span>2026-10-02 · Fri</span>
-      <span>Week 40</span>
-    </div>
-    <nav class="masthead__nav">
-      <a href="./">Today</a>
-      <a href="./archive.html">Archive</a>
-      <a href="./rss.xml">RSS</a>
-    </nav>
-  </header>
+<header class="masthead">
+  <div class="container masthead__inner">
+    <span class="masthead__brand">AI Radar</span>
+    <span class="masthead__date">2026-10-02 · Week 40 · ISO Fri</span>
+    <span class="masthead__issue">№128</span>
+  </div>
+</header>
 
-  <!-- top pager -->
-  <nav class="pager" data-current-date="2026-10-02">
-    <a class="pager__link pager__link--prev" href="#"><span class="pager__label">← Previous</span></a>
-    <a class="pager__link pager__link--next" href="#"><span class="pager__label">Next →</span></a>
-  </nav>
+<main>
 
-  <!-- cover -->
+  <!-- Cover -->
   <section class="cover">
-    <div class="kicker">AI Radar · Daily Intelligence · 2026-10-02</div>
-    <h1 class="headline">No real signals today.<br><span class="grad">Stay calm and keep building.</span></h1>
-    <p class="subhead">Scanned all 12 sources — everything is recap, press release, or already covered by the Chinese-language content cycle. Nothing worth tapping your shoulder over.</p>
-    <div class="meta-line">
-      <span><strong>Scan range</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog</span>
-      <span><strong>Real signals</strong>: 0 (🚨 0 / 👀 0 / ℹ️ 0)</span>
-      <span><strong>Risk check</strong>: Funding/litigation/personnel/pure-research/Chinese-covered excluded</span>
+    <div class="container">
+      <p class="cover__kicker">Issue №128 · Friday, October 2, 2026</p>
+      <h1 class="cover__headline">No real signals today — 0/3.</h1>
+      <p class="cover__subhead">Scanned all configured sources. Everything was recap, press release, or already covered by the Chinese-language cycle. Stay calm and keep building.</p>
+      <div class="cover__counts">
+        <span class="count count--crit">0 🚨 Must see</span>
+        <span class="count count--look">0 👀 Worth a look</span>
+        <span class="count count--fyi">0 ℹ️ FYI</span>
+      </div>
     </div>
   </section>
 
-  <!-- count strip -->
-  <div class="count-strip">
-    <div class="count-card count-card--crit"><div class="count-num">0</div><div class="count-label">🚨 Must-see</div></div>
-    <div class="count-card count-card--look"><div class="count-num">0</div><div class="count-label">👀 Worth a look</div></div>
-    <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ FYI</div></div>
-    <div class="count-card count-card--track"><div class="count-num">0</div><div class="count-label">📈 Tracking</div></div>
+  <!-- Top pager -->
+  <div class="container">
+    <div class="pager" data-current-date="2026-10-02">
+      <a href="2026-10-01.html" class="pager__prev" id="prev-link-top">← Previous</a>
+      <span class="pager__label">Issue №128 · 2026-10-02</span>
+      <a href="2026-10-03.html" class="pager__next" id="next-link-top">Next →</a>
+    </div>
   </div>
 
-  <!-- no signal -->
+  <!-- No signal -->
   <section class="no-signal">
-    <div class="emoji">🌤️</div>
-    <h2>No real signals today — 0/3</h2>
-    <p>Scanned 12 sources. Everything is recap, press release, or already covered by the Chinese-language content cycle.</p>
-    <p>Stay calm and keep building.</p>
-    <p class="note">3 consecutive days with no signal is normal. If it hits 7 days straight, it's time to recalibrate the threshold.</p>
+    <div class="container">
+      <div class="no-signal__card">
+        <div class="no-signal__icon">🌤️</div>
+        <h2>No real signals today</h2>
+        <p>Scanned all configured sources — everything was recap, press release, or already covered by the Chinese-language cycle.</p>
+        <p>Stay calm and keep building.</p>
+        <p class="no-signal__note">Note: 3 consecutive days of no signal is normal. If it hits 7, recalibrate the threshold.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- killed list -->
-  <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 0 items</h3>
-    <p class="empty-note">No candidates to evaluate today. Scanning continues tomorrow.</p>
+  <!-- Scan scope -->
+  <section class="scan-scope">
+    <div class="container scan-scope__inner">
+      <span>Scanned:</span>
+      <span class="scan-scope__tag">Smol AI</span>
+      <span class="scan-scope__tag">OSSInsight</span>
+      <span class="scan-scope__tag">HN</span>
+      <span class="scan-scope__tag">X · 10 KOLs</span>
+      <span class="scan-scope__tag">Anthropic + OpenAI changelogs</span>
+      <span class="scan-scope__risk">Risk check: excluded funding / drama / lawsuits / policy / pure research / Chinese-already-covered.</span>
+    </div>
   </section>
 
-  <!-- bottom pager -->
-  <nav class="pager pager--bottom" data-current-date="2026-10-02">
-    <a class="pager__link pager__link--prev" href="#"><span class="pager__label">← Previous</span></a>
-    <a class="pager__link pager__link--next" href="#"><span class="pager__label">Next →</span></a>
-  </nav>
+  <!-- Bottom pager -->
+  <div class="container">
+    <div class="pager" data-current-date="2026-10-02">
+      <a href="2026-10-01.html" class="pager__prev" id="prev-link-bottom">← Previous</a>
+      <span class="pager__label">Issue №128 · 2026-10-02</span>
+      <a href="2026-10-03.html" class="pager__next" id="next-link-bottom">Next →</a>
+    </div>
+  </div>
 
-  <!-- footer -->
-  <footer class="footer">
-    <span>© 2026 AI Radar · Daily · Real signals only</span>
-    <span>Generated 2026-10-02 · №128</span>
-  </footer>
+</main>
 
-</div>
+<footer class="footer">
+  <div class="container">
+    <p>AI Radar · Daily AI signal digest · <a href="archive.html">Archive</a> · <a href="https://ethan-m25.github.io/ai-radar/">Home</a></p>
+  </div>
+</footer>
 
 <script>
-(function(){
-  var current = document.querySelector('.pager--bottom');
-  if (!current) return;
-  var currentDate = current.getAttribute('data-current-date');
-  fetch('./archive.json').then(function(r){ return r.json(); }).then(function(archive){
-    var issues = archive.issues || [];
-    var idx = issues.findIndex(function(i){ return i.date === currentDate; });
-    if (idx < 0) return;
-    var prev = issues[idx + 1];
-    var next = issues[idx - 1];
-    var prevLinks = document.querySelectorAll('.pager__link--prev');
-    var nextLinks = document.querySelectorAll('.pager__link--next');
-    if (prev) {
-      prevLinks.forEach(function(link){
-        link.href = prev.date + '.html';
-        link.querySelector('.pager__label').textContent = '← ' + prev.date;
-      });
-    } else {
-      prevLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = '← No earlier'; });
-    }
-    if (next) {
-      nextLinks.forEach(function(link){
-        link.href = next.date + '.html';
-        link.querySelector('.pager__label').textContent = next.date + ' →';
-      });
-    } else {
-      nextLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = 'No later →'; });
-    }
-  }).catch(function(){});
+(function() {
+  var currentDate = '2026-10-02';
+  fetch('./archive.json')
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      var issues = data.issues || [];
+      var idx = -1;
+      for (var i = 0; i < issues.length; i++) {
+        if (issues[i].date === currentDate) { idx = i; break; }
+      }
+      var prevLinkTop = document.getElementById('prev-link-top');
+      var nextLinkTop = document.getElementById('next-link-top');
+      var prevLinkBottom = document.getElementById('prev-link-bottom');
+      var nextLinkBottom = document.getElementById('next-link-bottom');
+      if (idx > 0) {
+        var prev = issues[idx - 1];
+        var prevText = '← ' + prev.date;
+        if (prevLinkTop) { prevLinkTop.href = prev.url; prevLinkTop.textContent = prevText; }
+        if (prevLinkBottom) { prevLinkBottom.href = prev.url; prevLinkBottom.textContent = prevText; }
+      }
+      if (idx >= 0 && idx < issues.length - 1) {
+        var next = issues[idx + 1];
+        var nextText = next.date + ' →';
+        if (nextLinkTop) { nextLinkTop.href = next.url; nextLinkTop.textContent = nextText; }
+        if (nextLinkBottom) { nextLinkBottom.href = next.url; nextLinkBottom.textContent = nextText; }
+      }
+    })
+    .catch(function(err) {
+      console.warn('archive.json not available:', err);
+    });
 })();
 </script>
 
