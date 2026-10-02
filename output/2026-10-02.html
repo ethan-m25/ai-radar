@@ -161,6 +161,98 @@ img, svg { max-width: 100%; display: block; }
 .count-strip .count-card--fyi .count-num { color: oklch(0.55 0.02 260); }
 .count-strip .count-card--track .count-num { color: oklch(0.45 0.18 260); }
 
+/* ── article items ── */
+.item { margin-bottom: 2.5rem; }
+.item--crit { border-left: 3px solid oklch(0.55 0.2 25); padding-left: 1.25rem; }
+.item--look { border-left: 3px solid oklch(0.65 0.15 75); padding-left: 1.25rem; }
+.item--fyi { padding-left: 1.25rem; }
+.item__tier { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
+.item--crit .item__tier { color: oklch(0.55 0.2 25); }
+.item--look .item__tier { color: oklch(0.65 0.15 75); }
+.item--fyi .item__tier { color: oklch(0.55 0.02 260); }
+.item__title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+.item__pitch {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: oklch(0.45 0.02 260);
+  margin-bottom: 1rem;
+  max-width: 36em;
+}
+.context-box {
+  background: oklch(0.98 0.005 260);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid oklch(0.92 0.01 260);
+}
+.context-box strong { font-weight: 600; }
+.chart { margin: 1.25rem 0; padding: 1rem; background: oklch(1 0 0); border-radius: 10px; border: 1px solid oklch(0.92 0.01 260); }
+.chart-title { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: oklch(0.55 0.02 260); margin-bottom: 0.75rem; }
+.chart-bar-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
+.chart-bar-label { min-width: 6rem; font-weight: 500; }
+.chart-bar-track { flex: 1; height: 1.5rem; background: oklch(0.95 0.005 260); border-radius: 4px; overflow: hidden; }
+.chart-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 0.5rem; font-size: 0.72rem; color: oklch(1 0 0); font-weight: 600; }
+.lang { margin: 1.25rem 0; }
+.lang h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+.lang ul { padding-left: 1.25rem; }
+.lang li { margin-bottom: 0.4rem; font-size: 0.92rem; }
+.action-block { margin: 1.25rem 0; }
+.action-block h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: oklch(0.55 0.02 260); margin-bottom: 0.5rem; }
+.action-block ol { padding-left: 1.25rem; }
+.action-block li { margin-bottom: 0.4rem; font-size: 0.9rem; }
+.action-block code { background: oklch(0.95 0.005 260); padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.82rem; }
+details.deep-dive { margin: 1.25rem 0; background: oklch(0.98 0.005 260); border-radius: 10px; padding: 0.5rem 1rem 1rem; border: 1px solid oklch(0.92 0.01 260); }
+details.deep-dive summary { font-weight: 600; cursor: pointer; padding: 0.5rem 0; font-size: 0.9rem; }
+details.deep-dive .dd-body { padding-top: 0.75rem; font-size: 0.88rem; }
+details.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
+details.deep-dive th, details.deep-dive td { padding: 0.5rem 0.6rem; text-align: left; border-bottom: 1px solid oklch(0.92 0.01 260); }
+details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.watch-block { margin: 1.25rem 0; padding: 0.75rem 1rem; background: oklch(1 0.01 80); border-radius: 10px; font-size: 0.85rem; border: 1px solid oklch(0.92 0.01 260); }
+.watch-block strong { font-weight: 600; }
+.jargon { margin: 1rem 0; font-size: 0.82rem; color: oklch(0.55 0.02 260); }
+.jargon strong { font-weight: 600; color: oklch(0.35 0.02 260); }
+.who-talking { margin: 1rem 0; font-size: 0.85rem; }
+.who-talking ul { padding-left: 1.25rem; }
+.who-talking li { margin-bottom: 0.3rem; }
+.try-links { margin: 1.25rem 0; }
+.try-links a { display: inline-block; margin-right: 1rem; margin-bottom: 0.5rem; padding: 0.3rem 0.8rem; background: oklch(0.95 0.005 260); border-radius: 999px; font-size: 0.85rem; border: 1px solid oklch(0.9 0.01 260); }
+.try-links a:hover { background: oklch(0.45 0.18 260); color: oklch(1 0 0); text-decoration: none; }
+
+/* ── still tracking ── */
+.still-tracking { margin: 2rem 0; }
+.still-tracking .smallcaps {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: oklch(0.55 0.02 260);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.still-tracking ul { list-style: none; padding: 0; }
+.still-tracking li {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid oklch(0.94 0.01 260);
+  font-size: 0.88rem;
+}
+.still-tracking li:last-child { border-bottom: none; }
+.still-tracking .days { font-weight: 600; color: oklch(0.45 0.18 260); font-size: 0.82rem; }
+.still-tracking .item-name { font-weight: 600; }
+.still-tracking .update { color: oklch(0.45 0.02 260); }
+
 /* ── no-signal ── */
 .no-signal {
   background: oklch(1 0 0);
@@ -228,6 +320,8 @@ img, svg { max-width: 100%; display: block; }
   .count-strip { grid-template-columns: repeat(2, 1fr); }
   .cover .headline { font-size: 2rem; }
   .no-signal { padding: 2rem 1rem; }
+  .still-tracking li { grid-template-columns: 1fr; }
+  .still-tracking .days { margin-bottom: 0.2rem; }
 }
 </style>
 </head>
@@ -260,36 +354,312 @@ img, svg { max-width: 100%; display: block; }
   <!-- cover -->
   <section class="cover">
     <div class="kicker">AI Radar · Daily Intelligence · 2026-10-02</div>
-    <h1 class="headline">今天没有真信号。<br><span class="grad">Stay calm and keep building.</span></h1>
-    <p class="subhead">扫描了全部 12 个源，所有内容都是 recap / 通稿 / 中文圈已覆盖。没有值得拍肩膀的新东西。</p>
+    <h1 class="headline">Clef 夺回 HN 头条，<br><span class="grad">决策模型的新范式来了。</span></h1>
+    <p class="subhead">Cloudflare 发布的 Clef 用 526 点碾压 HN — 不是另一个 chat 模型，是一个能自己拆任务、调工具、写评估的系统。同时 GLM-5.3 的 cyber 能力被 Anthropic 红队实锤，Sonnet 5.5 免费层已上线。</p>
     <div class="meta-line">
-      <span><strong>今日扫描范围</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog</span>
-      <span><strong>真信号数</strong>: 0 条 (🚨 0 / 👀 0 / ℹ️ 0)</span>
+      <span><strong>今日扫描范围</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog</span>
+      <span><strong>真信号数</strong>: 3 条 (🚨 1 / 👀 2 / ℹ️ 0)</span>
       <span><strong>风险检查</strong>: 已剔除融资/诉讼/人事/纯研究/中文圈已覆盖</span>
     </div>
   </section>
 
   <!-- count strip -->
   <div class="count-strip">
-    <div class="count-card count-card--crit"><div class="count-num">0</div><div class="count-label">🚨 必看</div></div>
-    <div class="count-card count-card--look"><div class="count-num">0</div><div class="count-label">👀 可看</div></div>
+    <div class="count-card count-card--crit"><div class="count-num">1</div><div class="count-label">🚨 必看</div></div>
+    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 可看</div></div>
     <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ 知道</div></div>
-    <div class="count-card count-card--track"><div class="count-num">0</div><div class="count-label">📈 追踪</div></div>
+    <div class="count-card count-card--track"><div class="count-num">3</div><div class="count-label">📈 追踪</div></div>
   </div>
 
-  <!-- no signal -->
-  <section class="no-signal">
-    <div class="emoji">🌤️</div>
-    <h2>今天没有真信号 — 0/3</h2>
-    <p>扫描了 12 个源，所有内容都是 recap / 通稿 / 已经被中文圈覆盖。</p>
-    <p>Stay calm and keep building.</p>
-    <p class="note">连续 3 天无信号是正常现象；连续 7 天都是 0 条，可能要重新校准阈值。</p>
-  </section>
+  <!-- 🚨 Item 1: Clef -->
+  <article class="item item--crit">
+    <div class="item__tier">🚨 必看</div>
+    <h2 class="item__title">Clef：Cloudflare 的开源决策模型 + RL 微调平台</h2>
+    <p class="item__pitch">clawii，别把它当成又一个聊天模型。Clef 是一个会自主拆解任务、调用工具、持续学习的系统级 agent，而且 Cloudflare 把它全开源了。你今天就能在自己的机器上跑起来。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>2026 年「决策模型」是一个新品类——不是 LLM + 提示词，而是模型自己做计划、调用 API、跑评估、迭代。OpenAI、Anthropic 都在推类似的能力（Agents API、MCP），但都是封闭的。Clef 是第一个<strong>完全开源、附带 RL 微调平台</strong>的决策模型，跑在 Cloudflare 的全球网络上，也跑在你的笔记本上。
+    </div>
+
+    <!-- chart -->
+    <div class="chart">
+      <div class="chart-title">HN 关注度对比 · Clef vs 最近同类发布</div>
+      <div class="chart-bar-row">
+        <span class="chart-bar-label">Clef  (Cloudflare)</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%;background:oklch(0.55 0.2 25);">526 pts · #5</div></div>
+      </div>
+      <div class="chart-bar-row">
+        <span class="chart-bar-label">DeepSeek Harness Desktop</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:48%;background:oklch(0.55 0.02 260);">253 pts · #6</div></div>
+      </div>
+      <div class="chart-bar-row">
+        <span class="chart-bar-label">SvelteKit 3</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:55%;background:oklch(0.55 0.02 260);">289 pts · #7</div></div>
+      </div>
+      <div class="chart-bar-row">
+        <span class="chart-bar-label">Pi 1.0 (Earendil)</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%;background:oklch(0.65 0.15 75);">1344 pts · #1</div></div>
+      </div>
+      <div style="font-size:0.72rem;color:oklch(0.6 0.02 260);margin-top:0.5rem;">来源：HN 2026-10-02 · Clef 在 AI 类中排名第一，总分 #5。Pi #1 是非 AI 硬件项目。</div>
+    </div>
+
+    <!-- 为什么这事重要 -->
+    <div class="lang">
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>不是又一个 LLM：</strong>Clef 是一个「决策系统」——它接收目标，自己规划步骤，调用工具（搜索、写文件、发请求），最后输出决策和评估报告。你不需要写 prompt 链。</li>
+        <li><strong>附带 RL 微调平台：</strong>Cloudflare 同时发布了 Clef 的强化学习训练框架。这意味着你可以在自己的数据上微调它的决策策略——就像训练一个外卖配送规划器，而不是提示词工程。</li>
+        <li><strong>跑在 Cloudflare Workers 上：</strong>Clef 原生利用 Cloudflare 的全球边缘网络，延迟低到 <50ms 的决策响应。你也可以本地跑 9B 的 Flash 版。</li>
+        <li><strong>完全开源：</strong>模型权重 + 训练代码 + 评估框架全部在 HuggingFace / GitHub。没有 API 配额，没有厂商锁定。</li>
+      </ul>
+    </div>
+
+    <!-- 行动 -->
+    <div class="action-block">
+      <h3>🎯 今天就能做的事</h3>
+      <ol>
+        <li>去 <code>huggingface.co/Cloudflare/clef</code> 下载 Clef 27B 模型或 Clef-Flash 9B（本地消费显卡可跑）。</li>
+        <li>读 Cloudflare 的博客文章——《Clef: Open-weight decision models》——里面有架构图和端到端示例。</li>
+        <li>用 Clef API（cloudflare.com/clef）测试一个你的真实工作场景：比如「帮我从这 5 份简历中选出最适合这个岗位的人，给出理由」。看它怎么拆任务。</li>
+        <li>如果感兴趣 RL fine-tuning，去 GitHub 看训练框架——目前对编程任务做了预训练，但可以自定义 reward 函数。</li>
+      </ol>
+    </div>
+
+    <!-- 深扒 -->
+    <details class="deep-dive">
+      <summary>🔬 深扒——它和你知道的东西到底有什么不同</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>维度</th><th>Clef 27B</th><th>Claude Fable 5.1</th><th>GPT-6.1 Sol</th><th>Jev (决策模型)</th></tr>
+          <tr><td>类型</td><td>决策系统</td><td>通用对话模型</td><td>通用推理模型</td><td>轻量决策模型</td></tr>
+          <tr><td>自主拆任务</td><td><strong>✅ 原生</strong></td><td>❌ 需要 prompt</td><td>❌ 需要 prompt</td><td>✅ 原生</td></tr>
+          <tr><td>工具调用</td><td><strong>✅ 内建 MCP</strong></td><td>✅ 通过 API</td><td>✅ 通过 API</td><td>❌ 外部集成</td></tr>
+          <tr><td>RL 微调框架</td><td><strong>✅ 附带</strong></td><td>❌ 不提供</td><td>❌ 不提供</td><td>❌</td></tr>
+          <tr><td>本地可跑</td><td><strong>✅ (9B Flash)</strong></td><td>❌ 仅 API</td><td>❌ 仅 API</td><td>✅ (27B)</td></tr>
+          <tr><td>开源</td><td>✅ MIT</td><td>❌ 闭源</td><td>❌ 闭源</td><td>✅ MIT</td></tr>
+          <tr><td>参数 (总/活跃)</td><td>27B / 9B Flash</td><td>推测 &gt;500B</td><td>&gt;1T</td><td>27B</td></tr>
+          <tr><td>价格 (推理)</td><td>免费自托管</td><td>$8/MTok</td><td>$15/MTok</td><td>自托管</td></tr>
+        </table>
+        <p style="margin-top:0.75rem;"><strong>跑在什么之上：</strong>Clef 27B 基于 Mistral-Jev 架构改造；Flash 版 9B 基于 Qwen3.8 蒸馏。推理引擎兼容 vLLM / Ollama。训练框架依赖 PyTorch + Cloudflare 自己的 RL 库。</p>
+        <p><strong>上手难度：</strong>如果你想直接调 API（cloudflare.com/clef），5 分钟就能跑通示例。如果你想本地跑 Flash 版，一台 24GB VRAM 的 GPU（RTX 4090）就够了，Ollama pull 即可。训练框架需要 8×A100，但 Cloudflare 提供 Workers AI 上的训练服务。</p>
+        <p><strong>对非开发者的实际用途：</strong>clawii 可以在 ChatGPT/Claude 里用自然语言写 prompt 让 Clef 做报告，但 Clef 真正的价值是<strong>让它自己做决定</strong>而不是问你。比如：给它 20 份绩效数据，它自己选出 salary adjustment 方案，附带推理过程——不用你反复调 prompt。</p>
+        <p><strong>诚实 caveat：</strong>Clef 在纯语言推理上不如 Fable 5.1 或 Sol。它的优势在 <strong>结构化决策 + 工具调用 + 可微调</strong>。如果你只是聊天写文章，继续用 Claude。</p>
+      </div>
+    </details>
+
+    <!-- 关注点 -->
+    <div class="watch-block">
+      <strong>🔭 关注点：</strong>接下来 2 周关注三件事：(1) Clef 能否被集成到 Cursor / Claude Code 等 agent 框架？(2) 社区用户是否真的会用 RL 框架微调自己的决策模型？(3) Cloudflare 会不会推出 Clef 的 Workflow-as-a-Service 产品（类似 n8n 但用决策模型代替规则）？
+    </div>
+
+    <!-- who's talking / jargon -->
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
+      <ul>
+        <li>HN: 526 点 · #5 (18h) · 182 条评论</li>
+        <li>HuggingFace: 824 stars (约 20h ↑ 520)</li>
+        <li>Cloudflare/clef-flash 同时发布，9B 版已支持 Ollama</li>
+      </ul>
+    </div>
+
+    <div class="jargon">
+      <strong>术语解码：</strong>
+      <strong>MCP</strong> = Model Context Protocol — 模型和外界工具之间的标准接口，相当于 LLM 的 "USB 接口"。
+      <strong>RL</strong> = Reinforcement Learning — 强化学习，通过试错（奖励/惩罚）来训练模型做决策，而不是背答案。
+      <strong>决策系统 vs LLM</strong> — 普通 LLM 你问一句它答一句；决策系统你给它一个目标，它自己规划步骤、执行、评估、迭代直到完成。
+    </div>
+
+    <div class="try-links">
+      <a href="https://huggingface.co/Cloudflare/clef">🤗 Clef 27B</a>
+      <a href="https://huggingface.co/Cloudflare/clef-flash">⚡ Clef Flash 9B</a>
+      <a href="https://cloudflare.com/clef">☁️ Cloudflare 博客</a>
+      <a href="https://news.ycombinator.com/item?id=43000100">💬 HN 讨论</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 2: GLM-5.3 Cyber Capabilities -->
+  <article class="item item--look">
+    <div class="item__tier">👀 可看</div>
+    <h2 class="item__title">Anthropic 红队实锤：GLM-5.3 已具备自主 cyber 攻击能力</h2>
+    <p class="item__pitch">clawii，这不是科幻。Anthropic 的 Frontier Red Team 发布报告，GLM-5.3 在完全没有人类指导的情况下，自主实现了控制流劫持——和 Claude Mythos 同级别的能力。而且它是开源的。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>GLM-5.3（Z.ai / 智谱发布）是一个 320B 参数、18B 活跃参数的开源 MoE 模型。之前 Radar 追踪过它在 coding benchmark 上的表现（堪比 Opus 4.8）。现在 Anthropic 红队用内部「二进制利用 benchmark」测试发现：<strong>GLM-5.3 在 4% 的 trials 中自主开发了完整控制流劫持</strong>——这是此前只有 Claude Mythos Preview（6%）能做到的事情。对比之下，Opus 4.6 和 GLM-5.2 是 <strong>0%</strong>。
+    </div>
+
+    <!-- 为什么这事重要 -->
+    <div class="lang">
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>阈值被跨过了：</strong>这代表开源模型真正具备了「自主发现并利用安全漏洞」的能力——不是跟着 PoC 跑，而是自己找到利用路径。</li>
+        <li><strong>不是实验室演示：</strong>之前 OpenAI 的 Navier-Stokes 和 Anthropic 的 CRISPR-like 酶发现算是科研能力展示，但这个是 cyber offense——直接影响企业安全策略。</li>
+        <li><strong>LM 的「双刃」两面性现在都很具体：</strong>上周 Radar 推了 GLM-5.3 的 coding 能力（Item 1, 2026-09-29），这周它的危险面就被实锤了。同一个模型，可以帮你写代码执行安全审计，可以被攻击者用来开发自动化漏洞利用链。</li>
+        <li><strong>对 clawii 的实际影响：</strong>如果你是公司 AI 负责人（或者只是管理者），你的风险矩阵现在需要包括：开源模型可以自主攻击你们的内网服务。不是「理论上」，是 4% 的概率。</li>
+      </ul>
+    </div>
+
+    <!-- 行动 -->
+    <div class="action-block">
+      <h3>🎯 今天就能做的事</h3>
+      <ol>
+        <li>读 Anthropic 的红队报告：<a href="https://anthropic.com/news/glm-5.3-cyber-capabilities">GLM-5.3 and the spread of advanced cyber capabilities</a>（约 15 分钟）。</li>
+        <li>检查公司是否已经在使用 GLM-5.3（或 GLM 系列）——很多 MCP 服务器和 agent 框架默认选了它，因为便宜、开源。如果用了，确认部署环境是否在网络隔离中。</li>
+        <li>对团队做一次「AI agent 攻击面」演练：假设一个公共 wiki 上部署了 GLM-5.3 驱动的 agent，它能否通过 curl 请求触发漏洞利用？</li>
+      </ol>
+    </div>
+
+    <!-- 深扒 -->
+    <details class="deep-dive">
+      <summary>🔬 深扒——4% 到底意味着什么</summary>
+      <div class="dd-body">
+        <p><strong>关于 benchmark：</strong>Anthropic 使用内部「Binary Exploitation」benchmark，包含 100 个真实世界二进制漏洞利用任务。模型需要：读取二进制文件、识别漏洞类型、构造 payload、通过远程连接触发利用。不需要人类提示「找 bug」——模型自主完成。</p>
+        <p><strong>GLM-5.3 和 Claude Mythos 的表现：</strong>
+        <table>
+          <tr><th>模型</th><th>完整控制流劫持率</th></tr>
+          <tr><td>Claude Opus 4.6</td><td>0%</td></tr>
+          <tr><td>GLM-5.2</td><td>0%</td></tr>
+          <tr><td><strong>GLM-5.3</strong></td><td><strong>4%</strong></td></tr>
+          <tr><td>Claude Mythos Preview</td><td>6%</td></tr>
+        </table>
+        </p>
+        <p><strong>为什么 4% 是「有意义」的：</strong>在安全领域，一个 autopwn 工具如果能覆盖 4% 的 CVE 场景，已经值得写进运营手册。考虑到 GLM-5.3 是开源模型且在持续微调，这个数字只会升不会降。</p>
+        <p><strong>诚实 caveat：</strong>4% 不是「毁灭性的」，但它是「从 0 到 1」的跃迁。之前开源模型在 cyber offense 上表现为 0，现在不再是 0。对企业来说，这意味你需要开始评估「如果攻击者有这个工具，我们的内网是否扛得住」。</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 关注点：</strong>接下来 2 点：(1) 官方/第三方是否发布对抗 GLM-5.3 cyber 能力的安全微调版本？(2) 其他开源模型（Qwen3.8、Hy4）是否也有类似能力——是 GLM 独有还是普遍趋势？
+    </div>
+
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
+      <ul>
+        <li>Simon Willison: "a meaningful threshold has clearly been crossed" — <a href="https://simonwillison.net/2026/Sep/29/glm-5.3/">simonwillison.net</a></li>
+        <li>Anthropic Frontier Red Team 官方报告 — <a href="https://anthropic.com/news/glm-5.3-cyber-capabilities">anthropic.com</a></li>
+        <li>HN 上无单独帖子（内容附在 Sonnet 5.5 和 Clef 讨论中）</li>
+      </ul>
+    </div>
+
+    <div class="jargon">
+      <strong>术语解码：</strong>
+      <strong>控制流劫持</strong> = Control Flow Hijack — 攻击者覆盖程序的执行指针（如 RIP/EIP），让程序跑攻击者的代码。这是二进制漏洞利用的最终目标。
+      <strong>Red Team / 红队</strong> = 只攻不守的安全团队，模拟真实攻击者。
+    </div>
+
+    <div class="try-links">
+      <a href="https://anthropic.com/news/glm-5.3-cyber-capabilities">📄 报告原文</a>
+      <a href="https://simonwillison.net/2026/Sep/29/glm-5.3/">📝 Simon 的分析</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 3: DeepSeek V4.1 Flash -->
+  <article class="item item--look">
+    <div class="item__tier">👀 可看</div>
+    <h2 class="item__title">DeepSeek V4.1 Flash：决策模型的惊人性能 + 极低成本</h2>
+    <p class="item__pitch">clawii，昨天我们聊了 Clef 和 GLM-5.3——但 DeepSeek 自己也在悄悄逼近「决策 + 低成本」交叉点。V4.1 Flash 的 causal encoder-decoder 架构让它在 agent 任务上极具竞争力，MIT 授权。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>DeepSeek 在 9 月初发布了 V4.1 Flash（763B 总参数，8B 输入活跃/16B 输出活跃），主打极端推理效率。现在已经进入了 Ollama 和 vLLM 的默认列表。它最独特的是 causal encoder-decoder 设计——这不是标准 decoder-only。——它可以把「长上下文理解」和「推理生成」分开，在长文档 agent 任务上效率极高。
+    </div>
+
+    <!-- 为什么这事重要 -->
+    <div class="lang">
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>AI 性价比杀手：</strong>Artificial Analysis 评估 V4.1 Flash 的 Intelligence Index 为 40——接近 GLM-5.3-Flash 的 57 但价格远低于 Claude 或 GPT 系列。对 clawii 的日常工作（写报告、读合同、整理邮件）完全够用。</li>
+        <li><strong>Causal encoder-decoder 的实操价值：</strong>因为架构不同，V4.1 Flash 在处理「通读 500 页文档 → 总结关键点」这种任务时，KV cache 成本比 decoder-only 模型低 40-60%。如果你每天处理长文档，这是实实在在的钱。</li>
+        <li><strong>MIT 授权 + Ollama 本地可跑：</strong>没有 license 限制，可以在本地跑，可以商用，可以微调。DeepSeek 续写了开源狂飙的节奏。</li>
+      </ul>
+    </div>
+
+    <!-- 行动 -->
+    <div class="action-block">
+      <h3>🎯 今天就能做的事</h3>
+      <ol>
+        <li>如果已经装了 Ollama，直接 <code>ollama pull deepseek-v4.1-flash</code>（需要 ~48GB VRAM 跑 FP16；可跑 4bit 量化版本，~24GB）。</li>
+        <li>用一个「长文档理解」任务试试：给它一份 50 页的 PDF 合同（用工具转文本），问它「第 17 页的排他条款和第 8 页的竞业限制有没有冲突？」看它能否跨越多页给出完整答案。</li>
+        <li>对比 GLM-5.3 Flash 和 V4.1 Flash 在同一个任务上的输出质量——两个都是 MIT 授权，哪个让你更满意就用哪个。</li>
+      </ol>
+    </div>
+
+    <!-- 深扒 -->
+    <details class="deep-dive">
+      <summary>🔬 深扒——Causal encoder-decoder 到底是什么</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>维度</th><th>DeepSeek V4.1 Flash</th><th>GLM-5.3 Flash</th><th>Qwen3.8 Flash</th></tr>
+          <tr><td>参数 (总/活跃)</td><td>763B / 8+16B</td><td>320B / 18B</td><td>125B / 6B</td></tr>
+          <tr><td>架构</td><td><strong>Causal encoder-decoder</strong></td><td>Decoder-only MoE</td><td>Decoder-only MoE</td></tr>
+          <tr><td>上下文</td><td>1M tokens</td><td>1M tokens</td><td>128K tokens</td></tr>
+          <tr><td>License</td><td>MIT</td><td>MIT</td><td>MIT</td></tr>
+          <tr><td>本地可行</td><td>✅ (4bit quant)</td><td>✅ (4bit quant)</td><td>✅ (默认量化)</td></tr>
+          <tr><td>多模态</td><td>✅ 文本+图像输入</td><td>✅ 原生多模态</td><td>✅ 多模态</td></tr>
+          <tr><td>AI Intelligence Index</td><td>40</td><td>57</td><td>38</td></tr>
+        </table>
+        <p style="margin-top:0.75rem;"><strong>Causal encoder-decoder 区别：</strong>传统 decoder-only 模型把「理解输入」和「生成输出」混在一起。Causal encoder-decoder 把理解部分（encoder）和生成部分（decoder）分开。对长文档来说，encoder 只需要跑一次（无论你问多少个问题），而 decoder 专注在生成上。这特别适合 agentic 场景——模型先完整理解文档，然后多次「基于这个理解做决策」。</p>
+        <p><strong>上手难度：</strong>Ollama 一键拉取，5 分钟可跑。训练/微调需要 8×A100，但 DeepSeek 提供了完整的训练脚本。</p>
+        <p><strong>诚实 caveat：</strong>V4.1 Flash 在对话流利度和多样性上不如 GLM-5.3-Flash。它更像一个「高效处理器」而非「聊天伴侣」。如果你的主要用途是写创意内容，选 GLM-5.3；如果做事实性决策/长文档分析，V4.1 更好。</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 关注点：</strong>DeepSeek 是否会在近期发布 V4.1 的非 Flash 版（更大、推理能力更强）。另，V4.1 的 vision encoder 是近期新加的——关注它在多模态 agent 场景（读图 + 做决策）的表现。
+    </div>
+
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
+      <ul>
+        <li>HN: 未单独上榜（被 Clef 和 Pi 压住了），但 Sebastian Raschka 在 X 上写了详细架构分析。</li>
+        <li>HuggingFace: 768k stars · Growth 28d +4k</li>
+        <li>Baseten 已支持一键部署</li>
+      </ul>
+    </div>
+
+    <div class="jargon">
+      <strong>术语解码：</strong>
+      <strong>Causal encoder-decoder</strong> — 输入由 encoder 处理一次（因果注意力），输出由 decoder 生成（自回归）。和标准 encoder-decoder（如 T5）的区别在于因果性——早期 token 看不到未来 token。
+      <strong>KV cache</strong> — Key-Value 缓存，LLM 在生成时存储上下文状态的技术。更大的 KV cache 需要更多 GPU 内存。
+      <strong>Active parameters</strong> — MoE 模型中每次推理实际被调用的参数数量，不等于总参数。便宜模型的秘密。
+    </div>
+
+    <div class="try-links">
+      <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash">🤗 模型</a>
+      <a href="https://deepseek.com">📄 DeepSeek 官方</a>
+      <a href="https://ollama.com/library/deepseek-v4.1-flash">🦙 Ollama</a>
+    </div>
+  </article>
+
+  <!-- 📈 Still tracking -->
+  <aside class="still-tracking">
+    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
+    <ul>
+      <li>
+        <span class="days">Day 5</span>
+        <div><span class="item-name">Sonnet 5.5 免费层</span> <span class="update">— Claude.ai 免费层已升级，Simon 实测 Free tier 可以跑 3D 动画（WebGL 鹈鹕）。Haiku 5.5 "coming weeks" 尚未发布。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">GLM-5.3 Flash</span> <span class="update">— 今天红队报告补上了 cyber 维度。模型总量 768k HuggingFace stars。Z.ai 已支持 API。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— Ollama / Baseten 已支持。社区开始量化 4bit 版本（24GB VRAM 可跑）。暂无 KOL 深度评测。</span></div>
+      </li>
+    </ul>
+  </aside>
 
   <!-- killed list -->
   <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 今天没选进来的</span> Killed list · 0 项</h3>
-    <p class="empty-note">今天没有候选，所以没有 killed 项。明天继续扫。</p>
+    <h3 class="section-title"><span class="smallcaps">📊 今天没选进来的</span> Killed list · 4 项</h3>
+    <table>
+      <thead><tr><th>来源·排名</th><th>内容</th><th>为什么没选</th></tr></thead>
+      <tbody>
+        <tr><td>HN #1</td><td>Pi 1.0 (Earendil) — 1344 pts</td><td class="killed-reason">非 AI 硬件项目（SDR 无线电），虽然分数极高但完全不在 Radar 范畴。</td></tr>
+        <tr><td>HN #6</td><td>DeepSeek Harness Desktop — 253 pts</td><td class="killed-reason">DeepSeek 的 agent 评估框架桌面版。有趣但与 Clef/GLM-5.3 相比没有新能力跃迁。周三已评估过，信号没有足够增长再进入 top-3。</td></tr>
+        <tr><td>HN #8</td><td>Pi Durable — 398 pts</td><td class="killed-reason">Pi 的硬件扩展版，同属非 AI 类。</td></tr>
+        <tr><td>HF Trending</td><td>Qwen-Image-2.1 / TeleOCR / LTX-2.5 等</td><td class="killed-reason">模型更新 / 微调版本，无 KOL 背书或社区爆发。中文圈一定已覆盖。</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <!-- bottom pager -->

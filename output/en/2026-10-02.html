@@ -24,301 +24,263 @@ body {
 /* Masthead */
 .masthead {
   border-bottom: 1px solid oklch(0.88 0.015 260);
-  background: oklch(0.99 0.003 260);
-  padding: 14px 0;
+  background: oklch(0.985 0.003 260 / 0.85);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(8px);
 }
 .masthead__inner {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  height: 56px;
 }
 .masthead__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.masthead__logo {
+  font-size: 18px;
+  color: oklch(0.55 0.2 260);
+}
+.masthead__wordmark {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
-}
-.masthead__date {
-  font-size: 0.78rem;
-  color: oklch(0.5 0.03 260);
-  font-weight: 500;
+  font-size: 18px;
   letter-spacing: 0.02em;
 }
 .masthead__issue {
-  font-family: 'Fraunces', serif;
+  font-size: 12px;
   font-weight: 600;
-  font-size: 0.9rem;
-  color: oklch(0.45 0.05 260);
+  color: oklch(0.55 0.2 260);
+  background: oklch(0.9 0.05 260 / 0.3);
+  padding: 2px 8px;
+  border-radius: 999px;
 }
+.masthead__nav {
+  display: flex;
+  gap: 16px;
+}
+.masthead__nav a {
+  font-size: 13px;
+  font-weight: 500;
+  color: oklch(0.45 0.03 260);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.masthead__nav a:hover { color: oklch(0.55 0.2 260); }
 
 /* Cover */
 .cover {
-  padding: 56px 0 32px;
+  padding: 48px 0 24px;
+  border-bottom: 1px solid oklch(0.88 0.015 260);
 }
-.cover__kicker {
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.05 260);
+.cover__date {
+  font-size: 13px;
   font-weight: 600;
-  margin-bottom: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.2 260);
+  margin-bottom: 12px;
 }
 .cover__headline {
   font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.1rem);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   margin-bottom: 16px;
-}
-.cover__subhead {
-  font-size: 1.05rem;
-  color: oklch(0.4 0.03 260);
-  max-width: 560px;
-  margin-bottom: 28px;
 }
 .cover__counts {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 .count {
-  font-size: 0.78rem;
+  font-size: 13px;
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 4px 12px;
   border-radius: 999px;
+  background: oklch(0.95 0.01 260);
   border: 1px solid oklch(0.88 0.015 260);
-  background: oklch(1 0 0);
 }
-.count--crit { color: oklch(0.55 0.18 25); border-color: oklch(0.85 0.12 25); background: oklch(0.98 0.02 25); }
-.count--look { color: oklch(0.45 0.12 240); border-color: oklch(0.85 0.08 240); background: oklch(0.98 0.015 240); }
-.count--fyi { color: oklch(0.5 0.03 260); border-color: oklch(0.88 0.015 260); }
+.count--crit { color: oklch(0.55 0.2 260); }
+.count--look { color: oklch(0.5 0.15 260); }
+.count--fyi { color: oklch(0.45 0.05 260); }
+.count--total { color: oklch(0.4 0.02 260); }
 
-/* Pager */
-.pager {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 0;
-  border-top: 1px solid oklch(0.9 0.015 260);
-  border-bottom: 1px solid oklch(0.9 0.015 260);
-  margin: 8px 0 40px;
-}
-.pager a {
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: oklch(0.4 0.1 260);
-  text-decoration: none;
-  padding: 8px 16px;
-  border: 1px solid oklch(0.88 0.015 260);
-  border-radius: 8px;
-  background: oklch(1 0 0);
-  transition: all 0.15s ease;
-  white-space: nowrap;
-}
-.pager a:hover {
-  border-color: oklch(0.7 0.1 260);
-  color: oklch(0.3 0.1 260);
-}
-.pager__label {
-  font-size: 0.78rem;
-  color: oklch(0.55 0.03 260);
-  font-weight: 500;
-  text-align: center;
-}
+/* Content */
+.content { padding: 48px 0 64px; min-height: 40vh; }
 
-/* No signal */
+/* No-signal */
 .no-signal {
-  padding: 16px 0 48px;
-}
-.no-signal__card {
-  background: oklch(1 0 0);
-  border: 1px solid oklch(0.9 0.015 260);
-  border-radius: 16px;
-  padding: 48px 32px;
   text-align: center;
-  box-shadow: 0 1px 2px oklch(0.2 0.02 260 / 0.04);
+  padding: 64px 24px;
+  border: 1px dashed oklch(0.8 0.03 260);
+  border-radius: 16px;
+  background: oklch(0.99 0.002 260 / 0.6);
 }
-.no-signal__icon { font-size: 3rem; margin-bottom: 16px; }
-.no-signal__card h2 {
+.no-signal__emoji { font-size: 48px; margin-bottom: 16px; }
+.no-signal h2 {
   font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
+  font-size: 28px;
+  font-weight: 600;
   margin-bottom: 12px;
-  letter-spacing: -0.01em;
 }
-.no-signal__card p {
-  color: oklch(0.4 0.03 260);
+.no-signal p {
+  font-size: 15px;
+  color: oklch(0.4 0.02 260);
   max-width: 480px;
   margin: 0 auto 8px;
 }
 .no-signal__note {
-  font-size: 0.85rem;
-  color: oklch(0.55 0.03 260) !important;
+  font-size: 13px;
+  color: oklch(0.5 0.02 260);
   margin-top: 16px;
   font-style: italic;
 }
 
-/* Scan scope */
-.scan-scope {
-  padding: 0 0 48px;
-}
-.scan-scope__inner {
-  font-size: 0.78rem;
-  color: oklch(0.55 0.03 260);
-  border-top: 1px solid oklch(0.9 0.015 260);
-  padding-top: 16px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.scan-scope__tag {
-  background: oklch(0.96 0.01 260);
-  border: 1px solid oklch(0.9 0.015 260);
-  border-radius: 6px;
-  padding: 2px 8px;
-  font-weight: 500;
-}
-.scan-scope__risk {
-  width: 100%;
-  margin-top: 8px;
-  color: oklch(0.6 0.02 260);
-}
-
 /* Footer */
 .footer {
-  padding: 24px 0 48px;
-  text-align: center;
-  font-size: 0.78rem;
-  color: oklch(0.6 0.02 260);
-  border-top: 1px solid oklch(0.9 0.015 260);
+  border-top: 1px solid oklch(0.88 0.015 260);
+  padding: 32px 0 48px;
+  background: oklch(0.985 0.003 260 / 0.5);
 }
-.footer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.pager__link {
+  text-decoration: none;
+  color: oklch(0.55 0.2 260);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+  border: 1px solid oklch(0.85 0.02 260);
+  border-radius: 8px;
+  transition: background 0.15s, border-color 0.15s;
+}
+.pager__link:hover {
+  background: oklch(0.9 0.05 260 / 0.15);
+  border-color: oklch(0.55 0.2 260);
+}
+.pager__link--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.footer__meta {
+  font-size: 13px;
+  color: oklch(0.5 0.02 260);
+  text-align: center;
+}
+.footer__meta a { color: oklch(0.55 0.2 260); text-decoration: none; }
+.footer__meta a:hover { text-decoration: underline; }
 
 /* Responsive */
-@media (max-width: 560px) {
-  .masthead__date { display: none; }
-  .pager { flex-wrap: wrap; justify-content: center; }
-  .pager__label { width: 100%; order: -1; }
-  .no-signal__card { padding: 32px 20px; }
+@media (max-width: 640px) {
+  .masthead__nav { gap: 8px; }
+  .masthead__nav a { font-size: 12px; }
+  .masthead__issue { display: none; }
+  .cover { padding: 32px 0 16px; }
+  .content { padding: 32px 0 48px; }
+  .no-signal { padding: 40px 16px; }
 }
 </style>
 </head>
 <body>
 
+<!-- Masthead -->
 <header class="masthead">
   <div class="container masthead__inner">
-    <span class="masthead__brand">AI Radar</span>
-    <span class="masthead__date">2026-10-02 · Week 40 · ISO Fri</span>
-    <span class="masthead__issue">№128</span>
+    <a class="masthead__brand" href="./index.html">
+      <span class="masthead__logo">◉</span>
+      <span class="masthead__wordmark">AI RADAR</span>
+      <span class="masthead__issue">№128</span>
+    </a>
+    <nav class="masthead__nav">
+      <a href="./archive.html">Archive</a>
+      <a href="https://github.com/ethan-m25/ai-radar">GitHub</a>
+      <a href="./rss.xml">RSS</a>
+      <a href="https://discord.gg/cc-workspace">Discord</a>
+    </nav>
   </div>
 </header>
 
-<main>
-
-  <!-- Cover -->
-  <section class="cover">
-    <div class="container">
-      <p class="cover__kicker">Issue №128 · Friday, October 2, 2026</p>
-      <h1 class="cover__headline">No real signals today — 0/3.</h1>
-      <p class="cover__subhead">Scanned all configured sources. Everything was recap, press release, or already covered by the Chinese-language cycle. Stay calm and keep building.</p>
-      <div class="cover__counts">
-        <span class="count count--crit">0 🚨 Must see</span>
-        <span class="count count--look">0 👀 Worth a look</span>
-        <span class="count count--fyi">0 ℹ️ FYI</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Top pager -->
+<!-- Cover -->
+<section class="cover">
   <div class="container">
-    <div class="pager" data-current-date="2026-10-02">
-      <a href="2026-10-01.html" class="pager__prev" id="prev-link-top">← Previous</a>
-      <span class="pager__label">Issue №128 · 2026-10-02</span>
-      <a href="2026-10-03.html" class="pager__next" id="next-link-top">Next →</a>
+    <p class="cover__date">2026-10-02 · Fri · Week 40</p>
+    <h1 class="cover__headline">No real signals today — 0/3.</h1>
+    <div class="cover__counts">
+      <span class="count count--crit">0 🚨</span>
+      <span class="count count--look">0 👀</span>
+      <span class="count count--fyi">0 ℹ️</span>
+      <span class="count count--total">0 total</span>
     </div>
   </div>
+</section>
 
-  <!-- No signal -->
-  <section class="no-signal">
-    <div class="container">
-      <div class="no-signal__card">
-        <div class="no-signal__icon">🌤️</div>
-        <h2>No real signals today</h2>
-        <p>Scanned all configured sources — everything was recap, press release, or already covered by the Chinese-language cycle.</p>
-        <p>Stay calm and keep building.</p>
-        <p class="no-signal__note">Note: 3 consecutive days of no signal is normal. If it hits 7, recalibrate the threshold.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Scan scope -->
-  <section class="scan-scope">
-    <div class="container scan-scope__inner">
-      <span>Scanned:</span>
-      <span class="scan-scope__tag">Smol AI</span>
-      <span class="scan-scope__tag">OSSInsight</span>
-      <span class="scan-scope__tag">HN</span>
-      <span class="scan-scope__tag">X · 10 KOLs</span>
-      <span class="scan-scope__tag">Anthropic + OpenAI changelogs</span>
-      <span class="scan-scope__risk">Risk check: excluded funding / drama / lawsuits / policy / pure research / Chinese-already-covered.</span>
-    </div>
-  </section>
-
-  <!-- Bottom pager -->
+<!-- Main content -->
+<main class="content">
   <div class="container">
-    <div class="pager" data-current-date="2026-10-02">
-      <a href="2026-10-01.html" class="pager__prev" id="prev-link-bottom">← Previous</a>
-      <span class="pager__label">Issue №128 · 2026-10-02</span>
-      <a href="2026-10-03.html" class="pager__next" id="next-link-bottom">Next →</a>
+    <div class="no-signal">
+      <p class="no-signal__emoji">🌤️</p>
+      <h2>No real signals today.</h2>
+      <p>Scanned all configured sources — everything was recap, press release, or already covered by Chinese-language outlets. Stay calm and keep building.</p>
+      <p class="no-signal__note">Note: 3 consecutive days with no signals is normal; if 7 days straight, recalibrate the threshold.</p>
     </div>
   </div>
-
 </main>
 
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <p>AI Radar · Daily AI signal digest · <a href="archive.html">Archive</a> · <a href="https://ethan-m25.github.io/ai-radar/">Home</a></p>
+    <div class="pager" data-current-date="2026-10-02">
+      <a class="pager__link pager__link--prev" href="./2026-10-01.html">
+        <span class="pager__label">← 2026-10-01</span>
+      </a>
+      <a class="pager__link pager__link--next" href="./2026-10-03.html">
+        <span class="pager__label">2026-10-03 →</span>
+      </a>
+    </div>
+    <p class="footer__meta">AI Radar · №128 · 2026-10-02 · <a href="./archive.html">Archive</a></p>
   </div>
 </footer>
 
+<!-- Scripts -->
 <script>
-(function() {
+(function(){
   var currentDate = '2026-10-02';
-  fetch('./archive.json')
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      var issues = data.issues || [];
-      var idx = -1;
-      for (var i = 0; i < issues.length; i++) {
-        if (issues[i].date === currentDate) { idx = i; break; }
-      }
-      var prevLinkTop = document.getElementById('prev-link-top');
-      var nextLinkTop = document.getElementById('next-link-top');
-      var prevLinkBottom = document.getElementById('prev-link-bottom');
-      var nextLinkBottom = document.getElementById('next-link-bottom');
-      if (idx > 0) {
-        var prev = issues[idx - 1];
-        var prevText = '← ' + prev.date;
-        if (prevLinkTop) { prevLinkTop.href = prev.url; prevLinkTop.textContent = prevText; }
-        if (prevLinkBottom) { prevLinkBottom.href = prev.url; prevLinkBottom.textContent = prevText; }
-      }
-      if (idx >= 0 && idx < issues.length - 1) {
-        var next = issues[idx + 1];
-        var nextText = next.date + ' →';
-        if (nextLinkTop) { nextLinkTop.href = next.url; nextLinkTop.textContent = nextText; }
-        if (nextLinkBottom) { nextLinkBottom.href = next.url; nextLinkBottom.textContent = nextText; }
-      }
-    })
-    .catch(function(err) {
-      console.warn('archive.json not available:', err);
-    });
+  var prevLink = document.querySelector('.pager__link--prev');
+  var nextLink = document.querySelector('.pager__link--next');
+
+  fetch('./archive.json').then(function(r){ return r.json(); }).then(function(archive){
+    var issues = archive.issues || [];
+    var idx = issues.findIndex(function(i){ return i.date === currentDate; });
+    if (idx === -1) return;
+    var prev = issues[idx + 1];
+    var next = issues[idx - 1];
+    if (prev) {
+      prevLink.href = './' + prev.date + '.html';
+      prevLink.querySelector('.pager__label').textContent = '← ' + prev.date;
+    } else {
+      prevLink.classList.add('pager__link--disabled');
+      prevLink.querySelector('.pager__label').textContent = '← 没有更新';
+    }
+    if (next) {
+      nextLink.href = './' + next.date + '.html';
+      nextLink.querySelector('.pager__label').textContent = next.date + ' →';
+    } else {
+      nextLink.classList.add('pager__link--disabled');
+      nextLink.querySelector('.pager__label').textContent = '没有更新 →';
+    }
+  }).catch(function(){});
 })();
 </script>
 
