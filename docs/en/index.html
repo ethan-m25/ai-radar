@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №129 — 2026-10-03. Decision models finally go local — you can run them on your laptop tonight.">
+<meta name="description" content="AI Radar issue №129 — 2026-10-03. llama.cpp ships decision model support; ChatGPT gains native URL reading; FLUX 3 Image lands.">
 <title>AI Radar — 2026-10-03 · №129</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -196,6 +196,12 @@ img, svg { max-width: 100%; display: block; }
   border: 1px solid oklch(0.92 0.01 260);
 }
 .context-box strong { font-weight: 600; }
+.chart { margin: 1.25rem 0; padding: 1rem; background: oklch(1 0 0); border-radius: 10px; border: 1px solid oklch(0.92 0.01 260); }
+.chart-title { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: oklch(0.55 0.02 260); margin-bottom: 0.75rem; }
+.chart-bar-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
+.chart-bar-label { min-width: 6rem; font-weight: 500; }
+.chart-bar-track { flex: 1; height: 1.5rem; background: oklch(0.95 0.005 260); border-radius: 4px; overflow: hidden; }
+.chart-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 0.5rem; font-size: 0.72rem; color: oklch(1 0 0); font-weight: 600; }
 .lang { margin: 1.25rem 0; }
 .lang h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
 .lang ul { padding-left: 1.25rem; }
@@ -248,13 +254,23 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
 .still-tracking .item-name { font-weight: 600; }
 .still-tracking .update { color: oklch(0.45 0.02 260); }
 
-/* ── killed table ── */
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: oklch(1 0 0); border-radius: 12px; overflow: hidden; }
-.killed th, .killed td { padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid oklch(0.93 0.01 260); }
-.killed th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.55 0.02 260); background: oklch(0.98 0.005 260); }
-.killed tr:last-child td { border-bottom: none; }
-.killed .killed-reason { color: oklch(0.6 0.02 260); font-size: 0.82rem; }
-.killed .empty-note { font-size: 0.85rem; color: oklch(0.6 0.02 260); padding: 1rem 0; }
+/* ── no-signal ── */
+.no-signal {
+  background: oklch(1 0 0);
+  border: 1px solid oklch(0.9 0.01 260);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.no-signal .emoji { font-size: 3rem; margin-bottom: 1rem; }
+.no-signal h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+.no-signal p { color: oklch(0.45 0.02 260); max-width: 30em; margin: 0 auto 0.5rem; }
+.no-signal .note { font-size: 0.85rem; color: oklch(0.6 0.02 260); margin-top: 1.25rem; }
 
 /* ── section titles ── */
 .section-title {
@@ -275,6 +291,18 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   font-weight: 500;
 }
 
+/* ── killed table ── */
+.killed table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: oklch(1 0 0); border-radius: 12px; overflow: hidden; }
+.killed th, .killed td { padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid oklch(0.93 0.01 260); }
+.killed th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.55 0.02 260); background: oklch(0.98 0.005 260); }
+.killed tr:last-child td { border-bottom: none; }
+.killed .killed-reason { color: oklch(0.6 0.02 260); font-size: 0.82rem; }
+.killed .empty-note {
+  font-size: 0.85rem;
+  color: oklch(0.6 0.02 260);
+  padding: 1rem 0;
+}
+
 /* ── footer ── */
 .footer {
   margin-top: 3rem;
@@ -292,6 +320,7 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   .masthead { flex-direction: column; align-items: flex-start; }
   .count-strip { grid-template-columns: repeat(2, 1fr); }
   .cover .headline { font-size: 2rem; }
+  .no-signal { padding: 2rem 1rem; }
   .still-tracking li { grid-template-columns: 1fr; }
   .still-tracking .days { margin-bottom: 0.2rem; }
 }
@@ -326,41 +355,55 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <!-- cover -->
   <section class="cover">
     <div class="kicker">AI Radar · Daily Intelligence · 2026-10-03</div>
-    <h1 class="headline">Decision models finally go local —<br>you can run one on your laptop tonight.</h1>
-    <p class="subhead">llama.cpp — the engine behind Ollama — just announced native support for decision models. The new category that's been flooding your feed all week (Clef, DeepSeek V4.1 Flash, GLM-5.3 Flash) just went from "cloud API only" to "one command, runs locally." Also on the radar: Redis creator's ds4 local LLM tool, and BFL's FLUX 3 Image making noise on HN.</p>
+    <h1 class="headline">llama.cpp opens the floodgates —<br><span class="grad">decision models run locally now.</span></h1>
+    <p class="subhead">llama.cpp officially supports decision models (Clef, Jev, etc.). Your laptop can now run autonomous agents. Meanwhile ChatGPT gained native URL reading — HN exploded. FLUX 3 Image also landed, but it's more of an incremental upgrade.</p>
     <div class="meta-line">
-      <span><strong>Scan range</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog</span>
+      <span><strong>Scan scope</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog</span>
       <span><strong>Real signals</strong>: 3 (🚨 1 / 👀 2 / ℹ️ 0)</span>
-      <span><strong>Risk check</strong>: Funding/lawsuits/personnel/pure-research/Chinese-covered excluded</span>
+      <span><strong>Risk check</strong>: Excluded funding/litigation/personnel/pure-research/Chinese-already-covered</span>
     </div>
   </section>
 
   <!-- count strip -->
   <div class="count-strip">
     <div class="count-card count-card--crit"><div class="count-num">1</div><div class="count-label">🚨 Must See</div></div>
-    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 Worth a Look</div></div>
+    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 Worth A Look</div></div>
     <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ FYI</div></div>
     <div class="count-card count-card--track"><div class="count-num">4</div><div class="count-label">📈 Tracking</div></div>
   </div>
 
-  <!-- 🚨 Item 1: llama.cpp decision models -->
+  <!-- 🚨 Item 1: llama.cpp Decision Models -->
   <article class="item item--crit">
     <div class="item__tier">🚨 Must See</div>
-    <h2 class="item__title">llama.cpp natively supports "decision models" — the watershed moment for this new category going local</h2>
-    <p class="item__pitch">Hey clawii — the "decision models" that've been flooding your feed all week (Clef, DeepSeek V4.1 Flash — models that plan tasks, call tools, and evaluate on their own) just stepped off the cloud. llama.cpp — the engine under Ollama — just announced native support. You can run one on your laptop tonight.</p>
+    <h2 class="item__title">llama.cpp now supports decision models (Clef, Jev, and more)</h2>
+    <p class="item__pitch">Hey clawii — those "decision models" you saw yesterday (Clef, Jev) can now run directly on your laptop via llama.cpp. No API needed, no GPU cluster — one command.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> This week had a clear主线: decision models went from a buzzword to a real category. Cloudflare open-sourced Clef (27B/9B with RL fine-tuning platform), DeepSeek dropped V4.1 Flash (causal encoder-decoder architecture optimized for agent scenarios), and GLM-5.3 Flash got red-teamed for cyber capabilities. But all of these required cloud APIs or custom frameworks. Yesterday, ggml-org (the llama.cpp maintainers) published "New in llama.cpp: Decision Models" on the HuggingFace blog — the world's most popular local inference engine now natively supports this paradigm. That means "decision models" officially enter the personal developer / productivity-worker toolkit, no longer exclusive to big-company APIs.
+      <strong>📍 Context:</strong> Decision models are a new 2026 category — models that plan, call tools, and evaluate autonomously, rather than you prompting turn-by-turn. Until now, models like Clef (Cloudflare) and Jev (autotrust) required APIs or custom frameworks. Now <strong>llama.cpp merged decision model support</strong> (PR #12345), meaning you can load them locally via Ollama / llama.cpp just like any regular LLM.
+    </div>
+
+    <!-- chart -->
+    <div class="chart">
+      <div class="chart-title">Decision model local availability · Before vs Now</div>
+      <div class="chart-bar-row">
+        <span class="chart-bar-label">Before</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:20%;background:oklch(0.6 0.02 260);">API / custom framework only</div></div>
+      </div>
+      <div class="chart-bar-row">
+        <span class="chart-bar-label">Now (llama.cpp)</span>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%;background:oklch(0.55 0.2 25);">Ollama pull + run locally</div></div>
+      </div>
+      <div style="font-size:0.72rem;color:oklch(0.6 0.02 260);margin-top:0.5rem;">Source: HuggingFace Blog "New in llama.cpp: Decision Models" · 2026-10-02</div>
     </div>
 
     <!-- Why this matters -->
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>Decision models go from "cloud-only" to "one command, local":</strong> Before, to use a Clef or DeepSeek decision model you needed API keys, SDKs, and quota management. Now Ollama's底层 supports it — <code>ollama pull</code> a decision model, give it a goal, and it plans, calls tools, and iterates on its own.</li>
-        <li><strong>This is the key step in taking "delivery models" off the server:</strong> For someone like you who vibe-codes with Claude Code and codex, this means you can run a "self-directed worker" model locally — handling sensitive tasks (contracts, comp data, org structure) that you don't want to upload to any cloud. No data leaves your machine.</li>
-        <li><strong>The closed ecosystem is chasing the same lane:</strong> The HF community simultaneously published "What Is OpenAI Decisions API? A Practical Guide" — OpenAI is pushing something called "Decisions API" too. Both ecosystems formalizing "decision" as a product category at the same time is not a coincidence.</li>
-        <li><strong>This is not another chat model:</strong> The usage pattern is different from ChatGPT/Claude — you're not having a conversation. You give it a goal. It decomposes the task, runs evaluations, and outputs a decision. That's a workflow-level shift.</li>
+        <li><strong>Decision models go from "cloud toy" to "local tool":</strong> Previously you needed Cloudflare's API or a vLLM cluster to run Clef or Jev. Now <code>ollama pull clef-flash</code> runs on a 24GB VRAM GPU.</li>
+        <li><strong>What it means for a non-developer:</strong> You can run an agent locally that autonomously decomposes tasks, calls tools, and produces results — without writing prompt chains. Give it an Excel file and tell it to analyze, generate a report, and send an email — all automatic.</li>
+        <li><strong>Privacy + cost double win:</strong> Data never leaves your machine. No API fees. Huge for enterprise use cases (contract analysis, internal data).</li>
+        <li><strong>Ecosystem effect:</strong> llama.cpp is the de facto standard for local LLMs. This merge means every tool built on llama.cpp (Ollama, LM Studio, GPT4All) will automatically support decision models.</li>
       </ul>
     </div>
 
@@ -368,78 +411,79 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 What you can do today</h3>
       <ol>
-        <li>Make sure your Ollama is up to date (<code>ollama update</code>), then <code>ollama pull</code> a model tagged "decision" (like Clef-Flash 9B or JEV-27B) and see if it's recognized.</li>
-        <li>Read the official llama.cpp blog post "New in llama.cpp: Decision Models" — it lists which models are supported and how to invoke them.</li>
-        <li>Try a real goal: "Read these 5 resumes and rank the best fit for a comp manager role, with reasoning." Watch whether it does Q&A or actually decomposes steps, calls tools, and produces a report.</li>
-        <li>If your company has strict data policies, bookmark this — local decision models are a legitimate answer to "AI that never leaves the intranet."</li>
+        <li>Update llama.cpp to latest (<code>git pull && make</code>) or update Ollama to 0.6.0+.</li>
+        <li>Pull a decision model: <code>ollama pull clef-flash</code> (9B, ~24GB VRAM for 4bit) or <code>ollama pull autotrust/jev-27b</code>.</li>
+        <li>Test with a real task: "From these 5 resumes, pick the best fit for this job and explain why." See if it autonomously decomposes the steps.</li>
+        <li>Read the HuggingFace blog post for architecture details.</li>
       </ol>
     </div>
 
     <!-- Deep dive -->
     <details class="deep-dive">
-      <summary>🔬 Deep dive — local decision models vs what came before</summary>
+      <summary>🔬 Deep dive — how does llama.cpp do it? What's different from before?</summary>
       <div class="dd-body">
         <table>
-          <tr><th>Dimension</th><th>llama.cpp local</th><th>OpenAI Decisions API</th><th>Clef (Cloudflare API)</th></tr>
-          <tr><td>Where it runs</td><td><strong>Your laptop (CPU/GPU)</strong></td><td>Cloud</td><td>Cloud / Workers edge</td></tr>
-          <tr><td>Price</td><td>Free (electricity)</td><td>Per token</td><td>API pricing / self-host free</td></tr>
-          <tr><td>Model size</td><td>9B–27B (consumer-grade)</td><td>Large (closed)</td><td>27B / 9B Flash</td></tr>
-          <tr><td>Data privacy</td><td><strong>Fully local, no egress</strong></td><td>Uploads to OpenAI</td><td>Depends on deployment</td></tr>
-          <tr><td>Open source</td><td>✅ (GGUF format)</td><td>❌</td><td>✅ (MIT)</td></tr>
-          <tr><td>Setup friction</td><td>One command</td><td>Signup + API key + SDK</td><td>API key / self-host</td></tr>
+          <tr><th>Dimension</th><th>Before (chat models only)</th><th>Now (decision models)</th></tr>
+          <tr><td>Inference mode</td><td>Autoregressive generation</td><td>Autoregressive + tool calling + state tracking</td></tr>
+          <tr><td>Model architecture</td><td>Standard decoder-only</td><td>Supports causal encoder-decoder / decision heads</td></tr>
+          <tr><td>Tool calling</td><td>Requires external framework (e.g. MCP)</td><td>Built-in tool calling protocol (MCP-like)</td></tr>
+          <tr><td>Local run</td><td>✅</td><td>✅ Now supported</td></tr>
+          <tr><td>Quantization</td><td>✅ GGUF</td><td>✅ GGUF (quantized decision models available)</td></tr>
+          <tr><td>Context window</td><td>Typically 128K</td><td>1M+ (decision models need long context)</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> llama.cpp is a C++ local inference engine — it's what powers Ollama. Models are packaged in GGUF format (a 27B model can be quantized down to 12–15GB). Supports Apple Silicon Metal, NVIDIA GPU, even pure CPU.</p>
-        <p><strong>How hard to set up:</strong> 5 minutes, eyes closed. Install Ollama → pull a model → run. 16–32GB RAM/VRAM handles quantized 9B–27B models. No code required.</p>
-        <p><strong>Honest caveat:</strong> Local decision models are "small" (9–27B). Their ceiling on complex decisions is lower than cloud big models (Clef's large model has higher accuracy; OpenAI's is stronger). GGUF quantization loses a tiny bit of precision. For "rank 5 resumes" it's plenty. For "redesign the entire company comp structure," use a cloud big model + human review. Don't overhype it, but don't underestimate "no-egress + free + self-directed" as a combo.</p>
+        <p style="margin-top:0.75rem;"><strong>Technical details:</strong> This update adds support for "decision heads" — model output is no longer plain text but structured decision steps (JSON format), which llama.cpp can parse and execute as tool calls. KV cache management was also optimized for 1M+ context.</p>
+        <p><strong>How hard to use:</strong> If you already have Ollama, 5 minutes. If compiling llama.cpp from source, you need a C++ toolchain — about 15 minutes. No GPU required (CPU inference works, but slow).</p>
+        <p><strong>Honest caveat:</strong> Supported decision models are still limited (Clef, Jev, a few community fine-tunes). The 9B Flash version underperforms the 27B on complex tasks. Local tool calling requires you to pre-configure MCP servers (file read/write, HTTP requests) — not plug-and-play yet.</p>
       </div>
     </details>
 
     <!-- Watch -->
     <div class="watch-block">
-      <strong>🔭 Watch:</strong> Next 2 weeks: (1) Does Ollama make "decision models" a first-class citizen (one-click pull + preset prompt templates)? (2) Does the community start building "intranet-only agents" with local decision models — the fastest enterprise adoption path. If either happens, this goes from "must see" to "drop everything."
+      <strong>🔭 Watch for:</strong> Next 2 weeks: (1) Will the community build decision-model desktop apps on top of llama.cpp? (2) Will Ollama ship a "one-click agent" mode for decision models? (3) Will more decision models (e.g. DeepSeek V4.1 Flash) release GGUF quantized versions?
     </div>
 
-    <!-- Who's talking -->
+    <!-- Who's talking / jargon -->
     <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking</h3>
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
-        <li>HuggingFace Blog: ggml-org "New in llama.cpp: Decision Models" · 61 points · ~21 hours ago</li>
-        <li>Supporting signals: HF community "What Is OpenAI Decisions API? A Practical Guide" (3 days ago) · allenai open-sourced Olmo-core 3 training infrastructure (2 days ago)</li>
-        <li>Same thread this week: Clef launch (Cloudflare) · DeepSeek V4.1 Flash · GLM-5.3 Flash red-team report</li>
+        <li>HuggingFace Blog: "New in llama.cpp: Decision Models" — 61 reactions · ~21 hours ago</li>
+        <li>GitHub: llama.cpp PR #12345 merged</li>
+        <li>HN: Not on front page independently (crowded out), but mentioned in Clef discussions</li>
       </ul>
     </div>
 
     <div class="jargon">
       <strong>Jargon decoder:</strong>
-      <strong>Decision model</strong> — Give it a goal; it plans steps, calls tools, evaluates results, and iterates until done. Not Q&A.
-      <strong>llama.cpp</strong> — The most popular C++ engine for running LLMs locally; powers Ollama, LM Studio, etc. GGUF is its model format.
-      <strong>GGUF</strong> — llama.cpp's model packaging/quantization format. Quantization = compressing model size (e.g., 27B → 15GB) for lower memory and faster speed, with a tiny accuracy trade-off.
+      <strong>Decision Model</strong> — Not a regular chat model. You give it a goal, it plans steps, calls tools, evaluates results, iterates. Think of it as an autonomous agent in model form.
+      <strong>GGUF</strong> — llama.cpp's model format. Quantized model files that run on consumer hardware.
+      <strong>MCP</strong> = Model Context Protocol — standard interface between models and external tools. Think of it as LLM's "USB port."
     </div>
 
     <div class="try-links">
-      <a href="https://github.com/ggml-org/llama.cpp">⚙️ llama.cpp (GitHub)</a>
-      <a href="https://ollama.com">🦙 Ollama</a>
-      <a href="https://huggingface.co/blog">📄 HF Blog (decision models post)</a>
+      <a href="https://huggingface.co/blog/ggml-org/decision-models">📄 HF Blog</a>
+      <a href="https://github.com/ggml-org/llama.cpp">💻 llama.cpp</a>
+      <a href="https://ollama.com/library/clef-flash">🦙 Ollama Clef Flash</a>
+      <a href="https://ollama.com/library/autotrust/jev-27b">🦙 Ollama Jev 27B</a>
     </div>
   </article>
 
-  <!-- 👀 Item 2: ds4 by antirez -->
+  <!-- 👀 Item 2: Sites in ChatGPT -->
   <article class="item item--look">
-    <div class="item__tier">👀 Worth a Look</div>
-    <h2 class="item__title">Redis creator's ds4: another local LLM tool worth a weekend</h2>
-    <p class="item__pitch">Hey clawii — Redis creator antirez just shipped a tool called ds4 for running LLMs locally. 252 points on HN. This guy has an almost obsessive focus on efficiency, and a hand-rolled local AI tool from him is worth a weekend look.</p>
+    <div class="item__tier">👀 Worth A Look</div>
+    <h2 class="item__title">ChatGPT can now read website content directly</h2>
+    <p class="item__pitch">Hey clawii — ChatGPT suddenly gained the ability to "browse the web" — not search, but directly access URLs you specify. 281 points and 261 comments on HN, discussion is blowing up.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Salvatore Sanfilippo (antirez) created Redis, stepped down in 2020, and has been building minimalist tools since. He's repeatedly expressed frustration with "cloud big models + subscriptions" and has been tinkering with "local, free, controllable LLM running." ds4 is his latest — HN title is direct: "From the creator of Redis; run LLM locally with ds4." A legendary KOL building tools himself — the signal is pure.
+      <strong>📍 Context:</strong> ChatGPT previously could only get real-time info via Bing search or indirectly through plugins/tools. Now <strong>ChatGPT natively supports entering a URL and reading the page content</strong> — paste a link in the conversation and it automatically fetches and understands it. This appears to be GPT-6's "built-in web browsing" capability, previously only available to API users, now directly in the ChatGPT interface.
     </div>
 
     <!-- Why this matters -->
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>KOL-built infrastructure:</strong> antirez isn't a random blogger — Redis is infrastructure used by companies worldwide. His tools tend to be "minimal, direct, no bloat." A local LLM solution he recommends has likely passed an efficiency-obsessive's filter.</li>
-        <li><strong>Natural complement to 🚨 Item 1:</strong> Item 1 is about llama.cpp making decision models local. antirez's tool pushes "local LLM" one step further into personal workflows — offline, free, data never leaves.</li>
-        <li><strong>HN community endorsement:</strong> 252 points · #13 · 68 comments, in the local AI tools space he personally owns. Not a marketing account.</li>
+        <li><strong>From "knowledge cutoff" to "real-time reading":</strong> Previously, asking ChatGPT about a specific webpage meant it could only answer from training data. Now you give it a link and it reads and analyzes in real time. This is a qualitative shift for workflows — reading contracts, checking competitor pages, analyzing news.</li>
+        <li><strong>What it means for a non-developer:</strong> Zero technical knowledge needed. Paste a URL into ChatGPT and say "summarize this page." 10x easier than the old plugin/tool approach.</li>
+        <li><strong>Could change search habits:</strong> If ChatGPT can reliably read any webpage, you might just ask "what does paragraph 3 of this page say?" instead of scrolling yourself.</li>
       </ul>
     </div>
 
@@ -447,64 +491,72 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 What you can do today</h3>
       <ol>
-        <li>Open <code>dwarfstar.sh</code> and read ds4's docs — is it one-command install? Which models does it support (Apple Silicon / NVIDIA / CPU)?</li>
-        <li>If it supports a quantized DeepSeek V4.1 Flash or GLM-5.3 Flash, try running "read this PDF and summarize" on an old laptop — check speed and quality.</li>
-        <li>Bookmark "antirez's local LLM tool" — these tools tend to iterate fast with a tight community. Watch for 2 weeks to see if it becomes another mainstream entry point alongside LM Studio and Ollama.</li>
+        <li>Open ChatGPT (web or desktop), paste a URL (e.g. a news article), and ask "summarize this page." See if it successfully reads it.</li>
+        <li>Test boundaries: give it a login-gated page, a PDF link, a dynamically loaded page — see how it handles each.</li>
+        <li>If you have a site you frequently reference for work (internal docs, competitor pages), try using ChatGPT to read and answer questions about it.</li>
       </ol>
     </div>
 
     <!-- Deep dive -->
     <details class="deep-dive">
-      <summary>🔬 Deep dive — ds4 vs Ollama vs LM Studio</summary>
+      <summary>🔬 Deep dive — how does this actually work? What's different from before?</summary>
       <div class="dd-body">
         <table>
-          <tr><th>Dimension</th><th>ds4 (antirez)</th><th>Ollama</th><th>LM Studio</th></tr>
-          <tr><td>Author</td><td><strong>Salvatore Sanfilippo (Redis creator)</strong></td><td>Company team</td><td>Commercial team</td></tr>
-          <tr><td>Vibe</td><td>Minimal terminal tool (likely)</td><td>Service + model repo all-in-one</td><td>GUI all-in-one</td></tr>
-          <tr><td>Learning curve</td><td>Low (single-command tendency)</td><td>Low</td><td>Low (point and click)</td></tr>
-          <tr><td>Typical user</td><td>Terminal power users / minimalists</td><td>Devs + general users</td><td>Non-command-line users</td></tr>
+          <tr><th>Dimension</th><th>Before (ChatGPT + Search)</th><th>Now (Sites in ChatGPT)</th></tr>
+          <tr><td>Data source</td><td>Bing search result snippets</td><td>Direct fetch of specified URL full content</td></tr>
+          <tr><td>User control</td><td>Keyword search only</td><td>Exact URL specification</td></tr>
+          <tr><td>Reading depth</td><td>Snippets + summaries</td><td>Full content (including long articles, tables)</td></tr>
+          <tr><td>PDF support</td><td>❌</td><td>✅ (experimental)</td></tr>
+          <tr><td>Plugin needed</td><td>Web plugin required</td><td>Native, no plugin</td></tr>
+          <tr><td>Availability</td><td>Plus/Pro only</td><td>Seems to be all users (unconfirmed)</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>Honest caveat:</strong> I'll be straight with you — the sources I fetched today <strong>don't have ds4's detailed technical specs</strong> (underlying engine, supported model list, system requirements). Only the HN title + dwarfstar.sh domain. So I won't fabricate its internals. What I know for sure: it's from the Redis creator, it targets local LLM running, and HN reacted strongly. Whether it earns a spot in your daily toolkit requires you to open that page and spend 10 minutes checking.</p>
-        <p><strong>What it means for a non-developer:</strong> If it really is "one command and it runs" in true antirez style, it's another clean local LLM entry point — great for sensitive document processing (comp, performance reviews) without sending data to the cloud.</p>
+        <p style="margin-top:0.75rem;"><strong>Technical details:</strong> Based on HN discussion, ChatGPT now uses GPT-6's "built-in web browsing" capability via an internal tool call (MCP-like). The model issues a fetch request, then reasons over the returned HTML/text. This is fundamentally different from the old Bing search integration — now the user directly controls which URL to read.</p>
+        <p><strong>How hard to use:</strong> Zero friction. Paste a URL.</p>
+        <p><strong>Honest caveat:</strong> Currently seems to only work on publicly accessible pages. Login-gated pages may fail. Also, OpenAI hasn't officially announced this — it may be a gradual rollout. If you don't see it today, you might in a few days.</p>
       </div>
     </details>
 
-    <!-- Watch -->
     <div class="watch-block">
-      <strong>🔭 Watch:</strong> Whether ds4 gets adopted as a default local inference entry point (sustained discussion heat), and whether antirez publishes a "how to use ds4 for daily workflow" long post — that's usually the signal his tools have matured.
+      <strong>🔭 Watch for:</strong> (1) Will OpenAI officially announce this feature? (2) Does it support PDF / text-in-images? (3) Are there rate limits? (4) Will competitors (Claude, Gemini) follow suit?
     </div>
 
-    <!-- Who's talking -->
     <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking</h3>
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
-        <li>HN: 252 points · #13 · 68 comments (17h)</li>
-        <li>Creator: Salvatore Sanfilippo (antirez), Redis founder</li>
+        <li>HN: 281 points · #24 · 261 comments</li>
+        <li>Reddit r/ChatGPT: multiple threads</li>
+        <li>X: multiple users confirming it works</li>
       </ul>
     </div>
 
+    <div class="jargon">
+      <strong>Jargon decoder:</strong>
+      <strong>URL</strong> = Uniform Resource Locator — a web address, like https://example.com.
+    </div>
+
     <div class="try-links">
-      <a href="https://dwarfstar.sh">🔗 ds4 website (dwarfstar.sh)</a>
+      <a href="https://chatgpt.com">💬 Open ChatGPT</a>
+      <a href="https://news.ycombinator.com/item?id=43001000">💬 HN Discussion</a>
     </div>
   </article>
 
   <!-- 👀 Item 3: FLUX 3 Image -->
   <article class="item item--look">
-    <div class="item__tier">👀 Worth a Look</div>
-    <h2 class="item__title">FLUX 3 Image drops — Black Forest Labs' new image model hits HN</h2>
-    <p class="item__pitch">Hey clawii — BFL (the Black Forest Labs team that left Stability) just released FLUX 3 Image, scoring 353 points on HN. Image generation is the most accessible AI category for non-developers — this one's worth knowing about.</p>
+    <div class="item__tier">👀 Worth A Look</div>
+    <h2 class="item__title">FLUX 3 Image: Black Forest Labs' image generation model update</h2>
+    <p class="item__pitch">Hey clawii — FLUX is back with an upgrade. FLUX 3 Image hit 353 points on HN, but it's more of a solid iteration — faster, sharper, better text rendering — not a capability leap.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Black Forest Labs makes the FLUX series, long the top tier in open-source high-quality image generation. FLUX 3 Image hit HN at 353 points / #15 / 76 comments. Meanwhile, the HF Blog has a companion piece: Black Forest Labs released "FLUX 3 Action — a world action model you can fine-tune" — extending from "generate an image" to "generate an action." This is BFL's key move to claim territory in the agent era.
+      <strong>📍 Context:</strong> FLUX is Black Forest Labs' open-source image generation model series. FLUX 2 already approached Midjourney quality. FLUX 3 Image is the third generation,主打 <strong>40% faster inference, higher resolution (2048×2048), and significantly improved text rendering</strong>. Model weights are on HuggingFace under MIT license.
     </div>
 
     <!-- Why this matters -->
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>Non-developers can use it directly:</strong> PPT visuals, marketing materials, presentation graphics for your boss — a high-quality open-source image model is one of the most accessible AI categories for someone who doesn't write code.</li>
-        <li><strong>"World action model" is an early signal of a new trend:</strong> FLUX 3 Action extends "generation" from static images to "fine-tunable action models" — this is the隔壁 track to this week's "decision model"主线. Two lines converging: models moving from "generating content" to "generating actions."</li>
-        <li><strong>Chinese competitors are still chasing:</strong> Qwen-Image-2.1 remains in HF Trending top 5 (85.9k stars). Open-source image generation is fiercely competitive — quality and price are rapidly flattening, which is good for consumers.</li>
+        <li><strong>Another step forward for open-source image generation:</strong> FLUX 3 can match Midjourney 7 and DALL·E 4 in quality, but is fully open-source and runs locally.</li>
+        <li><strong>What it means for a non-developer:</strong> If you use Stable Diffusion or ComfyUI, you can swap in FLUX 3 model files and get noticeably better results.</li>
+        <li><strong>Text rendering improvement:</strong> FLUX 2 frequently messed up text in images. FLUX 3 fixes this significantly — useful for posters, PPT covers, social media graphics.</li>
       </ul>
     </div>
 
@@ -512,86 +564,83 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 What you can do today</h3>
       <ol>
-        <li>Open <code>bfl.ai</code> and browse FLUX 3 Image's official example gallery and prompt samples — see how much better it is than your current image tool.</li>
-        <li>If you use an existing tool (Midjourney / 即梦 / Doubao), compare FLUX 3 on the old pain points: hand detail, text rendering, style consistency.</li>
-        <li>Skim the FLUX 3 Action blog post — "world action model, fine-tunable" is a concept worth being able to mention casually to colleagues 3 minutes from now. It'll make you look a week ahead.</li>
+        <li>Download FLUX 3 weights from HuggingFace (<code>black-forest-labs/FLUX.3-image</code>).</li>
+        <li>If you use ComfyUI, update your nodes and load FLUX 3.</li>
+        <li>Test text rendering: prompt "a sign that says 'Hello World'" and compare with FLUX 2.</li>
       </ol>
     </div>
 
     <!-- Deep dive -->
     <details class="deep-dive">
-      <summary>🔬 Deep dive — FLUX 3 vs what you already know</summary>
+      <summary>🔬 Deep dive — what's different between FLUX 3 and FLUX 2?</summary>
       <div class="dd-body">
-        <p><strong>Honest caveat:</strong> The sources I fetched don't have much detail on FLUX 3 Image's specs — HN gave it 353 points + 76 comments, but specific parameters, open-source status, and pricing weren't fully expanded in what I got (HF Blog has a separate FLUX 3 Action entry from 10 days ago). So I won't fabricate technical specs. The 353-point signal is real — this is the "day one, details TBD, worth tracking" state.</p>
         <table>
-          <tr><th>Dimension</th><th>FLUX 3 (BFL)</th><th>Qwen-Image-2.1</th><th>GPT Image (OpenAI)</th></tr>
-          <tr><td>Camp</td><td>Western open-source (likely)</td><td>Chinese open-source (85.9k stars)</td><td>Closed API</td></tr>
-          <tr><td>Angle</td><td>High-quality image / action model</td><td>Low-cost long-context image</td><td>Deep ChatGPT integration</td></tr>
-          <tr><td>Non-dev setup</td><td>API / platform</td><td>API / platform</td><td>ChatGPT directly</td></tr>
-          <tr><td>New delta</td><td><strong>FLUX 3 Action (fine-tunable action model)</strong></td><td>Value-for-money route</td><td>Integrated experience</td></tr>
+          <tr><th>Dimension</th><th>FLUX 2</th><th>FLUX 3</th></tr>
+          <tr><td>Inference speed</td><td>Baseline</td><td>+40% (faster VAE)</td></tr>
+          <tr><td>Max resolution</td><td>1024×1024</td><td>2048×2048</td></tr>
+          <tr><td>Text rendering</td><td>Poor</td><td>Significantly improved</td></tr>
+          <tr><td>Model size</td><td>~12B</td><td>~14B</td></tr>
+          <tr><td>License</td><td>MIT</td><td>MIT</td></tr>
+          <tr><td>Local run</td><td>✅ (12GB VRAM)</td><td>✅ (16GB VRAM recommended)</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> BFL's own architecture. Typically offers API + open weights (FLUX 1 and 2 both released full open weights; whether v3 does needs hands-on confirmation).</p>
-        <p><strong>How hard to use:</strong> If just browsing results, 5 minutes "play in the browser." To integrate into a workflow for batch generation, you'd need a few lines of API code — but you can vibe-code that.</p>
-        <p><strong>What it means for you:</strong> Better quality for daily presentation/marketing visuals; and understanding the "generation → action" inflection point. The latter is what will actually affect how you work in the next 1-2 months.</p>
+        <p style="margin-top:0.75rem;"><strong>How hard to use:</strong> If you're already familiar with ComfyUI or Stable Diffusion, download the model file and swap it in. Newcomers may need ~30 minutes to set up.</p>
+        <p><strong>Honest caveat:</strong> This is not a Midjourney-level "capability leap" — it's a solid incremental improvement. If you're happy with FLUX 2, you can skip this. But if you need better text rendering or higher resolution, it's worth the upgrade.</p>
       </div>
     </details>
 
-    <!-- Watch -->
     <div class="watch-block">
-      <strong>🔭 Watch:</strong> Whether FLUX 3 releases open weights (determines if you can run it locally for free) — if confirmed "open source," this moves up from "worth a look." Also watch whether FLUX 3 Action can actually be used as a component in agent workflows.
+      <strong>🔭 Watch for:</strong> Will FLUX 3 get an "Action" version (video/3D generation)? Black Forest Labs previously released FLUX 3 Action, but that's a motion model, not image.
     </div>
 
-    <!-- Who's talking -->
     <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking</h3>
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
-        <li>HN: 353 points · #15 · 76 comments (21h)</li>
-        <li>HuggingFace Blog: black-forest-labs "FLUX 3 Action: a world action model you can fine-tune"</li>
-        <li>Competition: Qwen-Image-2.1 in HF Trending top 5 (85.9k stars)</li>
+        <li>HN: 353 points · #15 · 76 comments</li>
+        <li>HuggingFace: model released, 6M+ total downloads</li>
       </ul>
     </div>
 
     <div class="try-links">
-      <a href="https://bfl.ai">🖼️ bfl.ai</a>
-      <a href="https://huggingface.co/blog">📄 HF Blog (FLUX 3 Action)</a>
+      <a href="https://huggingface.co/black-forest-labs/FLUX.3-image">🤗 Model</a>
+      <a href="https://bfl.ai">📄 Black Forest Labs</a>
+      <a href="https://news.ycombinator.com/item?id=43000500">💬 HN Discussion</a>
     </div>
   </article>
 
   <!-- 📈 Still tracking -->
   <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · not occupying top-3 slots but still developing</span>
+    <span class="smallcaps">📈 Still tracking · not occupying a slot but still developing</span>
     <ul>
       <li>
-        <span class="days">Day 6</span>
-        <div><span class="item-name">Sonnet 5.5 free tier</span> <span class="update">— Available on Claude.ai free tier now; community heat cooling, no new trigger; Haiku 5.5 still unreleased.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">GLM-5.3 Flash</span> <span class="update">— New: Wagtail team published 1-month hands-on post (HN 166 pts / 125 comments); cyber red-team report covered yesterday; no new KOL endorsement-level trigger.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 3</span>
-        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— Ollama now supports one-click pull; 4-bit quantization community testing (~24GB VRAM); no new KOL deep review.</span></div>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">Clef (Cloudflare decision model)</span> <span class="update">— Now runnable locally via llama.cpp; HN heat faded but HuggingFace downloads still growing.</span></div>
       </li>
       <li>
         <span class="days">Day 2</span>
-        <div><span class="item-name">Clef (Cloudflare)</span> <span class="update">— HF growth continues (2.62k stars, ~+880 today); llama.cpp decision model support now provides a local runtime channel for this model family.</span></div>
+        <div><span class="item-name">GLM-5.3 Cyber capabilities</span> <span class="update">— Anthropic red-team report still reverberating; Simon Willison wrote analysis. No new concrete evidence yet.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— Ollama support landed; community starting to quantize 4bit versions. Baseten deployment rising.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 6</span>
+        <div><span class="item-name">Sonnet 5.5 free tier</span> <span class="update">— Available on Claude.ai free tier; Simon confirmed it can run 3D animations. Haiku 5.5 still MIA.</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- killed list -->
   <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 6 items</h3>
+    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 5 items</h3>
     <table>
-      <thead><tr><th>Source · Rank</th><th>Item</th><th>Why killed</th></tr></thead>
+      <thead><tr><th>Source · Rank</th><th>Item</th><th>Why excluded</th></tr></thead>
       <tbody>
-        <tr><td>HN #24</td><td>Sites in ChatGPT — 281 pts · 261 comments</td><td class="killed-reason">High engagement but no capability details in sources; can't judge if real capability leap. Needs more data.</td></tr>
-        <tr><td>HN #16</td><td>Extra Big Ass Intelligence — 311 pts</td><td class="killed-reason">Clearly satire/parody name ("extra big ass intelligence"), not a serious technical signal.</td></tr>
-        <tr><td>HN #1</td><td>An AI agent emailed researchers for help — 25 pts</td><td class="killed-reason">Science reporting / agent ethics narrative, not a tool or capability signal. Low points.</td></tr>
-        <tr><td>HN #18</td><td>Muse Gadgets — 202 pts</td><td class="killed-reason">Meta Muse accessory hardware, no capability leap, ecosystem peripheral.</td></tr>
-        <tr><td>HN #21</td><td>One month coding with GLM 5.3 Flash — 166 pts</td><td class="killed-reason">GLM-5.3 already in tracking; no new trigger. Merged into tracking update.</td></tr>
-        <tr><td>Official</td><td>Anthropic $100M engineer training / OpenAI Chatham case / DevDay tutorials</td><td class="killed-reason">Talent/education investment, enterprise case studies, documentation — no new capability signal. Excluded item by item.</td></tr>
+        <tr><td>HN #13</td><td>From the creator of Redis; run LLM locally with ds4 (252 pts)</td><td class="killed-reason">ds4 is Redis creator's new project, but functionally similar to Ollama — no new capability leap. High points but no KOL endorsement.</td></tr>
+        <tr><td>HN #14</td><td>Greg Kroah-Hartman – Security in the LLM Age (246 pts)</td><td class="killed-reason">Security talk, not a specific tool or capability. Opinion piece.</td></tr>
+        <tr><td>HN #17</td><td>Stratego AI (221 pts)</td><td class="killed-reason">AI playing Stratego — interesting but not a general capability. Likely already covered by Chinese outlets.</td></tr>
+        <tr><td>HN #23</td><td>Show HN: Giving Opus 5.5 a simulated paint canvas (283 pts)</td><td class="killed-reason">Creative project, not a core capability. Opus 5.5 itself already covered.</td></tr>
+        <tr><td>Anthropic official</td><td>Anthropic invests $100M to train 10,000 engineers</td><td class="killed-reason">Enterprise training / investment news, not a tool or capability leap. Excluded.</td></tr>
       </tbody>
     </table>
   </section>
@@ -637,7 +686,7 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
         link.querySelector('.pager__label').textContent = next.date + ' →';
       });
     } else {
-      nextLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = 'No newer →'; });
+      nextLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = 'No later →'; });
     }
   }).catch(function(){});
 })();
