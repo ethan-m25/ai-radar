@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Radar — 每周总结 · Week 40 · 2026-10-04</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-serif: "Fraunces", Georgia, serif;
+            --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.2 0.02 90);
+            --text-secondary: oklch(0.45 0.02 90);
+            --border: 1px solid oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.18 250);
+            --accent-soft: oklch(0.65 0.12 250 / 0.15);
+            --crit: oklch(0.6 0.22 30);
+            --crit-bg: oklch(0.6 0.22 30 / 0.08);
+            --look: oklch(0.55 0.18 250);
+            --look-bg: oklch(0.55 0.18 250 / 0.08);
+            --fyi: oklch(0.5 0.1 160);
+            --fyi-bg: oklch(0.5 0.1 160 / 0.08);
+            --radius: 12px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+
+        /* ── masthead ── */
+        .masthead {
+            border-bottom: 2px solid oklch(0.85 0.02 90);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .masthead .kicker {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .masthead h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin: 0.4rem 0 0.3rem;
+        }
+        .masthead .sub {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── cover ── */
+        .cover {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .cover .one-liner-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .cover .one-liner {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .cover .stats-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid oklch(0.88 0.02 90);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+        .cover .stats-row span { background: oklch(0.95 0.01 90); padding: 0.2rem 0.7rem; border-radius: 999px; }
+        .stat-crit { color: var(--crit); font-weight: 600; }
+        .stat-look { color: var(--look); font-weight: 600; }
+        .stat-fyi { color: var(--fyi); font-weight: 600; }
+
+        /* ── section headings ── */
+        .section-head {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid oklch(0.88 0.02 90);
+        }
+
+        /* ── main narrative ── */
+        .main-narrative {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .main-narrative p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .main-narrative p:last-child { margin-bottom: 0; }
+        .main-narrative .action-call {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            padding: 0.75rem 1.25rem;
+            background: oklch(0.96 0.02 90 / 0.3);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0 0.5rem;
+        }
+
+        /* ── trend card ── */
+        .trend-card {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .trend-card .trend-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .trend-card .trend-title .emoji { margin-right: 0.4rem; }
+        .trend-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── demote card ── */
+        .demote-card {
+            background: oklch(0.98 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .demote-card .demote-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: oklch(0.5 0.12 30);
+        }
+        .demote-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── watch list ── */
+        .watch-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .watch-list li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--surface);
+            border: var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .watch-list li strong { color: var(--text); }
+        .watch-list li .trigger { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* ── calibration ── */
+        .calibration {
+            margin-top: 2.5rem;
+            padding: 1.25rem 1.5rem;
+            background: oklch(0.97 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+        }
+        .calibration .cal-item { text-align: center; }
+        .calibration .cal-item .num {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: block;
+            color: var(--text);
+        }
+
+        /* ── footer ── */
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid oklch(0.88 0.02 90);
+        }
+
+        @media (max-width: 600px) {
+            .masthead h1 { font-size: 1.8rem; }
+            .cover .one-liner { font-size: 1.25rem; }
+            .main-narrative { padding: 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ═══════ MASTHEAD ═══════ -->
+    <header class="masthead">
+        <div class="kicker">AI Radar · 每周总结</div>
+        <h1>AI Radar</h1>
+        <div class="sub">2026-09-28 ~ 2026-10-04 · Week 40 · 第 02 期</div>
+    </header>
+
+    <!-- ═══════ COVER ═══════ -->
+    <section class="cover">
+        <div class="one-liner-label">📌 本周一句话总结</div>
+        <div class="one-liner">决策模型（Clef / Jev）从概念变成你笔记本上能跑的东西，同时 agent 安全问题从「科幻」变成了「你下周就会遇到的现实」。</div>
+        <div class="stats-row">
+            <span><span class="stat-crit">🚨 5 必看</span></span>
+            <span><span class="stat-look">👀 7 可看</span></span>
+            <span><span class="stat-fyi">ℹ️ 2 知道</span></span>
+            <span>📡 幸存进 weekly：3 条主线</span>
+        </div>
+    </section>
+
+    <!-- ═══════ 🏆 本周最重要的 1 件事 ═══════ -->
+    <h2 class="section-head">🏆 本周最重要的 1 件事</h2>
+
+    <div class="main-narrative">
+        <p><strong>决策模型（Decision Models）正式成为「本地可运行的 agent 新品类」。</strong> 这不是渐进式改进——Cloudflare 周二开源了 Clef，一个会自主拆任务、调工具、跑评估的决策系统，526 分冲上 HN 头条。紧接着周三，llama.cpp 合并了对决策模型的支持，意味着你可以在自己的笔记本上用 Ollama 跑 Clef 和 Jev。周四，0.8B 的 Jeff 决策模型在 HN 拿到 506 分，推理延迟只有 30 毫秒。一周之内，这个品类从「云上概念」变成了「本地工具」。</p>
+
+        <p>对 clawii 来说，这意味着你不再需要写复杂的 prompt 链来让 agent 做决策。你可以给它一个目标（比如「从这 5 份简历中选出最适合的人」），它自己规划步骤、调用工具、输出结果——而且数据不出本机，没有 API 费用。这是 vibe coding 的下一步：从「你写 prompt 让模型生成代码」到「你给目标让模型自己决策」。</p>
+
+        <p>与此同时，本周的另一条主线是 agent 安全从学术讨论变成了实战问题。周一 Meta Muse 事故全文曝光——agent 擅自回复快递员、擅自道歉。周日 Simon Willison 喊出「所有 agent 都需要默认硬预算上限」，453 分 HN 讨论。如果你这周开始用本地决策模型，下周就该考虑怎么防止它失控。</p>
+
+        <div class="action-call">👉 如果你这周只做一件事：用 Ollama 拉一个决策模型（<code>ollama pull clef-flash</code>），跑一个真实任务，感受「给目标而不是写 prompt」的体验。</div>
+    </div>
+
+    <!-- ═══════ 📈 趋势构建 ═══════ -->
+    <h2 class="section-head">📈 趋势构建</h2>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">🧠</span>决策模型生态：从概念到基础设施</div>
+        <p>本周 Clef（Cloudflare）、Jev（autotrust）、Jeff（firelex）三个决策模型密集发布，llama.cpp 和 Ollama 迅速跟进支持。这不是巧合——决策模型正在成为 agent 架构的标准组件。对非开发者来说，这意味着你可以在本地跑一个会自主工作的 agent，而不需要写代码。下周关注点：决策模型能否被集成到 n8n / Dify 等主流 agent 框架中。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">🔐</span>Agent 安全：从「有趣的事故」到「必须解决的工程问题」</div>
+        <p>Meta Muse 事故（周一）和 Simon Willison 的硬预算上限呼吁（周日）构成了本周 agent 安全的两端：前端是 agent 对外部世界造成后果，后端是 agent 失控烧钱。中间还有 OpenAI agent collusion 和 DNS 外联事件的持续发酵。这个趋势会深刻影响 agent 开发方式——「默认安全」正在成为新标准，而不是附加功能。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">📉</span>AI 成本持续下降，免费层能力升级</div>
+        <p>Anthropic 周二发布 Sonnet 5.5，免费层直接可用，速度比 Sonnet 5 快 30%。DeepSeek V4.1 Flash 的 causal encoder-decoder 架构让长文档处理成本比传统 decoder-only 模型低 40-60%。GLM-5.3 Flash 以 MIT 协议提供接近 GPT-5.6 的能力。对 clawii 来说，你每天在 Claude Code 里跑脚本的成本正在持续下降——可以更放肆地让 AI 多试几次。</p>
+    </div>
+
+    <!-- ═══════ 💀 判断失误 / 过热 ═══════ -->
+    <h2 class="section-head">💀 本周判断失误 / 过热</h2>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ MiMo v2.6 跑分惊艳但实际代码生成不如预期 → 🚨 应降级为 👀</div>
+        <p>上周（9/27）给了 MiMo v2.6 🚨，因为它 MMLU 89.2% 确实炸裂。但本周社区反馈在代码生成任务上不如 DeepSeek V4.1 稳定。跑分高不等于实际体验好。这个判断过于看重 benchmark，低估了生态成熟度的重要性。如果你的工作流以代码生成为主，目前 DeepSeek V4.1 仍是开源首选。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ Claude 发现新型酶系统 → 👀 应降级为 ℹ️</div>
+        <p>上周四给了这个 👀，认为「AI 自主科学发现」是能力跃迁的信号。回头看，这确实是重大的科学新闻，但对 clawii 的日常工作（vibe coding、薪酬管理、办公自动化）没有直接影响。作为 AI 能力信号，它指向的是「推理深度提升」而非「直接可用工具」。应该降为 ℹ️ 知道一下，而不是值得一看。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ Fireworks Ember-1 在 HN 拿 482 分但细节成谜 → ℹ️ 未升级是正确的</div>
+        <p>周一给了 Ember-1 ℹ️，说「先把名字记下」。到周末仍然没有更多细节——没有模型发布、没有文档、没有 KOL 背书。HN 热度已经消退。这个判断是正确的：没有升级到 👀，避免了追空信号。</p>
+    </div>
+
+    <!-- ═══════ 🔮 下周关注 ═══════ -->
+    <h2 class="section-head">🔮 下周关注</h2>
+
+    <ul class="watch-list">
+        <li>
+            <strong>🔥 决策模型能否被集成到主流 agent 框架</strong><br>
+            <span class="trigger">触发信号：如果 n8n / Dify / LangChain 发布决策模型插件或节点，说明这个品类进入了「拿来就能用」阶段。如果 Ollama 推出决策模型的「一键 agent」功能，更是直接利好非开发者。⏳ 时间窗口：1-2 周。</span>
+        </li>
+        <li>
+            <strong>🧠 OpenAI / Anthropic 是否会回应「硬预算上限」呼声</strong><br>
+            <span class="trigger">触发信号：如果 OpenAI 或 Anthropic 在 changelog 中加入 hard usage cap 设置，说明 agent 安全从社区讨论变成了产品需求。如果没有任何回应，说明厂商还在观望。⏳ 时间窗口：1-2 周。</span>
+        </li>
+        <li>
+            <strong>🔐 ChatGPT 直接访问网站内容功能是否会正式宣布</strong><br>
+            <span class="trigger">触发信号：如果 OpenAI 正式发布这个功能并说明限制（速率、登录页支持等），它将成为 ChatGPT 的又一个实用升级。如果只是灰度测试没有正式宣布，说明还在打磨。⏳ 时间窗口：1-2 周。</span>
+        </li>
+    </ul>
+
+    <!-- ═══════ 📅 校准指标 ═══════ -->
+    <div class="calibration">
+        <div class="cal-item">
+            <span class="num">7</span>
+            日报份数
+        </div>
+        <div class="cal-item">
+            <span class="num">5 🚨</span>
+            必看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">7 👀</span>
+            可看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">2 ℹ️</span>
+            知道信号
+        </div>
+        <div class="cal-item">
+            <span class="num">3</span>
+            本周降级
+        </div>
+        <div class="cal-item">
+            <span class="num">~5 天</span>
+            领先中文圈
+        </div>
+    </div>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="footer">
+        <p>AI Radar · 每周总结 · 数据来源：Smol AI / OSSInsight / HN / X / 官方博客 · 人工筛选，非 AI 生成</p>
+        <p style="margin-top:0.5rem; opacity:0.7;"><a href="./archive.html">📚 全部存档</a> · <a href="./feed.xml">📡 RSS</a></p>
+    </footer>
+
+</div>
+</body>
+</html>

@@ -6,6 +6,20 @@
       "date": "2026-10-04",
       "weekday": "Sun",
       "week": 40,
+      "kind": "weekly",
+      "headline": "Decision models went from concept to local tool in one week — and agent security became a Monday problem.",
+      "summary": "14 new signals this week, but only 3 trends are worth remembering. The big story: decision models (Clef, Jev, Jeff) went from cloud-only concepts to something y",
+      "counts": {
+        "crit": 3,
+        "look": 5,
+        "fyi": 1
+      },
+      "url": "weekly_2026-10-04.html"
+    },
+    {
+      "date": "2026-10-04",
+      "weekday": "Sun",
+      "week": 40,
       "issue": 130,
       "kind": "daily",
       "headline": "(no headline)",

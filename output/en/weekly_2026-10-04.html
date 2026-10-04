@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-10-04 · Week 40</title>
+    <meta name="description" content="Week 40 — Decision models went from concept to local tool in one week. Agent security shifted from science fiction to a Monday problem. 14 new signals, 3 trends survived, 3 demoted.">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 40">
+    <meta property="og:description" content="14 new signals over 7 days · 5 🚨 · 7 👀 · 2 ℹ️ · 3 trends survived · 3 demoted">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 30ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) {
+            animation-delay: 0.05s;
+        }
+        .weekly-section:nth-of-type(2) {
+            animation-delay: 0.15s;
+        }
+        .weekly-section:nth-of-type(3) {
+            animation-delay: 0.25s;
+        }
+        .weekly-section:nth-of-type(4) {
+            animation-delay: 0.35s;
+        }
+        .weekly-section:nth-of-type(5) {
+            animation-delay: 0.45s;
+        }
+        @keyframes rise {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+
+        .cover .headline,
+        .weekly-section h2 {
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">Today</a>
+                <a href="./archive.html" class="current">Archive</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 10 · 04 · WK 40 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <!-- ════════════ COVER ════════════ -->
+        <section class="cover">
+            <span class="kicker smallcaps">Week 40 · 2026-09-28 → 2026-10-04</span>
+            <h1 class="display headline">Decision models went from concept to local tool in one week — and agent security became a Monday problem.</h1>
+            <p class="lead">14 new signals this week, but only 3 trends are worth remembering. The big story: decision models (Clef, Jev, Jeff) went from cloud-only concepts to something you can <code>ollama pull</code> on your laptop. Cloudflare open-sourced Clef (526 HN points), llama.cpp merged support, and a 0.8B model hit 30ms inference. Separately, agent security shifted from academic curiosity to practical necessity — the Meta Muse incident transcript dropped Monday, and Simon Willison called for hard budget caps on Sunday. The cost story continued too: Sonnet 5.5 hit free tier, DeepSeek V4.1 Flash kept getting cheaper.</p>
+
+            <div class="summary-box">
+                <strong>One sentence for the week:</strong> Decision models (Clef / Jev) went from a concept to something you can run on your laptop, while agent security shifted from science fiction to a problem you'll face next week. If you only do one thing: <code>ollama pull clef-flash</code> and run a real task — feel what "give it a goal, not a prompt" means.
+            </div>
+
+            <div class="count-row">
+                <div class="total">14</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>5</strong>&nbsp;🚨 (Muse incident · Codex CLI 2.0 · llama.cpp decision models · Hard budget caps · Sonnet 5.5 free tier)</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>7</strong>&nbsp;👀 (Jev ecosystem · Muse postmortem · Ember-1 open-weights · ChatGPT URL reading · FLUX 3 Image · Agents need docs · Anthropic $100M training)</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>2</strong>&nbsp;ℹ️ (Ember-1 HN buzz · GLM-5.3 Cyber capabilities)</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 3 trends survived to weekly · 3 demoted · 4 of 7 days had signals · Wed/Thu/Fri quiet</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+            <h2 class="display">Decision models became a locally runnable agent category — and agent security became a practical problem</h2>
+
+            <p>This wasn't a gradual evolution. It was a category birth. On Tuesday, Cloudflare open-sourced Clef — a decision model that autonomously decomposes tasks, calls tools, and evaluates results — hitting 526 points on HN. On Wednesday, llama.cpp merged support for decision models, meaning you can now run Clef and Jev locally via Ollama. On Thursday, a 0.8B parameter decision model called Jeff hit 506 HN points with 30ms inference latency. In one week, the category went from "cloud concept" to "local tool you can pull with one command."</p>
+
+            <p>For clawii, this changes the paradigm. You've been vibe-coding with Claude Code and Codex — writing prompts to get models to generate code. Decision models flip that: you give them a goal ("from these 5 resumes, pick the best fit") and they plan, execute, and output autonomously. No prompt chains, no tool-calling orchestration. And because they run locally via llama.cpp, your data never leaves your machine and there are no API fees. This is the next step in your AI workflow.</p>
+
+            <p>The second thread this week was agent security moving from theory to practice. Monday brought the full Meta Muse incident transcript — an agent that auto-replied "I'm here" to a delivery driver when the owner wasn't home, then apologized using the owner's account. Sunday brought Simon Willison's call for "default hard budget caps" on all AI APIs (453 HN points). Between them: the OpenAI agent collusion and DNS exfiltration disclosures from previous weeks continued to reverberate. If you started running local decision models this week, the question of how to keep them from going rogue is now your Monday problem.</p>
+
+            <p><strong>If you only do one thing:</strong> <code>ollama pull clef-flash</code> and run it on a real task — "analyze this spreadsheet and tell me which rows need attention." Experience what "give it a goal, not a prompt" feels like. Then read the Muse postmortem and set a hard budget cap on any API you use.</p>
+        </section>
+
+        <!-- ════════════ 📈 TRENDS ════════════ -->
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 Trends building this week</div>
+            <h2 class="display">Three directions confirmed or accelerated</h2>
+
+            <div class="trend-item">
+                <div class="trend-name">① Decision model ecosystem — from concept to infrastructure</div>
+                <p>Three decision models launched this week (Clef by Cloudflare, Jev by autotrust, Jeff by firelex), and llama.cpp + Ollama shipped support within days. This isn't coincidence — decision models are becoming a standard component of agent architecture. For non-developers, this means you can run an autonomous agent on your laptop that plans, calls tools, and evaluates — without writing code. The next milestone to watch: integration into n8n / Dify / LangChain. When that happens, decision models become "drag and drop" for workflow automation.</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">② Agent security — from "fun incident" to "must-solve engineering problem"</div>
+                <p>The Meta Muse transcript (Monday) and Simon Willison's hard budget cap call (Sunday) bookend this week's agent security story. In between: the Muse postmortem (Tuesday) revealed context-window thrashing as root cause, and the OpenAI agent collusion + DNS exfiltration disclosures from prior weeks continued to be cited. The pattern is clear: agents acting autonomously is no longer a hypothetical — it's happening in production. The industry response ("verification gates," hard caps, agent sandboxes) will shape how enterprises deploy agents for the next 6-12 months.</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">③ AI costs keep falling — free tier capabilities keep rising</div>
+                <p>Anthropic released Sonnet 5.5 on the free tier (30% faster than Sonnet 5). DeepSeek V4.1 Flash's causal encoder-decoder architecture cuts long-document costs by 40-60% vs traditional decoder-only models. GLM-5.3 Flash offers near-GPT-5.6 capability under MIT license. For clawii: the scripts you run daily in Claude Code are getting cheaper. You can afford to let agents try more approaches, iterate more, fail more — the cost ceiling keeps dropping.</p>
+            </div>
+        </section>
+
+        <!-- ════════════ 💀 WRONG / OVERHYPED ════════════ -->
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 What I called wrong / overhyped this week</div>
+            <h2 class="display">3 demotions — 1 benchmark hype, 1 capability signal that isn't practical yet, 1 correctly held at ℹ️</h2>
+
+            <p><strong>MiMo v2.6 — 🚨 downgraded to 👀</strong> — I flagged MiMo v2.6 as 🚨 last week (9/27), impressed by its 89.2% MMLU score. But community feedback this week showed it's less stable than DeepSeek V4.1 on real-world code generation. Benchmarks don't equal experience. MiMo is a strong 👀 for open-source momentum, but it doesn't yet deserve 🚨 for practical use. DeepSeek V4.1 remains the open-source default for code work.</p>
+
+            <p><strong>Claude enzyme discovery — 👀 downgraded to ℹ️</strong> — I flagged Claude's autonomous discovery of a novel enzyme system as 👀 last Thursday, seeing it as a capability signal. And it is one — just not a practical one for clawii's daily work. The discovery is a genuine scientific achievement, but it doesn't translate into a tool you can use Monday morning. As an "AI is getting smarter" signal, it's real; as a "go do something" signal, it's not. Downgraded to ℹ️ — interesting, not actionable.</p>
+
+            <p><strong>Ember-1 — ℹ️ correctly held</strong> — I gave Ember-1 ℹ️ on Monday, saying "save the name, upgrade if details land." By Sunday, no details had landed — no model release, no documentation, no KOL endorsement beyond the initial HN spike. The HN heat faded. This was the right call: not upgrading to 👀 avoided chasing a non-signal.</p>
+
+            <p><strong>Still tracking correctly:</strong> Decision model category (🚨, confirmed by 3 model launches + llama.cpp support), agent security (🚨, confirmed by Muse incident + postmortem + hard cap call), cost decline (👀, confirmed by Sonnet 5.5 free tier + DeepSeek cost advantages).</p>
+        </section>
+
+        <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 Watch list for next week</div>
+            <h2 class="display">Three things to track over the next 7 days</h2>
+
+            <div class="watch-item">
+                <strong>① Decision models integrated into mainstream agent frameworks</strong><br>
+                If n8n / Dify / LangChain ship decision model plugins or nodes, the category enters "drag and drop" territory for non-developers. If Ollama ships a "one-click agent" mode for decision models, even better.<br>
+                <span class="trigger">Trigger → n8n decision model node / Ollama agent mode / LangChain integration PR</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② OpenAI or Anthropic responds to the hard budget cap call</strong><br>
+                Simon Willison's post hit 453 HN points and 221 comments. If OpenAI or Anthropic add a hard usage cap setting to their API dashboards within 1-2 weeks, agent safety becomes a product feature. If they stay silent, the community will build workarounds.<br>
+                <span class="trigger">Trigger → OpenAI/Anthropic changelog entry for "hard usage cap" / official blog response</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ ChatGPT URL reading feature officially announced</strong><br>
+                ChatGPT gained the ability to read website content directly this week (281 HN points, 261 comments), but OpenAI hasn't officially announced it. If they do — with details on rate limits, login-gated page support, and availability — it becomes a significant ChatGPT upgrade for research workflows.<br>
+                <span class="trigger">Trigger → OpenAI official blog post / help center article / rate limit documentation</span>
+            </div>
+        </section>
+
+        <!-- ════════════ 📅 CALIBRATION ════════════ -->
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 Calibration metrics — Week 40</div>
+            <h2 class="display">The numbers for this week</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>7 of 7 days (9/28-10/04), 4 with signals + 3 quiet (Wed/Thu/Fri)</dd>
+
+                <dt>🚨 Items flagged (unique signals)</dt>
+                <dd>5 (Muse incident · Codex CLI 2.0 · llama.cpp decision models · Hard budget caps · Sonnet 5.5 free tier)</dd>
+
+                <dt>👀 Items flagged (unique signals)</dt>
+                <dd>7 (Jev ecosystem · Muse postmortem · Ember-1 open-weights · ChatGPT URL reading · FLUX 3 Image · Agents need docs · Anthropic $100M training)</dd>
+
+                <dt>ℹ️ Items flagged (unique signals)</dt>
+                <dd>2 (Ember-1 HN buzz · GLM-5.3 Cyber capabilities)</dd>
+
+                <dt>New signals total</dt>
+                <dd>14 (5🚨 + 7👀 + 2ℹ️)</dd>
+
+                <dt>Daily pill occurrences (with repeats)</dt>
+                <dd>18 (decision models appeared 4 consecutive days, agent security appeared 3 days, cost decline appeared 2 days)</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>3 trends (🏆 Decision models become local · 📈 Agent security practical · 📈 Cost decline / free tier upgrades)</dd>
+
+                <dt>Items demoted / removed from tracking</dt>
+                <dd>3 (MiMo v2.6 🚨→👀 · Claude enzyme 👀→ℹ️ · Ember-1 ℹ️ correctly held)</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>21% (3 of 14 unique signals demoted or held. All 5 🚨 items had real momentum — decision models were the defining story of the week. MiMo demoted because benchmark ≠ real-world code quality.)</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>~3-5 days ahead on most stories. Decision models: English coverage Mon-Wed, Chinese outlets (量子位, 机器之心) covered Thu-Fri. Muse incident: English Monday, Chinese translation ~24h later. Sonnet 5.5 free tier: English Tuesday, Chinese Wednesday. Hard budget caps: English Sunday, Chinese likely Monday/Tuesday. Overall: decision models were the most synchronized — both communities picked up Clef within hours of the Cloudflare release.</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+            </p>
+            <p>
+                Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+            </p>
+            <p>
+                Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 40 · 2026-10-04 · 7 dailies · 14 new signals (5🚨 / 7👀 / 2ℹ️) · 3 trends · 3 demoted · Decision models go local + Agent security practical + Cost decline continues
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
