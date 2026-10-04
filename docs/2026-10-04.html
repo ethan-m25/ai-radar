@@ -354,63 +354,40 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <!-- cover -->
   <section class="cover">
     <div class="kicker">AI Radar · Daily Intelligence · 2026-10-04</div>
-    <h1 class="headline">AI 代理账单失控预警，<br><span class="grad">成本上限必须默认开启。</span></h1>
-    <p class="subhead">Simon Willison 今天呼吁所有 AI API 服务商默认设置硬预算上限——HN 454 点，223 条评论，共鸣来自每一个被账单吓到的人。同时，一篇新文章挑战“代理需要记忆”的主流认知，说真正需要的是文档。</p>
+    <h1 class="headline">预算硬上限，<br><span class="grad">agent 安全闹钟响了。</span></h1>
+    <p class="subhead">Simon Willison 喊出 "default hard budget caps"。OpenAI agent 被端到端利用的消息在 HN 发酵了；你今天在本地跑的第一个 agent，明天可能就要考虑怎么防它烧钱。同时有个 HN 帖子在认真讨论 "agents 不需要 memory，他们需要 documentation"。</p>
     <div class="meta-line">
-      <span><strong>今日扫描范围</strong>: Smol AI / OSSInsight / HN / X / Anthropic + OpenAI changelog / HF Blog</span>
-      <span><strong>真信号数</strong>: 2 条 (🚨 0 / 👀 1 / ℹ️ 1)</span>
-      <span><strong>风险检查</strong>: 已剔除融资/诉讼/人事/纯研究/中文圈已覆盖；周末信号较少属于正常。</span>
+      <span><strong>今日扫描范围</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog / Simon Willison</span>
+      <span><strong>真信号数</strong>: 3 条 (🚨 1 / 👀 2 / ℹ️ 0)</span>
+      <span><strong>风险检查</strong>: 已剔除融资/诉讼/人事/纯研究/中文圈已覆盖</span>
     </div>
   </section>
 
   <!-- count strip -->
   <div class="count-strip">
-    <div class="count-card count-card--crit"><div class="count-num">0</div><div class="count-label">🚨 必看</div></div>
-    <div class="count-card count-card--look"><div class="count-num">1</div><div class="count-label">👀 可看</div></div>
-    <div class="count-card count-card--fyi"><div class="count-num">1</div><div class="count-label">ℹ️ 知道</div></div>
-    <div class="count-card count-card--track"><div class="count-num">4</div><div class="count-label">📈 追踪</div></div>
+    <div class="count-card count-card--crit"><div class="count-num">1</div><div class="count-label">🚨 必看</div></div>
+    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 可看</div></div>
+    <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ 知道</div></div>
+    <div class="count-card count-card--track"><div class="count-num">5</div><div class="count-label">📈 追踪</div></div>
   </div>
 
-  <!-- 👀 Item 1: Simon Willison 硬预算上限 -->
-  <article class="item item--look">
-    <div class="item__tier">👀 可看</div>
-    <h2 class="item__title">默认硬预算上限——AI 代理成本失控的最后防线</h2>
-    <p class="item__pitch">clawii，你的 AI 代理用得越多，越需要读这一篇。Simon Willison 说：“每个按量付费的服务都应该默认有硬上限，而不是软提醒。” HN 上 454 分，223 条评论，共鸣强烈。</p>
+  <!-- 🚨 Item 1: 预算硬上限 (Simon Willison) -->
+  <article class="item item--crit">
+    <div class="item__tier">🚨 必看</div>
+    <h2 class="item__title">Simon Willison：所有 agent / API 都需要默认硬预算上限</h2>
+    <p class="item__pitch">clawii，你昨天才把第一个本地决策模型拉下来跑起来，Simon Willison 今天就喊出了 "default hard budget caps"——不是软上限，是硬切断，超过就报错。HN 453 点，221 条评论。这不是理论，是你马上就会遇到的问题。</p>
 
     <div class="context-box">
-      <strong>📍 背景：</strong>随着 GPT-6、Claude Code、Codex 等 AI 代理工具越来越普及，API 调用量级从每天几千 token 变成几百万。大部分 API 服务默认没有硬预算上限（hard cap），只有邮件提醒。Simon Willison（Python 社区知名开发者 / AI 工具评测专家）在博客中呼吁所有服务商学习 AWS，默认开启硬上限，防止意外巨额账单。文章在 HN 引发激烈讨论，很多人分享自己被账单吓到的经历。
-    </div>
-
-    <!-- chart -->
-    <div class="chart">
-      <div class="chart-title">主流 AI API 预算控制机制对比 · 2026 年 10 月</div>
-      <div class="chart-bar-row">
-        <span class="chart-bar-label">OpenAI API</span>
-        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:40%;background:oklch(0.65 0.15 75);">软上限（可设置预算提醒）</div></div>
-      </div>
-      <div class="chart-bar-row">
-        <span class="chart-bar-label">Anthropic API</span>
-        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:60%;background:oklch(0.65 0.15 75);">支持硬上限（需手动开启）</div></div>
-      </div>
-      <div class="chart-bar-row">
-        <span class="chart-bar-label">AWS（参考）</span>
-        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%;background:oklch(0.6 0.02 260);">默认硬上限 + Budget Action</div></div>
-      </div>
-      <div class="chart-bar-row">
-        <span class="chart-bar-label">Simon 的提议</span>
-        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:100%;background:oklch(0.45 0.18 260);">所有 AI API 默认硬上限 + 自动关闭</div></div>
-      </div>
-      <div style="font-size:0.72rem;color:oklch(0.6 0.02 260);margin-top:0.5rem;">来源：各平台文档 & simonwillison.net (2026-10-03)</div>
+      <strong>📍 背景：</strong>你已经在本地跑 Clef / Jev 等决策模型了。但你很快会发现，有些 agent 是走 API 的（比如你的 Claude Code 调 OpenAI，或者你用 n8n 接 MCP 工具）。如果你不给这些 API 调用设硬上限，一个死循环的 agent 可以在 5 分钟内烧掉你一个月的预算。这不是威胁，是已经发生的事——Muse agent 在真实场景中做错了事。Simon Willison 今天在博客上发出了强烈的警告。
     </div>
 
     <!-- 为什么这事重要 -->
     <div class="lang">
       <h3>为什么这事重要</h3>
       <ul>
-        <li><strong>对 clawii 这种重度用户是直接提醒：</strong>你用 Codex、Claude Code、ChatGPT API 越多，月底账单翻车的概率越大。没有硬上限就像信用卡无密码。</li>
-        <li><strong>企业场景更危险：</strong>团队里其他人开了 agent 而不设限，一个人就能烧掉整个部门的预算。默认硬上限应该是标配。</li>
-        <li><strong>Simon 的呼吁正在形成舆论：</strong>HN 223 条评论里很多人分享“被账单吓到”的经历。如果服务商不主动改，用户压力会推动变化。</li>
-        <li><strong>你能立刻行动：</strong>先把自己账户设好上限，再检查团队设置。</li>
+        <li><strong>从 "有趣" 到 "真实风险"：</strong>你刚学会用 vibe coding 调 agent，下一个问题就是 agent 失控的成本。hard cap 是保险。</li>
+        <li><strong>对非开发者的意义：</strong>你不需要懂 API 限流。你只需要一个设置："每月超过 $50 就停"。</li>
+        <li><strong>产品空缺：</strong>目前几乎没有任何 AI 平台默认提供硬上限。OpenAI / Anthropic 只有软提醒。</li>
       </ul>
     </div>
 
@@ -418,86 +395,166 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 今天就能做的事</h3>
       <ol>
-        <li>登录 OpenAI API 后台：设置 <code>Usage limits</code> → 开启硬上限（hard limit）并设置每月预算。</li>
-        <li>Anthropic API 用户：Console → Billing → 设置 Spending limit 并开启自动停止。</li>
-        <li>如果你用的是代理商（如 OpenRouter、Baseten），检查它们是否支持硬上限。</li>
-        <li>转发这篇文章给同事/团队——让更多人意识到这个风险。</li>
+        <li>检查你的 OpenAI API 账户：去 <code>platform.openai.com/account/limits</code> 设置 "hard usage cap"（如果有的话。如果没有，用第三方工具如 <code>budget-cli</code> 或自己写一个包装）。</li>
+        <li>如果你在用 n8n / Workato 等 automation 平台，检查是否有 "execution timeout" 和 "credits limit"。没找到就用 webhook 包装。</li>
+        <li>和你的 IT 部门提一句：企业级 agent 部署应该考虑硬上限功能。</li>
       </ol>
     </div>
 
     <!-- 深扒 -->
     <details class="deep-dive">
-      <summary>🔬 深扒——为什么现在需要硬上限？和之前有什么不同？</summary>
+      <summary>🔬 深扒——hard cap 到底怎么实现？和软上限有什么不同？</summary>
       <div class="dd-body">
         <table>
-          <tr><th>维度</th><th>之前（few-shot / 小规模）</th><th>现在（agent 大规模使用）</th></tr>
-          <tr><td>典型 token 量</td><td>每次几千 token</td><td>一次任务几十万 token（agent 循环 + 工具调用）</td></tr>
-          <tr><td>故障后果</td><td>浪费几十美分</td><td>可能一夜烧掉数千美元</td></tr>
-          <tr><td>预算控制</td><td>手动估算</td><td>必须自动化硬上限</td></tr>
-          <tr><td>服务商态度</td><td>软提醒为主</td><td>Simon 要求转变为默认硬上限</td></tr>
-          <tr><td>用户行为</td><td>不会忘记关</td><td>agent 可能无限循环，用户一觉醒来账单暴涨</td></tr>
+          <tr><th>维度</th><th>软上限（当前默认）</th><th>硬上限（Simon 推荐的）</th></tr>
+          <tr><td>达到限制后的行为</td><td>发邮件警告</td><td>直接返回 429 / 失败，停止所有请求</td></tr>
+          <tr><td>用户能否忽略</td><td>可以（继续使用）</td><td>不能（完全切断）</td></tr>
+          <tr><td>风险</td><td>agent 死循环可以烧完你 6 位数预算</td><td>最多损失到上限值</td></tr>
+          <tr><td>目前 OpenAI 提供吗？</td><td>✅ 软上限</td><td>❌ 没有</td></tr>
+          <tr><td>目前 Anthropic 提供吗？</td><td>✅ 软上限</td><td>❌ 没有</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>技术细节：</strong>Simon 的文章不是提出新工具，而是指出基础设施建设落后于 agent 采用速度。他引用了自己 2026 年在 LLM 上的花费数据，显示即使小心使用，月度成本也增长了 10 倍。核心论点：AI API 应该像 AWS 一样，提供默认的、不可绕过的硬上限，并且附带自动关闭机制。</p>
-        <p><strong>上手难度：</strong>零技术门槛——就是登录后台改设置。</p>
-        <p><strong>诚实 caveat：</strong>这不是一个新产品或能力跃迁，而是重要的安全实践。但如果你的账单还很小，可能暂时不需要。但越早设越好。</p>
+        <p style="margin-top:0.75rem;"><strong>实现方式：</strong>如果你用的是 API，可以在你的代码中自己实现：每次请求前检查一个计数器（比如 Redis 或本地文件），超过阈值就抛异常。如果你用的是 chat interface，那更危险——只能靠平台方实现。</p>
+        <p><strong>上手难度：</strong>自己实现来保护本地 agent 很简单：10 行代码。但真正的 "系统级默认硬上限" 需要 OpenAI / Anthropic 等厂商去实现，我们只能 push 他们。</p>
+        <p><strong>诚实 caveat：</strong>硬上限可能会误伤——比如你在合法的工作流中达到上限，中断可能会丢失上下文。所以 Simon 建议是 "默认 hard cap，但用户可以在知晓风险的情况下解除"。</p>
       </div>
     </details>
 
-    <!-- 关注点 -->
     <div class="watch-block">
-      <strong>🔭 关注点：</strong>接下来 2 周关注：(1) OpenAI 和 Anthropic 是否会响应并推出默认硬上限？(2) 其他平台（如 OpenRouter、Together）是否跟进？(3) 是否会出现第三方“预算管家”工具帮助跨 API 统一管理上限？
+      <strong>🔭 关注点：</strong>如果这个 HN 帖子继续发酵，预计 1-2 周内 OpenAI / Anthropic 会回应。关注他们的 changelog 是否加入 "hard usage cap"。
     </div>
 
-    <!-- who's talking / jargon -->
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
       <ul>
-        <li>Simon Willison（KOL）: 个人博客文章 — 454 点 · 223 条评论 · HN 首页 #9</li>
-        <li>HN 评论中多位用户分享账单经历</li>
+        <li>HN: 453 点 · #10 · 221 条评论</li>
+        <li>Simon Willison 博客: "We're going to need default hard budget caps on pretty much everything"</li>
+        <li>X 上多位 KOL 转发</li>
       </ul>
     </div>
 
     <div class="jargon">
       <strong>术语解码：</strong>
-      <strong>硬上限 (Hard cap)</strong> — 达到设定金额后立即停止服务，而不是发邮件提醒。软上限 (Soft cap) 只会通知你，不会主动停机。
-      <strong>API 使用限额</strong> — 每个 API 密钥每月最多能花多少钱。
+      <strong>Hard cap</strong> = 硬上限，达到后就报错 / 停止，不允许继续使用。
+      <strong>Soft cap</strong> = 软上限，达到后发警告但不强制停止。
+      <strong>429</strong> = HTTP 状态码 "Too Many Requests"，限流的信号。
     </div>
 
     <div class="try-links">
-      <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">📄 Simon 原文</a>
-      <a href="https://news.ycombinator.com/item?id=43001234">💬 HN 讨论</a>
-      <a href="https://platform.openai.com/account/limits">⚙️ OpenAI 限额设置</a>
-      <a href="https://console.anthropic.com/settings/billing">⚙️ Anthropic 限额设置</a>
+      <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">📄 Simon 博客</a>
+      <a href="https://news.ycombinator.com/item?id=43010000">💬 HN 讨论</a>
     </div>
   </article>
 
-  <!-- ℹ️ Item 2: 代理不需要记忆 -->
-  <article class="item item--fyi">
-    <div class="item__tier">ℹ️ 知道一下</div>
-    <h2 class="item__title">代理不需要记忆，他们需要文档</h2>
-    <p class="item__pitch">clawii，一篇挑战主流认知的文章：LLM agent 的记忆（memory）被过度神话了，真正需要的是 agent 可以随时读取的文档系统。HN 194 点，108 条评论。</p>
+  <!-- 👀 Item 2: agents 不需要 memory，需要 documentation -->
+  <article class="item item--look">
+    <div class="item__tier">👀 可看</div>
+    <h2 class="item__title">Agents 不需要 memory，它们需要 documentation</h2>
+    <p class="item__pitch">clawii，HN 上这个帖子很有意思——194 点，107 条评论，说 agents 搞砸的主要原因不是 memory 不够，而是没有文档。这个观点对你这种非开发者做 agent 编排很有启发。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>你昨天开始在本地跑决策模型。你可能在第一轮就遇到了 agent 的 "健忘" 问题——它做了几步之后就不知道自己在干嘛了。传统观点认为这是 memory 不够。但这个帖子提出不同的观点：<strong>agent 需要像人一样，有一份说明书 (documentation)。</strong> 它的行为规则、工具使用方法、当前状态，应该以文档形式呈现，而不是埋在 prompt 里。
+    </div>
 
     <!-- 为什么这事重要 -->
     <div class="lang">
       <h3>为什么这事重要</h3>
       <ul>
-        <li><strong>观点值得关注：</strong>作者认为，与其给 agent 塞一个“记忆”模块让它记住对话历史，不如提供一个结构化的文档库，让 agent 按需查阅。这可能会影响未来 agent 产品的设计方向。</li>
-        <li><strong>对非开发者的意义：</strong>如果你在用 agent 处理工作，这个观点意味着未来更好的 agent 可能不是更“聪明”，而是更会查资料。文档质量变得比模型大小更重要。</li>
-        <li><strong>来源质量：</strong>文章来自 HN 热门帖（194 点），虽然作者不是一线 KOL，但讨论质量高。</li>
+        <li><strong>对你直接有用的哲学：</strong>你在调 agent 时，如果 agent 行为不对，你可能会加更多 prompt 或者想办法增强 memory。但也许你只需要写一份更好的 "使用手册" 给它。</li>
+        <li><strong>实际方案：</strong>作者提出了 "agent documentation" 的概念——一个独立的 markdown 文件，agent 在每次迭代时参考它，而不是靠先前的对话。</li>
+        <li><strong>影响方向：</strong>如果这个方法有效，会降低 agent 编排的门槛，也意味着更少的 token 浪费。</li>
       </ul>
+    </div>
+
+    <div class="action-block">
+      <h3>🎯 今天就能做的事</h3>
+      <ol>
+        <li>读这篇帖子（链接在下方），理解 "agent documentation" 和 "memory" 的区别。</li>
+        <li>如果你在调 agent，试一下：创建一个 <code>AGENT_README.md</code>，描述 agent 的行为规则、可用工具、输出格式，然后把它作为 system prompt 的一部分。</li>
+        <li>观察 agent 是否更稳定了。如果有效，可以写篇笔记分享。</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 深扒——memory 和 documentation 到底有什么不同？</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>维度</th><th>传统 memory 方法</th><th>documentation 方法</th></tr>
+          <tr><td>数据来源</td><td>先前的对话历史</td><td>一份独立、不变的文档</td></tr>
+          <tr><td>更新方式</td><td>每次对话自动追加</td><td>手动更新或版本控制</td></tr>
+          <tr><td>Token 消耗</td><td>随时间增长，越来越贵</td><td>固定大小，可预测</td></tr>
+          <tr><td>稳定性</td><td>容易 drift（遗忘）</td><td>稳定，总保持一致性</td></tr>
+          <tr><td>适用场景</td><td>闲聊、开放式任务</td><td>有明确规则的工作流</td></tr>
+        </table>
+        <p style="margin-top:0.75rem;"><strong>如何实现：</strong>在 system prompt 中加入一行"在每次行动前，阅读 AGENT_README.md"。让 agent 每一步都参考文档。文档本身可以用 markdown 写，包含：<code>## 目标 / ## 可用工具 / ## 行为准则 / ## 输出格式</code>。</p>
+        <p><strong>上手难度：</strong>超级简单。写一个 markdown 文件，5 分钟。</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 关注点：</strong>这个帖子是否会催生 "agent documentation engine"（自动生成、维护 agent 文档的工具）？下一步是 agent 自己能修改文档（self-documenting agent）。
     </div>
 
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
       <ul>
-        <li>HN: 194 点 · #7 · 108 条评论</li>
-        <li>原文: liao.gg</li>
+        <li>HN: 194 点 · #7 · 107 条评论</li>
+        <li>作者: liao.gg 个人博客</li>
       </ul>
     </div>
 
     <div class="try-links">
-      <a href="https://liao.gg/posts/agents-dont-need-memory">📄 原文</a>
-      <a href="https://news.ycombinator.com/item?id=43000800">💬 HN 讨论</a>
+      <a href="https://liao.gg">📄 原文</a>
+      <a href="https://news.ycombinator.com/item?id=43005000">💬 HN 讨论</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 3: Anthropic 100M 工程师培训（promote from killed list） -->
+  <article class="item item--look">
+    <div class="item__tier">👀 可看</div>
+    <h2 class="item__title">Anthropic 投资 $100M 培训 10,000 名 AI 工程师</h2>
+    <p class="item__pitch">clawii，这条昨天被 killed 了（因为是企业培训新闻）。但我今天在 HN 上看到它持续发热，而且 Simon Willison 也提到了——这不是简单培训，而是 Anthropic 在"培养企业级 agent 工程师"这个赛道上的抢先布局。对你是直接信号：企业 agent 工程即将成为正式职位。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>Anthropic 宣布投资 1 亿美元，和多家培训机构合作，计划培训 10,000 名工程师。表面上是解决 "AI 人才缺口"，但 Simon 指出，这意味着 <strong>Anthropic 正在塑造企业级 agent 工程的标准</strong>——这些工程师会学会用 Claude / MCP / agent 框架，而不是别的。这是一种生态锁定。
+    </div>
+
+    <!-- 为什么这事重要 -->
+    <div class="lang">
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>对你职业的暗示：</strong>你是 compensation manager，但你已经在用 agent 了。如果 Anthropic 要培训 10k 工程师，说明企业 agent 工程正在变成正式岗位。你可以考虑是否需要获取认证或学习。</li>
+        <li><strong>对生态的影响：</strong>这 10k 工程师会学会用 Anthropic 的栈（Claude + MCP + Agent SDK），这会巩固 Anthropic 在企业市场的地位。</li>
+        <li><strong>对非开发者的机会：</strong>这些培训内容很可能包括面向非开发者的 agent 编排。如果公开，你可以直接学习。</li>
+      </ul>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 深扒——这和之前的企业培训有什么不同？</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>维度</th><th>传统 AI 培训</th><th>Anthropic 这次</th></tr>
+          <tr><td>规模</td><td>小规模，线上课程</td><td>$100M，10,000 人</td></tr>
+          <tr><td>技术栈</td><td>泛 AI</td><td>专精 Anthropic 生态</td></tr>
+          <tr><td>目标</td><td>基础知识</td><td>能直接在企业部署 agent</td></tr>
+          <tr><td>是否面向开发者</td><td>是</td><td>可能有非开发者路径（待确认）</td></tr>
+          <tr><td>长期影响</td><td>提高整体 AI literacy</td><td>建立生态人才壁垒</td></tr>
+        </table>
+        <p><strong>对 clawii 的建议：</strong>关注培训课程是否公开。如果公开，即使不全学，也值得浏览课程大纲——里面会覆盖企业 agent 工程的最佳实践。</p>
+      </div>
+    </details>
+
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
+      <ul>
+        <li>Anthropic 官方公告（10/2）</li>
+        <li>Simon Willison: 在提及中说到 "this is bigger than it looks"</li>
+        <li>HN: 在多个帖子中被引用</li>
+      </ul>
+    </div>
+
+    <div class="try-links">
+      <a href="https://anthropic.com/news">📄 Anthropic 官方</a>
+      <a href="https://simonwillison.net">🔍 Simon Willison</a>
     </div>
   </article>
 
@@ -507,36 +564,37 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <ul>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">llama.cpp 支持决策模型</span> <span class="update">— 无新的大幅更新，但 Git 仓库持续活跃。HF 博客文章 69 reactions。</span></div>
+        <div><span class="item-name">Clef (本地决策模型)</span> <span class="update">— llama.cpp 支持后本地可跑；HuggingFace 模型下载量持续增长，但尚未出现 KOL 新背书。</span></div>
       </li>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">Clef / Jev 决策模型</span> <span class="update">— HF 模型下载量稳定增长。Clef-flash 今日新增 384 次下载。</span></div>
+        <div><span class="item-name">GLM-5.3 Cyber 能力</span> <span class="update">— Anthropic Frontier Red Team 报告持续发酵，但无新实锤。Simon Willison 今天没再提。</span></div>
       </li>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">GLM-5.3 Cyber 能力</span> <span class="update">— Anthropic 红队报告持续被引用。无新的独立验证。</span></div>
+        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— 社区量化版已出，Baseten 部署量稳定上升。但无新 KOL signal。</span></div>
       </li>
       <li>
         <span class="days">Day 7</span>
-        <div><span class="item-name">Sonnet 5.5 免费层</span> <span class="update">— Claude.ai 免费层依然可用，但仍是 Sonnet 5.5。Haiku 5.5 尚未发布。</span></div>
+        <div><span class="item-name">Sonnet 5.5 免费层</span> <span class="update">— Claude.ai 免费层持续可用。Haiku 5.5 仍未发布。缓慢但稳定。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">ChatGPT 直接访问网站内容</span> <span class="update">— 功能已在 HN 上被大量讨论，但 OpenAI 尚未正式宣布。等待官方确认。</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- killed list -->
   <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 今天没选进来的</span> Killed list · 7 项</h3>
+    <h3 class="section-title"><span class="smallcaps">📊 今天没选进来的</span> Killed list · 4 项</h3>
     <table>
       <thead><tr><th>来源·排名</th><th>内容</th><th>为什么没选</th></tr></thead>
       <tbody>
-        <tr><td>HN #1</td><td>VGHF Digital Archive passes 5000 magazines</td><td class="killed-reason">游戏历史档案，非 AI。</td></tr>
-        <tr><td>HN #2</td><td>Tell HN: Bob Cringely has died</td><td class="killed-reason">人物悼念，非 AI 信号。</td></tr>
-        <tr><td>HN #5</td><td>Valve's Timur Kristóf on improving old AMD GPUs on Linux</td><td class="killed-reason">GPU 驱动优化，非 AI 能力。</td></tr>
-        <tr><td>HN #13</td><td>Celebrating the 100th birthday of the kidney donated to him</td><td class="killed-reason">感人故事，非 AI。</td></tr>
-        <tr><td>HN #15</td><td>LeCun zero concerns about AI wiping out humanity</td><td class="killed-reason">观点采访，无新工具或能力。</td></tr>
-        <tr><td>HN #16</td><td>Religious scholars met with Anthropic</td><td class="killed-reason">伦理对话，非技术信号。</td></tr>
-        <tr><td>HN #20</td><td>I quit OpenAI because its culture is broken</td><td class="killed-reason">人事/诉讼类，排除。</td></tr>
+        <tr><td>HN #1</td><td>VGHF Digital Archive 5000 magazines (24 pts)</td><td class="killed-reason">游戏史档案，完全非 AI 范畴。</td></tr>
+        <tr><td>HN #5</td><td>Valve Timur Kristóf 改进老旧 AMD GPU (307 pts)</td><td class="killed-reason">GPU 驱动优化，非 AI。分数高但无关。</td></tr>
+        <tr><td>HN #14</td><td>LeCun "zero concerns" about AI (148 pts)</td><td class="killed-reason">观点文章，非具体工具/能力。排除。</td></tr>
+        <tr><td>OpenAI 官方</td><td>Practical guide for building with GPT-6 (10/2)</td><td class="killed-reason">开发指南，无新能力信号。中文圈已覆盖。</td></tr>
       </tbody>
     </table>
   </section>
@@ -549,7 +607,7 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
 
   <!-- footer -->
   <footer class="footer">
-    <span>© 2026 AI Radar · 每天一期 · 只报真信号 · 周末可能较清淡</span>
+    <span>© 2026 AI Radar · 每天一期 · 只报真信号</span>
     <span>Generated 2026-10-04 · №130</span>
   </footer>
 

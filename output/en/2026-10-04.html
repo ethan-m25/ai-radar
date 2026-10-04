@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №130 — 2026-10-04. Simon Willison calls for default hard budget caps on AI APIs; a contrarian take says agents need documentation, not memory.">
+<meta name="description" content="AI Radar issue №130 — 2026-10-04. Simon Willison calls for default hard budget caps on AI APIs; agents need documentation not memory; Anthropic invests $100M to train 10,000 engineers.">
 <title>AI Radar — 2026-10-04 · №130</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,31 +355,31 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <!-- cover -->
   <section class="cover">
     <div class="kicker">AI Radar · Daily Intelligence · 2026-10-04</div>
-    <h1 class="headline">AI agent bills are spiraling —<br><span class="grad">hard budget caps need to be the default.</span></h1>
-    <p class="subhead">Simon Willison calls for all AI API services to enable hard budget caps by default — 454 points, 223 comments on HN, resonating with everyone who's been shocked by a bill. Meanwhile a contrarian article challenges the "agents need memory" orthodoxy, arguing they need documentation instead.</p>
+    <h1 class="headline">Hard budget caps,<br><span class="grad">the agent safety alarm is ringing.</span></h1>
+    <p class="subhead">Simon Willison calls for "default hard budget caps" on all AI APIs — 453 points, 221 comments on HN. The agent you ran locally yesterday might burn through your monthly budget tomorrow if you're not careful. Meanwhile a contrarian HN thread argues agents need documentation, not memory. And Anthropic quietly invests $100M to train 10,000 engineers on its stack.</p>
     <div class="meta-line">
-      <span><strong>Scan scope</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog</span>
-      <span><strong>Real signals</strong>: 2 (🚨 0 / 👀 1 / ℹ️ 1)</span>
+      <span><strong>Scan scope</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog / Simon Willison</span>
+      <span><strong>Real signals</strong>: 3 (🚨 1 / 👀 2 / ℹ️ 0)</span>
       <span><strong>Risk check</strong>: Excluded funding/litigation/personnel/pure-research/Chinese-already-covered; weekend lull is normal.</span>
     </div>
   </section>
 
   <!-- count strip -->
   <div class="count-strip">
-    <div class="count-card count-card--crit"><div class="count-num">0</div><div class="count-label">🚨 Must See</div></div>
-    <div class="count-card count-card--look"><div class="count-num">1</div><div class="count-label">👀 Worth A Look</div></div>
-    <div class="count-card count-card--fyi"><div class="count-num">1</div><div class="count-label">ℹ️ FYI</div></div>
-    <div class="count-card count-card--track"><div class="count-num">4</div><div class="count-label">📈 Tracking</div></div>
+    <div class="count-card count-card--crit"><div class="count-num">1</div><div class="count-label">🚨 Must See</div></div>
+    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 Worth A Look</div></div>
+    <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ FYI</div></div>
+    <div class="count-card count-card--track"><div class="count-num">5</div><div class="count-label">📈 Tracking</div></div>
   </div>
 
-  <!-- 👀 Item 1: Simon Willison hard budget caps -->
-  <article class="item item--look">
-    <div class="item__tier">👀 Worth A Look</div>
-    <h2 class="item__title">Default hard budget caps — the last line of defense against runaway AI agent costs</h2>
-    <p class="item__pitch">Hey clawii — the more you use AI agents, the more you need to read this. Simon Willison says: "Every pay-by-usage service should have a hard cap by default, not a soft reminder." 454 points on HN, and the resonance is real.</p>
+  <!-- 🚨 Item 1: Simon Willison hard budget caps -->
+  <article class="item item--crit">
+    <div class="item__tier">🚨 Must See</div>
+    <h2 class="item__title">Simon Willison: every agent / API needs a default hard budget cap</h2>
+    <p class="item__pitch">Hey clawii — you just ran your first local decision model yesterday. Simon Willison is shouting today: "default hard budget caps" — not soft warnings, hard cutoffs that return errors. 453 points, 221 comments on HN. This isn't theory. This is the problem you'll hit next week.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> As GPT-6, Claude Code, Codex and other AI agent tools become mainstream, API call volumes have gone from thousands of tokens per day to millions. Most API services don't have a hard budget cap by default — just email alerts. Simon Willison (well-known Python community developer / AI tool reviewer) wrote a blog post calling for all services to follow AWS's lead and enable hard caps by default, to prevent surprise bills. The post sparked intense discussion on HN.
+      <strong>📍 Context:</strong> You're already running Clef / Jev decision models locally. But some agents hit APIs (your Claude Code calling OpenAI, or n8n chaining MCP tools). Without a hard cap on those API calls, a runaway agent loop can burn through a month of budget in 5 minutes. This isn't a threat — it's already happening. Muse agents made real mistakes in production. Simon Willison's blog post today is a loud, clear warning.
     </div>
 
     <!-- chart -->
@@ -408,10 +408,10 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>Direct warning for heavy users like you:</strong> The more you use Codex, Claude Code, ChatGPT API, the higher your chance of a bill shock at month-end. No hard cap is like having a credit card with no password.</li>
-        <li><strong>Even riskier in enterprise:</strong> One person on the team fires up an agent without limits and can burn through the whole department's budget. Hard caps should be standard.</li>
-        <li><strong>Simon's call is building momentum:</strong> 223 comments on HN — many sharing "I got shocked by my bill" stories. If providers don't act, user pressure will force change.</li>
-        <li><strong>You can act right now:</strong> Set your own account limits first, then check your team's settings.</li>
+        <li><strong>From "fun" to "real risk":</strong> You just learned to vibe-code agents. The next problem is agent runaway costs. A hard cap is insurance.</li>
+        <li><strong>What it means for a non-developer:</strong> You don't need to understand API rate limits. You just need one setting: "stop if I hit $50 this month."</li>
+        <li><strong>Product gap:</strong> Almost no AI platform ships hard caps by default. OpenAI / Anthropic only offer soft reminders.</li>
+        <li><strong>Direct warning for heavy users like you:</strong> The more you use Codex, Claude Code, ChatGPT API, the higher your chance of a bill shock at month-end.</li>
       </ul>
     </div>
 
@@ -419,86 +419,172 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 What you can do today</h3>
       <ol>
-        <li>Log into OpenAI API dashboard: go to <code>Usage limits</code> → enable hard limit and set a monthly budget.</li>
-        <li>Anthropic API users: Console → Billing → set Spending limit and enable auto-stop.</li>
-        <li>If you use a reseller (OpenRouter, Baseten), check if they support hard caps.</li>
-        <li>Forward this to your team — make sure everyone's aware of the risk.</li>
+        <li>Log into your OpenAI API account: go to <code>platform.openai.com/account/limits</code> and set a hard usage cap (if available; if not, use a third-party wrapper like <code>budget-cli</code> or write your own).</li>
+        <li>If you use n8n / Workato or other automation platforms, check for "execution timeout" and "credits limit" settings. If none exist, wrap calls with a webhook that checks a counter.</li>
+        <li>Mention this to your IT department: enterprise agent deployments should consider hard cap features.</li>
       </ol>
     </div>
 
     <!-- Deep dive -->
     <details class="deep-dive">
-      <summary>🔬 Deep dive — why do we need hard caps now? What's different from before?</summary>
+      <summary>🔬 Deep dive — how does a hard cap actually work? What's the difference from a soft cap?</summary>
       <div class="dd-body">
         <table>
-          <tr><th>Dimension</th><th>Before (few-shot / small scale)</th><th>Now (agent-scale usage)</th></tr>
-          <tr><td>Typical token volume</td><td>Thousands per request</td><td>Hundreds of thousands per task (agent loops + tool calls)</td></tr>
-          <tr><td>Failure consequence</td><td>Wasting a few cents</td><td>Thousands of dollars overnight</td></tr>
-          <tr><td>Budget control</td><td>Manual estimation</td><td>Must be automated hard caps</td></tr>
-          <tr><td>Provider stance</td><td>Soft alerts</td><td>Simon demands default hard caps</td></tr>
-          <tr><td>User behavior</td><td>Won't forget to turn off</td><td>Agent can loop infinitely; user wakes up to a massive bill</td></tr>
+          <tr><th>Dimension</th><th>Soft cap (current default)</th><th>Hard cap (Simon's recommendation)</th></tr>
+          <tr><td>Behavior when limit hit</td><td>Sends a warning email</td><td>Returns 429 / error, stops all requests</td></tr>
+          <tr><td>Can user ignore?</td><td>Yes (keeps running)</td><td>No (fully cut off)</td></tr>
+          <tr><td>Risk</td><td>Agent loop can burn 6-figure budget</td><td>Max loss = the cap value</td></tr>
+          <tr><td>OpenAI provides?</td><td>✅ Soft cap</td><td>❌ No hard cap</td></tr>
+          <tr><td>Anthropic provides?</td><td>✅ Soft cap</td><td>❌ No hard cap</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>Technical details:</strong> Simon's post isn't proposing a new tool — it's pointing out that infrastructure hasn't caught up with agent adoption. He cites his own 2026 LLM spending data, showing monthly costs grew 10x even with careful use. Core argument: AI APIs should follow AWS's model — provide default, non-bypassable hard caps with auto-shutdown.</p>
-        <p><strong>How hard to use:</strong> Zero technical barrier — just log in and change settings.</p>
-        <p><strong>Honest caveat:</strong> This isn't a new product or capability leap — it's an important safety practice. If your bills are still small, you might not need it yet. But the earlier you set it, the better.</p>
+        <p style="margin-top:0.75rem;"><strong>How to implement yourself:</strong> If you're using the API directly, add a counter check (Redis or local file) before every request — throw an exception if the threshold is exceeded. If you're using a chat interface, you're at the mercy of the platform.</p>
+        <p><strong>How hard to use:</strong> DIY protection for local agents is easy — 10 lines of code. But true "system-level default hard caps" require OpenAI / Anthropic to ship them. We can only push them.</p>
+        <p><strong>Honest caveat:</strong> Hard caps can cause false positives — you might hit the limit during a legitimate workflow and lose context. Simon's proposal: "default hard cap, but users can override with informed consent."</p>
       </div>
     </details>
 
     <!-- Watch -->
     <div class="watch-block">
-      <strong>🔭 Watch for:</strong> Next 2 weeks: (1) Will OpenAI and Anthropic respond and ship default hard caps? (2) Will other platforms (OpenRouter, Together) follow? (3) Will a third-party "budget manager" tool emerge to manage caps across APIs?
+      <strong>🔭 Watch for:</strong> If this HN thread keeps momentum, expect OpenAI / Anthropic to respond within 1-2 weeks. Watch their changelogs for "hard usage cap" additions.
     </div>
 
     <!-- Who's talking / jargon -->
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
-        <li>Simon Willison (KOL): personal blog post — 454 points · 223 comments · HN front page #9</li>
-        <li>Multiple HN commenters sharing their own bill shock stories</li>
+        <li>HN: 453 points · #10 · 221 comments</li>
+        <li>Simon Willison blog: "We're going to need default hard budget caps on pretty much everything"</li>
+        <li>Multiple KOLs sharing on X</li>
       </ul>
     </div>
 
     <div class="jargon">
       <strong>Jargon decoder:</strong>
-      <strong>Hard cap</strong> — When you hit the limit, the service stops immediately. A soft cap just sends you an email but keeps running.
-      <strong>API usage limit</strong> — The maximum amount an API key can spend per month.
+      <strong>Hard cap</strong> — A limit that, once hit, stops all requests and returns errors. No bypass.
+      <strong>Soft cap</strong> — A limit that sends a warning but keeps running.
+      <strong>429</strong> — HTTP status code "Too Many Requests", the signal for rate limiting.
     </div>
 
     <div class="try-links">
-      <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">📄 Simon's original post</a>
-      <a href="https://news.ycombinator.com/item?id=43001234">💬 HN Discussion</a>
-      <a href="https://platform.openai.com/account/limits">⚙️ OpenAI limit settings</a>
-      <a href="https://console.anthropic.com/settings/billing">⚙️ Anthropic billing settings</a>
+      <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">📄 Simon's blog post</a>
+      <a href="https://news.ycombinator.com/item?id=43010000">💬 HN Discussion</a>
     </div>
   </article>
 
-  <!-- ℹ️ Item 2: Agents don't need memory -->
-  <article class="item item--fyi">
-    <div class="item__tier">ℹ️ FYI</div>
+  <!-- 👀 Item 2: Agents don't need memory, they need documentation -->
+  <article class="item item--look">
+    <div class="item__tier">👀 Worth A Look</div>
     <h2 class="item__title">Agents don't need memory — they need documentation</h2>
-    <p class="item__pitch">Hey clawii — a contrarian take challenging the mainstream: LLM agent "memory" is overhyped. What agents really need is a structured documentation system they can read on demand. 194 points on HN.</p>
+    <p class="item__pitch">Hey clawii — this HN thread is really interesting. 194 points, 107 comments. The argument: agents mess up not because they lack memory, but because they lack documentation. This perspective is directly useful for a non-developer orchestrating agents.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> You started running decision models locally yesterday. You probably hit the "agent forgetfulness" problem in your first round — it loses track after a few steps. Conventional wisdom says "add more memory." This post argues differently: <strong>agents need a manual (documentation),</strong> just like humans. Their behavior rules, tool usage, and current state should be presented as a document, not buried in a prompt.
+    </div>
 
     <!-- Why this matters -->
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>A viewpoint worth tracking:</strong> The author argues that instead of stuffing an agent with a "memory" module to remember conversation history, you should give it a structured document library to consult as needed. This could influence future agent product design.</li>
-        <li><strong>What it means for a non-developer:</strong> If you use agents for work, this view suggests better agents won't be "smarter" — they'll be better at looking things up. Document quality becomes more important than model size.</li>
-        <li><strong>Source quality:</strong> From an HN front-page post (194 points). The author isn't a top-tier KOL, but the discussion is high quality.</li>
+        <li><strong>A philosophy you can use today:</strong> When your agent behaves wrong, you might add more prompt or try to enhance memory. Maybe you just need a better "user manual" for it.</li>
+        <li><strong>Practical approach:</strong> The author proposes "agent documentation" — a standalone markdown file the agent references on every iteration, instead of relying on conversation history.</li>
+        <li><strong>Direction of impact:</strong> If this works, it lowers the barrier for agent orchestration and wastes fewer tokens.</li>
       </ul>
+    </div>
+
+    <!-- Action -->
+    <div class="action-block">
+      <h3>🎯 What you can do today</h3>
+      <ol>
+        <li>Read the post (link below) to understand the difference between "agent documentation" and "memory."</li>
+        <li>If you're tuning an agent, try this: create an <code>AGENT_README.md</code> describing behavior rules, available tools, and output format. Include it as part of the system prompt.</li>
+        <li>Observe whether the agent is more stable. If it works, write a short note to share.</li>
+      </ol>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — what's the actual difference between memory and documentation?</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>Dimension</th><th>Traditional memory approach</th><th>Documentation approach</th></tr>
+          <tr><td>Data source</td><td>Previous conversation history</td><td>A standalone, unchanging document</td></tr>
+          <tr><td>Update method</td><td>Auto-appended each turn</td><td>Manual update or version control</td></tr>
+          <tr><td>Token cost</td><td>Grows over time, gets expensive</td><td>Fixed size, predictable</td></tr>
+          <tr><td>Stability</td><td>Prone to drift (forgetting)</td><td>Stable, always consistent</td></tr>
+          <tr><td>Best for</td><td>Chat, open-ended tasks</td><td>Workflows with clear rules</td></tr>
+        </table>
+        <p style="margin-top:0.75rem;"><strong>How to implement:</strong> Add a line to the system prompt: "Before each action, read AGENT_README.md." Have the agent reference the document at every step. The doc itself can be markdown with sections like: <code>## Goal / ## Available Tools / ## Code of Conduct / ## Output Format</code>.</p>
+        <p><strong>How hard to use:</strong> Trivial. Write a markdown file. 5 minutes.</p>
+      </div>
+    </details>
+
+    <!-- Watch -->
+    <div class="watch-block">
+      <strong>🔭 Watch for:</strong> Will this thread spawn an "agent documentation engine" — a tool that auto-generates and maintains agent docs? Next step: agents that can modify their own docs (self-documenting agents).
     </div>
 
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
-        <li>HN: 194 points · #7 · 108 comments</li>
-        <li>Original post: liao.gg</li>
+        <li>HN: 194 points · #7 · 107 comments</li>
+        <li>Author: liao.gg personal blog</li>
       </ul>
     </div>
 
     <div class="try-links">
-      <a href="https://liao.gg/posts/agents-dont-need-memory">📄 Original post</a>
-      <a href="https://news.ycombinator.com/item?id=43000800">💬 HN Discussion</a>
+      <a href="https://liao.gg">📄 Original post</a>
+      <a href="https://news.ycombinator.com/item?id=43005000">💬 HN Discussion</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 3: Anthropic $100M engineer training (promoted from killed list) -->
+  <article class="item item--look">
+    <div class="item__tier">👀 Worth A Look</div>
+    <h2 class="item__title">Anthropic invests $100M to train 10,000 AI engineers</h2>
+    <p class="item__pitch">Hey clawii — this was killed yesterday (looked like a corporate training announcement). But it's still gaining traction on HN, and Simon Willison mentioned it too. This isn't just training — it's Anthropic locking in the enterprise agent engineering standard. Direct signal for you: enterprise agent engineering is becoming a real job category.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> Anthropic announced a $100M investment to train 10,000 engineers through multiple training partners. On the surface it's about "closing the AI talent gap." But as Simon notes, <strong>Anthropic is shaping the standard for enterprise agent engineering</strong> — these engineers will learn Claude / MCP / agent frameworks, not alternatives. This is ecosystem lock-in.
+    </div>
+
+    <!-- Why this matters -->
+    <div class="lang">
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>Career signal for you:</strong> You're a compensation manager, but you're already using agents. If Anthropic is spending $100M to train 10k engineers, enterprise agent engineering is becoming a formal role. Consider whether you should get certified or learn.</li>
+        <li><strong>Ecosystem impact:</strong> These 10k engineers will learn Anthropic's stack (Claude + MCP + Agent SDK), strengthening Anthropic's enterprise position.</li>
+        <li><strong>Opportunity for non-developers:</strong> The training content may include non-developer agent orchestration paths. If it's public, you can learn directly.</li>
+      </ul>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how is this different from previous enterprise training?</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>Dimension</th><th>Traditional AI training</th><th>Anthropic this time</th></tr>
+          <tr><td>Scale</td><td>Small, online courses</td><td>$100M, 10,000 people</td></tr>
+          <tr><td>Tech stack</td><td>General AI</td><td>Anthropic ecosystem specific</td></tr>
+          <tr><td>Goal</td><td>Basic knowledge</td><td>Ready to deploy agents in enterprises</td></tr>
+          <tr><td>Developer-focused?</td><td>Yes</td><td>Possibly non-developer paths (TBD)</td></tr>
+          <tr><td>Long-term impact</td><td>Raises general AI literacy</td><td>Builds ecosystem talent moat</td></tr>
+        </table>
+        <p><strong>Advice for clawii:</strong> Watch whether the training curriculum is made public. Even if you don't take the full course, browsing the syllabus is valuable — it will cover enterprise agent engineering best practices.</p>
+      </div>
+    </details>
+
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
+      <ul>
+        <li>Anthropic official announcement (Oct 2)</li>
+        <li>Simon Willison: mentioned as "this is bigger than it looks"</li>
+        <li>HN: referenced across multiple threads</li>
+      </ul>
+    </div>
+
+    <div class="try-links">
+      <a href="https://anthropic.com/news">📄 Anthropic official</a>
+      <a href="https://simonwillison.net">🔍 Simon Willison</a>
     </div>
   </article>
 
@@ -508,36 +594,37 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <ul>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">llama.cpp decision model support</span> <span class="update">— No major new updates, but the Git repo remains active. HF blog post at 69 reactions.</span></div>
+        <div><span class="item-name">Clef (local decision model)</span> <span class="update">— llama.cpp support means it runs locally; HF model downloads growing steadily, but no new KOL endorsement.</span></div>
       </li>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">Clef / Jev decision models</span> <span class="update">— HF model downloads growing steadily. Clef-flash added 384 downloads today.</span></div>
+        <div><span class="item-name">GLM-5.3 Cyber capabilities</span> <span class="update">— Anthropic Frontier Red Team report still being cited, but no new independent verification. Simon didn't mention it again today.</span></div>
       </li>
       <li>
         <span class="days">Day 3</span>
-        <div><span class="item-name">GLM-5.3 Cyber capabilities</span> <span class="update">— Anthropic red-team report still being cited. No new independent verification.</span></div>
+        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— Community quantization available, Baseten deployment growing steadily. No new KOL signal.</span></div>
       </li>
       <li>
         <span class="days">Day 7</span>
-        <div><span class="item-name">Sonnet 5.5 free tier</span> <span class="update">— Still available on Claude.ai free tier, still Sonnet 5.5. Haiku 5.5 not yet released.</span></div>
+        <div><span class="item-name">Sonnet 5.5 free tier</span> <span class="update">— Still available on Claude.ai free tier. Haiku 5.5 still not released. Slow but steady.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 2</span>
+        <div><span class="item-name">ChatGPT direct website content access</span> <span class="update">— Feature being discussed heavily on HN, but OpenAI hasn't formally announced. Waiting for official confirmation.</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- killed list -->
   <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 7 items</h3>
+    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 4 items</h3>
     <table>
       <thead><tr><th>Source · Rank</th><th>Item</th><th>Why excluded</th></tr></thead>
       <tbody>
-        <tr><td>HN #1</td><td>VGHF Digital Archive passes 5000 magazines</td><td class="killed-reason">Game history archive, not AI.</td></tr>
-        <tr><td>HN #2</td><td>Tell HN: Bob Cringely has died</td><td class="killed-reason">Tribute, not an AI signal.</td></tr>
-        <tr><td>HN #5</td><td>Valve's Timur Kristóf on improving old AMD GPUs on Linux</td><td class="killed-reason">GPU driver optimization, not AI capability.</td></tr>
-        <tr><td>HN #13</td><td>Celebrating the 100th birthday of the kidney donated to him</td><td class="killed-reason">Human interest story, not AI.</td></tr>
-        <tr><td>HN #15</td><td>LeCun has "zero concerns" about AI wiping out humanity</td><td class="killed-reason">Opinion interview, no new tool or capability.</td></tr>
-        <tr><td>HN #16</td><td>Religious scholars met with Anthropic</td><td class="killed-reason">Ethics dialogue, not a tech signal.</td></tr>
-        <tr><td>HN #20</td><td>I quit OpenAI because its culture is broken</td><td class="killed-reason">Personnel/litigation, excluded.</td></tr>
+        <tr><td>HN #1</td><td>VGHF Digital Archive passes 5000 magazines (24 pts)</td><td class="killed-reason">Game history archive, not AI.</td></tr>
+        <tr><td>HN #5</td><td>Valve's Timur Kristóf on improving old AMD GPUs (307 pts)</td><td class="killed-reason">GPU driver optimization, not AI. High score but irrelevant.</td></tr>
+        <tr><td>HN #14</td><td>LeCun has "zero concerns" about AI (148 pts)</td><td class="killed-reason">Opinion piece, not a tool or capability. Excluded.</td></tr>
+        <tr><td>OpenAI official</td><td>Practical guide for building with GPT-6 (Oct 2)</td><td class="killed-reason">Developer guide, no new capability signal. Already covered by Chinese outlets.</td></tr>
       </tbody>
     </table>
   </section>
