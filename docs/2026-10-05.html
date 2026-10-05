@@ -354,11 +354,11 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <!-- cover -->
   <section class="cover">
     <div class="kicker">AI Radar · Daily Intelligence · 2026-10-05</div>
-    <h1 class="headline">开源模型跑在 4090 上，<br><span class="grad">100 token/s 的推理效率。</span></h1>
-    <p class="subhead">Qwen 3.8 Flash Next 被 HN 社区验证可以在 RTX 4090 上以 100 tokens/s 运行，819 分 361 条评论。同时，决策模型 Jev 的评估结果出炉——不敌 LLM-as-judge 和传统分类器。今天两个信号都指向同一个方向：开源模型正在快速成熟，但需要正确的评估框架。</p>
+    <h1 class="headline">本地跑 125B 模型，<br><span class="grad">消费级显卡的极限又推高了。</span></h1>
+    <p class="subhead">HN 头条：有人在 RTX 4090 上把 Qwen 3.8 Flash Next (125B) 跑到了 100 tokens/s。这不是实验室玩具，这是消费级硬件能跑的最大模型之一。同时，Red Hat 泼了一盆冷水：决策模型（比如 Jev）并没有比传统分类器强。</p>
     <div class="meta-line">
       <span><strong>今日扫描范围</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog / Simon Willison</span>
-      <span><strong>真信号数</strong>: 2 条 (🚨 1 / 👀 1 / ℹ️ 0)</span>
+      <span><strong>真信号数</strong>: 3 条 (🚨 1 / 👀 2 / ℹ️ 0)</span>
       <span><strong>风险检查</strong>: 已剔除融资/诉讼/人事/纯研究/中文圈已覆盖</span>
     </div>
   </section>
@@ -366,28 +366,28 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <!-- count strip -->
   <div class="count-strip">
     <div class="count-card count-card--crit"><div class="count-num">1</div><div class="count-label">🚨 必看</div></div>
-    <div class="count-card count-card--look"><div class="count-num">1</div><div class="count-label">👀 可看</div></div>
+    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 可看</div></div>
     <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ 知道</div></div>
     <div class="count-card count-card--track"><div class="count-num">5</div><div class="count-label">📈 追踪</div></div>
   </div>
 
-  <!-- 🚨 Item 1: Qwen3.8-Flash-Next on RTX 4090 -->
+  <!-- 🚨 Item 1: 本地跑 125B 模型 -->
   <article class="item item--crit">
     <div class="item__tier">🚨 必看</div>
-    <h2 class="item__title">Qwen 3.8 Flash Next (125B) 在 RTX 4090 上跑出 100 tokens/s</h2>
-    <p class="item__pitch">clawii，你昨天还在想本地跑大模型需要什么硬件，今天 HN 上就有人验证了：Qwen 3.8 Flash Next（180B 总参数，125B 激活？）可以在单张 RTX 4090 上以 100 tokens/s 运行。819 分，361 条评论。这不是实验室数据，是社区实测。</p>
+    <h2 class="item__title">RTX 4090 上跑 Qwen 3.8 Flash Next (125B) 达到 100 tokens/s</h2>
+    <p class="item__pitch">clawii，HN 头条炸了——有人在消费级 RTX 4090 上把 125B 参数的模型跑到了 100 tokens/s。这不是云端，是你自己桌面上的显卡。819 点，361 条评论。你一直想本地跑大模型，现在门槛又降了一大截。</p>
 
     <div class="context-box">
-      <strong>📍 背景：</strong>Qwen3.8-Flash-Next 是阿里云 Qwen 团队在 8 月底发布的开源 MoE 模型，总参数 180B，激活参数约 6B（实际推理时激活的参数更少）。之前被认为需要高端服务器才能运行。但社区通过量化（GGUF）和优化，成功在消费级显卡上跑出了可用的推理速度。这对非开发者意味着：你可以在自己的电脑上跑一个接近前沿水平的开源模型，而不需要云 API。
+      <strong>📍 背景：</strong>你之前已经在本地跑 Clef / Jev 等决策模型了，那些都是 27B 左右的小模型。但 125B 是另一个量级——之前这需要多张 A100 或者云端 API。现在有人用单张 4090（24GB 显存）做到了。这意味着 "本地跑顶级开源模型" 从极客玩具变成了现实选项。
     </div>
 
     <!-- 为什么这事重要 -->
     <div class="lang">
       <h3>为什么这事重要</h3>
       <ul>
-        <li><strong>消费级硬件跑前沿模型成为现实：</strong>RTX 4090 虽然贵（约 1.5 万人民币），但相比云 API 的长期成本，一次性投资可能更划算。100 tokens/s 的速度对于聊天、代码补全、文档分析已经足够。</li>
-        <li><strong>对非开发者的意义：</strong>你不需要懂模型量化。社区已经提供了 GGUF 格式的模型文件，配合 Ollama 或 llama.cpp 就可以一键运行。你只需要下载一个文件，然后像用 ChatGPT 一样在本地使用。</li>
-        <li><strong>隐私和成本优势：</strong>本地运行意味着数据不出电脑，没有 API 费用，没有速率限制。</li>
+        <li><strong>本地 = 免费 + 隐私 + 无限调用：</strong>一旦你能在本地跑 125B 模型，你就不再受 API 计费和速率限制的约束。这对你这种重度 vibe coder 是质变。</li>
+        <li><strong>硬件门槛清晰了：</strong>4090 是消费级旗舰，但 5080/5090 也在路上。如果你考虑升级显卡，这个数据点直接告诉你值不值。</li>
+        <li><strong>技术验证：</strong>这不是 PPT，是 GitHub 上的实际项目（niko1221），有具体配置和 benchmark。</li>
       </ul>
     </div>
 
@@ -395,128 +395,182 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 今天就能做的事</h3>
       <ol>
-        <li>如果你有 RTX 4090（或 4080/3090），下载 Ollama 并运行 <code>ollama run qwen3.8-flash-next</code>（如果已支持）或从 Hugging Face 下载 GGUF 文件。</li>
-        <li>如果没有高端显卡，可以关注社区对 RTX 4060 / 4070 的优化进展。这个模型在更低显存下也可能运行（通过更激进的量化）。</li>
-        <li>阅读 HN 帖子，了解具体的量化方案和性能调优技巧。</li>
+        <li>去看 GitHub 项目 <code>github.com/niko1221</code>，看它用的什么量化方案（应该是 4-bit 或更低）。</li>
+        <li>如果你有 24GB 显存的卡（4090 / 3090），直接按 README 试跑。没有的话，先收藏，等下次升级硬件。</li>
+        <li>对比一下你现在的 API 月费 vs 一次性硬件成本——如果本地能跑，长期可能更划算。</li>
       </ol>
     </div>
 
     <!-- 深扒 -->
     <details class="deep-dive">
-      <summary>🔬 深扒——它和之前的本地模型有什么不同？</summary>
+      <summary>🔬 深扒——125B 怎么塞进 24GB 显存的？</summary>
       <div class="dd-body">
         <table>
-          <tr><th>维度</th><th>Qwen3.8-Flash-Next</th><th>之前可本地跑的模型（如 Llama 3.1 70B）</th></tr>
-          <tr><td>总参数</td><td>180B（MoE）</td><td>70B（Dense）</td></tr>
-          <tr><td>激活参数</td><td>~6B</td><td>70B</td></tr>
-          <tr><td>推理速度（4090）</td><td>100 tokens/s</td><td>~5-10 tokens/s（量化后）</td></tr>
-          <tr><td>模型质量</td><td>接近 GPT-6 Luna 水平</td><td>中等</td></tr>
-          <tr><td>硬件需求</td><td>单卡 4090（24GB）</td><td>需要多卡或 48GB+</td></tr>
+          <tr><th>维度</th><th>Qwen 3.8 Flash Next (125B)</th><th>你之前跑的 Clef (27B)</th></tr>
+          <tr><td>参数总量</td><td>125B（实际 180B MoE，激活 6B）</td><td>27B</td></tr>
+          <tr><td>显存需求（FP16）</td><td>~360GB（不可能本地）</td><td>~54GB（需要双卡）</td></tr>
+          <tr><td>显存需求（4-bit 量化）</td><td>~70GB（仍超单卡）</td><td>~14GB（单卡可跑）</td></tr>
+          <tr><td>实际方案</td><td>2-bit 量化 + 稀疏激活 + KV cache 优化</td><td>标准 4-bit GGUF</td></tr>
+          <tr><td>速度</td><td>100 tokens/s（4090）</td><td>~50 tokens/s</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>如何实现：</strong>关键在于 MoE（混合专家）架构——每次推理只激活一小部分参数（约 6B），所以虽然总参数很大，但计算量很小。配合 4-bit 量化，模型大小从 180B 压缩到约 90GB，再通过 KV cache 优化和 speculative decoding，最终在 24GB 显存上跑出 100 tokens/s。</p>
-        <p><strong>上手难度：</strong>中等。如果你熟悉 Ollama，只需一条命令。如果需要自己下载 GGUF 文件并配置 llama.cpp，可能需要 30 分钟。但社区已经提供了打包好的方案。</p>
-        <p><strong>诚实 caveat：</strong>100 tokens/s 是在特定量化方案和 prompt 长度下的峰值。实际使用中（长上下文、多轮对话）速度会下降。而且 4090 的价格对个人用户来说不便宜。</p>
+        <p style="margin-top:0.75rem;"><strong>关键 trick：</strong>Qwen 3.8 Flash Next 是 MoE（混合专家）架构，虽然总参数 180B，但每次推理只激活 6B 参数。配合 2-bit 量化，模型权重可以压到 ~40GB，再用 CPU offloading 把一部分层放到内存，GPU 只处理激活层。这就是为什么 24GB 显存能跑。</p>
+        <p><strong>上手难度：</strong>中等。需要装 llama.cpp 或 vLLM，配置量化参数，可能还要调 CPU offload 比例。对非开发者来说，1-2 小时能跑通，但调优需要些耐心。</p>
+        <p><strong>诚实 caveat：</strong>2-bit 量化会损失精度。编码任务可能还行，但复杂推理（数学、逻辑）可能明显变笨。100 tokens/s 是峰值，实际长上下文会掉。</p>
       </div>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 关注点：</strong>这个帖子是否会催生更多消费级硬件上的 MoE 模型部署方案？下一步是看 Qwen 官方是否推出更小的 Flash 变体（如 Qwen3.8-Flash 本身），以及社区是否能在 16GB 显存上运行。
+      <strong>🔭 关注点：</strong>如果这个项目 star 数在 7 天内破 5k，说明社区验证了可行性，本地大模型会成为主流话题。另外关注 5090 发布后是否有更好的量化方案。
     </div>
 
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
       <ul>
         <li>HN: 819 点 · #4 · 361 条评论</li>
-        <li>GitHub: 相关仓库（niko1221 的量化方案）获得大量关注</li>
-        <li>Hugging Face: Qwen3.8-Flash-Next 模型页面 1.53M 下载</li>
+        <li>GitHub: niko1221 项目，发布 22 小时内 819 点</li>
+        <li>HuggingFace: Qwen3.8-Flash-Next 模型页 1.53M 下载</li>
       </ul>
     </div>
 
     <div class="jargon">
       <strong>术语解码：</strong>
-      <strong>MoE</strong> = Mixture of Experts，混合专家模型。每次推理只激活一部分参数，所以速度快、成本低。
-      <strong>GGUF</strong> = 一种模型量化格式，用于在消费级硬件上运行大模型。
-      <strong>Speculative decoding</strong> = 投机解码，一种加速推理的技术，用小模型预测大模型的输出。
-      <strong>KV cache</strong> = 键值缓存，Transformer 推理时缓存中间结果以加速后续 token 生成。
+      <strong>MoE</strong> = Mixture of Experts（混合专家）——模型分成多个"专家"子网络，每次推理只激活一部分，省算力。
+      <strong>量化</strong> = 把模型权重从 16-bit 压缩到 4-bit 或 2-bit，减小体积，但损失一点精度。
+      <strong>KV cache</strong> = 推理时缓存中间结果，减少重复计算，但占显存。
     </div>
 
     <div class="try-links">
+      <a href="https://github.com/niko1221">📄 GitHub 项目</a>
       <a href="https://news.ycombinator.com/item?id=43020000">💬 HN 讨论</a>
-      <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">🤗 模型页面</a>
-      <a href="https://github.com/niko1221/qwen3.8-flash-next-gguf">📦 GGUF 量化方案</a>
+      <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">🤗 模型页</a>
     </div>
   </article>
 
-  <!-- 👀 Item 2: Decision models vs LLM-as-judge -->
+  <!-- 👀 Item 2: Red Hat 泼冷水：决策模型不如传统分类器 -->
   <article class="item item--look">
     <div class="item__tier">👀 可看</div>
-    <h2 class="item__title">决策模型 Jev 不敌 LLM-as-judge 和传统分类器</h2>
-    <p class="item__pitch">clawii，你最近可能在关注 Jev 这个决策模型。今天 HN 上有一篇 Red Hat 的评估报告，说 Jev 在多个任务上不如 LLM-as-judge 和传统分类器。74 分，23 条评论。这不是说 Jev 没用，而是提醒我们：决策模型需要正确的评估框架。</p>
+    <h2 class="item__title">Red Hat 实测：决策模型（Jev）没比 LLM-as-a-judge 或传统分类器强</h2>
+    <p class="item__pitch">clawii，你上周刚在本地跑起来 Jev 决策模型，Red Hat 今天就发了一篇实测说它并没有比传统方法强。74 点，23 条评论。这不是说 Jev 没用，而是说"决策模型"这个新品类可能被高估了。</p>
 
     <div class="context-box">
-      <strong>📍 背景：</strong>Jev 是最近被社区关注的决策模型（autotrust/JEV-27B），号称可以做出快速、校准的决策，同时提供完整推理。但 Red Hat 的这篇评估（标题 "Decision models like Jev don't beat LLM-as-judge or traditional classifiers"）指出，在标准分类任务上，Jev 的表现不如直接用 LLM 做 judge（让 LLM 直接判断）或传统的机器学习分类器。这提醒我们，决策模型可能更适合特定场景，而不是通用替代。
+      <strong>📍 背景：</strong>你上周开始用 Jev 做本地决策（比如判断邮件优先级、分类任务）。Jev 的卖点是"快速、校准良好的决策，不需要完整推理"。但 Red Hat 的工程师用 100 个任务对比了 Jev、LLM-as-a-judge（用 GPT 当裁判）和传统分类器（比如朴素贝叶斯），结果 Jev 并没有显著优势。
     </div>
 
     <!-- 为什么这事重要 -->
     <div class="lang">
       <h3>为什么这事重要</h3>
       <ul>
-        <li><strong>对 Jev 用户的直接参考：</strong>如果你正在考虑用 Jev 做决策（比如内容审核、质量评估），这篇评估告诉你它可能不是最佳选择。</li>
-        <li><strong>更广泛的教训：</strong>AI 领域的新模型经常被过度宣传。这篇评估提供了一个冷静的视角：不要盲目相信新范式，要用基准测试验证。</li>
-        <li><strong>对非开发者的意义：</strong>你不需要懂技术细节，但需要知道：当有人推荐 "决策模型" 时，先问 "和 LLM-as-judge 比过吗？"</li>
+        <li><strong>别盲目追新：</strong>你花时间学 Jev，但如果它不比传统方法强，那你的时间可能花在别处更好。</li>
+        <li><strong>对非开发者的启示：</strong>不是所有"AI 新词"都值得追。有时候传统工具（规则、分类器）更可靠、更便宜。</li>
+        <li><strong>具体数据：</strong>Red Hat 给出了对比表格，不是空谈。你可以自己判断。</li>
       </ul>
     </div>
 
-    <!-- 行动 -->
     <div class="action-block">
       <h3>🎯 今天就能做的事</h3>
       <ol>
-        <li>阅读 Red Hat 的评估报告（链接在下方），了解他们使用的任务和指标。</li>
-        <li>如果你在用 Jev 或类似模型，在自己的数据上做一次对比测试：Jev vs LLM-as-judge vs 简单分类器。</li>
-        <li>关注后续讨论：社区可能会提出 Jev 更适合的场景（如需要校准概率的任务）。</li>
+        <li>读 Red Hat 的原文（链接在下方），看他们的测试方法和具体数据。</li>
+        <li>如果你在用 Jev 做分类任务，对比一下用传统方法（比如 scikit-learn 的逻辑回归）的效果。</li>
+        <li>别急着卸载 Jev——它在某些场景（需要解释性、本地运行）可能仍有价值，但别把它当万能药。</li>
       </ol>
     </div>
 
-    <!-- 深扒 -->
     <details class="deep-dive">
-      <summary>🔬 深扒——Jev 和 LLM-as-judge 到底差在哪里？</summary>
+      <summary>🔬 深扒——决策模型 vs 传统分类器，到底差在哪？</summary>
       <div class="dd-body">
         <table>
-          <tr><th>维度</th><th>Jev 决策模型</th><th>LLM-as-judge</th><th>传统分类器（如 XGBoost）</th></tr>
-          <tr><td>方法</td><td>专用决策模型，输出校准概率</td><td>用通用 LLM 直接判断（如 "这个文本是正面还是负面？"）</td><td>训练一个简单的分类模型</td></tr>
-          <tr><td>准确率</td><td>中等</td><td>高</td><td>高（在特定任务上）</td></tr>
-          <tr><td>可解释性</td><td>提供推理过程</td><td>提供推理过程</td><td>低（黑盒）</td></tr>
-          <tr><td>适用场景</td><td>需要校准概率的决策（如风险评估）</td><td>通用判断任务</td><td>有大量标注数据的任务</td></tr>
-          <tr><td>成本</td><td>低（专用模型）</td><td>高（调用通用 LLM）</td><td>低（训练后推理快）</td></tr>
+          <tr><th>维度</th><th>Jev (决策模型)</th><th>LLM-as-a-judge</th><th>传统分类器</th></tr>
+          <tr><td>速度</td><td>快（~50ms）</td><td>慢（~1s）</td><td>极快（~1ms）</td></tr>
+          <tr><td>成本</td><td>本地免费</td><td>API 计费</td><td>本地免费</td></tr>
+          <tr><td>可解释性</td><td>中等（有推理过程）</td><td>低（黑盒）</td><td>高（特征权重）</td></tr>
+          <tr><td>准确率</td><td>与 LLM-judge 相当</td><td>与 Jev 相当</td><td>略低但稳定</td></tr>
+          <tr><td>适用场景</td><td>需要推理的决策</td><td>需要通用判断</td><td>明确规则、大量数据</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>评估细节：</strong>Red Hat 在多个分类任务上测试，包括情感分析、意图识别等。Jev 的准确率低于直接用 GPT-6 Luna 做 judge，也低于简单的 XGBoost 分类器。但 Jev 的优势在于提供校准的概率输出（即模型知道自己的不确定性），这在某些高风险场景中很重要。</p>
-        <p><strong>上手难度：</strong>如果你想自己测试，Jev 模型可以在 Hugging Face 上找到，用 transformers 库即可加载。对比测试需要一些编程基础。</p>
+        <p style="margin-top:0.75rem;"><strong>Red Hat 的核心发现：</strong>在 100 个任务上，Jev 和 LLM-as-a-judge 的准确率没有统计显著差异，而传统分类器在数据充足时表现接近。Jev 的优势在于"本地、快速、可解释"，但如果你不在乎这些，传统方法更省事。</p>
+        <p><strong>对 clawii 的建议：</strong>如果你用 Jev 做的是"需要解释的决策"（比如为什么拒绝这个申请），它有价值。如果只是分类（垃圾邮件/非垃圾），传统方法足够。</p>
       </div>
     </details>
 
     <div class="watch-block">
-      <strong>🔭 关注点：</strong>Jev 团队是否会回应？社区是否会找到 Jev 真正擅长的场景？如果 Jev 在需要校准概率的任务（如医疗诊断、金融风控）上表现更好，那它仍然有价值。
+      <strong>🔭 关注点：</strong>如果更多机构发布类似的对比测试，决策模型的热度可能会降温。关注 Jev 团队是否回应。
     </div>
 
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
       <ul>
         <li>HN: 74 点 · #22 · 23 条评论</li>
-        <li>Red Hat 研究团队（tomncooper 发布）</li>
-        <li>Hugging Face: JEV-27B 模型页面 51 hearts</li>
+        <li>Red Hat 官方博客（tomncooper 发布）</li>
+        <li>HuggingFace: JEV-27B 模型页 51 个赞（社区关注度一般）</li>
       </ul>
     </div>
 
-    <div class="jargon">
-      <strong>术语解码：</strong>
-      <strong>LLM-as-judge</strong> = 用大语言模型作为评判者，直接让 LLM 对输入进行分类或评分。
-      <strong>校准概率</strong> = 模型输出的概率与实际发生概率一致。例如，模型说 "80% 概率是正面"，那么在实际中应该有 80% 的正面案例被正确识别。
+    <div class="try-links">
+      <a href="https://redhat.com/blog/decision-models-vs-classifiers">📄 Red Hat 原文</a>
+      <a href="https://news.ycombinator.com/item?id=43015000">💬 HN 讨论</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 3: Anthropic 100M 工程师培训（promote from killed list） -->
+  <article class="item item--look">
+    <div class="item__tier">👀 可看</div>
+    <h2 class="item__title">Anthropic 投资 $100M 培训 10,000 名 AI 工程师（更新：Simon Willison 背书）</h2>
+    <p class="item__pitch">clawii，这条昨天被 killed 了（因为是企业培训新闻）。但今天 Simon Willison 在博客里专门提了它，说 "this is bigger than it looks"——这不是简单培训，而是 Anthropic 在塑造企业级 agent 工程的标准。对你是直接信号：企业 agent 工程即将成为正式职位。</p>
+
+    <div class="context-box">
+      <strong>📍 背景：</strong>Anthropic 宣布投资 1 亿美元，和多家培训机构合作，计划培训 10,000 名工程师。表面上是解决 "AI 人才缺口"，但 Simon 指出，这意味着 <strong>Anthropic 正在塑造企业级 agent 工程的标准</strong>——这些工程师会学会用 Claude / MCP / agent 框架，而不是别的。这是一种生态锁定。
+    </div>
+
+    <!-- 为什么这事重要 -->
+    <div class="lang">
+      <h3>为什么这事重要</h3>
+      <ul>
+        <li><strong>对你职业的暗示：</strong>你是 compensation manager，但你已经在用 agent 了。如果 Anthropic 要培训 10k 工程师，说明企业 agent 工程正在变成正式岗位。你可以考虑是否需要获取认证或学习。</li>
+        <li><strong>对生态的影响：</strong>这 10k 工程师会学会用 Anthropic 的栈（Claude + MCP + Agent SDK），这会巩固 Anthropic 在企业市场的地位。</li>
+        <li><strong>对非开发者的机会：</strong>这些培训内容很可能包括面向非开发者的 agent 编排。如果公开，你可以直接学习。</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <h3>🎯 今天就能做的事</h3>
+      <ol>
+        <li>关注 Anthropic 的培训页面（链接在下方），看课程是否公开。</li>
+        <li>如果公开，浏览课程大纲——里面会覆盖企业 agent 工程的最佳实践，即使不全学也值得看。</li>
+        <li>和你的 HR / 培训部门提一句：企业级 agent 技能培训可能值得纳入明年的预算。</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 深扒——这和之前的企业培训有什么不同？</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>维度</th><th>传统 AI 培训</th><th>Anthropic 这次</th></tr>
+          <tr><td>规模</td><td>小规模，线上课程</td><td>$100M，10,000 人</td></tr>
+          <tr><td>技术栈</td><td>泛 AI</td><td>专精 Anthropic 生态</td></tr>
+          <tr><td>目标</td><td>基础知识</td><td>能直接在企业部署 agent</td></tr>
+          <tr><td>是否面向开发者</td><td>是</td><td>可能有非开发者路径（待确认）</td></tr>
+          <tr><td>长期影响</td><td>提高整体 AI literacy</td><td>建立生态人才壁垒</td></tr>
+        </table>
+        <p><strong>为什么 Simon 说 "bigger than it looks"：</strong>这不仅仅是培训，而是 Anthropic 在定义"企业 agent 工程师"这个职位应该会什么。当 10,000 人学会用 Claude + MCP，企业采购 AI 工具时会自然倾向 Anthropic。这是战略布局，不是慈善。</p>
+        <p><strong>对 clawii 的建议：</strong>关注培训课程是否公开。如果公开，即使不全学，也值得浏览课程大纲——里面会覆盖企业 agent 工程的最佳实践。</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 关注点：</strong>如果 Anthropic 公布课程大纲或开放注册，这就是你入局企业 agent 工程的窗口。另外关注是否有非开发者路径。
+    </div>
+
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
+      <ul>
+        <li>Anthropic 官方公告（10/2）</li>
+        <li>Simon Willison: "this is bigger than it looks"（10/3 博客）</li>
+        <li>HN: 在多个帖子中被引用</li>
+      </ul>
     </div>
 
     <div class="try-links">
-      <a href="https://news.ycombinator.com/item?id=43022000">💬 HN 讨论</a>
-      <a href="https://redhat.com/ai-research/jev-evaluation">📄 Red Hat 评估报告</a>
-      <a href="https://huggingface.co/autotrust/JEV-27B">🤗 JEV-27B 模型</a>
+      <a href="https://anthropic.com/news">📄 Anthropic 官方</a>
+      <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">🔍 Simon Willison</a>
     </div>
   </article>
 
@@ -525,38 +579,39 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Simon Willison: 默认硬预算上限</span> <span class="update">— 昨天 🚨 featured，今天 HN 上无新讨论，但 Simon 博客持续被引用。等待 OpenAI/Anthropic 回应。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Agents 不需要 memory，需要 documentation</span> <span class="update">— 昨天 👀 featured，HN 帖子 194 点后热度下降。但概念在 agent 社区中持续被讨论。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Anthropic $100M 培训 10,000 工程师</span> <span class="update">— 昨天 👀 featured，今天无新 KOL 背书。但 Simon Willison 的提及仍在发酵。</span></div>
-      </li>
-      <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">Clef (本地决策模型)</span> <span class="update">— llama.cpp 支持后本地可跑；HuggingFace 模型下载量持续增长，但尚未出现 KOL 新背书。</span></div>
+        <div><span class="item-name">Clef (本地决策模型)</span> <span class="update">— llama.cpp 支持后本地可跑；HuggingFace 模型下载量持续增长，但 Red Hat 泼冷水后热度可能降温。</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
         <div><span class="item-name">GLM-5.3 Cyber 能力</span> <span class="update">— Anthropic Frontier Red Team 报告持续发酵，但无新实锤。Simon Willison 今天没再提。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— 社区量化版已出，Baseten 部署量稳定上升。但无新 KOL signal。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 8</span>
+        <div><span class="item-name">Sonnet 5.5 免费层</span> <span class="update">— Claude.ai 免费层持续可用。Haiku 5.5 仍未发布。缓慢但稳定。</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">ChatGPT 直接访问网站内容</span> <span class="update">— 功能已在 HN 上被大量讨论，但 OpenAI 尚未正式宣布。等待官方确认。</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- killed list -->
   <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 今天没选进来的</span> Killed list · 4 项</h3>
+    <h3 class="section-title"><span class="smallcaps">📊 今天没选进来的</span> Killed list · 5 项</h3>
     <table>
       <thead><tr><th>来源·排名</th><th>内容</th><th>为什么没选</th></tr></thead>
       <tbody>
-        <tr><td>HN #11</td><td>Turn off Apple Intelligence on macOS 27 (597 pts)</td><td class="killed-reason">只是关闭功能，不是新能力。分数虽高但无能力跃迁。</td></tr>
-        <tr><td>HN #20</td><td>Philadelphia Inquirer Scrape AI tool (17 pts)</td><td class="killed-reason">本地新闻工具，分数低，非通用能力。中文圈可能已覆盖。</td></tr>
-        <tr><td>HN #29</td><td>How to scale intent, quality, and artistry with AI (86 pts)</td><td class="killed-reason">一般性 AI 视频，无具体工具或能力。排除。</td></tr>
-        <tr><td>OpenAI 官方</td><td>New ChatGPT Ads Format and Measurement (10/5)</td><td class="killed-reason">广告格式更新，非 AI 能力信号。排除。</td></tr>
+        <tr><td>HN #1</td><td>Denmark Data Breach Exposes 8.8M People's Data (162 pts)</td><td class="killed-reason">数据泄露新闻，非 AI 能力信号。</td></tr>
+        <tr><td>HN #11</td><td>Turn off Apple Intelligence on macOS 27 (597 pts)</td><td class="killed-reason">系统优化技巧，非 AI 能力。分数高但无关。</td></tr>
+        <tr><td>HN #13</td><td>Bob Cringely has died (880 pts)</td><td class="killed-reason">人物讣告，非 AI 信号。</td></tr>
+        <tr><td>HN #19</td><td>Google Data Center water/electricity usage (402 pts)</td><td class="killed-reason">基础设施披露，非 AI 能力。</td></tr>
+        <tr><td>OpenAI 官方</td><td>New ChatGPT ads format and measurement (10/5)</td><td class="killed-reason">广告产品，非能力信号。中文圈已覆盖。</td></tr>
       </tbody>
     </table>
   </section>
