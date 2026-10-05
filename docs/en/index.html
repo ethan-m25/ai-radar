@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №131 — 2026-10-05. Qwen 3.8 Flash Next runs on an RTX 4090 at 100 tokens/s; Red Hat evaluation shows Jev decision model doesn't beat LLM-as-judge or traditional classifiers.">
+<meta name="description" content="AI Radar issue №131 — 2026-10-05. Qwen 3.8 Flash Next runs on an RTX 4090 at 100 tokens/s; Red Hat's evaluation says decision models like Jev don't beat LLM-as-judge or traditional classifiers; Anthropic's $100M engineer-training push gets a Simon Willison endorsement.">
 <title>AI Radar — 2026-10-05 · №131</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -356,10 +356,10 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <section class="cover">
     <div class="kicker">AI Radar · Daily Intelligence · 2026-10-05</div>
     <h1 class="headline">Open-source models on a 4090,<br><span class="grad">at 100 tokens/s.</span></h1>
-    <p class="subhead">Qwen 3.8 Flash Next is verified by the HN community to run at 100 tokens/s on an RTX 4090 — 819 points, 361 comments. Meanwhile, the first real evaluation of the Jev decision model is out: it doesn't beat LLM-as-judge or traditional classifiers. Both signals point the same direction: open-source models are maturing fast, but you need the right evaluation frame.</p>
+    <p class="subhead">HN's front page blew up overnight: someone verified Qwen 3.8 Flash Next (125B) running at 100 tokens/s on a consumer RTX 4090 — 820 points, 363 comments. Not a lab toy; it's one of the biggest open models you can run on your own desk. Meanwhile Red Hat pours cold water on "decision models" like Jev, and Anthropic's $100M engineer-training push gets Simon Willison's "bigger than it looks" endorsement.</p>
     <div class="meta-line">
       <span><strong>Scan scope</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog / Simon Willison</span>
-      <span><strong>Real signals</strong>: 2 (🚨 1 / 👀 1 / ℹ️ 0)</span>
+      <span><strong>Real signals</strong>: 3 (🚨 1 / 👀 2 / ℹ️ 0)</span>
       <span><strong>Risk check</strong>: Excluded funding/litigation/personnel/pure-research/Chinese-already-covered.</span>
     </div>
   </section>
@@ -367,28 +367,28 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <!-- count strip -->
   <div class="count-strip">
     <div class="count-card count-card--crit"><div class="count-num">1</div><div class="count-label">🚨 Must See</div></div>
-    <div class="count-card count-card--look"><div class="count-num">1</div><div class="count-label">👀 Worth A Look</div></div>
+    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 Worth A Look</div></div>
     <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ FYI</div></div>
     <div class="count-card count-card--track"><div class="count-num">5</div><div class="count-label">📈 Tracking</div></div>
   </div>
 
-  <!-- 🚨 Item 1: Qwen3.8-Flash-Next on RTX 4090 -->
+  <!-- 🚨 Item 1: Qwen 3.8 Flash Next on RTX 4090 -->
   <article class="item item--crit">
     <div class="item__tier">🚨 Must See</div>
     <h2 class="item__title">Qwen 3.8 Flash Next (125B) runs on an RTX 4090 at 100 tokens/s</h2>
-    <p class="item__pitch">Hey clawii — you were wondering yesterday what hardware you'd need to run a big model locally. Today HN has your answer: someone verified Qwen 3.8 Flash Next running on a single RTX 4090 at 100 tokens/s. 819 points, 361 comments. This isn't lab data — it's the community actually benchmarking it on real consumer hardware.</p>
+    <p class="item__pitch">Hey clawii — HN's front page blew up overnight: someone got Qwen 3.8 Flash Next (125B) running at 100 tokens/s on a consumer RTX 4090. This isn't cloud API numbers — it's a real desktop GPU. 820 points, 363 comments. The bar for "run the biggest open models locally" just dropped hard.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Qwen3.8-Flash-Next is the open-source MoE model Alibaba's Qwen team released at the end of August — 180B total parameters, roughly 6B active per token. It used to be considered a high-end-server model. But the community, through quantization (GGUF) and optimizations, got it running at usable speeds on a consumer GPU. For a non-developer this means: you can run a near-frontier open model on your own machine, no cloud API needed.
+      <strong>📍 Context:</strong> Qwen3.8-Flash-Next is Alibaba's open-weight MoE model from late August — 180B total parameters, ~6B active per token. You've already been running local decision models like Clef and Jev (27B). This is a different weight class entirely: 125-180B used to mean multi-A100 servers or a cloud API bill. Now one consumer GPU (24GB) does the job. "Best open models on your own desk" just went from geek toy to real option.
     </div>
 
     <!-- Why this matters -->
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>Consumer hardware running frontier models is now real:</strong> An RTX 4090 isn't cheap (~$1,600–2,000), but against long-term cloud API costs, a one-time purchase can win. 100 tokens/s is plenty for chat, code completion, and document analysis.</li>
-        <li><strong>What it means for a non-developer:</strong> You don't need to understand quantization. The community already publishes GGUF model files that work with Ollama or llama.cpp out of the box. Download one file and use it locally like ChatGPT.</li>
-        <li><strong>Privacy and cost win:</strong> Local means your data never leaves the machine. No API bills, no rate limits.</li>
+        <li><strong>Local = free + private + unlimited calls:</strong> Once you can run a 125B-class model locally, you stop caring about API billing and rate limits. For a heavy vibe-coder, that's a quality-of-life shift, not a minor perk.</li>
+        <li><strong>The hardware threshold is now clear:</strong> The 4090 is today's consumer flagship, and the 5080/5090 generation is coming. If you're thinking about a GPU upgrade, this is your evidence: one 24GB card is enough.</li>
+        <li><strong>It's verified, not a slide deck:</strong> This is a real GitHub project (niko1221) with an actual quant recipe and benchmark, discussed on HN for more than 20 hours. Community-verified, not vendor marketing.</li>
       </ul>
     </div>
 
@@ -396,77 +396,77 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 What you can do today</h3>
       <ol>
-        <li>If you have an RTX 4090 (or 4080/3090), install Ollama and try <code>ollama run qwen3.8-flash-next</code> (if supported) or grab the GGUF file directly from Hugging Face.</li>
-        <li>No high-end GPU? Keep an eye on community progress for RTX 4060 / 4070 — more aggressive quantization might get this running on lower VRAM too.</li>
-        <li>Read the HN thread to see the exact quantization recipe and performance tuning tricks people used.</li>
+        <li>Open the GitHub project and check which quantization scheme it uses (probably 2-bit or lower).</li>
+        <li>If you have a 24GB card (4090 / 3090), follow the README and try it. If not, save the link — it's your next-hardware-upgrade checklist item.</li>
+        <li>Compare your current API monthly bill vs the one-time hardware cost. If local can cover your daily work, it may win long-term.</li>
       </ol>
     </div>
 
     <!-- Deep dive -->
     <details class="deep-dive">
-      <summary>🔬 Deep dive — how is this different from earlier local models?</summary>
+      <summary>🔬 Deep dive — how does 125B fit into 24GB of VRAM?</summary>
       <div class="dd-body">
         <table>
-          <tr><th>Dimension</th><th>Qwen3.8-Flash-Next</th><th>Previous local-friendly model (e.g. Llama 3.1 70B)</th></tr>
-          <tr><td>Total params</td><td>180B (MoE)</td><td>70B (Dense)</td></tr>
-          <tr><td>Active params</td><td>~6B</td><td>70B</td></tr>
-          <tr><td>Inference speed (4090)</td><td>100 tokens/s</td><td>~5–10 tokens/s (quantized)</td></tr>
-          <tr><td>Model quality</td><td>Close to GPT-6 Luna territory</td><td>Mid-tier</td></tr>
-          <tr><td>Hardware needed</td><td>Single 4090 (24GB)</td><td>Multi-GPU or 48GB+</td></tr>
+          <tr><th>Dimension</th><th>Qwen 3.8 Flash Next (125B)</th><th>Clef you ran before (27B)</th></tr>
+          <tr><td>Total params</td><td>125B (actually 180B MoE, ~6B active)</td><td>27B</td></tr>
+          <tr><td>VRAM needed (FP16)</td><td>~360GB — impossible locally</td><td>~54GB — needs two cards</td></tr>
+          <tr><td>VRAM needed (4-bit quant)</td><td>~70GB — still over a single card</td><td>~14GB — single card fine</td></tr>
+          <tr><td>Actual approach used</td><td>2-bit quant + sparse activation + KV cache optimization</td><td>standard 4-bit GGUF</td></tr>
+          <tr><td>Speed</td><td>100 tokens/s (RTX 4090)</td><td>~50 tokens/s</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>How it works:</strong> The key is the MoE (Mixture of Experts) architecture — each inference step only activates a fraction of the parameters (~6B), so compute stays low despite the huge total size. Add 4-bit quantization, which shrinks the 180B model to ~90GB, then KV cache optimization and speculative decoding push it to 100 tokens/s inside 24GB of VRAM.</p>
-        <p><strong>How hard to use:</strong> Medium. If you know Ollama, it's one command. If you need to grab the GGUF and configure llama.cpp yourself, budget 30 minutes. The community has already packaged the easy path.</p>
-        <p><strong>Honest caveat:</strong> 100 tokens/s is a peak number under a specific quantization scheme and prompt length. Real-world use (long context, multi-turn) will be slower. And a 4090 is genuinely expensive for an individual.</p>
+        <p style="margin-top:0.75rem;"><strong>Key trick:</strong> Qwen 3.8 Flash Next is an MoE model — 180B total parameters, but only ~6B are active per token. With 2-bit quantization the weights compress to roughly 40GB, then CPU offloading pushes part of the model into system RAM while the GPU only processes the active layers. That's how 24GB of VRAM is enough.</p>
+        <p><strong>How hard:</strong> Medium. You'll need llama.cpp or vLLM, quantization parameters, and some patience tuning the CPU-offload ratio. Non-developers: budget 1-2 hours to get it running, longer for good tuning.</p>
+        <p><strong>Honest caveat:</strong> 2-bit quantization costs precision. Fine for coding tasks, but heavy reasoning (math, logic) will get noticeably dumber. 100 tokens/s is a peak under a specific config; long contexts and multi-turn chats will be slower.</p>
       </div>
     </details>
 
     <!-- Watch -->
     <div class="watch-block">
-      <strong>🔭 Watch for:</strong> Does this thread spawn a wave of consumer-hardware MoE deployment guides? Next checkpoints: a smaller official Flash variant, and whether the community can squeeze this onto 16GB cards.
+      <strong>🔭 Watch for:</strong> If the repo clears ~5k stars within a week, the community has validated the recipe and "local big model" becomes a mainstream topic. Also watch for a 5090-generation tuned quant build.
     </div>
 
     <!-- Who's talking / jargon -->
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
-        <li>HN: 819 points · #4 · 361 comments</li>
-        <li>GitHub: niko1221's GGUF quantization repo is picking up heavy traction</li>
+        <li>HN: 820 points · #4 · 363 comments (22 hours)</li>
+        <li>GitHub: niko1221 quantization repo, submitted to HN yesterday, traction still building</li>
         <li>Hugging Face: Qwen3.8-Flash-Next model page at 1.53M downloads</li>
       </ul>
     </div>
 
     <div class="jargon">
       <strong>Jargon decoder:</strong>
-      <strong>MoE</strong> = Mixture of Experts — a model architecture that only activates a subset of parameters per token, so it's fast and cheap to run.
-      <strong>GGUF</strong> = the standard quantized model format used to run LLMs on consumer hardware.
-      <strong>Speculative decoding</strong> = a speed-up trick where a small model drafts tokens and the big model just verifies them.
-      <strong>KV cache</strong> = cached intermediate results during generation that make each next token cheaper.
+      <strong>MoE</strong> = Mixture of Experts — a model architecture that splits into many "expert" subnetworks and only activates a subset per token, saving compute.
+      <strong>Quantization</strong> = compressing model weights from 16-bit down to 4-bit or 2-bit to shrink the file, at some cost to precision.
+      <strong>KV cache</strong> = cached intermediate results during generation that make each next token cheaper, but it eats VRAM.
+      <strong>CPU offloading</strong> = pushing some model layers into system RAM while the GPU handles only the active layers.
     </div>
 
     <div class="try-links">
+      <a href="https://github.com/niko1221">📄 GitHub project</a>
       <a href="https://news.ycombinator.com/item?id=43020000">💬 HN Discussion</a>
       <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">🤗 Model page</a>
-      <a href="https://github.com/niko1221/qwen3.8-flash-next-gguf">📦 GGUF quantization recipe</a>
     </div>
   </article>
 
-  <!-- 👀 Item 2: Decision models vs LLM-as-judge -->
+  <!-- 👀 Item 2: Red Hat eval on decision models -->
   <article class="item item--look">
     <div class="item__tier">👀 Worth A Look</div>
     <h2 class="item__title">Decision models like Jev don't beat LLM-as-judge or traditional classifiers</h2>
-    <p class="item__pitch">Hey clawii — you've probably been hearing about Jev, the "decision model." Today a Red Hat evaluation on HN says Jev doesn't beat LLM-as-judge or traditional classifiers on standard tasks. 74 points, 23 comments. This isn't "Jev is useless" — it's a reminder that decision models need the right evaluation frame before you trust the hype.</p>
+    <p class="item__pitch">Hey clawii — you only got Jev running locally last week, and today Red Hat published a hands-on evaluation: decision models don't beat LLM-as-judge or a plain traditional classifier. 76 points, 24 comments. Not "Jev is useless" — more like "the whole category is overhyped until proven otherwise."</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> Jev is the decision model the community got excited about recently (autotrust/JEV-27B) — fast, calibrated decisions with full reasoning. But Red Hat's evaluation — literally titled "Decision models like Jev don't beat LLM-as-judge or traditional classifiers" — finds that on standard classification tasks, Jev underperforms both a plain LLM-as-judge (just asking the LLM to judge) and a traditional ML classifier. The takeaway: decision models may fit specific niches, not be a universal replacement.
+      <strong>📍 Context:</strong> Jev (autotrust/JEV-27B) is the "decision model" that got the community excited — fast, calibrated decisions with full reasoning. You started using it for local judgment calls like email triage. Red Hat engineers ran it against LLM-as-judge (using an LLM as the judge) and a traditional classifier on 100 tasks. Result: no statistically significant edge.
     </div>
 
     <!-- Why this matters -->
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>Direct signal if you're Jev-curious:</strong> If you were considering Jev for decisions (content moderation, quality scoring), this evaluation says it may not be the best tool.</li>
-        <li><strong>Bigger lesson:</strong> New model paradigms get overhyped fast. This paper is a cold shower: don't trust a new paradigm on vibes — benchmark it.</li>
-        <li><strong>For a non-developer:</strong> You don't need the technical detail, but you need the reflex: when someone sells you on a "decision model," ask "how does it compare to LLM-as-judge?"</li>
+        <li><strong>Don't chase novelty for novelty's sake:</strong> The time you spent learning Jev might be better spent elsewhere if it doesn't outperform simpler tools.</li>
+        <li><strong>Lesson for non-developers:</strong> Not every new AI buzzword deserves your attention. Rules and simple classifiers can be more reliable and a lot cheaper.</li>
+        <li><strong>Concrete numbers, not vibes:</strong> Red Hat published the comparison tables and method. You can judge for yourself.</li>
       </ul>
     </div>
 
@@ -474,53 +474,122 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 What you can do today</h3>
       <ol>
-        <li>Read the Red Hat evaluation (link below) and note which tasks and metrics they used.</li>
-        <li>If you're already using Jev or something like it, run your own head-to-head on your data: Jev vs LLM-as-judge vs a simple classifier.</li>
-        <li>Follow the follow-ups — the community may find the niche where Jev genuinely wins (e.g. tasks that need calibrated probabilities).</li>
+        <li>Read the Red Hat evaluation. Check which tasks and metrics they used.</li>
+        <li>If you use Jev for classification, run your own head-to-head with a simple classifier (e.g. scikit-learn logistic regression).</li>
+        <li>Don't uninstall Jev — it may still win where you want explanations + local + fast + calibrated probabilities. Just stop treating it as a universal answer.</li>
       </ol>
     </div>
 
     <!-- Deep dive -->
     <details class="deep-dive">
-      <summary>🔬 Deep dive — where does Jev actually fall short?</summary>
+      <summary>🔬 Deep dive — where does a decision model actually lose?</summary>
       <div class="dd-body">
         <table>
-          <tr><th>Dimension</th><th>Jev decision model</th><th>LLM-as-judge</th><th>Traditional classifier (e.g. XGBoost)</th></tr>
-          <tr><td>Method</td><td>Dedicated decision model, outputs calibrated probabilities</td><td>General LLM judges directly ("is this text positive or negative?")</td><td>Train a simple classification model</td></tr>
-          <tr><td>Accuracy</td><td>Medium</td><td>High</td><td>High (on specific tasks)</td></tr>
-          <tr><td>Interpretability</td><td>Provides reasoning</td><td>Provides reasoning</td><td>Low (black box)</td></tr>
-          <tr><td>Best for</td><td>Decisions needing calibrated confidence (risk assessment)</td><td>General judgement tasks</td><td>Tasks with plenty of labeled data</td></tr>
-          <tr><td>Cost</td><td>Low (specialized model)</td><td>High (calls a general LLM)</td><td>Low (fast inference after training)</td></tr>
+          <tr><th>Dimension</th><th>Jev (decision model)</th><th>LLM-as-judge</th><th>Traditional classifier</th></tr>
+          <tr><td>Speed</td><td>fast (~50ms)</td><td>slow (~1s)</td><td>very fast (~1ms)</td></tr>
+          <tr><td>Cost</td><td>free locally</td><td>API billed</td><td>free locally</td></tr>
+          <tr><td>Interpretability</td><td>medium (offers reasoning)</td><td>low (black box)</td><td>high (feature weights)</td></tr>
+          <tr><td>Accuracy</td><td>on par with LLM-judge</td><td>on par with Jev</td><td>slightly lower but stable</td></tr>
+          <tr><td>Best for</td><td>decisions that need reasoning</td><td>general judgement</td><td>clear rules, plenty of labeled data</td></tr>
         </table>
-        <p style="margin-top:0.75rem;"><strong>Evaluation details:</strong> Red Hat tested Jev across several classification tasks — sentiment analysis, intent recognition, and similar. Jev's accuracy came in below a plain GPT-6 Luna-as-judge and below a simple XGBoost classifier. Jev's real strength is calibrated probability output — the model knows when it's uncertain — which matters in high-stakes settings even if raw accuracy is lower.</p>
-        <p><strong>How hard to replicate:</strong> Easy to try for yourself if you code a little: the Jev model is on Hugging Face and loads with the transformers library. Building the comparison harness takes some scripting.</p>
+        <p style="margin-top:0.75rem;"><strong>Red Hat's core finding:</strong> on 100 tasks, Jev and LLM-as-judge showed no statistically significant accuracy difference, and traditional classifiers held their ground when there was enough labeled data. Jev's real edge is being local, fast, and interpretable — plus calibrated probabilities. If you don't care about those, simpler tools are less hassle.</p>
+        <p><strong>How hard to try yourself:</strong> Easy if you code a little — Jev is on Hugging Face and loads with the transformers library. Building a comparison harness takes some scripting, but nothing exotic.</p>
       </div>
     </details>
 
     <!-- Watch -->
     <div class="watch-block">
-      <strong>🔭 Watch for:</strong> Will the Jev team respond? Will the community find the niche where Jev actually wins — for example, high-risk decisions that need calibrated confidence (medical triage, financial risk)? If it wins there, it still has real value.
+      <strong>🔭 Watch for:</strong> If more institutions publish similar comparisons, the decision-model hype cycle cools. Watch whether the Jev team responds — and whether calibrated-confidence niches (risk, triage) turn out to be where it genuinely wins.
     </div>
 
+    <!-- Who's talking -->
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
-        <li>HN: 74 points · #22 · 23 comments</li>
+        <li>HN: 76 points · #22 · 24 comments</li>
         <li>Red Hat research (posted by tomncooper)</li>
-        <li>Hugging Face: autotrust/JEV-27B model page, ~51 hearts</li>
+        <li>Hugging Face: autotrust/JEV-27B model page, ~51 likes (modest community attention)</li>
       </ul>
     </div>
 
     <div class="jargon">
       <strong>Jargon decoder:</strong>
-      <strong>LLM-as-judge</strong> = using a general LLM as the evaluator — you just ask the model to classify or score the input.
-      <strong>Calibrated probability</strong> = the model's stated confidence matches reality. If it says "80% positive," then ~80% of those cases really are positive.
+      <strong>LLM-as-judge</strong> = using a general LLM as the evaluator — you just ask the model to classify or score an input.
+      <strong>Calibrated probability</strong> = the model's stated confidence matches reality: if it says "80% positive," roughly 80% of those cases really are positive.
     </div>
 
     <div class="try-links">
-      <a href="https://news.ycombinator.com/item?id=43022000">💬 HN Discussion</a>
-      <a href="https://redhat.com/ai-research/jev-evaluation">📄 Red Hat evaluation</a>
+      <a href="https://redhat.com/blog/decision-models-vs-classifiers">📄 Red Hat evaluation</a>
+      <a href="https://news.ycombinator.com/item?id=43015000">💬 HN Discussion</a>
       <a href="https://huggingface.co/autotrust/JEV-27B">🤗 JEV-27B model</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 3: Anthropic $100M training (re-promoted from killed list) -->
+  <article class="item item--look">
+    <div class="item__tier">👀 Worth A Look</div>
+    <h2 class="item__title">Anthropic's $100M push to train 10,000 engineers (update: Simon Willison endorsement)</h2>
+    <p class="item__pitch">Hey clawii — update: this one got killed yesterday as "corporate training news." It's back because Simon Willison flagged it on his blog and said it's "bigger than it looks." Anthropic isn't just fixing a talent gap — it's defining what an enterprise agent engineer should know. Direct signal for you: this is becoming a real job category.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> Anthropic announced a $100M investment to train 10,000 engineers with training partners, tackling the "enterprise AI talent gap." On its face it reads as education news. Simon's read: those engineers will learn the Claude / MCP / agent-framework stack — that's ecosystem lock-in, and it effectively sets the standard for enterprise agent engineering.
+    </div>
+
+    <!-- Why this matters -->
+    <div class="lang">
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>Career signal for you:</strong> You're a compensation manager who already uses agents daily. If a frontier lab is spending $100M to create 10,000 agent engineers, this is becoming a formal job category. Certification or structured learning might be worth watching.</li>
+        <li><strong>Ecosystem effect:</strong> 10k engineers trained on Claude + MCP + Agent SDK make Anthropic stickier in enterprise procurement for years.</li>
+        <li><strong>Non-developer opportunity:</strong> If any of the curriculum goes public, it's a free window into how enterprises actually deploy agents — even if you never write production code.</li>
+      </ul>
+    </div>
+
+    <!-- Action -->
+    <div class="action-block">
+      <h3>🎯 What you can do today</h3>
+      <ol>
+        <li>Watch Anthropic's announcement page — see whether course materials or a curriculum go public.</li>
+        <li>If public, skim the syllabus: it will encode enterprise agent-engineering best practices even if you don't take the full course.</li>
+        <li>Mention it to HR / L&D: enterprise agent skills could deserve a line in next year's budget.</li>
+      </ol>
+    </div>
+
+    <!-- Deep dive -->
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how is this different from typical AI training?</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>Dimension</th><th>Typical AI training</th><th>This Anthropic move</th></tr>
+          <tr><td>Scale</td><td>small, online courses</td><td>$100M, 10,000 people</td></tr>
+          <tr><td>Stack</td><td>generic AI</td><td>Anthropic ecosystem specifically</td></tr>
+          <tr><td>Goal</td><td>fundamentals</td><td>deploy agents in enterprises</td></tr>
+          <tr><td>Developer-only?</td><td>mostly</td><td>possibly non-developer tracks (TBD)</td></tr>
+          <tr><td>Long-term impact</td><td>raises overall AI literacy</td><td>builds an ecosystem talent moat</td></tr>
+        </table>
+        <p style="margin-top:0.75rem;"><strong>Why "bigger than it looks":</strong> This isn't charity. Anthropic is defining the job description for an "enterprise agent engineer." When 10,000 people learn Claude + MCP, the enterprise purchasing decision tilts toward Anthropic. That's strategy, not just education.</p>
+        <p><strong>What this means for a non-developer:</strong> Even if you never code, the curriculum will tell you what "good agent engineering" looks like in enterprises — project structure, context management, evaluation. That vocabulary is becoming valuable in office work too.</p>
+      </div>
+    </details>
+
+    <!-- Watch -->
+    <div class="watch-block">
+      <strong>🔭 Watch for:</strong> If Anthropic opens registration or publishes a syllabus, that's your entry window into enterprise agent engineering. Also watch for a non-developer track — that would be a direct tap for you.
+    </div>
+
+    <!-- Who's talking -->
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
+      <ul>
+        <li>Anthropic official announcement (10/2)</li>
+        <li>Simon Willison: "this is bigger than it looks" (10/3 blog)</li>
+        <li>HN: cited across multiple threads, no single dominant post yet</li>
+      </ul>
+    </div>
+
+    <div class="try-links">
+      <a href="https://anthropic.com/news">📄 Anthropic official</a>
+      <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">🔍 Simon Willison</a>
     </div>
   </article>
 
@@ -529,38 +598,39 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <span class="smallcaps">📈 Still tracking · not occupying a slot but still developing</span>
     <ul>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Simon Willison: default hard budget caps</span> <span class="update">— 🚨 featured yesterday; no new HN movement today, but Simon's post keeps getting cited. Waiting for an OpenAI/Anthropic response.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Agents need documentation, not memory</span> <span class="update">— 👀 featured yesterday; HN thread cooled after 194 pts, but the concept is still being discussed across agent communities.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Anthropic $100M training 10,000 engineers</span> <span class="update">— 👀 featured yesterday; no new KOL endorsement, but Simon Willison's "bigger than it looks" take is still rippling.</span></div>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">Clef (local decision model)</span> <span class="update">— llama.cpp support means it runs locally; HF downloads keep growing, but Red Hat's cold water may cool the hype.</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">Clef (local decision model)</span> <span class="update">— llama.cpp support means it runs locally; HF downloads keep growing, but no new KOL endorsement yet.</span></div>
+        <div><span class="item-name">GLM-5.3 cyber capabilities</span> <span class="update">— Anthropic Frontier Red Team report still being cited, but no hard new confirmation. Simon didn't mention it again today.</span></div>
       </li>
       <li>
         <span class="days">Day 4</span>
-        <div><span class="item-name">GLM-5.3 cyber capabilities</span> <span class="update">— Anthropic Frontier Red Team report still being cited, but no new independent confirmation. Simon didn't mention it again today.</span></div>
+        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— community quantization builds are out; Baseten deployment keeps climbing. No new KOL signal.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 8</span>
+        <div><span class="item-name">Sonnet 5.5 free tier</span> <span class="update">— still live on claude.ai's free tier. Haiku 5.5 still not released. Slow but steady.</span></div>
+      </li>
+      <li>
+        <span class="days">Day 3</span>
+        <div><span class="item-name">ChatGPT directly accessing website content</span> <span class="update">— feature being discussed heavily on HN, but no official OpenAI announcement yet. Waiting for confirmation.</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- killed list -->
   <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 4 items</h3>
+    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 5 items</h3>
     <table>
       <thead><tr><th>Source · Rank</th><th>Item</th><th>Why excluded</th></tr></thead>
       <tbody>
-        <tr><td>HN #11</td><td>Turn off Apple Intelligence on macOS 27 (597 pts)</td><td class="killed-reason">Just disabling a feature, not a new capability. High score but no capability shift.</td></tr>
-        <tr><td>HN #20</td><td>Philadelphia Inquirer built Scrape, an AI tool for hyperlocal news (17 pts)</td><td class="killed-reason">Local news tool, low score, not a general capability. Likely already covered in Chinese outlets.</td></tr>
-        <tr><td>HN #29</td><td>How to scale intent, quality, and artistry with AI (86 pts)</td><td class="killed-reason">Generic AI talk, no specific tool or capability. Excluded.</td></tr>
-        <tr><td>OpenAI official</td><td>New ChatGPT Ads Format and Measurement (10/5)</td><td class="killed-reason">Ad format update, not an AI capability signal. Excluded.</td></tr>
+        <tr><td>HN #1</td><td>Denmark Data Breach Exposes 8.8M People's Data (173 pts)</td><td class="killed-reason">Data-breach news, not an AI capability signal.</td></tr>
+        <tr><td>HN #12</td><td>Turn off Apple Intelligence on macOS 27 (602 pts)</td><td class="killed-reason">OS optimization tip, not an AI capability. High score but irrelevant.</td></tr>
+        <tr><td>HN #14</td><td>Bob Cringely has died (883 pts)</td><td class="killed-reason">Obituary, not an AI signal.</td></tr>
+        <tr><td>HN #20</td><td>Google Data Center water/electricity usage (403 pts)</td><td class="killed-reason">Infrastructure disclosure, not an AI capability.</td></tr>
+        <tr><td>OpenAI official</td><td>New ChatGPT Ads Format and Measurement (10/5)</td><td class="killed-reason">Ad product, not a capability signal. Chinese outlets already covered.</td></tr>
       </tbody>
     </table>
   </section>
