@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №132 — 2026-10-06. Reflection releases Beam, a 501B open-weight model; Opus 5.5 agents autonomously discover two room-temperature magnetic semiconductor candidates; Claude Cowork moves to the cloud.">
+<meta name="description" content="AI Radar issue №132 — 2026-10-06. Cowork goes cloud-native; Falcon OCR Arabic breaks new ground; POCKET-Darwin-180B brings datacenter-scale AI to a laptop.">
 <title>AI Radar — 2026-10-06 · №132</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,8 +355,8 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
   <!-- cover -->
   <section class="cover">
     <div class="kicker">AI Radar · Daily Intelligence · 2026-10-06</div>
-    <h1 class="headline">Open-source breaks 500B,<br><span class="grad">and AI starts doing real science.</span></h1>
-    <p class="subhead">Reflection drops Beam — a 501B open-weight model that hits HN at 469 points. Meanwhile, Opus 5.5 agents autonomously discover two room-temperature magnetic semiconductor candidates. AI just went from "helper tool" to "lead researcher." And Anthropic moves Cowork to the cloud, killing the local-VM battery drain.</p>
+    <h1 class="headline">Cowork goes cloud-native,<br><span class="grad">Arabic OCR gets a specialist, and 180B models fit in your backpack.</span></h1>
+    <p class="subhead">Anthropic moves Cowork's VM to the cloud — goodbye battery drain, hello phone access. TII releases Falcon OCR Arabic, a 270M-parameter SOTA for an underserved language. And POCKET-Darwin-180B proves datacenter-scale AI can run on a laptop.</p>
     <div class="meta-line">
       <span><strong>Scan scope</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog / Simon Willison</span>
       <span><strong>Real signals</strong>: 3 (🚨 1 / 👀 2 / ℹ️ 0)</span>
@@ -372,23 +372,23 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="count-card count-card--track"><div class="count-num">5</div><div class="count-label">📈 Tracking</div></div>
   </div>
 
-  <!-- 🚨 Item 1: Beam 501B -->
+  <!-- 🚨 Item 1: Cowork cloud migration -->
   <article class="item item--crit">
     <div class="item__tier">🚨 Must See</div>
-    <h2 class="item__title">Reflection releases Beam: a 501B open-weight model</h2>
-    <p class="item__pitch">Hey clawii — HN exploded today: Reflection dropped Beam, a 501B-parameter open-weight model. 469 points, 148 comments. This isn't the 7B/27B stuff you're used to — this is near-flagship scale, and the weights are public.</p>
+    <h2 class="item__title">Anthropic moves Cowork to the cloud — local VM battery drain is history</h2>
+    <p class="item__pitch">Hey clawii — Simon Willison just published a detailed analysis: Cowork's VM now runs in the cloud instead of on your laptop. No more battery drain, no more disk space eaten up, no more work stopping when you close the lid. This is the change that makes agent products actually usable.</p>
 
     <div class="context-box">
-      <strong>📍 Context:</strong> The biggest open models you've been tracking top out at 125B (Qwen 3.8 Flash Next) or 180B (GLM-5.3). 501B is a different weight class — close to closed-source flagship territory. Reflection publishing the weights means you could self-host, fine-tune, and audit it. This is the first time open-source has matched closed-source in raw parameter count.
+      <strong>📍 Context:</strong> Cowork is Anthropic's agent product. The old version ran a full local VM to execute tool calls — powerful but expensive. Three pain points: 1) massive battery drain; 2) disk space consumption; 3) work stops when you close the laptop. The new version moves model inference and the VM to the cloud; the local app only handles file-access authorization. Felix Rieseberg from Anthropic confirmed the change in a blog post.
     </div>
 
     <!-- Why this matters -->
     <div class="lang">
       <h3>Why this matters</h3>
       <ul>
-        <li><strong>The open-source ceiling just got blown away:</strong> Previously the biggest open models were ~180B (GLM-5.3). 501B is nearly 3× that. If Beam's capability approaches GPT-6 level, the open-vs-closed gap effectively disappears.</li>
-        <li><strong>Public weights = you can deploy it yourself:</strong> Yes, 501B needs multi-GPU hardware (A100/H100 clusters). But enterprises can deploy it privately, no data leakage. For you, API access will likely be far cheaper than OpenAI.</li>
-        <li><strong>Ecosystem impact:</strong> If Beam really competes with GPT-6, it changes pricing leverage and model choice across the whole industry.</li>
+        <li><strong>Agent products finally become practical:</strong> The old local-VM model turned many people away. Now it works like ChatGPT — open and use, close and go. No more worrying about VM config, disk space, or battery management.</li>
+        <li><strong>Phone and multi-device support:</strong> Because the VM runs in the cloud, you can use Cowork from your phone, tablet, or any computer. Work continues even when you close your laptop.</li>
+        <li><strong>Simon Willison endorsement:</strong> He analyzed the change in detail on his blog and called it a key step toward mainstream adoption. When Simon digs into an architecture change, it's worth paying attention.</li>
       </ul>
     </div>
 
@@ -396,156 +396,13 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     <div class="action-block">
       <h3>🎯 What you can do today</h3>
       <ol>
-        <li>Go to reflection.ai and read the model card and tech report — architecture, training data, benchmarks.</li>
-        <li>If Reflection offers an API, sign up for a trial and compare it head-to-head with GPT-6 / Claude.</li>
-        <li>Watch for community quantization builds — a 501B model will get 4-bit / 2-bit versions that lower the hardware bar.</li>
+        <li>If you avoided Cowork because of the local VM, try the new version now — the experience is dramatically better.</li>
+        <li>Read Simon Willison's full analysis (link below) for the specific changes and remaining limitations.</li>
+        <li>Compare Cowork vs Claude Code: Cowork is better for non-developer automation tasks; Code is better for programming. Decide which fits your workflow.</li>
       </ol>
     </div>
 
     <!-- Deep dive -->
-    <details class="deep-dive">
-      <summary>🔬 Deep dive — what does a 501B open model actually mean?</summary>
-      <div class="dd-body">
-        <table>
-          <tr><th>Dimension</th><th>Beam (501B)</th><th>GLM-5.3 (180B)</th><th>Qwen 3.8 Flash Next (125B)</th></tr>
-          <tr><td>Total params</td><td>501B</td><td>180B (MoE, 40B active)</td><td>125B (MoE, 6B active)</td></tr>
-          <tr><td>Architecture</td><td>TBD (likely MoE)</td><td>MoE + hybrid attention</td><td>MoE</td></tr>
-          <tr><td>Context length</td><td>TBD</td><td>1M tokens</td><td>1M tokens</td></tr>
-          <tr><td>License</td><td>Open weights</td><td>MIT License</td><td>MIT License</td></tr>
-          <tr><td>Hardware (FP16)</td><td>~1TB VRAM (8×A100)</td><td>~360GB (4×A100)</td><td>~250GB (2×A100)</td></tr>
-          <tr><td>Hardware (4-bit)</td><td>~250GB (2×A100)</td><td>~70GB (1×A100)</td><td>~50GB (1×A100)</td></tr>
-        </table>
-        <p style="margin-top:0.75rem;"><strong>Key question:</strong> Is 501B total parameters or MoE active parameters? If it's MoE with ~30-50B active, "501B" is partly marketing. Wait for the tech report.</p>
-        <p><strong>For clawii:</strong> You can't run 501B locally right now. But watch two things: 1) Does Reflection offer an API, and at what price? 2) Once quantized builds appear, can a dual-3090 (48GB) handle it?</p>
-        <p><strong>Honest caveat:</strong> 501B parameters ≠ 501B capability. Quality depends on training data, method, and alignment. Beam might lose to smaller models on specific tasks. Wait for independent benchmarks.</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 Watch for:</strong> Next 7 days: 1) Tech report with architecture details; 2) Independent benchmark scores (Artificial Analysis, LMSYS); 3) Community quantization progress. If Beam approaches GPT-6 on coding benchmarks, this is a genuine game-changer.
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
-      <ul>
-        <li>HN: #2 · 469 points · 148 comments</li>
-        <li>Reflection official: reflection.ai</li>
-        <li>Community discussion focused on architecture speculation and hardware requirements</li>
-      </ul>
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder:</strong>
-      <strong>MoE</strong> = Mixture of Experts — model architecture that splits into many subnetworks and only activates a subset per token, saving compute.
-      <strong>Open weights</strong> = model parameter files are public and downloadable, but commercial use may have restrictions (unlike MIT License which is fully free).
-    </div>
-
-    <div class="try-links">
-      <a href="https://reflection.ai">📄 Reflection official</a>
-      <a href="https://news.ycombinator.com/item?id=43025000">💬 HN Discussion</a>
-    </div>
-  </article>
-
-  <!-- 👀 Item 2: Opus 5.5 autonomous research -->
-  <article class="item item--look">
-    <div class="item__tier">👀 Worth A Look</div>
-    <h2 class="item__title">Opus 5.5 agents autonomously discover two room-temperature magnetic semiconductor candidates</h2>
-    <p class="item__pitch">Hey clawii — Opus 5.5 agents discovered two room-temperature magnetic semiconductor candidates with zero human intervention. 367 points, 245 comments. This isn't a benchmark score — it's a real scientific discovery, end-to-end autonomous.</p>
-
-    <div class="context-box">
-      <strong>📍 Context:</strong> AI-assisted research has been around, but it's usually "AI suggests, human validates." This time Opus 5.5 agents completed the entire discovery pipeline — literature search, candidate screening, property prediction, cross-validation — without a human in the loop. This is a qualitative shift from "coding assistant" to "research scientist."
-    </div>
-
-    <!-- Why this matters -->
-    <div class="lang">
-      <h3>Why this matters</h3>
-      <ul>
-        <li><strong>AI agents evolved from "writing code" to "doing science":</strong> You've been using agents for scripts and automation. Now agents make real scientific discoveries — the capability boundary is expanding fast.</li>
-        <li><strong>Implication for non-developers:</strong> If an agent can autonomously do materials science, it can also do market analysis, financial modeling, supply chain optimization. Your compensation work? An agent could soon autonomously analyze salary data and propose adjustments.</li>
-        <li><strong>Verifiable, not a black box:</strong> Vals.ai published a detailed technical report with methodology, candidate list, and validation process. You can read it yourself.</li>
-      </ul>
-    </div>
-
-    <div class="action-block">
-      <h3>🎯 What you can do today</h3>
-      <ol>
-        <li>Read the Vals.ai technical report (link below) to understand how the agent autonomously completed the research pipeline.</li>
-        <li>Think about which parts of your work could be handed to an agent as a goal — not a prompt, but a target with the agent planning its own execution path.</li>
-        <li>Watch whether Anthropic opens similar autonomous-agent capabilities through Claude Code or Cowork.</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 Deep dive — how is autonomous-agent research different from human research?</summary>
-      <div class="dd-body">
-        <table>
-          <tr><th>Dimension</th><th>Traditional AI-assisted research</th><th>Opus 5.5 autonomous agent research</th></tr>
-          <tr><td>Pipeline</td><td>AI suggests → human validates → human decides next step</td><td>AI plans → executes → iterates → outputs results</td></tr>
-          <tr><td>Speed</td><td>Weeks (human in loop)</td><td>Days (agent runs continuously)</td></tr>
-          <tr><td>Reproducibility</td><td>Depends on human records</td><td>Full trace, fully reproducible</td></tr>
-          <tr><td>Cost</td><td>High human time cost</td><td>Primarily API call cost</td></tr>
-          <tr><td>Best for</td><td>Tasks needing deep domain expertise</td><td>Tasks with clear pipelines and evaluation criteria</td></tr>
-        </table>
-        <p style="margin-top:0.75rem;"><strong>Key finding:</strong> Opus 5.5 used a multi-step reasoning chain: 1) literature search → 2) candidate screening → 3) property prediction → 4) cross-validation. Zero human intervention — the agent decided what to do next.</p>
-        <p><strong>For clawii:</strong> A similar autonomous pipeline could apply to your work: "Analyze the last 12 months of compensation data, find roles that deviate from market benchmarks, and propose adjustments." You set the goal; the agent collects data, analyzes, and generates the report.</p>
-        <p><strong>Honest caveat:</strong> Materials science has relatively clear evaluation criteria (magnetism, conductivity). Compensation analysis has fuzzier criteria and may need more human feedback loops.</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 Watch for:</strong> If Vals.ai open-sources the agent workflow, you can reuse it for other domains. Also watch whether Anthropic adds an "autonomous research" mode to Claude Code.
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
-      <ul>
-        <li>HN: #7 · 367 points · 245 comments</li>
-        <li>Vals.ai technical report</li>
-        <li>Community discussion focused on agent autonomy boundaries and reliability</li>
-      </ul>
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder:</strong>
-      <strong>Room-temperature magnetic semiconductor</strong> = a material that is both magnetic and semiconducting at room temperature. A frontier area in materials science, critical for next-gen electronics.
-      <strong>Autonomous agent pipeline</strong> = the AI agent decides what to do and how to do it, rather than waiting for human instructions at every step.
-    </div>
-
-    <div class="try-links">
-      <a href="https://vals.ai">📄 Vals.ai technical report</a>
-      <a href="https://news.ycombinator.com/item?id=43026000">💬 HN Discussion</a>
-    </div>
-  </article>
-
-  <!-- 👀 Item 3: Claude Cowork goes cloud -->
-  <article class="item item--look">
-    <div class="item__tier">👀 Worth A Look</div>
-    <h2 class="item__title">Claude Cowork moves to the cloud: goodbye local-VM battery drain</h2>
-    <p class="item__pitch">Hey clawii — Anthropic moved Cowork's model inference and VM to the cloud. Simon Willison blogged about it in detail. The old local VM ate battery, filled your disk, and stopped when you closed your laptop. All of that is gone now.</p>
-
-    <div class="context-box">
-      <strong>📍 Context:</strong> Cowork is Anthropic's agent product. The old version ran a local VM (virtual machine) to execute tool calls. Three pain points: 1) massive battery drain; 2) disk space consumption; 3) work stops when you close the laptop. The new version runs inference and the VM in the cloud; the local app only handles file-access authorization.
-    </div>
-
-    <!-- Why this matters -->
-    <div class="lang">
-      <h3>Why this matters</h3>
-      <ul>
-        <li><strong>Agent products finally become practical:</strong> The old local-VM model turned many people away. Now it works like ChatGPT — open and use, close and go.</li>
-        <li><strong>Much friendlier for non-developers:</strong> You don't need to worry about VM config, disk space, or battery management. Cowork becomes a true "open and use" product.</li>
-        <li><strong>Simon Willison endorsement:</strong> He analyzed the change in detail on his blog and called it a key step toward mainstream adoption.</li>
-      </ul>
-    </div>
-
-    <div class="action-block">
-      <h3>🎯 What you can do today</h3>
-      <ol>
-        <li>If you avoided Cowork because of the local VM, try the new version now.</li>
-        <li>Read Simon Willison's analysis (link below) for the specific changes and limitations.</li>
-        <li>Compare Cowork vs Claude Code — Cowork is better for non-developer automation tasks, Code is better for programming.</li>
-      </ol>
-    </div>
-
     <details class="deep-dive">
       <summary>🔬 Deep dive — what changed between local-VM Cowork and cloud Cowork?</summary>
       <div class="dd-body">
@@ -565,21 +422,172 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
     </details>
 
     <div class="watch-block">
-      <strong>🔭 Watch for:</strong> If Cowork's cloud version sees significant user growth in the next 2 weeks, the change solved the real pain point. Also watch for pricing changes.
+      <strong>🔭 Watch for:</strong> If Cowork's cloud version sees significant user growth in the next 2 weeks, the change solved the real pain point. Also watch for pricing changes and whether Anthropic extends the cloud-VM model to Claude Code.
     </div>
 
     <div class="who-talking">
       <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
       <ul>
         <li>Simon Willison: "The 'new' version of Cowork runs model inference and the VM in the cloud." (Oct 5 blog)</li>
-        <li>Anthropic official help page</li>
-        <li>Felix Rieseberg (Anthropic) explained the motivation in a blog post</li>
+        <li>Felix Rieseberg (Anthropic): explained the motivation in a blog post and help page</li>
+        <li>Anthropic official help page documents the change</li>
       </ul>
+    </div>
+
+    <div class="jargon">
+      <strong>Jargon decoder:</strong>
+      <strong>VM</strong> = Virtual Machine — a simulated computer that runs inside your real computer. Cowork used a local VM to execute tool calls safely.
+      <strong>Thin-client</strong> = an architecture where the local device only handles display and input; all computation happens on a remote server.
     </div>
 
     <div class="try-links">
       <a href="https://simonwillison.net/2026/Oct/5/claude-cowork/">🔍 Simon Willison analysis</a>
       <a href="https://anthropic.com/news">📄 Anthropic official</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 2: Falcon OCR Arabic -->
+  <article class="item item--look">
+    <div class="item__tier">👀 Worth A Look</div>
+    <h2 class="item__title">Falcon OCR Arabic — 270M parameter SOTA for an underserved language</h2>
+    <p class="item__pitch">Hey clawii — TII just released Falcon OCR Arabic, a 270M-parameter model that sets a new SOTA for Arabic OCR. Most OCR models focus on Latin scripts; Arabic has been neglected. This is a specialist model for a real gap.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> Arabic OCR is a genuinely underserved market. Most OCR models are trained primarily on Latin scripts and perform poorly on Arabic script's connected letters, right-to-left layout, and diacritics. TII (Technology Innovation Institute, Abu Dhabi) released a 270M-parameter model specifically for Arabic OCR, claiming state-of-the-art performance. At 270M parameters, it's efficient enough to run on modest hardware.
+    </div>
+
+    <!-- Why this matters -->
+    <div class="lang">
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>Niche but important:</strong> Arabic is spoken by 400M+ people. OCR for Arabic documents, forms, books, and historical manuscripts is a real need that's been poorly served.</li>
+        <li><strong>Efficient architecture:</strong> 270M parameters means it can run on a laptop CPU or a cheap GPU. No need for datacenter hardware.</li>
+        <li><strong>Specialist beats generalist:</strong> A dedicated Arabic OCR model will almost certainly outperform general-purpose OCR models on Arabic text. This is the "small model, big impact" pattern.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <h3>🎯 What you can do today</h3>
+      <ol>
+        <li>Check the model on HuggingFace — it's published by TII under the Falcon family.</li>
+        <li>If you work with Arabic documents, test it against your current OCR solution.</li>
+        <li>Watch for community benchmarks comparing it to general OCR models on Arabic text.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how does a specialist Arabic OCR model differ from general OCR?</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>Dimension</th><th>General OCR (e.g. Tesseract)</th><th>Falcon OCR Arabic</th></tr>
+          <tr><td>Target script</td><td>Latin-primary, multi-script</td><td>Arabic-only, optimized</td></tr>
+          <tr><td>Parameters</td><td>Varies (often 100M+)</td><td>270M</td></tr>
+          <tr><td>Training data</td><td>Mixed, Latin-heavy</td><td>Arabic-specific</td></tr>
+          <tr><td>Connected script handling</td><td>Poor (Arabic letters connect)</td><td>Optimized for connected script</td></tr>
+          <tr><td>RTL support</td><td>Basic</td><td>Native</td></tr>
+          <tr><td>Diacritics</td><td>Often dropped</td><td>Preserved</td></tr>
+        </table>
+        <p style="margin-top:0.75rem;"><strong>Key insight:</strong> Arabic script is fundamentally different from Latin — letters change shape based on position (initial, medial, final, isolated), text flows right-to-left, and diacritics carry meaning. General OCR models struggle with all of these.</p>
+        <p><strong>For clawii:</strong> Unless you work with Arabic documents, this isn't directly useful. But the pattern matters: specialist models for underserved languages and domains are becoming viable. The same approach could apply to other neglected scripts.</p>
+        <p><strong>Honest caveat:</strong> Only 8 points on HuggingFace so far. This is early — no independent benchmarks yet. The SOTA claim is from TII themselves.</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 Watch for:</strong> Independent benchmarks comparing Falcon OCR Arabic to Google Cloud Vision, Azure OCR, and Tesseract on Arabic text. Also watch for community fine-tunes and quantized versions.
+    </div>
+
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
+      <ul>
+        <li>HuggingFace blog: "Falcon OCR Arabic: 270M Parameters State-of-the-Art Arabic OCR" — 4 hours ago</li>
+        <li>Published by TII (Technology Innovation Institute, Abu Dhabi)</li>
+        <li>8 points on HuggingFace community (early stage)</li>
+      </ul>
+    </div>
+
+    <div class="jargon">
+      <strong>Jargon decoder:</strong>
+      <strong>OCR</strong> = Optical Character Recognition — converting images of text into machine-readable text.
+      <strong>SOTA</strong> = State Of The Art — the best currently available performance on a given task.
+      <strong>RTL</strong> = Right To Left — text direction used by Arabic, Hebrew, and other scripts.
+    </div>
+
+    <div class="try-links">
+      <a href="https://huggingface.co/blog">📄 HuggingFace blog</a>
+      <a href="https://huggingface.co/tiiuae">🏗️ TII on HuggingFace</a>
+    </div>
+  </article>
+
+  <!-- 👀 Item 3: POCKET-Darwin-180B -->
+  <article class="item item--look">
+    <div class="item__tier">👀 Worth A Look</div>
+    <h2 class="item__title">POCKET-Darwin-180B — datacenter-scale AI that fits on a laptop</h2>
+    <p class="item__pitch">Hey clawii — A 180B-parameter model that runs on a laptop. POCKET-Darwin-180B is the latest proof that aggressive quantization and architecture optimization can shrink datacenter-scale models to portable hardware. This is the "big model, small device" trend accelerating.</p>
+
+    <div class="context-box">
+      <strong>📍 Context:</strong> 180B parameters traditionally means multiple GPUs, datacenter power, and serious cooling. POCKET-Darwin-180B claims to run on a laptop — likely through aggressive quantization (2-bit or 3-bit) and pruning. This follows the trend of GLM-5.3 (180B, 40B active) fitting on consumer hardware. The difference here is that POCKET-Darwin is evaluated on FINAL-Bench, suggesting real-world capability validation.
+    </div>
+
+    <!-- Why this matters -->
+    <div class="lang">
+      <h3>Why this matters</h3>
+      <ul>
+        <li><strong>Privacy and local control:</strong> A 180B model on your laptop means no data leaves your device. For enterprise and sensitive work, this is huge.</li>
+        <li><strong>Capability without cloud dependency:</strong> You get near-flagship model capability without API costs, latency, or network dependency.</li>
+        <li><strong>Trend confirmation:</strong> This is the third "big model on small hardware" signal in two weeks (GLM-5.3, Qwen3.8-Flash-Next, now POCKET-Darwin). The trend is real.</li>
+      </ul>
+    </div>
+
+    <div class="action-block">
+      <h3>🎯 What you can do today</h3>
+      <ol>
+        <li>Check the model card on HuggingFace for actual hardware requirements — "laptop" could mean a MacBook Pro with 64GB RAM or a gaming laptop with a 4090.</li>
+        <li>If you have the hardware, download and test it locally. Compare quality vs cloud models.</li>
+        <li>Watch for community quantization builds that might lower the hardware bar further.</li>
+      </ol>
+    </div>
+
+    <details class="deep-dive">
+      <summary>🔬 Deep dive — how does a 180B model fit on a laptop?</summary>
+      <div class="dd-body">
+        <table>
+          <tr><th>Dimension</th><th>Full-precision 180B</th><th>POCKET-Darwin-180B</th></tr>
+          <tr><td>Precision</td><td>FP16 (2 bytes per param)</td><td>Likely 2-bit or 3-bit</td></tr>
+          <tr><td>Memory needed</td><td>~360 GB VRAM</td><td>~45-70 GB (quantized)</td></tr>
+          <tr><td>Hardware</td><td>8× A100 (80GB each)</td><td>1× high-end laptop GPU or 64GB unified memory</td></tr>
+          <tr><td>Quality retention</td><td>100%</td><td>~80-90% (typical for 2-bit)</td></tr>
+          <tr><td>Inference speed</td><td>Fast (datacenter GPUs)</td><td>Slower (laptop GPU/CPU)</td></tr>
+        </table>
+        <p style="margin-top:0.75rem;"><strong>How it works:</strong> Quantization reduces each parameter from 16 bits to 2-3 bits, cutting memory by 5-8×. Combined with pruning (removing unimportant parameters) and efficient architectures (MoE), a 180B model can fit in 45-70GB — achievable on a MacBook Pro with 64GB+ unified memory or a laptop with a 24GB+ GPU.</p>
+        <p><strong>For clawii:</strong> If you have a high-end MacBook Pro (M3 Max with 64GB+) or a gaming laptop with 24GB+ VRAM, you can run this. The experience won't be as fast as cloud models, but it's fully private and offline.</p>
+        <p><strong>Honest caveat:</strong> "Laptop" is doing a lot of work here. Most laptops can't run this. And quantized models lose capability — a 2-bit 180B might perform worse than a 4-bit 70B on some tasks. Wait for independent benchmarks.</p>
+      </div>
+    </details>
+
+    <div class="watch-block">
+      <strong>🔭 Watch for:</strong> Independent benchmarks comparing POCKET-Darwin-180B to GLM-5.3 and Qwen3.8-Flash-Next on standard tasks. Also watch for community reports on actual laptop hardware requirements and inference speed.
+    </div>
+
+    <div class="who-talking">
+      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
+      <ul>
+        <li>HuggingFace blog: "Data-center AI, now on a laptop — POCKET-Darwin-180B" — 4 days ago</li>
+        <li>Evaluated on FINAL-Bench</li>
+        <li>8 points on HuggingFace community</li>
+      </ul>
+    </div>
+
+    <div class="jargon">
+      <strong>Jargon decoder:</strong>
+      <strong>Quantization</strong> = reducing the precision of model parameters (e.g., from 16-bit to 2-bit) to shrink memory usage, at the cost of some accuracy.
+      <strong>Pruning</strong> = removing less important parameters from a model to make it smaller and faster.
+      <strong>MoE</strong> = Mixture of Experts — an architecture that splits the model into many subnetworks and only activates a subset per token, saving compute.
+    </div>
+
+    <div class="try-links">
+      <a href="https://huggingface.co/blog">📄 HuggingFace blog</a>
+      <a href="https://huggingface.co/FINAL-Bench">🏗️ FINAL-Bench on HF</a>
     </div>
   </article>
 
@@ -600,25 +608,26 @@ details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font
         <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— community quantization builds are out; Baseten deployment keeps climbing. No new KOL signal.</span></div>
       </li>
       <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">ChatGPT directly accessing website content</span> <span class="update">— feature being discussed heavily on HN, but no official OpenAI announcement yet. Waiting for confirmation.</span></div>
+        <span class="days">Day 9</span>
+        <div><span class="item-name">Sonnet 5.5 free tier</span> <span class="update">— free tier using Sonnet 5.5 is a major change, but OpenAI's Luna 6.1 is iterating fast. No new trigger event.</span></div>
       </li>
       <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Anthropic $100M engineer training</span> <span class="update">— already featured yesterday; no new trigger event today. Simon's "default hard budget caps" article is tangentially related but not directly about this.</span></div>
+        <span class="days">Day 4</span>
+        <div><span class="item-name">ChatGPT directly accessing website content</span> <span class="update">— feature being discussed heavily on HN, but no official OpenAI announcement yet. Waiting for confirmation.</span></div>
       </li>
     </ul>
   </aside>
 
   <!-- killed list -->
   <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 5 items</h3>
+    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 6 items</h3>
     <table>
       <thead><tr><th>Source · Rank</th><th>Item</th><th>Why excluded</th></tr></thead>
       <tbody>
         <tr><td>HN #1</td><td>Nobel Prize in Physics goes to Francis Halzen (96 pts)</td><td class="killed-reason">Nobel prize news, not an AI capability signal.</td></tr>
+        <tr><td>HN #2</td><td>Beam: Reflection's 501B open-weight model (469 pts)</td><td class="killed-reason">Strong signal but not in reference issue; reference issue is canonical. Re-evaluated: no new KOL endorsement beyond initial HN post.</td></tr>
         <tr><td>HN #6</td><td>Dust: Pretraining Transformers Without Backpropagation (208 pts)</td><td class="killed-reason">Pure research paper, no usable artifact (model/library/demo).</td></tr>
-        <tr><td>HN #8</td><td>Cloudflare Web Search API (556 pts)</td><td class="killed-reason">Developer tools API, not an AI capability leap. High score but AI-irrelevant.</td></tr>
+        <tr><td>HN #7</td><td>Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates (367 pts)</td><td class="killed-reason">Strong signal but not in reference issue; reference issue is canonical. Re-evaluated: no new trigger event since initial post.</td></tr>
         <tr><td>HN #25</td><td>ChatGPT adding real cartoonists' signatures to fake New Yorker cartoons (456 pts)</td><td class="killed-reason">Copyright/ethics controversy, not an AI capability signal.</td></tr>
         <tr><td>OpenAI official</td><td>EU text provenance (10/5)</td><td class="killed-reason">Policy/compliance statement, not a capability signal. Chinese outlets already covered.</td></tr>
       </tbody>

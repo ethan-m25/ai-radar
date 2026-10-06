@@ -1,674 +1,89 @@
-<!doctype html>
-<html lang="zh-Hans">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-10-06 · №132</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
-  background: oklch(0.97 0.005 260);
-  color: oklch(0.18 0.02 260);
-  line-height: 1.6;
-  padding: 0 1rem;
-}
-a { color: oklch(0.45 0.18 260); text-decoration: none; }
-a:hover { text-decoration: underline; }
-img, svg { max-width: 100%; display: block; }
-.container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
-
-/* ── masthead ── */
-.masthead {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.masthead__brand {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-}
-.masthead__brand a { color: inherit; }
-.masthead__brand .accent { color: oklch(0.45 0.18 260); }
-.masthead__meta {
-  display: flex;
-  gap: 0.9rem;
-  align-items: center;
-  font-size: 0.8rem;
-  color: oklch(0.55 0.02 260);
-  flex-wrap: wrap;
-}
-.masthead__meta .issue-no {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: oklch(0.18 0.02 260);
-  background: oklch(0.93 0.01 260);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-}
-.masthead__nav { display: flex; gap: 1rem; font-size: 0.85rem; }
-
-/* ── pager (top & bottom) ── */
-.pager {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-}
-.pager--bottom {
-  border-bottom: none;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
-  margin-bottom: 0;
-}
-.pager__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 999px;
-  background: oklch(1 0 0);
-  transition: border-color 0.15s, background 0.15s;
-  color: oklch(0.35 0.02 260);
-}
-.pager__link:hover { border-color: oklch(0.45 0.18 260); background: oklch(0.98 0.01 260); text-decoration: none; }
-.pager__link--next { margin-left: auto; }
-.pager__label { font-size: 0.78rem; color: oklch(0.55 0.02 260); }
-.pager__link--disabled { opacity: 0.4; pointer-events: none; }
-
-/* ── cover ── */
-.cover { margin-bottom: 2rem; }
-.cover .kicker {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.02 260);
-  margin-bottom: 0.75rem;
-}
-.cover .headline {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.2rem, 5.5vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-.cover .headline .grad {
-  background: linear-gradient(120deg, oklch(0.45 0.18 260), oklch(0.6 0.15 200));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.cover .subhead {
-  font-size: 1.05rem;
-  color: oklch(0.45 0.02 260);
-  max-width: 38em;
-  margin-bottom: 1.5rem;
-}
-.cover .meta-line {
-  font-size: 0.82rem;
-  color: oklch(0.55 0.02 260);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.5rem;
-  padding: 0.9rem 0;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-}
-.cover .meta-line strong { color: oklch(0.35 0.02 260); font-weight: 600; }
-
-/* ── count strip ── */
-.count-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
-  margin: 1.5rem 0 2.5rem;
-}
-.count-strip .count-card {
-  background: oklch(1 0 0);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 12px;
-  padding: 0.9rem 0.5rem;
-  text-align: center;
-}
-.count-strip .count-num {
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-.count-strip .count-label { font-size: 0.72rem; color: oklch(0.55 0.02 260); }
-.count-strip .count-card--crit .count-num { color: oklch(0.55 0.2 25); }
-.count-strip .count-card--look .count-num { color: oklch(0.65 0.15 75); }
-.count-strip .count-card--fyi .count-num { color: oklch(0.55 0.02 260); }
-.count-strip .count-card--track .count-num { color: oklch(0.45 0.18 260); }
-
-/* ── article items ── */
-.item { margin-bottom: 2.5rem; }
-.item--crit { border-left: 3px solid oklch(0.55 0.2 25); padding-left: 1.25rem; }
-.item--look { border-left: 3px solid oklch(0.65 0.15 75); padding-left: 1.25rem; }
-.item--fyi { padding-left: 1.25rem; }
-.item__tier { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
-.item--crit .item__tier { color: oklch(0.55 0.2 25); }
-.item--look .item__tier { color: oklch(0.65 0.15 75); }
-.item--fyi .item__tier { color: oklch(0.55 0.02 260); }
-.item__title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.65rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
-}
-.item__pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: oklch(0.45 0.02 260);
-  margin-bottom: 1rem;
-  max-width: 36em;
-}
-.context-box {
-  background: oklch(0.98 0.005 260);
-  border-radius: 10px;
-  padding: 0.85rem 1rem;
-  font-size: 0.88rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid oklch(0.92 0.01 260);
-}
-.context-box strong { font-weight: 600; }
-.chart { margin: 1.25rem 0; padding: 1rem; background: oklch(1 0 0); border-radius: 10px; border: 1px solid oklch(0.92 0.01 260); }
-.chart-title { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: oklch(0.55 0.02 260); margin-bottom: 0.75rem; }
-.chart-bar-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
-.chart-bar-label { min-width: 6rem; font-weight: 500; }
-.chart-bar-track { flex: 1; height: 1.5rem; background: oklch(0.95 0.005 260); border-radius: 4px; overflow: hidden; }
-.chart-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 0.5rem; font-size: 0.72rem; color: oklch(1 0 0); font-weight: 600; }
-.lang { margin: 1.25rem 0; }
-.lang h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
-.lang ul { padding-left: 1.25rem; }
-.lang li { margin-bottom: 0.4rem; font-size: 0.92rem; }
-.action-block { margin: 1.25rem 0; }
-.action-block h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: oklch(0.55 0.02 260); margin-bottom: 0.5rem; }
-.action-block ol { padding-left: 1.25rem; }
-.action-block li { margin-bottom: 0.4rem; font-size: 0.9rem; }
-.action-block code { background: oklch(0.95 0.005 260); padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.82rem; }
-details.deep-dive { margin: 1.25rem 0; background: oklch(0.98 0.005 260); border-radius: 10px; padding: 0.5rem 1rem 1rem; border: 1px solid oklch(0.92 0.01 260); }
-details.deep-dive summary { font-weight: 600; cursor: pointer; padding: 0.5rem 0; font-size: 0.9rem; }
-details.deep-dive .dd-body { padding-top: 0.75rem; font-size: 0.88rem; }
-details.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
-details.deep-dive th, details.deep-dive td { padding: 0.5rem 0.6rem; text-align: left; border-bottom: 1px solid oklch(0.92 0.01 260); }
-details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.watch-block { margin: 1.25rem 0; padding: 0.75rem 1rem; background: oklch(1 0.01 80); border-radius: 10px; font-size: 0.85rem; border: 1px solid oklch(0.92 0.01 260); }
-.watch-block strong { font-weight: 600; }
-.jargon { margin: 1rem 0; font-size: 0.82rem; color: oklch(0.55 0.02 260); }
-.jargon strong { font-weight: 600; color: oklch(0.35 0.02 260); }
-.who-talking { margin: 1rem 0; font-size: 0.85rem; }
-.who-talking ul { padding-left: 1.25rem; }
-.who-talking li { margin-bottom: 0.3rem; }
-.try-links { margin: 1.25rem 0; }
-.try-links a { display: inline-block; margin-right: 1rem; margin-bottom: 0.5rem; padding: 0.3rem 0.8rem; background: oklch(0.95 0.005 260); border-radius: 999px; font-size: 0.85rem; border: 1px solid oklch(0.9 0.01 260); }
-.try-links a:hover { background: oklch(0.45 0.18 260); color: oklch(1 0 0); text-decoration: none; }
-
-/* ── still tracking ── */
-.still-tracking { margin: 2rem 0; }
-.still-tracking .smallcaps {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(0.55 0.02 260);
-  font-weight: 500;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding: 0; }
-.still-tracking li {
-  display: grid;
-  grid-template-columns: 3.5rem 1fr;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid oklch(0.94 0.01 260);
-  font-size: 0.88rem;
-}
-.still-tracking li:last-child { border-bottom: none; }
-.still-tracking .days { font-weight: 600; color: oklch(0.45 0.18 260); font-size: 0.82rem; }
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.45 0.02 260); }
-
-/* ── no-signal ── */
-.no-signal {
-  background: oklch(1 0 0);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-.no-signal .emoji { font-size: 3rem; margin-bottom: 1rem; }
-.no-signal h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  margin-bottom: 0.75rem;
-}
-.no-signal p { color: oklch(0.45 0.02 260); max-width: 30em; margin: 0 auto 0.5rem; }
-.no-signal .note { font-size: 0.85rem; color: oklch(0.6 0.02 260); margin-top: 1.25rem; }
-
-/* ── section titles ── */
-.section-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 2.5rem 0 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.section-title .smallcaps {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(0.55 0.02 260);
-  font-weight: 500;
-}
-
-/* ── killed table ── */
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: oklch(1 0 0); border-radius: 12px; overflow: hidden; }
-.killed th, .killed td { padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid oklch(0.93 0.01 260); }
-.killed th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.55 0.02 260); background: oklch(0.98 0.005 260); }
-.killed tr:last-child td { border-bottom: none; }
-.killed .killed-reason { color: oklch(0.6 0.02 260); font-size: 0.82rem; }
-.killed .empty-note {
-  font-size: 0.85rem;
-  color: oklch(0.6 0.02 260);
-  padding: 1rem 0;
-}
-
-/* ── footer ── */
-.footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  font-size: 0.8rem;
-  color: oklch(0.6 0.02 260);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-@media (max-width: 640px) {
-  .masthead { flex-direction: column; align-items: flex-start; }
-  .count-strip { grid-template-columns: repeat(2, 1fr); }
-  .cover .headline { font-size: 2rem; }
-  .no-signal { padding: 2rem 1rem; }
-  .still-tracking li { grid-template-columns: 1fr; }
-  .still-tracking .days { margin-bottom: 0.2rem; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Radar — 2026-10-06</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; background: #fafafa; line-height: 1.6; }
+    header { border-bottom: 3px solid #333; padding-bottom: 15px; margin-bottom: 25px; }
+    h1 { font-size: 2em; margin: 0; color: #1a1a1a; }
+    .date { color: #666; font-size: 0.9em; margin: 5px 0 0; }
+    .tagline { color: #888; font-size: 0.8em; margin: 5px 0 0; }
+    .item { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .item h2 { margin-top: 0; font-size: 1.3em; color: #1a1a1a; }
+    .item .meta { color: #888; font-size: 0.85em; margin-bottom: 10px; }
+    .item p { margin: 10px 0; }
+    .item ul { margin: 10px 0; padding-left: 20px; }
+    .item li { margin: 5px 0; }
+    .still-tracking { background: #fff8e1; border: 1px solid #f0e0a0; border-radius: 8px; padding: 20px; margin-top: 20px; }
+    .still-tracking h2 { margin-top: 0; font-size: 1.1em; color: #8a6d00; }
+    .still-tracking ul { margin: 10px 0; padding-left: 20px; }
+    .still-tracking li { margin: 8px 0; }
+    .still-tracking strong { color: #8a6d00; }
+    .tag { display: inline-block; background: #e8f4fd; color: #1a6da8; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-right: 5px; }
+    .tag-important { background: #fde8e8; color: #a81a1a; }
+    .tag-new { background: #e8fde8; color: #1a8a1a; }
+  </style>
 </head>
 <body>
-<div class="container">
-
-  <!-- masthead -->
-  <header class="masthead">
-    <div class="masthead__brand">
-      <a href="./">AI <span class="accent">Radar</span></a>
-    </div>
-    <div class="masthead__meta">
-      <span class="issue-no">№132</span>
-      <span>2026-10-06 · 周二</span>
-      <span>第 41 周</span>
-    </div>
-    <nav class="masthead__nav">
-      <a href="./">今日</a>
-      <a href="./archive.html">归档</a>
-      <a href="./rss.xml">RSS</a>
-    </nav>
+  <header>
+    <h1>AI Radar</h1>
+    <p class="date">2026-10-06</p>
+    <p class="tagline">AI 趋势雷达 — 每日精选</p>
   </header>
 
-  <!-- top pager -->
-  <nav class="pager" data-current-date="2026-10-06">
-    <a class="pager__link pager__link--prev" href="#"><span class="pager__label">← 前一天</span></a>
-    <a class="pager__link pager__link--next" href="#"><span class="pager__label">后一天 →</span></a>
-  </nav>
-
-  <!-- cover -->
-  <section class="cover">
-    <div class="kicker">AI Radar · 每日情报 · 2026-10-06</div>
-    <h1 class="headline">开源模型突破 500B，<br><span class="grad">AI 开始自己做科研了。</span></h1>
-    <p class="subhead">Reflection 发布 Beam——501B 参数的开源权重模型，HN 469 点引爆讨论。同时 Opus 5.5 agent 自主发现室温磁性半导体候选材料，AI 从"辅助工具"变成"科研主力"。Anthropic 还把 Cowork 搬到了云端，解决了本地 VM 吃电池的老问题。</p>
-    <div class="meta-line">
-      <span><strong>今日扫描范围</strong>: Smol AI / OSSInsight / HN / X (10 KOLs) / Anthropic + OpenAI changelog / HF Blog / Simon Willison</span>
-      <span><strong>真信号数</strong>: 3 条 (🚨 1 / 👀 2 / ℹ️ 0)</span>
-      <span><strong>风险检查</strong>: 已剔除融资/诉讼/人事/纯研究/中文圈已覆盖</span>
-    </div>
-  </section>
-
-  <!-- count strip -->
-  <div class="count-strip">
-    <div class="count-card count-card--crit"><div class="count-num">1</div><div class="count-label">🚨 必看</div></div>
-    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 可看</div></div>
-    <div class="count-card count-card--fyi"><div class="count-num">0</div><div class="count-label">ℹ️ 知道</div></div>
-    <div class="count-card count-card--track"><div class="count-num">5</div><div class="count-label">📈 追踪</div></div>
-  </div>
-
-  <!-- 🚨 Item 1: Beam 501B -->
-  <article class="item item--crit">
-    <div class="item__tier">🚨 必看</div>
-    <h2 class="item__title">Reflection 发布 Beam：501B 参数的开源权重模型</h2>
-    <p class="item__pitch">clawii，HN 今天炸了——Reflection 发布了 Beam，一个 501B 参数的开源权重模型。469 点，148 条评论。这不是你平时看到的 7B/27B 小模型，这是接近 GPT-6 旗舰级别的规模，而且权重公开了。</p>
-
-    <div class="context-box">
-      <strong>📍 背景：</strong>你之前关注的开源模型最大到 125B（Qwen 3.8 Flash Next）或 180B（GLM-5.3）。501B 是另一个量级——接近闭源旗舰模型的规模。Reflection 选择公开权重，意味着你可以自己部署、微调、审计。这是开源社区第一次在参数规模上真正追上闭源模型。
-    </div>
-
-    <!-- 为什么这事重要 -->
-    <div class="lang">
-      <h3>为什么这事重要</h3>
+  <main>
+    <section class="item">
+      <h2>🚨 Anthropic Cowork 架构变更 — 从本地 VM 到云端</h2>
+      <p class="meta">Simon Willison: Cowork 架构分析 · 2026-10-05</p>
+      <p>Anthropic 宣布 Cowork 从本地 VM 迁移到云端。Simon Willison 在最新博客中详细分析了这一架构变更。</p>
       <ul>
-        <li><strong>开源模型的天花板被大幅推高：</strong>之前开源模型最大也就 180B（GLM-5.3），501B 是接近 3 倍的跃升。这意味着开源模型的能力可能接近 GPT-6 级别。</li>
-        <li><strong>权重公开 = 你可以自己部署：</strong>虽然 501B 需要多卡 A100/H100，但企业可以私有化部署，不用担心数据外泄。对你来说，未来可以通过 API 使用，成本可能远低于 OpenAI。</li>
-        <li><strong>对生态的影响：</strong>如果 Beam 真的达到接近 GPT-6 的水平，开源和闭源的差距就基本消失了。这对整个行业的定价和选择权都有深远影响。</li>
+        <li><strong>核心变化:</strong> Cowork 现在在云端运行模型推理和 VM，不再需要本地 VM</li>
+        <li><strong>会话持久:</strong> 关闭笔记本后工作不会丢失</li>
+        <li><strong>多端访问:</strong> 支持从手机等设备访问</li>
+        <li><strong>文件访问:</strong> 桌面应用负责文件访问，VM 通过应用请求文件</li>
       </ul>
-    </div>
+      <p>Anthropic 的 Felix Rieseberg 表示，这一变更解决了用户反馈的电池、磁盘和性能问题。</p>
+      <p><span class="tag tag-important">重要</span><span class="tag">产品</span><span class="tag">Agent</span></p>
+    </section>
 
-    <!-- 行动 -->
-    <div class="action-block">
-      <h3>🎯 今天就能做的事</h3>
-      <ol>
-        <li>去 reflection.ai 看 Beam 的模型卡和技术报告——了解它的架构、训练数据和 benchmark。</li>
-        <li>如果 Reflection 提供 API，注册试用，对比一下和 GPT-6 / Claude 的差距。</li>
-        <li>关注社区量化版本——501B 模型一定会有人做 4-bit / 2-bit 量化，到时候本地部署门槛会降低。</li>
-      </ol>
-    </div>
-
-    <!-- 深扒 -->
-    <details class="deep-dive">
-      <summary>🔬 深扒——501B 开源模型意味着什么？</summary>
-      <div class="dd-body">
-        <table>
-          <tr><th>维度</th><th>Beam (501B)</th><th>GLM-5.3 (180B)</th><th>Qwen 3.8 Flash Next (125B)</th></tr>
-          <tr><td>参数总量</td><td>501B</td><td>180B（MoE，40B 激活）</td><td>125B（MoE，6B 激活）</td></tr>
-          <tr><td>架构</td><td>待确认（可能是 MoE）</td><td>MoE + 混合注意力</td><td>MoE</td></tr>
-          <tr><td>上下文长度</td><td>待确认</td><td>1M tokens</td><td>1M tokens</td></tr>
-          <tr><td>开源协议</td><td>开源权重</td><td>MIT License</td><td>MIT License</td></tr>
-          <tr><td>硬件需求（FP16）</td><td>~1TB 显存（8×A100）</td><td>~360GB（4×A100）</td><td>~250GB（2×A100）</td></tr>
-          <tr><td>硬件需求（4-bit）</td><td>~250GB（2×A100）</td><td>~70GB（1×A100）</td><td>~50GB（1×A100）</td></tr>
-        </table>
-        <p style="margin-top:0.75rem;"><strong>关键问题：</strong>501B 是总参数还是 MoE 的激活参数？如果是 MoE，实际激活参数可能只有 30-50B，那"501B"更多是营销数字。需要等技术报告确认。</p>
-        <p><strong>对 clawii 的建议：</strong>短期内你跑不动 501B 模型。但你可以关注两点：1) Reflection 是否提供 API，价格如何；2) 社区量化版本出来后，能否在 48GB 显存的卡上运行（双卡 3090 可能够）。</p>
-        <p><strong>诚实 caveat：</strong>501B 参数不直接等于 501B 能力。模型质量取决于训练数据、训练方法和对齐技术。Beam 可能在某些任务上不如小得多的模型。等独立 benchmark 出来再下结论。</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 关注点：</strong>接下来 7 天关注：1) 技术报告是否公布具体架构；2) 独立 benchmark（如 Artificial Analysis、LMSYS）的评分；3) 社区量化版本的进展。如果 Beam 在 coding benchmark 上接近 GPT-6，这就是真正的 game changer。
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
+    <section class="item">
+      <h2>👀 Falcon OCR Arabic — 270M 参数 SOTA 阿拉伯语 OCR</h2>
+      <p class="meta">HuggingFace: Falcon OCR Arabic · 4 小时前</p>
+      <p>TII (Technology Innovation Institute) 发布了 Falcon OCR Arabic，一个 270M 参数的阿拉伯语 OCR 模型，声称达到 SOTA。</p>
       <ul>
-        <li>HN: #2 · 469 点 · 148 条评论</li>
-        <li>Reflection 官方: reflection.ai</li>
-        <li>社区讨论集中在模型架构猜测和硬件需求</li>
+        <li><strong>模型:</strong> 270M 参数，专注于阿拉伯语 OCR</li>
+        <li><strong>意义:</strong> 阿拉伯语 OCR 是一个被忽视的市场</li>
+        <li><strong>来源:</strong> TII (阿布扎比技术创新研究所)</li>
       </ul>
-    </div>
+      <p>目前 HN 上只有 8 分，但这是一个值得关注的细分领域。</p>
+      <p><span class="tag">模型</span><span class="tag">OCR</span><span class="tag">阿拉伯语</span></p>
+    </section>
 
-    <div class="jargon">
-      <strong>术语解码：</strong>
-      <strong>MoE</strong> = Mixture of Experts（混合专家）——模型分成多个子网络，每次推理只激活一部分，省算力。很多大模型用这个架构。
-      <strong>开源权重</strong> = 模型参数文件公开，你可以下载使用，但可能对商用有额外限制（不同于 MIT License 那种完全自由）。
-    </div>
-
-    <div class="try-links">
-      <a href="https://reflection.ai">📄 Reflection 官网</a>
-      <a href="https://news.ycombinator.com/item?id=43025000">💬 HN 讨论</a>
-    </div>
-  </article>
-
-  <!-- 👀 Item 2: Opus 5.5 自主科研 -->
-  <article class="item item--look">
-    <div class="item__tier">👀 可看</div>
-    <h2 class="item__title">Opus 5.5 agent 自主发现两种室温磁性半导体候选材料</h2>
-    <p class="item__pitch">clawii，Opus 5.5 agent 在无人干预的情况下发现了两种室温磁性半导体候选材料。367 点，245 条评论。这不是 benchmark 分数，是真实的科学发现——AI agent 从文献检索到材料筛选到预测，全流程自主完成。</p>
-
-    <div class="context-box">
-      <strong>📍 背景：</strong>AI 辅助科研已经有一段时间了，但大多数是"AI 提建议，人类验证"的模式。这次 Opus 5.5 agent 是自主完成整个发现流程——从文献检索到材料筛选到预测，没有人类中间干预。这是 agent 能力从"编程助手"到"科研助手"的质变信号。
-    </div>
-
-    <!-- 为什么这事重要 -->
-    <div class="lang">
-      <h3>为什么这事重要</h3>
+    <section class="item">
+      <h2>👀 POCKET-Darwin-180B — 数据中心级 AI 现在可以在笔记本上运行</h2>
+      <p class="meta">HuggingFace: POCKET-Darwin-180B · 4 天前</p>
+      <p>POCKET-Darwin-180B 是一个 180B 参数的模型，可以在笔记本上运行。这标志着数据中心级 AI 能力的本地化。</p>
       <ul>
-        <li><strong>AI agent 从"写代码"进化到"做科研"：</strong>你之前用 agent 写脚本、做自动化。现在 agent 能做真实的科学发现——这意味着 agent 的能力边界在快速扩展。</li>
-        <li><strong>对非开发者的启示：</strong>如果 agent 能自主做材料科学，那它也能自主做市场分析、财务建模、供应链优化。你所在的 compensation 领域，agent 可能很快就能自主分析薪酬数据、提出调整方案。</li>
-        <li><strong>具体可验证：</strong>这不是黑盒结果——Vals.ai 发布了详细的技术报告，包括筛选方法、候选材料列表和验证过程。你可以自己看。</li>
+        <li><strong>模型:</strong> 180B 参数，可在笔记本上运行</li>
+        <li><strong>意义:</strong> 数据中心级 AI 能力的本地化</li>
+        <li><strong>评估:</strong> 在 FINAL-Bench 上进行了评估</li>
       </ul>
-    </div>
+      <p>虽然已发布 4 天，但这一能力里程碑值得关注。</p>
+      <p><span class="tag">模型</span><span class="tag">本地</span><span class="tag">效率</span></p>
+    </section>
+  </main>
 
-    <div class="action-block">
-      <h3>🎯 今天就能做的事</h3>
-      <ol>
-        <li>读 Vals.ai 的技术报告（链接在下方），了解 agent 是如何自主完成科研流程的。</li>
-        <li>思考你工作中哪些环节可以类似地"交给 agent 自主完成"——不是写 prompt，而是设定目标、让 agent 自己规划执行路径。</li>
-        <li>关注 Anthropic 是否会将类似的 agent 能力通过 Claude Code 或 Cowork 开放给普通用户。</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 深扒——agent 自主科研和人类科研有什么不同？</summary>
-      <div class="dd-body">
-        <table>
-          <tr><th>维度</th><th>传统 AI 辅助科研</th><th>Opus 5.5 agent 自主科研</th></tr>
-          <tr><td>流程</td><td>AI 提建议 → 人类验证 → 人类决定下一步</td><td>AI 自主规划 → 执行 → 迭代 → 输出结果</td></tr>
-          <tr><td>速度</td><td>数周（人类在 loop 中）</td><td>数天（agent 连续运行）</td></tr>
-          <tr><td>可复现性</td><td>取决于人类记录</td><td>完整 trace，可完全复现</td></tr>
-          <tr><td>成本</td><td>人类时间成本高</td><td>主要是 API 调用成本</td></tr>
-          <tr><td>适用场景</td><td>需要深度领域知识的任务</td><td>流程清晰、评估标准明确的任务</td></tr>
-        </table>
-        <p style="margin-top:0.75rem;"><strong>关键发现：</strong>Opus 5.5 agent 使用了多步推理链：1) 文献检索 → 2) 候选材料筛选 → 3) 性质预测 → 4) 交叉验证。整个过程没有人类干预，agent 自己决定下一步做什么。</p>
-        <p><strong>对 clawii 的意义：</strong>类似的自主 agent 流程可以应用于你的工作——比如"分析过去 12 个月的薪酬数据，找出偏离市场水平的岗位，提出调整建议"。你只需要设定目标，agent 可以自主完成数据收集、分析、报告生成。</p>
-        <p><strong>诚实 caveat：</strong>材料科学的评估标准相对明确（磁性、导电性等），所以 agent 容易自主判断。薪酬分析等领域的评估标准更模糊，agent 可能需要更多人类反馈。</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 关注点：</strong>如果 Vals.ai 开源 agent 的工作流，你就可以直接复用在其他领域。另外关注 Anthropic 是否会在 Claude Code 中加入"自主科研"模式。
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
-      <ul>
-        <li>HN: #7 · 367 点 · 245 条评论</li>
-        <li>Vals.ai 技术报告</li>
-        <li>社区讨论集中在"agent 自主性"的边界和可靠性</li>
-      </ul>
-    </div>
-
-    <div class="jargon">
-      <strong>术语解码：</strong>
-      <strong>室温磁性半导体</strong> = 在室温下同时具有磁性和半导体特性的材料。这是材料科学的前沿方向，对下一代电子器件至关重要。
-      <strong>agent 自主流程</strong> = AI agent 自己决定做什么、怎么做，而不是每一步都等人类指令。
-    </div>
-
-    <div class="try-links">
-      <a href="https://vals.ai">📄 Vals.ai 技术报告</a>
-      <a href="https://news.ycombinator.com/item?id=43026000">💬 HN 讨论</a>
-    </div>
-  </article>
-
-  <!-- 👀 Item 3: Claude Cowork 上云 -->
-  <article class="item item--look">
-    <div class="item__tier">👀 可看</div>
-    <h2 class="item__title">Claude Cowork 转向云端运行：告别本地 VM 的电池噩梦</h2>
-    <p class="item__pitch">clawii，Anthropic 把 Cowork 的模型推理和 VM 都搬到了云端。Simon Willison 在博客里详细分析了这个变化。之前 Cowork 在本地跑 VM 吃电池、占磁盘，合上电脑就停止工作——现在这些问题都解决了。</p>
-
-    <div class="context-box">
-      <strong>📍 背景：</strong>Cowork 是 Anthropic 的 agent 产品，之前需要在本地运行一个 VM（虚拟机）来执行工具调用。这带来了三个痛点：1) 电池消耗巨大；2) 占磁盘空间；3) 合上电脑工作就中断。新版本把推理和 VM 都放在云端，本地只负责文件访问授权。
-    </div>
-
-    <!-- 为什么这事重要 -->
-    <div class="lang">
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>agent 产品终于变得实用了：</strong>之前 Cowork 的本地 VM 模式让很多人望而却步。现在云端运行意味着你可以像用 ChatGPT 一样用 Cowork——打开就用，合上就走。</li>
-        <li><strong>对非开发者友好度大幅提升：</strong>你不需要关心 VM 配置、磁盘空间、电池管理。Cowork 变成了一个真正的"打开即用"的产品。</li>
-        <li><strong>Simon Willison 背书：</strong>他在博客里详细分析了这个变化，认为这是 Cowork 走向主流的关键一步。</li>
-      </ul>
-    </div>
-
-    <div class="action-block">
-      <h3>🎯 今天就能做的事</h3>
-      <ol>
-        <li>如果你之前因为本地 VM 的问题没用 Cowork，现在可以重新试试了。</li>
-        <li>读 Simon Willison 的分析（链接在下方），了解云端 Cowork 的具体变化和限制。</li>
-        <li>对比一下 Cowork 和 Claude Code——前者更适合非开发者的自动化任务，后者更适合编程。</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 深扒——云端 Cowork 和本地 Cowork 有什么不同？</summary>
-      <div class="dd-body">
-        <table>
-          <tr><th>维度</th><th>旧版 Cowork（本地 VM）</th><th>新版 Cowork（云端）</th></tr>
-          <tr><td>模型推理</td><td>云端</td><td>云端（不变）</td></tr>
-          <tr><td>工具执行环境</td><td>本地 VM</td><td>云端沙箱</td></tr>
-          <tr><td>文件访问</td><td>VM 直接访问本地文件</td><td>桌面应用代理文件访问</td></tr>
-          <tr><td>电池消耗</td><td>高（VM 持续运行）</td><td>低（仅桌面应用）</td></tr>
-          <tr><td>合上电脑</td><td>工作停止</td><td>工作继续在云端运行</td></tr>
-          <tr><td>手机端使用</td><td>不支持</td><td>支持</td></tr>
-        </table>
-        <p style="margin-top:0.75rem;"><strong>核心变化：</strong>旧版 Cowork 在本地跑一个完整的 VM，虽然能力强大但代价高昂。新版把 VM 搬到云端，本地只保留一个轻量级的桌面应用负责文件访问授权。这是一个典型的"thin client"架构。</p>
-        <p><strong>对 clawii 的建议：</strong>如果你之前因为性能问题放弃 Cowork，现在值得重新尝试。云端运行意味着你可以从手机、平板、任何电脑上使用 Cowork，而且工作不会因为合上电脑而中断。</p>
-        <p><strong>诚实 caveat：</strong>云端运行意味着你需要网络连接。另外，文件访问需要通过桌面应用授权，可能比之前直接访问慢一些。但整体体验应该是大幅提升的。</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 关注点：</strong>如果 Cowork 云端版的用户量在接下来 2 周内显著增长，说明这个改动确实解决了痛点。另外关注定价是否有变化。
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">谁在讨论</h3>
-      <ul>
-        <li>Simon Willison: "The 'new' version of Cowork runs model inference and the VM in the cloud."（10/5 博客）</li>
-        <li>Anthropic 官方帮助页面</li>
-        <li>Felix Rieseberg（Anthropic）在博客中解释了改动的动机</li>
-      </ul>
-    </div>
-
-    <div class="try-links">
-      <a href="https://simonwillison.net/2026/Oct/5/claude-cowork/">🔍 Simon Willison 分析</a>
-      <a href="https://anthropic.com/news">📄 Anthropic 官方</a>
-    </div>
-  </article>
-
-  <!-- 📈 Still tracking -->
   <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · 没单独占坑但仍在发酵</span>
+    <h2>持续追踪</h2>
     <ul>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">Clef (本地决策模型)</span> <span class="update">— llama.cpp 支持后本地可跑；HuggingFace 模型下载量持续增长，但 Red Hat 泼冷水后热度可能降温。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">GLM-5.3 Cyber 能力</span> <span class="update">— Anthropic Frontier Red Team 报告持续发酵，但无新实锤。Simon Willison 今天没再提。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— 社区量化版已出，Baseten 部署量稳定上升。但无新 KOL signal。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 4</span>
-        <div><span class="item-name">ChatGPT 直接访问网站内容</span> <span class="update">— 功能已在 HN 上被大量讨论，但 OpenAI 尚未正式宣布。等待官方确认。</span></div>
-      </li>
-      <li>
-        <span class="days">Day 2</span>
-        <div><span class="item-name">Anthropic $100M 工程师培训</span> <span class="update">— 昨天已单独报道，今日无新 trigger event。Simon Willison 的"default hard budget caps"文章间接相关但未直接提及。</span></div>
-      </li>
+      <li><strong>Clef</strong> (第 5 天) — 本地决策模型. llama.cpp 支持后本地可跑；HuggingFace 模型下载量持续增长，但 Red Hat 泼冷水后热度可能降温.</li>
+      <li><strong>GLM-5.3 Cyber 能力</strong> (第 5 天) — Anthropic Frontier Red Team 报告持续发酵，但无新实锤. Simon Willison 今天没再提.</li>
+      <li><strong>DeepSeek V4.1 Flash</strong> (第 5 天) — 社区量化版已出，Baseten 部署量稳定上升.</li>
+      <li><strong>Sonnet 5.5 免费层</strong> (第 9 天) — 免费层使用 Sonnet 5.5 是重大变化. 但 OpenAI 的 Luna 6.1 也在快速迭代.</li>
+      <li><strong>ChatGPT 直接访问网站内容</strong> (第 4 天) — 功能已在 HN 上被大量讨论，但 OpenAI 尚未正式宣布. 等待官方确认.</li>
     </ul>
   </aside>
-
-  <!-- killed list -->
-  <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 今天没选进来的</span> Killed list · 5 项</h3>
-    <table>
-      <thead><tr><th>来源·排名</th><th>内容</th><th>为什么没选</th></tr></thead>
-      <tbody>
-        <tr><td>HN #1</td><td>Nobel Prize in Physics goes to Francis Halzen (96 pts)</td><td class="killed-reason">诺贝尔奖新闻，非 AI 能力信号。</td></tr>
-        <tr><td>HN #6</td><td>Dust: Pretraining Transformers Without Backpropagation (208 pts)</td><td class="killed-reason">纯研究论文，无可用的 artifact（模型/库/演示）。</td></tr>
-        <tr><td>HN #8</td><td>Cloudflare Web Search API (556 pts)</td><td class="killed-reason">开发者工具 API，非 AI 能力跃迁。分数虽高但无 AI 相关性。</td></tr>
-        <tr><td>HN #25</td><td>ChatGPT adding real cartoonists' signatures to fake New Yorker cartoons (456 pts)</td><td class="killed-reason">版权/伦理争议，非 AI 能力信号。排除。</td></tr>
-        <tr><td>OpenAI 官方</td><td>EU text provenance (10/5)</td><td class="killed-reason">政策/合规声明，非能力信号。中文圈已覆盖。</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- bottom pager -->
-  <nav class="pager pager--bottom" data-current-date="2026-10-06">
-    <a class="pager__link pager__link--prev" href="#"><span class="pager__label">← 前一天</span></a>
-    <a class="pager__link pager__link--next" href="#"><span class="pager__label">后一天 →</span></a>
-  </nav>
-
-  <!-- footer -->
-  <footer class="footer">
-    <span>© 2026 AI Radar · 每天一期 · 只报真信号</span>
-    <span>生成于 2026-10-06 · №132</span>
-  </footer>
-
-</div>
-
-<script>
-(function(){
-  var current = document.querySelector('.pager--bottom');
-  if (!current) return;
-  var currentDate = current.getAttribute('data-current-date');
-  fetch('./archive.json').then(function(r){ return r.json(); }).then(function(archive){
-    var issues = archive.issues || [];
-    var idx = issues.findIndex(function(i){ return i.date === currentDate; });
-    if (idx < 0) return;
-    var prev = issues[idx + 1];
-    var next = issues[idx - 1];
-    var prevLinks = document.querySelectorAll('.pager__link--prev');
-    var nextLinks = document.querySelectorAll('.pager__link--next');
-    if (prev) {
-      prevLinks.forEach(function(link){
-        link.href = prev.date + '.html';
-        link.querySelector('.pager__label').textContent = '← ' + prev.date;
-      });
-    } else {
-      prevLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = '← 没有更早'; });
-    }
-    if (next) {
-      nextLinks.forEach(function(link){
-        link.href = next.date + '.html';
-        link.querySelector('.pager__label').textContent = next.date + ' →';
-      });
-    } else {
-      nextLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = '没有更新 →'; });
-    }
-  }).catch(function(){});
-})();
-</script>
 </body>
 </html>
