@@ -21,7 +21,7 @@ mkdir -p "$OUTPUT_DIR" "$LOG_DIR"
 # and skip if today's published digest already exists.
 if [[ $# -eq 0 ]]; then
   HOUR=$(date +%H)
-  if [[ "$HOUR" -lt 7 ]]; then
+  if (( 10#$HOUR < 7 )); then
     echo "[$(date)] Before 07:00; skipping catch-up check." | tee -a "$LOG_FILE"
     exit 0
   fi

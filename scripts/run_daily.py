@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""AI Radar — Daily digest orchestrator (OpenRouter + DeepSeek V4 Flash).
+"""AI Radar — Daily digest orchestrator.
 
-Zero dependencies on Claude Code CLI. Uses OpenClaw's stored credentials
-(OPENROUTER_API_KEY from ~/.openclaw/.env, Discord bot token from openclaw.json)
-to run the full pipeline:
-  1. Fetch sources
-  2. Call OpenRouter / DeepSeek V4 Flash to generate HTML
-  3. Write to docs/
+Pipeline:
+  1. Fetch sources (incl. X builders feed from follow-builders)
+  2. Ask the model for a structured JSON digest (backends in llm.py:
+     OpenCode Go → Claude CLI → OpenRouter, configurable via AIRADAR_BACKENDS)
+  3. Render JSON into the fixed HTML template (render.py) and write to docs/
   4. git commit + push (GitHub Pages auto-builds)
   5. Wait for build
   6. Discord post with link + .html attachment
@@ -15,6 +14,8 @@ Usage:
   python3 run_daily.py              # normal run, today
   python3 run_daily.py --test       # writes to *-test.html, doesn't overwrite index
   python3 run_daily.py --no-discord # skip Discord post
+
+Any failure posts an alert to the Discord channel instead of failing silently.
 """
 from __future__ import annotations
 
@@ -31,9 +32,14 @@ import uuid
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import llm  # noqa: E402
+import render  # noqa: E402
+
 # ────────────────────────── paths and config ──────────────────────────
 RADAR = Path.home() / "ai-radar"
-PROMPT_FILE = RADAR / "prompts" / "digest.md"
+PROMPT_FILE = RADAR / "prompts" / "digest.md"  # weekly still builds on this
+DAILY_PROMPT_FILE = RADAR / "prompts" / "daily_json.md"
 OUTPUT_DIR = RADAR / "docs"
 OUTPUT_RAW_DIR = RADAR / "output"
 ARCHIVE_FILE = OUTPUT_DIR / "archive.json"
@@ -45,7 +51,8 @@ CLAUDE_DISCORD_ENV = Path.home() / ".claude" / "channels" / "discord" / ".env"
 
 DISCORD_CHANNEL_ID = "1484904539952775351"
 GITHUB_PAGES_URL = "https://ethan-m25.github.io/ai-radar/"
-MODEL = "deepseek/deepseek-v4-flash"
+MODEL = "see AIRADAR_BACKENDS (llm.py)"
+X_BUILDERS_FEED = "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-x.json"
 
 # Sources to fetch. Keep this list source-heavy and primary-source biased; the
 # prompt still applies the hard cap and exclusion rules so coverage expansion
@@ -110,6 +117,11 @@ SOURCES = {
         "url": "https://simonwillison.net/tags/ai/",
         "label": "simonwillison.net/tags/ai (practitioner/KOL signal)",
         "max_chars": 8000,
+    },
+    "x_builders": {
+        "url": X_BUILDERS_FEED,
+        "label": "X posts from ~26 top AI builders, last 24h (via follow-builders feed; likes/RT = engagement)",
+        "max_chars": 12000,
     },
 }
 
@@ -181,7 +193,7 @@ def load_secrets() -> dict:
             secrets["DISCORD_BOT_TOKEN"] = tok
             secrets["DISCORD_BOT_SOURCE"] = "openclaw (Clawii)"
 
-    missing = [k for k in ("OPENROUTER_API_KEY", "DISCORD_BOT_TOKEN") if not secrets.get(k)]
+    missing = [k for k in ("DISCORD_BOT_TOKEN",) if not secrets.get(k)]
     if missing:
         log(f"❌ missing secrets: {missing}")
         sys.exit(2)
@@ -272,6 +284,25 @@ def hn_front_page_for_date(date_str: str) -> str:
     return "\n".join(rows) if rows else f"[no HN front-page records found for {date_str}]"
 
 
+def format_x_builders(raw: str) -> str:
+    """Flatten follow-builders' feed-x.json into compact, engagement-sorted lines."""
+    feed = json.loads(raw)
+    tweets = []
+    for person in feed.get("x", []):
+        for t in person.get("tweets", []):
+            text = " ".join(str(t.get("text", "")).split())
+            if not text:
+                continue
+            tweets.append((
+                int(t.get("likes") or 0),
+                f"- @{person.get('handle')} ({person.get('name')}) "
+                f"[{t.get('likes', 0)} likes, {t.get('retweets', 0)} RT] {text[:400]} {t.get('url', '')}",
+            ))
+    tweets.sort(key=lambda x: -x[0])
+    header = f"feed generated {feed.get('generatedAt', '?')}, {len(tweets)} posts"
+    return "\n".join([header] + [line for _, line in tweets])
+
+
 def fetch_sources(source_date: str | None = None) -> dict:
     out = {}
     for name, cfg in SOURCES.items():
@@ -296,24 +327,18 @@ def fetch_sources(source_date: str | None = None) -> dict:
             out[name] = f"[historical snapshot unavailable for {source_date}; ignore current live ranking for backfill]"
             log(f"  skip {name}: no reliable historical snapshot for {source_date}")
             continue
+        if source_date and name == "x_builders":
+            out[name] = f"[historical snapshot unavailable for {source_date}]"
+            continue
         log(f"  fetch {name}: {url}")
         try:
             raw = http_get(url)
-            out[name] = strip_html(raw)
+            out[name] = format_x_builders(raw) if name == "x_builders" else strip_html(raw)
             log(f"    → {len(out[name])} chars")
         except Exception as e:
             out[name] = f"[fetch failed: {type(e).__name__}: {e}]"
             log(f"    ⚠️ {e}")
     return out
-
-
-def find_latest_html_template(site_dir: Path = OUTPUT_DIR) -> Path | None:
-    """Use most recent docs/*.html (NOT index.html) as a structural reference."""
-    candidates = sorted(
-        [p for p in site_dir.glob("2026-*.html") if "-test" not in p.stem],
-        reverse=True,
-    )
-    return candidates[0] if candidates else None
 
 
 def extract_history(n_days: int = 7, exclude_date: str | None = None,
@@ -350,43 +375,38 @@ def extract_history(n_days: int = 7, exclude_date: str | None = None,
         if not path.exists():
             continue
         days_scanned.append(date_str)
+
+        # Preferred: the structured JSON saved alongside each issue.
+        json_path = OUTPUT_RAW_DIR / f"{date_str}.json"
+        if json_path.exists():
+            data = json.loads(json_path.read_text())
+            for item in data.get("items", []):
+                featured.append({"date": date_str, "tier": render.tier_of(item),
+                                 "id": "", "title": item.get("title", "")})
+            for sk in data.get("skipped", []):
+                killed.append({"date": date_str, "source": "-",
+                               "topic": sk.get("name", ""), "reason": sk.get("reason", "")})
+            continue
+
+        # Fallback for older HTML-only issues; tolerant of attribute order/markup drift.
         html = path.read_text()
-
-        # Featured items: <article id="..." class="item item--TIER">...<h2 class="display title">TITLE</h2>
-        article_pat = re.compile(
-            r'<article\s+id="([^"]+)"\s+class="item\s+item--(crit|look|fyi)"\s*>(.*?)</article>',
-            re.S,
-        )
-        title_pat = re.compile(r'<h2\s+class="display\s+title"[^>]*>(.*?)</h2>', re.S)
+        article_pat = re.compile(r'<article\b[^>]*item--(crit|look|fyi)[^>]*>(.*?)</article>', re.S)
+        title_pat = re.compile(r'class="[^"]*title[^"]*"[^>]*>(.*?)</', re.S)
         for m in article_pat.finditer(html):
-            iid, tier, body = m.group(1), m.group(2), m.group(3)
+            tier, body = m.group(1), m.group(2)
             tm = title_pat.search(body)
-            if not tm:
-                continue
-            title = re.sub(r"<[^>]+>", "", tm.group(1)).strip()
-            featured.append({
-                "date": date_str,
-                "tier": tier,
-                "id": iid,
-                "title": title,
-            })
+            if tm:
+                title = re.sub(r"<[^>]+>", "", tm.group(1)).strip()
+                featured.append({"date": date_str, "tier": tier, "id": "", "title": title})
 
-        # Killed list: rows in <section class="killed">...<tbody>...<tr><td>...</td>...</tr>
         killed_section = re.search(r'<section\s+class="killed">.*?</section>', html, re.S)
         if killed_section:
-            row_pat = re.compile(
-                r"<tr>\s*<td>(.*?)</td>\s*<td>(.*?)</td>\s*<td>(.*?)</td>\s*</tr>",
-                re.S,
-            )
-            for row in row_pat.finditer(killed_section.group(0)):
-                cells = [re.sub(r"<[^>]+>", "", c).strip() for c in row.groups()]
-                if len(cells) == 3 and cells[1] and cells[1] != "—":
-                    killed.append({
-                        "date": date_str,
-                        "source": cells[0],
-                        "topic": cells[1],
-                        "reason": cells[2],
-                    })
+            for row in re.finditer(r"<tr>(.*?)</tr>", killed_section.group(0), re.S):
+                cells = [re.sub(r"<[^>]+>", "", c).strip()
+                         for c in re.findall(r"<td>(.*?)</td>", row.group(1), re.S)]
+                if len(cells) >= 2 and cells[0]:
+                    killed.append({"date": date_str, "source": "-",
+                                   "topic": cells[-2], "reason": cells[-1]})
 
     log(f"  history: scanned {len(days_scanned)} days ({days_scanned}), "
         f"found {len(featured)} featured + {len(killed)} killed entries")
@@ -437,43 +457,32 @@ def format_history_for_prompt(history: dict) -> str:
 
 
 def call_openrouter(secrets: dict, system: str, user: str) -> tuple[str, dict]:
-    body = json.dumps({
-        "model": MODEL,
-        "messages": [
-            {"role": "system", "content": system},
-            {"role": "user", "content": user},
-        ],
-        "temperature": 0.4,
-        "max_tokens": 32000,
-    }).encode("utf-8")
+    """Compat shim for run_weekly.py: routes through the llm.py backend chain."""
+    text, label, _ = llm.complete(f"{system}\n\n---\n\n{user}", secrets=secrets, log=log)
+    return text, {"backend": label}
 
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions",
-        data=body,
-        headers={
-            "Authorization": f"Bearer {secrets['OPENROUTER_API_KEY']}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/ethan-m25/ai-radar",
-            "X-Title": "AI Radar",
-        },
-    )
-    log(f"  → OpenRouter ({MODEL}) — sending {len(body)} bytes...")
+
+def parse_json_reply(text: str) -> dict:
+    """Pull the JSON object out of a model reply (tolerates fences/preamble)."""
+    import re
+    m = re.search(r"```(?:json)?\s*(\{.*\})\s*```", text, re.S)
+    candidate = m.group(1) if m else text[text.find("{"): text.rfind("}") + 1]
+    data = json.loads(candidate)
+    if not isinstance(data, dict) or not isinstance(data.get("items"), list):
+        raise ValueError("reply JSON missing 'items' list")
+    return data
+
+
+def generate_json(prompt: str, secrets: dict) -> tuple[dict, str, list[str]]:
+    """Call the model and parse JSON; one retry with a stricter nudge on bad JSON."""
+    text, label, failures = llm.complete(prompt, secrets=secrets, log=log)
     try:
-        with urllib.request.urlopen(req, timeout=300) as r:
-            data = json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        body_resp = e.read().decode("utf-8", errors="replace")
-        log(f"❌ OpenRouter HTTP {e.code}: {body_resp[:500]}")
-        raise
-
-    if "choices" not in data or not data["choices"]:
-        log(f"❌ OpenRouter no choices: {data}")
-        raise RuntimeError("OpenRouter returned no choices")
-
-    content = data["choices"][0]["message"]["content"]
-    usage = data.get("usage", {})
-    log(f"  ← {len(content)} chars · usage {usage}")
-    return content, usage
+        return parse_json_reply(text), label, failures
+    except (ValueError, json.JSONDecodeError) as e:
+        log(f"  ⚠️ bad JSON from {label} ({e}); retrying once")
+        retry = prompt + "\n\nYour previous reply was not valid JSON. Return ONLY the JSON object."
+        text, label, more = llm.complete(retry, secrets=secrets, log=log)
+        return parse_json_reply(text), label, failures + more
 
 
 def extract_html(text: str) -> str:
@@ -853,81 +862,71 @@ If fetched sources are sparse or all repeat yesterday's stories, produce 1 hones
     return base + addendum
 
 
-def build_user_prompt(today: str, weekday: str, week: int, issue_num: int,
-                      sources: dict, template_html: str, history_text: str,
-                      lang: str, reference_html: str | None = None,
-                      backfill: bool = False) -> str:
-    target = "Simplified Chinese" if lang == "zh" else "English"
-    source_sections = []
-    for name, cfg in SOURCES.items():
-        source_sections.append(f"""### {cfg['label']}
-
-{sources.get(name, "[no data]")[:cfg['max_chars']]}""")
-
-    reference_section = ""
-    if reference_html:
-        reference_section = f"""
----
-
-## REFERENCE ISSUE TO TRANSLATE/LOCALIZE
-
-Use this already-generated Chinese issue as the canonical source of truth for item selection, tiering, ordering, evidence, links, and counts. For the English site, translate/localize the same issue into English. Do NOT add, drop, or re-rank items.
-
-{reference_html[:70000]}
-"""
-
-    backfill_section = ""
-    if backfill:
-        backfill_section = f"""
----
-
-## BACKFILL MODE
-
-This is a historical backfill for {today}. Use only evidence that is explicitly from, or clearly available on/before, {today} plus at most the following day for late-posted daily recaps.
-Do NOT use newer live rankings or later announcements to promote items. If a source says a historical snapshot is unavailable, ignore it.
-"""
-
-    return f"""Today is **{today}** ({weekday}, ISO week {week}). Generate AI Radar issue №{issue_num:03d}.
-
-Target output language: **{target}**.
-
-## STRUCTURAL TEMPLATE (use this CSS, classes, layout exactly — replace content only)
-
-{template_html}
+def build_daily_prompt(today: str, weekday: str, week: int, issue_num: int,
+                       sources: dict, history_text: str, backfill: bool) -> str:
+    source_sections = "\n\n".join(
+        f"### {cfg['label']}\n\n{sources.get(name, '[no data]')[:cfg['max_chars']]}"
+        for name, cfg in SOURCES.items()
+    )
+    backfill_note = (
+        f"\n\nBACKFILL MODE: only use evidence available on/before {today}." if backfill else ""
+    )
+    return f"""{DAILY_PROMPT_FILE.read_text()}
 
 ---
 
-## PAST 7 DAYS (apply Carry-over rules from system prompt)
+Today is {today} ({weekday}, ISO week {week}). This is issue №{issue_num:03d}.{backfill_note}
+
+## PAST 7 DAYS
 
 {history_text}
 
----
+## FETCHED SOURCES (raw text dumps)
 
-## FETCHED SOURCES (raw text dumps — extract real news from these)
+{source_sections}
 
-{chr(10).join(source_sections)}
+Return ONLY the JSON object."""
 
-{reference_section}
 
-{backfill_section}
+def build_translate_prompt(data: dict) -> str:
+    return f"""Translate every user-facing string value in this AI news digest JSON from Simplified Chinese into natural, casual English (friend tone, plain words).
+Keep the exact same JSON structure, keys, item order, tiers, numbers and URLs. Do not add or drop anything. Do not use any tools.
+Return ONLY the JSON object.
 
----
+{json.dumps(data, ensure_ascii=False)}"""
 
-## YOUR TASK
 
-Produce the {target} HTML for issue №{issue_num:03d} ({today}).
+def discord_summary(data: dict, today: str, week: int, issue_num: int, url: str,
+                    backend: str, warnings: list[str]) -> str:
+    counts = render.counts_of(data)
+    tiers = [f"{e} {counts[t]} {n}" for t, e, n in
+             (("crit", "🚨", "必看"), ("look", "👀", "值得看"), ("fyi", "ℹ️", "知道"))
+             if counts[t]]
+    lines = [f"🛰️ **AI Radar · {today} · Wk {week} · №{issue_num:03d}**",
+             " · ".join(tiers) or "今天没有真信号", "",
+             f"**{data.get('headline', '')}**", ""]
+    emoji = {"crit": "🚨", "look": "👀", "fyi": "ℹ️"}
+    for item in data.get("items", [])[:render.MAX_ITEMS]:
+        lines.append(f"{emoji[render.tier_of(item)]} **{item.get('title', '')}** — {item.get('pitch', '')}")
+    lines += ["", f"📖 {url}", f"_model: {backend}_"]
+    if warnings:
+        lines.append("⚠️ " + "；".join(warnings)[:300])
+    return "\n".join(lines)[:1900]
 
-- Apply max 3 items rule (min 1)
-- Exclude funding/drama/lawsuits/policy/pure-research/Chinese-already-covered
-- **Apply Rule A (re-evaluate KILLED-list candidates)** — if any has grown in signal, promote it
-- **Apply Rule B (suppress + sidebar)** — previously-featured items cannot occupy top-3 unless a trigger event occurred; otherwise put them in the `<aside class="still-tracking">` section (max 5 lines)
-- Each 🚨/👀 in top-3 must have all required sections (Context / Why this matters / Action / Deep dive / Watch / Jargon / Who's talking / Links), in {target} only
-- Both pagers must have `data-current-date="{today}"`
-- All issue-counter spans use the new issue number ({issue_num:03d})
-- Keep the JS at the bottom verbatim — it loads archive.json for prev/next
 
-Output ONLY the complete HTML, nothing else.
-"""
+def alert_discord(secrets: dict | None, today: str, error: str) -> None:
+    if not secrets:
+        secrets = {}
+        try:
+            secrets = load_secrets()
+        except SystemExit:
+            return
+    msg = (f"⚠️ **AI Radar {today} 日报生成失败**\n```{error[:1500]}```\n"
+           f"日志：~/ai-radar/logs/daily-{today}.log")
+    try:
+        discord_post(secrets, msg)
+    except Exception as e:  # alerting must never mask the original error
+        log(f"  ❌ alert post failed too: {e}")
 
 
 # ────────────────────────── main ──────────────────────────
@@ -1003,160 +1002,86 @@ def main():
     log("Fetching sources...")
     sources = fetch_sources(source_date=today if backfill else None)
 
-    log("Loading Chinese template/history...")
-    zh_template_path = find_latest_html_template(LANGS["zh"]["site_dir"])
-    if zh_template_path is None:
-        log("❌ No existing daily HTML found — need at least one prior issue as template")
-        sys.exit(2)
-    log(f"  zh template: {zh_template_path.name} ({zh_template_path.stat().st_size} bytes)")
-    zh_template_html = zh_template_path.read_text()
-
     log("Extracting history (past 7 days)...")
     history = extract_history(n_days=7, exclude_date=today,
                               site_dir=LANGS["zh"]["site_dir"],
                               anchor_date=today)
     history_text = format_history_for_prompt(history)
+    failed_sources = [n for n, v in sources.items() if str(v).startswith("[fetch failed")]
 
+    log("Generating Chinese digest (JSON)...")
+    prompt = build_daily_prompt(today, weekday, iso_week, issue_num, sources, history_text, backfill)
+    zh_data, backend, backend_failures = generate_json(prompt, secrets)
+    datasets = {"zh": zh_data}
+    if "en" in langs:
+        log("Translating to English...")
+        try:
+            datasets["en"], _, more = generate_json(build_translate_prompt(zh_data), secrets)
+            backend_failures += more
+        except Exception as e:  # English is secondary; never block the Chinese issue
+            log(f"  ⚠️ English translation failed: {e}")
+            backend_failures.append(f"EN translation: {e}")
+
+    suffix = "-test" if args.test else ""
     results = {}
-    usage_total = 0
-    zh_reference_html = None
-
-    for lang in langs:
+    for lang, data in datasets.items():
         cfg = LANGS[lang]
-        log(f"Generating {cfg['name']} issue...")
-
-        if lang == "zh":
-            template_html = zh_template_html
-            reference_html = None
-        else:
-            en_template_path = find_latest_html_template(cfg["site_dir"])
-            template_html = en_template_path.read_text() if en_template_path else zh_template_html
-            zh_today_path = LANGS["zh"]["site_dir"] / f"{today}.html"
-            reference_html = zh_reference_html
-            if reference_html is None and zh_today_path.exists():
-                reference_html = zh_today_path.read_text()
-
-        system = build_system_prompt(lang)
-        user = build_user_prompt(today, weekday, iso_week, issue_num, sources,
-                                 template_html, history_text, lang,
-                                 reference_html=reference_html,
-                                 backfill=backfill)
-        log(f"  prompt size ({lang}): system={len(system)}, user={len(user)} chars (~{(len(system)+len(user))//4} tokens)")
-        raw, usage = call_openrouter(secrets, system, user)
-        usage_total += usage.get("total_tokens", 0)
-
-        html = extract_html(raw)
-        if not html.lower().startswith("<!doctype"):
-            log(f"⚠️ {lang} output doesn't start with <!doctype, first 200 chars:\n{html[:200]}")
-        if "</html>" not in html.lower():
-            log(f"⚠️ {lang} output missing </html> closing tag")
-
-        out_name = f"{today}-deepseek-test.html" if args.test else f"{today}.html"
-        out_html = cfg["site_dir"] / out_name
+        html = render.render_daily(data, lang=lang, date=today, week=iso_week, issue=issue_num)
+        out_html = cfg["site_dir"] / f"{today}{suffix}.html"
         out_html.write_text(html)
+        (cfg["raw_dir"] / out_html.name).write_text(html)
+        (cfg["raw_dir"] / f"{today}{suffix}.json").write_text(
+            json.dumps(data, ensure_ascii=False, indent=2) + "\n")
         log(f"  wrote {out_html.relative_to(RADAR)} ({len(html)} bytes)")
-
-        raw_html = cfg["raw_dir"] / out_name
-        raw_html.write_text(html)
 
         if not args.test and not backfill:
             (cfg["site_dir"] / "index.html").write_text(html)
-            log(f"  updated {cfg['site_dir'].relative_to(RADAR)}/index.html")
-        elif backfill:
-            log(f"  backfill mode: left {cfg['site_dir'].relative_to(RADAR)}/index.html unchanged")
-
-        headline, lead, counts = parse_html_summary(html)
-        log(f"  parsed {lang}: headline='{headline[:60]}...', counts={counts}")
-
+        headline = str(data.get("headline", ""))[:120]
+        lead = str(data.get("summary", ""))[:160]
+        counts = render.counts_of(data)
         if not args.test:
             if lang == "zh":
                 update_archive_json(cfg["archive_file"], today, weekday, iso_week,
                                     headline, lead, counts, out_html.name)
             else:
-                entry = {
-                    "date": today,
-                    "weekday": weekday,
-                    "week": iso_week,
-                    "issue": issue_num,
-                    "kind": "daily",
-                    "headline": headline,
-                    "summary": lead,
-                    "counts": counts,
-                    "url": out_html.name,
-                }
-                sync_archive_json(LANGS["zh"]["archive_file"], cfg["archive_file"], entry)
+                sync_archive_json(LANGS["zh"]["archive_file"], cfg["archive_file"], {
+                    "date": today, "weekday": weekday, "week": iso_week,
+                    "issue": issue_num, "kind": "daily", "headline": headline,
+                    "summary": lead, "counts": counts, "url": out_html.name,
+                })
             write_archive_page(lang)
+        results[lang] = {"out_html": out_html, "headline": headline}
 
-        if lang == "zh":
-            zh_reference_html = html
-
-        results[lang] = {
-            "html": html,
-            "out_html": out_html,
-            "headline": headline,
-            "lead": lead,
-            "counts": counts,
-        }
-
-    # Git push
     pages_verified = False
     if not args.no_git:
-        suffix = " (TEST)" if args.test else ""
-        headline_for_commit = results.get("zh", next(iter(results.values())))["headline"]
-        lang_suffix = "" if args.lang == "zh" else f" [{args.lang}]"
-        commit_msg = f"digest: {today} — {headline_for_commit[:60]}{suffix}{lang_suffix}\n\n[via OpenRouter / {MODEL}]"
+        commit_msg = (f"digest: {today} — {results['zh']['headline'][:60]}"
+                      f"{' (TEST)' if args.test else ''}\n\n[via {backend}]")
         try:
             git_push(commit_msg)
             if not args.test:
-                # Verify Pages actually serves today's content before claiming success
                 pages_verified = wait_for_pages_build(today, max_wait=360)
         except Exception as e:
             log(f"  ⚠️ git push failed: {e} — continuing with Discord anyway")
+            backend_failures.append(f"git push 失败: {e}")
 
-    # Discord post
-    if not args.no_discord and results:
-        primary = results.get("zh", next(iter(results.values())))
-        counts = primary["counts"]
-        headline = primary["headline"]
-        lead = primary["lead"]
-        tier_line = []
-        if counts["crit"]: tier_line.append(f"🚨 {counts['crit']} 必看")
-        if counts["look"]: tier_line.append(f"👀 {counts['look']} 可看")
-        if counts["fyi"]:  tier_line.append(f"ℹ️ {counts['fyi']} 知道")
-        tier_str = " · ".join(tier_line) if tier_line else "0 真信号"
+    if not args.no_discord:
+        url = GITHUB_PAGES_URL + (results["zh"]["out_html"].name if args.test else "")
+        warnings = list(backend_failures)
+        if failed_sources:
+            warnings.append("抓取失败的源: " + ", ".join(failed_sources))
+        if not args.no_git and not args.test and not pages_verified:
+            warnings.append("网页可能还在构建，1-2 分钟后刷新")
+        msg = discord_summary(zh_data, today, iso_week, issue_num, url, backend, warnings)
+        discord_post(secrets, msg)
 
-        zh_url = GITHUB_PAGES_URL + (primary["out_html"].name if args.test else "")
-        en_part = ""
-        if "en" in results:
-            en_url = LANGS["en"]["base_url"] + (results["en"]["out_html"].name if args.test else "")
-            en_part = f"\nEN: {en_url}"
-        prefix = "🧪 **AI Radar TEST RUN**\n" if args.test else "🛰️ "
-        suffix_note = "\n\n_(via OpenRouter + DeepSeek V4 Flash — 与 Claude 版本对比用)_" if args.test else ""
-
-        # If Pages didn't catch up, warn user that the link may show stale content
-        if not args.test and not pages_verified:
-            suffix_note = "\n\n⚠️ _Pages 还在 build，链接可能仍显示昨天内容 1-2 分钟，刷新页面即可_"
-
-        msg = f"""{prefix}**AI Radar · {today} · Wk {iso_week} · №{issue_num:03d}**
-
-{tier_str}
-
-**{headline}**
-{lead}
-
-ZH: {zh_url}{en_part}
-
-📎 .html 附件供离线 / 对比用{suffix_note}"""
-
-        # Discord 2000 char limit
-        msg = msg[:1900]
-        try:
-            discord_post(secrets, msg, primary["out_html"])
-        except Exception as e:
-            log(f"❌ Discord post failed: {e}")
-
-    log(f"=== Done · total tokens {usage_total} · cost estimate ≈ ${(usage_total * 1.5e-7):.4f} ===")
+    log(f"=== Done · backend {backend} ===")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as exc:
+        import traceback
+        traceback.print_exc()
+        alert_discord(None, datetime.now().strftime("%Y-%m-%d"), f"{type(exc).__name__}: {exc}")
+        sys.exit(1)
