@@ -1,270 +1,427 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Radar — 2026-10-07</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; background: #fafafa; line-height: 1.6; }
-    header { border-bottom: 3px solid #333; padding-bottom: 15px; margin-bottom: 25px; }
-    h1 { font-size: 2em; margin: 0; color: #1a1a1a; }
-    .date { color: #666; font-size: 0.9em; margin: 5px 0 0; }
-    .tagline { color: #888; font-size: 0.8em; margin: 5px 0 0; }
-    .item { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .item h2 { margin-top: 0; font-size: 1.3em; color: #1a1a1a; }
-    .item .meta { color: #888; font-size: 0.85em; margin-bottom: 10px; }
-    .item p { margin: 10px 0; }
-    .item ul { margin: 10px 0; padding-left: 20px; }
-    .item li { margin: 5px 0; }
-    .context-box { background: #f0f7ff; border-left: 4px solid #3399ff; padding: 10px 15px; margin: 15px 0; border-radius: 4px; font-size: 0.95em; }
-    .action-block { background: #f5f5f0; border: 1px solid #e0dcc0; padding: 12px 16px; margin: 15px 0; border-radius: 6px; }
-    .action-block ol { margin: 8px 0; padding-left: 22px; }
-    .watch-block { background: #fff8e1; border: 1px solid #f0e0a0; padding: 10px 14px; margin: 15px 0; border-radius: 6px; font-size: 0.95em; }
-    .deep-dive { background: #f9f9f9; border: 1px solid #ddd; border-radius: 6px; padding: 12px 16px; margin: 15px 0; }
-    .deep-dive summary { font-weight: bold; cursor: pointer; color: #1a6da8; }
-    .jargon { background: #fdf2e9; border: 1px solid #f0d0b0; padding: 8px 14px; margin: 10px 0; border-radius: 6px; font-size: 0.9em; color: #8a5a00; }
-    .still-tracking { background: #fff8e1; border: 1px solid #f0e0a0; border-radius: 8px; padding: 20px; margin-top: 20px; }
-    .still-tracking h2 { margin-top: 0; font-size: 1.1em; color: #8a6d00; }
-    .still-tracking ul { margin: 10px 0; padding-left: 20px; }
-    .still-tracking li { margin: 8px 0; }
-    .still-tracking strong { color: #8a6d00; }
-    .tag { display: inline-block; background: #e8f4fd; color: #1a6da8; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-right: 5px; }
-    .tag-important { background: #fde8e8; color: #a81a1a; }
-    .tag-new { background: #e8fde8; color: #1a8a1a; }
-    .tier { display: inline-block; margin-right: 8px; font-size: 1.1em; }
-    .cover { text-align: center; margin-bottom: 30px; }
-    .cover .headline { font-size: 1.8em; font-weight: 700; color: #1a1a1a; margin: 5px 0; }
-    .cover .summary { color: #555; font-size: 1em; }
-    .toc { margin-bottom: 30px; }
-    .toc ul { list-style: none; padding: 0; }
-    .toc li { margin: 6px 0; }
-    footer { border-top: 1px solid #ddd; padding-top: 15px; margin-top: 30px; color: #888; font-size: 0.85em; }
-    .pager { display: flex; justify-content: space-between; margin: 20px 0; font-size: 0.9em; }
-    .pager a { color: #1a6da8; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar — 2026-10-30 (Week 44)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
+
+
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+
+</style>
 </head>
 <body>
-  <header>
-    <h1>AI Radar <span style="font-size:0.6em;color:#888;">№133</span></h1>
-    <p class="date">2026-10-07 · 星期三 · ISO 第41周</p>
-    <p class="tagline">AI 趋势雷达 — 每日精选</p>
-  </header>
 
-  <!-- 今日封面 -->
-  <div class="cover">
-    <div class="headline">Mistral 回归 + OpenAI 决策 API + Google 开放嵌入</div>
-    <div class="summary">今天3条真信号：Mistral 用万亿参数模型重回战场；OpenAI 发布决策 API 测试版；Google 开源轻量嵌入模型。</div>
-  </div>
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 10 · 30 · Week 44 · №135 · <a href="archive.html">归档</a></span>
+</header>
 
-  <!-- 指标 -->
-  <div style="text-align:center;margin-bottom:25px;">
-    <span class="tag tag-important">👀 2 条值得看</span>
-    <span class="tag">ℹ️ 1 条知道</span>
-    <span style="color:#888;font-size:0.85em;margin-left:10px;">(评分: 3/3)</span>
-  </div>
+<div class="cover">
+    <h1 class="display headline">Codex 额度翻倍，装插件先查真假</h1>
+    <p class="lead">Codex 付费档额度翻倍，Claude Code 假扩展出现后门，Gemini 4 Carbon 登场。</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">0</span> 必看</span>
+        <span>👀 <span class="look-count">2</span> 值得看</span>
+        <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
+    </div>
+</div>
 
-  <!-- 分页器（上） -->
-  <div class="pager" data-current-date="2026-10-07">
-    <span id="prev-link-top"></span>
-    <span id="next-link-top"></span>
-  </div>
+<div class="pager" data-current-date="2026-10-30"><a href="#" class="prev">← 前一天</a><span class="issue-num">№135 · 2026-10-30</span><a href="#" class="next">后一天 →</a></div>
 
-  <main>
-    <!-- ============================================================ -->
-    <!-- 条目 1: Mistral Large 4 -->
-    <!-- ============================================================ -->
-    <section class="item">
-      <h2><span class="tier">👀</span> Mistral Large 4 — 万亿参数模型预览，月底开源</h2>
-      <p class="meta">Mistral 官方公告 · HN 1837 分 · Simon Willison 推荐 · 2026-10-06</p>
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> Codex 额度翻倍，订阅还送 API 额度</li><li><span class="tier-tag look">👀 值得看</span> Cursor 市场出现带后门的假 Claude Code 扩展</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Gemini 4 Carbon 发布</li></ul></nav>
 
-      <div class="context-box">
-        <strong>📍 背景：</strong>Mistral 上半年被中国开源模型甩开距离，上次 Mistral Large 3 的 AI 评分只有 9。这次他们带着 1 万亿参数、49B 激活的模型回来了，评分 38，接近 DeepSeek V4.1 Flash。而且承诺月底开放权重。这对于欧洲 AI 生态很重要，也给开发者多一个前沿模型选择。
-      </div>
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Codex 额度翻倍，订阅还送 API 额度</h2>
+    <div class="pitch">OpenAI 把 Pro 100/200/500 档的用量上限全部翻倍，订阅还附赠同等金额的 API 额度。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>Pro 100/200/500 和 Business Premium 用量翻倍</li><li>Pro 200 的 Work 和 Codex 用量不会被削减</li><li>订阅送等额 API 额度，Anthropic 本月也做了同样的事</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 ChatGPT 账户页，看是否已有 API 额度可绑定</li><li>你用 Pro 档的话，这周可以多用 Codex 跑长任务</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>额度不是新模型，是同一个订阅能多干活。每天重度用 Codex 的人受益最大。</p><p>API 额度要绑到某个 API 组织（organization）里用。Simon Willison 说他会拿来做公开 demo。</p><p>来源只写了翻倍和附赠额度，没给过期规则细节，用之前先看账户页说明。</p></div></details>
+    <div class="signals"><strong>信号</strong> · Thibault Sottiaux 推文 3.5 万赞 · Simon Willison 10 月 29 日确认 · OpenAI 与 Anthropic 先后跟进同类福利</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/thsottiaux/status/2115850175868727621" target="_blank" rel="noopener">Codex 团队公告（X）</a> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 博客</a></div>
+</article>
 
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>Mistral 重回竞争：</strong>自从去年 12 月 Mistral Large 3 之后他们几乎从 HN 排名消失，这次是真正的回归。AA 评分 38，证明他们能跟上开源前沿。</li>
-        <li><strong>开放权重月底：</strong>意味着你可以自己跑这个万亿参数模型，或者找其他供应商，不锁定在 Mistral API。</li>
-        <li><strong>对多语言更友好：</strong>Mistral 一直以欧洲语言见长，这对中英之外的用户是利好消息。</li>
-      </ul>
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Cursor 市场出现带后门的假 Claude Code 扩展</h2>
+    <div class="pitch">Cursor 扩展市场里有个冒充 Claude Code 的 VS Code 扩展被曝带后门。装过的人现在就该查。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>HN 讨论非常热，评论近 500 条</li><li>冒充你每天用的工具，最容易中招</li><li>后门扩展能读你电脑上的文件和密钥</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 Cursor/VS Code 的扩展列表，核对 Claude Code 的发布者是不是 Anthropic</li><li>不确定就卸载，改用官方命令行安装</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>你主要用命令行版 Claude Code，风险较小。但如果在 Cursor 里装过同名扩展，就要查。</p><p>来源只有标题和 HN 热度，具体怎么中招、影响范围要看原文。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 794 分 · 498 条评论 · 排第 4</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN 首页讨论</a></div>
+</article>
 
-      <div class="action-block">
-        <strong>🎯 你可以做什么</strong>
-        <ol>
-          <li>立即通过 Mistral API 体验 preview（register.mistral.ai）</li>
-          <li>关注月底的开放权重发布，届时可以用 vLLM 或 Ollama 部署</li>
-          <li>阅读 Simon Willison 的《Le chonk》博客，了解基准对比</li>
-        </ol>
-      </div>
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ 知道就行</div>
+    <h2 class="display title">Gemini 4 Carbon 发布</h2>
+    <div class="pitch">Google 新旗舰 Gemini 4 Carbon 上线，据报道榜单第一，也面向网络安全防御者开放。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>DeepMind 官网把它列为下一代旗舰模型</li><li>AINews 称其登顶榜单</li></ul></div>
+    <div class="signals"><strong>信号</strong> · AINews 10 月 29 日头条 · DeepMind 官方博客上线</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://deepmind.google/blog" target="_blank" rel="noopener">DeepMind 博客</a> · <a href="https://news.smol.ai/issues/" target="_blank" rel="noopener">AINews</a></div>
+</article>
 
-      <details class="deep-dive">
-        <summary>🔬 深扒——它和 DeepSeek V4.1 Flash 比怎么样？</summary>
-        <table style="width:100%;border-collapse:collapse;margin:10px 0;">
-          <tr style="background:#eee;"><th style="padding:6px;border:1px solid #ccc;">对比项</th><th style="padding:6px;border:1px solid #ccc;">Mistral Large 4</th><th style="padding:6px;border:1px solid #ccc;">DeepSeek V4.1 Flash</th></tr>
-          <tr><td style="padding:6px;border:1px solid #ccc;">总参数</td><td style="padding:6px;border:1px solid #ccc;">1 万亿</td><td style="padding:6px;border:1px solid #ccc;">763B</td></tr>
-          <tr><td style="padding:6px;border:1px solid #ccc;">激活参数</td><td style="padding:6px;border:1px solid #ccc;">49B</td><td style="padding:6px;border:1px solid #ccc;">8B (in) / 16B (out)</td></tr>
-          <tr><td style="padding:6px;border:1px solid #ccc;">AA 评分</td><td style="padding:6px;border:1px solid #ccc;">38</td><td style="padding:6px;border:1px solid #ccc;">40</td></tr>
-          <tr><td style="padding:6px;border:1px solid #ccc;">开放权重</td><td style="padding:6px;border:1px solid #ccc;">月底开源</td><td style="padding:6px;border:1px solid #ccc;">MIT 现已开源</td></tr>
-          <tr><td style="padding:6px;border:1px solid #ccc;">训练硬件</td><td style="padding:6px;border:1px solid #ccc;">3800 块 Grace Blackwell</td><td style="padding:6px;border:1px solid #ccc;">未披露 (国产芯片)</td></tr>
-          <tr><td style="padding:6px;border:1px solid #ccc;">推理模式</td><td style="padding:6px;border:1px solid #ccc;">"none" 和 "high" 两档</td><td style="padding:6px;border:1px solid #ccc;">自适应推理 / 可禁用</td></tr>
-        </table>
-        <p><strong>跑在什么之上：</strong>Mistral 自有集群（NVIDIA Grace Blackwell），API 目前只通过 Mistral 平台。</p>
-        <p><strong>上手难度：</strong>预览版只需 API key，几分钟上手。开源后需要至少 80GB VRAM（用 4-bit 量化）才能本地跑，普通 Mac 很难。</p>
-        <p><strong>诚实警告：</strong>它不是 Fable 或 Opus 5.5 级别（AA 评分 38 vs 57+），但在同规模模型中表现出色。开放权重才是最大的亮点。</p>
-      </details>
 
-      <div class="watch-block">
-        <strong>🔭 关注信号：</strong>月底开放权重发布时是真正节点。如果 MIT 许可，会有社区量化版本和 Ollama 支持，那时才是你上手的最佳时机。
-      </div>
 
-      <h3>谁在讨论</h3>
-      <ul>
-        <li><strong>Simon Willison</strong>: “Mistral are back in the game.” <a href="https://simonwillison.net/2026/Oct/6/mistral-large-4/">博客</a></li>
-        <li><strong>Hacker News</strong>: 1837 分，1106 评论，连续两天在首页前 5。</li>
-        <li><strong>Ars Technica / TechCrunch</strong>: 均有报道。</li>
-      </ul>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Anthropic 提交 S-1 上市</td><td>属于融资和上市新闻，和你的工作无关</td></tr><tr><td>Mistral Le Chonk 开源权重</td><td>偏写代码和安全，非开发者暂时用不上</td></tr><tr><td>Kimi 3.1 Pro 开源模型</td><td>中文媒体大概率已报道，且你用不到</td></tr><tr><td>nesformer（把 NES 模拟器塞进 Qwen）</td><td>很有趣但只是玩具，没有实际用途</td></tr><tr><td>Agent Skills 捐给 Agentic AI Foundation</td><td>10 月 22 日的事，已过一周，热度没有新增</td></tr></tbody></table></details></section>
 
-      <h3>试试看 / 深入了解</h3>
-      <ul>
-        <li><a href="https://mistral.ai/news">Mistral 官方公告</a></li>
-        <li><a href="https://simonwillison.net/2026/Oct/6/mistral-large-4/">Simon Willison 博客</a></li>
-        <li><a href="https://news.ycombinator.com/item?id=38002791">HN 讨论帖</a></li>
-      </ul>
+<footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
 
-      <p><span class="tag tag-important">模型</span><span class="tag">开源</span><span class="tag">Mistral</span></p>
-    </section>
+<div class="pager" data-current-date="2026-10-30"><a href="#" class="prev">← 前一天</a><span class="issue-num">№135 · 2026-10-30</span><a href="#" class="next">后一天 →</a></div>
 
-    <!-- ============================================================ -->
-    <!-- 条目 2: OpenAI Decisions API -->
-    <!-- ============================================================ -->
-    <section class="item">
-      <h2><span class="tier">👀</span> OpenAI 决策 API 公测 — 让你的 agent 会做“决定”</h2>
-      <p class="meta">OpenAI Developers · HN 312 分 · 2026-10-06</p>
-
-      <div class="context-box">
-        <strong>📍 背景：</strong>之前的 AI agent 只能生成文本，然后靠开发者写逻辑来决策。现在 OpenAI 推出了专门的“决策 API”——模型直接输出结构化的决策，而不是长篇回答。这意味着你可以给 agent 一个审批、分类或选择的任务，它返回“通过 / 拒绝 / 需要更多信息”这类干净的输出。
-      </div>
-
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>原生决策能力：</strong>不再需要提取文字再解析，API 直接返回决策 + 置信度 + 理由。</li>
-        <li><strong>对 agent 工作流友好：</strong>可以轻松集成到自动化 pipeline 中，比如 email 分类、报销审批、路由选择。</li>
-        <li><strong>降低开发成本：</strong>不需要复杂的 prompt engineering 和上下文管理，一个 API call 搞定。</li>
-      </ul>
-
-      <div class="action-block">
-        <strong>🎯 你可以做什么</strong>
-        <ol>
-          <li>访问 <code>https://developers.openai.com</code> 申请 Decisions API beta 访问</li>
-          <li>阅读官方文档，了解如何定义决策 schema</li>
-          <li>在 Claude Code 或 Codex 中创建一个测试 agent，把决策 API 当工具调用</li>
-        </ol>
-      </div>
-
-      <details class="deep-dive">
-        <summary>🔬 深扒——和普通文本生成有什么本质不同？</summary>
-        <p>普通 API 让模型生成自由文本，你需要自己解析（如正则、关键词匹配）得到“yes/no”。Decisions API 输出一个标准 JSON：<code>{ "decision": "approve", "confidence": 0.92, "reasoning": "..." }</code>。模型在内部使用一个专门的决策头（decision head），训练目标是输出结构化结果，而不是模仿对话。</p>
-        <p><strong>跑在什么之上：</strong>基于 GPT-6 系列模型，但经过额外指令微调。目前只通过 API，没有开源计划。</p>
-        <p><strong>上手难度：</strong>非常低。定义好你的决策 schema（字符串枚举或布尔），然后调用接口。比写 prompt chain 简单得多。</p>
-        <p><strong>诚实警告：</strong>beta 阶段可能有稳差，且仅支持简单的决策场景（二选一或多选）。复杂风险决策仍需人工复核。</p>
-      </details>
-
-      <div class="watch-block">
-        <strong>🔭 关注信号：</strong>正式版推出后的定价。如果每个决策成本低于 0.01 美元，将大规模替代传统规则引擎。另外，观察是否有开源替代（如 Clef 的决策功能）。
-      </div>
-
-      <h3>谁在讨论</h3>
-      <ul>
-        <li><strong>Hacker News</strong>: 312 分，155 评论，开发者热情很高。</li>
-        <li><strong>Simon Willison</strong>: 尚未评论，但可能很快会写。</li>
-      </ul>
-
-      <h3>试试看 / 深入了解</h3>
-      <ul>
-        <li><a href="https://developers.openai.com">OpenAI 开发者平台</a></li>
-        <li><a href="https://news.ycombinator.com/item?id=38002792">HN 讨论</a></li>
-      </ul>
-
-      <p><span class="tag tag-important">API</span><span class="tag">Agent</span><span class="tag">决策</span><span class="tag">产品</span></p>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- 条目 3: EmbeddingGemma 2 -->
-    <!-- ============================================================ -->
-    <section class="item">
-      <h2><span class="tier">ℹ️</span> EmbeddingGemma 2 — Google 开源开放权重嵌入模型</h2>
-      <p class="meta">Google DeepMind 博客 · HN 340 分 · 2026-10-06</p>
-
-      <p><strong>一句话：</strong>Google 发布了 EmbeddingGemma 2，一个只有 7B 参数但支持文本+图像输入的多模态嵌入模型，采用 Apache 2.0 许可。</p>
-
-      <h3>为什么这事重要</h3>
-      <ul>
-        <li><strong>开放权重 = 长期可用：</strong>Simon Willison 专门解释了为什么嵌入模型必须开放权重——商用闭源模型一旦退役，你积攒的百万级 embedding 向量就作废了。EmbeddingGemma 2 让你可以自己跑或者换供应商。</li>
-        <li><strong>轻量 & 多模态：</strong>700M 参数就支持文本和图像，适合小规模检索和 RAG。</li>
-        <li><strong>业界首个 Apache 2.0 的多模态嵌入模型：</strong>其他模型要么闭源，要么许可限制。</li>
-      </ul>
-
-      <h3>试试看 / 深入了解</h3>
-      <ul>
-        <li><a href="https://blog.google">Google DeepMind 博客</a></li>
-        <li><a href="https://simonwillison.net/2026/Oct/6/embeddinggemma-2/">Simon Willison 评论</a></li>
-        <li><a href="https://huggingface.co/google/embeddinggemma-2">HuggingFace 模型卡</a></li>
-      </ul>
-
-      <p><span class="tag">嵌入</span><span class="tag">开源</span><span class="tag">Google</span><span class="tag">多模态</span></p>
-    </section>
-  </main>
-
-  <!-- 持续追踪 -->
-  <aside class="still-tracking">
-    <h2>📈 Still tracking · 仍在发酵的旧话题</h2>
-    <ul>
-      <li><strong>Clef</strong> (第 6 天) — 模型下载量持续增长，但 Red Hat 泼冷水后热度降温。HN 今天没有新帖子。</li>
-      <li><strong>GLM-5.3 Cyber 能力</strong> (第 6 天) — Anthropic Frontier Red Team 报告无新实锤，社区讨论减少。</li>
-      <li><strong>DeepSeek V4.1 Flash</strong> (第 6 天) — 社区量化版已出，Baseten 部署量稳定上升；MIT 许可让很多企业开始测试。</li>
-      <li><strong>Sonnet 5.5 免费层</strong> (第 9 天) — 免费层持续使用，但 OpenAI 的 Luna 6.1 也在快速迭代。无明显 trigger。</li>
-      <li><strong>ChatGPT 直接访问网站内容</strong> (第 5 天) — 功能仍在 HN 讨论，但 OpenAI 尚未正式宣布。等待官方文档。</li>
-    </ul>
-  </aside>
-
-  <!-- 分页器（下） -->
-  <div class="pager" data-current-date="2026-10-07">
-    <span id="prev-link-bottom"></span>
-    <span id="next-link-bottom"></span>
-  </div>
-
-  <footer>
-    <p>今日扫描范围: Smol AI / HN / HuggingFace Trends / Simon Willison / OpenAI + Anthropic 官方 / Mistral 官方 · 真信号数: 3 条 (👀 2, ℹ️ 1) · 已排除: 融资 / 诉讼 / 人事 / 纯研究 / 中文圈已覆盖</p>
-    <p>⚠️ 风险检查: 今天所有信号均符合 OR 逻辑。Mistral Large 4 满足 HN 饱和+官方+KOL；Decisions API 满足官方+非开发突破；EmbeddingGemma 2 满足 KOL 独立背书。</p>
-  </footer>
-
-  <script>
-    // 加载 archive.json 并渲染分页链接
-    (async function() {
-      const currentDate = document.querySelector('.pager')?.dataset.currentDate;
-      if (!currentDate) return;
-      const resp = await fetch('./archive.json');
-      const data = await resp.json();
-      const issues = data.issues;
-      const idx = issues.findIndex(i => i.date === currentDate);
-      if (idx === -1) return;
-      const prev = issues[idx - 1];
-      const next = issues[idx + 1];
-      const prevLinks = document.querySelectorAll('#prev-link-top, #prev-link-bottom');
-      const nextLinks = document.querySelectorAll('#next-link-top, #next-link-bottom');
-      if (prev) {
-        const text = `← ${prev.date}：${prev.headline}`;
-        prevLinks.forEach(el => { el.innerHTML = `<a href="./${prev.url}">${text}</a>`; });
-      } else {
-        prevLinks.forEach(el => { el.innerHTML = '← 没有更早的' });
-      }
-      if (next) {
-        const text = `${next.date}：${next.headline} →`;
-        nextLinks.forEach(el => { el.innerHTML = `<a href="./${next.url}">${text}</a>`; });
-      } else {
-        nextLinks.forEach(el => { el.innerHTML = '没有更晚的 →' });
-      }
-    })();
-  </script>
+<script>
+(async function() {
+    const currentDate = '2026-10-30';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
+})();
+</script>
 </body>
 </html>

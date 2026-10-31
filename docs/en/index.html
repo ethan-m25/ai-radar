@@ -3,641 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI Radar issue №133 — 2026-10-07. Mistral Large 4 preview with trillion parameters; OpenAI Decisions API public beta; Google open-sources EmbeddingGemma 2.">
-<title>AI Radar — 2026-10-07 · №133</title>
+<title>AI Radar — 2026-10-30 (Week 44)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
-  background: oklch(0.97 0.005 260);
-  color: oklch(0.18 0.02 260);
-  line-height: 1.6;
-  padding: 0 1rem;
-}
-a { color: oklch(0.45 0.18 260); text-decoration: none; }
-a:hover { text-decoration: underline; }
-img, svg { max-width: 100%; display: block; }
-.container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
 
-/* ── masthead ── */
-.masthead {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.masthead__brand {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-}
-.masthead__brand a { color: inherit; }
-.masthead__brand .accent { color: oklch(0.45 0.18 260); }
-.masthead__meta {
-  display: flex;
-  gap: 0.9rem;
-  align-items: center;
-  font-size: 0.8rem;
-  color: oklch(0.55 0.02 260);
-  flex-wrap: wrap;
-}
-.masthead__meta .issue-no {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: oklch(0.18 0.02 260);
-  background: oklch(0.93 0.01 260);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-}
-.masthead__nav { display: flex; gap: 1rem; font-size: 0.85rem; }
 
-/* ── pager (top & bottom) ── */
-.pager {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-}
-.pager--bottom {
-  border-bottom: none;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
-  margin-bottom: 0;
-}
-.pager__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 999px;
-  background: oklch(1 0 0);
-  transition: border-color 0.15s, background 0.15s;
-  color: oklch(0.35 0.02 260);
-}
-.pager__link:hover { border-color: oklch(0.45 0.18 260); background: oklch(0.98 0.01 260); text-decoration: none; }
-.pager__link--next { margin-left: auto; }
-.pager__label { font-size: 0.78rem; color: oklch(0.55 0.02 260); }
-.pager__link--disabled { opacity: 0.4; pointer-events: none; }
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
 
-/* ── cover ── */
-.cover { margin-bottom: 2rem; }
-.cover .kicker {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: oklch(0.55 0.02 260);
-  margin-bottom: 0.75rem;
-}
-.cover .headline {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.2rem, 5.5vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-.cover .headline .grad {
-  background: linear-gradient(120deg, oklch(0.45 0.18 260), oklch(0.6 0.15 200));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.cover .subhead {
-  font-size: 1.05rem;
-  color: oklch(0.45 0.02 260);
-  max-width: 38em;
-  margin-bottom: 1.5rem;
-}
-.cover .meta-line {
-  font-size: 0.82rem;
-  color: oklch(0.55 0.02 260);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.5rem;
-  padding: 0.9rem 0;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  border-bottom: 1px solid oklch(0.9 0.01 260);
-}
-.cover .meta-line strong { color: oklch(0.35 0.02 260); font-weight: 600; }
-
-/* ── count strip ── */
-.count-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
-  margin: 1.5rem 0 2.5rem;
-}
-.count-strip .count-card {
-  background: oklch(1 0 0);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 12px;
-  padding: 0.9rem 0.5rem;
-  text-align: center;
-}
-.count-strip .count-num {
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-.count-strip .count-label { font-size: 0.72rem; color: oklch(0.55 0.02 260); }
-.count-strip .count-card--crit .count-num { color: oklch(0.55 0.2 25); }
-.count-strip .count-card--look .count-num { color: oklch(0.65 0.15 75); }
-.count-strip .count-card--fyi .count-num { color: oklch(0.55 0.02 260); }
-.count-strip .count-card--track .count-num { color: oklch(0.45 0.18 260); }
-
-/* ── article items ── */
-.item { margin-bottom: 2.5rem; }
-.item--crit { border-left: 3px solid oklch(0.55 0.2 25); padding-left: 1.25rem; }
-.item--look { border-left: 3px solid oklch(0.65 0.15 75); padding-left: 1.25rem; }
-.item--fyi { padding-left: 1.25rem; }
-.item__tier { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
-.item--crit .item__tier { color: oklch(0.55 0.2 25); }
-.item--look .item__tier { color: oklch(0.65 0.15 75); }
-.item--fyi .item__tier { color: oklch(0.55 0.02 260); }
-.item__title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.65rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
-}
-.item__pitch {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: oklch(0.45 0.02 260);
-  margin-bottom: 1rem;
-  max-width: 36em;
-}
-.context-box {
-  background: oklch(0.98 0.005 260);
-  border-radius: 10px;
-  padding: 0.85rem 1rem;
-  font-size: 0.88rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid oklch(0.92 0.01 260);
-}
-.context-box strong { font-weight: 600; }
-.chart { margin: 1.25rem 0; padding: 1rem; background: oklch(1 0 0); border-radius: 10px; border: 1px solid oklch(0.92 0.01 260); }
-.chart-title { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: oklch(0.55 0.02 260); margin-bottom: 0.75rem; }
-.chart-bar-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
-.chart-bar-label { min-width: 6rem; font-weight: 500; }
-.chart-bar-track { flex: 1; height: 1.5rem; background: oklch(0.95 0.005 260); border-radius: 4px; overflow: hidden; }
-.chart-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 0.5rem; font-size: 0.72rem; color: oklch(1 0 0); font-weight: 600; }
-.lang { margin: 1.25rem 0; }
-.lang h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
-.lang ul { padding-left: 1.25rem; }
-.lang li { margin-bottom: 0.4rem; font-size: 0.92rem; }
-.action-block { margin: 1.25rem 0; }
-.action-block h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: oklch(0.55 0.02 260); margin-bottom: 0.5rem; }
-.action-block ol { padding-left: 1.25rem; }
-.action-block li { margin-bottom: 0.4rem; font-size: 0.9rem; }
-.action-block code { background: oklch(0.95 0.005 260); padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.82rem; }
-details.deep-dive { margin: 1.25rem 0; background: oklch(0.98 0.005 260); border-radius: 10px; padding: 0.5rem 1rem 1rem; border: 1px solid oklch(0.92 0.01 260); }
-details.deep-dive summary { font-weight: 600; cursor: pointer; padding: 0.5rem 0; font-size: 0.9rem; }
-details.deep-dive .dd-body { padding-top: 0.75rem; font-size: 0.88rem; }
-details.deep-dive table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
-details.deep-dive th, details.deep-dive td { padding: 0.5rem 0.6rem; text-align: left; border-bottom: 1px solid oklch(0.92 0.01 260); }
-details.deep-dive th { background: oklch(0.95 0.005 260); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.watch-block { margin: 1.25rem 0; padding: 0.75rem 1rem; background: oklch(1 0.01 80); border-radius: 10px; font-size: 0.85rem; border: 1px solid oklch(0.92 0.01 260); }
-.watch-block strong { font-weight: 600; }
-.jargon { margin: 1rem 0; font-size: 0.82rem; color: oklch(0.55 0.02 260); }
-.jargon strong { font-weight: 600; color: oklch(0.35 0.02 260); }
-.who-talking { margin: 1rem 0; font-size: 0.85rem; }
-.who-talking ul { padding-left: 1.25rem; }
-.who-talking li { margin-bottom: 0.3rem; }
-.try-links { margin: 1.25rem 0; }
-.try-links a { display: inline-block; margin-right: 1rem; margin-bottom: 0.5rem; padding: 0.3rem 0.8rem; background: oklch(0.95 0.005 260); border-radius: 999px; font-size: 0.85rem; border: 1px solid oklch(0.9 0.01 260); }
-.try-links a:hover { background: oklch(0.45 0.18 260); color: oklch(1 0 0); text-decoration: none; }
-
-/* ── still tracking ── */
-.still-tracking { margin: 2rem 0; }
-.still-tracking .smallcaps {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(0.55 0.02 260);
-  font-weight: 500;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.still-tracking ul { list-style: none; padding: 0; }
-.still-tracking li {
-  display: grid;
-  grid-template-columns: 3.5rem 1fr;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid oklch(0.94 0.01 260);
-  font-size: 0.88rem;
-}
-.still-tracking li:last-child { border-bottom: none; }
-.still-tracking .days { font-weight: 600; color: oklch(0.45 0.18 260); font-size: 0.82rem; }
-.still-tracking .item-name { font-weight: 600; }
-.still-tracking .update { color: oklch(0.45 0.02 260); }
-
-/* ── no-signal ── */
-.no-signal {
-  background: oklch(1 0 0);
-  border: 1px solid oklch(0.9 0.01 260);
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-.no-signal .emoji { font-size: 3rem; margin-bottom: 1rem; }
-.no-signal h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  margin-bottom: 0.75rem;
-}
-.no-signal p { color: oklch(0.45 0.02 260); max-width: 30em; margin: 0 auto 0.5rem; }
-.no-signal .note { font-size: 0.85rem; color: oklch(0.6 0.02 260); margin-top: 1.25rem; }
-
-/* ── section titles ── */
-.section-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 2.5rem 0 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.section-title .smallcaps {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: oklch(0.55 0.02 260);
-  font-weight: 500;
-}
-
-/* ── killed table ── */
-.killed table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: oklch(1 0 0); border-radius: 12px; overflow: hidden; }
-.killed th, .killed td { padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid oklch(0.93 0.01 260); }
-.killed th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: oklch(0.55 0.02 260); background: oklch(0.98 0.005 260); }
-.killed tr:last-child td { border-bottom: none; }
-.killed .killed-reason { color: oklch(0.6 0.02 260); font-size: 0.82rem; }
-.killed .empty-note {
-  font-size: 0.85rem;
-  color: oklch(0.6 0.02 260);
-  padding: 1rem 0;
-}
-
-/* ── footer ── */
-.footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.9 0.01 260);
-  font-size: 0.8rem;
-  color: oklch(0.6 0.02 260);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-@media (max-width: 640px) {
-  .masthead { flex-direction: column; align-items: flex-start; }
-  .count-strip { grid-template-columns: repeat(2, 1fr); }
-  .cover .headline { font-size: 2rem; }
-  .no-signal { padding: 2rem 1rem; }
-  .still-tracking li { grid-template-columns: 1fr; }
-  .still-tracking .days { margin-bottom: 0.2rem; }
-}
 </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- masthead -->
-  <header class="masthead">
-    <div class="masthead__brand">
-      <a href="./">AI <span class="accent">Radar</span></a>
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 10 · 30 · Week 44 · №135 · <a href="archive.html">Archive</a></span>
+</header>
+
+<div class="cover">
+    <h1 class="display headline">Codex limits doubled, check your plugins are real before installing</h1>
+    <p class="lead">Codex paid plans get double the usage, a fake Claude Code extension with a backdoor showed up, and Gemini 4 Carbon is out.</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">0</span> must see</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
+        <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
-    <div class="masthead__meta">
-      <span class="issue-no">№133</span>
-      <span>2026-10-07 · Wed</span>
-      <span>Week 41</span>
-    </div>
-    <nav class="masthead__nav">
-      <a href="./">Today</a>
-      <a href="./archive.html">Archive</a>
-      <a href="./rss.xml">RSS</a>
-    </nav>
-  </header>
-
-  <!-- top pager -->
-  <nav class="pager" data-current-date="2026-10-07">
-    <a class="pager__link pager__link--prev" href="#"><span class="pager__label">← Previous</span></a>
-    <a class="pager__link pager__link--next" href="#"><span class="pager__label">Next →</span></a>
-  </nav>
-
-  <!-- cover -->
-  <section class="cover">
-    <div class="kicker">AI Radar · Daily Intelligence · 2026-10-07</div>
-    <h1 class="headline">Mistral returns, OpenAI ships a Decisions API,<br><span class="grad">and Google opens a lightweight embedding model.</span></h1>
-    <p class="subhead">Mistral Large 4 preview hits a trillion parameters with open weights coming月底; OpenAI's new Decisions API lets agents output structured yes/no/classify instead of raw text; EmbeddingGemma 2 gives you a 700M multimodal embedding model under Apache 2.0.</p>
-    <div class="meta-line">
-      <span><strong>Scan scope</strong>: Smol AI / HN / HuggingFace Trends / Simon Willison / OpenAI + Anthropic + Mistral official / Google DeepMind</span>
-      <span><strong>Real signals</strong>: 3 (👀 2 / ℹ️ 1)</span>
-      <span><strong>Risk check</strong>: Excluded funding/litigation/personnel/pure-research/Chinese-already-covered. All 3 items satisfy OR logic.</span>
-    </div>
-  </section>
-
-  <!-- count strip -->
-  <div class="count-strip">
-    <div class="count-card count-card--crit"><div class="count-num">0</div><div class="count-label">🚨 Must See</div></div>
-    <div class="count-card count-card--look"><div class="count-num">2</div><div class="count-label">👀 Worth A Look</div></div>
-    <div class="count-card count-card--fyi"><div class="count-num">1</div><div class="count-label">ℹ️ FYI</div></div>
-    <div class="count-card count-card--track"><div class="count-num">5</div><div class="count-label">📈 Tracking</div></div>
-  </div>
-
-  <!-- 👀 Item 1: Mistral Large 4 -->
-  <article class="item item--look">
-    <div class="item__tier">👀 Worth A Look</div>
-    <h2 class="item__title">Mistral Large 4 — trillion-parameter preview, open weights by end of month</h2>
-    <p class="item__pitch">Hey clawii — Mistral is back. After being quiet since last December, they dropped a 1 trillion parameter model (49B active) that scores 38 on Artificial Analysis — close to DeepSeek V4.1 Flash. And they promise open weights this month. This is a real return to the frontier conversation.</p>
-
-    <div class="context-box">
-      <strong>📍 Context:</strong> Mistral had fallen behind the open-source frontier since Mistral Large 3 (AA score 9). Chinese labs like DeepSeek and Zhipu surged ahead. Now Mistral Large 4 scores 38, trained on their own cluster of 3,800 NVIDIA Grace Blackwell GPUs. The preview is live via their API; open weights are promised by end of October. Simon Willison called it "Le chonk" and confirmed the model is genuinely competitive again.
-    </div>
-
-    <div class="lang">
-      <h3>Why this matters</h3>
-      <ul>
-        <li><strong>Mistral is competitive again:</strong> AA score 38 puts it just behind DeepSeek V4.1 Flash (40). That's a huge leap from Large 3's 9. They're back in the conversation.</li>
-        <li><strong>Open weights by end of month:</strong> You'll be able to run this trillion-parameter model yourself or use any inference provider. No lock-in to Mistral's API.</li>
-        <li><strong>European AI ecosystem matters:</strong> Mistral is the leading European lab. A strong open-weight model from them means more geographic diversity in the frontier — important for enterprise compliance and sovereignty.</li>
-      </ul>
-    </div>
-
-    <div class="action-block">
-      <h3>🎯 What you can do today</h3>
-      <ol>
-        <li>Try the preview via Mistral API at <code>register.mistral.ai</code> — it's live now.</li>
-        <li>Read Simon Willison's "Le chonk" blog for benchmark comparisons and pelican drawings.</li>
-        <li>Watch for the open-weight release at end of month — that's when you can run it locally (with enough hardware) or via a third-party provider.</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 Deep dive — how does Mistral Large 4 compare to DeepSeek V4.1 Flash?</summary>
-      <div class="dd-body">
-        <table>
-          <tr><th>Dimension</th><th>Mistral Large 4</th><th>DeepSeek V4.1 Flash</th></tr>
-          <tr><td>Total parameters</td><td>1 trillion</td><td>763B</td></tr>
-          <tr><td>Active parameters</td><td>49B</td><td>8B (in) / 16B (out)</td></tr>
-          <tr><td>AA Intelligence Index</td><td>38</td><td>40</td></tr>
-          <tr><td>Open weights</td><td>End of month (promised)</td><td>MIT, already released</td></tr>
-          <tr><td>Training hardware</td><td>3,800× NVIDIA Grace Blackwell</td><td>Undisclosed (domestic chips)</td></tr>
-          <tr><td>Reasoning modes</td><td>"none" and "high" (2 levels)</td><td>Adaptive reasoning / can disable</td></tr>
-        </table>
-        <p style="margin-top:0.75rem;"><strong>What it runs on:</strong> Mistral's own cluster of Grace Blackwell GPUs. API only via Mistral platform for now.</p>
-        <p><strong>How hard to use:</strong> Preview is just an API key — minutes to try. Open-source version will need at least 80GB VRAM (4-bit quantized) to run locally. Not a MacBook model.</p>
-        <p><strong>Honest caveat:</strong> It's not Fable or Opus 5.5 level (AA 38 vs 57+). But it's competitive in its size class. The open-weight promise is the real story — if they deliver, it's a major addition to the open ecosystem.</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 Watch for:</strong> The open-weight release at end of month is the real trigger. If it ships under a permissive license (MIT or Apache 2.0), expect community quantized versions and Ollama support within days. That's when you should actually try it.
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
-      <ul>
-        <li><strong>Simon Willison</strong>: "Mistral are back in the game." — <a href="https://simonwillison.net/2026/Oct/6/mistral-large-4/">blog</a></li>
-        <li><strong>Hacker News</strong>: 1837 points, 1106 comments, front page top 3 for two consecutive days.</li>
-        <li><strong>Ars Technica, TechCrunch</strong>: both covering the release.</li>
-      </ul>
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder:</strong>
-      <strong>AA score</strong> = Artificial Analysis Intelligence Index — a composite benchmark score that measures model capability across multiple tasks. Higher is better.
-      <strong>Active parameters</strong> = the subset of total parameters that are actually used per token in a Mixture-of-Experts model. 49B active out of 1T total means most parameters are "dormant" for any given input.
-    </div>
-
-    <div class="try-links">
-      <a href="https://mistral.ai/news">📄 Mistral official announcement</a>
-      <a href="https://simonwillison.net/2026/Oct/6/mistral-large-4/">🔍 Simon Willison analysis</a>
-      <a href="https://news.ycombinator.com/item?id=38002791">💬 HN discussion</a>
-    </div>
-  </article>
-
-  <!-- 👀 Item 2: OpenAI Decisions API -->
-  <article class="item item--look">
-    <div class="item__tier">👀 Worth A Look</div>
-    <h2 class="item__title">OpenAI Decisions API public beta — your agent can finally make structured decisions</h2>
-    <p class="item__pitch">Hey clawii — OpenAI just launched a Decisions API in public beta. Instead of generating free text and hoping you can parse it, the model returns structured JSON: approve/reject, confidence score, reasoning. This is a native decision-making primitive for agents.</p>
-
-    <div class="context-box">
-      <strong>📍 Context:</strong> Until now, AI agents could only generate text. If you wanted a yes/no decision, you had to write a prompt, get text back, and parse it with regex or keywords. The Decisions API changes that — the model outputs a structured decision directly: <code>{ "decision": "approve", "confidence": 0.92, "reasoning": "..." }</code>. Built on GPT-6 with a specialized decision head. This is a new primitive for agent workflows.
-    </div>
-
-    <div class="lang">
-      <h3>Why this matters</h3>
-      <ul>
-        <li><strong>Native structured decisions:</strong> No more parsing text. The API returns a clean JSON object with decision, confidence, and reasoning.</li>
-        <li><strong>Agent workflow friendly:</strong> Perfect for email classification, expense approval, routing, content moderation — any binary or multi-choice decision.</li>
-        <li><strong>Lower engineering overhead:</strong> One API call replaces a complex prompt chain with parsing logic. Much simpler to integrate.</li>
-      </ul>
-    </div>
-
-    <div class="action-block">
-      <h3>🎯 What you can do today</h3>
-      <ol>
-        <li>Visit <code>https://developers.openai.com</code> and request access to the Decisions API beta.</li>
-        <li>Read the docs to understand how to define your decision schema (string enum or boolean).</li>
-        <li>Build a test agent in Claude Code or Codex that uses the Decisions API as a tool call — e.g., classify an email as "urgent / normal / spam".</li>
-      </ol>
-    </div>
-
-    <details class="deep-dive">
-      <summary>🔬 Deep dive — how is this different from regular text generation?</summary>
-      <div class="dd-body">
-        <table>
-          <tr><th>Dimension</th><th>Regular text generation</th><th>Decisions API</th></tr>
-          <tr><td>Output format</td><td>Free text</td><td>Structured JSON: decision + confidence + reasoning</td></tr>
-          <tr><td>Parsing needed</td><td>Regex, keywords, LLM-as-judge</td><td>None — JSON is machine-readable</td></tr>
-          <tr><td>Reliability</td><td>Variable — model may ramble</td><td>Constrained to schema</td></tr>
-          <tr><td>Use case</td><td>Open-ended conversation</td><td>Binary/multi-choice decisions</td></tr>
-          <tr><td>Model</td><td>Standard GPT-6</td><td>GPT-6 with decision head fine-tuning</td></tr>
-        </table>
-        <p style="margin-top:0.75rem;"><strong>How it works:</strong> The model uses a specialized "decision head" — an additional output layer trained specifically to produce structured decisions rather than free text. You define the schema (e.g., <code>["approve", "reject", "more_info"]</code>) and the API guarantees the output conforms.</p>
-        <p><strong>What it runs on:</strong> GPT-6 series models with additional instruction fine-tuning. API-only, no open-source plan.</p>
-        <p><strong>How hard to use:</strong> Very easy. Define your decision schema, call the API. Much simpler than writing a prompt chain with parsing.</p>
-        <p><strong>Honest caveat:</strong> Beta — stability may vary. Only supports simple decision scenarios (binary or few-choice). Complex risk decisions still need human review. Pricing not yet announced.</p>
-      </div>
-    </details>
-
-    <div class="watch-block">
-      <strong>🔭 Watch for:</strong> Pricing at GA — if each decision costs under $0.01, this could replace traditional rule engines at scale. Also watch for open-source alternatives (e.g., Clef's decision capabilities) that might offer similar functionality locally.
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
-      <ul>
-        <li><strong>Hacker News</strong>: 312 points, 155 comments — strong developer enthusiasm.</li>
-        <li><strong>Simon Willison</strong>: hasn't commented yet, but likely to write about it soon.</li>
-      </ul>
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder:</strong>
-      <strong>Decision head</strong> = a specialized output layer added to a language model that forces it to produce structured decisions instead of free text. Trained separately from the base model.
-      <strong>Schema</strong> = the definition of what outputs are allowed — e.g., a list of possible decisions, or a boolean true/false.
-    </div>
-
-    <div class="try-links">
-      <a href="https://developers.openai.com">📄 OpenAI Developers platform</a>
-      <a href="https://news.ycombinator.com/item?id=38002792">💬 HN discussion</a>
-    </div>
-  </article>
-
-  <!-- ℹ️ Item 3: EmbeddingGemma 2 -->
-  <article class="item item--fyi">
-    <div class="item__tier">ℹ️ FYI</div>
-    <h2 class="item__title">EmbeddingGemma 2 — Google open-sources a lightweight multimodal embedding model</h2>
-    <p class="item__pitch">Hey clawii — Google just released EmbeddingGemma 2, a 700M-parameter multimodal embedding model under Apache 2.0. Simon Willison made the case for why embedding models must be open-weight — and this one is.</p>
-
-    <div class="lang">
-      <h3>Why this matters</h3>
-      <ul>
-        <li><strong>Open weights = long-term availability:</strong> Simon Willison's key point — if you build up millions of embedding vectors using a proprietary model, you're stuck when that model gets deprecated. With open weights, you can run it yourself or switch providers.</li>
-        <li><strong>Lightweight + multimodal:</strong> 700M parameters, supports both text and image input. Small enough for modest hardware, capable enough for RAG and retrieval.</li>
-        <li><strong>First Apache 2.0 multimodal embedding model:</strong> Other models are either closed-source or have restrictive licenses. This sets a new standard.</li>
-      </ul>
-    </div>
-
-    <div class="who-talking">
-      <h3 style="font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:oklch(0.55 0.02 260);margin-bottom:0.4rem;">Who's talking about it</h3>
-      <ul>
-        <li><strong>Simon Willison</strong>: detailed commentary on why open-weight embedding models matter — <a href="https://simonwillison.net/2026/Oct/6/embeddinggemma-2/">blog</a></li>
-        <li><strong>Hacker News</strong>: 340 points, 35 comments</li>
-        <li><strong>Google DeepMind blog</strong>: official announcement</li>
-      </ul>
-    </div>
-
-    <div class="jargon">
-      <strong>Jargon decoder:</strong>
-      <strong>Embedding model</strong> = a model that converts text (or images) into a vector of numbers. These vectors are used for search, clustering, and similarity comparison. Once you embed millions of documents, you can't easily switch models without re-embedding everything.
-    </div>
-
-    <div class="try-links">
-      <a href="https://blog.google">📄 Google DeepMind blog</a>
-      <a href="https://simonwillison.net/2026/Oct/6/embeddinggemma-2/">🔍 Simon Willison commentary</a>
-      <a href="https://huggingface.co/google/embeddinggemma-2">🏗️ HuggingFace model card</a>
-    </div>
-  </article>
-
-  <!-- 📈 Still tracking -->
-  <aside class="still-tracking">
-    <span class="smallcaps">📈 Still tracking · not occupying a slot but still developing</span>
-    <ul>
-      <li>
-        <span class="days">Day 6</span>
-        <div><span class="item-name">Clef (local decision model)</span> <span class="update">— HF downloads keep growing, but Red Hat's cold water may be cooling the hype. No new HN posts today.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 6</span>
-        <div><span class="item-name">GLM-5.3 cyber capabilities</span> <span class="update">— Anthropic Frontier Red Team report still being cited, but no hard new confirmation. Community discussion is quieting.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 6</span>
-        <div><span class="item-name">DeepSeek V4.1 Flash</span> <span class="update">— community quantization builds are out; Baseten deployment keeps climbing. MIT license has many enterprises starting evaluations.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 9</span>
-        <div><span class="item-name">Sonnet 5.5 free tier</span> <span class="update">— free tier using Sonnet 5.5 is still active, but OpenAI's Luna 6.1 is iterating fast. No new trigger event.</span></div>
-      </li>
-      <li>
-        <span class="days">Day 5</span>
-        <div><span class="item-name">ChatGPT directly accessing website content</span> <span class="update">— feature still being discussed on HN, but no official OpenAI announcement yet. Waiting for confirmation.</span></div>
-      </li>
-    </ul>
-  </aside>
-
-  <!-- killed list -->
-  <section class="killed">
-    <h3 class="section-title"><span class="smallcaps">📊 What didn't make it</span> Killed list · 7 items</h3>
-    <table>
-      <thead><tr><th>Source · Rank</th><th>Item</th><th>Why excluded</th></tr></thead>
-      <tbody>
-        <tr><td>HN #1</td><td>Nobel Prize in Chemistry 2026 (43 pts)</td><td class="killed-reason">Nobel prize news, not an AI capability signal.</td></tr>
-        <tr><td>HN #3</td><td>OpenAI sharing AI progress in mathematics (955 pts)</td><td class="killed-reason">Strong signal but reference issue is canonical. Re-evaluated: no new KOL endorsement beyond initial post. Simon Willison commented but no standalone endorsement.</td></tr>
-        <tr><td>HN #4</td><td>Strands Decider 2B (190 pts)</td><td class="killed-reason">Small decision model — interesting but no KOL signal and no breakout to non-developer users. Clef already covers this category.</td></tr>
-        <tr><td>HN #7</td><td>ESP32-C3 Adblock (108 pts)</td><td class="killed-reason">Hardware project, not AI.</td></tr>
-        <tr><td>HN #14</td><td>Claude Code suggested message feature (211 pts)</td><td class="killed-reason">Product feature discussion, not a new capability signal. Chinese outlets likely already covered.</td></tr>
-        <tr><td>HN #21</td><td>OpenTPU — open-source AI accelerator (292 pts)</td><td class="killed-reason">Hardware project, not an AI capability signal for clawii's use case.</td></tr>
-        <tr><td>HN #26</td><td>Hackers obtain counterfeit TLS certificates (85 pts)</td><td class="killed-reason">Security incident, not AI capability.</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- bottom pager -->
-  <nav class="pager pager--bottom" data-current-date="2026-10-07">
-    <a class="pager__link pager__link--prev" href="#"><span class="pager__label">← Previous</span></a>
-    <a class="pager__link pager__link--next" href="#"><span class="pager__label">Next →</span></a>
-  </nav>
-
-  <!-- footer -->
-  <footer class="footer">
-    <span>© 2026 AI Radar · Daily · Real signals only · Weekends may be lighter</span>
-    <span>Generated 2026-10-07 · №133</span>
-  </footer>
-
 </div>
 
+<div class="pager" data-current-date="2026-10-30"><a href="#" class="prev">← Previous</a><span class="issue-num">№135 · 2026-10-30</span><a href="#" class="next">Next →</a></div>
+
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Codex limits doubled, and your subscription now comes with API credit</li><li><span class="tier-tag look">👀 Worth a look</span> Fake Claude Code extension with a backdoor showed up in the Cursor marketplace</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Gemini 4 Carbon is out</li></ul></nav>
+
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">Codex limits doubled, and your subscription now comes with API credit</h2>
+    <div class="pitch">OpenAI doubled the usage caps on all the Pro 100/200/500 plans, and the subscription now also comes with the same amount in API credit.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Usage doubled on Pro 100/200/500 and Business Premium</li><li>Pro 200&#x27;s Work and Codex usage won&#x27;t be cut back</li><li>Subscription comes with matching API credit, and Anthropic did the same thing this month</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open your ChatGPT account page and see if there&#x27;s API credit you can link</li><li>If you&#x27;re on a Pro plan, this week&#x27;s a good time to run longer tasks in Codex</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>This isn&#x27;t a new model, it just means the same subscription can do more work. People who use Codex heavily every day get the most out of it.</p><p>The API credit has to be tied to an API organization before you can use it. Simon Willison said he&#x27;ll use his for public demos.</p><p>The source only mentions the doubling and the bonus credit, with no details on expiry rules, so read the account page before you count on it.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · Thibault Sottiaux&#x27;s tweet got 35k likes · Simon Willison confirmed on Oct 29 · OpenAI and Anthropic followed each other with similar perks</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/thsottiaux/status/2115850175868727621" target="_blank" rel="noopener">Codex team announcement (X)</a> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison&#x27;s blog</a></div>
+</article>
+
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">Fake Claude Code extension with a backdoor showed up in the Cursor marketplace</h2>
+    <div class="pitch">A VS Code extension pretending to be Claude Code in Cursor&#x27;s extension marketplace was reported to have a backdoor. If you installed it, check right now.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>The HN thread is blowing up, almost 500 comments</li><li>It pretends to be a tool you use every day, so it&#x27;s the easiest to fall for</li><li>A backdoored extension can read the files and keys on your computer</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open the extension list in Cursor/VS Code and check that the Claude Code publisher is Anthropic</li><li>If you&#x27;re not sure, uninstall it and install through the official command line instead</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>If you mostly use the command-line version of Claude Code, your risk is lower. But if you installed an extension with the same name in Cursor, you need to check.</p><p>The source only has the title and how hot it is on HN, so read the original for how people got hit and how far it spread.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 794 points · 498 comments · ranked #4</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN front page discussion</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ FYI</div>
+    <h2 class="display title">Gemini 4 Carbon is out</h2>
+    <div class="pitch">Google&#x27;s new flagship Gemini 4 Carbon is live, reportedly #1 on the leaderboard, and it&#x27;s also open to cybersecurity defenders.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>DeepMind&#x27;s site lists it as the next-gen flagship model</li><li>AINews says it took the top spot on the leaderboard</li></ul></div>
+    <div class="signals"><strong>Signals</strong> · AINews top story on Oct 29 · DeepMind official blog post is up</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://deepmind.google/blog" target="_blank" rel="noopener">DeepMind blog</a> · <a href="https://news.smol.ai/issues/" target="_blank" rel="noopener">AINews</a></div>
+</article>
+
+
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Anthropic files S-1 to go public</td><td>It&#x27;s funding and IPO news, nothing to do with your work</td></tr><tr><td>Mistral Le Chonk open weights</td><td>Mostly about coding and security, not useful for non-developers right now</td></tr><tr><td>Kimi 3.1 Pro open-source model</td><td>Chinese media has probably covered it already, and you won&#x27;t need it</td></tr><tr><td>nesformer (stuffing an NES emulator into Qwen)</td><td>Really fun but just a toy, no practical use</td></tr><tr><td>Agent Skills donated to the Agentic AI Foundation</td><td>This happened Oct 22, over a week ago, and there&#x27;s been no new buzz</td></tr></tbody></table></details></section>
+
+<footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
+
+<div class="pager" data-current-date="2026-10-30"><a href="#" class="prev">← Previous</a><span class="issue-num">№135 · 2026-10-30</span><a href="#" class="next">Next →</a></div>
+
 <script>
-(function(){
-  var current = document.querySelector('.pager--bottom');
-  if (!current) return;
-  var currentDate = current.getAttribute('data-current-date');
-  fetch('./archive.json').then(function(r){ return r.json(); }).then(function(archive){
-    var issues = archive.issues || [];
-    var idx = issues.findIndex(function(i){ return i.date === currentDate; });
-    if (idx < 0) return;
-    var prev = issues[idx + 1];
-    var next = issues[idx - 1];
-    var prevLinks = document.querySelectorAll('.pager__link--prev');
-    var nextLinks = document.querySelectorAll('.pager__link--next');
-    if (prev) {
-      prevLinks.forEach(function(link){
-        link.href = prev.date + '.html';
-        link.querySelector('.pager__label').textContent = '← ' + prev.date;
-      });
-    } else {
-      prevLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = '← No earlier'; });
-    }
-    if (next) {
-      nextLinks.forEach(function(link){
-        link.href = next.date + '.html';
-        link.querySelector('.pager__label').textContent = next.date + ' →';
-      });
-    } else {
-      nextLinks.forEach(function(link){ link.classList.add('pager__link--disabled'); link.querySelector('.pager__label').textContent = 'No later →'; });
-    }
-  }).catch(function(){});
+(async function() {
+    const currentDate = '2026-10-30';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
 })();
 </script>
 </body>

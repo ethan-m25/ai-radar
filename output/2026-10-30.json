@@ -1,0 +1,104 @@
+{
+  "headline": "Codex 额度翻倍，装插件先查真假",
+  "summary": "Codex 付费档额度翻倍，Claude Code 假扩展出现后门，Gemini 4 Carbon 登场。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Codex 额度翻倍，订阅还送 API 额度",
+      "pitch": "OpenAI 把 Pro 100/200/500 档的用量上限全部翻倍，订阅还附赠同等金额的 API 额度。",
+      "why": [
+        "Pro 100/200/500 和 Business Premium 用量翻倍",
+        "Pro 200 的 Work 和 Codex 用量不会被削减",
+        "订阅送等额 API 额度，Anthropic 本月也做了同样的事"
+      ],
+      "actions": [
+        "打开 ChatGPT 账户页，看是否已有 API 额度可绑定",
+        "你用 Pro 档的话，这周可以多用 Codex 跑长任务"
+      ],
+      "deep_dive": [
+        "额度不是新模型，是同一个订阅能多干活。每天重度用 Codex 的人受益最大。",
+        "API 额度要绑到某个 API 组织（organization）里用。Simon Willison 说他会拿来做公开 demo。",
+        "来源只写了翻倍和附赠额度，没给过期规则细节，用之前先看账户页说明。"
+      ],
+      "signals": "Thibault Sottiaux 推文 3.5 万赞 · Simon Willison 10 月 29 日确认 · OpenAI 与 Anthropic 先后跟进同类福利",
+      "links": [
+        {
+          "label": "Codex 团队公告（X）",
+          "url": "https://x.com/thsottiaux/status/2115850175868727621"
+        },
+        {
+          "label": "Simon Willison 博客",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Cursor 市场出现带后门的假 Claude Code 扩展",
+      "pitch": "Cursor 扩展市场里有个冒充 Claude Code 的 VS Code 扩展被曝带后门。装过的人现在就该查。",
+      "why": [
+        "HN 讨论非常热，评论近 500 条",
+        "冒充你每天用的工具，最容易中招",
+        "后门扩展能读你电脑上的文件和密钥"
+      ],
+      "actions": [
+        "打开 Cursor/VS Code 的扩展列表，核对 Claude Code 的发布者是不是 Anthropic",
+        "不确定就卸载，改用官方命令行安装"
+      ],
+      "deep_dive": [
+        "你主要用命令行版 Claude Code，风险较小。但如果在 Cursor 里装过同名扩展，就要查。",
+        "来源只有标题和 HN 热度，具体怎么中招、影响范围要看原文。"
+      ],
+      "signals": "HN 794 分 · 498 条评论 · 排第 4",
+      "links": [
+        {
+          "label": "HN 首页讨论",
+          "url": "https://news.ycombinator.com/"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Gemini 4 Carbon 发布",
+      "pitch": "Google 新旗舰 Gemini 4 Carbon 上线，据报道榜单第一，也面向网络安全防御者开放。",
+      "why": [
+        "DeepMind 官网把它列为下一代旗舰模型",
+        "AINews 称其登顶榜单"
+      ],
+      "signals": "AINews 10 月 29 日头条 · DeepMind 官方博客上线",
+      "links": [
+        {
+          "label": "DeepMind 博客",
+          "url": "https://deepmind.google/blog"
+        },
+        {
+          "label": "AINews",
+          "url": "https://news.smol.ai/issues/"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "Anthropic 提交 S-1 上市",
+      "reason": "属于融资和上市新闻，和你的工作无关"
+    },
+    {
+      "name": "Mistral Le Chonk 开源权重",
+      "reason": "偏写代码和安全，非开发者暂时用不上"
+    },
+    {
+      "name": "Kimi 3.1 Pro 开源模型",
+      "reason": "中文媒体大概率已报道，且你用不到"
+    },
+    {
+      "name": "nesformer（把 NES 模拟器塞进 Qwen）",
+      "reason": "很有趣但只是玩具，没有实际用途"
+    },
+    {
+      "name": "Agent Skills 捐给 Agentic AI Foundation",
+      "reason": "10 月 22 日的事，已过一周，热度没有新增"
+    }
+  ]
+}

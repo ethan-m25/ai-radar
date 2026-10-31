@@ -1,0 +1,104 @@
+{
+  "headline": "Codex limits doubled, check your plugins are real before installing",
+  "summary": "Codex paid plans get double the usage, a fake Claude Code extension with a backdoor showed up, and Gemini 4 Carbon is out.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Codex limits doubled, and your subscription now comes with API credit",
+      "pitch": "OpenAI doubled the usage caps on all the Pro 100/200/500 plans, and the subscription now also comes with the same amount in API credit.",
+      "why": [
+        "Usage doubled on Pro 100/200/500 and Business Premium",
+        "Pro 200's Work and Codex usage won't be cut back",
+        "Subscription comes with matching API credit, and Anthropic did the same thing this month"
+      ],
+      "actions": [
+        "Open your ChatGPT account page and see if there's API credit you can link",
+        "If you're on a Pro plan, this week's a good time to run longer tasks in Codex"
+      ],
+      "deep_dive": [
+        "This isn't a new model, it just means the same subscription can do more work. People who use Codex heavily every day get the most out of it.",
+        "The API credit has to be tied to an API organization before you can use it. Simon Willison said he'll use his for public demos.",
+        "The source only mentions the doubling and the bonus credit, with no details on expiry rules, so read the account page before you count on it."
+      ],
+      "signals": "Thibault Sottiaux's tweet got 35k likes · Simon Willison confirmed on Oct 29 · OpenAI and Anthropic followed each other with similar perks",
+      "links": [
+        {
+          "label": "Codex team announcement (X)",
+          "url": "https://x.com/thsottiaux/status/2115850175868727621"
+        },
+        {
+          "label": "Simon Willison's blog",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Fake Claude Code extension with a backdoor showed up in the Cursor marketplace",
+      "pitch": "A VS Code extension pretending to be Claude Code in Cursor's extension marketplace was reported to have a backdoor. If you installed it, check right now.",
+      "why": [
+        "The HN thread is blowing up, almost 500 comments",
+        "It pretends to be a tool you use every day, so it's the easiest to fall for",
+        "A backdoored extension can read the files and keys on your computer"
+      ],
+      "actions": [
+        "Open the extension list in Cursor/VS Code and check that the Claude Code publisher is Anthropic",
+        "If you're not sure, uninstall it and install through the official command line instead"
+      ],
+      "deep_dive": [
+        "If you mostly use the command-line version of Claude Code, your risk is lower. But if you installed an extension with the same name in Cursor, you need to check.",
+        "The source only has the title and how hot it is on HN, so read the original for how people got hit and how far it spread."
+      ],
+      "signals": "HN 794 points · 498 comments · ranked #4",
+      "links": [
+        {
+          "label": "HN front page discussion",
+          "url": "https://news.ycombinator.com/"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Gemini 4 Carbon is out",
+      "pitch": "Google's new flagship Gemini 4 Carbon is live, reportedly #1 on the leaderboard, and it's also open to cybersecurity defenders.",
+      "why": [
+        "DeepMind's site lists it as the next-gen flagship model",
+        "AINews says it took the top spot on the leaderboard"
+      ],
+      "signals": "AINews top story on Oct 29 · DeepMind official blog post is up",
+      "links": [
+        {
+          "label": "DeepMind blog",
+          "url": "https://deepmind.google/blog"
+        },
+        {
+          "label": "AINews",
+          "url": "https://news.smol.ai/issues/"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "Anthropic files S-1 to go public",
+      "reason": "It's funding and IPO news, nothing to do with your work"
+    },
+    {
+      "name": "Mistral Le Chonk open weights",
+      "reason": "Mostly about coding and security, not useful for non-developers right now"
+    },
+    {
+      "name": "Kimi 3.1 Pro open-source model",
+      "reason": "Chinese media has probably covered it already, and you won't need it"
+    },
+    {
+      "name": "nesformer (stuffing an NES emulator into Qwen)",
+      "reason": "Really fun but just a toy, no practical use"
+    },
+    {
+      "name": "Agent Skills donated to the Agentic AI Foundation",
+      "reason": "This happened Oct 22, over a week ago, and there's been no new buzz"
+    }
+  ]
+}

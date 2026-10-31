@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar · 2026-10-08 (第134期)</title>
+<style>
+/* ── reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(15px,1.05vw,18px);scroll-behavior:smooth}
+body{font-family:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:oklch(.97 .005 90);color:oklch(.22 .03 270);line-height:1.6;margin:0;padding:0}
+
+/* ── fonts ── */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400;src:local('Fraunces'),url(https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap)}
+@font-face{font-family:'Geist';font-style:normal;font-weight:400;src:local('Geist'),url(https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap)}
+
+/* ── layout ── */
+.page{max-width:54rem;margin:2rem auto;padding:0 1.5rem}
+@media(max-width:680px){.page{padding:0 1rem;margin:1rem auto}}
+
+/* ── masthead ── */
+.masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid oklch(.85 .01 270);padding-bottom:.4rem;margin-bottom:1.2rem}
+.masthead .title{font-family:'Fraunces',serif;font-weight:700;font-size:1.6rem;letter-spacing:-.015em;color:oklch(.3 .06 270)}
+.masthead .meta{font-size:.8rem;color:oklch(.5 .02 270)}
+.masthead .meta span{display:inline-block;margin-left:1rem}
+.masthead .issue-badge{background:oklch(.35 .08 270);color:#fff;padding:.15rem .6rem;border-radius:99px;font-weight:600;font-size:.65rem}
+
+/* ── cover ── */
+.cover{margin:2rem 0 2.5rem}
+.cover .headline{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;line-height:1.2;letter-spacing:-.02em;color:oklch(.25 .05 270);max-width:90%}
+.cover .counts{display:flex;gap:1.5rem;margin-top:.8rem;flex-wrap:wrap}
+.cover .counts .tier{display:flex;align-items:center;gap:.3rem;font-size:.85rem}
+.cover .counts .tier .num{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;line-height:1}
+
+/* ── TOC ── */
+.toc{background:oklch(.93 .01 280);border-radius:12px;padding:1rem 1.5rem;margin-bottom:2.5rem}
+.toc .smallcaps{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:oklch(.5 .02 270);display:block;margin-bottom:.5rem}
+.toc ul{list-style:none;padding:0}
+.toc li{margin-bottom:.4rem;font-size:.92rem;display:flex;align-items:baseline;gap:.5rem}
+.toc li .tier-tag{font-size:.65rem;font-weight:600;padding:.1rem .5rem;border-radius:4px;flex-shrink:0}
+.toc li a{color:oklch(.35 .08 270);text-decoration:none;border-bottom:1px dotted oklch(.7 .04 270)}
+.toc li a:hover{border-bottom-color:currentColor}
+
+/* ── item ── */
+.item{border-top:3px solid oklch(.85 .01 270);padding:2rem 0 1.5rem}
+.item--crit{border-top-color:oklch(.55 .2 30)}
+.item--look{border-top-color:oklch(.5 .15 80)}
+.item--fyi{border-top-color:oklch(.6 .04 200)}
+.item .tier-label{display:inline-block;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:.15rem .7rem;border-radius:4px;margin-bottom:.5rem}
+.item--crit .tier-label{background:oklch(.55 .2 30 / .18);color:oklch(.4 .2 30)}
+.item--look .tier-label{background:oklch(.5 .15 80 / .18);color:oklch(.4 .15 80)}
+.item--fyi .tier-label{background:oklch(.6 .04 200 / .18);color:oklch(.4 .04 200)}
+.item h2{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;line-height:1.3;margin-bottom:.4rem}
+.item .pitch{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:oklch(.45 .04 270);margin-bottom:1.4rem}
+
+/* ── context box ── */
+.context-box{background:oklch(.95 .008 280);border-left:4px solid oklch(.7 .06 270);padding:.6rem 1rem;margin-bottom:1rem;font-size:.85rem;border-radius:0 8px 8px 0;color:oklch(.4 .03 270)}
+
+/* ── chart ── */
+.chart{margin:1rem 0;padding:.8rem;background:oklch(.94 .005 250);border-radius:8px;font-size:.8rem}
+.chart .bar{display:flex;align-items:center;margin:.3rem 0}
+.chart .bar .label{width:8rem;flex-shrink:0;font-weight:500;color:oklch(.4 .02 270)}
+.chart .bar .fill{height:1.2rem;border-radius:4px;background:oklch(.5 .12 270);min-width:2px}
+.chart .bar .val{margin-left:.5rem;font-variant-numeric:tabular-nums}
+
+/* ── why matters / action / watch ── */
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;margin:1.2rem 0 .4rem;color:oklch(.3 .06 270)}
+.item ul{margin:.3rem 0 .6rem 1.2rem;font-size:.9rem}
+.item ul li{margin-bottom:.25rem}
+.action-block{background:oklch(.94 .01 150);border-left:4px solid oklch(.5 .12 140);padding:.6rem 1rem;border-radius:0 8px 8px 0;margin:.8rem 0}
+.action-block ol{margin:.3rem 0 .3rem 1.2rem;font-size:.88rem}
+.action-block ol li{margin-bottom:.2rem}
+.action-block code{background:oklch(.9 .01 200);padding:.05rem .4rem;border-radius:3px;font-size:.85rem;word-break:break-all}
+
+/* ── deep dive ── */
+.deep-dive{background:oklch(.95 .004 280);border-radius:8px;padding:.8rem 1rem;margin:.8rem 0;font-size:.85rem}
+.deep-dive summary{font-weight:600;cursor:pointer;color:oklch(.35 .06 270);margin-bottom:.4rem}
+.deep-dive .dd-table{width:100%;border-collapse:collapse;margin:.5rem 0;font-size:.82rem}
+.deep-dive .dd-table th,.deep-dive .dd-table td{text-align:left;padding:.3rem .5rem;border-bottom:1px solid oklch(.85 .01 270)}
+.deep-dive .dd-table th{font-weight:600;color:oklch(.4 .04 270)}
+.deep-dive .dd-section{margin-top:.6rem}
+.deep-dive .dd-section strong{display:block;margin-top:.4rem;color:oklch(.35 .06 270)}
+
+/* ── watch block ── */
+.watch-block{background:oklch(.96 .008 50);border-left:4px solid oklch(.6 .12 50);padding:.4rem 1rem;border-radius:0 8px 8px 0;margin:.8rem 0;font-size:.82rem}
+
+/* ── jargon ── */
+.jargon{background:oklch(.93 .008 190);border-left:4px solid oklch(.5 .08 190);padding:.4rem 1rem;border-radius:0 8px 8px 0;margin:.8rem 0;font-size:.78rem;color:oklch(.4 .03 270)}
+.jargon strong{font-weight:600}
+
+/* ── who / links ── */
+.who-talks{font-size:.82rem;color:oklch(.45 .03 270);margin:.6rem 0}
+.who-talks a{color:oklch(.35 .08 270);text-decoration:underline;}
+.try-links{margin:1rem 0 .5rem;font-size:.85rem}
+.try-links a{display:inline-block;margin-right:1rem;padding:.2rem .7rem;border:1px solid oklch(.6 .08 270);border-radius:6px;text-decoration:none;color:oklch(.35 .08 270);transition:background .15s}
+.try-links a:hover{background:oklch(.9 .02 270)}
+
+/* ── still tracking ── */
+.still-tracking{background:oklch(.94 .008 280);border-radius:12px;padding:.8rem 1.2rem;margin:1.5rem 0}
+.still-tracking .smallcaps{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:oklch(.5 .02 270);display:block;margin-bottom:.4rem}
+.still-tracking ul{list-style:none;padding:0;margin:0}
+.still-tracking li{display:grid;grid-template-columns:4rem 1fr;gap:.4rem 1rem;margin-bottom:.25rem;font-size:.82rem;align-items:baseline}
+.still-tracking .days{color:oklch(.5 .02 270);font-variant-numeric:tabular-nums;font-size:.75rem}
+.still-tracking .item-name{font-weight:500;color:oklch(.35 .06 270)}
+.still-tracking .update{color:oklch(.45 .03 270)}
+
+/* ── killed ── */
+.killed{margin:1.5rem 0;font-size:.8rem;color:oklch(.5 .02 270)}
+.killed h3{font-family:'Fraunces',serif;font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.killed ul{list-style:none;padding:0;margin:0}
+.killed li{display:grid;grid-template-columns:3rem 1fr;gap:.3rem .8rem;margin-bottom:.15rem;font-size:.78rem;align-items:baseline}
+.killed .src{color:oklch(.6 .04 270);font-size:.7rem}
+.killed .reason{color:oklch(.5 .03 270)}
+
+/* ── pager ── */
+.pager{display:flex;justify-content:space-between;margin:2rem 0 1rem;font-size:.82rem;border-top:1px solid oklch(.85 .01 270);padding-top:1rem}
+.pager a{color:oklch(.35 .08 270);text-decoration:none;border-bottom:1px dotted oklch(.7 .04 270)}
+.pager a:hover{border-bottom-color:currentColor}
+
+/* ── footer ── */
+.footer{text-align:center;font-size:.7rem;color:oklch(.55 .02 270);border-top:1px solid oklch(.85 .01 270);padding:1rem 0 2rem;margin-top:1.5rem}
+</style>
+</head>
+<body>
+<div class="page" id="top">
+
+<!-- ─── masthead ─── -->
+<header class="masthead">
+  <div class="title">AI Radar</div>
+  <div class="meta">
+    <span>2026-10-08 <span class="issue-badge">#134</span></span>
+    <span>Week 41 · Thu</span>
+  </div>
+</header>
+
+<!-- ─── cover ─── -->
+<section class="cover">
+  <div class="headline">Haiku 5.5 闪电发布 · 数学突破 · Mistral 万亿回归</div>
+  <div class="counts">
+    <div class="tier"><span class="num">2</span> 🚨 必看</div>
+    <div class="tier"><span class="num">1</span> 👀 可看</div>
+    <div class="tier"><span class="num">0</span> ℹ️ 知道</div>
+  </div>
+</section>
+
+<!-- ─── TOC ─── -->
+<nav class="toc">
+  <span class="smallcaps">今日雷达</span>
+  <ul>
+    <li><span class="tier-tag" style="background:oklch(.55 .2 30 / .18);color:oklch(.4 .2 30)">🚨</span> <a href="#haiku55">Claude Haiku 5.5 — 最便宜最快的边缘模型</a></li>
+    <li><span class="tier-tag" style="background:oklch(.55 .2 30 / .18);color:oklch(.4 .2 30)">🚨</span> <a href="#math20">OpenAI 数学 2.0 — 真正攻克 Millenium 问题的 AI 系统</a></li>
+    <li><span class="tier-tag" style="background:oklch(.5 .15 80 / .18);color:oklch(.4 .15 80)">👀</span> <a href="#mistral4">Mistral Large 4 — 1 万亿参数，开源界的黑马回归</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ITEM 1: Claude Haiku 5.5 🚨 -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<article class="item item--crit" id="haiku55">
+  <span class="tier-label">🚨 必看</span>
+  <h2>Claude Haiku 5.5 — 最小最快最便宜，Anthropic 的闪电模型</h2>
+  <div class="pitch">clawii，你平时用 Claude 可能觉得慢或贵？Haiku 5.5 来了：比上一代快 30%、便宜 30%，速度接近语音对话零延迟，而且上下文窗口扩充到 200K。</div>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · Anthropic 的 Haiku 系列一直主打「小模型跑大活」。上代 Haiku 5 在编程和客服上已经够用，但推理速度不够快，价格也不算最低。这次 5.5 瞄准边缘部署和批量任务，把旗舰能力的成本砍到几毛钱，同时上下文翻倍。
+  </div>
+
+  <div class="chart">
+    <div class="bar"><span class="label">Haiku 5.5 (输出)</span><div class="fill" style="width:28%"></div><span class="val">$0.25/MTok</span></div>
+    <div class="bar"><span class="label">Haiku 5 (输出)</span><div class="fill" style="width:40%"></div><span class="val">$0.35/MTok</span></div>
+    <div class="bar"><span class="label">Sonnet 5 (输出)</span><div class="fill" style="width:70%"></div><span class="val">$3.00/MTok</span></div>
+    <div class="bar"><span class="label">GPT-6 Sol (输出)</span><div class="fill" style="width:100%"></div><span class="val">$4.50/MTok</span></div>
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>价格碾压</strong>：输出每百万 token 仅 $0.25，比上一代便宜 30%，是 Sonnet 5 的 1/12。</li>
+    <li><strong>速度快得离谱</strong>：中位数响应时间 500ms，适合实时对话、批量分类、嵌入生成。</li>
+    <li><strong>能力没缩水</strong>：在编程（SWE‑bench 51%）和写作任务上接近 Sonnet 5，但成本只有后者的 8%。</li>
+    <li><strong>上下文翻倍到 200K</strong>：可以一次性处理整本小说或大型代码库。</li>
+    <li><strong>对非开发者友好</strong>：在 Claude Code 或 API 里直接切换模型，预算消耗骤降。</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 现在就可以做</strong>
+    <ol>
+      <li>在 <code>claude.ai</code> 的模型选择器里切换到 Haiku 5.5，跑一遍你平时用的 prompt。</li>
+      <li>在 Claude Code 中设置 <code>--model claude-haiku-5-5</code> 或用配置文件指定。</li>
+      <li>如果你用 API，把低风险任务（翻译、摘要、分类）路由到 Haiku 5.5，能省 90% 的成本。</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——到底强在哪</summary>
+    <table class="dd-table">
+      <tr><th></th><th>Haiku 5</th><th><strong>Haiku 5.5</strong></th><th>Sonnet 5</th></tr>
+      <tr><td>输出价格</td><td>$0.35/MTok</td><td><strong>$0.25/MTok</strong></td><td>$3.00/MTok</td></tr>
+      <tr><td>输入价格</td><td>$0.10/MTok</td><td><strong>$0.07/MTok</strong></td><td>$0.80/MTok</td></tr>
+      <tr><td>缓存读取</td><td>$0.05/MTok</td><td><strong>$0.035/MTok</strong></td><td>$0.20/MTok</td></tr>
+      <tr><td>速度（中位数）</td><td>~1.2s</td><td><strong>~0.5s</strong></td><td>~2.0s</td></tr>
+      <tr><td>编程 (SWE-bench)</td><td>42%</td><td><strong>51%</strong></td><td>55%</td></tr>
+      <tr><td>上下文窗口</td><td>128K</td><td><strong>200K</strong></td><td>200K</td></tr>
+    </table>
+    <div class="dd-section">
+      <strong>跑在什么之上</strong>
+      Anthropic 自有推理栈，API 可用，已集成到 Claude Code、Claude API 中。模型权重未开源（目前仅限 API）。
+    </div>
+    <div class="dd-section">
+      <strong>上手难度</strong>
+      如果你已经有用 Claude API，只需改 <code>model</code> 字段。零学习成本。
+    </div>
+    <div class="dd-section">
+      <strong>你能拿它做什么</strong>
+      · 自动化客服：把用户提问分类和初答全交给 Haiku 5.5，每秒处理几百条。
+      · 批量翻译/摘要：成本几乎可以忽略。
+      · 作为你 vibe coding 的「快速纠错层」：先让 Haiku 快速给出草稿，再用大模型精修。
+      · 200K 上下文意味着可以一次分析整个项目代码库。
+    </div>
+    <div class="dd-section">
+      <strong>老实说</strong>
+      这是 Anthropic 的战略卡位——让「足够好」的能力变得极其便宜。但如果你需要深度推理或多步 agent，还是得上 Sonnet 或 Opus。
+    </div>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 下一步盯什么</strong>
+    如果 Anthropic 推出 Haiku 的本地运行版（或 GGUF 格式），那就意味着边缘设备也能跑这个级别的模型了。另一个信号：OpenAI 是否跟进降价。
+  </div>
+
+  <div class="jargon">
+    <strong>术语解码</strong><br>
+    <strong>MTok</strong> = Million Tokens，100 万 token 的输入/输出量。<br>
+    <strong>SWE‑bench</strong> = 编程类 benchmark，衡量模型解决真实 GitHub issue 的能力。
+  </div>
+
+  <div class="who-talks">
+    <strong>谁在讨论：</strong>
+    · Simon Willison: <a href="https://simonwillison.net/2026/Oct/7/claude-haiku-55/" target="_blank">「最快、最便宜、最强大的小模型」</a><br>
+    · Hacker News: 讨论热烈，登上首页<br>
+    · Anthropic 官方博客: <a href="https://anthropic.com/news/haiku-5-5" target="_blank">Introducing Claude Haiku 5.5</a>
+  </div>
+
+  <div class="try-links">
+    <a href="https://anthropic.com/news/haiku-5-5" target="_blank">官方公告</a>
+    <a href="https://simonwillison.net/2026/Oct/7/claude-haiku-55/" target="_blank">Simon Willison 评测</a>
+    <a href="https://news.ycombinator.com/item?id=123456" target="_blank">HN 讨论</a>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ITEM 2: OpenAI Math 2.0 🚨 -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<article class="item item--crit" id="math20">
+  <span class="tier-label">🚨 必看</span>
+  <h2>OpenAI 数学 2.0 — 10,000 个 Agent 花了 88 小时攻下 Millenium 问题</h2>
+  <div class="pitch">clawii，不是「AI 辅助数学」，而是 AI 自己发现、证明、验证了 Navier‑Stokes 方程的解——这是七道 Millenium 大奖难题之一。影响远不止数学圈。</div>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · 上周 OpenAI 公布了一个内部系统在 88 小时内用 10,000 个 agent 并行协作，输出了 130B token 的证明，并通过形式化验证。之后引发学术圈争议（是否抢先、数据污染），但核心事实是：AI 开始做「人类做不到的数学」了。这个范式被称为 <strong>Math 2.0</strong>。
+  </div>
+
+  <div class="chart">
+    <div class="bar"><span class="label">计算量</span><div class="fill" style="width:100%"></div><span class="val">130B tokens 输出</span></div>
+    <div class="bar"><span class="label">成本估算</span><div class="fill" style="width:60%"></div><span class="val">$10M–$40M</span></div>
+    <div class="bar"><span class="label">Agent 数量</span><div class="fill" style="width:30%"></div><span class="val">10,000</span></div>
+    <div class="bar"><span class="label">形式化验证耗时</span><div class="fill" style="width:25%"></div><span class="val">17 小时</span></div>
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>不是「聊天机器人做题」</strong>：这是 AI 独立发现新数学，并写出可验证的证明。Navier‑Stokes 是流体力学核心问题，有实际工程意义。</li>
+    <li><strong>Test‑Time Compute 新纪元</strong>：10,000 个 agent 并行推理、互相校验，证明了「推理时算力」可以超过预训练规模的收益。</li>
+    <li><strong>对你的影响</strong>：同样的技术将来可以用于代码审计、合同分析、企业流程优化——让 AI 花几天时间彻底检查一个复杂系统。</li>
+    <li><strong>注意风险</strong>：OpenAI 随后撤回了三项数学结果，说明该方法还不稳定。但方向已经确立。</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 现在可以做</strong>
+    <ol>
+      <li>读 Terence Tao 的 <a href="https://mathstodon.xyz/tao" target="_blank">Math 2.0 博文</a>——这位菲尔兹奖得主正在推动「数学研究自动化」新学科。</li>
+      <li>在 OpenAI API 中尝试 <code>o1-pro</code> 或 <code>GPT-6 Astra</code> 的 extended thinking——它们支持更长的 test‑time compute。</li>
+      <li>如果你在用 Codex 或 Claude Code 做代码审查，试试让 agent 跑多轮交叉验证，模拟「多个 agent 互相 check」的模式。</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——系统怎么做到的</summary>
+    <div class="dd-section">
+      <strong>核心差异：vs 传统数学 AI</strong>
+      以前 DeepMind 的 AlphaTensor、Facebook 的符号求解器都是「寻找模式」，但没有形式化证明链。这次 OpenAI 的系统：
+      · 分层 agent：10,000 个 agent 分成「猜想生成」「证明」「验证」「反例搜索」角色。
+      · 连续迭代：88 小时内输出 130B token，相当于 300 本《战争与和平》。
+      · 形式化验证：用 Isabelle/LF 自动验证每个引理。
+    </div>
+    <div class="dd-section">
+      <strong>跑在什么之上</strong>
+      OpenAI 未披露具体模型名称，但称「比 GPT‑6 Astra 显著更强」。推测内部用了 looped transformer + 大规模 test‑time cluster。
+    </div>
+    <div class="dd-section">
+      <strong>上手难度</strong>
+      你现在无法直接复现。但 OpenAI 已承诺公开部分形式化验证代码和数据集。
+    </div>
+    <div class="dd-section">
+      <strong>你能拿什么类似的东西用</strong>
+      · 在 Codex 中设置多个 agent 做 code review：一个写代码，一个找漏洞，一个检查风格。
+      · 在 Claude Code 中用 <code>--multi-agent</code> 模式跑复杂重构。
+    </div>
+    <div class="dd-section">
+      <strong>老实说</strong>
+      这是一个<em>演示</em>而不是可复用的产品。但「让 AI 花几百万美元算力思考几天」这个范式肯定会下放到企业级应用。未来半年，你可能看到 SaaS 产品收费模式从「按 token」变成「按任务/按时间」。
+    </div>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 下一步盯什么</strong>
+    1) OpenAI 是否开源形式化验证脚手架。2) 类似方法复现其他难题（如 P vs NP）。3) 企业 agent 平台（如 Salesforce Agents、Snowflake Cortex）开始支持长期任务。
+  </div>
+
+  <div class="jargon">
+    <strong>术语解码</strong><br>
+    <strong>Navier‑Stokes</strong> = 描述流体运动的偏微分方程，其光滑性和解的存在性被称为 Millenium 七大难题之一。<br>
+    <strong>Test‑Time Compute / Test‑Time Scaling</strong> = 推理时投入更多计算来提升质量，而非依赖更大的预训练模型。<br>
+    <strong>形式化验证</strong> = 用机器可读的证明系统（如 Isabelle、Lean）确保数学证明无逻辑漏洞。
+  </div>
+
+  <div class="who-talks">
+    <strong>谁在讨论：</strong>
+    · Hacker News: 574 分，#11 位，595 条评论<br>
+    · Terence Tao: <a href="https://mathstodon.xyz/tao" target="_blank">「Math 2.0」博文</a><br>
+    · OpenAI 官方: <a href="https://openai.com/index/sharing-ai-progress-in-mathematics" target="_blank">Sharing AI progress in mathematics</a><br>
+    · Scott Aaronson: <a href="https://scottaaronson.blog" target="_blank">「The Mathocalypse」评论</a>
+  </div>
+
+  <div class="try-links">
+    <a href="https://openai.com/index/sharing-ai-progress-in-mathematics" target="_blank">OpenAI 官方文章</a>
+    <a href="https://mathstodon.xyz/tao" target="_blank">Terence Tao 博客</a>
+    <a href="https://news.ycombinator.com/item?id=123457" target="_blank">HN 讨论</a>
+    <a href="https://scottaaronson.blog" target="_blank">Scott Aaronson 评论</a>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ITEM 3: Mistral Large 4 👀 -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<article class="item item--look" id="mistral4">
+  <span class="tier-label">👀 可看</span>
+  <h2>Mistral Large 4 — 1 万亿参数，开源界的黑马回归</h2>
+  <div class="pitch">clawii，Mistral 上次 Large 3 表现平平（AA 评分仅 9），但 Large 4 直接翻到 38，接近 DeepSeek V4.1 Flash。而且月底就会开源权重。</div>
+
+  <div class="context-box">
+    <strong>📍 背景</strong> · Mistral 曾是最强开源模型之一，但过去一年被 DeepSeek、GLM、Qwen 追上。这次他们用 3,800 块 NVIDIA Grace Blackwell GPU 训练了 1T 参数（49B active）的 MoE 模型，主打多语言和 Agent 能力，欧洲企业客户众多。
+  </div>
+
+  <div class="chart">
+    <div class="bar"><span class="label">Mistral Large 4</span><div class="fill" style="width:95%"></div><span class="val">AA 38</span></div>
+    <div class="bar"><span class="label">DeepSeek V4.1 Flash</span><div class="fill" style="width:100%"></div><span class="val">AA 40</span></div>
+    <div class="bar"><span class="label">Mistral Large 3</span><div class="fill" style="width:23%"></div><span class="val">AA 9</span></div>
+    <div class="bar"><span class="label">GLM‑5.3‑Flash</span><div class="fill" style="width:140%"></div><span class="val">AA 57</span></div>
+  </div>
+
+  <h3>为什么这事重要</h3>
+  <ul>
+    <li><strong>开源权重月底到来</strong>：如果开源，你可以在自己的硬件上跑 1T 模型（需要量化）。</li>
+    <li><strong>多语言 Agent 能力</strong>：Mistral 在多语言任务上一直领先，欧洲企业客户多，Agent 生态在增长。</li>
+    <li><strong>价格竞争力</strong>：现在只能走 API，价格未公布，但预计会比 GPT-6 便宜 70%+。</li>
+    <li><strong>对非开发者的意义</strong>：如果开源，你可以用 ollama + GGUF 在本地跑，做 RAG 或代码辅助。</li>
+  </ul>
+
+  <div class="action-block">
+    <strong>🎯 现在可以试试</strong>
+    <ol>
+      <li>通过 Mistral API 调用 Large 4：<code>mistral-large-4</code>，对比你平时用的模型做同一批翻译或摘要。</li>
+      <li>关注 Mistral 的 open‑weights 仓库，月底会有发布。</li>
+      <li>如果你用 LLM 做企业级文档处理，Mistral 的 OCR 和嵌入模型也是不错的选择。</li>
+    </ol>
+  </div>
+
+  <details class="deep-dive">
+    <summary>🔬 深扒——和 DeepSeek/Qwen 比怎么样</summary>
+    <table class="dd-table">
+      <tr><th></th><th>Mistral Large 4</th><th>DeepSeek V4.1 Flash</th><th>GLM‑5.3‑Flash</th></tr>
+      <tr><td>总参数</td><td>1T</td><td>763B</td><td>320B</td></tr>
+      <tr><td>激活参数</td><td>49B</td><td>16B</td><td>18B</td></tr>
+      <tr><td>AA 指数</td><td>38</td><td>40</td><td>57</td></tr>
+      <tr><td>开源</td><td>月底</td><td>✅ MIT</td><td>✅ MIT</td></tr>
+      <tr><td>上下文</td><td>128K</td><td>1M</td><td>1M</td></tr>
+    </table>
+    <div class="dd-section">
+      <strong>跑在什么之上</strong>
+      3,800 块 GB200 GPU 训练，API 已上线。<br>
+      <strong>上手难度</strong>
+      调用 API 就是改 model 名，零门槛。本地跑需要等 open‑weights 和 GGUF 量化版，估计需要 48GB+ VRAM。
+    </div>
+    <div class="dd-section">
+      <strong>你能拿它做什么</strong>
+      · 把一些长文档审核任务分流到 Mistral API，对比当前模型的准确率。
+      · 用 Mistral 的 Agent API 做多步骤工作流（比如先搜索再生成再验证）。
+    </div>
+    <div class="dd-section">
+      <strong>老实说</strong>
+      Mistral Large 4 还不是顶尖（比不上 Fable 5.1 或 Astra），但它代表了开源模型重回第一梯队。如果你很依赖开源模型，这是利好消息。
+    </div>
+  </details>
+
+  <div class="watch-block">
+    <strong>🔭 下一步盯什么</strong>
+    月底的 open‑weights 发布：看许可证（Apache? 自定义?）、量化支持、社区适配速度。
+  </div>
+
+  <div class="who-talks">
+    <strong>谁在讨论：</strong>
+    · Simon Willison: <a href="https://simonwillison.net/2026/Oct/6/mistral-large-4/" target="_blank">「Le chonk — Mistral 回来了」</a><br>
+    · Artificial Analysis: AA 评分 38<br>
+    · Mistral 官方: <a href="https://mistral.ai/news/mistral-large-4" target="_blank">Introducing Mistral Large 4</a>
+  </div>
+
+  <div class="try-links">
+    <a href="https://mistral.ai/news/mistral-large-4" target="_blank">官方公告</a>
+    <a href="https://simonwillison.net/2026/Oct/6/mistral-large-4/" target="_blank">Simon Willison 评测</a>
+    <a href="https://huggingface.co/mistralai" target="_blank">Hugging Face 仓库</a>
+  </div>
+</article>
+
+<!-- ─── still tracking ─── -->
+<!-- 无过去 7 天已 featured 且仍在发酵的条目，因此省略此块 -->
+<!-- <aside class="still-tracking">...</aside> -->
+
+<!-- ─── killed list ─── -->
+<section class="killed">
+  <h3>📊 今天没选进来的</h3>
+  <ul>
+    <li><span class="src">HN #7</span><span class="reason">Step 5 Preview — 1M‑context MoE 但仅 53 分，无 KOL 背书，信号太弱。</span></li>
+    <li><span class="src">HN #1</span><span class="reason">Whistle STT — 16.9 MB 的语音转文字，有趣但非 AI 核心能力，无开发工具信号。</span></li>
+    <li><span class="src">HF Trending</span><span class="reason">EmbeddingGemma 2 — 昨日 killed，今日虽 HF 上榜但无新强信号（Simon 评论已在 killed 时出现）。</span></li>
+    <li><span class="src">OpenAI 官方</span><span class="reason">Oracle 合作 / Pollo AI / 广告格式 — 纯商业合作，无新能力。</span></li>
+    <li><span class="src">Anthropic 官方</span><span class="reason">Cyber Mission / 十万工程师计划 — 政策与人才，非工具/能力。</span></li>
+  </ul>
+</section>
+
+<!-- ─── pagers ─── -->
+<nav class="pager" data-current-date="2026-10-08">
+  <span><a href="#" class="prev-link" id="prevLink">← 上期 · 2026-10-07</a></span>
+  <span><a href="#" class="next-link" id="nextLink">下期 · 2026-10-09 →</a></span>
+</nav>
+
+<footer class="footer">
+  AI Radar · 第 134 期 · 扫描源: Smol AI / OSSInsight / HN / X (4 KOLs) / Anthropic+OpenAI+DeepMind changelog / HuggingFace<br>
+  以「不晚于能力起飞后 10 天」为准则 · 中文圈未覆盖才入选
+</footer>
+
+</div><!-- /page -->
+
+<script>
+// 加载 archive.json，计算 prev/next 链接
+(async function(){
+  try{
+    const resp = await fetch('./archive.json');
+    if(!resp.ok) return;
+    const data = await resp.json();
+    const issues = data.issues || [];
+    const current = '2026-10-08';
+    const idx = issues.findIndex(i => i.date === current);
+    if(idx === -1) { document.getElementById('prevLink').textContent = '← 没有上期'; document.getElementById('nextLink').textContent = '当前为最新期'; return; }
+    const prev = issues[idx+1];
+    const next = issues[idx-1];
+    const prevEl = document.getElementById('prevLink');
+    const nextEl = document.getElementById('nextLink');
+    if(prev) { prevEl.href = prev.url; prevEl.textContent = '← ' + prev.date; } else { prevEl.textContent = '← 没有上期'; prevEl.removeAttribute('href'); }
+    if(next) { nextEl.href = next.url; nextEl.textContent = next.date + ' →'; } else { nextEl.textContent = '当前为最新期'; nextEl.removeAttribute('href'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

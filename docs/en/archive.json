@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-10-30",
+      "weekday": "Fri",
+      "week": 44,
+      "issue": 134,
+      "kind": "daily",
+      "headline": "Codex limits doubled, check your plugins are real before installing",
+      "summary": "Codex paid plans get double the usage, a fake Claude Code extension with a backdoor showed up, and Gemini 4 Carbon is out.",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-10-30.html"
+    },
+    {
       "date": "2026-10-07",
       "weekday": "Wed",
       "week": 41,
