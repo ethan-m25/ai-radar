@@ -37,6 +37,6 @@ if ! command -v python3 >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "[$(date)] Running daily digest via OpenRouter/OpenClaw..." | tee -a "$LOG_FILE"
+echo "[$(date)] Running daily digest (backends: see scripts/llm.py)..." | tee -a "$LOG_FILE"
 python3 "$RADAR_DIR/scripts/run_daily.py" "$@" 2>&1 | tee -a "$LOG_FILE"
 echo "[$(date)] Daily run complete." | tee -a "$LOG_FILE"

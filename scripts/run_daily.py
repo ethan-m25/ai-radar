@@ -915,6 +915,11 @@ def discord_summary(data: dict, today: str, week: int, issue_num: int, url: str,
 
 
 def alert_discord(secrets: dict | None, today: str, error: str) -> None:
+    # The hourly catch-up retries all day; alert once per day, not once per retry.
+    marker = LOG_DIR / f"alert-{today}.sent"
+    if marker.exists():
+        log("  (failure alert already sent today; not re-posting)")
+        return
     if not secrets:
         secrets = {}
         try:
@@ -922,9 +927,10 @@ def alert_discord(secrets: dict | None, today: str, error: str) -> None:
         except SystemExit:
             return
     msg = (f"⚠️ **AI Radar {today} 日报生成失败**\n```{error[:1500]}```\n"
-           f"日志：~/ai-radar/logs/daily-{today}.log")
+           f"日志：~/ai-radar/logs/daily-{today}.log\n(每小时会自动重试，今天不再重复提醒)")
     try:
         discord_post(secrets, msg)
+        marker.write_text(error[:500])
     except Exception as e:  # alerting must never mask the original error
         log(f"  ❌ alert post failed too: {e}")
 
