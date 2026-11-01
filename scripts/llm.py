@@ -83,7 +83,10 @@ def _opencode(model: str, prompt: str) -> str:
 
 
 def _claude(model: str, prompt: str) -> str:
-    out = _run([CLAUDE_BIN, "-p", "--model", model, "--output-format", "json"], prompt)
+    # disableAllHooks: the user's SessionStart/End hooks post to Discord; a headless
+    # pipeline call must not announce itself there (they spammed hourly on 10-31/11-01).
+    out = _run([CLAUDE_BIN, "-p", "--model", model, "--output-format", "json",
+                "--settings", '{"disableAllHooks": true}'], prompt)
     try:
         data = json.loads(out)
     except json.JSONDecodeError as e:
