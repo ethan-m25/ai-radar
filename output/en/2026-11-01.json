@@ -1,0 +1,78 @@
+{
+  "headline": "Only Karpathy is worth clicking today",
+  "summary": "Karpathy's HackerTube, built with Opus 5.5, is all over the HN front page; GitHub data shows agents are rewriting the pace of development.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "HackerTube: Karpathy's HN video site",
+      "pitch": "Karpathy built a site with Opus 5.5 that gathers YouTube videos recommended on HN, and yesterday it shot straight to number one on the front page.",
+      "why": [
+        "2,118 points and 515 comments on HN, so it's not just self-indulgence",
+        "The HackerBooks side project also hit 678 points, same playbook for book lists",
+        "Good reference point: here's what one person plus an agent can ship in a day now"
+      ],
+      "actions": [
+        "Open https://karpathy.bearblog.dev and https://hackerbooks.org and spend five minutes on each",
+        "If you want to copy it, just paste \"build a comp-industry version of HackerBooks\" into Claude Code"
+      ],
+      "deep_dive": [
+        "It's not an AI tool, it's a finished product someone built with an agent; what's useful to you is the productivity reference, not the features.",
+        "Pure web page, opens on mobile, nothing to install; downside is the content skews programmer taste, and HackerBooks fits you better than the video site.",
+        "The real takeaway: next weekend, have Claude Code build a small site along these lines and you'll find the bar is lower than you think."
+      ],
+      "signals": "HN 2,118 points / 515 comments · HackerBooks 678 points / 157 comments · swyx says Karpathy used Opus 5.5 at medium",
+      "links": [
+        {
+          "label": "HackerTube (Karpathy's blog)",
+          "url": "https://karpathy.bearblog.dev"
+        },
+        {
+          "label": "HackerBooks",
+          "url": "https://hackerbooks.org"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "GitHub: agents tripled merged PRs",
+      "pitch": "GitHub's annual data says agent-written code pushed merged PRs to 220 million a month and commits to 7.38 billion a month, both triple within a year.",
+      "why": [
+        "Merged PRs tripled since the start of the year, hitting 220M/month",
+        "New repos at 30.3M/month, doubled; commits at 7.38B/month",
+        "The signal for you: writing code is becoming a default ability"
+      ],
+      "signals": "GitHub Octoverse 2026 · merged PRs 220M/month · commits 7.38B/month · new repos 30.3M/month · live notes from Simon Willison",
+      "links": [
+        {
+          "label": "Simon Willison's live notes",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "OpenAI subscriptions come with equal API credits",
+      "update": "Same play as Anthropic's Max/Team credit deal; Simon Willison confirmed it works on both his subscriptions, no new changes today"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Memdoor (five small models teaming up)",
+      "reason": "Five Qwen models teaming up to grind LiveCodeBench, pure benchmark chasing, nothing you can install and use"
+    },
+    {
+      "name": "Gemini 4 Carbon",
+      "reason": "Already covered on Oct 29, no new usable features or entry points in two days"
+    },
+    {
+      "name": "Google AI Mode dragging down search revenue",
+      "reason": "Earnings and market sentiment, not relevant to you"
+    },
+    {
+      "name": "LiquidAI LFM3 series small models",
+      "reason": "Cool that they run locally on Apple devices, but no finished product a non-developer could just use"
+    }
+  ]
+}

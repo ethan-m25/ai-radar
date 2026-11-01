@@ -1,0 +1,78 @@
+{
+  "headline": "今天只有 Karpathy 值得点开",
+  "summary": "Karpathy 用 Opus 5.5 做的 HackerTube 占了 HN 首页；GitHub 数据说明 agent 正在改写开发节奏。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "HackerTube：Karpathy 的 HN 视频站",
+      "pitch": "Karpathy 用 Opus 5.5 做了个网站，把 HN 上被推荐的 YouTube 视频聚在一起，昨天直接冲到首页第一。",
+      "why": [
+        "HN 2118 分、515 条评论，不是自嗨",
+        "顺带做的 HackerBooks 也有 678 分，同一套路做书单",
+        "适合当参照：现在一个人加 agent 一天能做出什么"
+      ],
+      "actions": [
+        "打开 https://karpathy.bearblog.dev 和 https://hackerbooks.org 各刷五分钟",
+        "想复刻的话，把「照 HackerBooks 做一个薪酬行业版」整句丢给 Claude Code"
+      ],
+      "deep_dive": [
+        "它不是 AI 工具，是别人用 agent 做出来的成品；对你有用的是产能参照，不是功能。",
+        "纯网页，手机能开，不用装任何东西；缺点是内容偏程序员口味，HackerBooks 比视频站更对你胃口。",
+        "真要说启发：下个周末让 Claude Code 照这个思路做个小站，你会发现门槛比想象低。"
+      ],
+      "signals": "HN 2118 分 / 515 评论 · HackerBooks 678 分 / 157 评论 · swyx 称 Karpathy 用的是 Opus 5.5 medium 档",
+      "links": [
+        {
+          "label": "HackerTube（Karpathy 博客）",
+          "url": "https://karpathy.bearblog.dev"
+        },
+        {
+          "label": "HackerBooks",
+          "url": "https://hackerbooks.org"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "GitHub：agent 让合并 PR 翻了三倍",
+      "pitch": "GitHub 年度数据说，agent 写代码把合并 PR 拉到每月 2.2 亿，提交每月 73.8 亿，都是一年内三倍。",
+      "why": [
+        "合并 PR 从年初到现在翻三倍，达到 2.2 亿/月",
+        "新仓库 3030 万/月，翻倍；提交 73.8 亿/月",
+        "对你是信号：写代码这件事正在变成默认能力"
+      ],
+      "signals": "GitHub Octoverse 2026 · 合并 PR 2.2 亿/月 · 提交 7.38B/月 · 新仓库 3030 万/月 · Simon Willison 现场记录",
+      "links": [
+        {
+          "label": "Simon Willison 的现场记录",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "OpenAI 订阅送等额 API 额度",
+      "update": "和 Anthropic 的 Max/Team 送额度同款玩法；Simon Willison 确认自己两个订阅都能用，今天没有新变化"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Memdoor（五个小模型组队）",
+      "reason": "五个 Qwen 组队刷 LiveCodeBench，纯跑分，没有能装来用的东西"
+    },
+    {
+      "name": "Gemini 4 Carbon",
+      "reason": "10 月 29 日已提过，两天没有新增可用功能或入口"
+    },
+    {
+      "name": "Google AI Mode 拖累搜索收入",
+      "reason": "财报和市场情绪，和你无关"
+    },
+    {
+      "name": "LiquidAI LFM3 系列小模型",
+      "reason": "本地跑在苹果设备上挺酷，但没看到非开发者能直接用的成品"
+    }
+  ]
+}

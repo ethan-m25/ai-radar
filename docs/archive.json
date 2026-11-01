@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-01",
+      "weekday": "Sun",
+      "week": 44,
+      "issue": 136,
+      "kind": "daily",
+      "headline": "今天只有 Karpathy 值得点开",
+      "summary": "Karpathy 用 Opus 5.5 做的 HackerTube 占了 HN 首页；GitHub 数据说明 agent 正在改写开发节奏。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-01.html"
+    },
+    {
       "date": "2026-10-30",
       "weekday": "Fri",
       "week": 44,
