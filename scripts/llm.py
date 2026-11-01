@@ -56,17 +56,25 @@ def _run(cmd: list[str], prompt: str) -> str:
 
 
 def _opencode(model: str, prompt: str) -> str:
-    out = _run([OPENCODE_BIN, "run", "--pure", "-m", model, "--format", "json"], prompt)
-    texts, errors = [], []
+    out = _run([OPENCODE_BIN, "run", "--pure", "-m", model, "--format", "json",
+                "--title", "ai-radar (auto)"], prompt)
+    texts, errors, session_ids = [], [], set()
     for line in out.splitlines():
         try:
             event = json.loads(line)
         except json.JSONDecodeError:
             continue
+        if event.get("sessionID"):
+            session_ids.add(event["sessionID"])
         if event.get("type") == "text":
             texts.append(event.get("part", {}).get("text", ""))
         elif event.get("type") == "error":
             errors.append(event.get("error", {}).get("data", {}).get("message", "unknown error"))
+    # Every `opencode run` creates a session that shows up in the user's
+    # Desktop/remote session list; remove ours so the pipeline leaves no clutter.
+    for sid in session_ids:
+        subprocess.run([OPENCODE_BIN, "session", "delete", sid],
+                       capture_output=True, timeout=60)
     if errors:
         raise BackendError(errors[0][:300])
     if not texts:
