@@ -1,0 +1,88 @@
+{
+  "headline": "Karpathy's weekend toy grew into a whole series in a day",
+  "summary": "HN is flooded with HackerTube spinoffs; also one company run almost entirely by agents that's worth knowing about.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "HackerBooks: the books HN keeps recommending",
+      "pitch": "Same trick, different target: dig up the books that keep coming up across 20 years of HN threads and turn them into a site. Free, no login—perfect for a weekend browse.",
+      "why": [
+        "The list comes from real comments, not a ranking gamed by votes",
+        "Wikihack and HackerHack popped up in the same wave",
+        "Opens on mobile, no signup, zero barrier"
+      ],
+      "actions": [
+        "Open hackerbooks.org and poke around",
+        "If you want to find stuff by wiki entry, try wikihack.netlify.app"
+      ],
+      "deep_dive": [
+        "Unlike Douban or Goodreads, it doesn't give ratings—it just counts the books that keep getting mentioned in HN comments.",
+        "Pure web page, static index, loads fast; basically turns 'what HN has mentioned' into a searchable catalog.",
+        "Limitation: it skews toward the English tech crowd; new books and Chinese books are basically missing, so don't expect it to work as a mainstream book list."
+      ],
+      "signals": "HN 1479 points · 246 comments · 20 hours · same wave Wikihack 242 points",
+      "links": [
+        {
+          "label": "HackerBooks",
+          "url": "https://hackerbooks.org"
+        },
+        {
+          "label": "Wikihack",
+          "url": "https://wikihack.netlify.app"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Spawn: a company run almost entirely by agents",
+      "pitch": "A company burns $3M a month in tokens letting agents change code, fix bugs, and ship every hour. Simon Willison tried it himself—says it's crazy but it really runs.",
+      "why": [
+        "60% of the work starts automatically from online errors",
+        "If nothing ships in an hour, it's treated as a top-severity outage",
+        "A preview of what 'everyone managing a fleet of agents' looks like"
+      ],
+      "signals": "Simon Willison hands-on · $3M/month in tokens · deploys hourly",
+      "links": [
+        {
+          "label": "Simon Willison (ai tag)",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "HackerTube",
+      "update": "2633 points, still #1, spawned three clone sites in a day"
+    },
+    {
+      "day": 4,
+      "name": "Codex quota / free API credits",
+      "update": "OpenAI also rolled out matching API credits, same play as Anthropic—not covering it again"
+    },
+    {
+      "day": 3,
+      "name": "Gemini 4 Carbon",
+      "update": "Still no new usable entry point or features"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "GitHub Octoverse 2026",
+      "reason": "Merged PRs tripled; mentioned yesterday, no new data to trigger a follow-up"
+    },
+    {
+      "name": "LiquidAI LFM3 series",
+      "reason": "Still on the HF trending list, but no finished product non-developers can use directly"
+    },
+    {
+      "name": "Mistral Le Chonk",
+      "reason": "Leans toward coding and security; not useful for non-developers, and no new signals"
+    },
+    {
+      "name": "A5 personal long-term memory agent",
+      "reason": "Community blog post from 10 days ago, low traction, no entry point"
+    }
+  ]
+}

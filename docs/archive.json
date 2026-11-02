@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-02",
+      "weekday": "Mon",
+      "week": 45,
+      "issue": 137,
+      "kind": "daily",
+      "headline": "Karpathy 的周末玩具，一天长成一个系列",
+      "summary": "HN 被 HackerTube 衍生站刷屏；另有一家 agent 全自动运营的公司值得知道。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-02.html"
+    },
+    {
       "date": "2026-11-01",
       "weekday": "Sun",
       "week": 44,
