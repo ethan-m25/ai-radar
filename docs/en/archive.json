@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-03",
+      "weekday": "Tue",
+      "week": 45,
+      "issue": 137,
+      "kind": "daily",
+      "headline": "Turns out you can just rewrite model weights",
+      "summary": "The real new stuff today: you can mess with a model's insides without training it; plus a whole small-model family went open source all at once.",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-11-03.html"
+    },
+    {
       "date": "2026-11-02",
       "weekday": "Mon",
       "week": 45,

@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-03",
+      "weekday": "Tue",
+      "week": 45,
+      "issue": 138,
+      "kind": "daily",
+      "headline": "模型权重居然能直接改写了",
+      "summary": "今天真正的新东西：不训练也能改模型内部；另外小模型家族集体开源。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-11-03.html"
+    },
+    {
       "date": "2026-11-02",
       "weekday": "Mon",
       "week": 45,

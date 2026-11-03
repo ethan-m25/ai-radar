@@ -1,0 +1,115 @@
+{
+  "headline": "模型权重居然能直接改写了",
+  "summary": "今天真正的新东西：不训练也能改模型内部；另外小模型家族集体开源。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Astra 直接读写模型权重",
+      "pitch": "模型第一次能像改文档一样改自己内部的权重，不用重训。听着吓人，但这是今年最像「新物种」的一步。",
+      "why": [
+        "HN 首页第一，2755 分、837 条评论，全天最热",
+        "直接改写 Qwen 的权重来提升能力，跳过训练",
+        "你熟悉的 Claude Code 是改代码，这个是改模型本身"
+      ],
+      "actions": [
+        "打开下面的演示页，5 分钟能看懂思路，不用装东西",
+        "别急着本地复现，等社区出封装工具更省事"
+      ],
+      "deep_dive": [
+        "和 Claude Code 改代码不同：它是直接调模型内部参数（权重），让模型长出原本没有的能力。",
+        "跑在 Qwen 这类开源模型上，作者目前只放了演示，没有一键安装的成品。",
+        "老实说：现在还是研究玩具，非开发者很难上手；但方向比任何跑分都值得盯。"
+      ],
+      "signals": "HN 2755 分 · 837 条评论 · Latent Space 当日头条 · garrytan、swyx 都在转",
+      "links": [
+        {
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/"
+        },
+        {
+          "label": "作者演示页",
+          "url": "https://rikiyat.github.io"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "LiquidAI 一口气开源整个 LFM3 家族",
+      "pitch": "几小时内放出文本、视觉、音频、全模态五个小模型，能跑在自己电脑上，甚至塞进手机。",
+      "why": [
+        "LFM3-1.7B 几小时 4.7 万下载、1310 赞",
+        "同时有 GGUF 和 MLX 版本，Mac 上点几下就装好",
+        "2B 级别，笔记本离线跑得动，不用调 API"
+      ],
+      "actions": [
+        "用 LM Studio 搜 LFM3-1.7B-GGUF，下载后直接聊两句",
+        "拿它试本地文档总结，不花钱、数据不出门"
+      ],
+      "deep_dive": [
+        "和你天天用的 Claude Code 不冲突：它是随身小模型，断网也能干活。",
+        "本事比大模型差一截，胜在免费、隐私、快。",
+        "适合处理敏感薪酬文件这类不方便上传云端的活。"
+      ],
+      "signals": "HF 趋势榜五个型号同时上榜 · LFM3-1.7B 4.7 万下载 · GGUF 版 19.4 万下载",
+      "links": [
+        {
+          "label": "HF 模型趋势",
+          "url": "https://huggingface.co/models"
+        },
+        {
+          "label": "HF 博客",
+          "url": "https://huggingface.co/blog"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Revolut 把模型搬回自己机房",
+      "pitch": "金融科技公司开始不用云 API，自己托管开源模型 GLM。这是企业 AI 采购的风向。",
+      "why": [
+        "HN 105 分、70 条评论，讨论都在算成本",
+        "大公司怕数据出门，自托管从小众变成选项"
+      ],
+      "signals": "HN 105 分 · 70 条评论 · 来源 @guilleflorvs",
+      "links": [
+        {
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/"
+        },
+        {
+          "label": "原始推文",
+          "url": "https://twitter.com/guilleflorvs"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 4,
+      "name": "订阅送 API 额度",
+      "update": "Simon Willison 确认 OpenAI 也上线同款：$100/$200/$500 订阅送等额 API 额度"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Subvocal（无声对电脑说话）",
+      "reason": "Show HN 724 分，但看不出是否用 AI，暂不推"
+    },
+    {
+      "name": "Mistral-Large-4-1T-A52B",
+      "reason": "HF 上很热，官网没发布页，没有能用的入口"
+    },
+    {
+      "name": "Gemini 改文案优于 ChatGPT",
+      "reason": "个人体感，没有数据支撑"
+    },
+    {
+      "name": "OpenAI 安全与漏洞赏金系列",
+      "reason": "安全政策类，和你的工作无关"
+    },
+    {
+      "name": "Capy Captains 提效 5 倍",
+      "reason": "只有一条推文，信息太少"
+    }
+  ]
+}

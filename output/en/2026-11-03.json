@@ -1,0 +1,115 @@
+{
+  "headline": "Turns out you can just rewrite model weights",
+  "summary": "The real new stuff today: you can mess with a model's insides without training it; plus a whole small-model family went open source all at once.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Astra reads and writes model weights directly",
+      "pitch": "For the first time a model can edit its own internal weights like a doc, no retraining. Sounds scary, but it's the most \"new species\" move of the year.",
+      "why": [
+        "#1 on the HN front page, 2755 points, 837 comments, hottest all day",
+        "Rewrites Qwen's weights directly to boost ability, skipping training",
+        "You know Claude Code, which edits code; this edits the model itself"
+      ],
+      "actions": [
+        "Open the demo page below, you'll get the idea in 5 minutes, nothing to install",
+        "Don't rush to reproduce it locally, waiting for the community's wrapper tools is easier"
+      ],
+      "deep_dive": [
+        "Unlike Claude Code editing code, this tunes the model's internal parameters (weights) directly so it grows abilities it didn't have.",
+        "It runs on open models like Qwen; for now the author only shipped a demo, no one-click install.",
+        "Honestly: it's still a research toy and hard for non-devs to use; but the direction is worth watching more than any benchmark."
+      ],
+      "signals": "HN 2755 points · 837 comments · Latent Space top story of the day · garrytan and swyx are both sharing it",
+      "links": [
+        {
+          "label": "HN discussion",
+          "url": "https://news.ycombinator.com/"
+        },
+        {
+          "label": "Author's demo page",
+          "url": "https://rikiyat.github.io"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "LiquidAI open-sources the whole LFM3 family at once",
+      "pitch": "Dropped five small models in a few hours—text, vision, audio, full multimodal—that run on your own computer, and even fit on a phone.",
+      "why": [
+        "LFM3-1.7B hit 47k downloads and 1310 likes in a few hours",
+        "GGUF and MLX versions are both there, a few clicks on a Mac and it's installed",
+        "2B class, runs offline on a laptop, no API calls needed"
+      ],
+      "actions": [
+        "Search LFM3-1.7B-GGUF in LM Studio, download it and just start chatting",
+        "Try it on local doc summaries—free, and your data never leaves"
+      ],
+      "deep_dive": [
+        "No conflict with the Claude Code you use every day: this is a pocket-sized model that works offline.",
+        "A notch below the big models in skill, but it wins on free, private, and fast.",
+        "Good for jobs you can't upload, like sensitive salary files."
+      ],
+      "signals": "Five models on the HF trending list at once · LFM3-1.7B 47k downloads · GGUF version 194k downloads",
+      "links": [
+        {
+          "label": "HF model trends",
+          "url": "https://huggingface.co/models"
+        },
+        {
+          "label": "HF blog",
+          "url": "https://huggingface.co/blog"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Revolut moves its models back to its own servers",
+      "pitch": "A fintech is ditching cloud APIs to self-host the open model GLM. That's the wind for enterprise AI buying.",
+      "why": [
+        "HN 105 points, 70 comments, everyone's doing the math on cost",
+        "Big companies fear data leaving, so self-hosting went from niche to an option"
+      ],
+      "signals": "HN 105 points · 70 comments · via @guilleflorvs",
+      "links": [
+        {
+          "label": "HN discussion",
+          "url": "https://news.ycombinator.com/"
+        },
+        {
+          "label": "Original tweet",
+          "url": "https://twitter.com/guilleflorvs"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 4,
+      "name": "Subscriptions come with API credits",
+      "update": "Simon Willison confirms OpenAI launched the same thing: $100/$200/$500 subscriptions come with matching API credits"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Subvocal (talking to your computer silently)",
+      "reason": "Show HN 724 points, but can't tell if it uses AI, holding off"
+    },
+    {
+      "name": "Mistral-Large-4-1T-A52B",
+      "reason": "Hot on HF, but no release page on the official site and no usable entry point"
+    },
+    {
+      "name": "Gemini beats ChatGPT at rewriting copy",
+      "reason": "Personal gut feel, no data to back it up"
+    },
+    {
+      "name": "OpenAI security and bug bounty series",
+      "reason": "Security policy stuff, not relevant to your work"
+    },
+    {
+      "name": "Capy Captains 5x faster",
+      "reason": "Just one tweet, too little info"
+    }
+  ]
+}

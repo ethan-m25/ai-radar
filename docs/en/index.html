@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-02 (Week 45)</title>
+<title>AI Radar — 2026-11-03 (Week 45)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,54 +345,65 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 02 · Week 45 · №137 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 03 · Week 45 · №138 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Karpathy&#x27;s weekend toy grew into a whole series in a day</h1>
-    <p class="lead">HN is flooded with HackerTube spinoffs; also one company run almost entirely by agents that&#x27;s worth knowing about.</p>
+    <h1 class="display headline">Turns out you can just rewrite model weights</h1>
+    <p class="lead">The real new stuff today: you can mess with a model&#x27;s insides without training it; plus a whole small-model family went open source all at once.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
-        <span>👀 <span class="look-count">1</span> worth a look</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-02"><a href="#" class="prev">← Previous</a><span class="issue-num">№137 · 2026-11-02</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-03"><a href="#" class="prev">← Previous</a><span class="issue-num">№138 · 2026-11-03</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> HackerBooks: the books HN keeps recommending</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Spawn: a company run almost entirely by agents</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Astra reads and writes model weights directly</li><li><span class="tier-tag look">👀 Worth a look</span> LiquidAI open-sources the whole LFM3 family at once</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Revolut moves its models back to its own servers</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">HackerBooks: the books HN keeps recommending</h2>
-    <div class="pitch">Same trick, different target: dig up the books that keep coming up across 20 years of HN threads and turn them into a site. Free, no login—perfect for a weekend browse.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>The list comes from real comments, not a ranking gamed by votes</li><li>Wikihack and HackerHack popped up in the same wave</li><li>Opens on mobile, no signup, zero barrier</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open hackerbooks.org and poke around</li><li>If you want to find stuff by wiki entry, try wikihack.netlify.app</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike Douban or Goodreads, it doesn&#x27;t give ratings—it just counts the books that keep getting mentioned in HN comments.</p><p>Pure web page, static index, loads fast; basically turns &#x27;what HN has mentioned&#x27; into a searchable catalog.</p><p>Limitation: it skews toward the English tech crowd; new books and Chinese books are basically missing, so don&#x27;t expect it to work as a mainstream book list.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 1479 points · 246 comments · 20 hours · same wave Wikihack 242 points</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://hackerbooks.org" target="_blank" rel="noopener">HackerBooks</a> · <a href="https://wikihack.netlify.app" target="_blank" rel="noopener">Wikihack</a></div>
+    <h2 class="display title">Astra reads and writes model weights directly</h2>
+    <div class="pitch">For the first time a model can edit its own internal weights like a doc, no retraining. Sounds scary, but it&#x27;s the most &quot;new species&quot; move of the year.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>#1 on the HN front page, 2755 points, 837 comments, hottest all day</li><li>Rewrites Qwen&#x27;s weights directly to boost ability, skipping training</li><li>You know Claude Code, which edits code; this edits the model itself</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open the demo page below, you&#x27;ll get the idea in 5 minutes, nothing to install</li><li>Don&#x27;t rush to reproduce it locally, waiting for the community&#x27;s wrapper tools is easier</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike Claude Code editing code, this tunes the model&#x27;s internal parameters (weights) directly so it grows abilities it didn&#x27;t have.</p><p>It runs on open models like Qwen; for now the author only shipped a demo, no one-click install.</p><p>Honestly: it&#x27;s still a research toy and hard for non-devs to use; but the direction is worth watching more than any benchmark.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 2755 points · 837 comments · Latent Space top story of the day · garrytan and swyx are both sharing it</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN discussion</a> · <a href="https://rikiyat.github.io" target="_blank" rel="noopener">Author&#x27;s demo page</a></div>
 </article>
 
-<article id="item2" class="item item--fyi">
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">LiquidAI open-sources the whole LFM3 family at once</h2>
+    <div class="pitch">Dropped five small models in a few hours—text, vision, audio, full multimodal—that run on your own computer, and even fit on a phone.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>LFM3-1.7B hit 47k downloads and 1310 likes in a few hours</li><li>GGUF and MLX versions are both there, a few clicks on a Mac and it&#x27;s installed</li><li>2B class, runs offline on a laptop, no API calls needed</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Search LFM3-1.7B-GGUF in LM Studio, download it and just start chatting</li><li>Try it on local doc summaries—free, and your data never leaves</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>No conflict with the Claude Code you use every day: this is a pocket-sized model that works offline.</p><p>A notch below the big models in skill, but it wins on free, private, and fast.</p><p>Good for jobs you can&#x27;t upload, like sensitive salary files.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · Five models on the HF trending list at once · LFM3-1.7B 47k downloads · GGUF version 194k downloads</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://huggingface.co/models" target="_blank" rel="noopener">HF model trends</a> · <a href="https://huggingface.co/blog" target="_blank" rel="noopener">HF blog</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Spawn: a company run almost entirely by agents</h2>
-    <div class="pitch">A company burns $3M a month in tokens letting agents change code, fix bugs, and ship every hour. Simon Willison tried it himself—says it&#x27;s crazy but it really runs.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>60% of the work starts automatically from online errors</li><li>If nothing ships in an hour, it&#x27;s treated as a top-severity outage</li><li>A preview of what &#x27;everyone managing a fleet of agents&#x27; looks like</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Simon Willison hands-on · $3M/month in tokens · deploys hourly</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison (ai tag)</a></div>
+    <h2 class="display title">Revolut moves its models back to its own servers</h2>
+    <div class="pitch">A fintech is ditching cloud APIs to self-host the open model GLM. That&#x27;s the wind for enterprise AI buying.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>HN 105 points, 70 comments, everyone&#x27;s doing the math on cost</li><li>Big companies fear data leaving, so self-hosting went from niche to an option</li></ul></div>
+    <div class="signals"><strong>Signals</strong> · HN 105 points · 70 comments · via @guilleflorvs</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN discussion</a> · <a href="https://twitter.com/guilleflorvs" target="_blank" rel="noopener">Original tweet</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 2</span><div><span class="item-name">HackerTube</span> <span class="update">— 2633 points, still #1, spawned three clone sites in a day</span></div></li><li><span class="days">Day 4</span><div><span class="item-name">Codex quota / free API credits</span> <span class="update">— OpenAI also rolled out matching API credits, same play as Anthropic—not covering it again</span></div></li><li><span class="days">Day 3</span><div><span class="item-name">Gemini 4 Carbon</span> <span class="update">— Still no new usable entry point or features</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 4</span><div><span class="item-name">Subscriptions come with API credits</span> <span class="update">— Simon Willison confirms OpenAI launched the same thing: $100/$200/$500 subscriptions come with matching API credits</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>GitHub Octoverse 2026</td><td>Merged PRs tripled; mentioned yesterday, no new data to trigger a follow-up</td></tr><tr><td>LiquidAI LFM3 series</td><td>Still on the HF trending list, but no finished product non-developers can use directly</td></tr><tr><td>Mistral Le Chonk</td><td>Leans toward coding and security; not useful for non-developers, and no new signals</td></tr><tr><td>A5 personal long-term memory agent</td><td>Community blog post from 10 days ago, low traction, no entry point</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Subvocal (talking to your computer silently)</td><td>Show HN 724 points, but can&#x27;t tell if it uses AI, holding off</td></tr><tr><td>Mistral-Large-4-1T-A52B</td><td>Hot on HF, but no release page on the official site and no usable entry point</td></tr><tr><td>Gemini beats ChatGPT at rewriting copy</td><td>Personal gut feel, no data to back it up</td></tr><tr><td>OpenAI security and bug bounty series</td><td>Security policy stuff, not relevant to your work</td></tr><tr><td>Capy Captains 5x faster</td><td>Just one tweet, too little info</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-02"><a href="#" class="prev">← Previous</a><span class="issue-num">№137 · 2026-11-02</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-03"><a href="#" class="prev">← Previous</a><span class="issue-num">№138 · 2026-11-03</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-02';
+    const currentDate = '2026-11-03';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');
