@@ -1,0 +1,95 @@
+{
+  "headline": "别急着信宣传，也别乱装 AI 插件",
+  "summary": "权重读写被打假、小模型却能复现；Postman 被曝偷装 AI 插件想外传数据。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Postman 悄悄装 AI 插件，还想上传数据",
+      "pitch": "你或团队大概用过的 Postman 被曝自动装 AI 插件、试图把所有 API 数据发出去，Hacker News 一天冲到 1333 分。",
+      "why": [
+        "装的时候不问你，插件自己装好还默认开着",
+        "目标是全部接口数据，公司环境里最要命",
+        "同类 AI 插件权限普遍偏大，值得顺手查一遍"
+      ],
+      "actions": [
+        "打开 Postman，在设置里翻一遍已装插件，关掉不认识的 AI 功能",
+        "看原帖讨论：https://github.com/postmanlabs"
+      ],
+      "deep_dive": [
+        "跟 Claude Code、codex 没直接关系，但你天天开一堆带 AI 的工具，这就是一次现成提醒。",
+        "原帖挂在 Postman 官方 GitHub 仓库下，HN 上有 449 条评论在吵，细节可信度不低。",
+        "不同版本行为可能不一样，先查自己这台，别急着卸载。"
+      ],
+      "signals": "HN 1333 分 · 449 条评论 · 当日 AI 相关最高分",
+      "links": [
+        {
+          "label": "原帖（Postman GitHub）",
+          "url": "https://github.com/postmanlabs"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "更新：权重读写被指夸大，但笔记本能跑",
+      "pitch": "昨天说的「AI 直接改模型权重」被批误导；同一天 Simon 用笔记本上的 Qwen 3.8 27B 复现了。",
+      "why": [
+        "那篇其实是博客，不是严谨论文",
+        "HN 一篇 995 分质疑，一篇 649 分实测",
+        "结论：宣传夸大，但小模型也能做是真的"
+      ],
+      "actions": [
+        "看 Simon 的复现过程：https://simonwillison.net/tags/ai"
+      ],
+      "deep_dive": [
+        "跟你用 Claude Code 干活没关系，暂时不影响工作流，知道就行。",
+        "本质是让模型直接读写模型里的一堆数字（权重），不是能装来用的产品。",
+        "诚实说：这类「重磅突破」先等一周，通常会被打回原形。"
+      ],
+      "signals": "HN 995 分质疑 · HN 649 分 Simon 实测 · Qwen 3.8 27B 本地复现",
+      "links": [
+        {
+          "label": "Simon 的实测",
+          "url": "https://simonwillison.net/tags/ai"
+        },
+        {
+          "label": "质疑原文",
+          "url": "https://honnibal.dev"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "LiquidAI LFM3 家族",
+      "update": "LFM3-1.7B 稳居 HF 趋势第二（1.45k 赞），新增 Omni-2B 多模态版"
+    },
+    {
+      "day": 2,
+      "name": "Spawn（agent 运营的公司）",
+      "update": "Simon 的拆解仍在传，今天没有新进展"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Mistral-Large-4-1T-A52B",
+      "reason": "HF 上仍热，但官网没有发布页，还是没入口"
+    },
+    {
+      "name": "HackerTV",
+      "reason": "HN 355 分，只是把 HN 推荐视频做成 24/7 频道，和工作无关"
+    },
+    {
+      "name": "Uncracked City",
+      "reason": "审问会撒谎的 LLM 嫌疑人的侦探游戏，好玩但用不上"
+    },
+    {
+      "name": "Grok Bot 电话代办",
+      "reason": "能帮你打电话砍价、退订，但只有一条推文，信号太弱"
+    },
+    {
+      "name": "Nvidia RTX Spark 固件拖慢推理",
+      "reason": "149 分，偏硬件和系统调优，你不是开发者"
+    }
+  ]
+}

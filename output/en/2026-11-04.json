@@ -1,0 +1,95 @@
+{
+  "headline": "Don't buy the hype yet, and don't install AI plugins blindly",
+  "summary": "Claims about reading and writing model weights got debunked, but a small model can actually pull it off; Postman was caught quietly installing an AI plugin that tries to send data out.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Postman quietly installs an AI plugin and wants to upload data",
+      "pitch": "Postman, which you or your team have probably used, was caught auto-installing an AI plugin and trying to send all API data out; it hit 1333 points on Hacker News in one day.",
+      "why": [
+        "It doesn't ask you during install; the plugin installs itself and is on by default",
+        "The target is all API data, which is the scariest part in a company environment",
+        "AI plugins like this usually have overly broad permissions, so it's worth checking yours"
+      ],
+      "actions": [
+        "Open Postman, go through your installed plugins in settings, and turn off any AI features you don't recognize",
+        "See the original thread: https://github.com/postmanlabs"
+      ],
+      "deep_dive": [
+        "Not directly related to Claude Code or codex, but you run a bunch of AI tools every day, so this is a handy reminder.",
+        "The original post is under Postman's official GitHub repo, and HN has 449 comments arguing about it, so the details are pretty credible.",
+        "Behavior may differ by version, so check your own machine first and don't rush to uninstall."
+      ],
+      "signals": "HN 1333 points · 449 comments · highest AI-related score of the day",
+      "links": [
+        {
+          "label": "Original post (Postman GitHub)",
+          "url": "https://github.com/postmanlabs"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Update: weight read/write claim called exaggerated, but it runs on a laptop",
+      "pitch": "Yesterday's claim that AI can directly edit model weights was criticized as misleading; the same day, Simon reproduced it with Qwen 3.8 27B on a laptop.",
+      "why": [
+        "That piece was actually a blog post, not a rigorous paper",
+        "On HN, a 995-point post questioned it and a 649-point post actually tested it",
+        "Conclusion: the hype is exaggerated, but it's true that a small model can do it"
+      ],
+      "actions": [
+        "See Simon's reproduction: https://simonwillison.net/tags/ai"
+      ],
+      "deep_dive": [
+        "Doesn't affect your Claude Code work; no impact on your workflow for now, just good to know.",
+        "Basically it's about letting a model directly read and write a bunch of numbers inside the model (the weights), not a product you can install and use.",
+        "Honestly: with big breakthroughs like this, wait a week; they usually get knocked back down to size."
+      ],
+      "signals": "HN 995-point skepticism · HN 649-point Simon test · local reproduction with Qwen 3.8 27B",
+      "links": [
+        {
+          "label": "Simon's test",
+          "url": "https://simonwillison.net/tags/ai"
+        },
+        {
+          "label": "The skeptical post",
+          "url": "https://honnibal.dev"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "LiquidAI LFM3 family",
+      "update": "LFM3-1.7B holds No. 2 on HF trends (1.45k likes), plus a new Omni-2B multimodal version"
+    },
+    {
+      "day": 2,
+      "name": "Spawn (a company run by agents)",
+      "update": "Simon's breakdown is still making the rounds; no new progress today"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Mistral-Large-4-1T-A52B",
+      "reason": "Still hot on HF, but there's no release page on the official site, so still no way in"
+    },
+    {
+      "name": "HackerTV",
+      "reason": "HN 355 points, but it just turns HN-recommended videos into a 24/7 channel, unrelated to work"
+    },
+    {
+      "name": "Uncracked City",
+      "reason": "A detective game where you interrogate lying LLM suspects; fun but not useful"
+    },
+    {
+      "name": "Grok Bot phone errands",
+      "reason": "It can call and haggle for you or cancel subscriptions, but there's only one tweet, so the signal is too weak"
+    },
+    {
+      "name": "Nvidia RTX Spark firmware slows inference",
+      "reason": "149 points, mostly hardware and system tuning, and you're not a developer"
+    }
+  ]
+}

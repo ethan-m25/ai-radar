@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-04",
+      "weekday": "Wed",
+      "week": 45,
+      "issue": 139,
+      "kind": "daily",
+      "headline": "别急着信宣传，也别乱装 AI 插件",
+      "summary": "权重读写被打假、小模型却能复现；Postman 被曝偷装 AI 插件想外传数据。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-11-04.html"
+    },
+    {
       "date": "2026-11-03",
       "weekday": "Tue",
       "week": 45,

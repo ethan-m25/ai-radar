@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-03 (Week 45)</title>
+<title>AI Radar — 2026-11-04 (Week 45)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,65 +345,56 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 03 · Week 45 · №138 · <a href="archive.html">归档</a></span>
+    <span class="meta date-line">2026 · 11 · 04 · Week 45 · №139 · <a href="archive.html">归档</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">模型权重居然能直接改写了</h1>
-    <p class="lead">今天真正的新东西：不训练也能改模型内部；另外小模型家族集体开源。</p>
+    <h1 class="display headline">别急着信宣传，也别乱装 AI 插件</h1>
+    <p class="lead">权重读写被打假、小模型却能复现；Postman 被曝偷装 AI 插件想外传数据。</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> 必看</span>
         <span>👀 <span class="look-count">2</span> 值得看</span>
-        <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
+        <span>ℹ️ <span class="fyi-count">0</span> 知道就行</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-03"><a href="#" class="prev">← 前一天</a><span class="issue-num">№138 · 2026-11-03</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-04"><a href="#" class="prev">← 前一天</a><span class="issue-num">№139 · 2026-11-04</span><a href="#" class="next">后一天 →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> Astra 直接读写模型权重</li><li><span class="tier-tag look">👀 值得看</span> LiquidAI 一口气开源整个 LFM3 家族</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Revolut 把模型搬回自己机房</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> Postman 悄悄装 AI 插件，还想上传数据</li><li><span class="tier-tag look">👀 值得看</span> 更新：权重读写被指夸大，但笔记本能跑</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 值得看</div>
-    <h2 class="display title">Astra 直接读写模型权重</h2>
-    <div class="pitch">模型第一次能像改文档一样改自己内部的权重，不用重训。听着吓人，但这是今年最像「新物种」的一步。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>HN 首页第一，2755 分、837 条评论，全天最热</li><li>直接改写 Qwen 的权重来提升能力，跳过训练</li><li>你熟悉的 Claude Code 是改代码，这个是改模型本身</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开下面的演示页，5 分钟能看懂思路，不用装东西</li><li>别急着本地复现，等社区出封装工具更省事</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和 Claude Code 改代码不同：它是直接调模型内部参数（权重），让模型长出原本没有的能力。</p><p>跑在 Qwen 这类开源模型上，作者目前只放了演示，没有一键安装的成品。</p><p>老实说：现在还是研究玩具，非开发者很难上手；但方向比任何跑分都值得盯。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 2755 分 · 837 条评论 · Latent Space 当日头条 · garrytan、swyx 都在转</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN 讨论</a> · <a href="https://rikiyat.github.io" target="_blank" rel="noopener">作者演示页</a></div>
+    <h2 class="display title">Postman 悄悄装 AI 插件，还想上传数据</h2>
+    <div class="pitch">你或团队大概用过的 Postman 被曝自动装 AI 插件、试图把所有 API 数据发出去，Hacker News 一天冲到 1333 分。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>装的时候不问你，插件自己装好还默认开着</li><li>目标是全部接口数据，公司环境里最要命</li><li>同类 AI 插件权限普遍偏大，值得顺手查一遍</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 Postman，在设置里翻一遍已装插件，关掉不认识的 AI 功能</li><li>看原帖讨论：https://github.com/postmanlabs</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>跟 Claude Code、codex 没直接关系，但你天天开一堆带 AI 的工具，这就是一次现成提醒。</p><p>原帖挂在 Postman 官方 GitHub 仓库下，HN 上有 449 条评论在吵，细节可信度不低。</p><p>不同版本行为可能不一样，先查自己这台，别急着卸载。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 1333 分 · 449 条评论 · 当日 AI 相关最高分</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/postmanlabs" target="_blank" rel="noopener">原帖（Postman GitHub）</a></div>
 </article>
 
 <article id="item2" class="item item--look">
     <div class="tier-label">👀 值得看</div>
-    <h2 class="display title">LiquidAI 一口气开源整个 LFM3 家族</h2>
-    <div class="pitch">几小时内放出文本、视觉、音频、全模态五个小模型，能跑在自己电脑上，甚至塞进手机。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>LFM3-1.7B 几小时 4.7 万下载、1310 赞</li><li>同时有 GGUF 和 MLX 版本，Mac 上点几下就装好</li><li>2B 级别，笔记本离线跑得动，不用调 API</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>用 LM Studio 搜 LFM3-1.7B-GGUF，下载后直接聊两句</li><li>拿它试本地文档总结，不花钱、数据不出门</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你天天用的 Claude Code 不冲突：它是随身小模型，断网也能干活。</p><p>本事比大模型差一截，胜在免费、隐私、快。</p><p>适合处理敏感薪酬文件这类不方便上传云端的活。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HF 趋势榜五个型号同时上榜 · LFM3-1.7B 4.7 万下载 · GGUF 版 19.4 万下载</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://huggingface.co/models" target="_blank" rel="noopener">HF 模型趋势</a> · <a href="https://huggingface.co/blog" target="_blank" rel="noopener">HF 博客</a></div>
+    <h2 class="display title">更新：权重读写被指夸大，但笔记本能跑</h2>
+    <div class="pitch">昨天说的「AI 直接改模型权重」被批误导；同一天 Simon 用笔记本上的 Qwen 3.8 27B 复现了。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>那篇其实是博客，不是严谨论文</li><li>HN 一篇 995 分质疑，一篇 649 分实测</li><li>结论：宣传夸大，但小模型也能做是真的</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>看 Simon 的复现过程：https://simonwillison.net/tags/ai</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>跟你用 Claude Code 干活没关系，暂时不影响工作流，知道就行。</p><p>本质是让模型直接读写模型里的一堆数字（权重），不是能装来用的产品。</p><p>诚实说：这类「重磅突破」先等一周，通常会被打回原形。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 995 分质疑 · HN 649 分 Simon 实测 · Qwen 3.8 27B 本地复现</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon 的实测</a> · <a href="https://honnibal.dev" target="_blank" rel="noopener">质疑原文</a></div>
 </article>
 
-<article id="item3" class="item item--fyi">
-    <div class="tier-label">ℹ️ 知道就行</div>
-    <h2 class="display title">Revolut 把模型搬回自己机房</h2>
-    <div class="pitch">金融科技公司开始不用云 API，自己托管开源模型 GLM。这是企业 AI 采购的风向。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>HN 105 分、70 条评论，讨论都在算成本</li><li>大公司怕数据出门，自托管从小众变成选项</li></ul></div>
-    <div class="signals"><strong>信号</strong> · HN 105 分 · 70 条评论 · 来源 @guilleflorvs</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN 讨论</a> · <a href="https://twitter.com/guilleflorvs" target="_blank" rel="noopener">原始推文</a></div>
-</article>
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 1</span><div><span class="item-name">LiquidAI LFM3 家族</span> <span class="update">— LFM3-1.7B 稳居 HF 趋势第二（1.45k 赞），新增 Omni-2B 多模态版</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">Spawn（agent 运营的公司）</span> <span class="update">— Simon 的拆解仍在传，今天没有新进展</span></div></li></ul></aside>
 
-<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 4</span><div><span class="item-name">订阅送 API 额度</span> <span class="update">— Simon Willison 确认 OpenAI 也上线同款：$100/$200/$500 订阅送等额 API 额度</span></div></li></ul></aside>
-
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Subvocal（无声对电脑说话）</td><td>Show HN 724 分，但看不出是否用 AI，暂不推</td></tr><tr><td>Mistral-Large-4-1T-A52B</td><td>HF 上很热，官网没发布页，没有能用的入口</td></tr><tr><td>Gemini 改文案优于 ChatGPT</td><td>个人体感，没有数据支撑</td></tr><tr><td>OpenAI 安全与漏洞赏金系列</td><td>安全政策类，和你的工作无关</td></tr><tr><td>Capy Captains 提效 5 倍</td><td>只有一条推文，信息太少</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Mistral-Large-4-1T-A52B</td><td>HF 上仍热，但官网没有发布页，还是没入口</td></tr><tr><td>HackerTV</td><td>HN 355 分，只是把 HN 推荐视频做成 24/7 频道，和工作无关</td></tr><tr><td>Uncracked City</td><td>审问会撒谎的 LLM 嫌疑人的侦探游戏，好玩但用不上</td></tr><tr><td>Grok Bot 电话代办</td><td>能帮你打电话砍价、退订，但只有一条推文，信号太弱</td></tr><tr><td>Nvidia RTX Spark 固件拖慢推理</td><td>149 分，偏硬件和系统调优，你不是开发者</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
 
-<div class="pager" data-current-date="2026-11-03"><a href="#" class="prev">← 前一天</a><span class="issue-num">№138 · 2026-11-03</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-04"><a href="#" class="prev">← 前一天</a><span class="issue-num">№139 · 2026-11-04</span><a href="#" class="next">后一天 →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-03';
+    const currentDate = '2026-11-04';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

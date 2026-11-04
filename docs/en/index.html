@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-03 (Week 45)</title>
+<title>AI Radar — 2026-11-04 (Week 45)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,65 +345,56 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 03 · Week 45 · №138 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 04 · Week 45 · №139 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Turns out you can just rewrite model weights</h1>
-    <p class="lead">The real new stuff today: you can mess with a model&#x27;s insides without training it; plus a whole small-model family went open source all at once.</p>
+    <h1 class="display headline">Don&#x27;t buy the hype yet, and don&#x27;t install AI plugins blindly</h1>
+    <p class="lead">Claims about reading and writing model weights got debunked, but a small model can actually pull it off; Postman was caught quietly installing an AI plugin that tries to send data out.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
         <span>👀 <span class="look-count">2</span> worth a look</span>
-        <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
+        <span>ℹ️ <span class="fyi-count">0</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-03"><a href="#" class="prev">← Previous</a><span class="issue-num">№138 · 2026-11-03</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-04"><a href="#" class="prev">← Previous</a><span class="issue-num">№139 · 2026-11-04</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Astra reads and writes model weights directly</li><li><span class="tier-tag look">👀 Worth a look</span> LiquidAI open-sources the whole LFM3 family at once</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Revolut moves its models back to its own servers</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Postman quietly installs an AI plugin and wants to upload data</li><li><span class="tier-tag look">👀 Worth a look</span> Update: weight read/write claim called exaggerated, but it runs on a laptop</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Astra reads and writes model weights directly</h2>
-    <div class="pitch">For the first time a model can edit its own internal weights like a doc, no retraining. Sounds scary, but it&#x27;s the most &quot;new species&quot; move of the year.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>#1 on the HN front page, 2755 points, 837 comments, hottest all day</li><li>Rewrites Qwen&#x27;s weights directly to boost ability, skipping training</li><li>You know Claude Code, which edits code; this edits the model itself</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open the demo page below, you&#x27;ll get the idea in 5 minutes, nothing to install</li><li>Don&#x27;t rush to reproduce it locally, waiting for the community&#x27;s wrapper tools is easier</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike Claude Code editing code, this tunes the model&#x27;s internal parameters (weights) directly so it grows abilities it didn&#x27;t have.</p><p>It runs on open models like Qwen; for now the author only shipped a demo, no one-click install.</p><p>Honestly: it&#x27;s still a research toy and hard for non-devs to use; but the direction is worth watching more than any benchmark.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 2755 points · 837 comments · Latent Space top story of the day · garrytan and swyx are both sharing it</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN discussion</a> · <a href="https://rikiyat.github.io" target="_blank" rel="noopener">Author&#x27;s demo page</a></div>
+    <h2 class="display title">Postman quietly installs an AI plugin and wants to upload data</h2>
+    <div class="pitch">Postman, which you or your team have probably used, was caught auto-installing an AI plugin and trying to send all API data out; it hit 1333 points on Hacker News in one day.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>It doesn&#x27;t ask you during install; the plugin installs itself and is on by default</li><li>The target is all API data, which is the scariest part in a company environment</li><li>AI plugins like this usually have overly broad permissions, so it&#x27;s worth checking yours</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open Postman, go through your installed plugins in settings, and turn off any AI features you don&#x27;t recognize</li><li>See the original thread: https://github.com/postmanlabs</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Not directly related to Claude Code or codex, but you run a bunch of AI tools every day, so this is a handy reminder.</p><p>The original post is under Postman&#x27;s official GitHub repo, and HN has 449 comments arguing about it, so the details are pretty credible.</p><p>Behavior may differ by version, so check your own machine first and don&#x27;t rush to uninstall.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 1333 points · 449 comments · highest AI-related score of the day</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://github.com/postmanlabs" target="_blank" rel="noopener">Original post (Postman GitHub)</a></div>
 </article>
 
 <article id="item2" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">LiquidAI open-sources the whole LFM3 family at once</h2>
-    <div class="pitch">Dropped five small models in a few hours—text, vision, audio, full multimodal—that run on your own computer, and even fit on a phone.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>LFM3-1.7B hit 47k downloads and 1310 likes in a few hours</li><li>GGUF and MLX versions are both there, a few clicks on a Mac and it&#x27;s installed</li><li>2B class, runs offline on a laptop, no API calls needed</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Search LFM3-1.7B-GGUF in LM Studio, download it and just start chatting</li><li>Try it on local doc summaries—free, and your data never leaves</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>No conflict with the Claude Code you use every day: this is a pocket-sized model that works offline.</p><p>A notch below the big models in skill, but it wins on free, private, and fast.</p><p>Good for jobs you can&#x27;t upload, like sensitive salary files.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · Five models on the HF trending list at once · LFM3-1.7B 47k downloads · GGUF version 194k downloads</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://huggingface.co/models" target="_blank" rel="noopener">HF model trends</a> · <a href="https://huggingface.co/blog" target="_blank" rel="noopener">HF blog</a></div>
+    <h2 class="display title">Update: weight read/write claim called exaggerated, but it runs on a laptop</h2>
+    <div class="pitch">Yesterday&#x27;s claim that AI can directly edit model weights was criticized as misleading; the same day, Simon reproduced it with Qwen 3.8 27B on a laptop.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>That piece was actually a blog post, not a rigorous paper</li><li>On HN, a 995-point post questioned it and a 649-point post actually tested it</li><li>Conclusion: the hype is exaggerated, but it&#x27;s true that a small model can do it</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>See Simon&#x27;s reproduction: https://simonwillison.net/tags/ai</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Doesn&#x27;t affect your Claude Code work; no impact on your workflow for now, just good to know.</p><p>Basically it&#x27;s about letting a model directly read and write a bunch of numbers inside the model (the weights), not a product you can install and use.</p><p>Honestly: with big breakthroughs like this, wait a week; they usually get knocked back down to size.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 995-point skepticism · HN 649-point Simon test · local reproduction with Qwen 3.8 27B</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon&#x27;s test</a> · <a href="https://honnibal.dev" target="_blank" rel="noopener">The skeptical post</a></div>
 </article>
 
-<article id="item3" class="item item--fyi">
-    <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Revolut moves its models back to its own servers</h2>
-    <div class="pitch">A fintech is ditching cloud APIs to self-host the open model GLM. That&#x27;s the wind for enterprise AI buying.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>HN 105 points, 70 comments, everyone&#x27;s doing the math on cost</li><li>Big companies fear data leaving, so self-hosting went from niche to an option</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · HN 105 points · 70 comments · via @guilleflorvs</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN discussion</a> · <a href="https://twitter.com/guilleflorvs" target="_blank" rel="noopener">Original tweet</a></div>
-</article>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">LiquidAI LFM3 family</span> <span class="update">— LFM3-1.7B holds No. 2 on HF trends (1.45k likes), plus a new Omni-2B multimodal version</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">Spawn (a company run by agents)</span> <span class="update">— Simon&#x27;s breakdown is still making the rounds; no new progress today</span></div></li></ul></aside>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 4</span><div><span class="item-name">Subscriptions come with API credits</span> <span class="update">— Simon Willison confirms OpenAI launched the same thing: $100/$200/$500 subscriptions come with matching API credits</span></div></li></ul></aside>
-
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Subvocal (talking to your computer silently)</td><td>Show HN 724 points, but can&#x27;t tell if it uses AI, holding off</td></tr><tr><td>Mistral-Large-4-1T-A52B</td><td>Hot on HF, but no release page on the official site and no usable entry point</td></tr><tr><td>Gemini beats ChatGPT at rewriting copy</td><td>Personal gut feel, no data to back it up</td></tr><tr><td>OpenAI security and bug bounty series</td><td>Security policy stuff, not relevant to your work</td></tr><tr><td>Capy Captains 5x faster</td><td>Just one tweet, too little info</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Mistral-Large-4-1T-A52B</td><td>Still hot on HF, but there&#x27;s no release page on the official site, so still no way in</td></tr><tr><td>HackerTV</td><td>HN 355 points, but it just turns HN-recommended videos into a 24/7 channel, unrelated to work</td></tr><tr><td>Uncracked City</td><td>A detective game where you interrogate lying LLM suspects; fun but not useful</td></tr><tr><td>Grok Bot phone errands</td><td>It can call and haggle for you or cancel subscriptions, but there&#x27;s only one tweet, so the signal is too weak</td></tr><tr><td>Nvidia RTX Spark firmware slows inference</td><td>149 points, mostly hardware and system tuning, and you&#x27;re not a developer</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-03"><a href="#" class="prev">← Previous</a><span class="issue-num">№138 · 2026-11-03</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-04"><a href="#" class="prev">← Previous</a><span class="issue-num">№139 · 2026-11-04</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-03';
+    const currentDate = '2026-11-04';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');
