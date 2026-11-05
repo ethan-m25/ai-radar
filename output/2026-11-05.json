@@ -1,0 +1,85 @@
+{
+  "headline": "AI 写的代码，开始自己查漏洞了",
+  "summary": "今天两件事：OpenAI 图像模型升级，Vercel 让 agent 自审代码漏洞。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "OpenAI 图像模型升到 Images 2.6",
+      "pitch": "OpenAI 把生图模型更新到 Images 2.6，HN 当天 322 分、192 条讨论。做 PPT、报告、封面配图能明显省事。",
+      "why": [
+        "官方发布，HN 讨论热度很高",
+        "PPT、报告、封面配图直接能用",
+        "不用写代码，非技术也能上手"
+      ],
+      "actions": [
+        "打开官方发布页看示例，对比你平时出的图"
+      ],
+      "deep_dive": [
+        "就是 OpenAI 的生图模型换代，主打更接近能直接用的成品图。",
+        "你在自己常用的生图入口里就能试，先拿一张旧图对比再换默认。",
+        "具体提升幅度我没法从标题判断，先看官方示例，别急着信宣传。"
+      ],
+      "signals": "HN 322 分 · 192 条评论 · OpenAI 官方 11-04 发布",
+      "links": [
+        {
+          "label": "OpenAI 发布页",
+          "url": "https://openai.com/index/introducing-images-2-6"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Vercel 让 agent 给代码查漏洞",
+      "pitch": "Vercel 的 agent 24 小时在自己代码里扫出 6,817 个漏洞、修了 1,411 个。11 月 10 日前免费，值得拿你 AI 写的小工具试一遍。",
+      "why": [
+        "自动定位并给补丁，1,411 个已修",
+        "免费窗口只到 11 月 10 日",
+        "AI 生成代码的常见漏洞它能抓"
+      ],
+      "actions": [
+        "在 Vercel 控制台找 Security Reviews，11-10 前免费，连一个 GitHub 小项目试"
+      ],
+      "deep_dive": [
+        "它用 agent 读代码、还真的点开应用去试，专门找能被打进去的地方。",
+        "最适合 vibe-code 出来的网页小工具；Godot 游戏项目用不上。",
+        "数字是 Vercel 自己报的，先白嫖验证，别当成万能保险。"
+      ],
+      "signals": "@rauchg 839 赞 · 24h 扫出 6,817 漏洞 / 1,411 已修 · 免费至 11-10",
+      "links": [
+        {
+          "label": "Rauch 推文",
+          "url": "https://x.com/rauchg/status/2118152230260092940"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "LiquidAI LFM3 家族",
+      "update": "LFM3-1.7B 仍在 HF 趋势榜，60.7k 下载，仍没看到非开发者直接用的成品"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Kimi K3.1 Pro 权重开源",
+      "reason": "HN 551 分，但 Moonshot 属中文圈主线，2.8T 你也跑不动"
+    },
+    {
+      "name": "AI 逼企业偿还 40 年技术债",
+      "reason": "HN 1207 分很热，但属观点长文，没有能用的东西"
+    },
+    {
+      "name": "Ripple-65B",
+      "reason": "美国开源 agentic 编码新 SOTA，但要自己部署，非开发者用不上"
+    },
+    {
+      "name": "Ask HN：你的 agentic 配置",
+      "reason": "415 条讨论很热，但只是经验帖，无成品"
+    },
+    {
+      "name": "Kino AI",
+      "reason": "Launch HN 的 AI 素材/视频管理器，90 分，信号偏弱"
+    }
+  ]
+}

@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-05",
+      "weekday": "Thu",
+      "week": 45,
+      "issue": 139,
+      "kind": "daily",
+      "headline": "AI-written code is starting to find its own bugs",
+      "summary": "Two things today: OpenAI upgraded its image model, and Vercel lets agents audit code for bugs.",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-11-05.html"
+    },
+    {
       "date": "2026-11-04",
       "weekday": "Wed",
       "week": 45,

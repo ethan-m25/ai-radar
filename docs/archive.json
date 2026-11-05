@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-05",
+      "weekday": "Thu",
+      "week": 45,
+      "issue": 140,
+      "kind": "daily",
+      "headline": "AI 写的代码，开始自己查漏洞了",
+      "summary": "今天两件事：OpenAI 图像模型升级，Vercel 让 agent 自审代码漏洞。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-11-05.html"
+    },
+    {
       "date": "2026-11-04",
       "weekday": "Wed",
       "week": 45,

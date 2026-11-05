@@ -1,0 +1,85 @@
+{
+  "headline": "AI-written code is starting to find its own bugs",
+  "summary": "Two things today: OpenAI upgraded its image model, and Vercel lets agents audit code for bugs.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "OpenAI image model moves up to Images 2.6",
+      "pitch": "OpenAI bumped its image generation model to Images 2.6, and it hit 322 points and 192 comments on HN the same day. A real time-saver for slides, reports, and cover images.",
+      "why": [
+        "Official release with a lot of buzz on HN",
+        "Ready to use for slides, reports, and cover images",
+        "No coding needed, non-technical folks can pick it up"
+      ],
+      "actions": [
+        "Open the official release page, check the examples, and compare against what you usually make"
+      ],
+      "deep_dive": [
+        "It's just a new generation of OpenAI's image model, focused on output that's closer to a finished, usable image.",
+        "You can try it in whatever image tool you already use, but compare an old image first before switching your default.",
+        "I can't judge the actual improvement from the headline, so check the official examples and don't buy the hype yet."
+      ],
+      "signals": "HN 322 points · 192 comments · OpenAI official release on 11-04",
+      "links": [
+        {
+          "label": "OpenAI release page",
+          "url": "https://openai.com/index/introducing-images-2-6"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Vercel lets agents hunt for bugs in code",
+      "pitch": "Vercel's agent scanned its own code around the clock, found 6,817 vulnerabilities, and fixed 1,411 of them. Free until November 10, so worth trying on that little AI-built tool of yours.",
+      "why": [
+        "Finds issues and hands you patches, 1,411 already fixed",
+        "The free window only lasts until November 10",
+        "Catches the common bugs in AI-generated code"
+      ],
+      "actions": [
+        "Look for Security Reviews in the Vercel console, free before 11-10, and point it at a small GitHub project"
+      ],
+      "deep_dive": [
+        "It uses an agent to read the code and actually open the app to poke at it, hunting for places someone could break in.",
+        "Best for small web tools you vibe-coded; no use for Godot game projects.",
+        "The numbers are Vercel's own, so use the free version to see for yourself and don't treat it as foolproof insurance."
+      ],
+      "signals": "@rauchg 839 likes · 6,817 bugs found / 1,411 fixed in 24h · free until 11-10",
+      "links": [
+        {
+          "label": "Rauch's tweet",
+          "url": "https://x.com/rauchg/status/2118152230260092940"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "LiquidAI LFM3 family",
+      "update": "LFM3-1.7B is still on the HF trending list with 60.7k downloads, and still no finished product non-developers can just use"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Kimi K3.1 Pro weights open-sourced",
+      "reason": "551 points on HN, but Moonshot is mainly a Chinese-community thing, and at 2.8T you couldn't run it anyway"
+    },
+    {
+      "name": "AI forces companies to pay off 40 years of tech debt",
+      "reason": "1207 points on HN is hot, but it's an opinion piece with nothing you can actually use"
+    },
+    {
+      "name": "Ripple-65B",
+      "reason": "New US open-source SOTA for agentic coding, but you'd have to deploy it yourself and non-developers can't use it"
+    },
+    {
+      "name": "Ask HN: your agentic setup",
+      "reason": "415 comments is hot, but it's just experience-sharing with no finished product"
+    },
+    {
+      "name": "Kino AI",
+      "reason": "An AI asset/video manager from Launch HN, 90 points, signal is a bit weak"
+    }
+  ]
+}

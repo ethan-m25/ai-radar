@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-04 (Week 45)</title>
+<title>AI Radar — 2026-11-05 (Week 45)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,12 +345,12 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 04 · Week 45 · №139 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 05 · Week 45 · №140 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Don&#x27;t buy the hype yet, and don&#x27;t install AI plugins blindly</h1>
-    <p class="lead">Claims about reading and writing model weights got debunked, but a small model can actually pull it off; Postman was caught quietly installing an AI plugin that tries to send data out.</p>
+    <h1 class="display headline">AI-written code is starting to find its own bugs</h1>
+    <p class="lead">Two things today: OpenAI upgraded its image model, and Vercel lets agents audit code for bugs.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
         <span>👀 <span class="look-count">2</span> worth a look</span>
@@ -358,43 +358,43 @@
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-04"><a href="#" class="prev">← Previous</a><span class="issue-num">№139 · 2026-11-04</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-05"><a href="#" class="prev">← Previous</a><span class="issue-num">№140 · 2026-11-05</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Postman quietly installs an AI plugin and wants to upload data</li><li><span class="tier-tag look">👀 Worth a look</span> Update: weight read/write claim called exaggerated, but it runs on a laptop</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> OpenAI image model moves up to Images 2.6</li><li><span class="tier-tag look">👀 Worth a look</span> Vercel lets agents hunt for bugs in code</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Postman quietly installs an AI plugin and wants to upload data</h2>
-    <div class="pitch">Postman, which you or your team have probably used, was caught auto-installing an AI plugin and trying to send all API data out; it hit 1333 points on Hacker News in one day.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>It doesn&#x27;t ask you during install; the plugin installs itself and is on by default</li><li>The target is all API data, which is the scariest part in a company environment</li><li>AI plugins like this usually have overly broad permissions, so it&#x27;s worth checking yours</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open Postman, go through your installed plugins in settings, and turn off any AI features you don&#x27;t recognize</li><li>See the original thread: https://github.com/postmanlabs</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Not directly related to Claude Code or codex, but you run a bunch of AI tools every day, so this is a handy reminder.</p><p>The original post is under Postman&#x27;s official GitHub repo, and HN has 449 comments arguing about it, so the details are pretty credible.</p><p>Behavior may differ by version, so check your own machine first and don&#x27;t rush to uninstall.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 1333 points · 449 comments · highest AI-related score of the day</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://github.com/postmanlabs" target="_blank" rel="noopener">Original post (Postman GitHub)</a></div>
+    <h2 class="display title">OpenAI image model moves up to Images 2.6</h2>
+    <div class="pitch">OpenAI bumped its image generation model to Images 2.6, and it hit 322 points and 192 comments on HN the same day. A real time-saver for slides, reports, and cover images.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Official release with a lot of buzz on HN</li><li>Ready to use for slides, reports, and cover images</li><li>No coding needed, non-technical folks can pick it up</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open the official release page, check the examples, and compare against what you usually make</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>It&#x27;s just a new generation of OpenAI&#x27;s image model, focused on output that&#x27;s closer to a finished, usable image.</p><p>You can try it in whatever image tool you already use, but compare an old image first before switching your default.</p><p>I can&#x27;t judge the actual improvement from the headline, so check the official examples and don&#x27;t buy the hype yet.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 322 points · 192 comments · OpenAI official release on 11-04</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://openai.com/index/introducing-images-2-6" target="_blank" rel="noopener">OpenAI release page</a></div>
 </article>
 
 <article id="item2" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Update: weight read/write claim called exaggerated, but it runs on a laptop</h2>
-    <div class="pitch">Yesterday&#x27;s claim that AI can directly edit model weights was criticized as misleading; the same day, Simon reproduced it with Qwen 3.8 27B on a laptop.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>That piece was actually a blog post, not a rigorous paper</li><li>On HN, a 995-point post questioned it and a 649-point post actually tested it</li><li>Conclusion: the hype is exaggerated, but it&#x27;s true that a small model can do it</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>See Simon&#x27;s reproduction: https://simonwillison.net/tags/ai</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Doesn&#x27;t affect your Claude Code work; no impact on your workflow for now, just good to know.</p><p>Basically it&#x27;s about letting a model directly read and write a bunch of numbers inside the model (the weights), not a product you can install and use.</p><p>Honestly: with big breakthroughs like this, wait a week; they usually get knocked back down to size.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 995-point skepticism · HN 649-point Simon test · local reproduction with Qwen 3.8 27B</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon&#x27;s test</a> · <a href="https://honnibal.dev" target="_blank" rel="noopener">The skeptical post</a></div>
+    <h2 class="display title">Vercel lets agents hunt for bugs in code</h2>
+    <div class="pitch">Vercel&#x27;s agent scanned its own code around the clock, found 6,817 vulnerabilities, and fixed 1,411 of them. Free until November 10, so worth trying on that little AI-built tool of yours.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Finds issues and hands you patches, 1,411 already fixed</li><li>The free window only lasts until November 10</li><li>Catches the common bugs in AI-generated code</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Look for Security Reviews in the Vercel console, free before 11-10, and point it at a small GitHub project</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>It uses an agent to read the code and actually open the app to poke at it, hunting for places someone could break in.</p><p>Best for small web tools you vibe-coded; no use for Godot game projects.</p><p>The numbers are Vercel&#x27;s own, so use the free version to see for yourself and don&#x27;t treat it as foolproof insurance.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · @rauchg 839 likes · 6,817 bugs found / 1,411 fixed in 24h · free until 11-10</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/rauchg/status/2118152230260092940" target="_blank" rel="noopener">Rauch&#x27;s tweet</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">LiquidAI LFM3 family</span> <span class="update">— LFM3-1.7B holds No. 2 on HF trends (1.45k likes), plus a new Omni-2B multimodal version</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">Spawn (a company run by agents)</span> <span class="update">— Simon&#x27;s breakdown is still making the rounds; no new progress today</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 3</span><div><span class="item-name">LiquidAI LFM3 family</span> <span class="update">— LFM3-1.7B is still on the HF trending list with 60.7k downloads, and still no finished product non-developers can just use</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Mistral-Large-4-1T-A52B</td><td>Still hot on HF, but there&#x27;s no release page on the official site, so still no way in</td></tr><tr><td>HackerTV</td><td>HN 355 points, but it just turns HN-recommended videos into a 24/7 channel, unrelated to work</td></tr><tr><td>Uncracked City</td><td>A detective game where you interrogate lying LLM suspects; fun but not useful</td></tr><tr><td>Grok Bot phone errands</td><td>It can call and haggle for you or cancel subscriptions, but there&#x27;s only one tweet, so the signal is too weak</td></tr><tr><td>Nvidia RTX Spark firmware slows inference</td><td>149 points, mostly hardware and system tuning, and you&#x27;re not a developer</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Kimi K3.1 Pro weights open-sourced</td><td>551 points on HN, but Moonshot is mainly a Chinese-community thing, and at 2.8T you couldn&#x27;t run it anyway</td></tr><tr><td>AI forces companies to pay off 40 years of tech debt</td><td>1207 points on HN is hot, but it&#x27;s an opinion piece with nothing you can actually use</td></tr><tr><td>Ripple-65B</td><td>New US open-source SOTA for agentic coding, but you&#x27;d have to deploy it yourself and non-developers can&#x27;t use it</td></tr><tr><td>Ask HN: your agentic setup</td><td>415 comments is hot, but it&#x27;s just experience-sharing with no finished product</td></tr><tr><td>Kino AI</td><td>An AI asset/video manager from Launch HN, 90 points, signal is a bit weak</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-04"><a href="#" class="prev">← Previous</a><span class="issue-num">№139 · 2026-11-04</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-05"><a href="#" class="prev">← Previous</a><span class="issue-num">№140 · 2026-11-05</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-04';
+    const currentDate = '2026-11-05';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');
