@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar — 2026-11-06 (Week 45)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
+
+
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 11 · 06 · Week 45 · №141 · <a href="archive.html">归档</a></span>
+</header>
+
+<div class="cover">
+    <h1 class="display headline">Claude 开始管你的钱，也把邮箱漏出去</h1>
+    <p class="lead">今天两件事：Claude 能连银行账户答理财问题；Claude Code 被曝把你邮箱发给访问的网站。</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">0</span> 必看</span>
+        <span>👀 <span class="look-count">2</span> 值得看</span>
+        <span>ℹ️ <span class="fyi-count">0</span> 知道就行</span>
+    </div>
+</div>
+
+<div class="pager" data-current-date="2026-11-06"><a href="#" class="prev">← 前一天</a><span class="issue-num">№141 · 2026-11-06</span><a href="#" class="next">后一天 →</a></div>
+
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> Claude 上线个人理财（美国 beta）</li><li><span class="tier-tag look">👀 值得看</span> Claude Code 把你的邮箱发给网站</li></ul></nav>
+
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Claude 上线个人理财（美国 beta）</h2>
+    <div class="pitch">Claude 现在能连你的银行账户，用大白话回答你的钱花哪了，只读、不动钱、无广告。可惜目前只在美国灰度。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>把真实账单和交易接进来，问一句就懂，不用自己做表</li><li>只读权限，Claude 不能转账也不能投资，没有广告和推荐</li><li>Pro/Max/Ultra 用户逐步开放，目前仅限美国</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在美国区的话，去 Claude 设置里看 Personal Finance 是否已灰度到你</li><li>不在美国就先记下名字，等它出海</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你现在用的 ChatGPT 不同，它直接读你的账户余额和流水，不用你贴截图。</p><p>跑在 Claude 里，不用装新 app，但要把银行账户授权给它，隐私你得自己掂量。</p><p>门槛低：有美国账户、订阅 Pro 以上就能试；中国大陆暂时用不了。</p></div></details>
+    <div class="signals"><strong>信号</strong> · 官方推文 3.0 万赞 · 1488 次转发 · 美国灰度中</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/claudeai/status/2118403114890137895" target="_blank" rel="noopener">Claude 官方推文</a> · <a href="https://x.com/claudeai/status/2118403117779988744" target="_blank" rel="noopener">灰度范围说明</a></div>
+</article>
+
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Claude Code 把你的邮箱发给网站</h2>
+    <div class="pitch">你天天用的 Claude Code 被曝会把你账号邮箱带给它访问的网站，HN 已经吵翻。建议今天花两分钟查一下。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>你在公司拿它处理薪酬数据，邮箱外泄有合规风险</li><li>HN 1227 分、388 条讨论，不是小问题</li><li>这是行为层面的隐私问题，不是模型能力问题</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 Anthropic 那个 GitHub 讨论，看你用的版本是否中招</li><li>敏感环境先别让它访问外网，等官方补丁</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>它访问网页时会带上你的账号邮箱，对你这种处理内部 HR 文档的人最该警惕。</p><p>先看复现路径，再决定要不要临时关掉它的联网访问。</p><p>不是模型变笨，只是这层默认行为对企业用户不友好。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 1227 分 · 388 条评论 · 13 小时前</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/anthropics" target="_blank" rel="noopener">GitHub（Anthropic）</a> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">Hacker News</a></div>
+</article>
+
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 3</span><div><span class="item-name">模型权重读写（Astra）</span> <span class="update">— Simon Willison 用笔记本上的 Qwen 3.8 27B 也读懂了权重，争议未消</span></div></li><li><span class="days">Day 1</span><div><span class="item-name">Kimi K3.1-Pro 开源</span> <span class="update">— HF 趋势榜第一（18.4k / 1.35k 赞），仍是中文圈主线，你用不上</span></div></li></ul></aside>
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Inkling 2 Small</td><td>Thinking Machines 新模型打赢 Muse Spark，HN 217 分，但没有非开发者能直接用的入口</td></tr><tr><td>Mistral Le Chonk 上 Studio</td><td>企业 agent 平台，偏开发部署，对你没有现成入口</td></tr><tr><td>2 万美元训练的文本生图模型</td><td>开源权重，但要自己部署，非开发者用不上</td></tr><tr><td>Vercel Schedules（agent 定时任务）</td><td>开发者基础设施，非开发者暂时碰不到</td></tr><tr><td>GPT-6 Cyber</td><td>网络安全专用模型，和你的薪酬工作无关</td></tr></tbody></table></details></section>
+
+<footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
+
+<div class="pager" data-current-date="2026-11-06"><a href="#" class="prev">← 前一天</a><span class="issue-num">№141 · 2026-11-06</span><a href="#" class="next">后一天 →</a></div>
+
+<script>
+(async function() {
+    const currentDate = '2026-11-06';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
+})();
+</script>
+</body>
+</html>

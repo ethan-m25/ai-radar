@@ -1,0 +1,100 @@
+{
+  "headline": "Claude is starting to manage your money, and it's also leaking your email",
+  "summary": "Two things today: Claude can now connect to your bank account and answer money questions; and Claude Code got caught sending your email to the websites it visits.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Claude rolls out personal finance (US beta)",
+      "pitch": "Claude can now connect to your bank account and answer in plain words where your money went — read-only, it can't move money, no ads. Shame it's only a limited rollout in the US for now.",
+      "why": [
+        "It pulls in your real bills and transactions, so one question and you get it — no spreadsheet building",
+        "Read-only access, Claude can't transfer or invest, no ads or recommendations",
+        "Rolling out gradually to Pro/Max/Ultra users, US only for now"
+      ],
+      "actions": [
+        "If you're in the US, check Claude settings to see if Personal Finance has rolled out to you",
+        "If you're not in the US, just remember the name and wait for it to go international"
+      ],
+      "deep_dive": [
+        "Unlike the ChatGPT you use now, it reads your balances and transactions directly, so you don't have to paste screenshots.",
+        "It runs inside Claude, so no new app to install, but you have to authorize your bank account for it — the privacy call is yours to make.",
+        "Low bar: a US account plus a Pro subscription or above and you can try it; mainland China can't use it for now."
+      ],
+      "signals": "Official tweet 30k likes · 1,488 retweets · limited US rollout",
+      "links": [
+        {
+          "label": "Claude official tweet",
+          "url": "https://x.com/claudeai/status/2118403114890137895"
+        },
+        {
+          "label": "Rollout scope note",
+          "url": "https://x.com/claudeai/status/2118403117779988744"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Claude Code sends your email to websites",
+      "pitch": "The Claude Code you use every day got caught handing your account email to the websites it visits, and HN is up in arms. Worth spending two minutes checking today.",
+      "why": [
+        "If you use it at work on payroll data, an email leak is a compliance risk",
+        "HN 1,227 points, 388 comments — not a small thing",
+        "This is a behavior-level privacy issue, not a model capability issue"
+      ],
+      "actions": [
+        "Open that Anthropic GitHub thread and see if your version is affected",
+        "In sensitive environments, keep it off the external web until the official patch lands"
+      ],
+      "deep_dive": [
+        "When it visits a webpage it carries your account email with it — this matters most for someone like you handling internal HR docs.",
+        "Look at the repro path first, then decide whether to temporarily turn off its web access.",
+        "The model didn't get dumber; it's just that this default behavior is unfriendly to business users."
+      ],
+      "signals": "HN 1,227 points · 388 comments · 13 hours ago",
+      "links": [
+        {
+          "label": "GitHub (Anthropic)",
+          "url": "https://github.com/anthropics"
+        },
+        {
+          "label": "Hacker News",
+          "url": "https://news.ycombinator.com"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "Model weight read/write (Astra)",
+      "update": "Simon Willison read the weights too using Qwen 3.8 27B on a laptop, and the controversy isn't going away"
+    },
+    {
+      "day": 1,
+      "name": "Kimi K3.1-Pro open-sourced",
+      "update": "No. 1 on the HF trending list (18.4k / 1.35k likes), still the main thread in the Chinese-language scene, not something you'd use"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Inkling 2 Small",
+      "reason": "Thinking Machines' new model beat Muse Spark, HN 217 points, but there's no way for a non-developer to use it directly"
+    },
+    {
+      "name": "Mistral Le Chonk on Studio",
+      "reason": "An enterprise agent platform, aimed at developer deployment, no ready entry point for you"
+    },
+    {
+      "name": "The $20k-trained text-to-image model",
+      "reason": "Open weights, but you'd have to deploy it yourself, so no use to a non-developer"
+    },
+    {
+      "name": "Vercel Schedules (agent cron jobs)",
+      "reason": "Developer infrastructure, out of reach for non-developers for now"
+    },
+    {
+      "name": "GPT-6 Cyber",
+      "reason": "A cybersecurity-specific model, nothing to do with your payroll work"
+    }
+  ]
+}

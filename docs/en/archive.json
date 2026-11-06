@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-06",
+      "weekday": "Fri",
+      "week": 45,
+      "issue": 140,
+      "kind": "daily",
+      "headline": "Claude is starting to manage your money, and it's also leaking your email",
+      "summary": "Two things today: Claude can now connect to your bank account and answer money questions; and Claude Code got caught sending your email to the websites it visit",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-11-06.html"
+    },
+    {
       "date": "2026-11-05",
       "weekday": "Thu",
       "week": 45,

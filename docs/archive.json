@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-06",
+      "weekday": "Fri",
+      "week": 45,
+      "issue": 141,
+      "kind": "daily",
+      "headline": "Claude 开始管你的钱，也把邮箱漏出去",
+      "summary": "今天两件事：Claude 能连银行账户答理财问题；Claude Code 被曝把你邮箱发给访问的网站。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-11-06.html"
+    },
+    {
       "date": "2026-11-05",
       "weekday": "Thu",
       "week": 45,
