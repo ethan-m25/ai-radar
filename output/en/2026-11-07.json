@@ -1,0 +1,74 @@
+{
+  "headline": "Quiet weekend, only one video model worth a quick look",
+  "summary": "Nothing big today, Gemini Omni 1.2 Flash is the only new release that really counts.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini Omni 1.2 Flash is out",
+      "pitch": "Google's Omni line got a faster, cheaper Flash version that can make longer clips. It's getting a lot of buzz on HN.",
+      "why": [
+        "Official new release, billed as cheaper and faster",
+        "Supports longer clips, handier for demo videos",
+        "232 comments on HN, so people are talking about it"
+      ],
+      "actions": [
+        "Open the DeepMind blog and read the Omni 1.2 Flash intro",
+        "Check the Gemini app to see if there's an entry point, the source doesn't say clearly"
+      ],
+      "deep_dive": [
+        "Omni is Google's \"any input, any output\" model line, and Flash is its fast, cheap tier.",
+        "The blog only gave a title and one line, I didn't see the actual pricing or max clip length, so don't jump to conclusions."
+      ],
+      "signals": "HN 343 points · 232 comments · DeepMind official blog, November release",
+      "links": [
+        {
+          "label": "DeepMind blog",
+          "url": "https://deepmind.google/blog"
+        },
+        {
+          "label": "HN homepage",
+          "url": "https://news.ycombinator.com"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Small model stuck? Ask Opus, save 4x",
+      "pitch": "Hightouch's post says letting Jev ask Opus for help when it needs to keeps accuracy steady while cutting cost by 4x.",
+      "why": [
+        "The idea is let the cheap model go first, upgrade when it gets stuck",
+        "Agent bills might get cheaper down the road"
+      ],
+      "signals": "HN 502 points · 118 comments",
+      "links": [
+        {
+          "label": "HN homepage",
+          "url": "https://news.ycombinator.com"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "Anthropic IPO",
+      "reason": "It's a funding topic, not something you can use"
+    },
+    {
+      "name": "Qwen 3.8 27B",
+      "reason": "Hot on HF, but it's a Chinese-community mainline thing, not something you'd use"
+    },
+    {
+      "name": "Creator app built-in MCP",
+      "reason": "Just an observation tweet from Thariq, no actual product to try"
+    },
+    {
+      "name": "AI is speeding up AI research",
+      "reason": "HN 323 points, it's an opinion piece with no usable tool"
+    },
+    {
+      "name": "Texts Wrapped",
+      "reason": "A small local tool for analyzing chat logs, only 5 likes, too weak a signal"
+    }
+  ]
+}

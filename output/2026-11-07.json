@@ -1,0 +1,74 @@
+{
+  "headline": "周末安静，只有一个视频模型值得瞄一眼",
+  "summary": "今天没有大事，Gemini Omni 1.2 Flash 是唯一够格的新发布。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini Omni 1.2 Flash 上线",
+      "pitch": "谷歌的 Omni 系列出了更快更便宜的 Flash 版，能生成更长的片段。HN 讨论很热。",
+      "why": [
+        "官方新发布，写明更省钱、更快",
+        "支持更长的片段，做演示视频更实用",
+        "HN 232 条评论，讨论度高"
+      ],
+      "actions": [
+        "打开 DeepMind 博客，看 Omni 1.2 Flash 的介绍",
+        "去 Gemini app 看有没有入口，源里没写清楚"
+      ],
+      "deep_dive": [
+        "Omni 是谷歌「任意输入生成任意输出」的模型线，Flash 是它的快速省钱档。",
+        "博客只给了标题和一句话，具体价格、时长上限我没看到，别急着下结论。"
+      ],
+      "signals": "HN 343 分 · 232 条评论 · DeepMind 官方博客 11 月发布",
+      "links": [
+        {
+          "label": "DeepMind 博客",
+          "url": "https://deepmind.google/blog"
+        },
+        {
+          "label": "HN 首页",
+          "url": "https://news.ycombinator.com"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "小模型遇难题再问 Opus，省 4 倍",
+      "pitch": "Hightouch 的文章称，让 Jev 在需要时求助 Opus，准确率不掉，成本低 4 倍。",
+      "why": [
+        "思路是便宜模型先做，卡住再升级",
+        "以后 agent 的账单可能会变便宜"
+      ],
+      "signals": "HN 502 分 · 118 条评论",
+      "links": [
+        {
+          "label": "HN 首页",
+          "url": "https://news.ycombinator.com"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "Anthropic IPO",
+      "reason": "属于融资话题，不是能用的东西"
+    },
+    {
+      "name": "Qwen 3.8 27B",
+      "reason": "HF 上很热，但属中文圈主线，你也用不上"
+    },
+    {
+      "name": "创作者 App 内置 MCP",
+      "reason": "Thariq 的观察推文，没有具体产品可试"
+    },
+    {
+      "name": "AI 正在加速 AI 研究",
+      "reason": "HN 323 分，是观点文章，没有可用工具"
+    },
+    {
+      "name": "Texts Wrapped",
+      "reason": "本地分析聊天记录的小工具，只有 5 个赞，信号太弱"
+    }
+  ]
+}

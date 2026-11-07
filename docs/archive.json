@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-07",
+      "weekday": "Sat",
+      "week": 45,
+      "issue": 142,
+      "kind": "daily",
+      "headline": "周末安静，只有一个视频模型值得瞄一眼",
+      "summary": "今天没有大事，Gemini Omni 1.2 Flash 是唯一够格的新发布。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-07.html"
+    },
+    {
       "date": "2026-11-06",
       "weekday": "Fri",
       "week": 45,
