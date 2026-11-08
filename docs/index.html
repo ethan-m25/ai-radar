@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-07 (Week 45)</title>
+<title>AI Radar — 2026-11-08 (Week 45)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,54 +345,54 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 07 · Week 45 · №142 · <a href="archive.html">归档</a></span>
+    <span class="meta date-line">2026 · 11 · 08 · Week 45 · №143 · <a href="archive.html">归档</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">周末安静，只有一个视频模型值得瞄一眼</h1>
-    <p class="lead">今天没有大事，Gemini Omni 1.2 Flash 是唯一够格的新发布。</p>
+    <h1 class="display headline">Claude Code 的「别再问」，正在公开你的密码</h1>
+    <p class="lead">今天只有一件事值得动手：你天天用的 Claude Code 权限有个真坑，先自查。</p>
     <div class="counts">
-        <span>🚨 <span class="crit-count">0</span> 必看</span>
-        <span>👀 <span class="look-count">1</span> 值得看</span>
+        <span>🚨 <span class="crit-count">1</span> 必看</span>
+        <span>👀 <span class="look-count">0</span> 值得看</span>
         <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-07"><a href="#" class="prev">← 前一天</a><span class="issue-num">№142 · 2026-11-07</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← 前一天</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">后一天 →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> Gemini Omni 1.2 Flash 上线</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> 小模型遇难题再问 Opus，省 4 倍</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag crit">🚨 必看</span> 更新：Claude Code 权限坑泄露密码</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Karpathy 3 分钟做了个视频站</li></ul></nav>
 
-<article id="item1" class="item item--look">
-    <div class="tier-label">👀 值得看</div>
-    <h2 class="display title">Gemini Omni 1.2 Flash 上线</h2>
-    <div class="pitch">谷歌的 Omni 系列出了更快更便宜的 Flash 版，能生成更长的片段。HN 讨论很热。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>官方新发布，写明更省钱、更快</li><li>支持更长的片段，做演示视频更实用</li><li>HN 232 条评论，讨论度高</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 DeepMind 博客，看 Omni 1.2 Flash 的介绍</li><li>去 Gemini app 看有没有入口，源里没写清楚</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>Omni 是谷歌「任意输入生成任意输出」的模型线，Flash 是它的快速省钱档。</p><p>博客只给了标题和一句话，具体价格、时长上限我没看到，别急着下结论。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 343 分 · 232 条评论 · DeepMind 官方博客 11 月发布</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://deepmind.google/blog" target="_blank" rel="noopener">DeepMind 博客</a> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN 首页</a></div>
+<article id="item1" class="item item--crit">
+    <div class="tier-label">🚨 必看</div>
+    <h2 class="display title">更新：Claude Code 权限坑泄露密码</h2>
+    <div class="pitch">你天天点的「别再问」，可能让 Claude Code 把密码一起送进公开仓库。先花两分钟查下你的授权列表。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>安全公司 apiiro 点名「别再问」，1,122 个公开 GitHub 文件含明文密码</li><li>对天天用 Claude Code 的你，这就是实打实的账号风险</li><li>细节以原文为准，先按最坏情况自查一遍</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 Claude Code 的权限放行列表，收回不必要的一键批准</li><li>对常用仓库跑一次密钥扫描，确认没有密码文件被提交</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>这不算新功能，是权限设计的坑：一次「别再问」可能变成长期放行，得自己盯。</p><p>凡是把大目录或含密钥的仓库交给它、又点过一键放行的人，都该查一遍。</p><p>自查十几分钟能做完；别等官方修，先收紧授权、扫一遍密钥最稳。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 434 分 · 293 条评论 · apiiro 安全研究</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://apiiro.com" target="_blank" rel="noopener">Apiiro 研究</a> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN 讨论</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
-    <h2 class="display title">小模型遇难题再问 Opus，省 4 倍</h2>
-    <div class="pitch">Hightouch 的文章称，让 Jev 在需要时求助 Opus，准确率不掉，成本低 4 倍。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>思路是便宜模型先做，卡住再升级</li><li>以后 agent 的账单可能会变便宜</li></ul></div>
-    <div class="signals"><strong>信号</strong> · HN 502 分 · 118 条评论</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN 首页</a></div>
+    <h2 class="display title">Karpathy 3 分钟做了个视频站</h2>
+    <div class="pitch">他把别人的 YouTube 清单做成了 TristanTube，47K 个极客视频加电视模式，纯当周末消遣。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>Karpathy 亲自演示 Claude Code 一句话出成品</li><li>站点直接打开就能看，不用装任何东西</li></ul></div>
+    <div class="signals"><strong>信号</strong> · X 6,445 赞 · 515 转发 · 用 Claude Code 3 分钟搭完</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/karpathy/status/2119114537442189652" target="_blank" rel="noopener">Karpathy 推文</a></div>
 </article>
 
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Gemini Omni 1.2 Flash</span> <span class="update">— 今天没有新入口或功能消息，维持观察</span></div></li><li><span class="days">Day 3</span><div><span class="item-name">Claude 个人理财（美国 beta）</span> <span class="update">— 仍只对美国开放，没有扩区或新功能</span></div></li></ul></aside>
 
-
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Anthropic IPO</td><td>属于融资话题，不是能用的东西</td></tr><tr><td>Qwen 3.8 27B</td><td>HF 上很热，但属中文圈主线，你也用不上</td></tr><tr><td>创作者 App 内置 MCP</td><td>Thariq 的观察推文，没有具体产品可试</td></tr><tr><td>AI 正在加速 AI 研究</td><td>HN 323 分，是观点文章，没有可用工具</td></tr><tr><td>Texts Wrapped</td><td>本地分析聊天记录的小工具，只有 5 个赞，信号太弱</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>MaxxBench</td><td>HN 332 分，但只是质疑 DeepSWE 跑分，用不上</td></tr><tr><td>微软研究院 AI Frontiers 组解散</td><td>HN 467 分，组织变动，规则外</td></tr><tr><td>Goodbye Claude, Hello Pi</td><td>个人换工具博客，看不出 Pi 是什么，无可试入口</td></tr><tr><td>ChatGPT Pro 取消 5 小时限制</td><td>只是澄清套餐用量，非新产品</td></tr><tr><td>Mac 自带的家庭成员分类器</td><td>HN 749 分，隐私彩蛋，不是可用工具</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
 
-<div class="pager" data-current-date="2026-11-07"><a href="#" class="prev">← 前一天</a><span class="issue-num">№142 · 2026-11-07</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← 前一天</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">后一天 →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-07';
+    const currentDate = '2026-11-08';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

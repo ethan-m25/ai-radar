@@ -1,0 +1,86 @@
+{
+  "headline": "Claude Code 的「别再问」，正在公开你的密码",
+  "summary": "今天只有一件事值得动手：你天天用的 Claude Code 权限有个真坑，先自查。",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "更新：Claude Code 权限坑泄露密码",
+      "pitch": "你天天点的「别再问」，可能让 Claude Code 把密码一起送进公开仓库。先花两分钟查下你的授权列表。",
+      "why": [
+        "安全公司 apiiro 点名「别再问」，1,122 个公开 GitHub 文件含明文密码",
+        "对天天用 Claude Code 的你，这就是实打实的账号风险",
+        "细节以原文为准，先按最坏情况自查一遍"
+      ],
+      "actions": [
+        "打开 Claude Code 的权限放行列表，收回不必要的一键批准",
+        "对常用仓库跑一次密钥扫描，确认没有密码文件被提交"
+      ],
+      "deep_dive": [
+        "这不算新功能，是权限设计的坑：一次「别再问」可能变成长期放行，得自己盯。",
+        "凡是把大目录或含密钥的仓库交给它、又点过一键放行的人，都该查一遍。",
+        "自查十几分钟能做完；别等官方修，先收紧授权、扫一遍密钥最稳。"
+      ],
+      "signals": "HN 434 分 · 293 条评论 · apiiro 安全研究",
+      "links": [
+        {
+          "label": "Apiiro 研究",
+          "url": "https://apiiro.com"
+        },
+        {
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Karpathy 3 分钟做了个视频站",
+      "pitch": "他把别人的 YouTube 清单做成了 TristanTube，47K 个极客视频加电视模式，纯当周末消遣。",
+      "why": [
+        "Karpathy 亲自演示 Claude Code 一句话出成品",
+        "站点直接打开就能看，不用装任何东西"
+      ],
+      "signals": "X 6,445 赞 · 515 转发 · 用 Claude Code 3 分钟搭完",
+      "links": [
+        {
+          "label": "Karpathy 推文",
+          "url": "https://x.com/karpathy/status/2119114537442189652"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Gemini Omni 1.2 Flash",
+      "update": "今天没有新入口或功能消息，维持观察"
+    },
+    {
+      "day": 3,
+      "name": "Claude 个人理财（美国 beta）",
+      "update": "仍只对美国开放，没有扩区或新功能"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "MaxxBench",
+      "reason": "HN 332 分，但只是质疑 DeepSWE 跑分，用不上"
+    },
+    {
+      "name": "微软研究院 AI Frontiers 组解散",
+      "reason": "HN 467 分，组织变动，规则外"
+    },
+    {
+      "name": "Goodbye Claude, Hello Pi",
+      "reason": "个人换工具博客，看不出 Pi 是什么，无可试入口"
+    },
+    {
+      "name": "ChatGPT Pro 取消 5 小时限制",
+      "reason": "只是澄清套餐用量，非新产品"
+    },
+    {
+      "name": "Mac 自带的家庭成员分类器",
+      "reason": "HN 749 分，隐私彩蛋，不是可用工具"
+    }
+  ]
+}

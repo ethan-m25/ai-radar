@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-07 (Week 45)</title>
+<title>AI Radar — 2026-11-08 (Week 45)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,54 +345,54 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 07 · Week 45 · №142 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 08 · Week 45 · №143 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Quiet weekend, only one video model worth a quick look</h1>
-    <p class="lead">Nothing big today, Gemini Omni 1.2 Flash is the only new release that really counts.</p>
+    <h1 class="display headline">Claude Code&#x27;s &#x27;don&#x27;t ask again&#x27; is leaking your passwords</h1>
+    <p class="lead">Only one thing worth acting on today: the Claude Code permissions you use every day have a real trap — go check yours first.</p>
     <div class="counts">
-        <span>🚨 <span class="crit-count">0</span> must see</span>
-        <span>👀 <span class="look-count">1</span> worth a look</span>
+        <span>🚨 <span class="crit-count">1</span> must see</span>
+        <span>👀 <span class="look-count">0</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-07"><a href="#" class="prev">← Previous</a><span class="issue-num">№142 · 2026-11-07</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← Previous</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Gemini Omni 1.2 Flash is out</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Small model stuck? Ask Opus, save 4x</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag crit">🚨 Must see</span> Update: the Claude Code permission trap is leaking passwords</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Karpathy built a video site in 3 minutes</li></ul></nav>
 
-<article id="item1" class="item item--look">
-    <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Gemini Omni 1.2 Flash is out</h2>
-    <div class="pitch">Google&#x27;s Omni line got a faster, cheaper Flash version that can make longer clips. It&#x27;s getting a lot of buzz on HN.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Official new release, billed as cheaper and faster</li><li>Supports longer clips, handier for demo videos</li><li>232 comments on HN, so people are talking about it</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open the DeepMind blog and read the Omni 1.2 Flash intro</li><li>Check the Gemini app to see if there&#x27;s an entry point, the source doesn&#x27;t say clearly</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Omni is Google&#x27;s &quot;any input, any output&quot; model line, and Flash is its fast, cheap tier.</p><p>The blog only gave a title and one line, I didn&#x27;t see the actual pricing or max clip length, so don&#x27;t jump to conclusions.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 343 points · 232 comments · DeepMind official blog, November release</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://deepmind.google/blog" target="_blank" rel="noopener">DeepMind blog</a> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN homepage</a></div>
+<article id="item1" class="item item--crit">
+    <div class="tier-label">🚨 Must see</div>
+    <h2 class="display title">Update: the Claude Code permission trap is leaking passwords</h2>
+    <div class="pitch">That &#x27;don&#x27;t ask again&#x27; you click every day might let Claude Code send your passwords into a public repo. Take two minutes to check your permission list.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Security firm apiiro called out &#x27;don&#x27;t ask again&#x27; — 1,122 public GitHub files contain plaintext passwords</li><li>If you use Claude Code daily, this is a real account risk</li><li>Details are in the original; for now, check yourself assuming the worst</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open Claude Code&#x27;s permission allowlist and revoke any unnecessary one-click approvals</li><li>Run a secret scan on your regular repos to make sure no password files got committed</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>This isn&#x27;t a new feature — it&#x27;s a permissions design trap: one &#x27;don&#x27;t ask again&#x27; can turn into permanent access, so you have to watch it yourself.</p><p>Anyone who&#x27;s handed it a big directory or a repo with secrets in it and clicked one-click approve should check.</p><p>The self-check takes about ten minutes; don&#x27;t wait for an official fix — tightening permissions and scanning for secrets is the safest move.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 434 points · 293 comments · apiiro security research</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://apiiro.com" target="_blank" rel="noopener">Apiiro research</a> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN discussion</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Small model stuck? Ask Opus, save 4x</h2>
-    <div class="pitch">Hightouch&#x27;s post says letting Jev ask Opus for help when it needs to keeps accuracy steady while cutting cost by 4x.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>The idea is let the cheap model go first, upgrade when it gets stuck</li><li>Agent bills might get cheaper down the road</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · HN 502 points · 118 comments</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN homepage</a></div>
+    <h2 class="display title">Karpathy built a video site in 3 minutes</h2>
+    <div class="pitch">He turned someone else&#x27;s YouTube list into TristanTube — 47K geeky videos plus TV mode, just a weekend lark.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Karpathy demoed Claude Code producing a finished product from one sentence</li><li>The site opens and plays instantly, nothing to install</li></ul></div>
+    <div class="signals"><strong>Signals</strong> · X 6,445 likes · 515 reposts · built with Claude Code in 3 minutes</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/karpathy/status/2119114537442189652" target="_blank" rel="noopener">Karpathy&#x27;s tweet</a></div>
 </article>
 
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Gemini Omni 1.2 Flash</span> <span class="update">— No new entry points or feature news today — still watching</span></div></li><li><span class="days">Day 3</span><div><span class="item-name">Claude personal finance (US beta)</span> <span class="update">— Still US-only, no expansion or new features</span></div></li></ul></aside>
 
-
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Anthropic IPO</td><td>It&#x27;s a funding topic, not something you can use</td></tr><tr><td>Qwen 3.8 27B</td><td>Hot on HF, but it&#x27;s a Chinese-community mainline thing, not something you&#x27;d use</td></tr><tr><td>Creator app built-in MCP</td><td>Just an observation tweet from Thariq, no actual product to try</td></tr><tr><td>AI is speeding up AI research</td><td>HN 323 points, it&#x27;s an opinion piece with no usable tool</td></tr><tr><td>Texts Wrapped</td><td>A small local tool for analyzing chat logs, only 5 likes, too weak a signal</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>MaxxBench</td><td>HN 332 points, but it&#x27;s just questioning DeepSWE&#x27;s benchmark scores — not useful to us</td></tr><tr><td>Microsoft Research AI Frontiers team disbanded</td><td>HN 467 points, org change — outside our rules</td></tr><tr><td>Goodbye Claude, Hello Pi</td><td>Personal tool-switch blog post, can&#x27;t tell what Pi is, no entry point to try</td></tr><tr><td>ChatGPT Pro drops the 5-hour limit</td><td>Just clarifying plan usage limits, not a new product</td></tr><tr><td>The built-in household-member classifier on Mac</td><td>HN 749 points, a privacy easter egg, not a usable tool</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-07"><a href="#" class="prev">← Previous</a><span class="issue-num">№142 · 2026-11-07</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← Previous</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-07';
+    const currentDate = '2026-11-08';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

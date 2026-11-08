@@ -1,0 +1,86 @@
+{
+  "headline": "Claude Code's 'don't ask again' is leaking your passwords",
+  "summary": "Only one thing worth acting on today: the Claude Code permissions you use every day have a real trap — go check yours first.",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "Update: the Claude Code permission trap is leaking passwords",
+      "pitch": "That 'don't ask again' you click every day might let Claude Code send your passwords into a public repo. Take two minutes to check your permission list.",
+      "why": [
+        "Security firm apiiro called out 'don't ask again' — 1,122 public GitHub files contain plaintext passwords",
+        "If you use Claude Code daily, this is a real account risk",
+        "Details are in the original; for now, check yourself assuming the worst"
+      ],
+      "actions": [
+        "Open Claude Code's permission allowlist and revoke any unnecessary one-click approvals",
+        "Run a secret scan on your regular repos to make sure no password files got committed"
+      ],
+      "deep_dive": [
+        "This isn't a new feature — it's a permissions design trap: one 'don't ask again' can turn into permanent access, so you have to watch it yourself.",
+        "Anyone who's handed it a big directory or a repo with secrets in it and clicked one-click approve should check.",
+        "The self-check takes about ten minutes; don't wait for an official fix — tightening permissions and scanning for secrets is the safest move."
+      ],
+      "signals": "HN 434 points · 293 comments · apiiro security research",
+      "links": [
+        {
+          "label": "Apiiro research",
+          "url": "https://apiiro.com"
+        },
+        {
+          "label": "HN discussion",
+          "url": "https://news.ycombinator.com"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Karpathy built a video site in 3 minutes",
+      "pitch": "He turned someone else's YouTube list into TristanTube — 47K geeky videos plus TV mode, just a weekend lark.",
+      "why": [
+        "Karpathy demoed Claude Code producing a finished product from one sentence",
+        "The site opens and plays instantly, nothing to install"
+      ],
+      "signals": "X 6,445 likes · 515 reposts · built with Claude Code in 3 minutes",
+      "links": [
+        {
+          "label": "Karpathy's tweet",
+          "url": "https://x.com/karpathy/status/2119114537442189652"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Gemini Omni 1.2 Flash",
+      "update": "No new entry points or feature news today — still watching"
+    },
+    {
+      "day": 3,
+      "name": "Claude personal finance (US beta)",
+      "update": "Still US-only, no expansion or new features"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "MaxxBench",
+      "reason": "HN 332 points, but it's just questioning DeepSWE's benchmark scores — not useful to us"
+    },
+    {
+      "name": "Microsoft Research AI Frontiers team disbanded",
+      "reason": "HN 467 points, org change — outside our rules"
+    },
+    {
+      "name": "Goodbye Claude, Hello Pi",
+      "reason": "Personal tool-switch blog post, can't tell what Pi is, no entry point to try"
+    },
+    {
+      "name": "ChatGPT Pro drops the 5-hour limit",
+      "reason": "Just clarifying plan usage limits, not a new product"
+    },
+    {
+      "name": "The built-in household-member classifier on Mac",
+      "reason": "HN 749 points, a privacy easter egg, not a usable tool"
+    }
+  ]
+}
