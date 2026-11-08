@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-11-08 · Week 45</title>
+    <meta name="description" content="Week 45 — The real story wasn't a stronger model. It was the AI tools you already use leaking data: Postman's silent plugin, Claude Code handing out your email, and the 'don't ask again' permission trap. 15 signals, 3 trends survived, 3 demoted.">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 45">
+    <meta property="og:description" content="15 new signals over 7 days · 1 🚨 · 10 👀 · 4 ℹ️ · 3 trends survived · 3 demoted">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 30ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) {
+            animation-delay: 0.05s;
+        }
+        .weekly-section:nth-of-type(2) {
+            animation-delay: 0.15s;
+        }
+        .weekly-section:nth-of-type(3) {
+            animation-delay: 0.25s;
+        }
+        .weekly-section:nth-of-type(4) {
+            animation-delay: 0.35s;
+        }
+        .weekly-section:nth-of-type(5) {
+            animation-delay: 0.45s;
+        }
+        @keyframes rise {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+
+        .cover .headline,
+        .weekly-section h2 {
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">Today</a>
+                <a href="./archive.html" class="current">Archive</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 11 · 08 · WK 45 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <!-- ════════════ COVER ════════════ -->
+        <section class="cover">
+            <span class="kicker smallcaps">Week 45 · 2026-11-02 → 2026-11-08</span>
+            <h1 class="display headline">The real story wasn't a stronger model. It was your daily AI tools leaking data.</h1>
+            <p class="lead">15 signals this week, but almost none of them were model releases. Postman was caught silently installing an AI plugin that wants to upload your API data. Claude Code was caught handing your account email to every site it visits. And the "don't ask again" button you click every day turned out to be a permanent permission grant — 1,122 public GitHub files already contain plaintext passwords because of it. None of this is capability. All of it decides whether you can trust these tools with payroll data.</p>
+
+            <div class="summary-box">
+                <strong>One sentence for the week:</strong> The week's biggest shift wasn't a stronger model — it was the AI tools you already use leaking data. Tighten permissions first, then talk capability. If you only do one thing: open Claude Code's permission allowlist, revoke the "don't ask again" approvals you don't need, and run a secret scan on your repos.
+            </div>
+
+            <div class="count-row">
+                <div class="total">15</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>1</strong>&nbsp;🚨 (Claude Code "don't ask again" password leak)</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>10</strong>&nbsp;👀 (HackerBooks · Astra weights · LFM3 family · Postman plugin · Astra debunk · Images 2.6 · Vercel bug agents · Claude finance · Claude Code email leak · Gemini Omni 1.2 Flash)</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>4</strong>&nbsp;ℹ️ (Spawn agent company · Revolut self-hosting · Jev→Opus routing · Karpathy 3-minute site)</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 3 trends survived to weekly · 3 demoted / down-prioritized · all 7 days produced at least one signal</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+            <h2 class="display">Permission boundaries, not model capability, was the week's real shift</h2>
+
+            <p>There was no big model release this week worth changing your workflow over. What actually changes how you work was three "tool betrayal" incidents. On Tuesday, Postman was caught quietly installing an AI plugin that wants to send all your API data out (HN 1,333 points). On Thursday, the Claude Code you use every day was caught carrying your account email to every website it visits (HN 1,227). And on Sunday, security firm apiiro named the trap directly: the "don't ask again" button you click daily turns one approval into permanent access, and 1,122 public GitHub files now sit there with plaintext passwords in them (HN 434 — the week's only 🚨).</p>
+
+            <p>Thread those together and it's one turn: AI coding tools went from "help you write things" to "touch your accounts, your repos, your keys." clawii, what you handle every day is exactly the stuff that must not leave the building — compensation, employee data. Before this week you worried "will the model get it wrong." From now on you also have to worry "will it hand me over." It isn't a capability problem. It's a permission-boundary problem — and the boundary is loose by default.</p>
+
+            <p>Compared with model news, this is colder and much less sexy. But it decides whether you can hand real work to these tools with a clear head. However strong the model, a single bad approval can expose an entire repo's secrets. So the thing to remember this week isn't "who shipped a new model" — it's "how much permission did I actually give these tools."</p>
+
+            <p><strong>If you only do one thing this week:</strong> open Claude Code's permission allowlist, revoke the unnecessary "don't ask again" approvals, and run a secret scan on your regular repos. Ten minutes. Worth it.</p>
+        </section>
+
+        <!-- ════════════ 📈 TRENDS ════════════ -->
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 Trends building this week</div>
+            <h2 class="display">Three directions confirmed or accelerated</h2>
+
+            <div class="trend-item">
+                <div class="trend-name">① Local small models — from "it runs" to "you can install it"</div>
+                <p>LiquidAI's LFM3 family sat on the HF trending list four days straight (the 1.7B at 60.7k downloads, the GGUF build at 194k, plus a new Omni-2B multimodal). Meanwhile the "read and write model weights directly" claim from Astra was called exaggerated — but Simon went and reproduced it with Qwen 3.8 27B on a laptop. Same direction both times: capability is moving onto your own machine. For clawii the meaning is concrete — sensitive comp files can be processed locally, offline, never leaving the building. The gap: still no two-click product a non-developer can just use, and that's the hole to watch next week.</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">② AI-written code is starting to find its own bugs</div>
+                <p>Vercel's agent scanned its own code around the clock, found 6,817 vulnerabilities and fixed 1,411 — free until November 10. That's the best free window of the week, and you should spend it. Over the weekend Karpathy built a working video site with Claude Code in three minutes. One end is generation getting faster; the other end is verification getting automatic. For people who vibe-code, part of the "ship it and done" risk is now being caught by the tools themselves. Don't treat it as insurance though, especially for internal tools.</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">③ Saving money moves from "pick a cheap model" to "route automatically"</div>
+                <p>Hightouch's Jev escalates to Opus only when it gets stuck — accuracy holds, cost drops 4x (HN 502). Gemini Omni 1.2 Flash is pitched as faster and cheaper. Both OpenAI and Anthropic are now shipping subscription plans that include matching API credits. The signal: cost control is moving down a layer, to "let the system decide when to use the expensive one." For you running batch scripts every day, that's real money — you can afford to let the AI try more, iterate more, fail more.</p>
+            </div>
+        </section>
+
+        <!-- ════════════ 💀 WRONG / OVERHYPED ════════════ -->
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 What I called wrong / overhyped this week</div>
+            <h2 class="display">3 demotions — one breakthrough walked back, one tool with no door for you, one heat-vs-usability confusion</h2>
+
+            <p><strong>Astra weight read/write — 👀 on Tuesday, walked back by Wednesday.</strong> I called it "the most new-species move of the year," on the strength of 2,755 HN points and a model rewriting Qwen's weights to boost itself. Wednesday a 995-point post took it apart: it was a blog post, not a paper, and the claims were inflated. What actually landed was Simon reproducing it locally on a laptop with Qwen 27B. The direction is worth watching, but for that week the heat should have dropped from 👀 to ℹ️ "research toy." Lesson: give "huge breakthroughs" a week — they usually get knocked back down to size.</p>
+
+            <p><strong>Claude personal finance — 👀 given too early, no door for clawii.</strong> I gave it 👀 on Thursday because "ask one question and understand your money" is genuinely useful. But it's a US-only beta, needs Pro or above and a US bank account, and by Sunday there was still no expansion. For a non-US user the actual value this week is zero. It should be ℹ️ — save the name, wait for it to go international.</p>
+
+            <p><strong>LFM3 family — real heat, but not "usable."</strong> Four days of tracking, downloads and likes climbing the whole way. That part was right. But four days on there's still no finished product a non-developer can pick up — I briefly mistook "leaderboard heat" for "your ability to use it." Not a wrong call, but the priority should sit lower: wait for LM Studio / Dify / Ollama templates before upgrading it.</p>
+
+            <p><strong>Still tracking correctly:</strong> Claude Code trust and security (🚨, confirmed by the email leak Thursday plus the permission trap Sunday — the defining story of the week), local small models (👀, confirmed by four days of LFM3 momentum), cost routing (👀, confirmed by Jev→Opus and Omni Flash).</p>
+        </section>
+
+        <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 Watch list for next week</div>
+            <h2 class="display">Three things to track over the next 7 days</h2>
+
+            <div class="watch-item">
+                <strong>① Does Anthropic fix the Claude Code email leak and the "don't ask again" trap?</strong><br>
+                If they ship a patch or tighten the default on one-click approvals, the vendor is taking business users seriously. If a week passes with no response, they're waiting it out — tighten your own permissions long-term and don't wait for them.<br>
+                <span class="trigger">Trigger → official changelog patch, or one-click approval default changed. Window: 1 week.</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② What happens to Vercel Security Reviews after the free window ends November 10</strong><br>
+                Turns paid, or folds into the default flow? If it's still good after the free period, run it on every small tool you've AI-built. If it becomes an expensive add-on, use these three days to run it once on everything.<br>
+                <span class="trigger">Trigger → pricing page update or product blog post. Window: 3 days.</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ Any one-click, non-developer entry for local small models</strong><br>
+                LM Studio, Dify or Ollama shipping a template or one-click agent for LFM3 or Qwen. The moment that exists, local processing of sensitive files becomes real rather than theoretical — and it upgrades to 👀.<br>
+                <span class="trigger">Trigger → LM Studio / Dify / Ollama template drop. Window: 1-2 weeks.</span>
+            </div>
+        </section>
+
+        <!-- ════════════ 📅 CALIBRATION ════════════ -->
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 Calibration metrics — Week 45</div>
+            <h2 class="display">The numbers for this week</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>7 of 7 days (11/02–11/08), every day produced at least one signal</dd>
+
+                <dt>🚨 Items flagged (unique signals)</dt>
+                <dd>1 (Claude Code "don't ask again" permission trap / plaintext password leak, via apiiro)</dd>
+
+                <dt>👀 Items flagged (unique signals)</dt>
+                <dd>10 (HackerBooks · Astra weights · LFM3 family · Postman AI plugin · Astra debunk · OpenAI Images 2.6 · Vercel bug-hunting agents · Claude personal finance · Claude Code email leak · Gemini Omni 1.2 Flash)</dd>
+
+                <dt>ℹ️ Items flagged (unique signals)</dt>
+                <dd>4 (Spawn agent-run company · Revolut self-hosting · Jev→Opus routing · Karpathy 3-minute site)</dd>
+
+                <dt>New signals total</dt>
+                <dd>15 (1🚨 + 10👀 + 4ℹ️)</dd>
+
+                <dt>Daily pill occurrences (with repeats)</dt>
+                <dd>Tool trust / AI security showed up as 3 separate incidents (Postman Tuesday, Claude Code email Thursday, permission trap Sunday); local small models 4 days (LFM3) plus Astra on 3; cost and routing 2 days (Jev, Omni Flash), with subscription-credit news carried over from the prior week</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>1 main story + 3 trends (🏆 Permission boundaries · 📈 Local small models · 📈 Self-verifying code · 📈 Cost routing)</dd>
+
+                <dt>Items demoted / down-prioritized</dt>
+                <dd>3 (Astra 👀→ℹ️ · Claude finance 👀→ℹ️ · LFM3 held but pushed down)</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>20% (3 of 15 unique signals demoted or down-prioritized. The sole 🚨 was the real, actionable story of the week. Astra demoted because blog ≠ paper; finance because there's no door for a non-US user; LFM3 because heat ≠ usability.)</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>~10 days ahead, estimated. The Claude Code permission trap broke Sunday on HN and apiiro — Chinese outlets likely haven't caught it yet. The Vercel free window (Nov 10) is time-sensitive and so far mostly English-only coverage. Local-model coverage is the most synchronized: both communities pick up HF trending within hours.</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+            </p>
+            <p>
+                Scan range: news.smol.ai · ossinsight.io · news.ycombinator.com · anthropic.com/news · openai.com/news · simonwillison.net · huggingface.co/blog · deepmind.google/blog · mistral.ai/news
+            </p>
+            <p>
+                Exclusion rules: lawsuits/funding/personnel/policy-debates/benchmark-micro-improvements/Chinese-media-already-covered/pure-research-no-deployment
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 45 · 2026-11-08 · 7 dailies · 15 new signals (1🚨 / 10👀 / 4ℹ️) · 3 trends · 3 demoted · Permission boundaries + Local small models + Self-verifying code + Cost routing
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

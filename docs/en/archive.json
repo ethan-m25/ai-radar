@@ -6,6 +6,20 @@
       "date": "2026-11-08",
       "weekday": "Sun",
       "week": 45,
+      "kind": "weekly",
+      "headline": "The real story wasn't a stronger model. It was your daily AI tools leaking data.",
+      "summary": "15 signals this week, but almost none of them were model releases. Postman was caught silently installing an AI plugin that wants to upload your API data. Claud",
+      "counts": {
+        "crit": 1,
+        "look": 10,
+        "fyi": 4
+      },
+      "url": "weekly_2026-11-08.html"
+    },
+    {
+      "date": "2026-11-08",
+      "weekday": "Sun",
+      "week": 45,
       "issue": 142,
       "kind": "daily",
       "headline": "Claude Code's 'don't ask again' is leaking your passwords",

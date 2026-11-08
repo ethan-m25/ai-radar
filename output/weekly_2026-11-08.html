@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Radar — 每周总结 · Week 45 · 2026-11-08</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-serif: "Fraunces", Georgia, serif;
+            --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.2 0.02 90);
+            --text-secondary: oklch(0.45 0.02 90);
+            --border: 1px solid oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.18 250);
+            --accent-soft: oklch(0.65 0.12 250 / 0.15);
+            --crit: oklch(0.6 0.22 30);
+            --crit-bg: oklch(0.6 0.22 30 / 0.08);
+            --look: oklch(0.55 0.18 250);
+            --look-bg: oklch(0.55 0.18 250 / 0.08);
+            --fyi: oklch(0.5 0.1 160);
+            --fyi-bg: oklch(0.5 0.1 160 / 0.08);
+            --radius: 12px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+
+        .masthead {
+            border-bottom: 2px solid oklch(0.85 0.02 90);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .masthead .kicker {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .masthead h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin: 0.4rem 0 0.3rem;
+        }
+        .masthead .sub {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .cover {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .cover .one-liner-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .cover .one-liner {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .cover .stats-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid oklch(0.88 0.02 90);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+        .cover .stats-row span { background: oklch(0.95 0.01 90); padding: 0.2rem 0.7rem; border-radius: 999px; }
+        .stat-crit { color: var(--crit); font-weight: 600; }
+        .stat-look { color: var(--look); font-weight: 600; }
+        .stat-fyi { color: var(--fyi); font-weight: 600; }
+
+        .section-head {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid oklch(0.88 0.02 90);
+        }
+
+        .main-narrative {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .main-narrative p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .main-narrative p:last-child { margin-bottom: 0; }
+        .main-narrative .action-call {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            padding: 0.75rem 1.25rem;
+            background: oklch(0.96 0.02 90 / 0.3);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .trend-card {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .trend-card .trend-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .trend-card .trend-title .emoji { margin-right: 0.4rem; }
+        .trend-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .demote-card {
+            background: oklch(0.98 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .demote-card .demote-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: oklch(0.5 0.12 30);
+        }
+        .demote-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .watch-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .watch-list li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--surface);
+            border: var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .watch-list li strong { color: var(--text); }
+        .watch-list li .trigger { color: var(--text-secondary); font-size: 0.85rem; }
+
+        .calibration {
+            margin-top: 2.5rem;
+            padding: 1.25rem 1.5rem;
+            background: oklch(0.97 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+        }
+        .calibration .cal-item { text-align: center; }
+        .calibration .cal-item .num {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: block;
+            color: var(--text);
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid oklch(0.88 0.02 90);
+        }
+
+        @media (max-width: 600px) {
+            .masthead h1 { font-size: 1.8rem; }
+            .cover .one-liner { font-size: 1.25rem; }
+            .main-narrative { padding: 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ═══════ MASTHEAD ═══════ -->
+    <header class="masthead">
+        <div class="kicker">AI Radar · 每周总结</div>
+        <h1>AI Radar</h1>
+        <div class="sub">2026-11-02 ~ 2026-11-08 · Week 45 · 第 03 期</div>
+    </header>
+
+    <!-- ═══════ COVER ═══════ -->
+    <section class="cover">
+        <div class="one-liner-label">📌 本周一句话总结</div>
+        <div class="one-liner">这周不是哪个模型更强，而是你天天用的 AI 工具开始往外漏数据——先收紧授权，再谈能力。</div>
+        <div class="stats-row">
+            <span><span class="stat-crit">🚨 1 必看</span></span>
+            <span><span class="stat-look">👀 10 可看</span></span>
+            <span><span class="stat-fyi">ℹ️ 4 知道</span></span>
+            <span>📡 幸存进 weekly：3 条主线</span>
+        </div>
+    </section>
+
+    <!-- ═══════ 🏆 本周最重要的 1 件事 ═══════ -->
+    <h2 class="section-head">🏆 本周最重要的 1 件事</h2>
+
+    <div class="main-narrative">
+        <p><strong>这周没有一个大模型发布，值得你改变工作流。真正改变你工作方式的，是三起「工具背叛」事件。</strong> 周二，Postman 被曝偷偷装 AI 插件、还想把全部接口数据发出去（HN 1333 分）；周四，你天天用的 Claude Code 被曝会把你账号邮箱带给它访问的每个网站（HN 1227 分）；到了周日，安全公司 apiiro 直接点名你习惯点的「别再问」——一次放行变成长期授权，1,122 个公开 GitHub 文件里躺着明文密码（HN 434，本周唯一的 🚨）。</p>
+
+        <p>三件事串起来，是同一个转向：AI 编码工具从「帮你写东西」，变成「替你碰你的账号、你的仓库、你的密钥」。clawii，你每天处理的恰恰是薪酬、员工数据这种最不能外流的东西。以前你担心的是「模型会不会编错」，这周开始得担心「它会不会把我卖出去」。这不是模型能力问题，是权限边界问题——而边界默认是松的。</p>
+
+        <p>和模型新闻比，这条更冷、更不性感，但它决定你能不能安心把真实工作交给它。模型再强，一次误放行就能让整个仓库的密钥见光。所以本周最该记住的不是「谁又发了新模型」，而是「我到底给了这些工具多大权限」。</p>
+
+        <div class="action-call">👉 如果你这周只做一件事：打开 Claude Code 的权限放行列表，把不必要的「别再问」收回来，再对常用仓库跑一遍密钥扫描。十几分钟，值得。</div>
+    </div>
+
+    <!-- ═══════ 📈 趋势构建 ═══════ -->
+    <h2 class="section-head">📈 趋势构建</h2>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">💻</span>本地小模型：从「能跑」走向「能装」</div>
+        <p>LiquidAI 的 LFM3 家族连续四天挂在 HF 趋势榜（1.7B 版 60.7k 下载、GGUF 版 19.4 万，还新增了 Omni-2B 多模态）；同期「直接读写模型权重」的 Astra 虽被指夸大，但 Simon 用笔记本上的 Qwen 3.8 27B 真的复现了。方向一致：能力在往你自己的电脑上搬。对 clawii 的意义很实在——敏感薪酬文件可以本地处理、断网、不出门。唯一短板：到现在还没有一个非开发者点两下就能用的成品，这是下周该盯的缺口。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">🔍</span>AI 写的代码，开始自己查漏洞</div>
+        <p>Vercel 的 agent 24 小时在自己代码里扫出 6,817 个漏洞、修了 1,411 个，11 月 10 日前免费——这是本周最该白嫖的窗口。周末 Karpathy 又用 Claude Code 三分钟搭了个视频站。一端是「生成越来越快」，另一端是「验证越来越自动」。对 vibe coding 的人，这意味着「写完就交」的风险，正被工具自己接住一部分；但别把它当保险，尤其处理内部工具时。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">💸</span>省钱不再靠「选便宜模型」，而靠「自动路由」</div>
+        <p>Hightouch 的 Jev 遇难题再升级到 Opus，准确率不掉、成本低 4 倍（HN 502）；Gemini Omni 1.2 Flash 主打更快更便宜；OpenAI 和 Anthropic 两边都上了「订阅送等额 API 额度」。信号是：成本控制进到了「让系统自己决定什么时候用贵的」这层。对天天跑批量脚本的你，这是能实打实省下来的钱——以后可以更放肆地让 AI 多试几次。</p>
+    </div>
+
+    <!-- ═══════ 💀 判断失误 / 过热 ═══════ -->
+    <h2 class="section-head">💀 本周判断失误 / 过热</h2>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ Astra 权重读写：周二当成「新物种」，周三被打回原形</div>
+        <p>周二我把它说成「今年最像新物种的一步」，理由是 HN 2755 分、能直接改写 Qwen 权重提升能力。周三就被 995 分的质疑拆穿——那其实是篇博客、不是论文，宣传夸大；真正落地的只是 Simon 能在笔记本 Qwen 27B 上本地复现。方向值得盯，但当周热度应从 👀 降为 ℹ️「研究玩具」。教训：这类「重磅突破」先等一周，通常会被打回原形。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ Claude 个人理财：给 👀 太早，它对 clawii 没有入口</div>
+        <p>周四给了 👀，理由是「问一句就懂自己的钱」。但它只在美国灰度，Pro 以上、有美国账户才能用；连续跟踪到周日也没有扩区。对不在美国的你，它这周的实际价值是零，应降为 ℹ️ 记个名字，等它出海再说。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ LFM3 家族：热度真实，但不是「可用」</div>
+        <p>连追四天，下载和点赞都在涨，这点没错。但四天过去，始终没有非开发者能直接用的成品——我一度把「榜单热度」当成了「你能上手的程度」。不是判错，是优先级该往下压：等 LM Studio、Dify、Ollama 出模板再升级。</p>
+    </div>
+
+    <!-- ═══════ 🔮 下周关注 ═══════ -->
+    <h2 class="section-head">🔮 下周关注</h2>
+
+    <ul class="watch-list">
+        <li>
+            <strong>🔐 Anthropic 会不会修 Claude Code 的邮箱外泄 +「别再问」权限坑</strong><br>
+            <span class="trigger">触发信号：官方 changelog 出补丁，或把「一键批准」默认收紧。如果一周内毫无回应，说明厂商在观望——那就自己长期收紧授权，别等。⏳ 时间窗口：1 周内。</span>
+        </li>
+        <li>
+            <strong>🛡️ Vercel Security Reviews 免费到 11-10 之后怎么走</strong><br>
+            <span class="trigger">触发信号：转付费还是并入默认流程。如果免费期结束后依然好用，值得把你所有 AI 写的小工具都排一次；如果变成高价功能，就趁这几天先跑一遍。⏳ 时间窗口：3 天内。</span>
+        </li>
+        <li>
+            <strong>💻 本地小模型有没有「非开发者一键」入口</strong><br>
+            <span class="trigger">触发信号：LM Studio / Dify / Ollama 放出 LFM3 或 Qwen 的模板、一键 agent。一旦出现，敏感文件本地处理才算真正落地，值得升 👀。⏳ 时间窗口：1-2 周。</span>
+        </li>
+    </ul>
+
+    <!-- ═══════ 📅 校准指标 ═══════ -->
+    <div class="calibration">
+        <div class="cal-item">
+            <span class="num">7</span>
+            日报份数
+        </div>
+        <div class="cal-item">
+            <span class="num">1 🚨</span>
+            必看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">10 👀</span>
+            可看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">4 ℹ️</span>
+            知道信号
+        </div>
+        <div class="cal-item">
+            <span class="num">3</span>
+            本周降级
+        </div>
+        <div class="cal-item">
+            <span class="num">~10 天</span>
+            领先中文圈（估算）
+        </div>
+    </div>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="footer">
+        <p>AI Radar · 每周总结 · 数据来源：Smol AI / OSSInsight / HN / X / 官方博客 · 人工筛选，非 AI 生成</p>
+        <p style="margin-top:0.5rem; opacity:0.7;"><a href="./archive.html">📚 全部存档</a> · <a href="./feed.xml">📡 RSS</a></p>
+    </footer>
+
+</div>
+</body>
+</html>

@@ -6,6 +6,20 @@
       "date": "2026-11-08",
       "weekday": "Sun",
       "week": 45,
+      "kind": "weekly",
+      "headline": "(no headline)",
+      "summary": "",
+      "counts": {
+        "crit": 1,
+        "look": 10,
+        "fyi": 4
+      },
+      "url": "weekly_2026-11-08.html"
+    },
+    {
+      "date": "2026-11-08",
+      "weekday": "Sun",
+      "week": 45,
       "issue": 143,
       "kind": "daily",
       "headline": "Claude Code 的「别再问」，正在公开你的密码",
