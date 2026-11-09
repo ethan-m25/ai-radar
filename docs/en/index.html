@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-08 (Week 45)</title>
+<title>AI Radar — 2026-11-09 (Week 46)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,54 +345,65 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 08 · Week 45 · №143 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 09 · Week 46 · №144 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Claude Code&#x27;s &#x27;don&#x27;t ask again&#x27; is leaking your passwords</h1>
-    <p class="lead">Only one thing worth acting on today: the Claude Code permissions you use every day have a real trap — go check yours first.</p>
+    <h1 class="display headline">Goldman backs off, but local models keep getting bigger</h1>
+    <p class="lead">Goldman pulls Claude Code; an open-source project squeezes a 284B model into 64G of RAM.</p>
     <div class="counts">
-        <span>🚨 <span class="crit-count">1</span> must see</span>
-        <span>👀 <span class="look-count">0</span> worth a look</span>
+        <span>🚨 <span class="crit-count">0</span> must see</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← Previous</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-09"><a href="#" class="prev">← Previous</a><span class="issue-num">№144 · 2026-11-09</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag crit">🚨 Must see</span> Update: the Claude Code permission trap is leaking passwords</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Karpathy built a video site in 3 minutes</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Goldman takes Claude Code off the shelf</li><li><span class="tier-tag look">👀 Worth a look</span> 284B DeepSeek squeezed into 64G of RAM</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Collapse the PR descriptions AI writes</li></ul></nav>
 
-<article id="item1" class="item item--crit">
-    <div class="tier-label">🚨 Must see</div>
-    <h2 class="display title">Update: the Claude Code permission trap is leaking passwords</h2>
-    <div class="pitch">That &#x27;don&#x27;t ask again&#x27; you click every day might let Claude Code send your passwords into a public repo. Take two minutes to check your permission list.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Security firm apiiro called out &#x27;don&#x27;t ask again&#x27; — 1,122 public GitHub files contain plaintext passwords</li><li>If you use Claude Code daily, this is a real account risk</li><li>Details are in the original; for now, check yourself assuming the worst</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open Claude Code&#x27;s permission allowlist and revoke any unnecessary one-click approvals</li><li>Run a secret scan on your regular repos to make sure no password files got committed</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>This isn&#x27;t a new feature — it&#x27;s a permissions design trap: one &#x27;don&#x27;t ask again&#x27; can turn into permanent access, so you have to watch it yourself.</p><p>Anyone who&#x27;s handed it a big directory or a repo with secrets in it and clicked one-click approve should check.</p><p>The self-check takes about ten minutes; don&#x27;t wait for an official fix — tightening permissions and scanning for secrets is the safest move.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 434 points · 293 comments · apiiro security research</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://apiiro.com" target="_blank" rel="noopener">Apiiro research</a> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN discussion</a></div>
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">Goldman takes Claude Code off the shelf</h2>
+    <div class="pitch">Goldman pulled Claude Code away from its bankers, and HN blew up over it. Companies rolling out AI isn&#x27;t always a straight line up, so it&#x27;s worth keeping an eye on how things go at your own company.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>793 points and 422 comments on HN, the enterprise crowd really is talking about it</li><li>Banks are the most conservative customers, so a retreat like this spreads fast</li><li>If your company is evaluating AI coding tools right now, this is a real live example</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Read the original report and the HN thread, and think through where you draw the line on AI tools you buy</li><li>Talk to your IT/compliance folks: is it deployed, and can audits keep up</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Don&#x27;t just read the headline: this is about a company pulling back a coding tool it had already deployed, not about the model getting worse.</p><p>It&#x27;s relevant if you work at a multinational company, since AI rollouts often fail on compliance, audits, and actual payoff, not on capability.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · 793 points on HN · 422 comments · hit the top five within 17 hours</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://thestateofai.com" target="_blank" rel="noopener">Original report thestateofai.com</a></div>
 </article>
 
-<article id="item2" class="item item--fyi">
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">284B DeepSeek squeezed into 64G of RAM</h2>
+    <div class="pitch">Someone open-sourced a project that gets the 284B DeepSeek running on a 64G machine with no GPU. Your Mac mini might be able to run a big model locally too.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>No GPU needed, which saves on GPU costs and dodges privacy worries</li><li>432 points and 193 comments on HN, the community is testing it out</li><li>Local means your data never leaves the machine, good for sensitive spreadsheets</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Check the repo README: https://github.com/synchopate/llama-modchip</li><li>Try a small model on your Mac first, then decide if you want to wrestle with the 284B</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike the cloud Claude/Codex you use now, this puts the weights on your own machine, so it runs even offline.</p><p>The tradeoff is it&#x27;ll probably be really slow (a few characters per second), and 284B is a tight fit for 64G of RAM, so it&#x27;s mostly leaning on SSD swap.</p><p>Non-developers can try it, but don&#x27;t expect it to feel as smooth as Opus 5.5.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · 432 points on HN · 193 comments · GitHub repo already open source</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://github.com/synchopate/llama-modchip" target="_blank" rel="noopener">synchopate/llama-modchip</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Karpathy built a video site in 3 minutes</h2>
-    <div class="pitch">He turned someone else&#x27;s YouTube list into TristanTube — 47K geeky videos plus TV mode, just a weekend lark.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Karpathy demoed Claude Code producing a finished product from one sentence</li><li>The site opens and plays instantly, nothing to install</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · X 6,445 likes · 515 reposts · built with Claude Code in 3 minutes</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/karpathy/status/2119114537442189652" target="_blank" rel="noopener">Karpathy&#x27;s tweet</a></div>
+    <h2 class="display title">Collapse the PR descriptions AI writes</h2>
+    <div class="pitch">Simon Willison&#x27;s tip: tuck the wordy AI-generated PR notes into a collapsible block, and the review page instantly gets cleaner.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Read the summary first, expand the details if you want more</li><li>Just wrap the long description in HTML &lt;details&gt;</li><li>It&#x27;s what he does when he opens PRs with Claude Code / Codex</li></ul></div>
+    <div class="signals"><strong>Signals</strong> · Straight from Simon Willison · cites his daily use of Claude Code/Codex for PRs</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison&#x27;s blog</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Gemini Omni 1.2 Flash</span> <span class="update">— No new entry points or feature news today — still watching</span></div></li><li><span class="days">Day 3</span><div><span class="item-name">Claude personal finance (US beta)</span> <span class="update">— Still US-only, no expansion or new features</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Claude Code permissions bug leaked passwords</span> <span class="update">— No new evidence today, waiting to see if the official fix lands</span></div></li><li><span class="days">Day 7</span><div><span class="item-name">Astra reads and writes model weights directly</span> <span class="update">— Simon Willison reproduced it on a laptop with Qwen 3.8 27B, still getting attention</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>MaxxBench</td><td>HN 332 points, but it&#x27;s just questioning DeepSWE&#x27;s benchmark scores — not useful to us</td></tr><tr><td>Microsoft Research AI Frontiers team disbanded</td><td>HN 467 points, org change — outside our rules</td></tr><tr><td>Goodbye Claude, Hello Pi</td><td>Personal tool-switch blog post, can&#x27;t tell what Pi is, no entry point to try</td></tr><tr><td>ChatGPT Pro drops the 5-hour limit</td><td>Just clarifying plan usage limits, not a new product</td></tr><tr><td>The built-in household-member classifier on Mac</td><td>HN 749 points, a privacy easter egg, not a usable tool</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Opus 5.5 accused of getting dumber</td><td>237 points on HN, but it&#x27;s just tweet speculation, can&#x27;t verify the model actually got worse</td></tr><tr><td>AI bubble article</td><td>348 points and 581 comments on HN, it&#x27;s an opinion piece, no usable tools</td></tr><tr><td>Dharma document extraction</td><td>Turns any doc into JSON fields, right up your alley, but only 29 upvotes so the signal&#x27;s too weak</td></tr><tr><td>Flide decision model 9.5x faster</td><td>53 points on Show HN, the Jev ecosystem is pretty niche, no obvious entry point for non-developers</td></tr><tr><td>ChatGPT Desktop forwards SSH agent</td><td>52 points on HN, security detail, not relevant to your work</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← Previous</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-09"><a href="#" class="prev">← Previous</a><span class="issue-num">№144 · 2026-11-09</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-08';
+    const currentDate = '2026-11-09';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

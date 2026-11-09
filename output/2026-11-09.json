@@ -1,0 +1,108 @@
+{
+  "headline": "高盛撤退，本地大模型却越跑越大",
+  "summary": "高盛收回 Claude Code；开源项目把 284B 模型塞进 64G 内存。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "高盛把 Claude Code 撤下柜台",
+      "pitch": "高盛把 Claude Code 从银行家手里收回，HN 讨论炸锅。企业上 AI 不是一路向上，值得你在公司里多留个心眼。",
+      "why": [
+        "HN 793 分、422 条评论，企业圈真在讨论",
+        "银行是最保守客户，撤退信号外溢快",
+        "你公司若正评估 AI 编码工具，这是活案例"
+      ],
+      "actions": [
+        "读原始报道和 HN 讨论，想清楚你们采购 AI 工具的底线",
+        "跟 IT/合规同事聊聊：部署了没、审计跟不跟得上"
+      ],
+      "deep_dive": [
+        "别只看标题：这条讲企业把已部署的编码工具收回，不是模型变差。",
+        "对你所在的跨国公司有参考——AI 落地常败在合规、审计和实际收益，而非能力本身。"
+      ],
+      "signals": "HN 793 分 · 422 条评论 · 17 小时内冲到前五",
+      "links": [
+        {
+          "label": "原始报道 thestateofai.com",
+          "url": "https://thestateofai.com"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "284B DeepSeek 塞进 64G 内存",
+      "pitch": "有开源项目让 284B 的 DeepSeek 在 64G 内存、无显卡的机器上跑起来。你的 Mac mini 说不定也能本地跑大模型。",
+      "why": [
+        "不用显卡，省 GPU 钱和隐私顾虑",
+        "HN 432 分、193 条评论，社区在实测",
+        "本地跑=数据不出门，适合敏感表格"
+      ],
+      "actions": [
+        "看仓库 README：https://github.com/synchopate/llama-modchip",
+        "先在 Mac 上试小模型，再决定要不要啃 284B"
+      ],
+      "deep_dive": [
+        "和你现在用的云端 Claude/Codex 不同：这是把权重下到本地，断网也能跑。",
+        "代价是速度大概率很慢（每秒几个字），284B 对 64G 内存也吃紧，多半靠 SSD 换页。",
+        "非开发者能试，但别期待和 Opus 5.5 一样顺滑。"
+      ],
+      "signals": "HN 432 分 · 193 条评论 · GitHub 仓库已开源",
+      "links": [
+        {
+          "label": "synchopate/llama-modchip",
+          "url": "https://github.com/synchopate/llama-modchip"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "把 AI 写的 PR 描述折叠起来",
+      "pitch": "Simon Willison 支招：把 AI 生成的啰嗦 PR 说明塞进可折叠块，评审界面瞬间清爽。",
+      "why": [
+        "先看摘要，细节点开再看",
+        "用 HTML 的 <details> 包住长描述即可",
+        "他用 Claude Code / Codex 提 PR 时就这么干"
+      ],
+      "signals": "Simon Willison 亲述 · 引用 Claude Code/Codex 生成 PR 的日常",
+      "links": [
+        {
+          "label": "Simon Willison 博客",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Claude Code 权限坑泄露密码",
+      "update": "今天无新增证据，等官方是否修复"
+    },
+    {
+      "day": 7,
+      "name": "Astra 直接读写模型权重",
+      "update": "Simon Willison 用 Qwen 3.8 27B 在笔记本复现，热度延续"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Opus 5.5 被指变笨",
+      "reason": "HN 237 分，但只是推文猜测，无法验证模型真变差"
+    },
+    {
+      "name": "AI 泡沫论文章",
+      "reason": "HN 348 分、581 条评论，属观点长文，无可用工具"
+    },
+    {
+      "name": "Dharma 文档抽取",
+      "reason": "任意文档转 JSON 字段，对你很对口，但仅 29 赞信号太弱"
+    },
+    {
+      "name": "Flide 决策模型提速 9.5 倍",
+      "reason": "Show HN 53 分，Jev 生态偏小众，看不出非开发者入口"
+    },
+    {
+      "name": "ChatGPT Desktop 转发 SSH agent",
+      "reason": "HN 52 分，安全细节，与你的工作无关"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-08 (Week 45)</title>
+<title>AI Radar — 2026-11-09 (Week 46)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,54 +345,65 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 08 · Week 45 · №143 · <a href="archive.html">归档</a></span>
+    <span class="meta date-line">2026 · 11 · 09 · Week 46 · №144 · <a href="archive.html">归档</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Claude Code 的「别再问」，正在公开你的密码</h1>
-    <p class="lead">今天只有一件事值得动手：你天天用的 Claude Code 权限有个真坑，先自查。</p>
+    <h1 class="display headline">高盛撤退，本地大模型却越跑越大</h1>
+    <p class="lead">高盛收回 Claude Code；开源项目把 284B 模型塞进 64G 内存。</p>
     <div class="counts">
-        <span>🚨 <span class="crit-count">1</span> 必看</span>
-        <span>👀 <span class="look-count">0</span> 值得看</span>
+        <span>🚨 <span class="crit-count">0</span> 必看</span>
+        <span>👀 <span class="look-count">2</span> 值得看</span>
         <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← 前一天</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-09"><a href="#" class="prev">← 前一天</a><span class="issue-num">№144 · 2026-11-09</span><a href="#" class="next">后一天 →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag crit">🚨 必看</span> 更新：Claude Code 权限坑泄露密码</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Karpathy 3 分钟做了个视频站</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> 高盛把 Claude Code 撤下柜台</li><li><span class="tier-tag look">👀 值得看</span> 284B DeepSeek 塞进 64G 内存</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> 把 AI 写的 PR 描述折叠起来</li></ul></nav>
 
-<article id="item1" class="item item--crit">
-    <div class="tier-label">🚨 必看</div>
-    <h2 class="display title">更新：Claude Code 权限坑泄露密码</h2>
-    <div class="pitch">你天天点的「别再问」，可能让 Claude Code 把密码一起送进公开仓库。先花两分钟查下你的授权列表。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>安全公司 apiiro 点名「别再问」，1,122 个公开 GitHub 文件含明文密码</li><li>对天天用 Claude Code 的你，这就是实打实的账号风险</li><li>细节以原文为准，先按最坏情况自查一遍</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 Claude Code 的权限放行列表，收回不必要的一键批准</li><li>对常用仓库跑一次密钥扫描，确认没有密码文件被提交</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>这不算新功能，是权限设计的坑：一次「别再问」可能变成长期放行，得自己盯。</p><p>凡是把大目录或含密钥的仓库交给它、又点过一键放行的人，都该查一遍。</p><p>自查十几分钟能做完；别等官方修，先收紧授权、扫一遍密钥最稳。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 434 分 · 293 条评论 · apiiro 安全研究</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://apiiro.com" target="_blank" rel="noopener">Apiiro 研究</a> · <a href="https://news.ycombinator.com" target="_blank" rel="noopener">HN 讨论</a></div>
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">高盛把 Claude Code 撤下柜台</h2>
+    <div class="pitch">高盛把 Claude Code 从银行家手里收回，HN 讨论炸锅。企业上 AI 不是一路向上，值得你在公司里多留个心眼。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>HN 793 分、422 条评论，企业圈真在讨论</li><li>银行是最保守客户，撤退信号外溢快</li><li>你公司若正评估 AI 编码工具，这是活案例</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>读原始报道和 HN 讨论，想清楚你们采购 AI 工具的底线</li><li>跟 IT/合规同事聊聊：部署了没、审计跟不跟得上</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>别只看标题：这条讲企业把已部署的编码工具收回，不是模型变差。</p><p>对你所在的跨国公司有参考——AI 落地常败在合规、审计和实际收益，而非能力本身。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 793 分 · 422 条评论 · 17 小时内冲到前五</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://thestateofai.com" target="_blank" rel="noopener">原始报道 thestateofai.com</a></div>
 </article>
 
-<article id="item2" class="item item--fyi">
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">284B DeepSeek 塞进 64G 内存</h2>
+    <div class="pitch">有开源项目让 284B 的 DeepSeek 在 64G 内存、无显卡的机器上跑起来。你的 Mac mini 说不定也能本地跑大模型。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>不用显卡，省 GPU 钱和隐私顾虑</li><li>HN 432 分、193 条评论，社区在实测</li><li>本地跑=数据不出门，适合敏感表格</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>看仓库 README：https://github.com/synchopate/llama-modchip</li><li>先在 Mac 上试小模型，再决定要不要啃 284B</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你现在用的云端 Claude/Codex 不同：这是把权重下到本地，断网也能跑。</p><p>代价是速度大概率很慢（每秒几个字），284B 对 64G 内存也吃紧，多半靠 SSD 换页。</p><p>非开发者能试，但别期待和 Opus 5.5 一样顺滑。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 432 分 · 193 条评论 · GitHub 仓库已开源</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/synchopate/llama-modchip" target="_blank" rel="noopener">synchopate/llama-modchip</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
-    <h2 class="display title">Karpathy 3 分钟做了个视频站</h2>
-    <div class="pitch">他把别人的 YouTube 清单做成了 TristanTube，47K 个极客视频加电视模式，纯当周末消遣。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>Karpathy 亲自演示 Claude Code 一句话出成品</li><li>站点直接打开就能看，不用装任何东西</li></ul></div>
-    <div class="signals"><strong>信号</strong> · X 6,445 赞 · 515 转发 · 用 Claude Code 3 分钟搭完</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/karpathy/status/2119114537442189652" target="_blank" rel="noopener">Karpathy 推文</a></div>
+    <h2 class="display title">把 AI 写的 PR 描述折叠起来</h2>
+    <div class="pitch">Simon Willison 支招：把 AI 生成的啰嗦 PR 说明塞进可折叠块，评审界面瞬间清爽。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>先看摘要，细节点开再看</li><li>用 HTML 的 &lt;details&gt; 包住长描述即可</li><li>他用 Claude Code / Codex 提 PR 时就这么干</li></ul></div>
+    <div class="signals"><strong>信号</strong> · Simon Willison 亲述 · 引用 Claude Code/Codex 生成 PR 的日常</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 博客</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Gemini Omni 1.2 Flash</span> <span class="update">— 今天没有新入口或功能消息，维持观察</span></div></li><li><span class="days">Day 3</span><div><span class="item-name">Claude 个人理财（美国 beta）</span> <span class="update">— 仍只对美国开放，没有扩区或新功能</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Claude Code 权限坑泄露密码</span> <span class="update">— 今天无新增证据，等官方是否修复</span></div></li><li><span class="days">Day 7</span><div><span class="item-name">Astra 直接读写模型权重</span> <span class="update">— Simon Willison 用 Qwen 3.8 27B 在笔记本复现，热度延续</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>MaxxBench</td><td>HN 332 分，但只是质疑 DeepSWE 跑分，用不上</td></tr><tr><td>微软研究院 AI Frontiers 组解散</td><td>HN 467 分，组织变动，规则外</td></tr><tr><td>Goodbye Claude, Hello Pi</td><td>个人换工具博客，看不出 Pi 是什么，无可试入口</td></tr><tr><td>ChatGPT Pro 取消 5 小时限制</td><td>只是澄清套餐用量，非新产品</td></tr><tr><td>Mac 自带的家庭成员分类器</td><td>HN 749 分，隐私彩蛋，不是可用工具</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Opus 5.5 被指变笨</td><td>HN 237 分，但只是推文猜测，无法验证模型真变差</td></tr><tr><td>AI 泡沫论文章</td><td>HN 348 分、581 条评论，属观点长文，无可用工具</td></tr><tr><td>Dharma 文档抽取</td><td>任意文档转 JSON 字段，对你很对口，但仅 29 赞信号太弱</td></tr><tr><td>Flide 决策模型提速 9.5 倍</td><td>Show HN 53 分，Jev 生态偏小众，看不出非开发者入口</td></tr><tr><td>ChatGPT Desktop 转发 SSH agent</td><td>HN 52 分，安全细节，与你的工作无关</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
 
-<div class="pager" data-current-date="2026-11-08"><a href="#" class="prev">← 前一天</a><span class="issue-num">№143 · 2026-11-08</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-09"><a href="#" class="prev">← 前一天</a><span class="issue-num">№144 · 2026-11-09</span><a href="#" class="next">后一天 →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-08';
+    const currentDate = '2026-11-09';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

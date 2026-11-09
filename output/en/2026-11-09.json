@@ -1,0 +1,108 @@
+{
+  "headline": "Goldman backs off, but local models keep getting bigger",
+  "summary": "Goldman pulls Claude Code; an open-source project squeezes a 284B model into 64G of RAM.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Goldman takes Claude Code off the shelf",
+      "pitch": "Goldman pulled Claude Code away from its bankers, and HN blew up over it. Companies rolling out AI isn't always a straight line up, so it's worth keeping an eye on how things go at your own company.",
+      "why": [
+        "793 points and 422 comments on HN, the enterprise crowd really is talking about it",
+        "Banks are the most conservative customers, so a retreat like this spreads fast",
+        "If your company is evaluating AI coding tools right now, this is a real live example"
+      ],
+      "actions": [
+        "Read the original report and the HN thread, and think through where you draw the line on AI tools you buy",
+        "Talk to your IT/compliance folks: is it deployed, and can audits keep up"
+      ],
+      "deep_dive": [
+        "Don't just read the headline: this is about a company pulling back a coding tool it had already deployed, not about the model getting worse.",
+        "It's relevant if you work at a multinational company, since AI rollouts often fail on compliance, audits, and actual payoff, not on capability."
+      ],
+      "signals": "793 points on HN · 422 comments · hit the top five within 17 hours",
+      "links": [
+        {
+          "label": "Original report thestateofai.com",
+          "url": "https://thestateofai.com"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "284B DeepSeek squeezed into 64G of RAM",
+      "pitch": "Someone open-sourced a project that gets the 284B DeepSeek running on a 64G machine with no GPU. Your Mac mini might be able to run a big model locally too.",
+      "why": [
+        "No GPU needed, which saves on GPU costs and dodges privacy worries",
+        "432 points and 193 comments on HN, the community is testing it out",
+        "Local means your data never leaves the machine, good for sensitive spreadsheets"
+      ],
+      "actions": [
+        "Check the repo README: https://github.com/synchopate/llama-modchip",
+        "Try a small model on your Mac first, then decide if you want to wrestle with the 284B"
+      ],
+      "deep_dive": [
+        "Unlike the cloud Claude/Codex you use now, this puts the weights on your own machine, so it runs even offline.",
+        "The tradeoff is it'll probably be really slow (a few characters per second), and 284B is a tight fit for 64G of RAM, so it's mostly leaning on SSD swap.",
+        "Non-developers can try it, but don't expect it to feel as smooth as Opus 5.5."
+      ],
+      "signals": "432 points on HN · 193 comments · GitHub repo already open source",
+      "links": [
+        {
+          "label": "synchopate/llama-modchip",
+          "url": "https://github.com/synchopate/llama-modchip"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Collapse the PR descriptions AI writes",
+      "pitch": "Simon Willison's tip: tuck the wordy AI-generated PR notes into a collapsible block, and the review page instantly gets cleaner.",
+      "why": [
+        "Read the summary first, expand the details if you want more",
+        "Just wrap the long description in HTML <details>",
+        "It's what he does when he opens PRs with Claude Code / Codex"
+      ],
+      "signals": "Straight from Simon Willison · cites his daily use of Claude Code/Codex for PRs",
+      "links": [
+        {
+          "label": "Simon Willison's blog",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Claude Code permissions bug leaked passwords",
+      "update": "No new evidence today, waiting to see if the official fix lands"
+    },
+    {
+      "day": 7,
+      "name": "Astra reads and writes model weights directly",
+      "update": "Simon Willison reproduced it on a laptop with Qwen 3.8 27B, still getting attention"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Opus 5.5 accused of getting dumber",
+      "reason": "237 points on HN, but it's just tweet speculation, can't verify the model actually got worse"
+    },
+    {
+      "name": "AI bubble article",
+      "reason": "348 points and 581 comments on HN, it's an opinion piece, no usable tools"
+    },
+    {
+      "name": "Dharma document extraction",
+      "reason": "Turns any doc into JSON fields, right up your alley, but only 29 upvotes so the signal's too weak"
+    },
+    {
+      "name": "Flide decision model 9.5x faster",
+      "reason": "53 points on Show HN, the Jev ecosystem is pretty niche, no obvious entry point for non-developers"
+    },
+    {
+      "name": "ChatGPT Desktop forwards SSH agent",
+      "reason": "52 points on HN, security detail, not relevant to your work"
+    }
+  ]
+}
