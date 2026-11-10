@@ -1,0 +1,114 @@
+{
+  "headline": "Fable 5.2 登顶，你的 Claude Code 该升级了",
+  "summary": "Anthropic Fable 5.2 登顶模型榜；Gemini 被曝把 Drive 文件送人工审核。",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "Fable 5.2 登顶，编程更强",
+      "pitch": "Anthropic 昨晚发的 Fable 5.2 冲到模型榜第一。你每天用的 Claude Code 现在就能用上，写代码明显更强。",
+      "why": [
+        "Artificial Analysis 排第一，价格还降了 20%",
+        "Simon Willison 实测：3D 建模、找怪声都行",
+        "所有付费套餐今天可用，老用户还送额度重置"
+      ],
+      "actions": [
+        "在 Claude Code 里把模型切到 claude-fable-5.2 试一天",
+        "试这句提示：明确说『这个代码库是你的』，它会主动重构去重"
+      ],
+      "deep_dive": [
+        "和你在用的 Opus 5.5 比，Fable 5.2 更擅长长时间、多线并行的硬活。Rauch 说这种并行量需要云沙箱才吃得下。",
+        "上手几乎零成本：Claude 应用和 Claude Code 都能直接选。注意 max 思考档会烧光 token 不出图，用 xhigh 更稳。"
+      ],
+      "signals": "HN 662 分 · 842 条评论 · Artificial Analysis 第 1 · Simon Willison 实测 · $8/$40 每百万 token",
+      "links": [
+        {
+          "label": "Anthropic 官方",
+          "url": "https://www.anthropic.com/news"
+        },
+        {
+          "label": "Simon Willison 实测",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Gemini 把 Drive 文件转人工",
+      "pitch": "有开发者扒出：Gemini 会把个人 Drive 文件和邮件转给人工看。公司若用 Google Workspace，薪酬数据要当心。",
+      "why": [
+        "GitHub 上有仓库举证，HN 633 分",
+        "薪酬、绩效这类敏感文件可能被第三方看到",
+        "企业用 Gemini 前值得先查数据条款"
+      ],
+      "actions": [
+        "问公司 IT/安全一句：Gemini 的数据是否会被人工审阅",
+        "敏感薪酬文件别放进会自动同步的 Drive 文件夹"
+      ],
+      "deep_dive": [
+        "这不是漏洞，是 Google 的数据处理方式被曝光。对你在跨国公司的薪酬工作，属于要提前打招呼的合规点。",
+        "真假和范围以你公司合同条款为准，别只信帖子；但先问一句没坏处。"
+      ],
+      "signals": "HN 633 分 · 134 条评论 · 证据在 GitHub 仓库",
+      "links": [
+        {
+          "label": "证据仓库",
+          "url": "https://github.com/thisisme6598"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Meta 发 Muse Ember 便宜小模型",
+      "pitch": "Meta 出了个又小又快的模型 Muse Ember，价格和 GPT-6 Luna、Claude Haiku 同一档，专干 agent 里的重复杂活。",
+      "why": [
+        "便宜档里最省，Simon 说它在性价比前沿线上",
+        "适合跑工具调用、抽取、长文档解析这类重复活"
+      ],
+      "signals": "HN 310 分 · Simon Willison 实测 · $0.10/$0.50 每百万 token",
+      "links": [
+        {
+          "label": "Meta AI",
+          "url": "https://meta.ai"
+        },
+        {
+          "label": "Simon Willison 分析",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "高盛把 Claude Code 撤下柜台",
+      "update": "企业采购风向标，今日无新进展"
+    },
+    {
+      "day": 2,
+      "name": "284B DeepSeek 塞进 64G 内存",
+      "update": "本地跑大模型的省显存方案，今日无新进展"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Amazon 用 Strands Decider 换掉 Sonnet",
+      "reason": "企业省钱案例 HN 372 分，但属开发基建，你用不上"
+    },
+    {
+      "name": "Fireworks 泄露波及 Notion",
+      "reason": "安全事件，HN 70 分信号偏弱"
+    },
+    {
+      "name": "AI 让代码库变脆",
+      "reason": "观点文，无可用工具"
+    },
+    {
+      "name": "CoreWeave 债券收益率破 16%",
+      "reason": "AI 信贷压力，属财经话题"
+    },
+    {
+      "name": "E-means 聚类算法",
+      "reason": "研究算法，非开发者无入口"
+    }
+  ]
+}

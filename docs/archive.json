@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-10",
+      "weekday": "Tue",
+      "week": 46,
+      "issue": 145,
+      "kind": "daily",
+      "headline": "Fable 5.2 登顶，你的 Claude Code 该升级了",
+      "summary": "Anthropic Fable 5.2 登顶模型榜；Gemini 被曝把 Drive 文件送人工审核。",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-10.html"
+    },
+    {
       "date": "2026-11-09",
       "weekday": "Mon",
       "week": 46,

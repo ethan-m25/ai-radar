@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-10",
+      "weekday": "Tue",
+      "week": 46,
+      "issue": 144,
+      "kind": "daily",
+      "headline": "Fable 5.2 takes the top spot, time to upgrade your Claude Code",
+      "summary": "Anthropic's Fable 5.2 tops the model leaderboard; Gemini reportedly sends Drive files to human reviewers.",
+      "counts": {
+        "crit": 1,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-10.html"
+    },
+    {
       "date": "2026-11-09",
       "weekday": "Mon",
       "week": 46,

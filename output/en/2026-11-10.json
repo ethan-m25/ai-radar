@@ -1,0 +1,114 @@
+{
+  "headline": "Fable 5.2 takes the top spot, time to upgrade your Claude Code",
+  "summary": "Anthropic's Fable 5.2 tops the model leaderboard; Gemini reportedly sends Drive files to human reviewers.",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "Fable 5.2 tops the chart, even better at coding",
+      "pitch": "Anthropic dropped Fable 5.2 last night and it shot to #1 on the model leaderboard. The Claude Code you use every day can run it right now, and it's noticeably better at writing code.",
+      "why": [
+        "#1 on Artificial Analysis, and the price dropped 20%",
+        "Simon Willison tested it: 3D modeling and tracking down weird noises both work",
+        "Available on all paid plans today, and existing users even get a usage reset"
+      ],
+      "actions": [
+        "Switch your model to claude-fable-5.2 in Claude Code and try it for a day",
+        "Try this prompt: tell it straight up that 'this codebase is yours' and it'll go refactor and dedupe on its own"
+      ],
+      "deep_dive": [
+        "Compared to the Opus 5.5 you're using, Fable 5.2 is better at long-running, multi-threaded hard work. Rauch says that much parallelism needs a cloud sandbox to handle it.",
+        "Getting started is basically free: you can pick it right in the Claude app and Claude Code. Heads up, the max thinking setting will burn through tokens without output, xhigh is steadier."
+      ],
+      "signals": "HN 662 points · 842 comments · #1 on Artificial Analysis · Simon Willison tested it · $8/$40 per million tokens",
+      "links": [
+        {
+          "label": "Anthropic official",
+          "url": "https://www.anthropic.com/news"
+        },
+        {
+          "label": "Simon Willison's test",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Gemini sends Drive files to human review",
+      "pitch": "A developer dug up that Gemini will hand your personal Drive files and emails to humans to review. If your company uses Google Workspace, be careful with payroll data.",
+      "why": [
+        "There's a repo on GitHub with the evidence, HN 633 points",
+        "Sensitive files like payroll and performance reviews could be seen by third parties",
+        "Worth checking the data terms before your company uses Gemini"
+      ],
+      "actions": [
+        "Ask your company IT/security one question: will Gemini data be reviewed by humans",
+        "Keep sensitive payroll files out of Drive folders that auto-sync"
+      ],
+      "deep_dive": [
+        "This isn't a bug, it's Google's data handling being exposed. For your comp work at a multinational, it's a compliance point worth flagging in advance.",
+        "Whether it's real and how wide it goes depends on your company's contract terms, don't just trust a post; but asking a question doesn't hurt."
+      ],
+      "signals": "HN 633 points · 134 comments · evidence in a GitHub repo",
+      "links": [
+        {
+          "label": "Evidence repo",
+          "url": "https://github.com/thisisme6598"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Meta ships Muse Ember, a cheap small model",
+      "pitch": "Meta put out a small, fast model called Muse Ember, priced in the same tier as GPT-6 Luna and Claude Haiku, built for the repetitive grunt work inside agents.",
+      "why": [
+        "The cheapest in the budget tier, Simon says it's on the value frontier",
+        "Good for repeated work like tool calls, extraction, and long doc parsing"
+      ],
+      "signals": "HN 310 points · Simon Willison tested it · $0.10/$0.50 per million tokens",
+      "links": [
+        {
+          "label": "Meta AI",
+          "url": "https://meta.ai"
+        },
+        {
+          "label": "Simon Willison's analysis",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Goldman pulls Claude Code off the shelf",
+      "update": "A bellwether for enterprise buying, no new progress today"
+    },
+    {
+      "day": 2,
+      "name": "284B DeepSeek squeezed into 64G of RAM",
+      "update": "A memory-saving trick for running big models locally, no new progress today"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Amazon swaps Sonnet for Strands Decider",
+      "reason": "Enterprise cost-saving case, HN 372 points, but it's dev infra you won't use"
+    },
+    {
+      "name": "Fireworks leak hits Notion",
+      "reason": "Security incident, HN 70 points, signal's a bit weak"
+    },
+    {
+      "name": "AI makes codebases brittle",
+      "reason": "Opinion piece, no usable tools"
+    },
+    {
+      "name": "CoreWeave bond yields top 16%",
+      "reason": "AI credit stress, it's a finance topic"
+    },
+    {
+      "name": "E-means clustering algorithm",
+      "reason": "Research algorithm, no entry point for non-developers"
+    }
+  ]
+}
