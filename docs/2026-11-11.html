@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar — 2026-11-11 (Week 46)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
+
+
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 11 · 11 · Week 46 · №146 · <a href="archive.html">归档</a></span>
+</header>
+
+<div class="cover">
+    <h1 class="display headline">Claude 把表格、看板塞进对话，办公党直接受益</h1>
+    <p class="lead">Claude 上线白板/表格/数据分析，Gemini 4 Carbon 全员开放；两项都值得今天动手试。</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">1</span> 必看</span>
+        <span>👀 <span class="look-count">2</span> 值得看</span>
+        <span>ℹ️ <span class="fyi-count">0</span> 知道就行</span>
+    </div>
+</div>
+
+<div class="pager" data-current-date="2026-11-11"><a href="#" class="prev">← 前一天</a><span class="issue-num">№146 · 2026-11-11</span><a href="#" class="next">后一天 →</a></div>
+
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag crit">🚨 必看</span> Claude 把白板、表格、数据分析搬进对话</li><li><span class="tier-tag look">👀 值得看</span> Gemini 4 Carbon 对所有人开放</li><li><span class="tier-tag look">👀 值得看</span> 让 agent 别写 2019 年的 JS</li></ul></nav>
+
+<article id="item1" class="item item--crit">
+    <div class="tier-label">🚨 必看</div>
+    <h2 class="display title">Claude 把白板、表格、数据分析搬进对话</h2>
+    <div class="pitch">Claude 现在能在对话里开白板、改表格、把指标做成看板和讲解视频——你的薪酬报表有救了。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>表格、白板直接在对话里改，省得导出再导入</li><li>Claude Data 能把指标变成看板和带旁白的视频</li><li>用连接器全屏打开 Adobe、Atlassian、Box 直接改</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 Claude 网页版/桌面版找 Sheets 和 Data 入口（付费版今日开始灰度推送）</li><li>打开官方说明看一眼新增的白板、表格、数据分析怎么用</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>跟你现在的做法不同：以前让 Claude 处理表格要导出再导入，现在它边聊边改，Whiteboard 适合先画结构再往里填数。</p><p>Data（原 Dashboards）明显是给非技术人用的：丢进一份指标，它生成可分享的看板、数据故事，甚至带旁白的视频——做季度薪酬汇报能省不少事。</p><p>要试很轻，付费版已开始推送。缺点是新功能分批放量，可能今天开了表格、明天才全开。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 243 分 · 173 条评论 · 官方今日推送 · Box CEO 站台 MCP 读写</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/claudeai/status/2120206379315261702" target="_blank" rel="noopener">Claude 官方公告（X）</a> · <a href="https://x.com/levie/status/2120261416733036905" target="_blank" rel="noopener">Box CEO 谈 MCP 读写</a></div>
+</article>
+
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Gemini 4 Carbon 对所有人开放</h2>
+    <div class="pitch">只给安全人员的 Gemini 4 Carbon 今天全员可用，Simon Willison 和 Dan Shipper 都说它写代码明显更强。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>写代码比 Argon 强，Dan Shipper 实测能连做几小时</li><li>Gemini App 里 Ultra 订阅全球可用，Antigravity 能 /swarm</li><li>现在 $2/$10 每百万 token，12 月 1 日翻倍，趁早试</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 Gemini App 里切到 Gemini 4 Carbon（Ultra 订阅），或去 Google Antigravity 里试 /swarm</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你用的 Claude Code/Codex 不同：Carbon 是 Gemini 家的新旗舰，入口是 Gemini App 和 Antigravity IDE；/swarm 让多个子 agent 分工，Sundar 演示里它自己建模、写游戏、配音。</p><p>上手不难，Ultra 直接能用。缺点：Dan Shipper 说它在长任务里常“不知道什么时候停”，Simon 的 max 档也耗尽 token 没交作业。</p></div></details>
+    <div class="signals"><strong>信号</strong> · Simon Willison 实测 · Dan Shipper 当日 vibe check · Ultra 全球可用 · 12/1 涨价翻倍</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/danshipper/status/2120187507396530309" target="_blank" rel="noopener">Dan Shipper 当日评测（X）</a> · <a href="https://x.com/joshwoodward/status/2120186249281778135" target="_blank" rel="noopener">Josh Woodward 宣布可用（X）</a></div>
+</article>
+
+<article id="item3" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">让 agent 别写 2019 年的 JS</h2>
+    <div class="pitch">Chrome 团队把一套现代网页规则打包好，粘进 coding agent 就能少写老派 JS，页面更干净。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>专门治 agent 爱抄旧代码、写老式 JavaScript 的毛病</li><li>Paul Irish 出品，装好一次，Claude Code/Codex 都受用</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 github.com/googlechrome 找这个 Show HN 项目，按说明加到你的 agent 配置里</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>不改变你用哪个工具：它只是塞给 Claude Code/Codex 一份“现代网页写法”参考，让它们别再生成老式代码。</p><p>成本很低，扔进项目规则或 skill 就行。局限：只管网页前端这类活，纯脚本、表格任务用不上。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 386 分 · 121 条评论 · Google Chrome 团队 / Paul Irish 发布</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/googlechrome" target="_blank" rel="noopener">github.com/googlechrome</a></div>
+</article>
+
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Claude Fable 5.2</span> <span class="update">— Simon Willison 发现提示词技巧：写明“代码库是你的”后，它愿意合并重复代码的概率从不足一成升到约一半；但 max 档会烧光 token 交不出图。</span></div></li></ul></aside>
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Apple 本地 AI Mac app</td><td>HN 297 分，但产品还没发布，只能先记个名字</td></tr><tr><td>AlphaProof Code</td><td>HN 649 分，属形式化验证研究，你没入口</td></tr><tr><td>Val Town 关停</td><td>HN 394 分，不是 AI 故事</td></tr><tr><td>追踪 Anthropic 发现的漏洞</td><td>HN 411 分，安全事件，和工作无关</td></tr><tr><td>AI 让代码库变脆</td><td>HN 583 分，观点文，昨天已评估过</td></tr></tbody></table></details></section>
+
+<footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
+
+<div class="pager" data-current-date="2026-11-11"><a href="#" class="prev">← 前一天</a><span class="issue-num">№146 · 2026-11-11</span><a href="#" class="next">后一天 →</a></div>
+
+<script>
+(async function() {
+    const currentDate = '2026-11-11';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
+})();
+</script>
+</body>
+</html>

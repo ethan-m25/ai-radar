@@ -1,0 +1,116 @@
+{
+  "headline": "Claude puts tables and dashboards right into chat, and office folks win",
+  "summary": "Claude rolls out whiteboards, tables, and data analysis, while Gemini 4 Carbon opens to everyone; both are worth trying today.",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "Claude moves whiteboards, tables, and data analysis into the chat",
+      "pitch": "Claude can now open a whiteboard, edit tables, and turn metrics into dashboards and narrated videos right in the conversation—your comp report is saved.",
+      "why": [
+        "Edit tables and whiteboards right in the chat, no more exporting and re-importing",
+        "Claude Data turns metrics into dashboards and videos with voiceover",
+        "Open Adobe, Atlassian, and Box full-screen through connectors and edit directly"
+      ],
+      "actions": [
+        "Find the Sheets and Data entry points on Claude web or desktop (paid tiers start rolling out today)",
+        "Check the official notes to see how the new whiteboard, tables, and data analysis work"
+      ],
+      "deep_dive": [
+        "Different from what you do now: before, getting Claude to work on a table meant exporting and re-importing; now it edits as you chat, and Whiteboard is good for sketching the structure first, then filling in the numbers.",
+        "Data (formerly Dashboards) is clearly built for non-technical people: drop in a set of metrics, and it builds a shareable dashboard, a data story, even a narrated video—that saves a lot of work on quarterly comp reviews.",
+        "Easy to try, and paid tiers are already rolling out. Downside: new features ship in batches, so you might get tables today and the rest tomorrow."
+      ],
+      "signals": "HN 243 points · 173 comments · official rollout today · Box CEO backs MCP read/write",
+      "links": [
+        {
+          "label": "Claude official announcement (X)",
+          "url": "https://x.com/claudeai/status/2120206379315261702"
+        },
+        {
+          "label": "Box CEO on MCP read/write",
+          "url": "https://x.com/levie/status/2120261416733036905"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Gemini 4 Carbon is open to everyone",
+      "pitch": "Gemini 4 Carbon used to be only for safety folks, and today it's available to all; both Simon Willison and Dan Shipper say it's clearly better at coding.",
+      "why": [
+        "Codes better than Argon, and Dan Shipper says in real tests it can go for hours",
+        "Global Ultra access in the Gemini App, and /swarm in Antigravity",
+        "$2/$10 per million tokens now, doubles Dec 1, so try it early"
+      ],
+      "actions": [
+        "Switch to Gemini 4 Carbon in the Gemini App (Ultra subscription), or try /swarm in Google Antigravity"
+      ],
+      "deep_dive": [
+        "Different from the Claude Code/Codex you use: Carbon is Gemini's new flagship, reached through the Gemini App and Antigravity IDE; /swarm splits work across sub-agents, and in Sundar's demo it modeled, wrote a game, and did voiceover on its own.",
+        "Easy to get started, and Ultra can use it directly. Downside: Dan Shipper says on long tasks it often \"doesn't know when to stop,\" and Simon's max tier burned through tokens without delivering."
+      ],
+      "signals": "Simon Willison tested it · Dan Shipper's same-day vibe check · global Ultra access · price doubles 12/1",
+      "links": [
+        {
+          "label": "Dan Shipper's same-day review (X)",
+          "url": "https://x.com/danshipper/status/2120187507396530309"
+        },
+        {
+          "label": "Josh Woodward announces availability (X)",
+          "url": "https://x.com/joshwoodward/status/2120186249281778135"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Stop agents from writing 2019 JavaScript",
+      "pitch": "The Chrome team packaged a set of modern web rules; paste them into your coding agent and it'll write less old-school JS and produce cleaner pages.",
+      "why": [
+        "Specifically fixes the agent habit of copying old code and writing old-style JavaScript",
+        "Made by Paul Irish, set it up once and Claude Code/Codex both benefit"
+      ],
+      "actions": [
+        "Go to github.com/googlechrome, find this Show HN project, and add it to your agent config as instructed"
+      ],
+      "deep_dive": [
+        "Doesn't change which tool you use: it just feeds Claude Code/Codex a \"modern web practices\" reference so they stop generating old-style code.",
+        "Very low cost, just drop it into project rules or a skill. Limit: it only covers frontend web work, not plain scripts or spreadsheet tasks."
+      ],
+      "signals": "HN 386 points · 121 comments · released by Google Chrome team / Paul Irish",
+      "links": [
+        {
+          "label": "github.com/googlechrome",
+          "url": "https://github.com/googlechrome"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Claude Fable 5.2",
+      "update": "Simon Willison found a prompt trick: after writing \"the codebase is yours,\" the chance it agrees to merge duplicate code jumped from under 10% to about half; but the max tier burns through tokens and fails to deliver the diagram."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Apple's local AI Mac app",
+      "reason": "HN 297 points, but the product isn't out yet, so just noting the name for now"
+    },
+    {
+      "name": "AlphaProof Code",
+      "reason": "HN 649 points, it's formal verification research, and you have no way in"
+    },
+    {
+      "name": "Val Town shuts down",
+      "reason": "HN 394 points, not an AI story"
+    },
+    {
+      "name": "Tracking the vulnerability Anthropic found",
+      "reason": "HN 411 points, a security incident, unrelated to work"
+    },
+    {
+      "name": "AI makes codebases brittle",
+      "reason": "HN 583 points, an opinion piece, already evaluated yesterday"
+    }
+  ]
+}

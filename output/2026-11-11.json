@@ -1,0 +1,116 @@
+{
+  "headline": "Claude 把表格、看板塞进对话，办公党直接受益",
+  "summary": "Claude 上线白板/表格/数据分析，Gemini 4 Carbon 全员开放；两项都值得今天动手试。",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "Claude 把白板、表格、数据分析搬进对话",
+      "pitch": "Claude 现在能在对话里开白板、改表格、把指标做成看板和讲解视频——你的薪酬报表有救了。",
+      "why": [
+        "表格、白板直接在对话里改，省得导出再导入",
+        "Claude Data 能把指标变成看板和带旁白的视频",
+        "用连接器全屏打开 Adobe、Atlassian、Box 直接改"
+      ],
+      "actions": [
+        "在 Claude 网页版/桌面版找 Sheets 和 Data 入口（付费版今日开始灰度推送）",
+        "打开官方说明看一眼新增的白板、表格、数据分析怎么用"
+      ],
+      "deep_dive": [
+        "跟你现在的做法不同：以前让 Claude 处理表格要导出再导入，现在它边聊边改，Whiteboard 适合先画结构再往里填数。",
+        "Data（原 Dashboards）明显是给非技术人用的：丢进一份指标，它生成可分享的看板、数据故事，甚至带旁白的视频——做季度薪酬汇报能省不少事。",
+        "要试很轻，付费版已开始推送。缺点是新功能分批放量，可能今天开了表格、明天才全开。"
+      ],
+      "signals": "HN 243 分 · 173 条评论 · 官方今日推送 · Box CEO 站台 MCP 读写",
+      "links": [
+        {
+          "label": "Claude 官方公告（X）",
+          "url": "https://x.com/claudeai/status/2120206379315261702"
+        },
+        {
+          "label": "Box CEO 谈 MCP 读写",
+          "url": "https://x.com/levie/status/2120261416733036905"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Gemini 4 Carbon 对所有人开放",
+      "pitch": "只给安全人员的 Gemini 4 Carbon 今天全员可用，Simon Willison 和 Dan Shipper 都说它写代码明显更强。",
+      "why": [
+        "写代码比 Argon 强，Dan Shipper 实测能连做几小时",
+        "Gemini App 里 Ultra 订阅全球可用，Antigravity 能 /swarm",
+        "现在 $2/$10 每百万 token，12 月 1 日翻倍，趁早试"
+      ],
+      "actions": [
+        "在 Gemini App 里切到 Gemini 4 Carbon（Ultra 订阅），或去 Google Antigravity 里试 /swarm"
+      ],
+      "deep_dive": [
+        "和你用的 Claude Code/Codex 不同：Carbon 是 Gemini 家的新旗舰，入口是 Gemini App 和 Antigravity IDE；/swarm 让多个子 agent 分工，Sundar 演示里它自己建模、写游戏、配音。",
+        "上手不难，Ultra 直接能用。缺点：Dan Shipper 说它在长任务里常“不知道什么时候停”，Simon 的 max 档也耗尽 token 没交作业。"
+      ],
+      "signals": "Simon Willison 实测 · Dan Shipper 当日 vibe check · Ultra 全球可用 · 12/1 涨价翻倍",
+      "links": [
+        {
+          "label": "Dan Shipper 当日评测（X）",
+          "url": "https://x.com/danshipper/status/2120187507396530309"
+        },
+        {
+          "label": "Josh Woodward 宣布可用（X）",
+          "url": "https://x.com/joshwoodward/status/2120186249281778135"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "让 agent 别写 2019 年的 JS",
+      "pitch": "Chrome 团队把一套现代网页规则打包好，粘进 coding agent 就能少写老派 JS，页面更干净。",
+      "why": [
+        "专门治 agent 爱抄旧代码、写老式 JavaScript 的毛病",
+        "Paul Irish 出品，装好一次，Claude Code/Codex 都受用"
+      ],
+      "actions": [
+        "打开 github.com/googlechrome 找这个 Show HN 项目，按说明加到你的 agent 配置里"
+      ],
+      "deep_dive": [
+        "不改变你用哪个工具：它只是塞给 Claude Code/Codex 一份“现代网页写法”参考，让它们别再生成老式代码。",
+        "成本很低，扔进项目规则或 skill 就行。局限：只管网页前端这类活，纯脚本、表格任务用不上。"
+      ],
+      "signals": "HN 386 分 · 121 条评论 · Google Chrome 团队 / Paul Irish 发布",
+      "links": [
+        {
+          "label": "github.com/googlechrome",
+          "url": "https://github.com/googlechrome"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Claude Fable 5.2",
+      "update": "Simon Willison 发现提示词技巧：写明“代码库是你的”后，它愿意合并重复代码的概率从不足一成升到约一半；但 max 档会烧光 token 交不出图。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Apple 本地 AI Mac app",
+      "reason": "HN 297 分，但产品还没发布，只能先记个名字"
+    },
+    {
+      "name": "AlphaProof Code",
+      "reason": "HN 649 分，属形式化验证研究，你没入口"
+    },
+    {
+      "name": "Val Town 关停",
+      "reason": "HN 394 分，不是 AI 故事"
+    },
+    {
+      "name": "追踪 Anthropic 发现的漏洞",
+      "reason": "HN 411 分，安全事件，和工作无关"
+    },
+    {
+      "name": "AI 让代码库变脆",
+      "reason": "HN 583 分，观点文，昨天已评估过"
+    }
+  ]
+}

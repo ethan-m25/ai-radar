@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-11",
+      "weekday": "Wed",
+      "week": 46,
+      "issue": 146,
+      "kind": "daily",
+      "headline": "Claude 把表格、看板塞进对话，办公党直接受益",
+      "summary": "Claude 上线白板/表格/数据分析，Gemini 4 Carbon 全员开放；两项都值得今天动手试。",
+      "counts": {
+        "crit": 1,
+        "look": 2,
+        "fyi": 0
+      },
+      "url": "2026-11-11.html"
+    },
+    {
       "date": "2026-11-10",
       "weekday": "Tue",
       "week": 46,
