@@ -1,0 +1,120 @@
+{
+  "headline": "Decision models are duking it out, and they're practically giving them away",
+  "summary": "Google jumps into decision models with a multimodal focus; an open-source Granola has arrived too.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini launches a decision model API",
+      "pitch": "Google just dropped a \"decision model\" (an AI built for yes/no calls and scoring), and it can look at videos and PDFs directly. It's so cheap it's basically free, perfect for dropping into your little tools.",
+      "why": [
+        "Lets AI give docs/videos a yes/no or a score, and it's more reliable than chat models",
+        "It can judge text, images, audio, video, and PDFs",
+        "It joins similar models from Jev and OpenAI to make \"decision models\" a new category"
+      ],
+      "actions": [
+        "Read Simon Willison's hands-on test to see how it judges video content (simonwillison.net/tags/ai)",
+        "Grab one of your files and try a yes/no question on a small sample first to check accuracy"
+      ],
+      "deep_dive": [
+        "Unlike the Claude/codex you use: it doesn't chat, it quickly scores and sorts fixed questions.",
+        "Text and images put it in the same league as OpenAI's; multimodal (video/audio/PDF) is Gemini's unique trick.",
+        "Low barrier to entry, but you have to go through the API, so you'll need an agent to write a few lines of code to call it. Cheap doesn't mean accurate, so validate on a small sample first."
+      ],
+      "signals": "HN 454 points · 142 comments · Simon Willison tested video judgment · smol.ai calls it \"decision model day\"",
+      "links": [
+        {
+          "label": "Simon Willison's hands-on test",
+          "url": "https://simonwillison.net/tags/ai"
+        },
+        {
+          "label": "Google's official blog",
+          "url": "https://blog.google"
+        },
+        {
+          "label": "OpenAI's similar decision model",
+          "url": "https://openai.com/index/decisions-api"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Yogurt: open-source meeting notes",
+      "pitch": "An open-source alternative to Granola (the AI meeting notes app), free and focused on privacy. If you want to take meeting notes without uploading recordings to the cloud, take a look.",
+      "why": [
+        "A free, open-source meeting notes AI, one more option to have",
+        "Privacy-first, good for sensitive stuff like salary talks",
+        "Self-hostable, so your data doesn't have to go to the cloud"
+      ],
+      "actions": [
+        "Check the install steps on GitHub (github.com/frigadehq)",
+        "Try it on one internal meeting first, don't jump straight to sensitive stuff"
+      ],
+      "deep_dive": [
+        "Unlike the cloud notes you use now: open source, self-hostable, and you get more control over privacy.",
+        "It's just an alternative to Granola, and it's an early project, so you'll have to test the transcription quality yourself.",
+        "Setup is medium-effort, you might need Docker or local config, and it's not click-and-go."
+      ],
+      "signals": "Show HN 252 points · 96 comments · 19 hours ago",
+      "links": [
+        {
+          "label": "GitHub repo",
+          "url": "https://github.com/frigadehq"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Google experiment: AI builds a shared space live",
+      "pitch": "Google Labs' new experiment Tabletop: toss in links and files and the AI whips up an itinerary map, a poll board, or a chore chart on the spot. There's a waitlist for now.",
+      "why": [
+        "Turns \"let's do it someday\" into a shared page you can actually use",
+        "Shows where AI-generated little tools are heading"
+      ],
+      "signals": "Announced by Google Labs · 1113 likes · 93 reposts · waitlist open",
+      "links": [
+        {
+          "label": "Google Labs announcement",
+          "url": "https://x.com/GoogleLabs/status/2120549258692882702"
+        },
+        {
+          "label": "Team demo",
+          "url": "https://x.com/GoogleLabs/status/2120595442782368240"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "Gemini 4 Carbon",
+      "update": "Simon tested it after launch; /swarm built a playable 3D open world"
+    },
+    {
+      "day": 2,
+      "name": "Claude Fable 5.2 / Mythos 5.2",
+      "update": "IPO roadshow revealed a multi-chip strategy, Mythos ported Claude to AMD in 3 days"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Nvidia reportedly moves to oust Jensen Huang",
+      "reason": "HN 1086 points, but it's exec gossip, outside the rules"
+    },
+    {
+      "name": "AI agent finds Mayan ruins",
+      "reason": "HN 1000 points and very cool, but there's no tool you can actually use"
+    },
+    {
+      "name": "AWS official emulator",
+      "reason": "HN 876 points, but you won't use the tool; the highlight is 29,684 agent commits in 3 weeks"
+    },
+    {
+      "name": "United Airlines bans AI agents from booking flights",
+      "reason": "HN 569 points, it's policy and rules, not a usable tool"
+    },
+    {
+      "name": "Apple's faster RAG retrieval",
+      "reason": "HN 214 points, it's retrieval research, not something you need right now"
+    }
+  ]
+}

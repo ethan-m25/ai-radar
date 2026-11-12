@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-12",
+      "weekday": "Thu",
+      "week": 46,
+      "issue": 147,
+      "kind": "daily",
+      "headline": "决策模型开打，便宜到几乎白送",
+      "summary": "Google 入场决策模型，主打多模态；开源版 Granola 也来了。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-11-12.html"
+    },
+    {
       "date": "2026-11-11",
       "weekday": "Wed",
       "week": 46,

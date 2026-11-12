@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-11 (Week 46)</title>
+<title>AI Radar — 2026-11-12 (Week 46)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,67 +345,65 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 11 · Week 46 · №146 · <a href="archive.html">归档</a></span>
+    <span class="meta date-line">2026 · 11 · 12 · Week 46 · №147 · <a href="archive.html">归档</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Claude 把表格、看板塞进对话，办公党直接受益</h1>
-    <p class="lead">Claude 上线白板/表格/数据分析，Gemini 4 Carbon 全员开放；两项都值得今天动手试。</p>
+    <h1 class="display headline">决策模型开打，便宜到几乎白送</h1>
+    <p class="lead">Google 入场决策模型，主打多模态；开源版 Granola 也来了。</p>
     <div class="counts">
-        <span>🚨 <span class="crit-count">1</span> 必看</span>
+        <span>🚨 <span class="crit-count">0</span> 必看</span>
         <span>👀 <span class="look-count">2</span> 值得看</span>
-        <span>ℹ️ <span class="fyi-count">0</span> 知道就行</span>
+        <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-11"><a href="#" class="prev">← 前一天</a><span class="issue-num">№146 · 2026-11-11</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-12"><a href="#" class="prev">← 前一天</a><span class="issue-num">№147 · 2026-11-12</span><a href="#" class="next">后一天 →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag crit">🚨 必看</span> Claude 把白板、表格、数据分析搬进对话</li><li><span class="tier-tag look">👀 值得看</span> Gemini 4 Carbon 对所有人开放</li><li><span class="tier-tag look">👀 值得看</span> 让 agent 别写 2019 年的 JS</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> Gemini 推出决策模型 API</li><li><span class="tier-tag look">👀 值得看</span> Yogurt：开源的会议笔记</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Google 实验：AI 现场搭共享空间</li></ul></nav>
 
-<article id="item1" class="item item--crit">
-    <div class="tier-label">🚨 必看</div>
-    <h2 class="display title">Claude 把白板、表格、数据分析搬进对话</h2>
-    <div class="pitch">Claude 现在能在对话里开白板、改表格、把指标做成看板和讲解视频——你的薪酬报表有救了。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>表格、白板直接在对话里改，省得导出再导入</li><li>Claude Data 能把指标变成看板和带旁白的视频</li><li>用连接器全屏打开 Adobe、Atlassian、Box 直接改</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 Claude 网页版/桌面版找 Sheets 和 Data 入口（付费版今日开始灰度推送）</li><li>打开官方说明看一眼新增的白板、表格、数据分析怎么用</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>跟你现在的做法不同：以前让 Claude 处理表格要导出再导入，现在它边聊边改，Whiteboard 适合先画结构再往里填数。</p><p>Data（原 Dashboards）明显是给非技术人用的：丢进一份指标，它生成可分享的看板、数据故事，甚至带旁白的视频——做季度薪酬汇报能省不少事。</p><p>要试很轻，付费版已开始推送。缺点是新功能分批放量，可能今天开了表格、明天才全开。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 243 分 · 173 条评论 · 官方今日推送 · Box CEO 站台 MCP 读写</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/claudeai/status/2120206379315261702" target="_blank" rel="noopener">Claude 官方公告（X）</a> · <a href="https://x.com/levie/status/2120261416733036905" target="_blank" rel="noopener">Box CEO 谈 MCP 读写</a></div>
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Gemini 推出决策模型 API</h2>
+    <div class="pitch">Google 新出「决策模型」（专门做是/否、打分这类判断的 AI），还能直接看视频和 PDF。便宜到几乎免费，适合塞进你的小工具。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>让 AI 给文档/视频打是/否或分数，比聊天模型更稳</li><li>文字、图像、音频、视频、PDF 都能判</li><li>和 Jev、OpenAI 同类模型凑成「决策模型」新品类</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>读 Simon Willison 的实测，看它怎么判断视频内容（simonwillison.net/tags/ai）</li><li>挑一段你的文件，用一句是/否问题先小样本试准确度</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你在用的 Claude/codex 不同：它不是聊天，是给固定问题快速打分归类。</p><p>文字、图片和 OpenAI 同类；多模态（视频/音频/PDF）是 Gemini 的独门。</p><p>门槛低但要走 API，得让 agent 帮你写几行调用。便宜不等于准，先验小样本。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 454 分 · 142 评论 · Simon Willison 实测视频判断 · smol.ai 称「决策模型日」</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 实测</a> · <a href="https://blog.google" target="_blank" rel="noopener">Google 官方博客</a> · <a href="https://openai.com/index/decisions-api" target="_blank" rel="noopener">OpenAI 同类决策模型</a></div>
 </article>
 
 <article id="item2" class="item item--look">
     <div class="tier-label">👀 值得看</div>
-    <h2 class="display title">Gemini 4 Carbon 对所有人开放</h2>
-    <div class="pitch">只给安全人员的 Gemini 4 Carbon 今天全员可用，Simon Willison 和 Dan Shipper 都说它写代码明显更强。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>写代码比 Argon 强，Dan Shipper 实测能连做几小时</li><li>Gemini App 里 Ultra 订阅全球可用，Antigravity 能 /swarm</li><li>现在 $2/$10 每百万 token，12 月 1 日翻倍，趁早试</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 Gemini App 里切到 Gemini 4 Carbon（Ultra 订阅），或去 Google Antigravity 里试 /swarm</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你用的 Claude Code/Codex 不同：Carbon 是 Gemini 家的新旗舰，入口是 Gemini App 和 Antigravity IDE；/swarm 让多个子 agent 分工，Sundar 演示里它自己建模、写游戏、配音。</p><p>上手不难，Ultra 直接能用。缺点：Dan Shipper 说它在长任务里常“不知道什么时候停”，Simon 的 max 档也耗尽 token 没交作业。</p></div></details>
-    <div class="signals"><strong>信号</strong> · Simon Willison 实测 · Dan Shipper 当日 vibe check · Ultra 全球可用 · 12/1 涨价翻倍</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/danshipper/status/2120187507396530309" target="_blank" rel="noopener">Dan Shipper 当日评测（X）</a> · <a href="https://x.com/joshwoodward/status/2120186249281778135" target="_blank" rel="noopener">Josh Woodward 宣布可用（X）</a></div>
+    <h2 class="display title">Yogurt：开源的会议笔记</h2>
+    <div class="pitch">Granola（AI 会议笔记）的开源平替，免费、主打隐私。要记会议又不想把录音传云端，可以看看。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>免费开源的会议记录 AI，多一个选择</li><li>主打隐私，适合碰薪酬这类敏感内容</li><li>可自托管，数据不一定要上云</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>去 GitHub 看安装方式（github.com/frigadehq）</li><li>先拿一次内部会议试，别直接上敏感内容</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你现在用的云端笔记不同：开源、可自己部署，隐私更可控。</p><p>只是替代 Granola 的方向，早期项目，转写质量得自己试。</p><p>动手门槛中等，可能要 Docker 或本地配置，不是点开就用。</p></div></details>
+    <div class="signals"><strong>信号</strong> · Show HN 252 分 · 96 条评论 · 19 小时前</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/frigadehq" target="_blank" rel="noopener">GitHub 仓库</a></div>
 </article>
 
-<article id="item3" class="item item--look">
-    <div class="tier-label">👀 值得看</div>
-    <h2 class="display title">让 agent 别写 2019 年的 JS</h2>
-    <div class="pitch">Chrome 团队把一套现代网页规则打包好，粘进 coding agent 就能少写老派 JS，页面更干净。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>专门治 agent 爱抄旧代码、写老式 JavaScript 的毛病</li><li>Paul Irish 出品，装好一次，Claude Code/Codex 都受用</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开 github.com/googlechrome 找这个 Show HN 项目，按说明加到你的 agent 配置里</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>不改变你用哪个工具：它只是塞给 Claude Code/Codex 一份“现代网页写法”参考，让它们别再生成老式代码。</p><p>成本很低，扔进项目规则或 skill 就行。局限：只管网页前端这类活，纯脚本、表格任务用不上。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 386 分 · 121 条评论 · Google Chrome 团队 / Paul Irish 发布</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/googlechrome" target="_blank" rel="noopener">github.com/googlechrome</a></div>
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ 知道就行</div>
+    <h2 class="display title">Google 实验：AI 现场搭共享空间</h2>
+    <div class="pitch">Google Labs 新实验 Tabletop，丢进链接和文件，AI 当场给你搭行程图、投票板、家务表。目前要排队。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>把「我们改天搞」变成能直接用的共享页</li><li>演示了 AI 现场生成小工具的方向</li></ul></div>
+    <div class="signals"><strong>信号</strong> · Google Labs 官宣 · 1113 赞 · 93 转发 · 候补中</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/GoogleLabs/status/2120549258692882702" target="_blank" rel="noopener">Google Labs 发布</a> · <a href="https://x.com/GoogleLabs/status/2120595442782368240" target="_blank" rel="noopener">团队演示</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Claude Fable 5.2</span> <span class="update">— Simon Willison 发现提示词技巧：写明“代码库是你的”后，它愿意合并重复代码的概率从不足一成升到约一半；但 max 档会烧光 token 交不出图。</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 1</span><div><span class="item-name">Gemini 4 Carbon</span> <span class="update">— 开放后 Simon 实测；/swarm 建出可玩的 3D 开放世界</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">Claude Fable 5.2 / Mythos 5.2</span> <span class="update">— IPO 路演披露多芯片策略，Mythos 3 天把 Claude 移植到 AMD</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Apple 本地 AI Mac app</td><td>HN 297 分，但产品还没发布，只能先记个名字</td></tr><tr><td>AlphaProof Code</td><td>HN 649 分，属形式化验证研究，你没入口</td></tr><tr><td>Val Town 关停</td><td>HN 394 分，不是 AI 故事</td></tr><tr><td>追踪 Anthropic 发现的漏洞</td><td>HN 411 分，安全事件，和工作无关</td></tr><tr><td>AI 让代码库变脆</td><td>HN 583 分，观点文，昨天已评估过</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Nvidia 拟罢免黄仁勋</td><td>HN 1086 分，但属高管八卦，规则外</td></tr><tr><td>AI agent 发现玛雅遗址</td><td>HN 1000 分很酷，但没有能上手的工具</td></tr><tr><td>AWS 官方模拟器</td><td>HN 876 分，工具你用不上；亮点是 3 周 29,684 次 agent 提交</td></tr><tr><td>联合航空禁 AI agent 代订机票</td><td>HN 569 分，属政策与规则，不是可用工具</td></tr><tr><td>Apple 的更快的 RAG 检索</td><td>HN 214 分，属检索研究，你暂时用不上</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
 
-<div class="pager" data-current-date="2026-11-11"><a href="#" class="prev">← 前一天</a><span class="issue-num">№146 · 2026-11-11</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-12"><a href="#" class="prev">← 前一天</a><span class="issue-num">№147 · 2026-11-12</span><a href="#" class="next">后一天 →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-11';
+    const currentDate = '2026-11-12';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

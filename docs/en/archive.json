@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-12",
+      "weekday": "Thu",
+      "week": 46,
+      "issue": 146,
+      "kind": "daily",
+      "headline": "Decision models are duking it out, and they're practically giving them away",
+      "summary": "Google jumps into decision models with a multimodal focus; an open-source Granola has arrived too.",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-11-12.html"
+    },
+    {
       "date": "2026-11-11",
       "weekday": "Wed",
       "week": 46,

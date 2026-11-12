@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar — 2026-11-12 (Week 46)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
+
+
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 11 · 12 · Week 46 · №147 · <a href="archive.html">Archive</a></span>
+</header>
+
+<div class="cover">
+    <h1 class="display headline">Decision models are duking it out, and they&#x27;re practically giving them away</h1>
+    <p class="lead">Google jumps into decision models with a multimodal focus; an open-source Granola has arrived too.</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">0</span> must see</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
+        <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
+    </div>
+</div>
+
+<div class="pager" data-current-date="2026-11-12"><a href="#" class="prev">← Previous</a><span class="issue-num">№147 · 2026-11-12</span><a href="#" class="next">Next →</a></div>
+
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Gemini launches a decision model API</li><li><span class="tier-tag look">👀 Worth a look</span> Yogurt: open-source meeting notes</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Google experiment: AI builds a shared space live</li></ul></nav>
+
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">Gemini launches a decision model API</h2>
+    <div class="pitch">Google just dropped a &quot;decision model&quot; (an AI built for yes/no calls and scoring), and it can look at videos and PDFs directly. It&#x27;s so cheap it&#x27;s basically free, perfect for dropping into your little tools.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Lets AI give docs/videos a yes/no or a score, and it&#x27;s more reliable than chat models</li><li>It can judge text, images, audio, video, and PDFs</li><li>It joins similar models from Jev and OpenAI to make &quot;decision models&quot; a new category</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Read Simon Willison&#x27;s hands-on test to see how it judges video content (simonwillison.net/tags/ai)</li><li>Grab one of your files and try a yes/no question on a small sample first to check accuracy</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike the Claude/codex you use: it doesn&#x27;t chat, it quickly scores and sorts fixed questions.</p><p>Text and images put it in the same league as OpenAI&#x27;s; multimodal (video/audio/PDF) is Gemini&#x27;s unique trick.</p><p>Low barrier to entry, but you have to go through the API, so you&#x27;ll need an agent to write a few lines of code to call it. Cheap doesn&#x27;t mean accurate, so validate on a small sample first.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 454 points · 142 comments · Simon Willison tested video judgment · smol.ai calls it &quot;decision model day&quot;</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison&#x27;s hands-on test</a> · <a href="https://blog.google" target="_blank" rel="noopener">Google&#x27;s official blog</a> · <a href="https://openai.com/index/decisions-api" target="_blank" rel="noopener">OpenAI&#x27;s similar decision model</a></div>
+</article>
+
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">Yogurt: open-source meeting notes</h2>
+    <div class="pitch">An open-source alternative to Granola (the AI meeting notes app), free and focused on privacy. If you want to take meeting notes without uploading recordings to the cloud, take a look.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>A free, open-source meeting notes AI, one more option to have</li><li>Privacy-first, good for sensitive stuff like salary talks</li><li>Self-hostable, so your data doesn&#x27;t have to go to the cloud</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Check the install steps on GitHub (github.com/frigadehq)</li><li>Try it on one internal meeting first, don&#x27;t jump straight to sensitive stuff</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike the cloud notes you use now: open source, self-hostable, and you get more control over privacy.</p><p>It&#x27;s just an alternative to Granola, and it&#x27;s an early project, so you&#x27;ll have to test the transcription quality yourself.</p><p>Setup is medium-effort, you might need Docker or local config, and it&#x27;s not click-and-go.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · Show HN 252 points · 96 comments · 19 hours ago</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://github.com/frigadehq" target="_blank" rel="noopener">GitHub repo</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ FYI</div>
+    <h2 class="display title">Google experiment: AI builds a shared space live</h2>
+    <div class="pitch">Google Labs&#x27; new experiment Tabletop: toss in links and files and the AI whips up an itinerary map, a poll board, or a chore chart on the spot. There&#x27;s a waitlist for now.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Turns &quot;let&#x27;s do it someday&quot; into a shared page you can actually use</li><li>Shows where AI-generated little tools are heading</li></ul></div>
+    <div class="signals"><strong>Signals</strong> · Announced by Google Labs · 1113 likes · 93 reposts · waitlist open</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/GoogleLabs/status/2120549258692882702" target="_blank" rel="noopener">Google Labs announcement</a> · <a href="https://x.com/GoogleLabs/status/2120595442782368240" target="_blank" rel="noopener">Team demo</a></div>
+</article>
+
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">Gemini 4 Carbon</span> <span class="update">— Simon tested it after launch; /swarm built a playable 3D open world</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">Claude Fable 5.2 / Mythos 5.2</span> <span class="update">— IPO roadshow revealed a multi-chip strategy, Mythos ported Claude to AMD in 3 days</span></div></li></ul></aside>
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Nvidia reportedly moves to oust Jensen Huang</td><td>HN 1086 points, but it&#x27;s exec gossip, outside the rules</td></tr><tr><td>AI agent finds Mayan ruins</td><td>HN 1000 points and very cool, but there&#x27;s no tool you can actually use</td></tr><tr><td>AWS official emulator</td><td>HN 876 points, but you won&#x27;t use the tool; the highlight is 29,684 agent commits in 3 weeks</td></tr><tr><td>United Airlines bans AI agents from booking flights</td><td>HN 569 points, it&#x27;s policy and rules, not a usable tool</td></tr><tr><td>Apple&#x27;s faster RAG retrieval</td><td>HN 214 points, it&#x27;s retrieval research, not something you need right now</td></tr></tbody></table></details></section>
+
+<footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
+
+<div class="pager" data-current-date="2026-11-12"><a href="#" class="prev">← Previous</a><span class="issue-num">№147 · 2026-11-12</span><a href="#" class="next">Next →</a></div>
+
+<script>
+(async function() {
+    const currentDate = '2026-11-12';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
+})();
+</script>
+</body>
+</html>

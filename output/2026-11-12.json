@@ -1,0 +1,120 @@
+{
+  "headline": "决策模型开打，便宜到几乎白送",
+  "summary": "Google 入场决策模型，主打多模态；开源版 Granola 也来了。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini 推出决策模型 API",
+      "pitch": "Google 新出「决策模型」（专门做是/否、打分这类判断的 AI），还能直接看视频和 PDF。便宜到几乎免费，适合塞进你的小工具。",
+      "why": [
+        "让 AI 给文档/视频打是/否或分数，比聊天模型更稳",
+        "文字、图像、音频、视频、PDF 都能判",
+        "和 Jev、OpenAI 同类模型凑成「决策模型」新品类"
+      ],
+      "actions": [
+        "读 Simon Willison 的实测，看它怎么判断视频内容（simonwillison.net/tags/ai）",
+        "挑一段你的文件，用一句是/否问题先小样本试准确度"
+      ],
+      "deep_dive": [
+        "和你在用的 Claude/codex 不同：它不是聊天，是给固定问题快速打分归类。",
+        "文字、图片和 OpenAI 同类；多模态（视频/音频/PDF）是 Gemini 的独门。",
+        "门槛低但要走 API，得让 agent 帮你写几行调用。便宜不等于准，先验小样本。"
+      ],
+      "signals": "HN 454 分 · 142 评论 · Simon Willison 实测视频判断 · smol.ai 称「决策模型日」",
+      "links": [
+        {
+          "label": "Simon Willison 实测",
+          "url": "https://simonwillison.net/tags/ai"
+        },
+        {
+          "label": "Google 官方博客",
+          "url": "https://blog.google"
+        },
+        {
+          "label": "OpenAI 同类决策模型",
+          "url": "https://openai.com/index/decisions-api"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Yogurt：开源的会议笔记",
+      "pitch": "Granola（AI 会议笔记）的开源平替，免费、主打隐私。要记会议又不想把录音传云端，可以看看。",
+      "why": [
+        "免费开源的会议记录 AI，多一个选择",
+        "主打隐私，适合碰薪酬这类敏感内容",
+        "可自托管，数据不一定要上云"
+      ],
+      "actions": [
+        "去 GitHub 看安装方式（github.com/frigadehq）",
+        "先拿一次内部会议试，别直接上敏感内容"
+      ],
+      "deep_dive": [
+        "和你现在用的云端笔记不同：开源、可自己部署，隐私更可控。",
+        "只是替代 Granola 的方向，早期项目，转写质量得自己试。",
+        "动手门槛中等，可能要 Docker 或本地配置，不是点开就用。"
+      ],
+      "signals": "Show HN 252 分 · 96 条评论 · 19 小时前",
+      "links": [
+        {
+          "label": "GitHub 仓库",
+          "url": "https://github.com/frigadehq"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Google 实验：AI 现场搭共享空间",
+      "pitch": "Google Labs 新实验 Tabletop，丢进链接和文件，AI 当场给你搭行程图、投票板、家务表。目前要排队。",
+      "why": [
+        "把「我们改天搞」变成能直接用的共享页",
+        "演示了 AI 现场生成小工具的方向"
+      ],
+      "signals": "Google Labs 官宣 · 1113 赞 · 93 转发 · 候补中",
+      "links": [
+        {
+          "label": "Google Labs 发布",
+          "url": "https://x.com/GoogleLabs/status/2120549258692882702"
+        },
+        {
+          "label": "团队演示",
+          "url": "https://x.com/GoogleLabs/status/2120595442782368240"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "Gemini 4 Carbon",
+      "update": "开放后 Simon 实测；/swarm 建出可玩的 3D 开放世界"
+    },
+    {
+      "day": 2,
+      "name": "Claude Fable 5.2 / Mythos 5.2",
+      "update": "IPO 路演披露多芯片策略，Mythos 3 天把 Claude 移植到 AMD"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Nvidia 拟罢免黄仁勋",
+      "reason": "HN 1086 分，但属高管八卦，规则外"
+    },
+    {
+      "name": "AI agent 发现玛雅遗址",
+      "reason": "HN 1000 分很酷，但没有能上手的工具"
+    },
+    {
+      "name": "AWS 官方模拟器",
+      "reason": "HN 876 分，工具你用不上；亮点是 3 周 29,684 次 agent 提交"
+    },
+    {
+      "name": "联合航空禁 AI agent 代订机票",
+      "reason": "HN 569 分，属政策与规则，不是可用工具"
+    },
+    {
+      "name": "Apple 的更快的 RAG 检索",
+      "reason": "HN 214 分，属检索研究，你暂时用不上"
+    }
+  ]
+}

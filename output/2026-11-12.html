@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar — 2026-11-12 (Week 46)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
+
+
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 11 · 12 · Week 46 · №147 · <a href="archive.html">归档</a></span>
+</header>
+
+<div class="cover">
+    <h1 class="display headline">决策模型开打，便宜到几乎白送</h1>
+    <p class="lead">Google 入场决策模型，主打多模态；开源版 Granola 也来了。</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">0</span> 必看</span>
+        <span>👀 <span class="look-count">2</span> 值得看</span>
+        <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
+    </div>
+</div>
+
+<div class="pager" data-current-date="2026-11-12"><a href="#" class="prev">← 前一天</a><span class="issue-num">№147 · 2026-11-12</span><a href="#" class="next">后一天 →</a></div>
+
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> Gemini 推出决策模型 API</li><li><span class="tier-tag look">👀 值得看</span> Yogurt：开源的会议笔记</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Google 实验：AI 现场搭共享空间</li></ul></nav>
+
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Gemini 推出决策模型 API</h2>
+    <div class="pitch">Google 新出「决策模型」（专门做是/否、打分这类判断的 AI），还能直接看视频和 PDF。便宜到几乎免费，适合塞进你的小工具。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>让 AI 给文档/视频打是/否或分数，比聊天模型更稳</li><li>文字、图像、音频、视频、PDF 都能判</li><li>和 Jev、OpenAI 同类模型凑成「决策模型」新品类</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>读 Simon Willison 的实测，看它怎么判断视频内容（simonwillison.net/tags/ai）</li><li>挑一段你的文件，用一句是/否问题先小样本试准确度</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你在用的 Claude/codex 不同：它不是聊天，是给固定问题快速打分归类。</p><p>文字、图片和 OpenAI 同类；多模态（视频/音频/PDF）是 Gemini 的独门。</p><p>门槛低但要走 API，得让 agent 帮你写几行调用。便宜不等于准，先验小样本。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 454 分 · 142 评论 · Simon Willison 实测视频判断 · smol.ai 称「决策模型日」</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 实测</a> · <a href="https://blog.google" target="_blank" rel="noopener">Google 官方博客</a> · <a href="https://openai.com/index/decisions-api" target="_blank" rel="noopener">OpenAI 同类决策模型</a></div>
+</article>
+
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Yogurt：开源的会议笔记</h2>
+    <div class="pitch">Granola（AI 会议笔记）的开源平替，免费、主打隐私。要记会议又不想把录音传云端，可以看看。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>免费开源的会议记录 AI，多一个选择</li><li>主打隐私，适合碰薪酬这类敏感内容</li><li>可自托管，数据不一定要上云</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>去 GitHub 看安装方式（github.com/frigadehq）</li><li>先拿一次内部会议试，别直接上敏感内容</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你现在用的云端笔记不同：开源、可自己部署，隐私更可控。</p><p>只是替代 Granola 的方向，早期项目，转写质量得自己试。</p><p>动手门槛中等，可能要 Docker 或本地配置，不是点开就用。</p></div></details>
+    <div class="signals"><strong>信号</strong> · Show HN 252 分 · 96 条评论 · 19 小时前</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/frigadehq" target="_blank" rel="noopener">GitHub 仓库</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ 知道就行</div>
+    <h2 class="display title">Google 实验：AI 现场搭共享空间</h2>
+    <div class="pitch">Google Labs 新实验 Tabletop，丢进链接和文件，AI 当场给你搭行程图、投票板、家务表。目前要排队。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>把「我们改天搞」变成能直接用的共享页</li><li>演示了 AI 现场生成小工具的方向</li></ul></div>
+    <div class="signals"><strong>信号</strong> · Google Labs 官宣 · 1113 赞 · 93 转发 · 候补中</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/GoogleLabs/status/2120549258692882702" target="_blank" rel="noopener">Google Labs 发布</a> · <a href="https://x.com/GoogleLabs/status/2120595442782368240" target="_blank" rel="noopener">团队演示</a></div>
+</article>
+
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 1</span><div><span class="item-name">Gemini 4 Carbon</span> <span class="update">— 开放后 Simon 实测；/swarm 建出可玩的 3D 开放世界</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">Claude Fable 5.2 / Mythos 5.2</span> <span class="update">— IPO 路演披露多芯片策略，Mythos 3 天把 Claude 移植到 AMD</span></div></li></ul></aside>
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Nvidia 拟罢免黄仁勋</td><td>HN 1086 分，但属高管八卦，规则外</td></tr><tr><td>AI agent 发现玛雅遗址</td><td>HN 1000 分很酷，但没有能上手的工具</td></tr><tr><td>AWS 官方模拟器</td><td>HN 876 分，工具你用不上；亮点是 3 周 29,684 次 agent 提交</td></tr><tr><td>联合航空禁 AI agent 代订机票</td><td>HN 569 分，属政策与规则，不是可用工具</td></tr><tr><td>Apple 的更快的 RAG 检索</td><td>HN 214 分，属检索研究，你暂时用不上</td></tr></tbody></table></details></section>
+
+<footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
+
+<div class="pager" data-current-date="2026-11-12"><a href="#" class="prev">← 前一天</a><span class="issue-num">№147 · 2026-11-12</span><a href="#" class="next">后一天 →</a></div>
+
+<script>
+(async function() {
+    const currentDate = '2026-11-12';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
+})();
+</script>
+</body>
+</html>
