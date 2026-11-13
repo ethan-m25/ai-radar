@@ -1,0 +1,116 @@
+{
+  "headline": "Claude joins your meetings, Gemini's free tier levels up",
+  "summary": "Two things you can actually use today: Claude takes meeting notes for you, and Gemini's free model jumps a tier.",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "Claude joins the meeting room: automatic notes",
+      "pitch": "Claude can join a Google Meet as a participant, listen and take notes as it goes, and when the call ends the notes and action items stay in Claude.",
+      "why": [
+        "No more scribbling in meetings — notes and to-dos are ready when the call ends",
+        "Notes land right in Claude, so you can pick up and edit a doc",
+        "The team can watch what it writes in real time and correct it on the spot"
+      ],
+      "actions": [
+        "Connect Google Meet in Claude and try it on your next call",
+        "Have it open a doc during a meeting and watch it listen and write"
+      ],
+      "deep_dive": [
+        "Different from the meeting tools you use now: Claude actually joins the call as a participant, not just records and transcribes.",
+        "Right now it only supports Google Meet; other platforms are said to be coming; the team plan gives the fuller experience.",
+        "Honest take: it can get things wrong and needs a human to correct it, so skip it for sensitive meetings for now."
+      ],
+      "signals": "Official @claudeai posted 3 times · top post hit 1,678 likes · Dan Shipper tried it live",
+      "links": [
+        {
+          "label": "@claudeai announcement",
+          "url": "https://x.com/claudeai/status/2120974000746582357"
+        },
+        {
+          "label": "Post-meeting notes explainer",
+          "url": "https://x.com/claudeai/status/2120973999295643679"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Gemini 4 Hydrogen: a big free-tier upgrade",
+      "pitch": "Google's new cheap, fast model is already in the Gemini app and is now the default engine for AI in Google Search.",
+      "why": [
+        "5 percentage points more accurate than the last Flash (measured by Box)",
+        "Same task takes less than half the time, with 12% fewer tokens",
+        "Free users and Search users get this upgrade automatically"
+      ],
+      "actions": [
+        "Open the Gemini app, pick Hydrogen and throw a few questions at it",
+        "Check whether the AI answers in Google Search got more accurate"
+      ],
+      "deep_dive": [
+        "Cheaper and faster than Carbon/Argon — it's the workhorse for everyday chores, not the one you throw hard problems at.",
+        "Carbon/Argon prices double after December 1, which is when Hydrogen's cheapness really shows; right now the price gap is small.",
+        "Honest take: the free tier still isn't the paid flagship, so don't expect complex analysis from it."
+      ],
+      "signals": "Two HN posts at 536 and 428 points · Simon Willison tested it · Box CEO measured +5 points accuracy",
+      "links": [
+        {
+          "label": "Gemini team announcement",
+          "url": "https://x.com/joshwoodward/status/2120942262054232392"
+        },
+        {
+          "label": "Box CEO's test",
+          "url": "https://x.com/levie/status/2120947988143198302"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Edge0-145B: frontier models on your own machine",
+      "pitch": "A new model claims it can deliver \"frontier\" capability locally on a personal computer, keeping your data and privacy on your own machine.",
+      "why": [
+        "Runs locally, so your data never goes to the cloud",
+        "But 145B is a memory hog — a normal computer can't handle it"
+      ],
+      "signals": "HN 274 points · 77 comments",
+      "links": [
+        {
+          "label": "edge0.ai",
+          "url": "https://edge0.ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Yogurt open-source meeting notes",
+      "update": "Claude's official Meetings launched today, squeezing what makes the open-source option different."
+    },
+    {
+      "day": 3,
+      "name": "Gemini 4 Carbon",
+      "update": "With Hydrogen in the mix, Carbon/Argon prices double on December 1 — keep an eye on usage costs."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Jensen Huang resigns",
+      "reason": "HN 3644 points, but it's an exec change, outside the rules"
+    },
+    {
+      "name": "Claude.ai / Claude Code outage",
+      "reason": "HN 238 points, a brief service outage, not a capability change"
+    },
+    {
+      "name": "Running LLMs on old hardware",
+      "reason": "HN 390 points, a developer tinkering project, no entry point for you"
+    },
+    {
+      "name": "Brave Search API supports agent payments",
+      "reason": "HN 130 points, dev infrastructure, not something you'd use"
+    },
+    {
+      "name": "OpenAI enterprise ChatGPT",
+      "reason": "Official post is just a link with few details — wait and see"
+    }
+  ]
+}

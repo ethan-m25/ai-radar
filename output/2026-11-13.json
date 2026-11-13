@@ -1,0 +1,116 @@
+{
+  "headline": "Claude 进会议室，Gemini 免费档升级",
+  "summary": "今天两件真能用：Claude 帮你开会记笔记，Gemini 免费模型跳一级。",
+  "items": [
+    {
+      "tier": "crit",
+      "title": "Claude 进会议室：自动记笔记",
+      "pitch": "Claude 能作为参会者进 Google Meet，边听边记，散会后笔记和待办都留在 Claude 里。",
+      "why": [
+        "开会不用手记，散会就有笔记和待办",
+        "笔记直接落在 Claude，能接着改文档",
+        "团队实时看它写什么，能当场纠正"
+      ],
+      "actions": [
+        "在 Claude 里连上 Google Meet，下一场会试一次",
+        "开会时让它开个文档，观察它边听边写"
+      ],
+      "deep_dive": [
+        "和你现在的会议工具不同：Claude 是直接进会议当参会者，不只录音转文字。",
+        "目前只支持 Google Meet，其他平台说会陆续加；团队版体验更完整。",
+        "老实说：它可能写歪、需要人纠正，敏感会议先别开。"
+      ],
+      "signals": "官方 @claudeai 连发 3 条 · 单条最高 1678 赞 · Dan Shipper 当场试用",
+      "links": [
+        {
+          "label": "@claudeai 发布",
+          "url": "https://x.com/claudeai/status/2120974000746582357"
+        },
+        {
+          "label": "会后笔记说明",
+          "url": "https://x.com/claudeai/status/2120973999295643679"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Gemini 4 Hydrogen：免费档大升级",
+      "pitch": "Google 新出的便宜快模型，已进 Gemini App，还成了 Google 搜索里 AI 的默认引擎。",
+      "why": [
+        "比上一代 Flash 准确率高 5 个百分点（Box 实测）",
+        "同样任务耗时不到一半，token 少 12%",
+        "免费用户和搜索用户直接吃到这次升级"
+      ],
+      "actions": [
+        "打开 Gemini App，选 Hydrogen 试几个问题",
+        "在 Google 搜索里看 AI 回答有没有变准"
+      ],
+      "deep_dive": [
+        "比 Carbon/Argon 更便宜更快，是干日常杂活的执行模型，不是啃难题那个。",
+        "12 月 1 日后 Carbon/Argon 价格翻倍，Hydrogen 才显出便宜，现在差价不大。",
+        "老实说：免费档仍不如付费旗舰，别指望它做复杂分析。"
+      ],
+      "signals": "HN 536 + 428 分两条 · Simon Willison 实测 · Box CEO 测出准确率 +5 点",
+      "links": [
+        {
+          "label": "Gemini 团队发布",
+          "url": "https://x.com/joshwoodward/status/2120942262054232392"
+        },
+        {
+          "label": "Box CEO 实测",
+          "url": "https://x.com/levie/status/2120947988143198302"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Edge0-145B：自家电脑跑前沿模型",
+      "pitch": "一个新模型号称能在个人电脑上本地跑出「前沿」能力，资料和隐私都留在本机。",
+      "why": [
+        "本地跑，资料不用传到云上",
+        "但 145B 很吃内存，普通电脑扛不住"
+      ],
+      "signals": "HN 274 分 · 77 条评论",
+      "links": [
+        {
+          "label": "edge0.ai",
+          "url": "https://edge0.ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Yogurt 开源会议笔记",
+      "update": "Claude 官方 Meetings 今天上线，开源方案的差异化被压缩。"
+    },
+    {
+      "day": 3,
+      "name": "Gemini 4 Carbon",
+      "update": "Hydrogen 加入后，Carbon/Argon 将于 12 月 1 日价格翻倍，留意用量成本。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Jensen Huang 辞职",
+      "reason": "HN 3644 分，但属高管变动，规则外"
+    },
+    {
+      "name": "Claude.ai / Claude Code 宕机",
+      "reason": "HN 238 分，短暂服务故障，不是能力变化"
+    },
+    {
+      "name": "老设备跑 LLM",
+      "reason": "HN 390 分，开发者折腾项目，你没有入口"
+    },
+    {
+      "name": "Brave 搜索 API 支持 agent 付款",
+      "reason": "HN 130 分，开发基建，你用不上"
+    },
+    {
+      "name": "OpenAI 企业版 ChatGPT",
+      "reason": "官方只有链接、细节不足，先观望"
+    }
+  ]
+}
