@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-14",
+      "weekday": "Sat",
+      "week": 46,
+      "issue": 148,
+      "kind": "daily",
+      "headline": "Quiet Saturday: Opus 5.5 is plenty, no need to rush to switch",
+      "summary": "No big launches today, just one real-world test: Fable 5.2 costs 2.8x more and didn't score noticeably better at coding.",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-14.html"
+    },
+    {
       "date": "2026-11-13",
       "weekday": "Fri",
       "week": 46,

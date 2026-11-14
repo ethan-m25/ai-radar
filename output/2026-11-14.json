@@ -1,0 +1,81 @@
+{
+  "headline": "周六清淡：Opus 5.5 够用，别急着换",
+  "summary": "没有新大发布，只有一条实测：Fable 5.2 贵 2.8 倍，编程成绩没拉开。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "更新：Claude Code 默认用 Opus 就够",
+      "pitch": "更新：Garry Tan 实测 52 个编程任务，Fable 5.2 和 Opus 5.5 成绩接近，但每解一题贵 2.8 倍。",
+      "why": [
+        "成绩约 82.7% 对 84.6%，差距很小",
+        "Fable 5.2 每解决一题贵 2.80 倍",
+        "你每周额度有限，默认用便宜的更划算"
+      ],
+      "actions": [
+        "在 Claude Code 里用 /model 把默认模型设成 Opus 5.5",
+        "遇到特别难的任务，再临时切到 Fable 5.2"
+      ],
+      "deep_dive": [
+        "这是 Garry Tan 在 Claude Code 2.1.322 上测的，只有 52 个任务。他自己也说，任务太简单，Opus 已经能解大部分，所以分不出高下。",
+        "所以结论只是别无脑上最贵的模型。更难的任务上 Fable 5.2 可能还是更强，要自己试。",
+        "他还放出了开源的评测仓库，你不用看代码，知道有这个东西就行。"
+      ],
+      "signals": "Garry Tan 推文 154 赞 · 52 个 Claude Code 任务 · 成本 2.80 倍 · 开源评测仓库",
+      "links": [
+        {
+          "label": "Garry Tan 实测推文",
+          "url": "https://x.com/garrytan/status/2121464508225053153"
+        },
+        {
+          "label": "他的评测仓库",
+          "url": "https://x.com/garrytan/status/2121463161069228382"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Peter Yang 的医疗记录整理 skill",
+      "pitch": "把病历丢进网盘文件夹，让 ChatGPT 或 Claude 装上这个免费 skill，就能生成一页摘要并查临床试验。",
+      "why": [
+        "非开发者也能用，指给 AI 一个链接就装好",
+        "示范了 skill 怎么变成日常小工具"
+      ],
+      "signals": "Peter Yang 推文 434 赞 · 免费 · 可 fork",
+      "links": [
+        {
+          "label": "Peter Yang 推文",
+          "url": "https://x.com/petergyang/status/2121430386685395022"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Gemini 4 定价",
+      "update": "Simon Willison 指出 Carbon 和 Argon 将在 12 月 1 日起从 $2/$10 涨到 $4/$20，要用先抓紧"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "llama.cpp / ggml v1.0.0",
+      "reason": "HN 293 分，本地模型基础库，对你没有直接入口"
+    },
+    {
+      "name": "ChatGPT Wallet",
+      "reason": "OpenAI 只有链接，细节不足，先观望"
+    },
+    {
+      "name": "Perplexity Decider v1.3",
+      "reason": "HN 134 分，决策模型已在前几天讲过，无新变化"
+    },
+    {
+      "name": "Jonathan Blow：AI 解决了编码吗",
+      "reason": "HN 320 分，观点视频，没有可用工具"
+    },
+    {
+      "name": "Stand with Jensen 联名信",
+      "reason": "高管风波，规则外"
+    }
+  ]
+}

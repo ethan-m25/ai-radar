@@ -1,0 +1,81 @@
+{
+  "headline": "Quiet Saturday: Opus 5.5 is plenty, no need to rush to switch",
+  "summary": "No big launches today, just one real-world test: Fable 5.2 costs 2.8x more and didn't score noticeably better at coding.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Update: Opus is enough as your Claude Code default",
+      "pitch": "Update: Garry Tan tested 52 coding tasks, and Fable 5.2 and Opus 5.5 scored about the same, but Fable costs 2.8x more per solved task.",
+      "why": [
+        "Scores were about 82.7% vs 84.6%, a tiny gap",
+        "Fable 5.2 costs 2.80x more per solved task",
+        "Your weekly quota is limited, so the cheaper default is the better deal"
+      ],
+      "actions": [
+        "In Claude Code, use /model to set your default model to Opus 5.5",
+        "For really hard tasks, switch to Fable 5.2 just for that one"
+      ],
+      "deep_dive": [
+        "Garry Tan ran this on Claude Code 2.1.322 with only 52 tasks. He admits the tasks were too easy, so Opus could already solve most of them, which is why you can't really tell the two apart.",
+        "So the takeaway is just don't blindly use the most expensive model. On harder tasks Fable 5.2 might still be stronger, so try it yourself.",
+        "He also put out an open-source eval repo. You don't need to read the code, just know it exists."
+      ],
+      "signals": "Garry Tan tweet 154 likes · 52 Claude Code tasks · 2.80x cost · open-source eval repo",
+      "links": [
+        {
+          "label": "Garry Tan's test tweet",
+          "url": "https://x.com/garrytan/status/2121464508225053153"
+        },
+        {
+          "label": "His eval repo",
+          "url": "https://x.com/garrytan/status/2121463161069228382"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Peter Yang's medical records skill",
+      "pitch": "Drop your medical records into a cloud drive folder, add this free skill to ChatGPT or Claude, and it'll make a one-page summary and look up clinical trials.",
+      "why": [
+        "Non-developers can use it too, just give your AI a link and it installs",
+        "Shows how a skill can turn into an everyday little tool"
+      ],
+      "signals": "Peter Yang tweet 434 likes · free · forkable",
+      "links": [
+        {
+          "label": "Peter Yang's tweet",
+          "url": "https://x.com/petergyang/status/2121430386685395022"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Gemini 4 pricing",
+      "update": "Simon Willison points out that Carbon and Argon go from $2/$10 to $4/$20 starting December 1, so use them now if you need them"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "llama.cpp / ggml v1.0.0",
+      "reason": "HN 293 points, a base library for local models, nothing you can use directly"
+    },
+    {
+      "name": "ChatGPT Wallet",
+      "reason": "OpenAI only posted a link, not enough detail, wait and see"
+    },
+    {
+      "name": "Perplexity Decider v1.3",
+      "reason": "HN 134 points, the decision model was covered a few days ago, nothing new"
+    },
+    {
+      "name": "Jonathan Blow: Has AI solved coding?",
+      "reason": "HN 320 points, an opinion video, no tool to use"
+    },
+    {
+      "name": "Stand with Jensen open letter",
+      "reason": "Executive drama, outside our rules"
+    }
+  ]
+}
