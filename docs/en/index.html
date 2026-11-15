@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-14 (Week 46)</title>
+<title>AI Radar — 2026-11-15 (Week 46)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,54 +345,65 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 14 · Week 46 · №149 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 15 · Week 46 · №150 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Quiet Saturday: Opus 5.5 is plenty, no need to rush to switch</h1>
-    <p class="lead">No big launches today, just one real-world test: Fable 5.2 costs 2.8x more and didn&#x27;t score noticeably better at coding.</p>
+    <h1 class="display headline">Give your Claude Code a checkup</h1>
+    <p class="lead">Quiet Sunday. One Claude Code self-check trick, one new Gemini money feature, and one vibe coding faceplant.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
-        <span>👀 <span class="look-count">1</span> worth a look</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-14"><a href="#" class="prev">← Previous</a><span class="issue-num">№149 · 2026-11-14</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-15"><a href="#" class="prev">← Previous</a><span class="issue-num">№150 · 2026-11-15</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Update: Opus is enough as your Claude Code default</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Peter Yang&#x27;s medical records skill</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Have Claude audit your own setup</li><li><span class="tier-tag look">👀 Worth a look</span> Lovable apps leaked passports and DMs</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Gemini can connect to Google Wallet to see your spending</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Update: Opus is enough as your Claude Code default</h2>
-    <div class="pitch">Update: Garry Tan tested 52 coding tasks, and Fable 5.2 and Opus 5.5 scored about the same, but Fable costs 2.8x more per solved task.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Scores were about 82.7% vs 84.6%, a tiny gap</li><li>Fable 5.2 costs 2.80x more per solved task</li><li>Your weekly quota is limited, so the cheaper default is the better deal</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>In Claude Code, use /model to set your default model to Opus 5.5</li><li>For really hard tasks, switch to Fable 5.2 just for that one</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Garry Tan ran this on Claude Code 2.1.322 with only 52 tasks. He admits the tasks were too easy, so Opus could already solve most of them, which is why you can&#x27;t really tell the two apart.</p><p>So the takeaway is just don&#x27;t blindly use the most expensive model. On harder tasks Fable 5.2 might still be stronger, so try it yourself.</p><p>He also put out an open-source eval repo. You don&#x27;t need to read the code, just know it exists.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · Garry Tan tweet 154 likes · 52 Claude Code tasks · 2.80x cost · open-source eval repo</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/garrytan/status/2121464508225053153" target="_blank" rel="noopener">Garry Tan&#x27;s test tweet</a> · <a href="https://x.com/garrytan/status/2121463161069228382" target="_blank" rel="noopener">His eval repo</a></div>
+    <h2 class="display title">Have Claude audit your own setup</h2>
+    <div class="pitch">Peter Yang recommends two commands that get Fable 5.2 to check your Claude Code setup and suggest changes.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>After a new model drops, your old prompts and skills may not fit anymore</li><li>It reviews your CLAUDE.md, skills, and commands, then suggests fixes</li><li>Takes a few minutes and you don&#x27;t have to change any code</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Run /doctor prompt-audit in Claude Code and see what changes it suggests</li><li>Then run /claude-api prompt-audit [skill name] on the skill you use most</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>This is a self-check command inside Claude Code, not a new product. The more rule files you have, the more it&#x27;s worth running.</p><p>Heads up: it only suggests changes, so look them over before applying and don&#x27;t just accept everything.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · Peter Yang&#x27;s tweet has 440 likes · He also wishes Claude Code would prompt you to run it after every new model release</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/petergyang/status/2121649295950762363" target="_blank" rel="noopener">Peter Yang&#x27;s tweet</a></div>
 </article>
 
-<article id="item2" class="item item--fyi">
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">Lovable apps leaked passports and DMs</h2>
+    <div class="pitch">An app built with Lovable was reported to expose passport info and over 200,000 private messages. Worth checking whatever you&#x27;ve vibe coded too.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>Nearly 900 points on HN today, with lots of discussion</li><li>With apps made by AI in one click, nobody often checks the permission settings</li><li>If your little tools hold sensitive stuff like salary data, the same risk applies</li></ul></div>
+    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Go back and check the little tools you&#x27;ve built: do they hold sensitive data, and who can open them</li><li>Ask Claude Code to go over the access permissions for you</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>All I have is the headline and the HN numbers. I haven&#x27;t seen the details of the actual vulnerability, so don&#x27;t jump to conclusions yet.</p><p>Lovable is a platform that builds web apps from a chat. The lesson: an app that got generated isn&#x27;t necessarily a safe app.</p></div></details>
+    <div class="signals"><strong>Signals</strong> · HN 853 points · 326 comments</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN front page discussion</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Peter Yang&#x27;s medical records skill</h2>
-    <div class="pitch">Drop your medical records into a cloud drive folder, add this free skill to ChatGPT or Claude, and it&#x27;ll make a one-page summary and look up clinical trials.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Non-developers can use it too, just give your AI a link and it installs</li><li>Shows how a skill can turn into an everyday little tool</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Peter Yang tweet 434 likes · free · forkable</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/petergyang/status/2121430386685395022" target="_blank" rel="noopener">Peter Yang&#x27;s tweet</a></div>
+    <h2 class="display title">Gemini can connect to Google Wallet to see your spending</h2>
+    <div class="pitch">The Gemini app can now read your Google Wallet, build spending charts, and catch subscriptions that quietly raised their prices.</div>
+    <div class="lang"><h3>Why it matters</h3><ul><li>A personal finance feature that non-developers can use right away</li><li>For now it&#x27;s only open to Gemini app users in the US</li></ul></div>
+    <div class="signals"><strong>Signals</strong> · Josh Woodward&#x27;s tweet has 462 likes · Rolling out to US users first</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/joshwoodward/status/2121755282326102417" target="_blank" rel="noopener">Josh Woodward&#x27;s tweet</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Gemini 4 pricing</span> <span class="update">— Simon Willison points out that Carbon and Argon go from $2/$10 to $4/$20 starting December 1, so use them now if you need them</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 3</span><div><span class="item-name">Gemini 4 Hydrogen</span> <span class="update">— Simon Willison: Carbon and Argon prices double from December 1, which is the only reason Hydrogen looks cheap.</span></div></li><li><span class="days">Day 6</span><div><span class="item-name">Fable 5.2</span> <span class="update">— Today all we saw was Peter Yang&#x27;s prompt audit trick, no new release.</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>llama.cpp / ggml v1.0.0</td><td>HN 293 points, a base library for local models, nothing you can use directly</td></tr><tr><td>ChatGPT Wallet</td><td>OpenAI only posted a link, not enough detail, wait and see</td></tr><tr><td>Perplexity Decider v1.3</td><td>HN 134 points, the decision model was covered a few days ago, nothing new</td></tr><tr><td>Jonathan Blow: Has AI solved coding?</td><td>HN 320 points, an opinion video, no tool to use</td></tr><tr><td>Stand with Jensen open letter</td><td>Executive drama, outside our rules</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>llama.cpp v1.0.0</td><td>Simon Willison uses it with local models, but you still have no direct way in</td></tr><tr><td>ChatGPT Wallet</td><td>OpenAI only has a link and not enough detail, wait and see</td></tr><tr><td>Aside Browser</td><td>Just one compliment from Garry Tan, not enough detail</td></tr><tr><td>Antigravity /teamwork</td><td>HN 204 points, more of a research-engineering thing, not useful for you</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-14"><a href="#" class="prev">← Previous</a><span class="issue-num">№149 · 2026-11-14</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-15"><a href="#" class="prev">← Previous</a><span class="issue-num">№150 · 2026-11-15</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-14';
+    const currentDate = '2026-11-15';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

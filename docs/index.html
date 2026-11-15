@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-14 (Week 46)</title>
+<title>AI Radar — 2026-11-15 (Week 46)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -345,54 +345,65 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 14 · Week 46 · №149 · <a href="archive.html">归档</a></span>
+    <span class="meta date-line">2026 · 11 · 15 · Week 46 · №150 · <a href="archive.html">归档</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">周六清淡：Opus 5.5 够用，别急着换</h1>
-    <p class="lead">没有新大发布，只有一条实测：Fable 5.2 贵 2.8 倍，编程成绩没拉开。</p>
+    <h1 class="display headline">给 Claude Code 做个体检</h1>
+    <p class="lead">周日安静。一个 Claude Code 自检技巧，一个 Gemini 理财新功能，一个 vibe coding 翻车案例。</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> 必看</span>
-        <span>👀 <span class="look-count">1</span> 值得看</span>
+        <span>👀 <span class="look-count">2</span> 值得看</span>
         <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-14"><a href="#" class="prev">← 前一天</a><span class="issue-num">№149 · 2026-11-14</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-15"><a href="#" class="prev">← 前一天</a><span class="issue-num">№150 · 2026-11-15</span><a href="#" class="next">后一天 →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> 更新：Claude Code 默认用 Opus 就够</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Peter Yang 的医疗记录整理 skill</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> 让 Claude 审查你自己的配置</li><li><span class="tier-tag look">👀 值得看</span> Lovable 应用泄露护照和私信</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Gemini 能连 Google Wallet 看花销</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 值得看</div>
-    <h2 class="display title">更新：Claude Code 默认用 Opus 就够</h2>
-    <div class="pitch">更新：Garry Tan 实测 52 个编程任务，Fable 5.2 和 Opus 5.5 成绩接近，但每解一题贵 2.8 倍。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>成绩约 82.7% 对 84.6%，差距很小</li><li>Fable 5.2 每解决一题贵 2.80 倍</li><li>你每周额度有限，默认用便宜的更划算</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 Claude Code 里用 /model 把默认模型设成 Opus 5.5</li><li>遇到特别难的任务，再临时切到 Fable 5.2</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>这是 Garry Tan 在 Claude Code 2.1.322 上测的，只有 52 个任务。他自己也说，任务太简单，Opus 已经能解大部分，所以分不出高下。</p><p>所以结论只是别无脑上最贵的模型。更难的任务上 Fable 5.2 可能还是更强，要自己试。</p><p>他还放出了开源的评测仓库，你不用看代码，知道有这个东西就行。</p></div></details>
-    <div class="signals"><strong>信号</strong> · Garry Tan 推文 154 赞 · 52 个 Claude Code 任务 · 成本 2.80 倍 · 开源评测仓库</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/garrytan/status/2121464508225053153" target="_blank" rel="noopener">Garry Tan 实测推文</a> · <a href="https://x.com/garrytan/status/2121463161069228382" target="_blank" rel="noopener">他的评测仓库</a></div>
+    <h2 class="display title">让 Claude 审查你自己的配置</h2>
+    <div class="pitch">Peter Yang 推荐两条命令，让 Fable 5.2 检查你的 Claude Code 设置并提出修改建议。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>新模型出来后，旧的提示词和 skill 可能已经不合适</li><li>它会审查 CLAUDE.md、skills 和命令，并给出修复建议</li><li>几分钟就能跑完，不用改任何代码</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 Claude Code 里运行 /doctor prompt-audit，看它提出的修改</li><li>再对最常用的 skill 运行 /claude-api prompt-audit [skill 名]</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>这是 Claude Code 里的自检命令，不是新产品。你的规则文件越多，越值得跑一遍。</p><p>注意：它只是提出建议，改之前先看一眼，别全部照单接受。</p></div></details>
+    <div class="signals"><strong>信号</strong> · Peter Yang 推文 440 赞 · 他自己也希望每次新模型发布后 Claude Code 能主动提示运行</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/petergyang/status/2121649295950762363" target="_blank" rel="noopener">Peter Yang 的推文</a></div>
 </article>
 
-<article id="item2" class="item item--fyi">
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">Lovable 应用泄露护照和私信</h2>
+    <div class="pitch">Lovable 做的应用被曝暴露护照信息和超过 20 万条私信。你自己 vibe code 的东西也该查一下。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>HN 当天近 900 分，讨论热烈</li><li>AI 一键做出的应用，权限设置常常没人检查</li><li>你做的小工具若放了薪酬等敏感数据，风险一样存在</li></ul></div>
+    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>回头检查自己做过的小工具：有没有放敏感数据、谁能打开</li><li>让 Claude Code 帮你审一遍访问权限</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>来源只有标题和 HN 数据，具体漏洞细节我没看到，先别下结论。</p><p>Lovable 是用对话生成网页应用的平台。教训是：生成的应用不等于安全的应用。</p></div></details>
+    <div class="signals"><strong>信号</strong> · HN 853 分 · 326 条评论</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN 首页讨论</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
-    <h2 class="display title">Peter Yang 的医疗记录整理 skill</h2>
-    <div class="pitch">把病历丢进网盘文件夹，让 ChatGPT 或 Claude 装上这个免费 skill，就能生成一页摘要并查临床试验。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>非开发者也能用，指给 AI 一个链接就装好</li><li>示范了 skill 怎么变成日常小工具</li></ul></div>
-    <div class="signals"><strong>信号</strong> · Peter Yang 推文 434 赞 · 免费 · 可 fork</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/petergyang/status/2121430386685395022" target="_blank" rel="noopener">Peter Yang 推文</a></div>
+    <h2 class="display title">Gemini 能连 Google Wallet 看花销</h2>
+    <div class="pitch">Gemini app 现在能读你的 Google Wallet，做花销图表、揪出悄悄涨价的订阅。</div>
+    <div class="lang"><h3>为什么重要</h3><ul><li>非开发者能直接用的个人理财功能</li><li>目前只对美国的 Gemini app 用户开放</li></ul></div>
+    <div class="signals"><strong>信号</strong> · Josh Woodward 推文 462 赞 · 美国用户先上线</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/joshwoodward/status/2121755282326102417" target="_blank" rel="noopener">Josh Woodward 的推文</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 2</span><div><span class="item-name">Gemini 4 定价</span> <span class="update">— Simon Willison 指出 Carbon 和 Argon 将在 12 月 1 日起从 $2/$10 涨到 $4/$20，要用先抓紧</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 3</span><div><span class="item-name">Gemini 4 Hydrogen</span> <span class="update">— Simon Willison：Carbon 和 Argon 12 月 1 日起涨一倍，Hydrogen 才显得便宜。</span></div></li><li><span class="days">Day 6</span><div><span class="item-name">Fable 5.2</span> <span class="update">— 今天只见 Peter Yang 的提示审查技巧，没有新发布。</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>llama.cpp / ggml v1.0.0</td><td>HN 293 分，本地模型基础库，对你没有直接入口</td></tr><tr><td>ChatGPT Wallet</td><td>OpenAI 只有链接，细节不足，先观望</td></tr><tr><td>Perplexity Decider v1.3</td><td>HN 134 分，决策模型已在前几天讲过，无新变化</td></tr><tr><td>Jonathan Blow：AI 解决了编码吗</td><td>HN 320 分，观点视频，没有可用工具</td></tr><tr><td>Stand with Jensen 联名信</td><td>高管风波，规则外</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>llama.cpp v1.0.0</td><td>Simon Willison 拿它配本地模型，但你仍没有直接入口</td></tr><tr><td>ChatGPT Wallet</td><td>OpenAI 只有链接，细节不足，先观望</td></tr><tr><td>Aside Browser</td><td>只有 Garry Tan 一句夸奖，缺少细节</td></tr><tr><td>Antigravity /teamwork</td><td>HN 204 分，偏科研工程场景，你用不上</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
 
-<div class="pager" data-current-date="2026-11-14"><a href="#" class="prev">← 前一天</a><span class="issue-num">№149 · 2026-11-14</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-15"><a href="#" class="prev">← 前一天</a><span class="issue-num">№150 · 2026-11-15</span><a href="#" class="next">后一天 →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-14';
+    const currentDate = '2026-11-15';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

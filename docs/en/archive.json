@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-15",
+      "weekday": "Sun",
+      "week": 46,
+      "issue": 149,
+      "kind": "daily",
+      "headline": "Give your Claude Code a checkup",
+      "summary": "Quiet Sunday. One Claude Code self-check trick, one new Gemini money feature, and one vibe coding faceplant.",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-11-15.html"
+    },
+    {
       "date": "2026-11-14",
       "weekday": "Sat",
       "week": 46,

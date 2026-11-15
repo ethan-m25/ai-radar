@@ -1,0 +1,102 @@
+{
+  "headline": "Give your Claude Code a checkup",
+  "summary": "Quiet Sunday. One Claude Code self-check trick, one new Gemini money feature, and one vibe coding faceplant.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Have Claude audit your own setup",
+      "pitch": "Peter Yang recommends two commands that get Fable 5.2 to check your Claude Code setup and suggest changes.",
+      "why": [
+        "After a new model drops, your old prompts and skills may not fit anymore",
+        "It reviews your CLAUDE.md, skills, and commands, then suggests fixes",
+        "Takes a few minutes and you don't have to change any code"
+      ],
+      "actions": [
+        "Run /doctor prompt-audit in Claude Code and see what changes it suggests",
+        "Then run /claude-api prompt-audit [skill name] on the skill you use most"
+      ],
+      "deep_dive": [
+        "This is a self-check command inside Claude Code, not a new product. The more rule files you have, the more it's worth running.",
+        "Heads up: it only suggests changes, so look them over before applying and don't just accept everything."
+      ],
+      "signals": "Peter Yang's tweet has 440 likes · He also wishes Claude Code would prompt you to run it after every new model release",
+      "links": [
+        {
+          "label": "Peter Yang's tweet",
+          "url": "https://x.com/petergyang/status/2121649295950762363"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Lovable apps leaked passports and DMs",
+      "pitch": "An app built with Lovable was reported to expose passport info and over 200,000 private messages. Worth checking whatever you've vibe coded too.",
+      "why": [
+        "Nearly 900 points on HN today, with lots of discussion",
+        "With apps made by AI in one click, nobody often checks the permission settings",
+        "If your little tools hold sensitive stuff like salary data, the same risk applies"
+      ],
+      "actions": [
+        "Go back and check the little tools you've built: do they hold sensitive data, and who can open them",
+        "Ask Claude Code to go over the access permissions for you"
+      ],
+      "deep_dive": [
+        "All I have is the headline and the HN numbers. I haven't seen the details of the actual vulnerability, so don't jump to conclusions yet.",
+        "Lovable is a platform that builds web apps from a chat. The lesson: an app that got generated isn't necessarily a safe app."
+      ],
+      "signals": "HN 853 points · 326 comments",
+      "links": [
+        {
+          "label": "HN front page discussion",
+          "url": "https://news.ycombinator.com/"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Gemini can connect to Google Wallet to see your spending",
+      "pitch": "The Gemini app can now read your Google Wallet, build spending charts, and catch subscriptions that quietly raised their prices.",
+      "why": [
+        "A personal finance feature that non-developers can use right away",
+        "For now it's only open to Gemini app users in the US"
+      ],
+      "signals": "Josh Woodward's tweet has 462 likes · Rolling out to US users first",
+      "links": [
+        {
+          "label": "Josh Woodward's tweet",
+          "url": "https://x.com/joshwoodward/status/2121755282326102417"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "Gemini 4 Hydrogen",
+      "update": "Simon Willison: Carbon and Argon prices double from December 1, which is the only reason Hydrogen looks cheap."
+    },
+    {
+      "day": 6,
+      "name": "Fable 5.2",
+      "update": "Today all we saw was Peter Yang's prompt audit trick, no new release."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "llama.cpp v1.0.0",
+      "reason": "Simon Willison uses it with local models, but you still have no direct way in"
+    },
+    {
+      "name": "ChatGPT Wallet",
+      "reason": "OpenAI only has a link and not enough detail, wait and see"
+    },
+    {
+      "name": "Aside Browser",
+      "reason": "Just one compliment from Garry Tan, not enough detail"
+    },
+    {
+      "name": "Antigravity /teamwork",
+      "reason": "HN 204 points, more of a research-engineering thing, not useful for you"
+    }
+  ]
+}

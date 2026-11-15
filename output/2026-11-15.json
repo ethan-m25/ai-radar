@@ -1,0 +1,102 @@
+{
+  "headline": "给 Claude Code 做个体检",
+  "summary": "周日安静。一个 Claude Code 自检技巧，一个 Gemini 理财新功能，一个 vibe coding 翻车案例。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "让 Claude 审查你自己的配置",
+      "pitch": "Peter Yang 推荐两条命令，让 Fable 5.2 检查你的 Claude Code 设置并提出修改建议。",
+      "why": [
+        "新模型出来后，旧的提示词和 skill 可能已经不合适",
+        "它会审查 CLAUDE.md、skills 和命令，并给出修复建议",
+        "几分钟就能跑完，不用改任何代码"
+      ],
+      "actions": [
+        "在 Claude Code 里运行 /doctor prompt-audit，看它提出的修改",
+        "再对最常用的 skill 运行 /claude-api prompt-audit [skill 名]"
+      ],
+      "deep_dive": [
+        "这是 Claude Code 里的自检命令，不是新产品。你的规则文件越多，越值得跑一遍。",
+        "注意：它只是提出建议，改之前先看一眼，别全部照单接受。"
+      ],
+      "signals": "Peter Yang 推文 440 赞 · 他自己也希望每次新模型发布后 Claude Code 能主动提示运行",
+      "links": [
+        {
+          "label": "Peter Yang 的推文",
+          "url": "https://x.com/petergyang/status/2121649295950762363"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "Lovable 应用泄露护照和私信",
+      "pitch": "Lovable 做的应用被曝暴露护照信息和超过 20 万条私信。你自己 vibe code 的东西也该查一下。",
+      "why": [
+        "HN 当天近 900 分，讨论热烈",
+        "AI 一键做出的应用，权限设置常常没人检查",
+        "你做的小工具若放了薪酬等敏感数据，风险一样存在"
+      ],
+      "actions": [
+        "回头检查自己做过的小工具：有没有放敏感数据、谁能打开",
+        "让 Claude Code 帮你审一遍访问权限"
+      ],
+      "deep_dive": [
+        "来源只有标题和 HN 数据，具体漏洞细节我没看到，先别下结论。",
+        "Lovable 是用对话生成网页应用的平台。教训是：生成的应用不等于安全的应用。"
+      ],
+      "signals": "HN 853 分 · 326 条评论",
+      "links": [
+        {
+          "label": "HN 首页讨论",
+          "url": "https://news.ycombinator.com/"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Gemini 能连 Google Wallet 看花销",
+      "pitch": "Gemini app 现在能读你的 Google Wallet，做花销图表、揪出悄悄涨价的订阅。",
+      "why": [
+        "非开发者能直接用的个人理财功能",
+        "目前只对美国的 Gemini app 用户开放"
+      ],
+      "signals": "Josh Woodward 推文 462 赞 · 美国用户先上线",
+      "links": [
+        {
+          "label": "Josh Woodward 的推文",
+          "url": "https://x.com/joshwoodward/status/2121755282326102417"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "Gemini 4 Hydrogen",
+      "update": "Simon Willison：Carbon 和 Argon 12 月 1 日起涨一倍，Hydrogen 才显得便宜。"
+    },
+    {
+      "day": 6,
+      "name": "Fable 5.2",
+      "update": "今天只见 Peter Yang 的提示审查技巧，没有新发布。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "llama.cpp v1.0.0",
+      "reason": "Simon Willison 拿它配本地模型，但你仍没有直接入口"
+    },
+    {
+      "name": "ChatGPT Wallet",
+      "reason": "OpenAI 只有链接，细节不足，先观望"
+    },
+    {
+      "name": "Aside Browser",
+      "reason": "只有 Garry Tan 一句夸奖，缺少细节"
+    },
+    {
+      "name": "Antigravity /teamwork",
+      "reason": "HN 204 分，偏科研工程场景，你用不上"
+    }
+  ]
+}

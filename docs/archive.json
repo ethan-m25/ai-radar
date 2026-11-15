@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-15",
+      "weekday": "Sun",
+      "week": 46,
+      "issue": 150,
+      "kind": "daily",
+      "headline": "给 Claude Code 做个体检",
+      "summary": "周日安静。一个 Claude Code 自检技巧，一个 Gemini 理财新功能，一个 vibe coding 翻车案例。",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-11-15.html"
+    },
+    {
       "date": "2026-11-14",
       "weekday": "Sat",
       "week": 46,
