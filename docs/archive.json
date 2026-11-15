@@ -6,6 +6,20 @@
       "date": "2026-11-15",
       "weekday": "Sun",
       "week": 46,
+      "kind": "weekly",
+      "headline": "(no headline)",
+      "summary": "",
+      "counts": {
+        "crit": 3,
+        "look": 11,
+        "fyi": 6
+      },
+      "url": "weekly_2026-11-15.html"
+    },
+    {
+      "date": "2026-11-15",
+      "weekday": "Sun",
+      "week": 46,
       "issue": 150,
       "kind": "daily",
       "headline": "给 Claude Code 做个体检",

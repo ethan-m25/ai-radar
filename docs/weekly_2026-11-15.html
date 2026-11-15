@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Radar — 每周总结 · Week 46 · 2026-11-15</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-serif: "Fraunces", Georgia, serif;
+            --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.2 0.02 90);
+            --text-secondary: oklch(0.45 0.02 90);
+            --border: 1px solid oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.18 250);
+            --accent-soft: oklch(0.65 0.12 250 / 0.15);
+            --crit: oklch(0.6 0.22 30);
+            --crit-bg: oklch(0.6 0.22 30 / 0.08);
+            --look: oklch(0.55 0.18 250);
+            --look-bg: oklch(0.55 0.18 250 / 0.08);
+            --fyi: oklch(0.5 0.1 160);
+            --fyi-bg: oklch(0.5 0.1 160 / 0.08);
+            --radius: 12px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+
+        .masthead {
+            border-bottom: 2px solid oklch(0.85 0.02 90);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .masthead .kicker {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .masthead h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin: 0.4rem 0 0.3rem;
+        }
+        .masthead .sub {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .cover {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .cover .one-liner-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .cover .one-liner {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .cover .stats-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid oklch(0.88 0.02 90);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+        .cover .stats-row span { background: oklch(0.95 0.01 90); padding: 0.2rem 0.7rem; border-radius: 999px; }
+        .stat-crit { color: var(--crit); font-weight: 600; }
+        .stat-look { color: var(--look); font-weight: 600; }
+        .stat-fyi { color: var(--fyi); font-weight: 600; }
+
+        .section-head {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid oklch(0.88 0.02 90);
+        }
+
+        .main-narrative {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .main-narrative p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .main-narrative p:last-child { margin-bottom: 0; }
+        .main-narrative .action-call {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            padding: 0.75rem 1.25rem;
+            background: oklch(0.96 0.02 90 / 0.3);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .trend-card {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .trend-card .trend-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .trend-card .trend-title .emoji { margin-right: 0.4rem; }
+        .trend-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .demote-card {
+            background: oklch(0.98 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .demote-card .demote-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: oklch(0.5 0.12 30);
+        }
+        .demote-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .watch-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .watch-list li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--surface);
+            border: var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .watch-list li strong { color: var(--text); }
+        .watch-list li .trigger { color: var(--text-secondary); font-size: 0.85rem; }
+
+        .calibration {
+            margin-top: 2.5rem;
+            padding: 1.25rem 1.5rem;
+            background: oklch(0.97 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+        }
+        .calibration .cal-item { text-align: center; }
+        .calibration .cal-item .num {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: block;
+            color: var(--text);
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid oklch(0.88 0.02 90);
+        }
+
+        @media (max-width: 600px) {
+            .masthead h1 { font-size: 1.8rem; }
+            .cover .one-liner { font-size: 1.25rem; }
+            .main-narrative { padding: 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header class="masthead">
+        <div class="kicker">AI Radar · 每周总结</div>
+        <h1>AI Radar</h1>
+        <div class="sub">2026-11-09 ~ 2026-11-15 · Week 46 · 第 150 期之周</div>
+    </header>
+
+    <section class="cover">
+        <div class="one-liner-label">📌 本周一句话总结</div>
+        <div class="one-liner">这周 Claude 从「聊天窗口」走进了你的会议室和表格，但最实在的一课是：别无脑上最贵的模型，也别无脑信 AI 做出来的应用。</div>
+        <div class="stats-row">
+            <span><span class="stat-crit">🚨 2 必看</span></span>
+            <span><span class="stat-look">👀 10 值得看</span></span>
+            <span><span class="stat-fyi">ℹ️ 6 知道就行</span></span>
+            <span>📡 幸存进 weekly：3 条主线</span>
+        </div>
+    </section>
+
+    <h2 class="section-head">🏆 本周最重要的 1 件事</h2>
+
+    <div class="main-narrative">
+        <p><strong>Claude 正在从「你去问它」变成「它坐在你的工作现场」。</strong>周三，Claude 把白板、表格和数据分析搬进对话，Data 能把指标直接做成看板甚至带旁白的视频（🚨）；周五，它又能作为参会者进入 Google Meet，边听边记，散会后笔记和待办留在 Claude 里（🚨）。两个本周仅有的 🚨，都指向同一个方向：工作的「载体」——表格、汇报、会议——开始被一个 AI 直接接管。</p>
+
+        <p>对你的意义很具体。薪酬分析最耗时间的，往往不是算数，而是把数字整理成汇报、把会议结论落成待办。这两个功能刚好压在这两个环节上。周日 Yogurt 这类开源会议笔记的差异化，在官方 Meetings 上线后被明显压缩，也是同一个信号：这类「单点工具」正在被大平台吞掉。</p>
+
+        <p>但本周另外几条消息给它泼了冷水，值得放在一起看：Gemini 被曝会把 Drive 文件转人工审阅（周二）、Lovable 应用泄露护照和 20 万条私信（周日）。AI 越深入你的工作现场，数据边界就越重要。对你这种每天碰薪酬数据的人，顺序应该是：先弄清数据去哪，再决定让它进多深。</p>
+
+        <div class="action-call">👉 如果你这周只做一件事：下一场非敏感的内部会议，让 Claude 进 Google Meet 试一次；同时问一句 IT：公司对这类会议 AI 的数据条款是什么。</div>
+    </div>
+
+    <h2 class="section-head">📈 趋势构建</h2>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">💰</span>模型不是越贵越好：默认便宜档，难题再升级</div>
+        <p>周二 Fable 5.2 登顶（🚨），周六 Garry Tan 用 52 个 Claude Code 任务实测：成绩约 82.7% 对 84.6%，Fable 每解一题却贵 2.8 倍。同一周，Gemini 4 Hydrogen 把免费档拉了一级，Meta Muse Ember 把便宜档压到更低，Gemini 4 Carbon/Argon 又宣布 12 月 1 日涨价一倍。方向很清楚：「旗舰够强，但日常活该交给便宜档」。对你的实际做法：Claude Code 默认设成 Opus 5.5，只在硬任务上临时切 Fable；趁涨价前把需要 Carbon 的任务试完。注意这只是 52 个偏简单任务的结果，别当定论。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">🧾</span>「决策模型」成为新品类</div>
+        <p>周四 Gemini 推出决策模型 API（专做是/否、打分这类判断，且能看视频和 PDF），smol.ai 称之为「决策模型日」，OpenAI 也有同类产品，周六 Perplexity 又出了 v1.3。三家同时入场，说明这不是一次性新闻。对薪酬工作的潜在用处是批量判断：这份文件合不合规、这条记录像不像异常。目前仍要走 API，需要让 agent 帮你写调用，门槛还没降到「点两下」，但值得下周继续看有没有现成入口。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">🛡️</span>数据边界：企业与 vibe coding 的共同课题</div>
+        <p>高盛收回 Claude Code（周一）、Gemini 把 Drive 文件转人工（周二）、Lovable 泄露护照和私信（周日），三条独立消息指向同一件事：AI 工具落地常败在合规、审计和权限，而不是能力。加上周日 Peter Yang 的「让 Claude 审查你自己的配置」，说明自检正在成为习惯。你做的小工具若放过薪酬类数据，现在就值得回头看一眼谁能打开它。</p>
+    </div>
+
+    <h2 class="section-head">💀 本周判断失误 / 过热</h2>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ 两个「本地大模型」：热度有，入口没有</div>
+        <p>周一把「284B DeepSeek 塞进 64G 内存」放进 👀，周五的 Edge0-145B 也被收录（ℹ️）。但两者都有同一个问题：要么速度大概率很慢、要么 145B 普通电脑扛不住，而我始终没能给出一个非开发者点两下就能用的入口。周六 llama.cpp v1.0.0 同样被挡在门外。结论：本周这条线应整体降级为「方向对、你暂时用不上」，不要因为 HN 分数高就误以为你的 Mac mini 马上能用。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ Yogurt 开源会议笔记：周四的 👀，周五就被官方压缩了</div>
+        <p>周四给 Yogurt 👀，理由是免费、主打隐私。次日 Claude 官方 Meetings 上线，开源方案的差异化立刻被压缩。这不算完全判错，隐私自托管仍有价值，但我低估了大平台一天内就能补上这块的速度。降为 ℹ️，除非你明确需要数据不出公司。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ 周二的 Fable 5.2 🚨：「必看」说重了一档</div>
+        <p>周二我把 Fable 5.2 登顶标成 🚨，并建议你「试一天」。周六的实测说明，对日常编程它相对 Opus 5.5 的提升有限，成本却贵 2.8 倍；max 档还会烧光 token 交不出东西。它依然是强模型，但对你的使用方式，应该是 👀 而不是 🚨。</p>
+    </div>
+
+    <h2 class="section-head">🔮 下周关注</h2>
+
+    <ul class="watch-list">
+        <li>
+            <strong>📅 Claude Meetings 会不会扩到 Zoom / Teams</strong><br>
+            <span class="trigger">触发信号：官方宣布支持更多会议平台，或出现非开发者的「我用它开了一周会」实测。你公司若主要用 Teams/Zoom，扩平台才是真正的升级点。⏳ 时间窗口：2-3 周。</span>
+        </li>
+        <li>
+            <strong>📊 Claude Data / Sheets 全量放开后的真实表现</strong><br>
+            <span class="trigger">触发信号：灰度结束、有人拿真实薪酬类表格做出看板的案例。周三只是官方宣布，我们还没有任何非官方实测，这是下周要补的空白。⏳ 时间窗口：1-2 周。</span>
+        </li>
+        <li>
+            <strong>💸 12 月 1 日 Gemini 4 涨价前后的动向</strong><br>
+            <span class="trigger">触发信号：Hydrogen 是否在实际任务上追近 Carbon，或有厂商跟进降价。若 Hydrogen 够用，涨价对你几乎无影响；若不够，趁 11 月底把需要的任务跑完。⏳ 时间窗口：2 周内。</span>
+        </li>
+    </ul>
+
+    <div class="calibration">
+        <div class="cal-item">
+            <span class="num">7</span>
+            日报份数
+        </div>
+        <div class="cal-item">
+            <span class="num">2 🚨</span>
+            必看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">10 👀</span>
+            值得看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">6 ℹ️</span>
+            知道就行信号
+        </div>
+        <div class="cal-item">
+            <span class="num">3</span>
+            本周降级
+        </div>
+        <div class="cal-item">
+            <span class="num">暂无估算</span>
+            领先中文圈
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>AI Radar · 每周总结 · 数据来源：Smol AI / HN / GitHub / X / 官方博客</p>
+        <p style="margin-top:0.5rem; opacity:0.7;"><a href="./archive.html">📚 全部存档</a> · <a href="./feed.xml">📡 RSS</a></p>
+    </footer>
+
+</div>
+</body>
+</html>

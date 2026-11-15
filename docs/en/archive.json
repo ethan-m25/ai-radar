@@ -6,6 +6,20 @@
       "date": "2026-11-15",
       "weekday": "Sun",
       "week": 46,
+      "kind": "weekly",
+      "headline": "Claude moved into your meetings and spreadsheets. The smart move was restraint.",
+      "summary": "20 signals this week. Claude stopped being a chat window and started sitting in your meeting room and your tables. But the useful lessons were about holding bac",
+      "counts": {
+        "crit": 3,
+        "look": 11,
+        "fyi": 6
+      },
+      "url": "weekly_2026-11-15.html"
+    },
+    {
+      "date": "2026-11-15",
+      "weekday": "Sun",
+      "week": 46,
       "issue": 149,
       "kind": "daily",
       "headline": "Give your Claude Code a checkup",
