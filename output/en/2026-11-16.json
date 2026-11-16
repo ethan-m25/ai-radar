@@ -1,0 +1,82 @@
+{
+  "headline": "Quiet Monday: Qwen4-Max hit the HN front page",
+  "summary": "Nothing big today, just one new model and two small updates.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Qwen4-Max is out, HN is talking about it",
+      "pitch": "Alibaba's Qwen4-Max made it to the top of HN with lots of comments. Take a quick look, but don't rush to switch tools.",
+      "why": [
+        "596 points and 250 comments on HN, the hottest AI thing today",
+        "Qwen is one of the open-source model families overseas developers use a lot",
+        "All we've seen so far is the title and the buzz, so the actual abilities aren't verified yet"
+      ],
+      "actions": [
+        "Open the official page and see if there's a way to chat with it and try it right away"
+      ],
+      "deep_dive": [
+        "Unlike the Claude and codex you use now, Qwen is a model from a different company. You don't need to change anything in your daily work for now.",
+        "The source only has the title and the buzz, with no pricing, benchmarks, or info on how it's offered. Don't make up your mind before you try it."
+      ],
+      "signals": "HN 596 points · 250 comments",
+      "links": [
+        {
+          "label": "Qwen4-Max official page",
+          "url": "https://qwen.ai"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Codex may have fixed the \"at capacity\" error",
+      "pitch": "Someone on the Codex team says that annoying \"model at capacity\" error might be fixed. If you use codex, give it another try.",
+      "why": [
+        "That error can interrupt your work",
+        "The poster is Thibault Sottiaux, a Codex team member"
+      ],
+      "signals": "Thibault Sottiaux 2500 likes · 84 reposts",
+      "links": [
+        {
+          "label": "Thibault's post",
+          "url": "https://x.com/thsottiaux/status/2122206990101536852"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "A skill that gets better the more you use it",
+      "pitch": "Dan Shipper says they built a skill that \"gets better every time you use it.\" He used it to write context summaries and got it to about 80% of what he likes.",
+      "why": [
+        "People who use skills may not have to keep tweaking them by hand",
+        "He used autoresearch (letting the AI try things over and over and fix itself) to iterate",
+        "For now it's just one tweet, with nothing you can install yet"
+      ],
+      "signals": "Dan Shipper 143 likes",
+      "links": [
+        {
+          "label": "Dan Shipper's post",
+          "url": "https://x.com/danshipper/status/2122091033001337134"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "uBlock Origin universal XSS vulnerability",
+      "reason": "414 points on HN, but not an AI story"
+    },
+    {
+      "name": "Microsoft 365 outage caused chlorine gas poisoning for hotel guests",
+      "reason": "570 points on HN, not an AI story"
+    },
+    {
+      "name": "Salesforce SOV-Transcribe-1 speech model",
+      "reason": "Claims to be the top open-source speech model, but there's no way for non-developers to use it directly"
+    },
+    {
+      "name": "Rauch's xeet post rendering tool",
+      "reason": "A small developer tool, not relevant to your work"
+    }
+  ]
+}

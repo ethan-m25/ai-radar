@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-16",
+      "weekday": "Mon",
+      "week": 47,
+      "issue": 151,
+      "kind": "daily",
+      "headline": "周一清淡：Qwen4-Max 上了 HN 热榜",
+      "summary": "今天没有大事，只有一个新模型和两条小更新。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 2
+      },
+      "url": "2026-11-16.html"
+    },
+    {
       "date": "2026-11-15",
       "weekday": "Sun",
       "week": 46,

@@ -1,0 +1,82 @@
+{
+  "headline": "周一清淡：Qwen4-Max 上了 HN 热榜",
+  "summary": "今天没有大事，只有一个新模型和两条小更新。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Qwen4-Max 发布，HN 热议",
+      "pitch": "阿里的 Qwen4-Max 登上 HN 前排，评论很多。先看一眼，别急着换工具。",
+      "why": [
+        "HN 596 分、250 条评论，今天 AI 里热度最高",
+        "Qwen 系列是国外开发者常用的开源模型阵营",
+        "目前只看到标题和热度，能力细节还没核实"
+      ],
+      "actions": [
+        "打开官方页面，看有没有能直接聊天试用的入口"
+      ],
+      "deep_dive": [
+        "和你现在用的 Claude、codex 不同，Qwen 是另一家的模型。你的日常工作暂时不用换。",
+        "来源里只有标题和热度，没有价格、跑分或开放方式。试用前先别下结论。"
+      ],
+      "signals": "HN 596 分 · 250 条评论",
+      "links": [
+        {
+          "label": "Qwen4-Max 官方页面",
+          "url": "https://qwen.ai"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Codex 可能修好了“容量已满”报错",
+      "pitch": "Codex 团队的人说，那个老出现的 model at capacity 报错可能修好了。你用 codex 的话，可以再试试。",
+      "why": [
+        "这个报错会打断你的工作",
+        "发帖的是 Codex 团队成员 Thibault Sottiaux"
+      ],
+      "signals": "Thibault Sottiaux 2500 赞 · 84 转发",
+      "links": [
+        {
+          "label": "Thibault 的帖子",
+          "url": "https://x.com/thsottiaux/status/2122206990101536852"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "会越用越好的 skill",
+      "pitch": "Dan Shipper 说他们做出了“每次用都会变好”的 skill。他用它写上下文摘要，做到了接近他口味的 80%。",
+      "why": [
+        "用 skill 的人以后可能不用手动反复调",
+        "他用了 autoresearch（让 AI 自己反复试、自己改）来迭代",
+        "目前只是一条推文，还没有可直接装的东西"
+      ],
+      "signals": "Dan Shipper 143 赞",
+      "links": [
+        {
+          "label": "Dan Shipper 的帖子",
+          "url": "https://x.com/danshipper/status/2122091033001337134"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "uBlock Origin 通用 XSS 漏洞",
+      "reason": "HN 414 分，但不是 AI 故事"
+    },
+    {
+      "name": "Microsoft 365 故障致酒店客人氯气中毒",
+      "reason": "HN 570 分，不是 AI 故事"
+    },
+    {
+      "name": "Salesforce SOV-Transcribe-1 语音模型",
+      "reason": "号称开源语音第一，但没有非开发者能直接用的入口"
+    },
+    {
+      "name": "Rauch 的 xeet 帖子渲染工具",
+      "reason": "开发者小工具，和你的工作无关"
+    }
+  ]
+}
