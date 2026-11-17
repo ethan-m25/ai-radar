@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-17",
+      "weekday": "Tue",
+      "week": 47,
+      "issue": 152,
+      "kind": "daily",
+      "headline": "今天风平浪静，只有几个小工具",
+      "summary": "没有大发布，挑了 3 个非开发者能直接用的小东西。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 2
+      },
+      "url": "2026-11-17.html"
+    },
+    {
       "date": "2026-11-16",
       "weekday": "Mon",
       "week": 47,

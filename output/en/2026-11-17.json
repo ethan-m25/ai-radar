@@ -1,0 +1,85 @@
+{
+  "headline": "Quiet day today, just a few small tools",
+  "summary": "No big launches. I picked 3 small things you can use right away even if you're not a developer.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Make Claude's designs look less like AI",
+      "pitch": "Peter Yang rounded up 5 takeaways from Nate Parrott on how to get Claude to make pages that don't look like a generic AI template. You can use them right away for report pages or internal tools.",
+      "why": [
+        "Start by giving Claude screenshots, pages you like, and your past work",
+        "For tricky layouts, have it look into how similar products do it first",
+        "No coding needed, you just change how you write your prompts"
+      ],
+      "actions": [
+        "Open the link and read all 5 tips, then next time you ask Claude to make a page, hand it some reference images first"
+      ],
+      "deep_dive": [
+        "This is a tips post, not a new tool. You can follow it with the Claude Code you're already using.",
+        "The source is secondhand, and only the first two of the 5 tips showed up in what I saw. You'll need to open the original post for the rest."
+      ],
+      "signals": "Peter Yang's post has 138 likes · retells Nate Parrott's method",
+      "links": [
+        {
+          "label": "Peter Yang's 5-tip summary",
+          "url": "https://x.com/petergyang/status/2122347721298510021"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Gemini Notebook turns your materials into interactive web pages",
+      "pitch": "Google's Josh Woodward showed a demo: drop your materials into Gemini Notebook and it makes an interactive website you can share.",
+      "why": [
+        "You don't need to know how to code, and it's easy to make and share",
+        "Handy for turning training materials or pay policies into clickable pages"
+      ],
+      "signals": "Josh Woodward's post has 294 likes · official demo, no third-party testing yet",
+      "links": [
+        {
+          "label": "Josh Woodward's demo",
+          "url": "https://x.com/joshwoodward/status/2122453269842886788"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Claude Code team on how they check results",
+      "pitch": "There's an article on claude.dev about how the Claude Code team makes sure what the AI writes is actually reliable. It just hit HN, so keep an eye on it.",
+      "why": [
+        "Quite a bit of discussion: 49 comments",
+        "Might help with how you check AI output"
+      ],
+      "signals": "HN 43 points · 49 comments · posted about 1 hour ago",
+      "links": [
+        {
+          "label": "HN front page",
+          "url": "https://news.ycombinator.com/"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "OpenCode Browse",
+      "reason": "HN 283 points, and you use OpenCode, but the source only has a title so it's unclear what it is"
+    },
+    {
+      "name": "Windows 11 collecting coding agent usage data",
+      "reason": "HN 635 points, more of a privacy topic, not a new tool"
+    },
+    {
+      "name": "Perplexity annual revenue tops $1 billion",
+      "reason": "It's revenue and funding news, no new features"
+    },
+    {
+      "name": "GBrain hosted team memory",
+      "reason": "Just one tweet from Garry Tan, not enough detail"
+    },
+    {
+      "name": "Google Labs acquires Howie",
+      "reason": "Acquisition news, no usable product yet"
+    }
+  ]
+}
