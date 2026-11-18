@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-18",
+      "weekday": "Wed",
+      "week": 47,
+      "issue": 153,
+      "kind": "daily",
+      "headline": "GPT-6.2 来了，口碑两极",
+      "summary": "OpenAI 发布 GPT-6.2 Astra 和 Sol，更便宜更快；Gemini 开始免费替你办事。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-18.html"
+    },
+    {
       "date": "2026-11-17",
       "weekday": "Tue",
       "week": 47,

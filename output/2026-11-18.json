@@ -1,0 +1,79 @@
+{
+  "headline": "GPT-6.2 来了，口碑两极",
+  "summary": "OpenAI 发布 GPT-6.2 Astra 和 Sol，更便宜更快；Gemini 开始免费替你办事。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "GPT-6.2 Astra 和 Sol 发布",
+      "pitch": "OpenAI 新旗舰 Astra 和日常款 Sol 上线了，更便宜、更省 token，但网上评价不一。",
+      "why": [
+        "Astra API 价格是上一代的 80%，缓存价更低",
+        "Sol 价格不变，Altman 说很省 token",
+        "Peter Yang 等人用着好，Theo 吐槽它爱问怪问题"
+      ],
+      "actions": [
+        "在 codex 里切到 gpt-6.2-sol，拿手头一个真实表格或报告任务试一遍",
+        "如果你是 Pro 200/500 档，试试 6.2 Sol ultrafast"
+      ],
+      "deep_dive": [
+        "和你常用的 Claude 比：Simon Willison 的测试里，它做 3D 动画不如 Claude Fable 5.2 和 Gemini 4 Carbon。Astra 的基准分也略低于 Fable 5.2。",
+        "OpenAI 员工说，早期评测视频是上周拍的，最近三四天又改了很多，所以网上口碑和实际体验有落差。",
+        "已知缺点：长任务中它会冒出你看不懂的内部细节问题，让你拍板。"
+      ],
+      "signals": "HN 1292 分 · 809 条评论 · Altman 7670 赞 · Simon Willison、Theo、Swyx、Dan Shipper 都已实测",
+      "links": [
+        {
+          "label": "OpenAI 官方发布",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+        },
+        {
+          "label": "Simon Willison 实测",
+          "url": "https://simonwillison.net/tags/ai"
+        },
+        {
+          "label": "Altman 推文",
+          "url": "https://x.com/sama/status/2122798039899263456"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Gemini 免费替你办事",
+      "pitch": "Gemini 现在能免费帮你处理琐碎待办，目前只开放六个国家。",
+      "why": [
+        "跑在 Gemini 4 Hydrogen 上，不额外收费",
+        "面向普通人，不用写代码"
+      ],
+      "signals": "Josh Woodward 推文 599 赞 · 来源里只有这一条，细节不足",
+      "links": [
+        {
+          "label": "Josh Woodward 推文",
+          "url": "https://x.com/joshwoodward/status/2122737427970425171"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [],
+  "skipped": [
+    {
+      "name": "MAI Code 2 和 Code 2 Flash",
+      "reason": "HN 378 分，但来源里只有标题，看不出能做什么"
+    },
+    {
+      "name": "ChatGPT for Sales",
+      "reason": "官方只有链接，没有细节，先观望"
+    },
+    {
+      "name": "Devin bots 多 agent 团队",
+      "reason": "Swyx 的预览介绍，偏开发者场景，你用不上"
+    },
+    {
+      "name": "Harvard：AI 编码让瓶颈转到代码审查",
+      "reason": "HN 209 分，是研究观点，没有可用工具"
+    },
+    {
+      "name": "Google AI 回答让搜索流量降 40%",
+      "reason": "HN 468 分，属行业趋势，不是新工具"
+    }
+  ]
+}
