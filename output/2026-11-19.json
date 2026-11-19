@@ -1,0 +1,77 @@
+{
+  "headline": "Gemini 4 又出新杯型：Neon",
+  "summary": "今天只有一件值得看：Google 发布 Gemini 4 Neon，价格有点乱。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini 4 Neon 发布",
+      "pitch": "Google 推出 Gemini 4 Neon，主打又快又便宜，还能听懂复杂指令。HN 讨论很热。",
+      "why": [
+        "Josh Woodward 称它指令跟随好、更快更便宜",
+        "HN 867 分、686 条评论，关注度很高",
+        "Simon Willison 实测：画图比 Hydrogen 好，比 Carbon 差"
+      ],
+      "actions": [
+        "在 Gemini app 里切到 Neon，拿一份你常做的薪酬分析任务试试",
+        "对比同一任务在 Claude 和 Gemini 上的结果"
+      ],
+      "deep_dive": [
+        "Gemini 4 现在有三档：Carbon、Neon、Hydrogen。Neon 夹在中间，定位是速度和成本的折中。",
+        "价格很乱：Neon 每百万 token 输入 $3、输出 $15。Carbon 现在半价，是 $2/$10，12 月 1 日起涨到 $4/$20。",
+        "Simon 说 Neon 让定价更混乱，所以别只看价格，先自己试。"
+      ],
+      "signals": "HN 867 分 · 686 评论 · Simon Willison 实测 · Josh Woodward 官宣",
+      "links": [
+        {
+          "label": "DeepMind 官方博客",
+          "url": "https://deepmind.google/blog"
+        },
+        {
+          "label": "Simon Willison 的评测",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "给 agent 套外部沙盒",
+      "pitch": "Simon Willison 做了一套“沙盒放外面”的方案，能让 Claude Code、Codex 更安全地跑代码。",
+      "why": [
+        "agent 的代码在隔离环境里跑，出错或被注入也伤不到你的电脑",
+        "可限制联网网址，密钥也不用直接给 agent"
+      ],
+      "signals": "Simon Willison 11 月 17 日发布 · 与 Prime Radiant 合作 · 三种沙盒实现",
+      "links": [
+        {
+          "label": "Simon Willison 博客",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "GPT-6.2 Astra / Sol",
+      "update": "口碑两极。Codex 的 Thibault 说最难的任务上它很强，也承认沟通风格有问题，团队在改。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Microsoft 七个新模型（含 MAI Code 2）",
+      "reason": "HN 从 378 涨到 552 分，但来源里仍只有标题，看不出能做什么"
+    },
+    {
+      "name": "Stitch Loop（Google Labs）",
+      "reason": "只有候补名单，面向精益产品团队，你暂时用不上"
+    },
+    {
+      "name": "Genie 4 / Project Genie",
+      "reason": "仅限 Google AI Ultra 订阅用户，和你的工作无关"
+    },
+    {
+      "name": "Anthropic 定价 IPO",
+      "reason": "融资与上市消息，不是新功能"
+    }
+  ]
+}

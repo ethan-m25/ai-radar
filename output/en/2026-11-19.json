@@ -1,0 +1,77 @@
+{
+  "headline": "Gemini 4 drops another flavor: Neon",
+  "summary": "Only one thing worth your time today: Google released Gemini 4 Neon, and the pricing is kind of a mess.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini 4 Neon is out",
+      "pitch": "Google launched Gemini 4 Neon. It's pitched as fast, cheap, and good at following tricky instructions. People on HN are talking about it a lot.",
+      "why": [
+        "Josh Woodward says it follows instructions well and is faster and cheaper",
+        "HN gave it 867 points and 686 comments, so lots of people are watching",
+        "Simon Willison tested it: its image drawing beats Hydrogen but loses to Carbon"
+      ],
+      "actions": [
+        "Switch to Neon in the Gemini app and try it on a pay analysis task you do often",
+        "Run the same task on Claude and Gemini and compare the results"
+      ],
+      "deep_dive": [
+        "Gemini 4 now comes in three tiers: Carbon, Neon, and Hydrogen. Neon sits in the middle, a trade-off between speed and cost.",
+        "The pricing is a mess: Neon costs $3 per million input tokens and $15 for output. Carbon is half price right now, at $2/$10, but goes up to $4/$20 starting December 1.",
+        "Simon says Neon makes the pricing even more confusing, so don't just go by price. Try it yourself first."
+      ],
+      "signals": "HN 867 points · 686 comments · Simon Willison's hands-on test · Announced by Josh Woodward",
+      "links": [
+        {
+          "label": "DeepMind official blog",
+          "url": "https://deepmind.google/blog"
+        },
+        {
+          "label": "Simon Willison's review",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Putting an agent in an outside sandbox",
+      "pitch": "Simon Willison built a \"sandbox on the outside\" setup that lets Claude Code and Codex run code more safely.",
+      "why": [
+        "The agent's code runs in an isolated environment, so if it screws up or gets prompt-injected, your computer is safe",
+        "You can limit which websites it can reach, and you don't have to hand your keys straight to the agent"
+      ],
+      "signals": "Posted by Simon Willison on November 17 · Built with Prime Radiant · Three sandbox implementations",
+      "links": [
+        {
+          "label": "Simon Willison's blog",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "GPT-6.2 Astra / Sol",
+      "update": "Opinions are split. Thibault from Codex says it's strong on the hardest tasks, and admits the communication style has problems, which the team is working on."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Microsoft's seven new models (including MAI Code 2)",
+      "reason": "HN went from 378 to 552 points, but the sources still only have a headline, so it's unclear what they can do"
+    },
+    {
+      "name": "Stitch Loop (Google Labs)",
+      "reason": "Waitlist only, and it's aimed at lean product teams, so you can't really use it yet"
+    },
+    {
+      "name": "Genie 4 / Project Genie",
+      "reason": "Only for Google AI Ultra subscribers, and it has nothing to do with your work"
+    },
+    {
+      "name": "Anthropic pricing IPO",
+      "reason": "It's funding and listing news, not a new feature"
+    }
+  ]
+}

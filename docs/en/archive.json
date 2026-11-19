@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-19",
+      "weekday": "Thu",
+      "week": 47,
+      "issue": 153,
+      "kind": "daily",
+      "headline": "Gemini 4 drops another flavor: Neon",
+      "summary": "Only one thing worth your time today: Google released Gemini 4 Neon, and the pricing is kind of a mess.",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-19.html"
+    },
+    {
       "date": "2026-11-18",
       "weekday": "Wed",
       "week": 47,

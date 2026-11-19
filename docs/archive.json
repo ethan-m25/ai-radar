@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-19",
+      "weekday": "Thu",
+      "week": 47,
+      "issue": 154,
+      "kind": "daily",
+      "headline": "Gemini 4 又出新杯型：Neon",
+      "summary": "今天只有一件值得看：Google 发布 Gemini 4 Neon，价格有点乱。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-19.html"
+    },
+    {
       "date": "2026-11-18",
       "weekday": "Wed",
       "week": 47,
