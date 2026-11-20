@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-20",
+      "weekday": "Fri",
+      "week": 47,
+      "issue": 154,
+      "kind": "daily",
+      "headline": "Gemini is coming to your Mac to do stuff for you",
+      "summary": "Only one thing worth a look today: the Gemini Mac app can now work your computer for you.",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-20.html"
+    },
+    {
       "date": "2026-11-19",
       "weekday": "Thu",
       "week": 47,

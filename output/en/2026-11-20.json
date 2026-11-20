@@ -1,0 +1,72 @@
+{
+  "headline": "Gemini is coming to your Mac to do stuff for you",
+  "summary": "Only one thing worth a look today: the Gemini Mac app can now work your computer for you.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini Mac app can control your computer",
+      "pitch": "Google's Josh Woodward announced that the Gemini Mac app can now do tasks right on your computer, and said it was the most requested feature.",
+      "why": [
+        "No coding needed, so non-developers can get AI to click the mouse for them",
+        "Repetitive work tasks might get handed straight to it",
+        "It goes head to head with Claude's and Codex's computer-control features"
+      ],
+      "actions": [
+        "Update or download the Gemini Mac app and look for the new task feature",
+        "Try it on small stuff without sensitive data first, like organizing files"
+      ],
+      "deep_dive": [
+        "The only source is this one tweet, with no details. It's still unclear what tasks it can do, whether it's free or paid, or if it needs a specific subscription.",
+        "Before installing it on a work computer, check that your IT policy lets AI control the screen. Keep it away from salary data."
+      ],
+      "signals": "Josh Woodward tweet 876 likes · 35 retweets · just one tweet, not enough detail",
+      "links": [
+        {
+          "label": "Josh Woodward's tweet",
+          "url": "https://x.com/joshwoodward/status/2123534862569324703"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Big ChatGPT mobile redesign",
+      "pitch": "Thibault Sottiaux from the Codex team says they're building a new ChatGPT mobile interface, starting with some Pro users.",
+      "why": [
+        "You can pin Codex, Projects, and Images to the bottom bar",
+        "You can turn it on or off anytime, no forced switch"
+      ],
+      "signals": "Thibault Sottiaux tweet 5244 likes · 276 retweets · another one mentions 1.2 billion users",
+      "links": [
+        {
+          "label": "Thibault Sottiaux's tweet",
+          "url": "https://x.com/thsottiaux/status/2123557171321561133"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Gemini 4 Neon",
+      "update": "After comparing it with Opus 5.5, Peter Yang said he'll use Neon for 99% of his tasks, and that its writing and personality hold up fine. Simon Willison complained that the pricing is confusing, and Neon is the priciest right now."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Claude solves two open problems in black hole physics",
+      "reason": "512 points on HN, but it's a research result with no tool you can use"
+    },
+    {
+      "name": "Vercel Board (a headless Slack for agents)",
+      "reason": "Just a few tweets from Rauch, more developer infrastructure"
+    },
+    {
+      "name": "Replit builds a personal agent from one sentence",
+      "reason": "Amjad Masad posted just one tweet, not enough detail"
+    },
+    {
+      "name": "Frostbite: an AI-designed CPU architecture",
+      "reason": "148 points on HN, hardware research, nothing to do with your work"
+    }
+  ]
+}

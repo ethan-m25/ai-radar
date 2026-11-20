@@ -1,0 +1,72 @@
+{
+  "headline": "Gemini 要上你的 Mac 干活了",
+  "summary": "今天只有一件值得看：Gemini Mac 版能直接替你操作电脑。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Gemini Mac 版可直接操作电脑",
+      "pitch": "Google 的 Josh Woodward 宣布 Gemini Mac 应用能在你的电脑上直接做任务，还说这是呼声最高的需求。",
+      "why": [
+        "不用写代码，非开发者也能让 AI 替你点鼠标",
+        "办公里的重复操作可能直接交给它",
+        "和 Claude、Codex 的电脑操作能力正面竞争"
+      ],
+      "actions": [
+        "更新或下载 Gemini Mac 应用，找找新的任务功能",
+        "先拿不涉及敏感数据的小事试，比如整理文件"
+      ],
+      "deep_dive": [
+        "来源里只有这一条推文，没有细节。能做哪些任务、免费还是付费、是否需要特定订阅，都还不清楚。",
+        "公司电脑上装之前，先确认 IT 政策允许 AI 控制屏幕。薪酬数据别让它碰。"
+      ],
+      "signals": "Josh Woodward 推文 876 赞 · 35 转 · 只有一条推文，细节不足",
+      "links": [
+        {
+          "label": "Josh Woodward 的推文",
+          "url": "https://x.com/joshwoodward/status/2123534862569324703"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "ChatGPT 手机端大改版",
+      "pitch": "Codex 团队的 Thibault Sottiaux 说在做 ChatGPT 手机新界面，先给部分 Pro 用户。",
+      "why": [
+        "可以把 Codex、Projects、Images 固定到底部栏",
+        "可随时开关，不强制切换"
+      ],
+      "signals": "Thibault Sottiaux 推文 5244 赞 · 276 转 · 另一条提到 12 亿用户",
+      "links": [
+        {
+          "label": "Thibault Sottiaux 的推文",
+          "url": "https://x.com/thsottiaux/status/2123557171321561133"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 2,
+      "name": "Gemini 4 Neon",
+      "update": "Peter Yang 对比 Opus 5.5 后说他 99% 的任务会用 Neon，写作和个性不输。Simon Willison 吐槽定价混乱，Neon 目前最贵。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Claude 解决黑洞物理两个开放问题",
+      "reason": "HN 512 分，但属于科研成果，没有你能用的工具"
+    },
+    {
+      "name": "Vercel Board（agent 的无头 Slack）",
+      "reason": "只有 Rauch 的几条推文，偏开发者基建"
+    },
+    {
+      "name": "Replit 一句话做个人 agent",
+      "reason": "Amjad Masad 只有一条推文，细节不足"
+    },
+    {
+      "name": "Frostbite：AI 设计的 CPU 架构",
+      "reason": "HN 148 分，硬件研究，和你的工作无关"
+    }
+  ]
+}
