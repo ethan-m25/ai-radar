@@ -1,0 +1,96 @@
+{
+  "headline": "今天没大事，别刷了",
+  "summary": "今天主要是数学证明和 Inkling 2 Mini，没有新的办公工具值得追。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Inkling 2 Mini：能在本机跑的新模型",
+      "pitch": "Thinking Machines 发布 26B 小模型，HN 1062 分。想试本地模型的话，这周末可以看一眼。",
+      "why": [
+        "HN 1062 分，讨论很热",
+        "26B 参数，普通高配电脑有机会跑",
+        "已有 GGUF 版（本地常用格式），Unsloth 下载 23.8 万次"
+      ],
+      "actions": [
+        "看 Hugging Face 上 thinkingmachines/Inkling-2-Mini 的页面",
+        "想本地试，可找 unsloth/Inkling-2-Mini-GGUF"
+      ],
+      "deep_dive": [
+        "和 Claude Code、codex 不同，它是开放权重模型，可以自己下载，不用联网调用。",
+        "来源里只有标题和下载数据，看不出具体能力。你的办公工作用云端模型更省事，本地跑主要是好玩和保护隐私。"
+      ],
+      "signals": "HN 1062 分 · 200 评论 · HF 趋势榜第 1 · Unsloth GGUF 下载 23.8 万",
+      "links": [
+        {
+          "label": "HN 讨论的原文（thinkingmachines.ai）",
+          "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+        },
+        {
+          "label": "GGUF 版本",
+          "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Codex 桌面版更新，更快更简洁",
+      "pitch": "Codex 团队的 Thibault Sottiaux 说桌面 app 新版更快、更简单，建议升级。",
+      "why": [
+        "推文 2743 赞",
+        "你日常在用 codex，升级成本几乎为零"
+      ],
+      "signals": "Thibault Sottiaux 推文 2743 赞 · 33 转",
+      "links": [
+        {
+          "label": "Thibault 的推文",
+          "url": "https://x.com/thsottiaux/status/2123861214644347122"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Antigravity 手机遥控 Neon",
+      "pitch": "Peter Yang 教了个小技巧：把 Antigravity 网页加到手机主屏，就能远程操控电脑上的线程。",
+      "why": [
+        "不用装 app，几步就能设置",
+        "他觉得比 Claude 的遥控更好用，因为所有线程都在"
+      ],
+      "signals": "Peter Yang 推文 159 赞",
+      "links": [
+        {
+          "label": "Peter Yang 的推文",
+          "url": "https://x.com/petergyang/status/2123879309463228445"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "Claude 参与证明黎曼猜想",
+      "update": "Alpöge 称与 Claude 合作证明；HN 前两名都是它，但没有你能用的工具。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "黎曼猜想证明（Alpöge / Masullo）",
+      "reason": "HN 2686 分，但是纯数学成果，不是工具"
+    },
+    {
+      "name": "Anthropic IPO 完成",
+      "reason": "融资上市消息，规则外"
+    },
+    {
+      "name": "语言模型能改写自己的权重",
+      "reason": "HN 426 分，纯研究"
+    },
+    {
+      "name": "DreamCoder 编码 IDE",
+      "reason": "HN 230 分，偏开发者，来源细节少"
+    },
+    {
+      "name": "Harness adapters（Hugging Face）",
+      "reason": "偏模型训练，面向开发者"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "headline": "Nothing big today, skip the scroll",
+  "summary": "Today's mostly a math proof and Inkling 2 Mini. No new work tools worth chasing.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Inkling 2 Mini: a new model you can run on your own machine",
+      "pitch": "Thinking Machines put out a 26B small model and it got 1062 points on HN. If you want to try a local model, it's worth a look this weekend.",
+      "why": [
+        "1062 points on HN, lots of buzz",
+        "26B parameters, a good high-end PC might be able to run it",
+        "There's already a GGUF version (a common format for local models), with 238K downloads from Unsloth"
+      ],
+      "actions": [
+        "Check out the thinkingmachines/Inkling-2-Mini page on Hugging Face",
+        "If you want to try it locally, look for unsloth/Inkling-2-Mini-GGUF"
+      ],
+      "deep_dive": [
+        "Unlike Claude Code or codex, it's an open-weights model, so you can download it yourself and run it without calling an online service.",
+        "The sources only give a title and download numbers, so there's no way to tell what it can actually do. For your office work, a cloud model is easier. Running it locally is mostly for fun and privacy."
+      ],
+      "signals": "HN 1062 points · 200 comments · #1 on HF trending · Unsloth GGUF 238K downloads",
+      "links": [
+        {
+          "label": "Original post HN is discussing (thinkingmachines.ai)",
+          "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+        },
+        {
+          "label": "GGUF version",
+          "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Codex desktop update: faster and simpler",
+      "pitch": "Thibault Sottiaux from the Codex team says the new desktop app is faster and simpler, and recommends updating.",
+      "why": [
+        "2743 likes on the tweet",
+        "You use codex every day, so updating costs you almost nothing"
+      ],
+      "signals": "Thibault Sottiaux tweet 2743 likes · 33 retweets",
+      "links": [
+        {
+          "label": "Thibault's tweet",
+          "url": "https://x.com/thsottiaux/status/2123861214644347122"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Control Antigravity from your phone with Neon",
+      "pitch": "Peter Yang shared a small trick: add the Antigravity web page to your phone's home screen and you can remotely control the threads on your computer.",
+      "why": [
+        "No app to install, only takes a few steps to set up",
+        "He thinks it works better than Claude's remote control, because all your threads are there"
+      ],
+      "signals": "Peter Yang tweet 159 likes",
+      "links": [
+        {
+          "label": "Peter Yang's tweet",
+          "url": "https://x.com/petergyang/status/2123879309463228445"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "Claude helped prove the Riemann Hypothesis",
+      "update": "Alpöge says he proved it working with Claude. The top two HN spots are both about this, but there's no tool here you can use."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Riemann Hypothesis proof (Alpöge / Masullo)",
+      "reason": "2686 points on HN, but it's pure math, not a tool"
+    },
+    {
+      "name": "Anthropic IPO completed",
+      "reason": "Funding and listing news, outside the rules"
+    },
+    {
+      "name": "Language models can rewrite their own weights",
+      "reason": "426 points on HN, pure research"
+    },
+    {
+      "name": "DreamCoder coding IDE",
+      "reason": "230 points on HN, aimed at developers, few details in the source"
+    },
+    {
+      "name": "Harness adapters (Hugging Face)",
+      "reason": "About model training, aimed at developers"
+    }
+  ]
+}
