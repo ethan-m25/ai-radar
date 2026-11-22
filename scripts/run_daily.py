@@ -33,6 +33,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import explain  # noqa: E402
 import llm  # noqa: E402
 import render  # noqa: E402
 
@@ -896,6 +897,34 @@ Return ONLY the JSON object.
 {json.dumps(data, ensure_ascii=False)}"""
 
 
+TIER_EMOJI = {"crit": "🚨", "look": "👀", "fyi": "ℹ️"}
+
+
+def clip(text: str, cap: int) -> str:
+    """Shorten to whole sentences within cap; ellipsis only when no sentence fits."""
+    text = str(text).strip()
+    if len(text) <= cap:
+        return text
+    cut = max(text.rfind(p, 0, cap) for p in "。！？；")
+    return text[:cut + 1] if cut > 0 else text[:cap - 1] + "…"
+
+
+def item_brief_lines(items: list[dict], what_cap: int = 220) -> list[str]:
+    """Title + 是什么 + 意味着 for each item — the reader should learn the news from Discord alone."""
+    lines: list[str] = []
+    for item in items:
+        lines.append(f"{TIER_EMOJI[render.tier_of(item)]} **{item.get('title', '')}**")
+        what = str(item.get("what") or item.get("pitch") or "").strip()
+        if what:
+            lines.append(f"> 是什么：{clip(what, what_cap)}")
+        if item.get("meaning"):
+            lines.append(f"> 意味着：{clip(item['meaning'], 120)}")
+        if item.get("actions"):
+            lines.append(f"> 怎么用：{clip(item['actions'][0], 120)}")
+        lines.append("")
+    return lines
+
+
 def discord_summary(data: dict, today: str, week: int, issue_num: int, url: str,
                     backend: str, warnings: list[str]) -> str:
     counts = render.counts_of(data)
@@ -905,13 +934,13 @@ def discord_summary(data: dict, today: str, week: int, issue_num: int, url: str,
     lines = [f"🛰️ **AI Radar · {today} · Wk {week} · №{issue_num:03d}**",
              " · ".join(tiers) or "今天没有真信号", "",
              f"**{data.get('headline', '')}**", ""]
-    emoji = {"crit": "🚨", "look": "👀", "fyi": "ℹ️"}
-    for item in data.get("items", [])[:render.MAX_ITEMS]:
-        lines.append(f"{emoji[render.tier_of(item)]} **{item.get('title', '')}** — {item.get('pitch', '')}")
-    lines += ["", f"📖 {url}", f"_model: {backend}_"]
+    lines += item_brief_lines(data.get("items", [])[:render.MAX_ITEMS])
+    footer = [f"📖 {url}", f"_model: {backend}_"]
     if warnings:
-        lines.append("⚠️ " + "；".join(warnings)[:300])
-    return "\n".join(lines)[:1900]
+        footer.append("⚠️ " + "；".join(warnings)[:200])
+    footer_text = "\n".join(footer)
+    body = "\n".join(lines)[:1990 - len(footer_text)]  # Discord cap is 2000; never cut the link
+    return body + "\n" + footer_text
 
 
 def alert_discord(secrets: dict | None, today: str, error: str) -> None:
@@ -1018,6 +1047,8 @@ def main():
     log("Generating Chinese digest (JSON)...")
     prompt = build_daily_prompt(today, weekday, iso_week, issue_num, sources, history_text, backfill)
     zh_data, backend, backend_failures = generate_json(prompt, secrets)
+    zh_data, explain_warnings = explain.explain(zh_data, secrets=secrets, log=log)
+    backend_failures += explain_warnings
     datasets = {"zh": zh_data}
     if "en" in langs:
         log("Translating to English...")

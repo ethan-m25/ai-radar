@@ -31,9 +31,11 @@ LABELS = {
         "count": {"crit": "必看", "look": "值得看", "fyi": "知道就行"},
         "toc": "📋 今日目录",
         "why": "为什么重要",
-        "actions": "🎯 你可以做",
+        "what": "它是什么",
+        "meaning": "意味着什么",
+        "actions": "🎯 怎么用",
         "deep": "🔬 深扒（点开看）",
-        "signals": "信号",
+        "signals": "热度",
         "links": "链接",
         "tracking": "📈 持续追踪",
         "skipped": "📊 今天没选进来的（点开看）",
@@ -49,9 +51,11 @@ LABELS = {
         "count": {"crit": "must see", "look": "worth a look", "fyi": "FYI"},
         "toc": "📋 Today",
         "why": "Why it matters",
-        "actions": "🎯 What you can do",
+        "what": "What it is",
+        "meaning": "What it means",
+        "actions": "🎯 How to use it",
         "deep": "🔬 Deep dive (tap to open)",
-        "signals": "Signals",
+        "signals": "Buzz",
         "links": "Links",
         "tracking": "📈 Still tracking",
         "skipped": "📊 Didn't make the cut (tap to open)",
@@ -89,7 +93,10 @@ PAGER_JS = """
 
 EXTRA_CSS = """
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 """
 
 
@@ -132,16 +139,21 @@ def render_item(idx: int, item: dict, L: dict) -> str:
         f'<article id="item{idx}" class="item item--{tier}">',
         f'    <div class="tier-label">{L["tier"][tier]}</div>',
         f'    <h2 class="display title">{esc(item.get("title"))}</h2>',
-        f'    <div class="pitch">{esc(item.get("pitch"))}</div>',
     ]
-    why = _list(item.get("why", []), MAX_WHY)
-    if why:
-        parts.append(f'    <div class="lang"><h3>{L["why"]}</h3>{why}</div>')
+    if item.get("what"):
+        parts.append(f'    <div class="explain"><h3>{L["what"]}</h3><p>{esc(item["what"])}</p></div>')
+        if item.get("meaning"):
+            parts.append(f'    <div class="explain"><h3>{L["meaning"]}</h3><p>{esc(item["meaning"])}</p></div>')
+    else:  # issues written before 2026-11-22 used pitch + why
+        parts.append(f'    <div class="pitch">{esc(item.get("pitch"))}</div>')
+        why = _list(item.get("why", []), MAX_WHY)
+        if why:
+            parts.append(f'    <div class="lang"><h3>{L["why"]}</h3>{why}</div>')
     actions = _list(item.get("actions", []), MAX_ACTIONS, "ol")
-    if actions and tier != "fyi":
+    if actions:
         parts.append(f'    <div class="action-block"><h3>{L["actions"]}</h3>{actions}</div>')
     deep = [d for d in item.get("deep_dive", [])[:MAX_DEEP] if str(d).strip()]
-    if deep and tier != "fyi":
+    if deep:
         paras = "".join(f"<p>{esc(d)}</p>" for d in deep)
         parts.append(f'    <details class="deep-dive"><summary>{L["deep"]}</summary><div class="dd-content">{paras}</div></details>')
     if item.get("signals"):

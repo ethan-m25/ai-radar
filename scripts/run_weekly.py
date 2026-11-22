@@ -25,6 +25,7 @@ from run_daily import (
     discord_post,
     extract_html,
     git_push,
+    item_brief_lines,
     load_secrets,
     log,
     normalize_langs,
@@ -141,6 +142,19 @@ Rules:
 - The archive link should be ./archive.html.
 - Output only complete HTML.
 """
+
+
+def week_brief(today: str) -> list[str]:
+    """Title + 是什么 for the week's must-see / worth-a-look items, newest first."""
+    items = []
+    for i in range(7):
+        date = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=i)).strftime("%Y-%m-%d")
+        path = OUTPUT_RAW_DIR / f"{date}.json"
+        if path.exists():
+            items += [it for it in json.loads(path.read_text()).get("items", [])
+                      if it.get("tier") in ("crit", "look")]
+    return [line for line in item_brief_lines(items, what_cap=170)
+            if not line.startswith(("> 意味着", "> 怎么用"))]
 
 
 def weekly_counts(daily_inputs: list[tuple[str, Path, str]]) -> dict:
@@ -268,17 +282,12 @@ def main() -> None:
         primary = results.get("zh", next(iter(results.values())))
         zh_url = GITHUB_PAGES_URL + primary["out_html"].name if "zh" in results else ""
         en_url = LANGS["en"]["base_url"] + results["en"]["out_html"].name if "en" in results else ""
-        msg = f"""📅 **AI Radar — Week {iso_week} Wrap**
-
-**{primary['headline']}**
-{primary['lead']}
-
-ZH: {zh_url}
-EN: {en_url}
-
-📎 weekly .html attached"""
+        head = f"📅 **AI Radar — Week {iso_week} Wrap**\n\n**{primary['headline']}**\n{primary['lead']}\n\n**本周值得知道的事：**\n"
+        footer = f"\nZH: {zh_url}\nEN: {en_url}\n📎 weekly .html attached"
+        brief = "\n".join(week_brief(today))[:1990 - len(head) - len(footer)]
+        msg = head + brief + footer
         try:
-            discord_post(secrets, msg[:1900], primary["out_html"])
+            discord_post(secrets, msg, primary["out_html"])
         except Exception as e:
             log(f"❌ Discord post failed: {e}")
 

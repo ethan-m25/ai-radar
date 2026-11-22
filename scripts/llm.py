@@ -82,11 +82,14 @@ def _opencode(model: str, prompt: str) -> str:
     return "".join(texts)
 
 
-def _claude(model: str, prompt: str) -> str:
+def _claude(model: str, prompt: str, web: bool = False) -> str:
     # disableAllHooks: the user's SessionStart/End hooks post to Discord; a headless
     # pipeline call must not announce itself there (they spammed hourly on 10-31/11-01).
-    out = _run([CLAUDE_BIN, "-p", "--model", model, "--output-format", "json",
-                "--settings", '{"disableAllHooks": true}'], prompt)
+    cmd = [CLAUDE_BIN, "-p", "--model", model, "--output-format", "json",
+           "--settings", '{"disableAllHooks": true}']
+    if web:  # explainer pass: let it look the story up instead of guessing
+        cmd += ["--allowedTools", "WebSearch", "WebFetch"]
+    out = _run(cmd, prompt)
     try:
         data = json.loads(out)
     except json.JSONDecodeError as e:
@@ -125,17 +128,21 @@ def _openrouter(model: str, prompt: str, api_key: str) -> str:
     return data["choices"][0]["message"]["content"]
 
 
-def complete(prompt: str, *, secrets: dict, log) -> tuple[str, str, list[str]]:
-    """Return (text, backend label used, failures from earlier backends)."""
+def complete(prompt: str, *, secrets: dict, log, chain: list[tuple[str, str]] | None = None,
+             web: bool = False) -> tuple[str, str, list[str]]:
+    """Return (text, backend label used, failures from earlier backends).
+
+    chain overrides AIRADAR_BACKENDS; web=True grants web search to backends that support it (claude).
+    """
     failures: list[str] = []
-    for kind, model in backends():
+    for kind, model in (chain or backends()):
         label = f"{kind}:{model}"
         log(f"  → {label} — sending {len(prompt)} chars...")
         try:
             if kind == "opencode":
                 text = _opencode(model, prompt)
             elif kind == "claude":
-                text = _claude(model, prompt)
+                text = _claude(model, prompt, web=web)
             elif kind == "openrouter":
                 text = _openrouter(model, prompt, secrets.get("OPENROUTER_API_KEY", ""))
             else:

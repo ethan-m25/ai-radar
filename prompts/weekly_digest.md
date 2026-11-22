@@ -59,6 +59,10 @@ You are clawii's AI tech-savvy friend writing the **weekly wrap**. Daily digests
 
 ---
 
+## Explain every item (MOST IMPORTANT)
+
+The reader may have missed every daily issue. Every story you mention — the #1 thing, each trend, each demoted call, each watch-list entry — must first say in 1-2 plain sentences WHAT the thing is and what it does (use the daily issues' "它是什么 / 意味着什么" sections), and only then why it matters. Never write "X 很火 / 热度高" without saying what X is. Popularity numbers are supporting evidence only, kept to one short line.
+
 ## The "what survived" filter
 
 A weekly highlight item must hit at least ONE of:

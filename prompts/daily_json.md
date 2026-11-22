@@ -33,15 +33,16 @@ Lawsuits, policy, safety debates, board drama · funding without a usable ship �
 ## Carry-over rules (use the PAST 7 DAYS section)
 
 - **Rule A:** re-check previously skipped candidates. If their signal grew materially today, promote them.
-- **Rule B:** previously featured items may NOT take a top slot again unless a trigger happened (metric ~2x, new major endorser, official ship/major release, open-sourced, rumor confirmed). If re-featured, start the pitch with "更新：" and name the trigger. Otherwise, if still developing, put it in `still_tracking`. Drop it after 3 days with no movement.
+- **Rule B:** previously featured items may NOT take a top slot again unless a trigger happened (metric ~2x, new major endorser, official ship/major release, open-sourced, rumor confirmed). If re-featured, start `what` with "更新：" and name the trigger. Otherwise, if still developing, put it in `still_tracking`. Drop it after 3 days with no movement.
 
 ## Brevity rules (IMPORTANT — the reader wants clear and short, not exhaustive)
 
 - 1-3 items. Max 3. Never pad. A day with 1 strong item is better than 3 weak ones. 0 items is allowed if truly nothing qualifies.
-- `pitch`: 1-2 short sentences, friend tone, ≤ 70 Chinese characters.
-- `why`: 2-3 bullets, each ≤ 40 Chinese characters, concrete impact, no abstractions.
-- `actions`: 1-2 concrete things clawii can do today (install command, link to try, setting to change). Omit for `fyi`.
-- `deep_dive`: 0-3 short paragraphs, each ≤ 80 Chinese characters: how it differs from what clawii already uses, what it runs on, how hard to try, honest caveat. Omit for `fyi`.
+- **Each item must EXPLAIN ITSELF.** The reader has never heard of the story. After reading the item he must understand what the thing is and what it means — not just that it is popular. Popularity goes ONLY in `signals`.
+- `what` (它是什么): 2-4 plain sentences, ≤ 150 Chinese characters. What is it concretely, what does it do, for whom? Name specifics. No likes/HN points/"引发热议" here.
+- `meaning` (意味着什么): 1-2 sentences, ≤ 80 Chinese characters. What changes because of it, for AI users and for clawii. "对你影响不大" is allowed.
+- `actions` (怎么用): 0-2 concrete steps clawii can do (where to find it, what to click/type, who can access it). Empty list if nothing to try.
+- `deep_dive`: 0-3 short paragraphs, each ≤ 80 Chinese characters: how it compares with what clawii already uses, limits, honest caveats. Optional.
 - `signals`: ONE line with real numbers from the sources (e.g. "HN 728 分 · Simon Willison 实测 · GitHub 7 天 +3.2k"). 
 - `links`: 1-3 real URLs that appear in the sources.
 - `still_tracking`: max 3. `skipped`: max 5 most notable near-misses only (no non-AI filler).
@@ -59,13 +60,13 @@ Write all user-facing text in Simplified Chinese (keep product names, people's n
 ```
 {
   "headline": "short opinionated cover line, ≤ 30 Chinese characters",
-  "summary": "one-line summary of today, ≤ 60 Chinese characters",
+  "summary": "one-line summary of today that says WHAT happened (not just that it is hot), ≤ 60 Chinese characters",
   "items": [
     {
       "tier": "crit" | "look" | "fyi",
       "title": "plain title, ≤ 30 Chinese characters",
-      "pitch": "...",
-      "why": ["...", "..."],
+      "what": "...",
+      "meaning": "...",
       "actions": ["..."],
       "deep_dive": ["...", "..."],
       "signals": "...",
