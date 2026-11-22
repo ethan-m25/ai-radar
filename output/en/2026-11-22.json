@@ -1,0 +1,56 @@
+{
+  "headline": "Nothing big today, don't chase the Riemann proof",
+  "summary": "No new tools made the cut today. The local model Inkling 2 Mini keeps getting hotter, but I've already recommended it.",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Garry Tan's software factory setup",
+      "pitch": "Garry Tan says he uses a certain tool for half his work and calls its desktop, phone and cloud experience the best out there right now.",
+      "why": [
+        "The source doesn't name the tool, so you can't try it yet",
+        "His own words: you can automate your work with it directly"
+      ],
+      "signals": "Garry Tan tweet, 724 likes · No link in the source, so not much to go on",
+      "links": [
+        {
+          "label": "Garry Tan tweet",
+          "url": "https://x.com/garrytan/status/2124151626286170609"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "Inkling 2 Mini (local model)",
+      "update": "480 points on HN, #1 on Hugging Face trending, 800k+ downloads of the GGUF version, and it only needs 5.4GB of memory."
+    },
+    {
+      "day": 2,
+      "name": "Codex/ChatGPT desktop and phone app updates",
+      "update": "Thibault Sottiaux's tweet got 2158 likes and says the next big update is already in the works. Peter Yang points out you can pin Codex to the bottom nav."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Riemann hypothesis proof",
+      "reason": "1066 points on HN, but it's still a math result, not a tool you can use"
+    },
+    {
+      "name": "GTA VI PC port",
+      "reason": "Amjad Masad mentioned a high schooler using a swarm of agents working together, but it's just one person's story"
+    },
+    {
+      "name": "Replit Amuse goes open source",
+      "reason": "Just one tweet from Amjad Masad, not enough detail"
+    },
+    {
+      "name": "Anthropic IPO completed",
+      "reason": "It's IPO news, not a new feature"
+    },
+    {
+      "name": "OpenRouter inference provider data handling incident",
+      "reason": "173 points on HN, a privacy topic mostly for developers, and the source has few details"
+    }
+  ]
+}

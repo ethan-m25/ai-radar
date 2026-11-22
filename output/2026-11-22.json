@@ -1,0 +1,56 @@
+{
+  "headline": "今天没大事，Riemann 证明别追",
+  "summary": "今天没有新工具达标；本地模型 Inkling 2 Mini 热度继续涨，但已推荐过。",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Garry Tan 的软件工厂体验",
+      "pitch": "Garry Tan 说他一半工作都在用某个工具，称桌面、手机和云端体验是目前最好的。",
+      "why": [
+        "来源没写工具名，暂时无法试用",
+        "他的原话：可以直接把工作自动化"
+      ],
+      "signals": "Garry Tan 推文 724 赞 · 来源里没有链接，信息有限",
+      "links": [
+        {
+          "label": "Garry Tan 推文",
+          "url": "https://x.com/garrytan/status/2124151626286170609"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "Inkling 2 Mini（本地模型）",
+      "update": "HN 480 分，Hugging Face 趋势榜第一，GGUF 版下载 80 万+，只需 5.4GB 内存。"
+    },
+    {
+      "day": 2,
+      "name": "Codex/ChatGPT 桌面与手机版更新",
+      "update": "Thibault Sottiaux 推文 2158 赞，说下一个大更新已在准备；Peter Yang 提醒可以把 Codex 固定到底部导航。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Riemann 猜想证明",
+      "reason": "HN 1066 分，但仍是数学成果，不是你能用的工具"
+    },
+    {
+      "name": "GTA VI 的 PC 移植",
+      "reason": "Amjad Masad 提到，高中生用 agent 群协作，但只是个人案例"
+    },
+    {
+      "name": "Replit Amuse 开源",
+      "reason": "Amjad Masad 只有一条推文，细节不足"
+    },
+    {
+      "name": "Anthropic IPO 完成",
+      "reason": "上市消息，不是新功能"
+    },
+    {
+      "name": "OpenRouter 推理商数据处理事件",
+      "reason": "HN 173 分，偏开发者的隐私话题，来源细节少"
+    }
+  ]
+}
