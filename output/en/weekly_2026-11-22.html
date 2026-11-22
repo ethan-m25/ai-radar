@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4ede0">
+    <title>AI Radar · Weekly Wrap · 2026-11-22 · Week 47</title>
+    <meta name="description" content="Week 47 — No must-sees, but Google pushed Gemini out of the chat box and onto your Mac and your to-do list, while model tiers and prices got messier. 16 signals, 3 trends survived, 3 demoted.">
+
+    <meta property="og:title" content="AI Radar · Weekly Wrap · Week 47">
+    <meta property="og:description" content="16 new signals over 7 days · 0 🚨 · 6 👀 · 10 ℹ️ · 3 trends survived · 3 demoted">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Radar">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: oklch(0.97 0.012 85);
+            --bg-card: oklch(0.99 0.008 85);
+            --bg-sunk: oklch(0.94 0.014 85);
+            --ink: oklch(0.18 0.025 270);
+            --ink-soft: oklch(0.36 0.020 270);
+            --ink-mute: oklch(0.52 0.014 270);
+            --hairline: oklch(0.86 0.015 85);
+            --hairline-bold: oklch(0.72 0.020 85);
+            --tier-crit: oklch(0.55 0.22 26);
+            --tier-crit-soft: oklch(0.94 0.04 30);
+            --tier-look: oklch(0.68 0.16 70);
+            --tier-look-soft: oklch(0.95 0.04 80);
+            --tier-fyi: oklch(0.55 0.03 250);
+            --tier-fyi-soft: oklch(0.94 0.012 250);
+            --tier-weekly: oklch(0.45 0.14 280);
+            --tier-weekly-soft: oklch(0.94 0.025 280);
+            --t-cover: clamp(2.75rem, 8vw, 5rem);
+            --t-h1: clamp(2rem, 5.5vw, 3.25rem);
+            --t-h2: clamp(1.5rem, 3.6vw, 2rem);
+            --t-h3: clamp(1.1rem, 2.6vw, 1.35rem);
+            --t-body: clamp(1.0625rem, 1.8vw, 1.125rem);
+            --t-small: 0.9375rem;
+            --t-micro: 0.75rem;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Geist', -apple-system, sans-serif;
+            font-size: var(--t-body);
+            line-height: 1.65;
+            font-feature-settings: "ss01", "cv11";
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        .display {
+            font-family: 'Fraunces', serif;
+            font-feature-settings: "ss01";
+            font-variation-settings: "SOFT" 30, "opsz" 144;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+        }
+        .display-italic {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+        }
+        .mono {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.92em;
+        }
+        .smallcaps {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: var(--t-micro);
+            font-weight: 500;
+            color: var(--ink-mute);
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 4rem;
+        }
+        @media (min-width: 768px) {
+            .page {
+                max-width: 780px;
+                padding: 3rem 2rem 6rem;
+            }
+        }
+
+        .masthead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--hairline-bold);
+            margin-bottom: 1rem;
+        }
+        .masthead .logo {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .masthead .nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .masthead .nav a {
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .masthead .nav a:hover,
+        .masthead .nav a.current {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+        .issue-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--hairline);
+            margin-bottom: 2.5rem;
+            font-size: var(--t-micro);
+            color: var(--ink-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-variant-numeric: tabular-nums;
+            flex-wrap: wrap;
+        }
+        .issue-meta .date-line {
+            font-family: 'Geist Mono', monospace;
+        }
+        .issue-meta .weekly-badge {
+            background: var(--tier-weekly);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            font-size: var(--t-micro);
+            letter-spacing: 0.12em;
+            font-weight: 600;
+        }
+
+        .cover {
+            margin-bottom: 3.5rem;
+        }
+        .cover .kicker {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .cover .headline {
+            font-size: var(--t-cover);
+            margin: 0 0 1.5rem;
+            max-width: 30ch;
+        }
+        .cover .lead {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 60, "opsz" 144;
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--t-h3);
+            color: var(--ink-soft);
+            max-width: 56ch;
+            margin: 0 0 2rem;
+        }
+        .cover .summary-box {
+            background: var(--tier-weekly-soft);
+            border-left: 3px solid var(--tier-weekly);
+            padding: 1rem 1.25rem;
+            margin: 0 0 2rem;
+            font-size: var(--t-small);
+            color: var(--ink);
+        }
+        .cover .summary-box strong {
+            color: var(--tier-weekly);
+        }
+        .cover .count-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .cover .count-row .total {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .cover .count-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .cover .count-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+        .cover .count-pill .dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 999px;
+            flex: none;
+        }
+        .dot-crit {
+            background: var(--tier-crit);
+        }
+        .dot-look {
+            background: var(--tier-look);
+        }
+        .dot-fyi {
+            background: var(--tier-fyi);
+        }
+
+        .weekly-section {
+            margin: 4rem 0;
+            padding: 2rem 0 2rem 1.5rem;
+            border-top: 1px solid var(--hairline-bold);
+            position: relative;
+        }
+        .weekly-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            bottom: 2rem;
+            width: 3px;
+            background: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--section-color, var(--tier-weekly));
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .weekly-section h2 {
+            font-size: var(--t-h1);
+            margin: 0 0 1.25rem;
+            max-width: 30ch;
+        }
+        .weekly-section p {
+            margin: 0.5rem 0 1rem;
+            max-width: 64ch;
+        }
+        .weekly-section ul {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0 1.5rem;
+            max-width: 64ch;
+        }
+        .weekly-section li {
+            margin: 0.5rem 0;
+        }
+        .weekly-section li::marker {
+            color: var(--section-color, var(--tier-weekly));
+        }
+        .weekly-section h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: var(--t-h3);
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .section--trophy {
+            --section-color: oklch(0.55 0.18 50);
+        }
+        .section--trends {
+            --section-color: var(--tier-look);
+        }
+        .section--wrong {
+            --section-color: var(--tier-crit);
+        }
+        .section--watch {
+            --section-color: oklch(0.52 0.16 240);
+        }
+        .section--calibration {
+            --section-color: var(--ink-mute);
+        }
+
+        .trend-item {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border-left: 2px solid var(--section-color, var(--tier-look));
+            border-radius: 2px;
+        }
+        .trend-item .trend-name {
+            font-family: 'Fraunces', serif;
+            font-variation-settings: "SOFT" 0, "opsz" 144;
+            font-weight: 600;
+            font-size: var(--t-h3);
+            margin: 0 0 0.75rem;
+        }
+        .trend-item p {
+            margin: 0.5rem 0;
+            font-size: var(--t-small);
+            color: var(--ink-soft);
+        }
+
+        .watch-item {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1.1rem;
+            background: var(--tier-fyi-soft);
+            border-left: 2px solid var(--section-color, var(--tier-fyi));
+        }
+        .watch-item strong {
+            color: var(--ink);
+        }
+        .watch-item span.trigger {
+            font-size: var(--t-small);
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .calibration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: var(--t-small);
+        }
+        @media (max-width: 500px) {
+            .calibration-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calibration-grid dt {
+            color: var(--ink-mute);
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.75rem;
+        }
+        .calibration-grid dd {
+            color: var(--ink);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--hairline-bold);
+            color: var(--ink-mute);
+            font-size: var(--t-small);
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .footer .system {
+            font-family: 'Geist Mono', monospace;
+            font-size: var(--t-micro);
+        }
+
+        .weekly-section {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .weekly-section:nth-of-type(1) {
+            animation-delay: 0.05s;
+        }
+        .weekly-section:nth-of-type(2) {
+            animation-delay: 0.15s;
+        }
+        .weekly-section:nth-of-type(3) {
+            animation-delay: 0.25s;
+        }
+        .weekly-section:nth-of-type(4) {
+            animation-delay: 0.35s;
+        }
+        .weekly-section:nth-of-type(5) {
+            animation-delay: 0.45s;
+        }
+        @keyframes rise {
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-section {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+
+        .cover .headline,
+        .weekly-section h2 {
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="masthead">
+            <a href="./" class="logo">AI RADAR</a>
+            <nav class="nav">
+                <a href="./">Today</a>
+                <a href="./archive.html" class="current">Archive</a>
+            </nav>
+        </header>
+
+        <div class="issue-meta">
+            <span class="date-line">2026 · 11 · 22 · WK 47 · SUN</span>
+            <span class="weekly-badge">WEEKLY WRAP</span>
+        </div>
+
+        <!-- ════════════ COVER ════════════ -->
+        <section class="cover">
+            <span class="kicker smallcaps">Week 47 · 2026-11-16 → 2026-11-22</span>
+            <h1 class="display headline">No must-sees this week, but Gemini left the chat box.</h1>
+            <p class="lead">16 signals, zero 🚨. The real story was Google pushing Gemini toward your Mac and your to-do list, while model tiers and prices got harder to read. Try things yourself before you pick a tier.</p>
+
+            <div class="summary-box">
+                <strong>One sentence for the week:</strong> Google moved Gemini from "answers questions" to "does things for you" (a to-do helper, a Mac app, a mid-tier model), and with the tiers and prices getting messier, the only reliable way to choose is to test on your own task first. If you only do one thing: run one real, non-sensitive comp-analysis task through both Gemini 4 Neon and the Claude you already use, and compare.
+            </div>
+
+            <div class="count-row">
+                <div class="total">16</div>
+                <div class="count-breakdown">
+                    <span class="count-pill"><span class="dot dot-crit"></span><strong>0</strong>&nbsp;🚨 (a quiet week at the top)</span>
+                    <span class="count-pill"><span class="dot dot-look"></span><strong>6</strong>&nbsp;👀 (Qwen4-Max · Making Claude's designs look less like AI · GPT-6.2 Astra &amp; Sol · Gemini 4 Neon · Gemini Mac app · Inkling 2 Mini)</span>
+                    <span class="count-pill"><span class="dot dot-fyi"></span><strong>10</strong>&nbsp;ℹ️ (Codex "at capacity" fix · Dan Shipper's self-improving skill · Gemini Notebook · Claude Code verification article · Gemini free chores · Outside-sandbox agents · ChatGPT mobile redesign · Codex desktop update · Antigravity from your phone · Garry Tan's software factory)</span>
+                    <span class="count-pill" style="margin-top: 0.35rem; color: var(--ink-mute); font-size: 0.85em;">→ 3 trends survived to weekly · 3 demoted / down-prioritized · every day produced at least one signal</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ 🏆 THE 1 THING ════════════ -->
+        <section class="weekly-section section--trophy">
+            <div class="section-label">🏆 The 1 thing that mattered most this week</div>
+            <h2 class="display">Gemini went from "answers questions" to "does things for you"</h2>
+
+            <p>Google shipped four steps in a single week. On Tuesday, Gemini Notebook could turn your materials into an interactive web page you can share (ℹ️). On Wednesday, Gemini started handling small to-dos for free, running on the Hydrogen tier and open in six countries for now (ℹ️). On Thursday, Gemini 4 Neon arrived, sitting between Carbon and Hydrogen and pitched as fast and cheap (👀). On Friday, the Gemini Mac app was announced as able to do tasks directly on your computer (👀). Saturday added Peter Yang's trick for controlling Antigravity threads from your phone. None of these is a big deal alone. Together they show Google filling in three pieces at once: the entry point, the tiers, and desktop actions.</p>
+
+            <p>Two things matter for you here. First, after comparing Neon with Opus 5.5, Peter Yang said he'll use Neon for 99% of his tasks, with writing and personality holding up. "Use the middle tier for everyday work" is worth checking against your own tasks. Second, computer control is becoming standard equipment, and Gemini Mac is going head to head with Claude and Codex. One caution: the Mac app rests on a single tweet from Josh Woodward. What tasks it can do, whether it's free or paid, and whether it needs a particular subscription are all unknown. An announcement is not a reason to put it on a work computer today.</p>
+
+            <p>OpenAI's week fits the same frame. GPT-6.2 Astra and Sol landed on Wednesday (👀) with lower prices and better token efficiency, but opinion split. Some people like it, while others complain that it throws up internal questions during long tasks. Put the two companies side by side and the practical conclusion is that the flagship race has moved to "who is cheaper and who can actually do the work." Benchmark scores alone no longer settle the choice.</p>
+
+            <p><strong>If you only do one thing this week:</strong> take a real, non-sensitive pay-analysis task you've done before, give it to both Neon and your usual Claude, and compare the results and the time. Hold off on the Mac app until there are more details, and keep it away from compensation data either way.</p>
+        </section>
+
+        <!-- ════════════ 📈 TRENDS ════════════ -->
+        <section class="weekly-section section--trends">
+            <div class="section-label">📈 Trends building this week</div>
+            <h2 class="display">Three directions confirmed or accelerated</h2>
+
+            <div class="trend-item">
+                <div class="trend-name">① Tiers and prices keep getting messier, so "try it yourself" is the only reliable method</div>
+                <p>GPT-6.2 Astra's API price is 80% of the previous generation, and Sol's price is unchanged but it uses fewer tokens. Gemini 4 now has three tiers: Carbon, Neon and Hydrogen. Neon costs $3 per million input tokens and $15 for output. Carbon is half price right now ($2/$10) and goes up to $4/$20 on December 1. Simon Willison said outright that Neon makes the pricing even more confusing. The direction is that vendors keep slicing tiers finer, and a price sheet alone can no longer tell you which one fits. Next week, watch how people choose around the price change. If you have tasks that need Carbon, finish them before the end of November.</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">② AI is moving to the desktop and phone, and "can take action" is the new selling point</div>
+                <p>Beyond Gemini Mac and the free to-do helper, the Codex desktop app got faster and simpler (Saturday), and ChatGPT's mobile redesign lets you pin Codex, Projects and Images to the bottom bar (Friday). Sunday's tracking noted that the next big update is already in the works. Several vendors are putting the way to get work done in the place you open every day. The barrier really is dropping, but every item is still at the announcement stage, and hands-on reports from non-developers barely exist. Watch, but don't roll anything out yet.</p>
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-name">③ Local models keep heating up, but they're still for people who want to tinker</div>
+                <p>Qwen4-Max reached the front of HN on Monday. Inkling 2 Mini (26B) arrived Saturday with 1062 HN points and the #1 spot on Hugging Face trending. By Sunday's tracking, the GGUF version had over 800K downloads and needed only about 5.4GB of memory. Interest is clearly growing and more people are using it. But for your office tasks a cloud model is easier, and the main value of running locally is privacy and fun. Keep it on your radar; no action needed.</p>
+            </div>
+        </section>
+
+        <!-- ════════════ 💀 WRONG / OVERHYPED ════════════ -->
+        <section class="weekly-section section--wrong">
+            <div class="section-label">💀 What I called wrong / overhyped this week</div>
+            <h2 class="display">3 demotions: a hot name with no substance, hype that isn't "switch," and a call made half a step early</h2>
+
+            <p><strong>Qwen4-Max: a Monday 👀 that never showed up again.</strong> I gave it 👀 because of HN's 596 points and 250 comments. But the source only ever had a title and the buzz, with no pricing, benchmarks, or way to try it, and for the next six days there was no follow-up coverage or hands-on test. The heat was real; the useful information never arrived. It drops to ℹ️: don't spend time on it unless an entry point you can try appears.</p>
+
+            <p><strong>GPT-6.2: "worth a look" holds, "worth switching to" doesn't.</strong> On Wednesday I gave it 👀 on strong signals (HN 1292 points, Altman's 7670 likes, several KOLs testing it). But on Thursday's tracking, opinion was still split. An OpenAI employee admitted the early review videos were already out of date, and Codex's Thibault said the communication style has problems the team is fixing. In Simon Willison's tests it also trailed Fable 5.2 and Gemini 4 Carbon. Verdict: buzz is not the same as a better fit for you, so don't change your workflow over it before next week.</p>
+
+            <p><strong>Gemini Mac: the 👀 came half a step early.</strong> Friday's 👀 rested on a single tweet, and I wrote "not enough detail" in my own deep dive. A week later there's still no third-party test and no added detail. If next week looks the same, it should drop to ℹ️.</p>
+
+            <p><strong>Still tracking correctly:</strong> the Gemini push toward doing tasks (confirmed across four days), and the tier-and-price confusion (confirmed by GPT-6.2 and Neon).</p>
+        </section>
+
+        <!-- ════════════ 🔮 WATCH LIST ════════════ -->
+        <section class="weekly-section section--watch">
+            <div class="section-label">🔮 Watch list for next week</div>
+            <h2 class="display">Three things to track over the next 7 days</h2>
+
+            <div class="watch-item">
+                <strong>① What Gemini Mac can really do, and what it costs</strong><br>
+                So far there is one tweet and nothing else. Details decide whether it matters to you.<br>
+                <span class="trigger">Trigger → a third-party hands-on test, or official word on which tasks it handles, free vs. paid, and whether it needs a subscription. If neither shows up, it drops to ℹ️ next week. Window: 1-2 weeks.</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>② Choosing between Neon and Carbon around the December 1 price change</strong><br>
+                If Neon is good enough, the increase barely affects you. If not, finish the tasks that need Carbon before the end of November.<br>
+                <span class="trigger">Trigger → more public comparisons of Neon and Carbon on real tasks, or other vendors adjusting prices in response. Window: this week through early December.</span>
+            </div>
+
+            <div class="watch-item">
+                <strong>③ The "next big update" for ChatGPT / Codex</strong><br>
+                Thibault Sottiaux said in Sunday's tracking that the next big one is already being prepared.<br>
+                <span class="trigger">Trigger → an official release that brings a feature non-developers can use, which would go straight to 👀. Window: 1-2 weeks.</span>
+            </div>
+        </section>
+
+        <!-- ════════════ 📅 CALIBRATION ════════════ -->
+        <section class="weekly-section section--calibration">
+            <div class="section-label">📅 Calibration metrics — Week 47</div>
+            <h2 class="display">The numbers for this week</h2>
+
+            <dl class="calibration-grid">
+                <dt>Daily digests this week</dt>
+                <dd>7 of 7 days (11/16–11/22), every day produced at least one signal</dd>
+
+                <dt>🚨 Items flagged</dt>
+                <dd>0</dd>
+
+                <dt>👀 Items flagged</dt>
+                <dd>6 (Qwen4-Max · Making Claude's designs look less like AI · GPT-6.2 Astra &amp; Sol · Gemini 4 Neon · Gemini Mac app · Inkling 2 Mini)</dd>
+
+                <dt>ℹ️ Items flagged</dt>
+                <dd>10 (Codex "at capacity" fix · Dan Shipper's self-improving skill · Gemini Notebook · Claude Code verification article · Gemini free chores · Outside-sandbox agents · ChatGPT mobile redesign · Codex desktop update · Antigravity from your phone · Garry Tan's software factory)</dd>
+
+                <dt>New signals total</dt>
+                <dd>16 (0🚨 + 6👀 + 10ℹ️)</dd>
+
+                <dt>Items surviving to weekly</dt>
+                <dd>1 main story + 3 trends (🏆 Gemini moves to doing tasks · 📈 Tiers and prices · 📈 AI on desktop and phone · 📈 Local models)</dd>
+
+                <dt>Items demoted / down-prioritized</dt>
+                <dd>3 (Qwen4-Max 👀→ℹ️ · GPT-6.2 "switch" call held back · Gemini Mac on notice for ℹ️)</dd>
+
+                <dt>Demotion rate</dt>
+                <dd>19% (3 of 16 signals). All three were 👀 calls leaning on thin or contested evidence.</dd>
+
+                <dt>Lead time vs Chinese content cycle</dt>
+                <dd>No estimate this week. There wasn't enough evidence of Chinese-language coverage timing to give an honest number.</dd>
+            </dl>
+        </section>
+
+        <footer class="footer">
+            <p class="display-italic" style="font-size: var(--t-h3); color: var(--ink-soft); margin-bottom: 1rem;">
+                Your AI radar buddy — daily at 07:07 · Sunday weekly · max 3 items daily · better to skip than pad.
+            </p>
+            <p>
+                Scan range: Smol AI · Hacker News · GitHub · X builders · official blogs
+            </p>
+            <p>
+                <a href="./archive.html">All archives</a> · <a href="./feed.xml">RSS</a>
+            </p>
+            <p class="system">
+                ai-radar · Weekly Wrap · Week 47 · 2026-11-22 · 7 dailies · 16 new signals (0🚨 / 6👀 / 10ℹ️) · 3 trends · 3 demoted · Gemini doing tasks + Tiers and prices + AI on desktop and phone + Local models
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Radar — 每周总结 · Week 47 · 2026-11-22</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-serif: "Fraunces", Georgia, serif;
+            --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.2 0.02 90);
+            --text-secondary: oklch(0.45 0.02 90);
+            --border: 1px solid oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.18 250);
+            --accent-soft: oklch(0.65 0.12 250 / 0.15);
+            --crit: oklch(0.6 0.22 30);
+            --crit-bg: oklch(0.6 0.22 30 / 0.08);
+            --look: oklch(0.55 0.18 250);
+            --look-bg: oklch(0.55 0.18 250 / 0.08);
+            --fyi: oklch(0.5 0.1 160);
+            --fyi-bg: oklch(0.5 0.1 160 / 0.08);
+            --radius: 12px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+
+        .masthead {
+            border-bottom: 2px solid oklch(0.85 0.02 90);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .masthead .kicker {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .masthead h1 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin: 0.4rem 0 0.3rem;
+        }
+        .masthead .sub {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .cover {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 2rem 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .cover .one-liner-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .cover .one-liner {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .cover .stats-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid oklch(0.88 0.02 90);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+        .cover .stats-row span { background: oklch(0.95 0.01 90); padding: 0.2rem 0.7rem; border-radius: 999px; }
+        .stat-crit { color: var(--crit); font-weight: 600; }
+        .stat-look { color: var(--look); font-weight: 600; }
+        .stat-fyi { color: var(--fyi); font-weight: 600; }
+
+        .section-head {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid oklch(0.88 0.02 90);
+        }
+
+        .main-narrative {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px oklch(0.2 0.02 90 / 0.04);
+        }
+        .main-narrative p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .main-narrative p:last-child { margin-bottom: 0; }
+        .main-narrative .action-call {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            padding: 0.75rem 1.25rem;
+            background: oklch(0.96 0.02 90 / 0.3);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .trend-card {
+            background: var(--surface);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .trend-card .trend-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .trend-card .trend-title .emoji { margin-right: 0.4rem; }
+        .trend-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .demote-card {
+            background: oklch(0.98 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .demote-card .demote-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: oklch(0.5 0.12 30);
+        }
+        .demote-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .watch-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .watch-list li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--surface);
+            border: var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 1px 4px oklch(0.2 0.02 90 / 0.03);
+        }
+        .watch-list li strong { color: var(--text); }
+        .watch-list li .trigger { color: var(--text-secondary); font-size: 0.85rem; }
+
+        .calibration {
+            margin-top: 2.5rem;
+            padding: 1.25rem 1.5rem;
+            background: oklch(0.97 0.005 90);
+            border: 1px solid oklch(0.88 0.02 90);
+            border-radius: var(--radius);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+        }
+        .calibration .cal-item { text-align: center; }
+        .calibration .cal-item .num {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: block;
+            color: var(--text);
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid oklch(0.88 0.02 90);
+        }
+
+        @media (max-width: 600px) {
+            .masthead h1 { font-size: 1.8rem; }
+            .cover .one-liner { font-size: 1.25rem; }
+            .main-narrative { padding: 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header class="masthead">
+        <div class="kicker">AI Radar · 每周总结</div>
+        <h1>AI Radar</h1>
+        <div class="sub">2026-11-16 ~ 2026-11-22 · Week 47 · №151–157 之周</div>
+    </header>
+
+    <section class="cover">
+        <div class="one-liner-label">📌 本周一句话总结</div>
+        <div class="one-liner">这周没有「必看」，但 Google 把 Gemini 从聊天框推向了你的 Mac 和日常待办；模型价格与档位越来越乱，先自己试，再决定用哪一档。</div>
+        <div class="stats-row">
+            <span><span class="stat-crit">🚨 0 必看</span></span>
+            <span><span class="stat-look">👀 6 值得看</span></span>
+            <span><span class="stat-fyi">ℹ️ 10 知道就行</span></span>
+            <span>📡 幸存进 weekly：3 条主线</span>
+        </div>
+    </section>
+
+    <h2 class="section-head">🏆 本周最重要的 1 件事</h2>
+
+    <div class="main-narrative">
+        <p><strong>Gemini 在一周内连发四步，从「回答问题」转向「替你做事」。</strong>周二，Gemini Notebook 能把资料变成可分享的互动网页（ℹ️）；周三，Gemini 开始免费替你处理琐碎待办，跑在 Hydrogen 档上，目前只开放六个国家（ℹ️）；周四，Gemini 4 Neon 发布，夹在 Carbon 和 Hydrogen 之间，主打又快又便宜（👀）；周五，Gemini Mac 版宣布能直接在电脑上执行任务（👀）。周六，Peter Yang 还分享了用手机远程操控 Antigravity 线程的小技巧。这些单看都不算大事，连起来是一条清晰的线：Google 在补齐「入口、档位、桌面操作」这三块。</p>
+
+        <p>对你的意义主要有两点。第一，Peter Yang 拿 Neon 和 Opus 5.5 比过后说，他 99% 的任务会用 Neon，写作和个性不输，所以「日常任务用中间档」值得你自己验证。第二，电脑操作能力正在成为各家的标配，Gemini Mac 要和 Claude、Codex 正面竞争。要提醒的是：Mac 版目前只有 Josh Woodward 的一条推文，能做哪些任务、收不收费、要不要特定订阅都不清楚。官方宣布，不等于你现在就该装到公司电脑上。</p>
+
+        <p>同一周，OpenAI 发了 GPT-6.2 Astra 和 Sol（👀），价格更低、更省 token，但口碑两极：有人觉得好用，有人吐槽它在长任务里会冒出看不懂的内部问题。两家的节奏放在一起看，这周最实在的结论是：旗舰之争进入「谁更便宜、谁更能动手」的阶段，单看跑分已经不够用。</p>
+
+        <div class="action-call">👉 如果你这周只做一件事：拿一份你真实做过的非敏感薪酬分析任务，同时丢给 Neon 和你常用的 Claude，对比结果和用时。Mac 版等有更多细节再说，也别让它碰薪酬数据。</div>
+    </div>
+
+    <h2 class="section-head">📈 趋势构建</h2>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">💰</span>档位与价格越来越乱，「先自己试」成了唯一靠谱的办法</div>
+        <p>GPT-6.2 Astra 的 API 价格是上一代的 80%，Sol 价格不变但更省 token；Gemini 4 现在有 Carbon、Neon、Hydrogen 三档，Neon 每百万 token 输入 $3、输出 $15，而 Carbon 目前半价（$2/$10），12 月 1 日起涨到 $4/$20。Simon Willison 直接吐槽 Neon 让定价更混乱。方向是：厂商把档位切得越来越细，单看价格表已经选不出最合适的。下周要看的是涨价前后大家怎么选；如果你有需要 Carbon 的任务，11 月底前先跑完。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">🖱️</span>AI 从聊天框走向桌面和手机，「能动手」成了新卖点</div>
+        <p>除了 Gemini Mac 和免费待办，Codex 桌面版更新得更快更简洁（周六），ChatGPT 手机端大改版，可把 Codex、Projects、Images 固定到底部栏（周五），周日还追踪到下一个大更新已在准备。几家都在把「干活的入口」放到你每天打开的地方。对你来说，门槛确实在降，但每一条都还停留在官方宣布阶段，非开发者的实测基本还没出现。先观察，别急着铺开。</p>
+    </div>
+
+    <div class="trend-card">
+        <div class="trend-title"><span class="emoji">🖥️</span>本地模型继续升温，但仍是「想玩的人」的东西</div>
+        <p>周一 Qwen4-Max 登上 HN 前排，周六 Inkling 2 Mini（26B）以 HN 1062 分、Hugging Face 趋势榜第一出现，周日已追踪到 GGUF 版下载超 80 万、只需约 5.4GB 内存。热度确实在涨，且用的人越来越多。但你的办公任务用云端模型更省事，本地跑的价值主要是隐私和好玩。保持关注，不用动手。</p>
+    </div>
+
+    <h2 class="section-head">💀 本周判断失误 / 过热</h2>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ Qwen4-Max：周一的 👀，之后再没出现</div>
+        <p>周一给了它 👀，理由是 HN 596 分、250 条评论。但来源里始终只有标题和热度，没有价格、跑分或开放方式，之后六天也没有任何跟进报道或实测。热度是真的，对你有用的信息一直没有。降为 ℹ️：先别花时间，除非后面出现你能直接试用的入口。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ GPT-6.2：「值得看」成立，但「值得切」还不成立</div>
+        <p>周三我给了 GPT-6.2 👀，信号很强（HN 1292 分、Altman 7670 赞、多位 KOL 实测）。但周四追踪时口碑仍然两极，OpenAI 员工自己也承认早期评测视频已过时、沟通风格有问题在改。Simon Willison 的测试里它也不如 Fable 5.2 和 Gemini 4 Carbon。结论：热度不等于更适合你，下周前不必为它改工作流。</p>
+    </div>
+
+    <div class="demote-card">
+        <div class="demote-title">⚠️ Gemini Mac：👀 给早了半步</div>
+        <p>周五这条 👀 只基于一条推文，我自己在深扒里也写了「细节不足」。一周过去，没有任何第三方实测或补充细节。如果下周仍是这个状态，就该降为 ℹ️。</p>
+    </div>
+
+    <h2 class="section-head">🔮 下周关注</h2>
+
+    <ul class="watch-list">
+        <li>
+            <strong>🖱️ Gemini Mac 的真实能力与定价</strong><br>
+            <span class="trigger">触发信号：出现第三方实测，或官方明确能做哪些任务、免费还是付费、是否需要订阅。没有的话，下周降级为 ℹ️。⏳ 时间窗口：1-2 周。</span>
+        </li>
+        <li>
+            <strong>💸 12 月 1 日 Gemini 4 Carbon 涨价前后的选择</strong><br>
+            <span class="trigger">触发信号：更多人公开比较 Neon 和 Carbon 在真实任务上的差距，或其他厂商跟进调价。若 Neon 足够用，涨价对你几乎没影响。⏳ 时间窗口：本周内到 12 月初。</span>
+        </li>
+        <li>
+            <strong>📱 ChatGPT / Codex 的「下一个大更新」</strong><br>
+            <span class="trigger">触发信号：周日追踪里 Thibault Sottiaux 提到已在准备；若正式发布并带来非开发者可用的新功能，直接升 👀。⏳ 时间窗口：1-2 周。</span>
+        </li>
+    </ul>
+
+    <div class="calibration">
+        <div class="cal-item">
+            <span class="num">7</span>
+            日报份数
+        </div>
+        <div class="cal-item">
+            <span class="num">0 🚨</span>
+            必看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">6 👀</span>
+            值得看信号
+        </div>
+        <div class="cal-item">
+            <span class="num">10 ℹ️</span>
+            知道就行信号
+        </div>
+        <div class="cal-item">
+            <span class="num">3</span>
+            本周降级 / 预警
+        </div>
+        <div class="cal-item">
+            <span class="num">暂无估算</span>
+            领先中文圈
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>AI Radar · 每周总结 · 数据来源：Smol AI / HN / GitHub / X / 官方博客</p>
+        <p style="margin-top:0.5rem; opacity:0.7;"><a href="./archive.html">📚 全部存档</a> · <a href="./feed.xml">📡 RSS</a></p>
+    </footer>
+
+</div>
+</body>
+</html>

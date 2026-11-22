@@ -6,6 +6,20 @@
       "date": "2026-11-22",
       "weekday": "Sun",
       "week": 47,
+      "kind": "weekly",
+      "headline": "(no headline)",
+      "summary": "",
+      "counts": {
+        "crit": 0,
+        "look": 6,
+        "fyi": 10
+      },
+      "url": "weekly_2026-11-22.html"
+    },
+    {
+      "date": "2026-11-22",
+      "weekday": "Sun",
+      "week": 47,
       "issue": 157,
       "kind": "daily",
       "headline": "今天没大事，Riemann 证明别追",
