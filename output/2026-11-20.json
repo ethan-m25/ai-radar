@@ -5,19 +5,14 @@
     {
       "tier": "look",
       "title": "Gemini Mac 版可直接操作电脑",
-      "pitch": "Google 的 Josh Woodward 宣布 Gemini Mac 应用能在你的电脑上直接做任务，还说这是呼声最高的需求。",
-      "why": [
-        "不用写代码，非开发者也能让 AI 替你点鼠标",
-        "办公里的重复操作可能直接交给它",
-        "和 Claude、Codex 的电脑操作能力正面竞争"
-      ],
       "actions": [
-        "更新或下载 Gemini Mac 应用，找找新的任务功能",
-        "先拿不涉及敏感数据的小事试，比如整理文件"
+        "在 Mac 版 Gemini 应用的提示里输入 @Computer use，再写要做的事",
+        "条件：美国地区、英语、Google AI Plus/Pro/Ultra 订阅、18 岁以上个人账号，Apple Silicon Mac 且系统为 macOS 15 以上"
       ],
       "deep_dive": [
-        "来源里只有这一条推文，没有细节。能做哪些任务、免费还是付费、是否需要特定订阅，都还不清楚。",
-        "公司电脑上装之前，先确认 IT 政策允许 AI 控制屏幕。薪酬数据别让它碰。"
+        "据报道你可以限定它能用哪些应用，随时叫停，敏感操作要你先批准。",
+        "它在隔离的后台窗口里跑，所以你可以继续用电脑。这点和直接接管鼠标的做法不同。",
+        "目前只限美国和英语，何时扩展到其他地区 Google 没说。Macworld 称功能「即将」上线，其他媒体说已经推出，说法略有出入。"
       ],
       "signals": "Josh Woodward 推文 876 赞 · 35 转 · 只有一条推文，细节不足",
       "links": [
@@ -25,22 +20,30 @@
           "label": "Josh Woodward 的推文",
           "url": "https://x.com/joshwoodward/status/2123534862569324703"
         }
-      ]
+      ],
+      "what": "Gemini 的 Mac 版应用新增「电脑操作」功能。你在提示里写 @Computer use，Gemini 就会在后台一个独立窗口里替你点击、滚动、打字，处理文件夹、应用和网页里的任务。你的屏幕和鼠标不受影响，窗口里能实时看到它在做什么。官方演示是把一张草图做成 Blender 里的 3D 模型。",
+      "meaning": "不会写代码的人也能让 AI 代操作电脑，直接对标 Claude 和 Codex 的同类功能。要用得先有 Google 付费订阅，对你影响有限。"
     },
     {
       "tier": "fyi",
       "title": "ChatGPT 手机端大改版",
-      "pitch": "Codex 团队的 Thibault Sottiaux 说在做 ChatGPT 手机新界面，先给部分 Pro 用户。",
-      "why": [
-        "可以把 Codex、Projects、Images 固定到底部栏",
-        "可随时开关，不强制切换"
-      ],
       "signals": "Thibault Sottiaux 推文 5244 赞 · 276 转 · 另一条提到 12 亿用户",
       "links": [
         {
           "label": "Thibault Sottiaux 的推文",
           "url": "https://x.com/thsottiaux/status/2123557171321561133"
         }
+      ],
+      "what": "OpenAI 在测试 ChatGPT 手机端新界面，目的是更容易找到常用功能。你可以把 Codex（写代码的 AI）、Projects（项目文件夹）、Images（生图）等固定在底部标签栏。「dot」是 ChatGPT 里一种持续运行的 AI 助手，每个 dot 在新界面里有自己的标签页。",
+      "meaning": "这只是界面调整，没有新能力。你想在手机上快速打开 Codex 的话会方便些。",
+      "actions": [
+        "在 ChatGPT 的 设置 > New ChatGPT Design 里可随时开关新界面",
+        "目前先给有 dot 或有资格创建 dot 的 Pro 用户，部分人会默认看到"
+      ],
+      "deep_dive": [
+        "OpenAI 还说在向少量 Plus 用户测试 dot，并向所有 Business Standard 用户推出。",
+        "官方说明 dot 创建要在桌面端完成。Pro 用户在欧洲经济区、瑞士和英国一开始不可用。",
+        "OpenAI 说正式铺开前想先听反馈，所以界面之后可能还会改。"
       ]
     }
   ],

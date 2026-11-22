@@ -1,61 +1,70 @@
 {
   "headline": "Quiet day today, just a few small tools",
-  "summary": "No big launches. I picked 3 small things you can use right away even if you're not a developer.",
+  "summary": "No big launches. I picked 3 small things non-developers can use right away.",
   "items": [
     {
       "tier": "look",
-      "title": "Make Claude's designs look less like AI",
-      "pitch": "Peter Yang rounded up 5 takeaways from Nate Parrott on how to get Claude to make pages that don't look like a generic AI template. You can use them right away for report pages or internal tools.",
-      "why": [
-        "Start by giving Claude screenshots, pages you like, and your past work",
-        "For tricky layouts, have it look into how similar products do it first",
-        "No coding needed, you just change how you write your prompts"
-      ],
+      "title": "How to make Claude's designs not look like AI made them",
       "actions": [
-        "Open the link and read all 5 tips, then next time you ask Claude to make a page, hand it some reference images first"
+        "Next time you ask Claude to make a page, paste in reference screenshots and pages you like first",
+        "Ask it for 5 different style options first, pick the parts you like, then ask for 5 more"
       ],
       "deep_dive": [
-        "This is a tips post, not a new tool. You can follow it with the Claude Code you're already using.",
-        "The source is secondhand, and only the first two of the 5 tips showed up in what I saw. You'll need to open the original post for the rest."
+        "\"AI look\" means the stock habits Claude keeps falling back on, like serif fonts, off-white backgrounds, and colored stripes on the edge of cards. Nate says the model doesn't know it has these preferences.",
+        "A wireframe (a rough sketch with just boxes and text) lets you settle the flow first and tweak fonts and colors later, so you don't get stuck in the details right away.",
+        "This is all from Peter Yang's retelling; I couldn't open the full video, so go with the original podcast for the details."
       ],
-      "signals": "Peter Yang's post has 138 likes · retells Nate Parrott's method",
+      "signals": "Peter Yang's post, 138 likes · retelling Nate Parrott's methods",
       "links": [
         {
-          "label": "Peter Yang's 5-tip summary",
+          "label": "Peter Yang's 5-point summary",
           "url": "https://x.com/petergyang/status/2122347721298510021"
         }
-      ]
+      ],
+      "what": "Nate Parrott, a designer at Anthropic (the person behind Claude Design), shared 5 ways on a podcast to get Claude to design things that don't look like AI made them. The main ideas: give it plenty of screenshots and references; for tricky layouts, have it study a product it knows well first; remind it of its habits in a design.md file; draw a wireframe first; ask for 5 options at once and then mix and match.",
+      "meaning": "For report slides and small tools, you don't need to learn design. Just changing how you ask can make things look noticeably better."
     },
     {
       "tier": "fyi",
-      "title": "Gemini Notebook turns your materials into interactive web pages",
-      "pitch": "Google's Josh Woodward showed a demo: drop your materials into Gemini Notebook and it makes an interactive website you can share.",
-      "why": [
-        "You don't need to know how to code, and it's easy to make and share",
-        "Handy for turning training materials or pay policies into clickable pages"
-      ],
-      "signals": "Josh Woodward's post has 294 likes · official demo, no third-party testing yet",
+      "title": "Gemini Notebook turns your files into interactive web pages",
+      "signals": "Josh Woodward's post, 294 likes · official demo, no third-party testing yet",
       "links": [
         {
           "label": "Josh Woodward's demo",
           "url": "https://x.com/joshwoodward/status/2122453269842886788"
         }
+      ],
+      "what": "Google renamed NotebookLM to Gemini Notebook. Now you upload your material to a notebook, type \"make me a site\" in the chat box and describe what you want, and it builds an interactive web page from that material, like an interactive periodic table, a data dashboard, or a project tracker. The page can be opened in a new tab or shared.",
+      "meaning": "You can turn your files into clickable pages without writing code, but pricing and how reliable it is are still unclear.",
+      "actions": [
+        "Open Gemini Notebook, upload a file, and type make me a site in the chat to try it",
+        "Reports so far say it's web-only and for adult users, including Workspace users"
+      ],
+      "deep_dive": [
+        "Secondhand reports say generating a site uses up your usage quota. Google hasn't said clearly what it costs, which model it uses, or how shared pages are hosted.",
+        "The official demo only used public material like the periodic table. Nobody has tested whether it works reliably on internal files like pay data, or whether that's compliant, so don't put sensitive data in yet.",
+        "Reportedly, the person opening a shared link needs access to the whole notebook, so check that before you publish anything outside your team."
       ]
     },
     {
       "tier": "fyi",
-      "title": "Claude Code team on how they check results",
-      "pitch": "There's an article on claude.dev about how the Claude Code team makes sure what the AI writes is actually reliable. It just hit HN, so keep an eye on it.",
-      "why": [
-        "Quite a bit of discussion: 49 comments",
-        "Might help with how you check AI output"
-      ],
+      "title": "The Claude Code team on how they check the results",
       "signals": "HN 43 points · 49 comments · posted about 1 hour ago",
       "links": [
         {
           "label": "HN front page",
           "url": "https://news.ycombinator.com/"
         }
+      ],
+      "what": "This is a post on claude.dev (credited to Addy Osmani in the repost) about how the Claude Code team makes sure the code AI writes is solid. According to the repost, about 90% of the team's code is written and reviewed by Claude, and they rely on a \"verification loop\" (Claude runs the program itself and checks the results) so they can safely run several Claudes at once. I couldn't read the original, so the details below come from the repost.",
+      "meaning": "It doesn't affect you much directly, but the habit of having the AI run things itself before handing them over is worth borrowing.",
+      "actions": [
+        "In your project, ask Claude to write a verify skill (in .claude/skills/) that explains how to start your app and check it"
+      ],
+      "deep_dive": [
+        "The repost says Claude picks 3–10 items from a 39-item checklist based on the change, and if the same check fails three rounds in a row, it hands off to a human.",
+        "The repost also says the review rules come from the main branch, so a change can't loosen the rules for itself. These details come from the repost and I haven't checked them against the original.",
+        "The line about \"merges doubled and rollback rate dropped over 40%\" is a number the team reported themselves, and no third party has verified it."
       ]
     }
   ],
@@ -63,7 +72,7 @@
   "skipped": [
     {
       "name": "OpenCode Browse",
-      "reason": "HN 283 points, and you use OpenCode, but the source only has a title so it's unclear what it is"
+      "reason": "HN 283 points, and you use OpenCode, but the source is only a title, so there's no way to tell what it is"
     },
     {
       "name": "Windows 11 collecting coding agent usage data",

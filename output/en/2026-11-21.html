@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -349,8 +352,8 @@
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Nothing big today, skip the scroll</h1>
-    <p class="lead">Today&#x27;s mostly a math proof and Inkling 2 Mini. No new work tools worth chasing.</p>
+    <h1 class="display headline">Nothing big today, you can stop scrolling</h1>
+    <p class="lead">Today was mostly math proofs and Inkling 2 Mini. No new work tools worth chasing.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
         <span>👀 <span class="look-count">1</span> worth a look</span>
@@ -360,40 +363,44 @@
 
 <div class="pager" data-current-date="2026-11-21"><a href="#" class="prev">← Previous</a><span class="issue-num">№156 · 2026-11-21</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Inkling 2 Mini: a new model you can run on your own machine</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Codex desktop update: faster and simpler</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Control Antigravity from your phone with Neon</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Inkling 2 Mini: a new model you can run on your own machine</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Codex desktop update: faster and cleaner</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Controlling Neon from your phone with Antigravity</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
     <h2 class="display title">Inkling 2 Mini: a new model you can run on your own machine</h2>
-    <div class="pitch">Thinking Machines put out a 26B small model and it got 1062 points on HN. If you want to try a local model, it&#x27;s worth a look this weekend.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>1062 points on HN, lots of buzz</li><li>26B parameters, a good high-end PC might be able to run it</li><li>There&#x27;s already a GGUF version (a common format for local models), with 238K downloads from Unsloth</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Check out the thinkingmachines/Inkling-2-Mini page on Hugging Face</li><li>If you want to try it locally, look for unsloth/Inkling-2-Mini-GGUF</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike Claude Code or codex, it&#x27;s an open-weights model, so you can download it yourself and run it without calling an online service.</p><p>The sources only give a title and download numbers, so there&#x27;s no way to tell what it can actually do. For your office work, a cloud model is easier. Running it locally is mostly for fun and privacy.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 1062 points · 200 comments · #1 on HF trending · Unsloth GGUF 238K downloads</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://huggingface.co/thinkingmachines/Inkling-2-Mini" target="_blank" rel="noopener">Original post HN is discussing (thinkingmachines.ai)</a> · <a href="https://huggingface.co/unsloth/Inkling-2-Mini-GGUF" target="_blank" rel="noopener">GGUF version</a></div>
+    <div class="explain"><h3>What it is</h3><p>Inkling 2 Mini is a new small model from Thinking Machines (the AI company started by Mira Murati, former OpenAI CTO). The weights are public, so you can download it and run it on your own computer. According to the Artificial Analysis review page, it scores 20 on their intelligence index, and it uses a &quot;looped Transformer&quot; architecture. I couldn&#x27;t confirm the 26B parameter count from an official source, even though the draft mentions it.</p></div>
+    <div class="explain"><h3>What it means</h3><p>One more option if you want to run models on your own computer. It doesn&#x27;t change much for your day-to-day coding with Claude Code and codex.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>If you want to try it, search Hugging Face for Inkling 2 Mini and look for the GGUF version from Unsloth (a compressed format that&#x27;s common for running models locally)</li><li>Load it with a free app like LM Studio or Ollama. Check the parameter count and memory requirements first, then decide if you want to download it</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>The same company&#x27;s Inkling 2 Small is a big 594B-parameter model. Right now it&#x27;s only available on their own Tinker platform, and the weights aren&#x27;t public. Mini is the smaller one you can actually download.</p><p>Small local models usually aren&#x27;t as good as cloud flagships like Claude or Codex, so they fit best for privacy-sensitive or offline use. The draft&#x27;s &quot;26B&quot; and &quot;runs on a normal computer&quot; haven&#x27;t been confirmed officially, so check the model page before you download.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · HN 1062 points · 200 comments · #1 on HF trending · Unsloth GGUF downloads 238K</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://huggingface.co/thinkingmachines/Inkling-2-Mini" target="_blank" rel="noopener">Original post from the HN discussion (thinkingmachines.ai)</a> · <a href="https://huggingface.co/unsloth/Inkling-2-Mini-GGUF" target="_blank" rel="noopener">GGUF version</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Codex desktop update: faster and simpler</h2>
-    <div class="pitch">Thibault Sottiaux from the Codex team says the new desktop app is faster and simpler, and recommends updating.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>2743 likes on the tweet</li><li>You use codex every day, so updating costs you almost nothing</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Thibault Sottiaux tweet 2743 likes · 33 retweets</div>
+    <h2 class="display title">Codex desktop update: faster and cleaner</h2>
+    <div class="explain"><h3>What it is</h3><p>Thibault Sottiaux, who&#x27;s on the OpenAI Codex team, tweeted asking everyone to update the desktop app. He says the new version is faster, simpler, and nicer to use. The update list he reposted mentions a fresh new look, big performance boosts all over, reworked conversation threads, and a more stable Codex Remote (remote control). The list also includes things like ChatGPT Space, so it looks like an update to the whole desktop app.</p></div>
+    <div class="explain"><h3>What it means</h3><p>You already use codex, so updating costs you almost nothing. Worth doing while you&#x27;re at it.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Open the desktop app and check for updates and install, or just download the latest version again from the OpenAI site</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>It&#x27;s not clear whether things like Space on the list have anything to do with Codex coding. Space is marked as a Plus plan feature, so whether you can use it depends on your subscription.</p><p>The tweet only says &quot;faster and cleaner&quot; and doesn&#x27;t give any actual speed numbers.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Thibault Sottiaux tweet 2743 likes · 33 retweets</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://x.com/thsottiaux/status/2123861214644347122" target="_blank" rel="noopener">Thibault&#x27;s tweet</a></div>
 </article>
 
 <article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Control Antigravity from your phone with Neon</h2>
-    <div class="pitch">Peter Yang shared a small trick: add the Antigravity web page to your phone&#x27;s home screen and you can remotely control the threads on your computer.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>No app to install, only takes a few steps to set up</li><li>He thinks it works better than Claude&#x27;s remote control, because all your threads are there</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Peter Yang tweet 159 likes</div>
+    <h2 class="display title">Controlling Neon from your phone with Antigravity</h2>
+    <div class="explain"><h3>What it is</h3><p>Antigravity is Google&#x27;s AI coding tool, and its Remote Control feature lets you control a session running on your computer from any browser. Peter Yang&#x27;s little trick: open antigravity.google.com on your phone, tap share, and pick &quot;Add to Home Screen&quot;. Then it works like an app, and you can chat with all your Antigravity threads from your phone.</p></div>
+    <div class="explain"><h3>What it means</h3><p>If you want to remote-control AI coding tasks on your computer from your phone without installing an app, this is a way to do it. You mostly use Claude Code and codex, though, so you may not need it.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Open antigravity.google.com in your phone browser, tap &quot;See more&quot; and the share button, then pick &quot;Add to Home Screen&quot;</li><li>On your computer, you first need to turn on Remote Control in the Antigravity 2.0 settings</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Google&#x27;s official docs say Remote Control has to be turned on in the Antigravity 2.0 settings on your computer. After that you can control sessions from a browser and get push notifications when tasks finish.</p><p>&quot;Works better than Claude&#x27;s remote control&quot; is just Peter Yang&#x27;s personal opinion. Antigravity doesn&#x27;t have a phone app right now. The Gemini 4 Neon model in Antigravity is open to paid Google AI Pro and Ultra subscribers.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Peter Yang tweet 159 likes</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://x.com/petergyang/status/2123879309463228445" target="_blank" rel="noopener">Peter Yang&#x27;s tweet</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">Claude helped prove the Riemann Hypothesis</span> <span class="update">— Alpöge says he proved it working with Claude. The top two HN spots are both about this, but there&#x27;s no tool here you can use.</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">Claude helps prove the Riemann Hypothesis</span> <span class="update">— Alpöge says he proved it working with Claude. The top two HN posts are both about it, but there&#x27;s no tool here you can use.</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Riemann Hypothesis proof (Alpöge / Masullo)</td><td>2686 points on HN, but it&#x27;s pure math, not a tool</td></tr><tr><td>Anthropic IPO completed</td><td>Funding and listing news, outside the rules</td></tr><tr><td>Language models can rewrite their own weights</td><td>426 points on HN, pure research</td></tr><tr><td>DreamCoder coding IDE</td><td>230 points on HN, aimed at developers, few details in the source</td></tr><tr><td>Harness adapters (Hugging Face)</td><td>About model training, aimed at developers</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Riemann Hypothesis proof (Alpöge / Masullo)</td><td>2686 points on HN, but it&#x27;s pure math, not a tool</td></tr><tr><td>Anthropic IPO completed</td><td>Funding and listing news, outside the rules</td></tr><tr><td>Language models can rewrite their own weights</td><td>426 points on HN, pure research</td></tr><tr><td>DreamCoder coding IDE</td><td>230 points on HN, aimed at developers, few details on the source</td></tr><tr><td>Harness adapters (Hugging Face)</td><td>About model training, aimed at developers</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 

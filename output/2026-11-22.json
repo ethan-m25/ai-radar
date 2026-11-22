@@ -5,17 +5,21 @@
     {
       "tier": "fyi",
       "title": "Garry Tan 的软件工厂体验",
-      "pitch": "Garry Tan 说他一半工作都在用某个工具，称桌面、手机和云端体验是目前最好的。",
-      "why": [
-        "来源没写工具名，暂时无法试用",
-        "他的原话：可以直接把工作自动化"
-      ],
       "signals": "Garry Tan 推文 724 赞 · 来源里没有链接，信息有限",
       "links": [
         {
           "label": "Garry Tan 推文",
           "url": "https://x.com/garrytan/status/2124151626286170609"
         }
+      ],
+      "what": "Garry Tan 是知名创业孵化器 Y Combinator 的负责人。他转发了 @capydotai 的推文，内容是 Capy 的 iOS 版，在 TestFlight（苹果的 App 内测平台）上招募测试者。他说自己约一半的工作用“这个”工具，配合他的“软件工厂”（他自己用 AI 批量写软件的工作流）。他没细说工具能做什么。",
+      "meaning": "目前只是一位名人的好评，加一个手机端内测。我没能查到 Capy 的官方介绍，对你影响不大。",
+      "actions": [
+        "想试用，可到 X 上找 @capydotai 那条 “Capy for iOS” 的推文，按要求在评论区留言申请 TestFlight 名额。"
+      ],
+      "deep_dive": [
+        "他的原话是：在桌面、手机、云端三种用法里，这是他“目前体验最好的”。这是个人看法，没有对比数据。",
+        "我没查到 Capy 官方的功能、价格和开放地区，所以无法和你在用的 Claude Code、codex 比较。"
       ]
     }
   ],

@@ -5,20 +5,14 @@
     {
       "tier": "look",
       "title": "GPT-6.2 Astra 和 Sol 发布",
-      "pitch": "OpenAI 新旗舰 Astra 和日常款 Sol 上线了，更便宜、更省 token，但网上评价不一。",
-      "why": [
-        "Astra API 价格是上一代的 80%，缓存价更低",
-        "Sol 价格不变，Altman 说很省 token",
-        "Peter Yang 等人用着好，Theo 吐槽它爱问怪问题"
-      ],
       "actions": [
-        "在 codex 里切到 gpt-6.2-sol，拿手头一个真实表格或报告任务试一遍",
-        "如果你是 Pro 200/500 档，试试 6.2 Sol ultrafast"
+        "已有 ChatGPT 或 codex：在模型选择里找 GPT-6.2 Sol 或 Astra 试用（具体哪些套餐可用，来源里没说清）",
+        "Pro 200 套餐已开放 Sol 的 ultrafast（更快的模式）"
       ],
       "deep_dive": [
-        "和你常用的 Claude 比：Simon Willison 的测试里，它做 3D 动画不如 Claude Fable 5.2 和 Gemini 4 Carbon。Astra 的基准分也略低于 Fable 5.2。",
-        "OpenAI 员工说，早期评测视频是上周拍的，最近三四天又改了很多，所以网上口碑和实际体验有落差。",
-        "已知缺点：长任务中它会冒出你看不懂的内部细节问题，让你拍板。"
+        "API 价格：Astra 每百万 token 输入 $8、缓存输入 $0.40、输出 $40，比 GPT-6 Astra 低 20%，缓存部分低 60%。Sol 价格和 6.1 Sol 一样。",
+        "跑分（如 Agents' Last Exam，称比 Claude Fable 5.2 高 5.5 分、成本只有 5%）都是 OpenAI 自己公布的，需要独立测评验证。",
+        "官方稿只列了好处。网上有人说好用，也有人吐槽，实际体验因人而异，建议自己用熟悉的任务试。"
       ],
       "signals": "HN 1292 分 · 809 条评论 · Altman 7670 赞 · Simon Willison、Theo、Swyx、Dan Shipper 都已实测",
       "links": [
@@ -34,22 +28,29 @@
           "label": "Altman 推文",
           "url": "https://x.com/sama/status/2122798039899263456"
         }
-      ]
+      ],
+      "what": "OpenAI 发布两个新模型。GPT-6.2 Astra 是旗舰，用来做最难的专业工作（做幻灯片、表格、文档、写代码、科研）。GPT-6.2 Sol 是高效的日常款，OpenAI 员工很多人拿它当默认模型。OpenAI 称两者完成任务用的输出 token（模型输出的字数单位，按它计费）更少。",
+      "meaning": "同样的额度能多干活，Astra API 还降价了。你用 codex 的话，可以试试 Sol 够不够日常用。"
     },
     {
       "tier": "fyi",
       "title": "Gemini 免费替你办事",
-      "pitch": "Gemini 现在能免费帮你处理琐碎待办，目前只开放六个国家。",
-      "why": [
-        "跑在 Gemini 4 Hydrogen 上，不额外收费",
-        "面向普通人，不用写代码"
-      ],
       "signals": "Josh Woodward 推文 599 赞 · 来源里只有这一条，细节不足",
       "links": [
         {
           "label": "Josh Woodward 推文",
           "url": "https://x.com/joshwoodward/status/2122737427970425171"
         }
+      ],
+      "what": "Google 的 Gemini 现在可以免费替你办琐碎待办。它跑在新模型 Gemini 4 Hydrogen 上。它能打电话给本地商家（Google Duplex）、用 Google Pay 付款结账，还能转发邮件给它处理。Gemini 与 Google Workspace 的联动也升级了，能写发邮件、编辑 Docs 和 Sheets、一次加多个日历事件。",
+      "meaning": "面向普通人的日常杂事助手，免费。你若在六国之一，可以试试，但很多新功能先只在美国开放。",
+      "actions": [
+        "仅限美国、日本、韩国、加拿大、澳大利亚、印度这六国用户",
+        "打电话、付款、转发邮件等新功能先在美国推出；具体入口和套餐来源里没说明"
+      ],
+      "deep_dive": [
+        "目前只有 Google 产品负责人 Josh Woodward 的一条推文，细节有限。使用限额、是否需要付费套餐、其他国家何时开放，都不清楚。",
+        "让 AI 打电话、付款、登录网站，出错的代价比聊天大。上手时先从小事开始，留意付款确认。"
       ]
     }
   ],

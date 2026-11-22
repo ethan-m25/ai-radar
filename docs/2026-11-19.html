@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -365,20 +368,22 @@
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 值得看</div>
     <h2 class="display title">Gemini 4 Neon 发布</h2>
-    <div class="pitch">Google 推出 Gemini 4 Neon，主打又快又便宜，还能听懂复杂指令。HN 讨论很热。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>Josh Woodward 称它指令跟随好、更快更便宜</li><li>HN 867 分、686 条评论，关注度很高</li><li>Simon Willison 实测：画图比 Hydrogen 好，比 Carbon 差</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 Gemini app 里切到 Neon，拿一份你常做的薪酬分析任务试试</li><li>对比同一任务在 Claude 和 Gemini 上的结果</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>Gemini 4 现在有三档：Carbon、Neon、Hydrogen。Neon 夹在中间，定位是速度和成本的折中。</p><p>价格很乱：Neon 每百万 token 输入 $3、输出 $15。Carbon 现在半价，是 $2/$10，12 月 1 日起涨到 $4/$20。</p><p>Simon 说 Neon 让定价更混乱，所以别只看价格，先自己试。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 867 分 · 686 评论 · Simon Willison 实测 · Josh Woodward 官宣</div>
+    <div class="explain"><h3>它是什么</h3><p>Gemini 4 Neon 是 Google 11 月 18 日发布的新 AI 模型，属于 Gemini 4 系列的中间档。Carbon 留给最难的长任务，Hydrogen 是更快的日常款，Neon 夹在两者之间。Google 称它完成任务的速度约为 Carbon 的 3 倍，质量相近，并且更擅长听懂复杂指令。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>Google 又多了一个主打速度和性价比的选择。你日常用 Claude Code 和 codex，短期不必换。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>开发者可在 Gemini API、Google AI Studio、Google Antigravity 里选用 Neon</li><li>普通用户暂时没找到官方的 Gemini App 开放信息，建议看 blog.google 上的 Introducing Gemini 4 Neon</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>价格：据 OpenRouter，Neon 每百万 token 输入 3 美元、输出 15 美元。Carbon 的优惠价是 2/10 美元，12 月 1 日后涨到 4/20 美元。</p><p>Simon Willison 认为 Gemini 4 系列的定价本来就乱，Neon 让它更乱。他发布了 llm-gemini 0.38 来支持 Neon。</p><p>「比 Carbon 快 3 倍、质量相近」是 Google 自己的说法。我看到的独立测评结论不一，还没有统一的验证。</p></div></details>
+    <div class="signals"><strong>热度</strong> · HN 867 分 · 686 评论 · Simon Willison 实测 · Josh Woodward 官宣</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://deepmind.google/blog" target="_blank" rel="noopener">DeepMind 官方博客</a> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 的评测</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
     <h2 class="display title">给 agent 套外部沙盒</h2>
-    <div class="pitch">Simon Willison 做了一套“沙盒放外面”的方案，能让 Claude Code、Codex 更安全地跑代码。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>agent 的代码在隔离环境里跑，出错或被注入也伤不到你的电脑</li><li>可限制联网网址，密钥也不用直接给 agent</li></ul></div>
-    <div class="signals"><strong>信号</strong> · Simon Willison 11 月 17 日发布 · 与 Prime Radiant 合作 · 三种沙盒实现</div>
+    <div class="explain"><h3>它是什么</h3><p>这是 Simon Willison 和 Prime Radiant 在 11 月 17 日前后发布的实验性方案，叫「外部沙盒」（sandbox，一个与你电脑隔开的安全小房间）。AI 编程助手本体留在外面，它要执行的命令则放进一个 Linux 沙盒里跑。这个方案支持 Claude Code、Codex 等工具，网络默认关闭，只能碰挂载的文件夹和允许的网址。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>AI 写的代码即使出错或被恶意指令骗了，也更难伤到你的电脑。但这是实验品，目前主要面向开发者。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>想试的话，先读 simonwillison.net 上 2026/Nov/17 的 external-sandboxes-for-coding-agents 那篇，再按里面的链接找 Prime Radiant 的实现</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>已知的缺口：Claude Code 只把 Bash 命令送进沙盒，它自带的读取和编辑文件功能仍在你的电脑上运行。Codex 和 Pi 送进沙盒的操作更多。</p><p>Prime Radiant 自己说这些实现是实验原型，没有经过足够审计，不适合处理敏感内容。</p><p>上面这些细节来自二手文章，我没有读到 Prime Radiant 的原文。使用前请自己核对一遍。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Simon Willison 11 月 17 日发布 · 与 Prime Radiant 合作 · 三种沙盒实现</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 博客</a></div>
 </article>
 

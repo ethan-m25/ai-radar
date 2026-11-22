@@ -1,25 +1,19 @@
 {
-  "headline": "GPT-6.2 is here, and opinions are split",
-  "summary": "OpenAI dropped GPT-6.2 Astra and Sol, cheaper and faster; Gemini now handles chores for you, for free.",
+  "headline": "GPT-6.2 is out, and people are split on it",
+  "summary": "OpenAI dropped GPT-6.2 Astra and Sol, which are cheaper and faster. Gemini will now run errands for you, for free.",
   "items": [
     {
       "tier": "look",
       "title": "GPT-6.2 Astra and Sol are out",
-      "pitch": "OpenAI's new flagship Astra and everyday model Sol are live. They're cheaper and use fewer tokens, but people online disagree on how good they are.",
-      "why": [
-        "Astra's API price is 80% of the last generation's, with an even lower cached price",
-        "Sol's price hasn't changed, and Altman says it's very token-efficient",
-        "Peter Yang and others like it, while Theo complains that it asks weird questions",
-        "Actually, keep it as written: see the next line"
-      ],
       "actions": [
-        "In codex, switch to gpt-6.2-sol and try it on a real spreadsheet or report task you already have",
-        "If you're on the Pro 200/500 plan, try 6.2 Sol ultrafast"
+        "If you already have ChatGPT or codex: look for GPT-6.2 Sol or Astra in the model picker and give them a try (the sources don't say clearly which plans get them)",
+        "The Pro 200 plan already has Sol's ultrafast mode (a faster mode)"
       ],
       "deep_dive": [
-        "Compare it with the Claude you usually use: in Simon Willison's tests, its 3D animation wasn't as good as Claude Fable 5.2 or Gemini 4 Carbon. Astra's benchmark scores are also a bit below Fable 5.2.",
-        "An OpenAI employee said the early review videos were shot last week, and a lot changed in the last three or four days, so what people say online doesn't match the real experience.",
-        "Known downside: during long tasks it throws up internal details you can't make sense of and asks you to make the call."
+        "API pricing: Astra costs $8 per million input tokens, $0.40 for cached input, and $40 for output. That's 20% cheaper than GPT-6 Astra, and 60% cheaper on the cached part. Sol is priced the same as 6.1 Sol.",
+        "The benchmarks (like Agents' Last Exam, where they say it beats Claude Fable 5.2 by 5.5 points at only 5% of the cost) all come from OpenAI itself, so they need independent testing to confirm.",
+        "The official post only lists the upsides. Some people online say it works great and others complain, so your experience will vary. Try it on tasks you know well.",
+        ""
       ],
       "signals": "HN 1292 points · 809 comments · Altman 7670 likes · Simon Willison, Theo, Swyx and Dan Shipper have all tried it",
       "links": [
@@ -35,22 +29,29 @@
           "label": "Altman's tweet",
           "url": "https://x.com/sama/status/2122798039899263456"
         }
-      ]
+      ],
+      "what": "OpenAI released two new models. GPT-6.2 Astra is the flagship, built for the hardest professional work (slides, spreadsheets, documents, coding, research). GPT-6.2 Sol is the efficient everyday one, and a lot of OpenAI staff use it as their default model. OpenAI says both use fewer output tokens (the unit models use to count what they write, and what you get billed on) to finish a task.",
+      "meaning": "Your usage limit goes further, and Astra's API got cheaper too. If you use codex, try Sol and see if it's good enough for everyday stuff."
     },
     {
       "tier": "fyi",
-      "title": "Gemini does your chores for free",
-      "pitch": "Gemini can now help with small to-dos for free, but it's only open in six countries for now.",
-      "why": [
-        "Runs on Gemini 4 Hydrogen, no extra charge",
-        "Made for regular people, no coding needed"
-      ],
-      "signals": "Josh Woodward's tweet 599 likes · only one source, not much detail",
+      "title": "Gemini runs errands for you, free",
+      "signals": "Josh Woodward tweet 599 likes · only one source, not much detail",
       "links": [
         {
           "label": "Josh Woodward's tweet",
           "url": "https://x.com/joshwoodward/status/2122737427970425171"
         }
+      ],
+      "what": "Google's Gemini can now handle small to-dos for you, for free. It runs on a new model, Gemini 4 Hydrogen. It can call local businesses for you (Google Duplex), pay at checkout with Google Pay, and you can forward emails to it to deal with. The Gemini and Google Workspace link-up got better too: it can write and send emails, edit Docs and Sheets, and add several calendar events at once.",
+      "meaning": "It's a free helper for everyday chores. If you're in one of the six countries, give it a go, but a lot of the new stuff launches in the US first.",
+      "actions": [
+        "Only for users in six countries: the US, Japan, South Korea, Canada, Australia and India",
+        "New features like phone calls, payments and forwarding emails roll out in the US first; the sources don't say where to find them or which plans include them"
+      ],
+      "deep_dive": [
+        "So far there's just one tweet from Josh Woodward, Google's product lead, so details are thin. Usage limits, whether you need a paid plan, and when other countries get it are all unclear.",
+        "Having an AI make calls, pay, or log into sites costs more if it messes up than a chat does. Start with small stuff and watch the payment confirmations."
       ]
     }
   ],
@@ -58,23 +59,23 @@
   "skipped": [
     {
       "name": "MAI Code 2 and Code 2 Flash",
-      "reason": "HN 378 points, but the source is just a title, so it's unclear what they can do"
+      "reason": "HN 378 points, but the source only has a title, so it's unclear what they can do"
     },
     {
       "name": "ChatGPT for Sales",
-      "reason": "Only an official link, no details, so wait and see"
+      "reason": "Official source is just a link with no details, so wait and see"
     },
     {
-      "name": "Devin bots multi-agent team",
-      "reason": "Swyx's preview post, aimed at developers, not useful for you"
+      "name": "Devin bots multi-agent teams",
+      "reason": "Swyx's preview intro, aimed at developers, not useful for you"
     },
     {
-      "name": "Harvard: AI coding shifts the bottleneck to code review",
-      "reason": "HN 209 points, it's a research opinion, no tool you can use"
+      "name": "Harvard: AI coding moves the bottleneck to code review",
+      "reason": "HN 209 points, it's a research take with no tool you can use"
     },
     {
       "name": "Google AI answers cut search traffic by 40%",
-      "reason": "HN 468 points, an industry trend, not a new tool"
+      "reason": "HN 468 points, it's an industry trend, not a new tool"
     }
   ]
 }

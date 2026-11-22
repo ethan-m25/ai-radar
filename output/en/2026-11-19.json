@@ -1,26 +1,20 @@
 {
-  "headline": "Gemini 4 drops another flavor: Neon",
-  "summary": "Only one thing worth your time today: Google released Gemini 4 Neon, and the pricing is kind of a mess.",
+  "headline": "Gemini 4 has another new flavor: Neon",
+  "summary": "Only one thing worth a look today: Google released Gemini 4 Neon, and the pricing is a bit of a mess.",
   "items": [
     {
       "tier": "look",
       "title": "Gemini 4 Neon is out",
-      "pitch": "Google launched Gemini 4 Neon. It's pitched as fast, cheap, and good at following tricky instructions. People on HN are talking about it a lot.",
-      "why": [
-        "Josh Woodward says it follows instructions well and is faster and cheaper",
-        "HN gave it 867 points and 686 comments, so lots of people are watching",
-        "Simon Willison tested it: its image drawing beats Hydrogen but loses to Carbon"
-      ],
       "actions": [
-        "Switch to Neon in the Gemini app and try it on a pay analysis task you do often",
-        "Run the same task on Claude and Gemini and compare the results"
+        "Developers can pick Neon in the Gemini API, Google AI Studio, and Google Antigravity",
+        "I couldn't find any official word on Neon in the regular Gemini app yet. Check \"Introducing Gemini 4 Neon\" on blog.google"
       ],
       "deep_dive": [
-        "Gemini 4 now comes in three tiers: Carbon, Neon, and Hydrogen. Neon sits in the middle, a trade-off between speed and cost.",
-        "The pricing is a mess: Neon costs $3 per million input tokens and $15 for output. Carbon is half price right now, at $2/$10, but goes up to $4/$20 starting December 1.",
-        "Simon says Neon makes the pricing even more confusing, so don't just go by price. Try it yourself first."
+        "Price: according to OpenRouter, Neon costs $3 per million input tokens and $15 per million output tokens. Carbon's discounted price is $2/$10, going up to $4/$20 after December 1.",
+        "Simon Willison thinks pricing across the Gemini 4 lineup was already confusing, and Neon makes it worse. He released llm-gemini 0.38 to support Neon.",
+        "\"3x faster than Carbon with similar quality\" is Google's own claim. The independent tests I've seen disagree with each other, and nothing's been confirmed yet."
       ],
-      "signals": "HN 867 points · 686 comments · Simon Willison's hands-on test · Announced by Josh Woodward",
+      "signals": "HN 867 points · 686 comments · Simon Willison hands-on test · Josh Woodward announced it",
       "links": [
         {
           "label": "DeepMind official blog",
@@ -30,22 +24,29 @@
           "label": "Simon Willison's review",
           "url": "https://simonwillison.net/tags/ai"
         }
-      ]
+      ],
+      "what": "Gemini 4 Neon is a new AI model Google released on November 18. It's the middle tier of the Gemini 4 lineup. Carbon is saved for the hardest long tasks, Hydrogen is the faster everyday option, and Neon sits between the two. Google says it finishes tasks about 3 times faster than Carbon with similar quality, and it's better at understanding complicated instructions.",
+      "meaning": "Google now has one more option that's all about speed and value. Since you use Claude Code and codex day to day, there's no need to switch any time soon."
     },
     {
       "tier": "fyi",
-      "title": "Putting an agent in an outside sandbox",
-      "pitch": "Simon Willison built a \"sandbox on the outside\" setup that lets Claude Code and Codex run code more safely.",
-      "why": [
-        "The agent's code runs in an isolated environment, so if it screws up or gets prompt-injected, your computer is safe",
-        "You can limit which websites it can reach, and you don't have to hand your keys straight to the agent"
-      ],
-      "signals": "Posted by Simon Willison on November 17 · Built with Prime Radiant · Three sandbox implementations",
+      "title": "Putting agents in an external sandbox",
+      "signals": "Published by Simon Willison on Nov 17 · Done with Prime Radiant · Three sandbox implementations",
       "links": [
         {
           "label": "Simon Willison's blog",
           "url": "https://simonwillison.net/tags/ai"
         }
+      ],
+      "what": "This is an experimental setup that Simon Willison and Prime Radiant put out around November 17, called an \"external sandbox\" (a safe little room kept separate from your computer). The AI coding assistant itself stays outside, and the commands it wants to run go into a Linux sandbox instead. It works with tools like Claude Code and Codex, has the network turned off by default, and can only touch the mounted folders and allowed URLs.",
+      "meaning": "Even if the AI's code goes wrong or it gets tricked by a malicious prompt, it's harder for it to hurt your computer. But it's experimental and mostly aimed at developers for now.",
+      "actions": [
+        "If you want to try it, first read the external-sandboxes-for-coding-agents post on simonwillison.net (2026/Nov/17), then follow its links to find Prime Radiant's implementation"
+      ],
+      "deep_dive": [
+        "Known gap: Claude Code only sends Bash commands into the sandbox. Its built-in file reading and editing still run on your computer. Codex and Pi send more operations into the sandbox.",
+        "Prime Radiant says these implementations are experimental prototypes that haven't been audited enough, so they're not suitable for sensitive stuff.",
+        "These details come from a secondhand article, and I didn't get to read Prime Radiant's original. Please double-check before you use it."
       ]
     }
   ],
@@ -53,25 +54,25 @@
     {
       "day": 2,
       "name": "GPT-6.2 Astra / Sol",
-      "update": "Opinions are split. Thibault from Codex says it's strong on the hardest tasks, and admits the communication style has problems, which the team is working on."
+      "update": "People are split on it. Codex's Thibault says it's strong on the hardest tasks, and also admits the communication style has problems, which the team is working on."
     }
   ],
   "skipped": [
     {
       "name": "Microsoft's seven new models (including MAI Code 2)",
-      "reason": "HN went from 378 to 552 points, but the sources still only have a headline, so it's unclear what they can do"
+      "reason": "HN went from 378 to 552 points, but the sources still only have headlines, so it's unclear what they can do"
     },
     {
       "name": "Stitch Loop (Google Labs)",
-      "reason": "Waitlist only, and it's aimed at lean product teams, so you can't really use it yet"
+      "reason": "Waitlist only, aimed at lean product teams, so you can't really use it right now"
     },
     {
       "name": "Genie 4 / Project Genie",
-      "reason": "Only for Google AI Ultra subscribers, and it has nothing to do with your work"
+      "reason": "Only for Google AI Ultra subscribers, and not relevant to your work"
     },
     {
       "name": "Anthropic pricing IPO",
-      "reason": "It's funding and listing news, not a new feature"
+      "reason": "Funding and IPO news, not a new feature"
     }
   ]
 }

@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -365,20 +368,22 @@
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 值得看</div>
     <h2 class="display title">Gemini Mac 版可直接操作电脑</h2>
-    <div class="pitch">Google 的 Josh Woodward 宣布 Gemini Mac 应用能在你的电脑上直接做任务，还说这是呼声最高的需求。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>不用写代码，非开发者也能让 AI 替你点鼠标</li><li>办公里的重复操作可能直接交给它</li><li>和 Claude、Codex 的电脑操作能力正面竞争</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>更新或下载 Gemini Mac 应用，找找新的任务功能</li><li>先拿不涉及敏感数据的小事试，比如整理文件</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>来源里只有这一条推文，没有细节。能做哪些任务、免费还是付费、是否需要特定订阅，都还不清楚。</p><p>公司电脑上装之前，先确认 IT 政策允许 AI 控制屏幕。薪酬数据别让它碰。</p></div></details>
-    <div class="signals"><strong>信号</strong> · Josh Woodward 推文 876 赞 · 35 转 · 只有一条推文，细节不足</div>
+    <div class="explain"><h3>它是什么</h3><p>Gemini 的 Mac 版应用新增「电脑操作」功能。你在提示里写 @Computer use，Gemini 就会在后台一个独立窗口里替你点击、滚动、打字，处理文件夹、应用和网页里的任务。你的屏幕和鼠标不受影响，窗口里能实时看到它在做什么。官方演示是把一张草图做成 Blender 里的 3D 模型。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>不会写代码的人也能让 AI 代操作电脑，直接对标 Claude 和 Codex 的同类功能。要用得先有 Google 付费订阅，对你影响有限。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>在 Mac 版 Gemini 应用的提示里输入 @Computer use，再写要做的事</li><li>条件：美国地区、英语、Google AI Plus/Pro/Ultra 订阅、18 岁以上个人账号，Apple Silicon Mac 且系统为 macOS 15 以上</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>据报道你可以限定它能用哪些应用，随时叫停，敏感操作要你先批准。</p><p>它在隔离的后台窗口里跑，所以你可以继续用电脑。这点和直接接管鼠标的做法不同。</p><p>目前只限美国和英语，何时扩展到其他地区 Google 没说。Macworld 称功能「即将」上线，其他媒体说已经推出，说法略有出入。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Josh Woodward 推文 876 赞 · 35 转 · 只有一条推文，细节不足</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://x.com/joshwoodward/status/2123534862569324703" target="_blank" rel="noopener">Josh Woodward 的推文</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
     <h2 class="display title">ChatGPT 手机端大改版</h2>
-    <div class="pitch">Codex 团队的 Thibault Sottiaux 说在做 ChatGPT 手机新界面，先给部分 Pro 用户。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>可以把 Codex、Projects、Images 固定到底部栏</li><li>可随时开关，不强制切换</li></ul></div>
-    <div class="signals"><strong>信号</strong> · Thibault Sottiaux 推文 5244 赞 · 276 转 · 另一条提到 12 亿用户</div>
+    <div class="explain"><h3>它是什么</h3><p>OpenAI 在测试 ChatGPT 手机端新界面，目的是更容易找到常用功能。你可以把 Codex（写代码的 AI）、Projects（项目文件夹）、Images（生图）等固定在底部标签栏。「dot」是 ChatGPT 里一种持续运行的 AI 助手，每个 dot 在新界面里有自己的标签页。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>这只是界面调整，没有新能力。你想在手机上快速打开 Codex 的话会方便些。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>在 ChatGPT 的 设置 &gt; New ChatGPT Design 里可随时开关新界面</li><li>目前先给有 dot 或有资格创建 dot 的 Pro 用户，部分人会默认看到</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>OpenAI 还说在向少量 Plus 用户测试 dot，并向所有 Business Standard 用户推出。</p><p>官方说明 dot 创建要在桌面端完成。Pro 用户在欧洲经济区、瑞士和英国一开始不可用。</p><p>OpenAI 说正式铺开前想先听反馈，所以界面之后可能还会改。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Thibault Sottiaux 推文 5244 赞 · 276 转 · 另一条提到 12 亿用户</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://x.com/thsottiaux/status/2123557171321561133" target="_blank" rel="noopener">Thibault Sottiaux 的推文</a></div>
 </article>
 

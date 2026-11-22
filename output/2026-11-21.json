@@ -5,19 +5,13 @@
     {
       "tier": "look",
       "title": "Inkling 2 Mini：能在本机跑的新模型",
-      "pitch": "Thinking Machines 发布 26B 小模型，HN 1062 分。想试本地模型的话，这周末可以看一眼。",
-      "why": [
-        "HN 1062 分，讨论很热",
-        "26B 参数，普通高配电脑有机会跑",
-        "已有 GGUF 版（本地常用格式），Unsloth 下载 23.8 万次"
-      ],
       "actions": [
-        "看 Hugging Face 上 thinkingmachines/Inkling-2-Mini 的页面",
-        "想本地试，可找 unsloth/Inkling-2-Mini-GGUF"
+        "想试的话，在 Hugging Face 搜 Inkling 2 Mini，找 Unsloth 发布的 GGUF 版本（本地常用的压缩格式）",
+        "用 LM Studio 或 Ollama 这类免费软件加载。先确认参数量和内存要求，再决定要不要下载"
       ],
       "deep_dive": [
-        "和 Claude Code、codex 不同，它是开放权重模型，可以自己下载，不用联网调用。",
-        "来源里只有标题和下载数据，看不出具体能力。你的办公工作用云端模型更省事，本地跑主要是好玩和保护隐私。"
+        "同公司的 Inkling 2 Small 是 594B 参数的大模型，目前在它自家的 Tinker 平台使用，权重没公开。Mini 是更小、可下载的那一档。",
+        "本地小模型一般不如 Claude 或 Codex 这类云端旗舰，适合隐私敏感或离线场景。草稿的 26B 和「普通电脑能跑」没有官方证实，下载前请先看模型页。"
       ],
       "signals": "HN 1062 分 · 200 评论 · HF 趋势榜第 1 · Unsloth GGUF 下载 23.8 万",
       "links": [
@@ -29,38 +23,49 @@
           "label": "GGUF 版本",
           "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF"
         }
-      ]
+      ],
+      "what": "Inkling 2 Mini 是 Thinking Machines（前 OpenAI CTO Mira Murati 创办的 AI 公司）新发布的小模型，权重公开，可以下载到自己电脑上跑。据 Artificial Analysis 的评测页，它在其智能指数上得 20 分，属于「循环式 Transformer」架构。草稿里的 26B 参数量我没能在官方来源核实。",
+      "meaning": "想在自己电脑上跑模型的人多了个新选择。对你日常用 Claude Code 和 codex 写代码，影响不大。"
     },
     {
       "tier": "fyi",
       "title": "Codex 桌面版更新，更快更简洁",
-      "pitch": "Codex 团队的 Thibault Sottiaux 说桌面 app 新版更快、更简单，建议升级。",
-      "why": [
-        "推文 2743 赞",
-        "你日常在用 codex，升级成本几乎为零"
-      ],
       "signals": "Thibault Sottiaux 推文 2743 赞 · 33 转",
       "links": [
         {
           "label": "Thibault 的推文",
           "url": "https://x.com/thsottiaux/status/2123861214644347122"
         }
+      ],
+      "what": "OpenAI 的 Codex 团队成员 Thibault Sottiaux 发推，号召大家升级桌面 app，说新版更快、更简单、用起来更舒服。他转发的更新清单提到：整体新视觉设计、各处性能大幅提升、重做的对话线程、更稳定的 Codex Remote（远程控制）。清单里也有 ChatGPT Space 等功能，看起来是整个桌面 app 的更新。",
+      "meaning": "你本来就在用 codex，升级几乎没有成本，值得顺手更新一下。",
+      "actions": [
+        "打开桌面 app，检查并安装更新，或去 OpenAI 官网重新下载最新版"
+      ],
+      "deep_dive": [
+        "清单里的 Space 等功能不确定是否与 Codex 编码直接相关。Space 标注为 Plus 套餐功能，你能否用取决于你的订阅。",
+        "推文只说「更快、更简洁」，没有给出具体速度数据。"
       ]
     },
     {
       "tier": "fyi",
       "title": "Antigravity 手机遥控 Neon",
-      "pitch": "Peter Yang 教了个小技巧：把 Antigravity 网页加到手机主屏，就能远程操控电脑上的线程。",
-      "why": [
-        "不用装 app，几步就能设置",
-        "他觉得比 Claude 的遥控更好用，因为所有线程都在"
-      ],
       "signals": "Peter Yang 推文 159 赞",
       "links": [
         {
           "label": "Peter Yang 的推文",
           "url": "https://x.com/petergyang/status/2123879309463228445"
         }
+      ],
+      "what": "Antigravity 是 Google 的 AI 编程工具，它的 Remote Control（远程控制）功能可以在任意浏览器里操控你电脑上正在跑的会话。Peter Yang 的小技巧是：在手机上打开 antigravity.google.com，点分享，选「添加到主屏幕」。这样它就像个 app，能在手机上和所有 Antigravity 对话线程聊天。",
+      "meaning": "你想在手机上遥控电脑上的 AI 编程任务，又不想装 app，这个办法可以参考。你主要用 Claude Code 和 codex，所以不一定用得上。",
+      "actions": [
+        "手机浏览器打开 antigravity.google.com，点「查看更多」和分享按钮，选「添加到主屏幕」",
+        "电脑端需先在 Antigravity 2.0 设置里开启 Remote Control"
+      ],
+      "deep_dive": [
+        "Google 官方文档说明 Remote Control 需要在电脑上的 Antigravity 2.0 设置里开启，之后能从浏览器操控会话，并有任务完成的推送通知。",
+        "「比 Claude 的遥控更好用」只是 Peter Yang 的个人看法。Antigravity 目前没有手机 app。Gemini 4 Neon 模型在 Antigravity 里面向付费的 Google AI Pro 和 Ultra 订阅用户开放。"
       ]
     }
   ],

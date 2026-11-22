@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -349,7 +352,7 @@
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Quiet Monday: Qwen4-Max hit the HN front page</h1>
+    <h1 class="display headline">Quiet Monday: Qwen4-Max made the HN front page</h1>
     <p class="lead">Nothing big today, just one new model and two small updates.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
@@ -360,40 +363,43 @@
 
 <div class="pager" data-current-date="2026-11-16"><a href="#" class="prev">← Previous</a><span class="issue-num">№151 · 2026-11-16</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Qwen4-Max is out, HN is talking about it</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Codex may have fixed the &quot;at capacity&quot; error</li><li><span class="tier-tag fyi">ℹ️ FYI</span> A skill that gets better the more you use it</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Qwen4-Max is out, and HN is talking about it</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Codex may have fixed the &quot;at capacity&quot; error</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Skills that get better the more you use them</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Qwen4-Max is out, HN is talking about it</h2>
-    <div class="pitch">Alibaba&#x27;s Qwen4-Max made it to the top of HN with lots of comments. Take a quick look, but don&#x27;t rush to switch tools.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>596 points and 250 comments on HN, the hottest AI thing today</li><li>Qwen is one of the open-source model families overseas developers use a lot</li><li>All we&#x27;ve seen so far is the title and the buzz, so the actual abilities aren&#x27;t verified yet</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open the official page and see if there&#x27;s a way to chat with it and try it right away</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Unlike the Claude and codex you use now, Qwen is a model from a different company. You don&#x27;t need to change anything in your daily work for now.</p><p>The source only has the title and the buzz, with no pricing, benchmarks, or info on how it&#x27;s offered. Don&#x27;t make up your mind before you try it.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 596 points · 250 comments</div>
+    <h2 class="display title">Qwen4-Max is out, and HN is talking about it</h2>
+    <div class="explain"><h3>What it is</h3><p>Qwen4-Max is the most powerful Qwen model, officially released by Alibaba on November 16. It&#x27;s aimed at complex professional tasks and autonomous agents (AI that can work through a task step by step on its own). Reportedly it has 2.4 trillion parameters and a 1 million token context window (how much material it can read at once), and you can use it through Alibaba Cloud&#x27;s QwenCloud and third-party APIs. Unlike the last generation, it doesn&#x27;t release its weights (you can&#x27;t download it and run it on your own computer).</p></div>
+    <div class="explain"><h3>What it means</h3><p>There&#x27;s a new cheaper option, but you already have Claude Code and codex, so there&#x27;s no need to switch tools for it.</p></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Alibaba says it uses 35% fewer tokens than Qwen3.8-Max and costs 60% less per task. Those are the company&#x27;s own claims, and I couldn&#x27;t find any independent testing that backs them up.</p><p>Qwen4-Max is closed-source, which is different from the last generation, Qwen3.8-Max (open weights). Alibaba says smaller open-source Qwen4 models are coming later, but didn&#x27;t give a date.</p><p>I only found the launch announcement and haven&#x27;t verified how well it actually writes code. The buzz on HN just means a lot of people are talking about it. It doesn&#x27;t mean it&#x27;s better than what you use now.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · HN 596 points · 250 comments</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://qwen.ai" target="_blank" rel="noopener">Qwen4-Max official page</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
     <h2 class="display title">Codex may have fixed the &quot;at capacity&quot; error</h2>
-    <div class="pitch">Someone on the Codex team says that annoying &quot;model at capacity&quot; error might be fixed. If you use codex, give it another try.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>That error can interrupt your work</li><li>The poster is Thibault Sottiaux, a Codex team member</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Thibault Sottiaux 2500 likes · 84 reposts</div>
+    <div class="explain"><h3>What it is</h3><p>When using codex, you often run into the error &quot;Selected model is at capacity&quot;: OpenAI&#x27;s servers get too busy and your task gets cut off. Thibault Sottiaux, from the Codex team, said on X that the team &quot;may have actually fixed&quot; this problem. It&#x27;s just one tweet, with no more detail than that.</p></div>
+    <div class="explain"><h3>What it means</h3><p>If this error keeps interrupting you, it&#x27;s worth trying again now. But don&#x27;t get your hopes up too high, since problems that were fixed before have come back.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Use codex as usual for a while and see if the error still shows up</li><li>When the error shows up again, check the status announcements at status.openai.com</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>This error is a server-side problem and has nothing to do with your plan&#x27;s usage limits. OpenAI has never given a fixed time to retry.</p><p>I didn&#x27;t find any official announcement that it&#x27;s fixed. On OpenAI&#x27;s status page and in community forums, users reported it coming back after several earlier &quot;resolved&quot; notices. So give this one a few days before you trust it.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Thibault Sottiaux 2500 likes · 84 reposts</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://x.com/thsottiaux/status/2122206990101536852" target="_blank" rel="noopener">Thibault&#x27;s post</a></div>
 </article>
 
 <article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">A skill that gets better the more you use it</h2>
-    <div class="pitch">Dan Shipper says they built a skill that &quot;gets better every time you use it.&quot; He used it to write context summaries and got it to about 80% of what he likes.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>People who use skills may not have to keep tweaking them by hand</li><li>He used autoresearch (letting the AI try things over and over and fix itself) to iterate</li><li>For now it&#x27;s just one tweet, with nothing you can install yet</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Dan Shipper 143 likes</div>
+    <h2 class="display title">Skills that get better the more you use them</h2>
+    <div class="explain"><h3>What it is</h3><p>The Every team, where Dan Shipper works, is building &quot;skills that get better the more you use them&quot; (a skill is a written set of instructions that any model can load and follow). Here&#x27;s how it works: they save real drafts along with the edits made to them, break the edit feedback into 74 yes/no checks, then have the AI keep revising the skill until its output passes the checks.</p></div>
+    <div class="explain"><h3>What it means</h3><p>You could use this idea too: collect good examples and write your standards as yes/no checks. But for now it&#x27;s just one write-up of an experiment.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Read the original: Every&#x27;s experiment write-up on frontier.every.to</li><li>Try it your own way: save 5-10 finished pieces you&#x27;re happy with, and turn what you don&#x27;t like into yes/no questions</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Every&#x27;s numbers: the skill went from v1 to v9, and scores across four models rose from 34%–56% to about 76%–81%. Claude Sonnet 5.5 did the scoring, and it was their own test, not an independent evaluation.</p><p>The &quot;gets better the more you use it&quot; part isn&#x27;t automatic learning. A person turns the edit feedback into checks, then has the AI keep refining the skill. Most of the work is collecting good examples and writing the check questions.</p><p>Right now there&#x27;s nothing you can install directly, just the idea and the article.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Dan Shipper 143 likes</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://x.com/danshipper/status/2122091033001337134" target="_blank" rel="noopener">Dan Shipper&#x27;s post</a></div>
 </article>
 
 
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>uBlock Origin universal XSS vulnerability</td><td>414 points on HN, but not an AI story</td></tr><tr><td>Microsoft 365 outage caused chlorine gas poisoning for hotel guests</td><td>570 points on HN, not an AI story</td></tr><tr><td>Salesforce SOV-Transcribe-1 speech model</td><td>Claims to be the top open-source speech model, but there&#x27;s no way for non-developers to use it directly</td></tr><tr><td>Rauch&#x27;s xeet post rendering tool</td><td>A small developer tool, not relevant to your work</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>uBlock Origin universal XSS vulnerability</td><td>HN 414 points, but not an AI story</td></tr><tr><td>Microsoft 365 outage left hotel guests with chlorine gas poisoning</td><td>HN 570 points, not an AI story</td></tr><tr><td>Salesforce SOV-Transcribe-1 speech model</td><td>Claims to be the top open-source speech model, but there&#x27;s no way in for non-developers to use it directly</td></tr><tr><td>Rauch&#x27;s xeet post rendering tool</td><td>A small dev tool, not relevant to your work</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 

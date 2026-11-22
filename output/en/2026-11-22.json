@@ -1,21 +1,25 @@
 {
-  "headline": "Nothing big today, don't chase the Riemann proof",
-  "summary": "No new tools made the cut today. The local model Inkling 2 Mini keeps getting hotter, but I've already recommended it.",
+  "headline": "Nothing big today, don't bother chasing the Riemann proof",
+  "summary": "No new tools made the cut today. The local model Inkling 2 Mini keeps getting more buzz, but I've already recommended it.",
   "items": [
     {
       "tier": "fyi",
-      "title": "Garry Tan's software factory setup",
-      "pitch": "Garry Tan says he uses a certain tool for half his work and calls its desktop, phone and cloud experience the best out there right now.",
-      "why": [
-        "The source doesn't name the tool, so you can't try it yet",
-        "His own words: you can automate your work with it directly"
-      ],
-      "signals": "Garry Tan tweet, 724 likes · No link in the source, so not much to go on",
+      "title": "Garry Tan's software factory experience",
+      "signals": "Garry Tan tweet, 724 likes · no link in the source, so info is limited",
       "links": [
         {
           "label": "Garry Tan tweet",
           "url": "https://x.com/garrytan/status/2124151626286170609"
         }
+      ],
+      "what": "Garry Tan runs Y Combinator, the well-known startup accelerator. He retweeted a post from @capydotai about Capy's iOS version, which is looking for testers on TestFlight (Apple's app beta testing platform). He said he does about half of his work with \"this\" tool, together with his \"software factory\" (his own workflow for using AI to churn out software in bulk). He didn't say much about what the tool can actually do.",
+      "meaning": "Right now it's just one famous person saying nice things, plus a mobile beta. I couldn't find an official write-up for Capy, so it doesn't really affect you.",
+      "actions": [
+        "If you want to try it, find the \"Capy for iOS\" tweet from @capydotai on X and reply in the comments to ask for a TestFlight spot, like they ask."
+      ],
+      "deep_dive": [
+        "His exact words: out of the desktop, phone and cloud ways of using it, this is the one that feels best to him \"right now\". That's just his personal opinion, with no comparison data.",
+        "I couldn't find Capy's official features, pricing or supported regions, so I can't compare it to Claude Code or codex, which you already use."
       ]
     }
   ],
@@ -23,25 +27,25 @@
     {
       "day": 1,
       "name": "Inkling 2 Mini (local model)",
-      "update": "480 points on HN, #1 on Hugging Face trending, 800k+ downloads of the GGUF version, and it only needs 5.4GB of memory."
+      "update": "480 points on HN, #1 on Hugging Face trending, 800K+ downloads of the GGUF version, and it only needs 5.4GB of memory."
     },
     {
       "day": 2,
-      "name": "Codex/ChatGPT desktop and phone app updates",
-      "update": "Thibault Sottiaux's tweet got 2158 likes and says the next big update is already in the works. Peter Yang points out you can pin Codex to the bottom nav."
+      "name": "Codex/ChatGPT desktop and mobile update",
+      "update": "Thibault Sottiaux's tweet got 2158 likes and says the next big update is already in the works; Peter Yang pointed out you can pin Codex to the bottom nav."
     }
   ],
   "skipped": [
     {
-      "name": "Riemann hypothesis proof",
+      "name": "Riemann Hypothesis proof",
       "reason": "1066 points on HN, but it's still a math result, not a tool you can use"
     },
     {
       "name": "GTA VI PC port",
-      "reason": "Amjad Masad mentioned a high schooler using a swarm of agents working together, but it's just one person's story"
+      "reason": "Amjad Masad mentioned a high schooler teaming up a swarm of agents, but it's just one person's case"
     },
     {
-      "name": "Replit Amuse goes open source",
+      "name": "Replit Amuse open-sourced",
       "reason": "Just one tweet from Amjad Masad, not enough detail"
     },
     {
@@ -50,7 +54,7 @@
     },
     {
       "name": "OpenRouter inference provider data handling incident",
-      "reason": "173 points on HN, a privacy topic mostly for developers, and the source has few details"
+      "reason": "173 points on HN, a privacy topic aimed more at developers, and the source has little detail"
     }
   ]
 }

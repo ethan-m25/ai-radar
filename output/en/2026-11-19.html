@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -349,8 +352,8 @@
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Gemini 4 drops another flavor: Neon</h1>
-    <p class="lead">Only one thing worth your time today: Google released Gemini 4 Neon, and the pricing is kind of a mess.</p>
+    <h1 class="display headline">Gemini 4 has another new flavor: Neon</h1>
+    <p class="lead">Only one thing worth a look today: Google released Gemini 4 Neon, and the pricing is a bit of a mess.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
         <span>👀 <span class="look-count">1</span> worth a look</span>
@@ -360,31 +363,33 @@
 
 <div class="pager" data-current-date="2026-11-19"><a href="#" class="prev">← Previous</a><span class="issue-num">№154 · 2026-11-19</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Gemini 4 Neon is out</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Putting an agent in an outside sandbox</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Gemini 4 Neon is out</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Putting agents in an external sandbox</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
     <h2 class="display title">Gemini 4 Neon is out</h2>
-    <div class="pitch">Google launched Gemini 4 Neon. It&#x27;s pitched as fast, cheap, and good at following tricky instructions. People on HN are talking about it a lot.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Josh Woodward says it follows instructions well and is faster and cheaper</li><li>HN gave it 867 points and 686 comments, so lots of people are watching</li><li>Simon Willison tested it: its image drawing beats Hydrogen but loses to Carbon</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Switch to Neon in the Gemini app and try it on a pay analysis task you do often</li><li>Run the same task on Claude and Gemini and compare the results</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Gemini 4 now comes in three tiers: Carbon, Neon, and Hydrogen. Neon sits in the middle, a trade-off between speed and cost.</p><p>The pricing is a mess: Neon costs $3 per million input tokens and $15 for output. Carbon is half price right now, at $2/$10, but goes up to $4/$20 starting December 1.</p><p>Simon says Neon makes the pricing even more confusing, so don&#x27;t just go by price. Try it yourself first.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · HN 867 points · 686 comments · Simon Willison&#x27;s hands-on test · Announced by Josh Woodward</div>
+    <div class="explain"><h3>What it is</h3><p>Gemini 4 Neon is a new AI model Google released on November 18. It&#x27;s the middle tier of the Gemini 4 lineup. Carbon is saved for the hardest long tasks, Hydrogen is the faster everyday option, and Neon sits between the two. Google says it finishes tasks about 3 times faster than Carbon with similar quality, and it&#x27;s better at understanding complicated instructions.</p></div>
+    <div class="explain"><h3>What it means</h3><p>Google now has one more option that&#x27;s all about speed and value. Since you use Claude Code and codex day to day, there&#x27;s no need to switch any time soon.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Developers can pick Neon in the Gemini API, Google AI Studio, and Google Antigravity</li><li>I couldn&#x27;t find any official word on Neon in the regular Gemini app yet. Check &quot;Introducing Gemini 4 Neon&quot; on blog.google</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Price: according to OpenRouter, Neon costs $3 per million input tokens and $15 per million output tokens. Carbon&#x27;s discounted price is $2/$10, going up to $4/$20 after December 1.</p><p>Simon Willison thinks pricing across the Gemini 4 lineup was already confusing, and Neon makes it worse. He released llm-gemini 0.38 to support Neon.</p><p>&quot;3x faster than Carbon with similar quality&quot; is Google&#x27;s own claim. The independent tests I&#x27;ve seen disagree with each other, and nothing&#x27;s been confirmed yet.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · HN 867 points · 686 comments · Simon Willison hands-on test · Josh Woodward announced it</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://deepmind.google/blog" target="_blank" rel="noopener">DeepMind official blog</a> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison&#x27;s review</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Putting an agent in an outside sandbox</h2>
-    <div class="pitch">Simon Willison built a &quot;sandbox on the outside&quot; setup that lets Claude Code and Codex run code more safely.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>The agent&#x27;s code runs in an isolated environment, so if it screws up or gets prompt-injected, your computer is safe</li><li>You can limit which websites it can reach, and you don&#x27;t have to hand your keys straight to the agent</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Posted by Simon Willison on November 17 · Built with Prime Radiant · Three sandbox implementations</div>
+    <h2 class="display title">Putting agents in an external sandbox</h2>
+    <div class="explain"><h3>What it is</h3><p>This is an experimental setup that Simon Willison and Prime Radiant put out around November 17, called an &quot;external sandbox&quot; (a safe little room kept separate from your computer). The AI coding assistant itself stays outside, and the commands it wants to run go into a Linux sandbox instead. It works with tools like Claude Code and Codex, has the network turned off by default, and can only touch the mounted folders and allowed URLs.</p></div>
+    <div class="explain"><h3>What it means</h3><p>Even if the AI&#x27;s code goes wrong or it gets tricked by a malicious prompt, it&#x27;s harder for it to hurt your computer. But it&#x27;s experimental and mostly aimed at developers for now.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>If you want to try it, first read the external-sandboxes-for-coding-agents post on simonwillison.net (2026/Nov/17), then follow its links to find Prime Radiant&#x27;s implementation</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Known gap: Claude Code only sends Bash commands into the sandbox. Its built-in file reading and editing still run on your computer. Codex and Pi send more operations into the sandbox.</p><p>Prime Radiant says these implementations are experimental prototypes that haven&#x27;t been audited enough, so they&#x27;re not suitable for sensitive stuff.</p><p>These details come from a secondhand article, and I didn&#x27;t get to read Prime Radiant&#x27;s original. Please double-check before you use it.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Published by Simon Willison on Nov 17 · Done with Prime Radiant · Three sandbox implementations</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison&#x27;s blog</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 2</span><div><span class="item-name">GPT-6.2 Astra / Sol</span> <span class="update">— Opinions are split. Thibault from Codex says it&#x27;s strong on the hardest tasks, and admits the communication style has problems, which the team is working on.</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 2</span><div><span class="item-name">GPT-6.2 Astra / Sol</span> <span class="update">— People are split on it. Codex&#x27;s Thibault says it&#x27;s strong on the hardest tasks, and also admits the communication style has problems, which the team is working on.</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Microsoft&#x27;s seven new models (including MAI Code 2)</td><td>HN went from 378 to 552 points, but the sources still only have a headline, so it&#x27;s unclear what they can do</td></tr><tr><td>Stitch Loop (Google Labs)</td><td>Waitlist only, and it&#x27;s aimed at lean product teams, so you can&#x27;t really use it yet</td></tr><tr><td>Genie 4 / Project Genie</td><td>Only for Google AI Ultra subscribers, and it has nothing to do with your work</td></tr><tr><td>Anthropic pricing IPO</td><td>It&#x27;s funding and listing news, not a new feature</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Microsoft&#x27;s seven new models (including MAI Code 2)</td><td>HN went from 378 to 552 points, but the sources still only have headlines, so it&#x27;s unclear what they can do</td></tr><tr><td>Stitch Loop (Google Labs)</td><td>Waitlist only, aimed at lean product teams, so you can&#x27;t really use it right now</td></tr><tr><td>Genie 4 / Project Genie</td><td>Only for Google AI Ultra subscribers, and not relevant to your work</td></tr><tr><td>Anthropic pricing IPO</td><td>Funding and IPO news, not a new feature</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 

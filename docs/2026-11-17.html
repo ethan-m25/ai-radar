@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -365,29 +368,33 @@
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 值得看</div>
     <h2 class="display title">让 Claude 设计时别出 AI 味</h2>
-    <div class="pitch">Peter Yang 整理了 Nate Parrott 的 5 条心得，教你让 Claude 做出的页面不像 AI 套模板。做汇报页、内部小工具时能直接套用。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>先给 Claude 截图、喜欢的页面和你过去的作品</li><li>遇到难排版时，让它先研究类似产品怎么做</li><li>不用写代码，改提示词的习惯就行</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开链接读完 5 条，下次让 Claude 做页面时先丢参考图给它</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>这是经验帖，不是新工具，你现在用的 Claude Code 就能照做。</p><p>来源是转述，只有 5 条里的前两条在我看到的内容里，其余要点开原帖。</p></div></details>
-    <div class="signals"><strong>信号</strong> · Peter Yang 帖子 138 赞 · 转述 Nate Parrott 的方法</div>
+    <div class="explain"><h3>它是什么</h3><p>Anthropic 设计师 Nate Parrott（Claude Design 的设计者）在播客里讲了让 Claude 做设计不显得“AI 味”的 5 个办法。核心是：先给足截图和参考；难排版先让它研究熟悉产品；在 design.md 里提醒它的偏好；先画线框图；一次要 5 个方案再混搭。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>做汇报页、小工具时，不用学设计，改改提问方式就能明显更好看。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>下次让 Claude 做页面前，先贴参考截图和你喜欢的页面</li><li>让它先出 5 个不同风格方案，挑你喜欢的部分再要 5 个</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>“AI 味”指 Claude 常见的固定套路，比如衬线字体、米白背景、卡片边上的彩条。Nate 说模型不知道自己有这些偏好。</p><p>线框图（wireframe，只有框和文字的草图）先定流程，再调字体颜色，能避免一上来就陷进细节。</p><p>以上来自 Peter Yang 的转述；完整视频我没能打开，细节以原播客为准。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Peter Yang 帖子 138 赞 · 转述 Nate Parrott 的方法</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://x.com/petergyang/status/2122347721298510021" target="_blank" rel="noopener">Peter Yang 的 5 条总结</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
     <h2 class="display title">Gemini Notebook 把资料变成互动网页</h2>
-    <div class="pitch">Google 的 Josh Woodward 演示：把资料丢进 Gemini Notebook，就能生成可分享的互动网站。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>不会写代码也能做，易做易分享</li><li>适合把培训资料或薪酬政策做成可点的页面</li></ul></div>
-    <div class="signals"><strong>信号</strong> · Josh Woodward 帖子 294 赞 · 官方演示，暂无第三方实测</div>
+    <div class="explain"><h3>它是什么</h3><p>Google 把 NotebookLM 更名为 Gemini Notebook。现在你在笔记本里上传资料后，在聊天框输入“make me a site”并描述需求，它就会用这些资料生成可交互的网页，比如互动元素周期表、数据看板或项目追踪页。生成的网页可以在新标签页打开或分享。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>不会写代码也能把资料做成可点的页面，但价格和可靠性还不清楚。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>打开 Gemini Notebook，上传一份资料，在聊天里输入 make me a site 试试</li><li>目前报道称仅限网页版、成年用户，含 Workspace 用户</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>二手报道称生成会占用使用额度，Google 没说清价格、用的是哪个模型，也没说分享页面如何托管。</p><p>官方演示只用了周期表这类公开资料；处理薪酬等内部文件是否可靠、是否合规，没有实测，先别放敏感数据。</p><p>分享链接据称需要对方有整个笔记本的权限，对外发布前要先确认这一点。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Josh Woodward 帖子 294 赞 · 官方演示，暂无第三方实测</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://x.com/joshwoodward/status/2122453269842886788" target="_blank" rel="noopener">Josh Woodward 的演示</a></div>
 </article>
 
 <article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
     <h2 class="display title">Claude Code 团队谈如何验证结果</h2>
-    <div class="pitch">claude.dev 上有篇文章讲 Claude Code 团队怎么确认 AI 写的东西靠谱。刚上 HN，值得留意。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>讨论度不低：49 条评论</li><li>可能对你检查 AI 产出有参考</li></ul></div>
-    <div class="signals"><strong>信号</strong> · HN 43 分 · 49 评论 · 发布约 1 小时</div>
+    <div class="explain"><h3>它是什么</h3><p>这是 claude.dev 上一篇文章（据转载署名 Addy Osmani），讲 Claude Code 团队怎么确认 AI 写的代码靠谱。据转载，团队约 90% 的代码由 Claude 写并审查，靠“验证循环”（让 Claude 自己运行程序并检查结果）来放心地同时开多个 Claude。我没能读到原文，以下细节来自转载。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>对你直接影响不大，但能借鉴“让 AI 自己跑一遍再交付”的习惯。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>在你的项目里让 Claude 写一个 verify skill（放在 .claude/skills/），说明怎么启动并检查你的应用</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>转载称：Claude 会从 39 项检查清单里按改动挑 3–10 项执行；同一项检查连续失败三轮就交给人。</p><p>转载还称，评审规则取自主分支，改动无法自己放宽规则；这些细节来自转载，没有对照原文核实。</p><p>文中“合并数翻倍、回滚率降 40% 以上”是团队自己报告的数字，未经第三方验证。</p></div></details>
+    <div class="signals"><strong>热度</strong> · HN 43 分 · 49 评论 · 发布约 1 小时</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN 首页</a></div>
 </article>
 

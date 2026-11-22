@@ -1,22 +1,15 @@
 {
-  "headline": "Quiet Monday: Qwen4-Max hit the HN front page",
+  "headline": "Quiet Monday: Qwen4-Max made the HN front page",
   "summary": "Nothing big today, just one new model and two small updates.",
   "items": [
     {
       "tier": "look",
-      "title": "Qwen4-Max is out, HN is talking about it",
-      "pitch": "Alibaba's Qwen4-Max made it to the top of HN with lots of comments. Take a quick look, but don't rush to switch tools.",
-      "why": [
-        "596 points and 250 comments on HN, the hottest AI thing today",
-        "Qwen is one of the open-source model families overseas developers use a lot",
-        "All we've seen so far is the title and the buzz, so the actual abilities aren't verified yet"
-      ],
-      "actions": [
-        "Open the official page and see if there's a way to chat with it and try it right away"
-      ],
+      "title": "Qwen4-Max is out, and HN is talking about it",
+      "actions": [],
       "deep_dive": [
-        "Unlike the Claude and codex you use now, Qwen is a model from a different company. You don't need to change anything in your daily work for now.",
-        "The source only has the title and the buzz, with no pricing, benchmarks, or info on how it's offered. Don't make up your mind before you try it."
+        "Alibaba says it uses 35% fewer tokens than Qwen3.8-Max and costs 60% less per task. Those are the company's own claims, and I couldn't find any independent testing that backs them up.",
+        "Qwen4-Max is closed-source, which is different from the last generation, Qwen3.8-Max (open weights). Alibaba says smaller open-source Qwen4 models are coming later, but didn't give a date.",
+        "I only found the launch announcement and haven't verified how well it actually writes code. The buzz on HN just means a lot of people are talking about it. It doesn't mean it's better than what you use now."
       ],
       "signals": "HN 596 points · 250 comments",
       "links": [
@@ -24,39 +17,51 @@
           "label": "Qwen4-Max official page",
           "url": "https://qwen.ai"
         }
-      ]
+      ],
+      "what": "Qwen4-Max is the most powerful Qwen model, officially released by Alibaba on November 16. It's aimed at complex professional tasks and autonomous agents (AI that can work through a task step by step on its own). Reportedly it has 2.4 trillion parameters and a 1 million token context window (how much material it can read at once), and you can use it through Alibaba Cloud's QwenCloud and third-party APIs. Unlike the last generation, it doesn't release its weights (you can't download it and run it on your own computer).",
+      "meaning": "There's a new cheaper option, but you already have Claude Code and codex, so there's no need to switch tools for it."
     },
     {
       "tier": "fyi",
       "title": "Codex may have fixed the \"at capacity\" error",
-      "pitch": "Someone on the Codex team says that annoying \"model at capacity\" error might be fixed. If you use codex, give it another try.",
-      "why": [
-        "That error can interrupt your work",
-        "The poster is Thibault Sottiaux, a Codex team member"
-      ],
       "signals": "Thibault Sottiaux 2500 likes · 84 reposts",
       "links": [
         {
           "label": "Thibault's post",
           "url": "https://x.com/thsottiaux/status/2122206990101536852"
         }
+      ],
+      "what": "When using codex, you often run into the error \"Selected model is at capacity\": OpenAI's servers get too busy and your task gets cut off. Thibault Sottiaux, from the Codex team, said on X that the team \"may have actually fixed\" this problem. It's just one tweet, with no more detail than that.",
+      "meaning": "If this error keeps interrupting you, it's worth trying again now. But don't get your hopes up too high, since problems that were fixed before have come back.",
+      "actions": [
+        "Use codex as usual for a while and see if the error still shows up",
+        "When the error shows up again, check the status announcements at status.openai.com"
+      ],
+      "deep_dive": [
+        "This error is a server-side problem and has nothing to do with your plan's usage limits. OpenAI has never given a fixed time to retry.",
+        "I didn't find any official announcement that it's fixed. On OpenAI's status page and in community forums, users reported it coming back after several earlier \"resolved\" notices. So give this one a few days before you trust it."
       ]
     },
     {
       "tier": "fyi",
-      "title": "A skill that gets better the more you use it",
-      "pitch": "Dan Shipper says they built a skill that \"gets better every time you use it.\" He used it to write context summaries and got it to about 80% of what he likes.",
-      "why": [
-        "People who use skills may not have to keep tweaking them by hand",
-        "He used autoresearch (letting the AI try things over and over and fix itself) to iterate",
-        "For now it's just one tweet, with nothing you can install yet"
-      ],
+      "title": "Skills that get better the more you use them",
       "signals": "Dan Shipper 143 likes",
       "links": [
         {
           "label": "Dan Shipper's post",
           "url": "https://x.com/danshipper/status/2122091033001337134"
         }
+      ],
+      "what": "The Every team, where Dan Shipper works, is building \"skills that get better the more you use them\" (a skill is a written set of instructions that any model can load and follow). Here's how it works: they save real drafts along with the edits made to them, break the edit feedback into 74 yes/no checks, then have the AI keep revising the skill until its output passes the checks.",
+      "meaning": "You could use this idea too: collect good examples and write your standards as yes/no checks. But for now it's just one write-up of an experiment.",
+      "actions": [
+        "Read the original: Every's experiment write-up on frontier.every.to",
+        "Try it your own way: save 5-10 finished pieces you're happy with, and turn what you don't like into yes/no questions"
+      ],
+      "deep_dive": [
+        "Every's numbers: the skill went from v1 to v9, and scores across four models rose from 34%–56% to about 76%–81%. Claude Sonnet 5.5 did the scoring, and it was their own test, not an independent evaluation.",
+        "The \"gets better the more you use it\" part isn't automatic learning. A person turns the edit feedback into checks, then has the AI keep refining the skill. Most of the work is collecting good examples and writing the check questions.",
+        "Right now there's nothing you can install directly, just the idea and the article."
       ]
     }
   ],
@@ -64,19 +69,19 @@
   "skipped": [
     {
       "name": "uBlock Origin universal XSS vulnerability",
-      "reason": "414 points on HN, but not an AI story"
+      "reason": "HN 414 points, but not an AI story"
     },
     {
-      "name": "Microsoft 365 outage caused chlorine gas poisoning for hotel guests",
-      "reason": "570 points on HN, not an AI story"
+      "name": "Microsoft 365 outage left hotel guests with chlorine gas poisoning",
+      "reason": "HN 570 points, not an AI story"
     },
     {
       "name": "Salesforce SOV-Transcribe-1 speech model",
-      "reason": "Claims to be the top open-source speech model, but there's no way for non-developers to use it directly"
+      "reason": "Claims to be the top open-source speech model, but there's no way in for non-developers to use it directly"
     },
     {
       "name": "Rauch's xeet post rendering tool",
-      "reason": "A small developer tool, not relevant to your work"
+      "reason": "A small dev tool, not relevant to your work"
     }
   ]
 }

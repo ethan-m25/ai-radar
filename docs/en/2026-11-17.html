@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -350,7 +353,7 @@
 
 <div class="cover">
     <h1 class="display headline">Quiet day today, just a few small tools</h1>
-    <p class="lead">No big launches. I picked 3 small things you can use right away even if you&#x27;re not a developer.</p>
+    <p class="lead">No big launches. I picked 3 small things non-developers can use right away.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
         <span>👀 <span class="look-count">1</span> worth a look</span>
@@ -360,40 +363,44 @@
 
 <div class="pager" data-current-date="2026-11-17"><a href="#" class="prev">← Previous</a><span class="issue-num">№152 · 2026-11-17</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Make Claude&#x27;s designs look less like AI</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Gemini Notebook turns your materials into interactive web pages</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Claude Code team on how they check results</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> How to make Claude&#x27;s designs not look like AI made them</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Gemini Notebook turns your files into interactive web pages</li><li><span class="tier-tag fyi">ℹ️ FYI</span> The Claude Code team on how they check the results</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Make Claude&#x27;s designs look less like AI</h2>
-    <div class="pitch">Peter Yang rounded up 5 takeaways from Nate Parrott on how to get Claude to make pages that don&#x27;t look like a generic AI template. You can use them right away for report pages or internal tools.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Start by giving Claude screenshots, pages you like, and your past work</li><li>For tricky layouts, have it look into how similar products do it first</li><li>No coding needed, you just change how you write your prompts</li></ul></div>
-    <div class="action-block"><h3>🎯 What you can do</h3><ol><li>Open the link and read all 5 tips, then next time you ask Claude to make a page, hand it some reference images first</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>This is a tips post, not a new tool. You can follow it with the Claude Code you&#x27;re already using.</p><p>The source is secondhand, and only the first two of the 5 tips showed up in what I saw. You&#x27;ll need to open the original post for the rest.</p></div></details>
-    <div class="signals"><strong>Signals</strong> · Peter Yang&#x27;s post has 138 likes · retells Nate Parrott&#x27;s method</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/petergyang/status/2122347721298510021" target="_blank" rel="noopener">Peter Yang&#x27;s 5-tip summary</a></div>
+    <h2 class="display title">How to make Claude&#x27;s designs not look like AI made them</h2>
+    <div class="explain"><h3>What it is</h3><p>Nate Parrott, a designer at Anthropic (the person behind Claude Design), shared 5 ways on a podcast to get Claude to design things that don&#x27;t look like AI made them. The main ideas: give it plenty of screenshots and references; for tricky layouts, have it study a product it knows well first; remind it of its habits in a design.md file; draw a wireframe first; ask for 5 options at once and then mix and match.</p></div>
+    <div class="explain"><h3>What it means</h3><p>For report slides and small tools, you don&#x27;t need to learn design. Just changing how you ask can make things look noticeably better.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Next time you ask Claude to make a page, paste in reference screenshots and pages you like first</li><li>Ask it for 5 different style options first, pick the parts you like, then ask for 5 more</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>&quot;AI look&quot; means the stock habits Claude keeps falling back on, like serif fonts, off-white backgrounds, and colored stripes on the edge of cards. Nate says the model doesn&#x27;t know it has these preferences.</p><p>A wireframe (a rough sketch with just boxes and text) lets you settle the flow first and tweak fonts and colors later, so you don&#x27;t get stuck in the details right away.</p><p>This is all from Peter Yang&#x27;s retelling; I couldn&#x27;t open the full video, so go with the original podcast for the details.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Peter Yang&#x27;s post, 138 likes · retelling Nate Parrott&#x27;s methods</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/petergyang/status/2122347721298510021" target="_blank" rel="noopener">Peter Yang&#x27;s 5-point summary</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Gemini Notebook turns your materials into interactive web pages</h2>
-    <div class="pitch">Google&#x27;s Josh Woodward showed a demo: drop your materials into Gemini Notebook and it makes an interactive website you can share.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>You don&#x27;t need to know how to code, and it&#x27;s easy to make and share</li><li>Handy for turning training materials or pay policies into clickable pages</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · Josh Woodward&#x27;s post has 294 likes · official demo, no third-party testing yet</div>
+    <h2 class="display title">Gemini Notebook turns your files into interactive web pages</h2>
+    <div class="explain"><h3>What it is</h3><p>Google renamed NotebookLM to Gemini Notebook. Now you upload your material to a notebook, type &quot;make me a site&quot; in the chat box and describe what you want, and it builds an interactive web page from that material, like an interactive periodic table, a data dashboard, or a project tracker. The page can be opened in a new tab or shared.</p></div>
+    <div class="explain"><h3>What it means</h3><p>You can turn your files into clickable pages without writing code, but pricing and how reliable it is are still unclear.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Open Gemini Notebook, upload a file, and type make me a site in the chat to try it</li><li>Reports so far say it&#x27;s web-only and for adult users, including Workspace users</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Secondhand reports say generating a site uses up your usage quota. Google hasn&#x27;t said clearly what it costs, which model it uses, or how shared pages are hosted.</p><p>The official demo only used public material like the periodic table. Nobody has tested whether it works reliably on internal files like pay data, or whether that&#x27;s compliant, so don&#x27;t put sensitive data in yet.</p><p>Reportedly, the person opening a shared link needs access to the whole notebook, so check that before you publish anything outside your team.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Josh Woodward&#x27;s post, 294 likes · official demo, no third-party testing yet</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://x.com/joshwoodward/status/2122453269842886788" target="_blank" rel="noopener">Josh Woodward&#x27;s demo</a></div>
 </article>
 
 <article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Claude Code team on how they check results</h2>
-    <div class="pitch">There&#x27;s an article on claude.dev about how the Claude Code team makes sure what the AI writes is actually reliable. It just hit HN, so keep an eye on it.</div>
-    <div class="lang"><h3>Why it matters</h3><ul><li>Quite a bit of discussion: 49 comments</li><li>Might help with how you check AI output</li></ul></div>
-    <div class="signals"><strong>Signals</strong> · HN 43 points · 49 comments · posted about 1 hour ago</div>
+    <h2 class="display title">The Claude Code team on how they check the results</h2>
+    <div class="explain"><h3>What it is</h3><p>This is a post on claude.dev (credited to Addy Osmani in the repost) about how the Claude Code team makes sure the code AI writes is solid. According to the repost, about 90% of the team&#x27;s code is written and reviewed by Claude, and they rely on a &quot;verification loop&quot; (Claude runs the program itself and checks the results) so they can safely run several Claudes at once. I couldn&#x27;t read the original, so the details below come from the repost.</p></div>
+    <div class="explain"><h3>What it means</h3><p>It doesn&#x27;t affect you much directly, but the habit of having the AI run things itself before handing them over is worth borrowing.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>In your project, ask Claude to write a verify skill (in .claude/skills/) that explains how to start your app and check it</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>The repost says Claude picks 3–10 items from a 39-item checklist based on the change, and if the same check fails three rounds in a row, it hands off to a human.</p><p>The repost also says the review rules come from the main branch, so a change can&#x27;t loosen the rules for itself. These details come from the repost and I haven&#x27;t checked them against the original.</p><p>The line about &quot;merges doubled and rollback rate dropped over 40%&quot; is a number the team reported themselves, and no third party has verified it.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · HN 43 points · 49 comments · posted about 1 hour ago</div>
     <div class="try-links"><strong>Links</strong> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN front page</a></div>
 </article>
 
 
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>OpenCode Browse</td><td>HN 283 points, and you use OpenCode, but the source only has a title so it&#x27;s unclear what it is</td></tr><tr><td>Windows 11 collecting coding agent usage data</td><td>HN 635 points, more of a privacy topic, not a new tool</td></tr><tr><td>Perplexity annual revenue tops $1 billion</td><td>It&#x27;s revenue and funding news, no new features</td></tr><tr><td>GBrain hosted team memory</td><td>Just one tweet from Garry Tan, not enough detail</td></tr><tr><td>Google Labs acquires Howie</td><td>Acquisition news, no usable product yet</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>OpenCode Browse</td><td>HN 283 points, and you use OpenCode, but the source is only a title, so there&#x27;s no way to tell what it is</td></tr><tr><td>Windows 11 collecting coding agent usage data</td><td>HN 635 points, more of a privacy topic, not a new tool</td></tr><tr><td>Perplexity annual revenue tops $1 billion</td><td>It&#x27;s revenue and funding news, no new features</td></tr><tr><td>GBrain hosted team memory</td><td>Just one tweet from Garry Tan, not enough detail</td></tr><tr><td>Google Labs acquires Howie</td><td>Acquisition news, no usable product yet</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 

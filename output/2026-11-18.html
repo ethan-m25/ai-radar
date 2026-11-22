@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -365,20 +368,22 @@
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 值得看</div>
     <h2 class="display title">GPT-6.2 Astra 和 Sol 发布</h2>
-    <div class="pitch">OpenAI 新旗舰 Astra 和日常款 Sol 上线了，更便宜、更省 token，但网上评价不一。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>Astra API 价格是上一代的 80%，缓存价更低</li><li>Sol 价格不变，Altman 说很省 token</li><li>Peter Yang 等人用着好，Theo 吐槽它爱问怪问题</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>在 codex 里切到 gpt-6.2-sol，拿手头一个真实表格或报告任务试一遍</li><li>如果你是 Pro 200/500 档，试试 6.2 Sol ultrafast</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你常用的 Claude 比：Simon Willison 的测试里，它做 3D 动画不如 Claude Fable 5.2 和 Gemini 4 Carbon。Astra 的基准分也略低于 Fable 5.2。</p><p>OpenAI 员工说，早期评测视频是上周拍的，最近三四天又改了很多，所以网上口碑和实际体验有落差。</p><p>已知缺点：长任务中它会冒出你看不懂的内部细节问题，让你拍板。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 1292 分 · 809 条评论 · Altman 7670 赞 · Simon Willison、Theo、Swyx、Dan Shipper 都已实测</div>
+    <div class="explain"><h3>它是什么</h3><p>OpenAI 发布两个新模型。GPT-6.2 Astra 是旗舰，用来做最难的专业工作（做幻灯片、表格、文档、写代码、科研）。GPT-6.2 Sol 是高效的日常款，OpenAI 员工很多人拿它当默认模型。OpenAI 称两者完成任务用的输出 token（模型输出的字数单位，按它计费）更少。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>同样的额度能多干活，Astra API 还降价了。你用 codex 的话，可以试试 Sol 够不够日常用。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>已有 ChatGPT 或 codex：在模型选择里找 GPT-6.2 Sol 或 Astra 试用（具体哪些套餐可用，来源里没说清）</li><li>Pro 200 套餐已开放 Sol 的 ultrafast（更快的模式）</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>API 价格：Astra 每百万 token 输入 $8、缓存输入 $0.40、输出 $40，比 GPT-6 Astra 低 20%，缓存部分低 60%。Sol 价格和 6.1 Sol 一样。</p><p>跑分（如 Agents&#x27; Last Exam，称比 Claude Fable 5.2 高 5.5 分、成本只有 5%）都是 OpenAI 自己公布的，需要独立测评验证。</p><p>官方稿只列了好处。网上有人说好用，也有人吐槽，实际体验因人而异，建议自己用熟悉的任务试。</p></div></details>
+    <div class="signals"><strong>热度</strong> · HN 1292 分 · 809 条评论 · Altman 7670 赞 · Simon Willison、Theo、Swyx、Dan Shipper 都已实测</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://openai.com/index/introducing-gpt-6-2-astra-sol" target="_blank" rel="noopener">OpenAI 官方发布</a> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 实测</a> · <a href="https://x.com/sama/status/2122798039899263456" target="_blank" rel="noopener">Altman 推文</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
     <h2 class="display title">Gemini 免费替你办事</h2>
-    <div class="pitch">Gemini 现在能免费帮你处理琐碎待办，目前只开放六个国家。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>跑在 Gemini 4 Hydrogen 上，不额外收费</li><li>面向普通人，不用写代码</li></ul></div>
-    <div class="signals"><strong>信号</strong> · Josh Woodward 推文 599 赞 · 来源里只有这一条，细节不足</div>
+    <div class="explain"><h3>它是什么</h3><p>Google 的 Gemini 现在可以免费替你办琐碎待办。它跑在新模型 Gemini 4 Hydrogen 上。它能打电话给本地商家（Google Duplex）、用 Google Pay 付款结账，还能转发邮件给它处理。Gemini 与 Google Workspace 的联动也升级了，能写发邮件、编辑 Docs 和 Sheets、一次加多个日历事件。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>面向普通人的日常杂事助手，免费。你若在六国之一，可以试试，但很多新功能先只在美国开放。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>仅限美国、日本、韩国、加拿大、澳大利亚、印度这六国用户</li><li>打电话、付款、转发邮件等新功能先在美国推出；具体入口和套餐来源里没说明</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>目前只有 Google 产品负责人 Josh Woodward 的一条推文，细节有限。使用限额、是否需要付费套餐、其他国家何时开放，都不清楚。</p><p>让 AI 打电话、付款、登录网站，出错的代价比聊天大。上手时先从小事开始，留意付款确认。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Josh Woodward 推文 599 赞 · 来源里只有这一条，细节不足</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://x.com/joshwoodward/status/2122737427970425171" target="_blank" rel="noopener">Josh Woodward 推文</a></div>
 </article>
 

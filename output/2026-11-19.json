@@ -5,20 +5,14 @@
     {
       "tier": "look",
       "title": "Gemini 4 Neon 发布",
-      "pitch": "Google 推出 Gemini 4 Neon，主打又快又便宜，还能听懂复杂指令。HN 讨论很热。",
-      "why": [
-        "Josh Woodward 称它指令跟随好、更快更便宜",
-        "HN 867 分、686 条评论，关注度很高",
-        "Simon Willison 实测：画图比 Hydrogen 好，比 Carbon 差"
-      ],
       "actions": [
-        "在 Gemini app 里切到 Neon，拿一份你常做的薪酬分析任务试试",
-        "对比同一任务在 Claude 和 Gemini 上的结果"
+        "开发者可在 Gemini API、Google AI Studio、Google Antigravity 里选用 Neon",
+        "普通用户暂时没找到官方的 Gemini App 开放信息，建议看 blog.google 上的 Introducing Gemini 4 Neon"
       ],
       "deep_dive": [
-        "Gemini 4 现在有三档：Carbon、Neon、Hydrogen。Neon 夹在中间，定位是速度和成本的折中。",
-        "价格很乱：Neon 每百万 token 输入 $3、输出 $15。Carbon 现在半价，是 $2/$10，12 月 1 日起涨到 $4/$20。",
-        "Simon 说 Neon 让定价更混乱，所以别只看价格，先自己试。"
+        "价格：据 OpenRouter，Neon 每百万 token 输入 3 美元、输出 15 美元。Carbon 的优惠价是 2/10 美元，12 月 1 日后涨到 4/20 美元。",
+        "Simon Willison 认为 Gemini 4 系列的定价本来就乱，Neon 让它更乱。他发布了 llm-gemini 0.38 来支持 Neon。",
+        "「比 Carbon 快 3 倍、质量相近」是 Google 自己的说法。我看到的独立测评结论不一，还没有统一的验证。"
       ],
       "signals": "HN 867 分 · 686 评论 · Simon Willison 实测 · Josh Woodward 官宣",
       "links": [
@@ -30,22 +24,29 @@
           "label": "Simon Willison 的评测",
           "url": "https://simonwillison.net/tags/ai"
         }
-      ]
+      ],
+      "what": "Gemini 4 Neon 是 Google 11 月 18 日发布的新 AI 模型，属于 Gemini 4 系列的中间档。Carbon 留给最难的长任务，Hydrogen 是更快的日常款，Neon 夹在两者之间。Google 称它完成任务的速度约为 Carbon 的 3 倍，质量相近，并且更擅长听懂复杂指令。",
+      "meaning": "Google 又多了一个主打速度和性价比的选择。你日常用 Claude Code 和 codex，短期不必换。"
     },
     {
       "tier": "fyi",
       "title": "给 agent 套外部沙盒",
-      "pitch": "Simon Willison 做了一套“沙盒放外面”的方案，能让 Claude Code、Codex 更安全地跑代码。",
-      "why": [
-        "agent 的代码在隔离环境里跑，出错或被注入也伤不到你的电脑",
-        "可限制联网网址，密钥也不用直接给 agent"
-      ],
       "signals": "Simon Willison 11 月 17 日发布 · 与 Prime Radiant 合作 · 三种沙盒实现",
       "links": [
         {
           "label": "Simon Willison 博客",
           "url": "https://simonwillison.net/tags/ai"
         }
+      ],
+      "what": "这是 Simon Willison 和 Prime Radiant 在 11 月 17 日前后发布的实验性方案，叫「外部沙盒」（sandbox，一个与你电脑隔开的安全小房间）。AI 编程助手本体留在外面，它要执行的命令则放进一个 Linux 沙盒里跑。这个方案支持 Claude Code、Codex 等工具，网络默认关闭，只能碰挂载的文件夹和允许的网址。",
+      "meaning": "AI 写的代码即使出错或被恶意指令骗了，也更难伤到你的电脑。但这是实验品，目前主要面向开发者。",
+      "actions": [
+        "想试的话，先读 simonwillison.net 上 2026/Nov/17 的 external-sandboxes-for-coding-agents 那篇，再按里面的链接找 Prime Radiant 的实现"
+      ],
+      "deep_dive": [
+        "已知的缺口：Claude Code 只把 Bash 命令送进沙盒，它自带的读取和编辑文件功能仍在你的电脑上运行。Codex 和 Pi 送进沙盒的操作更多。",
+        "Prime Radiant 自己说这些实现是实验原型，没有经过足够审计，不适合处理敏感内容。",
+        "上面这些细节来自二手文章，我没有读到 Prime Radiant 的原文。使用前请自己核对一遍。"
       ]
     }
   ],

@@ -337,7 +337,10 @@
 
 
         details.skipped summary { cursor: pointer; }
-        .signals { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
 
 </style>
 </head>
@@ -365,29 +368,32 @@
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 值得看</div>
     <h2 class="display title">Qwen4-Max 发布，HN 热议</h2>
-    <div class="pitch">阿里的 Qwen4-Max 登上 HN 前排，评论很多。先看一眼，别急着换工具。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>HN 596 分、250 条评论，今天 AI 里热度最高</li><li>Qwen 系列是国外开发者常用的开源模型阵营</li><li>目前只看到标题和热度，能力细节还没核实</li></ul></div>
-    <div class="action-block"><h3>🎯 你可以做</h3><ol><li>打开官方页面，看有没有能直接聊天试用的入口</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>和你现在用的 Claude、codex 不同，Qwen 是另一家的模型。你的日常工作暂时不用换。</p><p>来源里只有标题和热度，没有价格、跑分或开放方式。试用前先别下结论。</p></div></details>
-    <div class="signals"><strong>信号</strong> · HN 596 分 · 250 条评论</div>
+    <div class="explain"><h3>它是什么</h3><p>Qwen4-Max 是阿里巴巴 11 月 16 日正式放出的最强 Qwen 模型，主打复杂专业任务和自主代理（agent，能自己分步骤办事的 AI）。据报道它有 2.4 万亿参数、100 万 token 上下文（一次能读很长的资料），通过阿里云 QwenCloud 和第三方 API 使用。与上一代不同，它不开放权重（不能下载到自己电脑上跑）。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>多了一个便宜的新选择，但你已有 Claude Code 和 codex，不必为它换工具。</p></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>阿里称它比 Qwen3.8-Max 少用 35% 的 token，每个任务成本低 60%。这些是厂商自己的说法，我没有找到独立评测验证。</p><p>Qwen4-Max 是闭源的，这点和上一代 Qwen3.8-Max（开放权重）不同。阿里说以后会放出较小的 Qwen4 开源模型，但没给日期。</p><p>我只查到发布消息，没有核实它写代码的实际表现。HN 上的热度说明很多人在讨论它，不代表它比你现在用的好。</p></div></details>
+    <div class="signals"><strong>热度</strong> · HN 596 分 · 250 条评论</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://qwen.ai" target="_blank" rel="noopener">Qwen4-Max 官方页面</a></div>
 </article>
 
 <article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
     <h2 class="display title">Codex 可能修好了“容量已满”报错</h2>
-    <div class="pitch">Codex 团队的人说，那个老出现的 model at capacity 报错可能修好了。你用 codex 的话，可以再试试。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>这个报错会打断你的工作</li><li>发帖的是 Codex 团队成员 Thibault Sottiaux</li></ul></div>
-    <div class="signals"><strong>信号</strong> · Thibault Sottiaux 2500 赞 · 84 转发</div>
+    <div class="explain"><h3>它是什么</h3><p>用 codex 时常碰到“Selected model is at capacity（所选模型已满载）”的报错：OpenAI 的服务器一时忙不过来，任务就被打断。Codex 团队成员 Thibault Sottiaux 在 X 上说，团队“可能真的修好了”这个问题。这只是一条推文，没有更详细的说明。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>如果你常被这个报错打断，现在值得再试一次。但别抱太高期望，以前修过的问题也复发过。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>照常打开 codex 用一段时间，看看报错还出不出现</li><li>报错再出现时，查看 status.openai.com 上的状态公告</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>这个报错是服务器端的问题，和你的套餐额度无关。OpenAI 没有给过固定的重试时间。</p><p>我搜索时没找到官方宣布“已修复”。OpenAI 状态页和社区论坛里，之前几次“已解决”之后又有用户反映复发。所以这条消息要观察几天再看。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Thibault Sottiaux 2500 赞 · 84 转发</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://x.com/thsottiaux/status/2122206990101536852" target="_blank" rel="noopener">Thibault 的帖子</a></div>
 </article>
 
 <article id="item3" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
     <h2 class="display title">会越用越好的 skill</h2>
-    <div class="pitch">Dan Shipper 说他们做出了“每次用都会变好”的 skill。他用它写上下文摘要，做到了接近他口味的 80%。</div>
-    <div class="lang"><h3>为什么重要</h3><ul><li>用 skill 的人以后可能不用手动反复调</li><li>他用了 autoresearch（让 AI 自己反复试、自己改）来迭代</li><li>目前只是一条推文，还没有可直接装的东西</li></ul></div>
-    <div class="signals"><strong>信号</strong> · Dan Shipper 143 赞</div>
+    <div class="explain"><h3>它是什么</h3><p>Dan Shipper 所在的 Every 团队在做“会越用越好的 skill”（skill 是一份写好的说明书，任何模型都能加载来照着做）。做法是：保存真实稿件和编辑的修改，把修改意见拆成 74 条“是/否”检查，再让 AI 反复改 skill，直到它的输出过检查。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>这套思路你也能用：攒好范例，把判断标准写成是/否检查。不过目前只是一篇实验文章。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>读原文：frontier.every.to 上那篇 Every 的实验记录</li><li>试着用自己的方式：存 5-10 份你满意的成品，把不满意之处写成是/否问题</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>Every 的数据：skill 从 v1 迭代到 v9，四个模型得分从 34%–56% 升到约 76%–81%。评分由 Claude Sonnet 5.5 完成，是他们自己的测试，不是独立评测。</p><p>这里的“越用越好”不是自动学习，而是人把编辑意见整理成检查，再让 AI 反复优化 skill。工作量主要在攒好范例和写检查题上。</p><p>目前没有可直接安装的东西，只有思路和文章。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Dan Shipper 143 赞</div>
     <div class="try-links"><strong>链接</strong> · <a href="https://x.com/danshipper/status/2122091033001337134" target="_blank" rel="noopener">Dan Shipper 的帖子</a></div>
 </article>
 
