@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-23",
+      "weekday": "Mon",
+      "week": 48,
+      "issue": 157,
+      "kind": "daily",
+      "headline": "Quiet day, just one small signal",
+      "summary": "No new models or big tools dropped. Only news: Replit's desktop app landed Christie's thanks to its security setup",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 1
+      },
+      "url": "2026-11-23.html"
+    },
+    {
       "date": "2026-11-22",
       "weekday": "Sun",
       "week": 47,

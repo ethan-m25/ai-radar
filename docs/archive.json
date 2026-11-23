@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-23",
+      "weekday": "Mon",
+      "week": 48,
+      "issue": 158,
+      "kind": "daily",
+      "headline": "今天很安静，只有一个小信号",
+      "summary": "没有新模型或大工具发布，只有 Replit 桌面版靠安全设计拿下佳士得",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 1
+      },
+      "url": "2026-11-23.html"
+    },
+    {
       "date": "2026-11-22",
       "weekday": "Sun",
       "week": 47,

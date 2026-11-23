@@ -1,0 +1,61 @@
+{
+  "headline": "Quiet day, just one small signal",
+  "summary": "No new models or big tools dropped. Only news: Replit's desktop app landed Christie's thanks to its security setup",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Replit desktop app is all about security, and Christie's is already using it",
+      "what": "Replit is a platform where AI helps you write code and build apps, and now it has a desktop version. Reportedly, on Windows it runs each AI-generated app in its own \"sandbox\" (a locked-off safe little room), so it can't mess with other files on your computer. Replit CEO Amjad Masad says the security model was built together with the Windows team, and that Christie's (the old-school art auction house) picked it for \"secure agent work\".",
+      "meaning": "This is mostly Replit marketing and doesn't affect you much right now. But \"AI desktop apps need locked-down permissions\" is going to be a bigger and bigger trend.",
+      "actions": [
+        "If you want to try the Windows version, check replit.com/desktop to see if it's open yet (reportedly it's a waitlist preview for now)"
+      ],
+      "deep_dive": [
+        "Compared to Claude Code and codex that you use: those run right on your computer, and you're the one watching permissions. Replit's approach locks each build in a sandbox.",
+        "Known gaps so far: Replit hasn't shared the default sandbox rules, the official launch date, hardware requirements, or pricing.",
+        "The details of Christie's usage (what for, how deeply) come from just one tweet by Masad, with no third-party confirmation."
+      ],
+      "signals": "Amjad Masad tweet 201 likes · Customer case: Christie's · No third-party testing",
+      "links": [
+        {
+          "label": "Amjad Masad tweet",
+          "url": "https://x.com/amasad/status/2124604574606795002"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "Inkling 2 Mini (new model you can run locally)",
+      "update": "A \"Beginner's Guide to Local AI\" showed up on HN with 558 points and 234 comments. The GGUF (run-it-on-your-own-machine format) version on Hugging Face has 1.29 million downloads. No non-developer tests yet, so just watch for now."
+    },
+    {
+      "day": 1,
+      "name": "GLM-5.4 (Zhipu)",
+      "update": "Billed as the first \"looped Transformer\" coding model, 175 points on HN, only out for two hours, no real tests yet. Wait until people have tried it."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "OpenAI \"Perplexity and Intelligence\"",
+      "reason": "607 points on HN. Sam Altman is pushing \"perplexity\" as an industry self-regulation metric. That's a policy and regulation topic, not a new tool."
+    },
+    {
+      "name": "Claude proves the Riemann hypothesis (still all over HN)",
+      "reason": "There are still lots of related HN posts, but it's a math research result, with no tool you can use."
+    },
+    {
+      "name": "Rauch: \"stealth model\" free inference might be data theft",
+      "reason": "Just his own guess. He mentions Dragos research, but the source has no details."
+    },
+    {
+      "name": "Anthropic IPO completed",
+      "reason": "IPO and funding news, not a new feature."
+    },
+    {
+      "name": "Tencent Hy4-flash hits HF trending",
+      "reason": "Only a model card and 632 likes, so it's hard to see what it does for non-developers."
+    }
+  ]
+}

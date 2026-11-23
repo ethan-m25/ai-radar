@@ -1,0 +1,61 @@
+{
+  "headline": "今天很安静，只有一个小信号",
+  "summary": "没有新模型或大工具发布，只有 Replit 桌面版靠安全设计拿下佳士得",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Replit 桌面版主打安全，佳士得已在用",
+      "what": "Replit 是一个让 AI 帮你写代码、做应用的平台，现在出了桌面版。据报道，它在 Windows 上让 AI 生成的应用在各自独立的“沙盒”（隔离的安全小房间）里运行，不会乱碰你电脑里其他文件。Replit CEO Amjad Masad 称这套安全模型是和 Windows 团队一起做的，并说佳士得（老牌艺术品拍卖行）选用它做“安全的 agent 工作”。",
+      "meaning": "这主要是 Replit 的宣传，目前对你影响不大；但“AI 桌面应用要锁住权限”会是越来越重要的趋势。",
+      "actions": [
+        "想试 Windows 版可去 replit.com/desktop 看是否已开放（据报道目前是等候名单预览）"
+      ],
+      "deep_dive": [
+        "和你在用的 Claude Code、codex 对比：它们直接在你电脑上跑，权限靠你自己把关；Replit 这套是把每次构建关进沙盒。",
+        "目前已知的限制：Replit 没公布默认沙盒规则、正式发布时间、硬件要求和价格。",
+        "佳士得采用的细节（用来做什么、用到什么程度）只有 Masad 一条推文，没有第三方验证。"
+      ],
+      "signals": "Amjad Masad 推文 201 赞 · 客户案例：佳士得 · 无第三方实测",
+      "links": [
+        {
+          "label": "Amjad Masad 推文",
+          "url": "https://x.com/amasad/status/2124604574606795002"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "Inkling 2 Mini（本机可跑的新模型）",
+      "update": "HN 上出现《本地 AI 入门指南》，558 分、234 条评论。Hugging Face 上 GGUF（本机运行格式）版本下载 129 万次。还没有非开发者实测，先观望。"
+    },
+    {
+      "day": 1,
+      "name": "GLM-5.4（智谱）",
+      "update": "号称首个“循环 Transformer”的编码模型，HN 175 分，才发布两小时，没有实测。等有人试过再说。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "OpenAI《Perplexity and Intelligence》",
+      "reason": "HN 607 分，Sam Altman 在推广用“困惑度”做行业自律指标。这是政策和监管话题，不是新工具。"
+    },
+    {
+      "name": "Claude 证明黎曼猜想（HN 持续刷屏）",
+      "reason": "HN 仍有多条相关帖，但它是数学研究成果，没有你能用的工具。"
+    },
+    {
+      "name": "Rauch：“隐形模型”免费推理可能是数据窃取",
+      "reason": "只是他个人的推测，提到了 Dragos 的研究，但来源里没有细节。"
+    },
+    {
+      "name": "Anthropic IPO 完成",
+      "reason": "上市融资消息，不是新功能。"
+    },
+    {
+      "name": "腾讯 Hy4-flash 登上 HF 趋势榜",
+      "reason": "只有模型卡片和 632 个点赞，看不出对非开发者有什么用。"
+    }
+  ]
+}
