@@ -1,0 +1,97 @@
+{
+  "headline": "Claude plugins merge, ChatGPT launches Dots",
+  "summary": "Claude merged connectors and skills into one plugin library; ChatGPT's Dots does things for you on its own, but users are reporting bugs",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Claude connectors and skills are now one thing: \"plugins\"",
+      "what": "Before, hooking Claude up to outside tools (connectors, like Gmail or Drive) and teaching it new tricks (skills, a set of written instructions for how to do a task) were managed separately. Now they're merged into \"plugins\": a plugin can just connect tools, just teach skills, or do both. claude.ai/plugins is the one place to browse, and the official count is 10,000+.",
+      "meaning": "You don't have to hop between a few different pages to find tools and add skills anymore, since it's all in one place. It doesn't change much for you, but it'll make it easier to connect Claude to the software your company uses.",
+      "actions": [
+        "Log in to claude.ai, look for \"Plugins\" in the sidebar (it used to be under Customize), then browse and install.",
+        "It's available on the Free, Pro, Max and Ultra plans. Officially, Team and Enterprise are coming soon."
+      ],
+      "deep_dive": [
+        "According to the official support docs: deleting a plugin doesn't automatically disconnect the connectors it came with. You have to disconnect them yourself, or the permissions just stay there.",
+        "Public plugins come in two kinds: \"Verified\" and \"Community\". Before installing a community plugin, check what data of yours it wants to connect to.",
+        "Plugins you install through the Claude Code command line stay on that one computer. They don't sync to your claude.ai account."
+      ],
+      "signals": "Official tweet 6.7k likes · 10,000+ plugins · one of the hottest Claude-related things on X today",
+      "links": [
+        {
+          "label": "Official Claude tweet",
+          "url": "https://x.com/claudeai/status/2124970294523945328"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "ChatGPT Dots: an agent that acts without you asking",
+      "what": "Dots is an agent in ChatGPT (an AI helper that can go do things on its own). According to OpenAI, it also does \"proactive research\" in the background while you're away, using only read-only tools to look at the apps you've connected. It can also check in on a schedule, and it can get things done through Slack, Teams and 4,000+ app plugins.",
+      "meaning": "AI is going from \"you ask, it answers\" to \"it keeps an eye on things for you\". It's not reliable enough yet, so keep a close watch on anything like sending emails.",
+      "actions": [
+        "Create a new dot in the ChatGPT desktop app or in a desktop browser. Reportedly, at launch it's for ChatGPT Pro and Business Premium, and Enterprise needs an admin to turn on the beta. Check the prompts inside ChatGPT to see if your plan has it."
+      ],
+      "deep_dive": [
+        "OpenAI says the background research is read-only, and you can also set \"custom rules\" so certain actions need approval or are blocked.",
+        "User Peter Yang reported that Dots sometimes sent emails without him reviewing them, and also suddenly stopped responding. OpenAI itself says dots can make mistakes, so double-check anything important.",
+        "Unlike the Claude Code and codex you use, this one is mainly for everyday tasks, not a tool built specifically for writing code."
+      ],
+      "signals": "OpenAI employee tweet 2.6k likes · Aditya Agarwal said he's \"looking forward to this launch\" · Peter Yang reported bugs",
+      "links": [
+        {
+          "label": "Thibault: OpenAI uses dots internally",
+          "url": "https://x.com/thsottiaux/status/2124923055072043052"
+        },
+        {
+          "label": "Peter Yang: Dots has bugs",
+          "url": "https://x.com/petergyang/status/2125060785667969399"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Claude Ship: an enterprise tool that lets AI handle PRs",
+      "what": "Claude Ship (beta) is a feature Anthropic built for Team and Enterprise customers to manage pull requests (PRs, which are the \"please review and merge my changes\" requests programmers submit). Officially, Claude can review PRs, fix issues itself, and approve the PRs that team rules allow. The goal is to get merging code up to the speed of writing it. I couldn't find any more detailed official info.",
+      "meaning": "AI already writes code fast, and now review and merging are being handed to AI too. You won't use it personally unless the dev team at your company adopts it.",
+      "actions": [],
+      "deep_dive": [],
+      "signals": "Boris Cherny tweet 5.9k likes · officially said they \"use it every day\"",
+      "links": [
+        {
+          "label": "Boris Cherny tweet",
+          "url": "https://x.com/bcherny/status/2124961485801836573"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "ChatGPT chat and work merging",
+      "update": "Thibault said answer quality will get noticeably better, and that chat and work will be merged by the end of the year. It's still rolling out gradually."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "ZDR + Enterprise Frontier Safeguards public beta",
+      "reason": "An enterprise data retention feature for compliance teams, with no concrete way to use it."
+    },
+    {
+      "name": "Personal benchmarks (Rauch / Dan Shipper)",
+      "reason": "Rauch had Fable analyze his own coding logs and it picked Gemini Neon as the best fit for him. It's just one person's experience, and Gemini 4 Neon was already covered earlier."
+    },
+    {
+      "name": "Replit agent swarm scaling research",
+      "reason": "Leans toward developer research, and the source has too little detail."
+    },
+    {
+      "name": "GLM-5.4 looped transformer",
+      "reason": "Right now it's only available through a subscription, with no open weights, so it doesn't matter much to you."
+    },
+    {
+      "name": "Jensen Huang returning as NVIDIA CEO",
+      "reason": "An executive personnel change, not a new tool."
+    }
+  ]
+}

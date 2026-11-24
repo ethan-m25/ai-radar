@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-24",
+      "weekday": "Tue",
+      "week": 48,
+      "issue": 159,
+      "kind": "daily",
+      "headline": "Claude 插件合体，ChatGPT 推出 Dots",
+      "summary": "Claude 把连接器和技能合并成插件库；ChatGPT 的 Dots 主动代办，但用户反馈有 bug",
+      "counts": {
+        "crit": 0,
+        "look": 2,
+        "fyi": 1
+      },
+      "url": "2026-11-24.html"
+    },
+    {
       "date": "2026-11-23",
       "weekday": "Mon",
       "week": 48,

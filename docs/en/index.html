@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-23 (Week 48)</title>
+<title>AI Radar — 2026-11-24 (Week 48)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -348,45 +348,65 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 23 · Week 48 · №158 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 24 · Week 48 · №159 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Quiet day, just one small signal</h1>
-    <p class="lead">No new models or big tools dropped. Only news: Replit&#x27;s desktop app landed Christie&#x27;s thanks to its security setup</p>
+    <h1 class="display headline">Claude plugins merge, ChatGPT launches Dots</h1>
+    <p class="lead">Claude merged connectors and skills into one plugin library; ChatGPT&#x27;s Dots does things for you on its own, but users are reporting bugs</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
-        <span>👀 <span class="look-count">0</span> worth a look</span>
+        <span>👀 <span class="look-count">2</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-23"><a href="#" class="prev">← Previous</a><span class="issue-num">№158 · 2026-11-23</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-24"><a href="#" class="prev">← Previous</a><span class="issue-num">№159 · 2026-11-24</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag fyi">ℹ️ FYI</span> Replit desktop app is all about security, and Christie&#x27;s is already using it</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Claude connectors and skills are now one thing: &quot;plugins&quot;</li><li><span class="tier-tag look">👀 Worth a look</span> ChatGPT Dots: an agent that acts without you asking</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Claude Ship: an enterprise tool that lets AI handle PRs</li></ul></nav>
 
-<article id="item1" class="item item--fyi">
-    <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Replit desktop app is all about security, and Christie&#x27;s is already using it</h2>
-    <div class="explain"><h3>What it is</h3><p>Replit is a platform where AI helps you write code and build apps, and now it has a desktop version. Reportedly, on Windows it runs each AI-generated app in its own &quot;sandbox&quot; (a locked-off safe little room), so it can&#x27;t mess with other files on your computer. Replit CEO Amjad Masad says the security model was built together with the Windows team, and that Christie&#x27;s (the old-school art auction house) picked it for &quot;secure agent work&quot;.</p></div>
-    <div class="explain"><h3>What it means</h3><p>This is mostly Replit marketing and doesn&#x27;t affect you much right now. But &quot;AI desktop apps need locked-down permissions&quot; is going to be a bigger and bigger trend.</p></div>
-    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>If you want to try the Windows version, check replit.com/desktop to see if it&#x27;s open yet (reportedly it&#x27;s a waitlist preview for now)</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Compared to Claude Code and codex that you use: those run right on your computer, and you&#x27;re the one watching permissions. Replit&#x27;s approach locks each build in a sandbox.</p><p>Known gaps so far: Replit hasn&#x27;t shared the default sandbox rules, the official launch date, hardware requirements, or pricing.</p><p>The details of Christie&#x27;s usage (what for, how deeply) come from just one tweet by Masad, with no third-party confirmation.</p></div></details>
-    <div class="signals"><strong>Buzz</strong> · Amjad Masad tweet 201 likes · Customer case: Christie&#x27;s · No third-party testing</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/amasad/status/2124604574606795002" target="_blank" rel="noopener">Amjad Masad tweet</a></div>
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">Claude connectors and skills are now one thing: &quot;plugins&quot;</h2>
+    <div class="explain"><h3>What it is</h3><p>Before, hooking Claude up to outside tools (connectors, like Gmail or Drive) and teaching it new tricks (skills, a set of written instructions for how to do a task) were managed separately. Now they&#x27;re merged into &quot;plugins&quot;: a plugin can just connect tools, just teach skills, or do both. claude.ai/plugins is the one place to browse, and the official count is 10,000+.</p></div>
+    <div class="explain"><h3>What it means</h3><p>You don&#x27;t have to hop between a few different pages to find tools and add skills anymore, since it&#x27;s all in one place. It doesn&#x27;t change much for you, but it&#x27;ll make it easier to connect Claude to the software your company uses.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Log in to claude.ai, look for &quot;Plugins&quot; in the sidebar (it used to be under Customize), then browse and install.</li><li>It&#x27;s available on the Free, Pro, Max and Ultra plans. Officially, Team and Enterprise are coming soon.</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>According to the official support docs: deleting a plugin doesn&#x27;t automatically disconnect the connectors it came with. You have to disconnect them yourself, or the permissions just stay there.</p><p>Public plugins come in two kinds: &quot;Verified&quot; and &quot;Community&quot;. Before installing a community plugin, check what data of yours it wants to connect to.</p><p>Plugins you install through the Claude Code command line stay on that one computer. They don&#x27;t sync to your claude.ai account.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Official tweet 6.7k likes · 10,000+ plugins · one of the hottest Claude-related things on X today</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/claudeai/status/2124970294523945328" target="_blank" rel="noopener">Official Claude tweet</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 3</span><div><span class="item-name">Inkling 2 Mini (new model you can run locally)</span> <span class="update">— A &quot;Beginner&#x27;s Guide to Local AI&quot; showed up on HN with 558 points and 234 comments. The GGUF (run-it-on-your-own-machine format) version on Hugging Face has 1.29 million downloads. No non-developer tests yet, so just watch for now.</span></div></li><li><span class="days">Day 1</span><div><span class="item-name">GLM-5.4 (Zhipu)</span> <span class="update">— Billed as the first &quot;looped Transformer&quot; coding model, 175 points on HN, only out for two hours, no real tests yet. Wait until people have tried it.</span></div></li></ul></aside>
+<article id="item2" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">ChatGPT Dots: an agent that acts without you asking</h2>
+    <div class="explain"><h3>What it is</h3><p>Dots is an agent in ChatGPT (an AI helper that can go do things on its own). According to OpenAI, it also does &quot;proactive research&quot; in the background while you&#x27;re away, using only read-only tools to look at the apps you&#x27;ve connected. It can also check in on a schedule, and it can get things done through Slack, Teams and 4,000+ app plugins.</p></div>
+    <div class="explain"><h3>What it means</h3><p>AI is going from &quot;you ask, it answers&quot; to &quot;it keeps an eye on things for you&quot;. It&#x27;s not reliable enough yet, so keep a close watch on anything like sending emails.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Create a new dot in the ChatGPT desktop app or in a desktop browser. Reportedly, at launch it&#x27;s for ChatGPT Pro and Business Premium, and Enterprise needs an admin to turn on the beta. Check the prompts inside ChatGPT to see if your plan has it.</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>OpenAI says the background research is read-only, and you can also set &quot;custom rules&quot; so certain actions need approval or are blocked.</p><p>User Peter Yang reported that Dots sometimes sent emails without him reviewing them, and also suddenly stopped responding. OpenAI itself says dots can make mistakes, so double-check anything important.</p><p>Unlike the Claude Code and codex you use, this one is mainly for everyday tasks, not a tool built specifically for writing code.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · OpenAI employee tweet 2.6k likes · Aditya Agarwal said he&#x27;s &quot;looking forward to this launch&quot; · Peter Yang reported bugs</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/thsottiaux/status/2124923055072043052" target="_blank" rel="noopener">Thibault: OpenAI uses dots internally</a> · <a href="https://x.com/petergyang/status/2125060785667969399" target="_blank" rel="noopener">Peter Yang: Dots has bugs</a></div>
+</article>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>OpenAI &quot;Perplexity and Intelligence&quot;</td><td>607 points on HN. Sam Altman is pushing &quot;perplexity&quot; as an industry self-regulation metric. That&#x27;s a policy and regulation topic, not a new tool.</td></tr><tr><td>Claude proves the Riemann hypothesis (still all over HN)</td><td>There are still lots of related HN posts, but it&#x27;s a math research result, with no tool you can use.</td></tr><tr><td>Rauch: &quot;stealth model&quot; free inference might be data theft</td><td>Just his own guess. He mentions Dragos research, but the source has no details.</td></tr><tr><td>Anthropic IPO completed</td><td>IPO and funding news, not a new feature.</td></tr><tr><td>Tencent Hy4-flash hits HF trending</td><td>Only a model card and 632 likes, so it&#x27;s hard to see what it does for non-developers.</td></tr></tbody></table></details></section>
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ FYI</div>
+    <h2 class="display title">Claude Ship: an enterprise tool that lets AI handle PRs</h2>
+    <div class="explain"><h3>What it is</h3><p>Claude Ship (beta) is a feature Anthropic built for Team and Enterprise customers to manage pull requests (PRs, which are the &quot;please review and merge my changes&quot; requests programmers submit). Officially, Claude can review PRs, fix issues itself, and approve the PRs that team rules allow. The goal is to get merging code up to the speed of writing it. I couldn&#x27;t find any more detailed official info.</p></div>
+    <div class="explain"><h3>What it means</h3><p>AI already writes code fast, and now review and merging are being handed to AI too. You won&#x27;t use it personally unless the dev team at your company adopts it.</p></div>
+    <div class="signals"><strong>Buzz</strong> · Boris Cherny tweet 5.9k likes · officially said they &quot;use it every day&quot;</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/bcherny/status/2124961485801836573" target="_blank" rel="noopener">Boris Cherny tweet</a></div>
+</article>
+
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">ChatGPT chat and work merging</span> <span class="update">— Thibault said answer quality will get noticeably better, and that chat and work will be merged by the end of the year. It&#x27;s still rolling out gradually.</span></div></li></ul></aside>
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>ZDR + Enterprise Frontier Safeguards public beta</td><td>An enterprise data retention feature for compliance teams, with no concrete way to use it.</td></tr><tr><td>Personal benchmarks (Rauch / Dan Shipper)</td><td>Rauch had Fable analyze his own coding logs and it picked Gemini Neon as the best fit for him. It&#x27;s just one person&#x27;s experience, and Gemini 4 Neon was already covered earlier.</td></tr><tr><td>Replit agent swarm scaling research</td><td>Leans toward developer research, and the source has too little detail.</td></tr><tr><td>GLM-5.4 looped transformer</td><td>Right now it&#x27;s only available through a subscription, with no open weights, so it doesn&#x27;t matter much to you.</td></tr><tr><td>Jensen Huang returning as NVIDIA CEO</td><td>An executive personnel change, not a new tool.</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-23"><a href="#" class="prev">← Previous</a><span class="issue-num">№158 · 2026-11-23</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-24"><a href="#" class="prev">← Previous</a><span class="issue-num">№159 · 2026-11-24</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-23';
+    const currentDate = '2026-11-24';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

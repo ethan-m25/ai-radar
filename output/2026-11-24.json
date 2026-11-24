@@ -1,0 +1,97 @@
+{
+  "headline": "Claude 插件合体，ChatGPT 推出 Dots",
+  "summary": "Claude 把连接器和技能合并成插件库；ChatGPT 的 Dots 主动代办，但用户反馈有 bug",
+  "items": [
+    {
+      "tier": "look",
+      "title": "Claude 连接器和技能合并成“插件”",
+      "what": "以前给 Claude 接外部工具（连接器，比如连 Gmail、Drive）和教它新本事（skills，一组写好的做事说明）是分开管的。现在合并成“插件”：一个插件可以只接工具、只教技能，或两者都带。claude.ai/plugins 是统一的浏览入口，官方称有 10,000+ 个。",
+      "meaning": "找工具、装技能不用再分几个页面，入口统一了。对你影响不大，但想让 Claude 接公司常用软件会更方便。",
+      "actions": [
+        "登录 claude.ai，在侧边栏找“Plugins”（原来的 Customize 部分），浏览并安装。",
+        "Free、Pro、Max、Ultra 套餐已可用；Team 和 Enterprise 官方说即将开放。"
+      ],
+      "deep_dive": [
+        "据官方支持文档：删除插件不会自动断开它带的连接器，需要另外手动断开，免得权限一直留着。",
+        "公开插件分“Verified（已验证）”和“Community（社区）”两类。装社区插件前，先看它要连你的什么数据。",
+        "通过 Claude Code 命令行装的插件只留在那台电脑上，不会同步到你的 claude.ai 账号。"
+      ],
+      "signals": "官方推文 6.7k 赞 · 10,000+ 插件 · 今日 X 上 Claude 相关热度最高之一",
+      "links": [
+        {
+          "label": "Claude 官方推文",
+          "url": "https://x.com/claudeai/status/2124970294523945328"
+        }
+      ]
+    },
+    {
+      "tier": "look",
+      "title": "ChatGPT Dots：不用你提示的主动 agent",
+      "what": "Dots 是 ChatGPT 里的 agent（能自己动手办事的 AI 助手）。据 OpenAI 介绍，你不在时它也会在后台“主动研究”，只用只读工具查看你连接的应用。它也能按计划定期检查，并可通过 Slack、Teams 和 4,000 多个应用插件办事。",
+      "meaning": "AI 从“你问它答”变成“它主动盯着事情”。它还不够稳，涉及发邮件之类的操作要自己盯紧。",
+      "actions": [
+        "在 ChatGPT 桌面应用或桌面浏览器里新建一个 dot。据报道，发布时面向 ChatGPT Pro 和 Business Premium，企业版需管理员开启 beta；你的套餐是否可用请看 ChatGPT 内的提示。"
+      ],
+      "deep_dive": [
+        "OpenAI 称后台主动研究只读，另可设“自定义规则”，让某些操作需批准或被禁止。",
+        "用户 Peter Yang 反馈：Dots 有时没经他审核就发邮件，还会突然不响应。OpenAI 自己也说 dots 会出错，重要的事要复核。",
+        "和你用的 Claude Code、codex 不同：它主要面向日常办事，不是专门写代码的工具。"
+      ],
+      "signals": "OpenAI 员工推文 2.6k 赞 · Aditya Agarwal 称“期待这次发布” · Peter Yang 反馈有 bug",
+      "links": [
+        {
+          "label": "Thibault：OpenAI 内部在用 dots",
+          "url": "https://x.com/thsottiaux/status/2124923055072043052"
+        },
+        {
+          "label": "Peter Yang：Dots 有 bug",
+          "url": "https://x.com/petergyang/status/2125060785667969399"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Claude Ship：让 AI 管 PR 的企业版",
+      "what": "Claude Ship（测试版）是 Anthropic 给 Team 和 Enterprise 客户做的功能，用来管 pull request（PR，程序员提交的“请审核并合并我的改动”申请）。官方说 Claude 能审查 PR、动手修问题，并批准团队规则允许的那些 PR。目标是让合并代码的速度跟上写代码的速度。我没查到更详细的官方说明。",
+      "meaning": "AI 写代码已经很快，现在连审核和合并也交给 AI。你个人用不到，除非所在公司的开发团队采用。",
+      "actions": [],
+      "deep_dive": [],
+      "signals": "Boris Cherny 推文 5.9k 赞 · 官方称自己“每天都在用”",
+      "links": [
+        {
+          "label": "Boris Cherny 推文",
+          "url": "https://x.com/bcherny/status/2124961485801836573"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "ChatGPT 对话与工作合并",
+      "update": "Thibault 说答案质量会明显提升，并在年底前把聊天和工作合并，目前仍在逐步推送。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "ZDR + Enterprise Frontier Safeguards 公测",
+      "reason": "企业数据保留方面的功能，面向合规团队，没有具体使用方式。"
+    },
+    {
+      "name": "个人基准测试（Rauch / Dan Shipper）",
+      "reason": "Rauch 让 Fable 分析自己的编程记录，选出 Gemini Neon 最适合他。只是个人经验，Gemini 4 Neon 之前已报道。"
+    },
+    {
+      "name": "Replit agent 集群扩展研究",
+      "reason": "偏开发者研究，来源里细节太少。"
+    },
+    {
+      "name": "GLM-5.4 循环 transformer",
+      "reason": "目前只能通过订阅使用，没有开放权重，对你影响不大。"
+    },
+    {
+      "name": "Jensen Huang 重回 NVIDIA CEO",
+      "reason": "高管人事变动，不是新工具。"
+    }
+  ]
+}
