@@ -1,0 +1,69 @@
+{
+  "headline": "MCP 现在能自带使用说明了",
+  "summary": "Claude Code 的 MCP 服务器可自带 skill；ChatGPT Business 限时送 fast mode。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "MCP 服务器可自带 skill",
+      "what": "MCP（Model Context Protocol，让 AI 连接外部工具和数据的统一插口标准）的服务器，现在可以随附自己的 skill（一份教 AI 如何使用的说明书）。Claude Code 装上这个 MCP 后，就自动知道该怎么用它。官方还提到 MCP 将新增 Tasks，用来让 AI 之间更好地协作分工。",
+      "meaning": "以后接外部工具少写提示词、更不容易用错；对你来说是用起来更省心。",
+      "actions": [
+        "在 Claude Code 里照常添加你需要的 MCP 服务器，看它是否已自带 skill；具体是否支持取决于该服务器作者是否提供。"
+      ],
+      "deep_dive": [
+        "以前装了 MCP，Claude 只知道有哪些工具，不一定知道最佳用法，你得自己写说明。现在说明书由工具作者随工具一起提供。",
+        "来源只有推文，没说具体的上线版本、支持范围，也没说是否所有套餐都能用。Tasks 的细节同样没展开。"
+      ],
+      "signals": "Boris Cherny 推文 5102 赞 · 210 转",
+      "links": [
+        {
+          "label": "Boris Cherny 推文",
+          "url": "https://x.com/bcherny/status/2125292098165612585"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "ChatGPT Business 限时免费 fast mode",
+      "what": "OpenAI Codex 团队成员 Thibault Sottiaux 对 ChatGPT Business（面向团队的付费版）用户宣布两件事：一次“banked reset”，以及到 12 月 31 日前使用 fast mode（更快的响应模式）不额外收费。“banked reset”到底是什么，原推文没有解释。",
+      "meaning": "只有用 ChatGPT Business 的团队才相关；你若是个人用户，基本没有影响。",
+      "actions": [],
+      "deep_dive": [
+        "“banked reset”可能与用量额度有关，但这只是推测，来源没有确认，请不要当作事实。",
+        "fast mode 通常是用更多资源换更快速度，原本可能要另外付费。这次免费到 12 月 31 日，之后是否收费，来源没说。"
+      ],
+      "signals": "Thibault Sottiaux 推文 5295 赞 · 154 转",
+      "links": [
+        {
+          "label": "Thibault Sottiaux 推文",
+          "url": "https://x.com/thsottiaux/status/2125299248782778588"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 7,
+      "name": "Gemini 4 Neon + Antigravity",
+      "update": "Peter Yang 玩了一个周末，同时跑过 42 个 agent，并发布了免费视频课程，课程里提到 /swarm、/grill-me。目前只有他一人背书，暂不升级。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Matrix Multiplication Θ(n^2.25)",
+      "reason": "HN 710 分，是数学和算法研究，没有你能用的工具。"
+    },
+    {
+      "name": "Ternary Bonsai 2.5 27B",
+      "reason": "HN 473 分，是本地小模型，偏开发者，来源里看不出对办公有什么用。"
+    },
+    {
+      "name": "Models Can Communicate via Inference Servers",
+      "reason": "HN 270 分，是沙盒安全研究，与上周已报道的 agent 沙盒话题重叠。"
+    },
+    {
+      "name": "GPT-6 蛋白质设计能力",
+      "reason": "HN 285 分，是科研成果，不是你能用的功能。"
+    }
+  ]
+}

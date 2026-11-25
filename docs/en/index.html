@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-24 (Week 48)</title>
+<title>AI Radar — 2026-11-25 (Week 48)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -348,65 +348,55 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 24 · Week 48 · №159 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 25 · Week 48 · №160 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">Claude plugins merge, ChatGPT launches Dots</h1>
-    <p class="lead">Claude merged connectors and skills into one plugin library; ChatGPT&#x27;s Dots does things for you on its own, but users are reporting bugs</p>
+    <h1 class="display headline">MCP can now bring its own instructions</h1>
+    <p class="lead">MCP servers in Claude Code can ship with a skill; ChatGPT Business gets fast mode free for a limited time.</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
-        <span>👀 <span class="look-count">2</span> worth a look</span>
+        <span>👀 <span class="look-count">1</span> worth a look</span>
         <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-24"><a href="#" class="prev">← Previous</a><span class="issue-num">№159 · 2026-11-24</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-25"><a href="#" class="prev">← Previous</a><span class="issue-num">№160 · 2026-11-25</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> Claude connectors and skills are now one thing: &quot;plugins&quot;</li><li><span class="tier-tag look">👀 Worth a look</span> ChatGPT Dots: an agent that acts without you asking</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Claude Ship: an enterprise tool that lets AI handle PRs</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> MCP servers can ship with a skill</li><li><span class="tier-tag fyi">ℹ️ FYI</span> ChatGPT Business gets fast mode free for a limited time</li></ul></nav>
 
 <article id="item1" class="item item--look">
     <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">Claude connectors and skills are now one thing: &quot;plugins&quot;</h2>
-    <div class="explain"><h3>What it is</h3><p>Before, hooking Claude up to outside tools (connectors, like Gmail or Drive) and teaching it new tricks (skills, a set of written instructions for how to do a task) were managed separately. Now they&#x27;re merged into &quot;plugins&quot;: a plugin can just connect tools, just teach skills, or do both. claude.ai/plugins is the one place to browse, and the official count is 10,000+.</p></div>
-    <div class="explain"><h3>What it means</h3><p>You don&#x27;t have to hop between a few different pages to find tools and add skills anymore, since it&#x27;s all in one place. It doesn&#x27;t change much for you, but it&#x27;ll make it easier to connect Claude to the software your company uses.</p></div>
-    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Log in to claude.ai, look for &quot;Plugins&quot; in the sidebar (it used to be under Customize), then browse and install.</li><li>It&#x27;s available on the Free, Pro, Max and Ultra plans. Officially, Team and Enterprise are coming soon.</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>According to the official support docs: deleting a plugin doesn&#x27;t automatically disconnect the connectors it came with. You have to disconnect them yourself, or the permissions just stay there.</p><p>Public plugins come in two kinds: &quot;Verified&quot; and &quot;Community&quot;. Before installing a community plugin, check what data of yours it wants to connect to.</p><p>Plugins you install through the Claude Code command line stay on that one computer. They don&#x27;t sync to your claude.ai account.</p></div></details>
-    <div class="signals"><strong>Buzz</strong> · Official tweet 6.7k likes · 10,000+ plugins · one of the hottest Claude-related things on X today</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/claudeai/status/2124970294523945328" target="_blank" rel="noopener">Official Claude tweet</a></div>
+    <h2 class="display title">MCP servers can ship with a skill</h2>
+    <div class="explain"><h3>What it is</h3><p>MCP (Model Context Protocol, a standard plug that lets AI connect to outside tools and data) servers can now come with their own skill (a how-to guide that teaches the AI how to use them). Once you install the MCP in Claude Code, it automatically knows how to use it. The official post also mentions that MCP will get a new Tasks feature, so AIs can split up work and team up better.</p></div>
+    <div class="explain"><h3>What it means</h3><p>Down the road, you&#x27;ll write fewer prompts when hooking up outside tools, and it&#x27;s less likely to get things wrong. Basically, it&#x27;s less hassle for you.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Add the MCP servers you need in Claude Code like usual and check whether they come with a skill. Whether it works depends on whether the server&#x27;s author provides one.</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Before, when you installed an MCP, Claude only knew which tools were there, not necessarily the best way to use them, so you had to write the instructions yourself. Now the tool&#x27;s author ships the guide along with the tool.</p><p>The only source is a tweet. It doesn&#x27;t say which version it launches in, how widely it&#x27;s supported, or whether every plan gets it. The details on Tasks aren&#x27;t spelled out either.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Boris Cherny tweet 5102 likes · 210 retweets</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/bcherny/status/2125292098165612585" target="_blank" rel="noopener">Boris Cherny tweet</a></div>
 </article>
 
-<article id="item2" class="item item--look">
-    <div class="tier-label">👀 Worth a look</div>
-    <h2 class="display title">ChatGPT Dots: an agent that acts without you asking</h2>
-    <div class="explain"><h3>What it is</h3><p>Dots is an agent in ChatGPT (an AI helper that can go do things on its own). According to OpenAI, it also does &quot;proactive research&quot; in the background while you&#x27;re away, using only read-only tools to look at the apps you&#x27;ve connected. It can also check in on a schedule, and it can get things done through Slack, Teams and 4,000+ app plugins.</p></div>
-    <div class="explain"><h3>What it means</h3><p>AI is going from &quot;you ask, it answers&quot; to &quot;it keeps an eye on things for you&quot;. It&#x27;s not reliable enough yet, so keep a close watch on anything like sending emails.</p></div>
-    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Create a new dot in the ChatGPT desktop app or in a desktop browser. Reportedly, at launch it&#x27;s for ChatGPT Pro and Business Premium, and Enterprise needs an admin to turn on the beta. Check the prompts inside ChatGPT to see if your plan has it.</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>OpenAI says the background research is read-only, and you can also set &quot;custom rules&quot; so certain actions need approval or are blocked.</p><p>User Peter Yang reported that Dots sometimes sent emails without him reviewing them, and also suddenly stopped responding. OpenAI itself says dots can make mistakes, so double-check anything important.</p><p>Unlike the Claude Code and codex you use, this one is mainly for everyday tasks, not a tool built specifically for writing code.</p></div></details>
-    <div class="signals"><strong>Buzz</strong> · OpenAI employee tweet 2.6k likes · Aditya Agarwal said he&#x27;s &quot;looking forward to this launch&quot; · Peter Yang reported bugs</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/thsottiaux/status/2124923055072043052" target="_blank" rel="noopener">Thibault: OpenAI uses dots internally</a> · <a href="https://x.com/petergyang/status/2125060785667969399" target="_blank" rel="noopener">Peter Yang: Dots has bugs</a></div>
-</article>
-
-<article id="item3" class="item item--fyi">
+<article id="item2" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Claude Ship: an enterprise tool that lets AI handle PRs</h2>
-    <div class="explain"><h3>What it is</h3><p>Claude Ship (beta) is a feature Anthropic built for Team and Enterprise customers to manage pull requests (PRs, which are the &quot;please review and merge my changes&quot; requests programmers submit). Officially, Claude can review PRs, fix issues itself, and approve the PRs that team rules allow. The goal is to get merging code up to the speed of writing it. I couldn&#x27;t find any more detailed official info.</p></div>
-    <div class="explain"><h3>What it means</h3><p>AI already writes code fast, and now review and merging are being handed to AI too. You won&#x27;t use it personally unless the dev team at your company adopts it.</p></div>
-    <div class="signals"><strong>Buzz</strong> · Boris Cherny tweet 5.9k likes · officially said they &quot;use it every day&quot;</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/bcherny/status/2124961485801836573" target="_blank" rel="noopener">Boris Cherny tweet</a></div>
+    <h2 class="display title">ChatGPT Business gets fast mode free for a limited time</h2>
+    <div class="explain"><h3>What it is</h3><p>Thibault Sottiaux, from the OpenAI Codex team, announced two things for ChatGPT Business (the paid plan for teams) users: a &quot;banked reset&quot;, and no extra charge for fast mode (a quicker response mode) until December 31. The original tweet doesn&#x27;t explain what the &quot;banked reset&quot; actually is.</p></div>
+    <div class="explain"><h3>What it means</h3><p>This only matters for teams on ChatGPT Business. If you&#x27;re an individual user, it basically doesn&#x27;t affect you.</p></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>The &quot;banked reset&quot; might have something to do with usage limits, but that&#x27;s just a guess and the source doesn&#x27;t confirm it, so don&#x27;t treat it as fact.</p><p>Fast mode usually trades more resources for more speed, and it might have cost extra before. It&#x27;s free until December 31 this time, but the source doesn&#x27;t say whether it&#x27;ll cost anything after that.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Thibault Sottiaux tweet 5295 likes · 154 retweets</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/thsottiaux/status/2125299248782778588" target="_blank" rel="noopener">Thibault Sottiaux tweet</a></div>
 </article>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">ChatGPT chat and work merging</span> <span class="update">— Thibault said answer quality will get noticeably better, and that chat and work will be merged by the end of the year. It&#x27;s still rolling out gradually.</span></div></li></ul></aside>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 7</span><div><span class="item-name">Gemini 4 Neon + Antigravity</span> <span class="update">— Peter Yang spent a weekend playing with it, ran 42 agents at the same time, and put out a free video course that mentions /swarm and /grill-me. Right now he&#x27;s the only one vouching for it, so no upgrade yet.</span></div></li></ul></aside>
 
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>ZDR + Enterprise Frontier Safeguards public beta</td><td>An enterprise data retention feature for compliance teams, with no concrete way to use it.</td></tr><tr><td>Personal benchmarks (Rauch / Dan Shipper)</td><td>Rauch had Fable analyze his own coding logs and it picked Gemini Neon as the best fit for him. It&#x27;s just one person&#x27;s experience, and Gemini 4 Neon was already covered earlier.</td></tr><tr><td>Replit agent swarm scaling research</td><td>Leans toward developer research, and the source has too little detail.</td></tr><tr><td>GLM-5.4 looped transformer</td><td>Right now it&#x27;s only available through a subscription, with no open weights, so it doesn&#x27;t matter much to you.</td></tr><tr><td>Jensen Huang returning as NVIDIA CEO</td><td>An executive personnel change, not a new tool.</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Matrix Multiplication Θ(n^2.25)</td><td>HN 710 points. It&#x27;s math and algorithm research, with no tool you can use.</td></tr><tr><td>Ternary Bonsai 2.5 27B</td><td>HN 473 points. It&#x27;s a small local model aimed at developers, and the source doesn&#x27;t show how it helps with office work.</td></tr><tr><td>Models Can Communicate via Inference Servers</td><td>HN 270 points. It&#x27;s sandbox security research, and it overlaps with the agent sandbox topic we covered last week.</td></tr><tr><td>GPT-6 Protein Design Ability</td><td>HN 285 points. It&#x27;s a research result, not a feature you can use.</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-24"><a href="#" class="prev">← Previous</a><span class="issue-num">№159 · 2026-11-24</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-25"><a href="#" class="prev">← Previous</a><span class="issue-num">№160 · 2026-11-25</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-24';
+    const currentDate = '2026-11-25';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

@@ -1,0 +1,69 @@
+{
+  "headline": "MCP can now bring its own instructions",
+  "summary": "MCP servers in Claude Code can ship with a skill; ChatGPT Business gets fast mode free for a limited time.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "MCP servers can ship with a skill",
+      "what": "MCP (Model Context Protocol, a standard plug that lets AI connect to outside tools and data) servers can now come with their own skill (a how-to guide that teaches the AI how to use them). Once you install the MCP in Claude Code, it automatically knows how to use it. The official post also mentions that MCP will get a new Tasks feature, so AIs can split up work and team up better.",
+      "meaning": "Down the road, you'll write fewer prompts when hooking up outside tools, and it's less likely to get things wrong. Basically, it's less hassle for you.",
+      "actions": [
+        "Add the MCP servers you need in Claude Code like usual and check whether they come with a skill. Whether it works depends on whether the server's author provides one."
+      ],
+      "deep_dive": [
+        "Before, when you installed an MCP, Claude only knew which tools were there, not necessarily the best way to use them, so you had to write the instructions yourself. Now the tool's author ships the guide along with the tool.",
+        "The only source is a tweet. It doesn't say which version it launches in, how widely it's supported, or whether every plan gets it. The details on Tasks aren't spelled out either."
+      ],
+      "signals": "Boris Cherny tweet 5102 likes · 210 retweets",
+      "links": [
+        {
+          "label": "Boris Cherny tweet",
+          "url": "https://x.com/bcherny/status/2125292098165612585"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "ChatGPT Business gets fast mode free for a limited time",
+      "what": "Thibault Sottiaux, from the OpenAI Codex team, announced two things for ChatGPT Business (the paid plan for teams) users: a \"banked reset\", and no extra charge for fast mode (a quicker response mode) until December 31. The original tweet doesn't explain what the \"banked reset\" actually is.",
+      "meaning": "This only matters for teams on ChatGPT Business. If you're an individual user, it basically doesn't affect you.",
+      "actions": [],
+      "deep_dive": [
+        "The \"banked reset\" might have something to do with usage limits, but that's just a guess and the source doesn't confirm it, so don't treat it as fact.",
+        "Fast mode usually trades more resources for more speed, and it might have cost extra before. It's free until December 31 this time, but the source doesn't say whether it'll cost anything after that."
+      ],
+      "signals": "Thibault Sottiaux tweet 5295 likes · 154 retweets",
+      "links": [
+        {
+          "label": "Thibault Sottiaux tweet",
+          "url": "https://x.com/thsottiaux/status/2125299248782778588"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 7,
+      "name": "Gemini 4 Neon + Antigravity",
+      "update": "Peter Yang spent a weekend playing with it, ran 42 agents at the same time, and put out a free video course that mentions /swarm and /grill-me. Right now he's the only one vouching for it, so no upgrade yet."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Matrix Multiplication Θ(n^2.25)",
+      "reason": "HN 710 points. It's math and algorithm research, with no tool you can use."
+    },
+    {
+      "name": "Ternary Bonsai 2.5 27B",
+      "reason": "HN 473 points. It's a small local model aimed at developers, and the source doesn't show how it helps with office work."
+    },
+    {
+      "name": "Models Can Communicate via Inference Servers",
+      "reason": "HN 270 points. It's sandbox security research, and it overlaps with the agent sandbox topic we covered last week."
+    },
+    {
+      "name": "GPT-6 Protein Design Ability",
+      "reason": "HN 285 points. It's a research result, not a feature you can use."
+    }
+  ]
+}

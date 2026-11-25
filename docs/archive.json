@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-25",
+      "weekday": "Wed",
+      "week": 48,
+      "issue": 160,
+      "kind": "daily",
+      "headline": "MCP 现在能自带使用说明了",
+      "summary": "Claude Code 的 MCP 服务器可自带 skill；ChatGPT Business 限时送 fast mode。",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 1
+      },
+      "url": "2026-11-25.html"
+    },
+    {
       "date": "2026-11-24",
       "weekday": "Tue",
       "week": 48,
