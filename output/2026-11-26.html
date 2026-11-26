@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar — 2026-11-26 (Week 48)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
+
+
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 11 · 26 · Week 48 · №161 · <a href="archive.html">归档</a></span>
+</header>
+
+<div class="cover">
+    <h1 class="display headline">Codex 额度缩水，Karpathy 晒长跑</h1>
+    <p class="lead">OpenAI 修正 GPT-6.2 计费，额度消耗变快；Karpathy 让 Opus 5.5 连跑 7 小时做出游戏地图。</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">0</span> 必看</span>
+        <span>👀 <span class="look-count">1</span> 值得看</span>
+        <span>ℹ️ <span class="fyi-count">2</span> 知道就行</span>
+    </div>
+</div>
+
+<div class="pager" data-current-date="2026-11-26"><a href="#" class="prev">← 前一天</a><span class="issue-num">№161 · 2026-11-26</span><a href="#" class="next">后一天 →</a></div>
+
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag look">👀 值得看</span> GPT-6.2 额度消耗变快</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Karpathy：让 Claude 连跑 7 小时</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Astra 22 分钟查出匿名画册作者</li></ul></nav>
+
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 值得看</div>
+    <h2 class="display title">GPT-6.2 额度消耗变快</h2>
+    <div class="explain"><h3>它是什么</h3><p>OpenAI 的 GPT-6.2 有 Astra（旗舰款）和 Sol（日常款）两个模型。发布时计费算错，给大多数用户多打了折，同样的活扣的额度偏少。OpenAI 现已改正：同样的活会多扣额度，用满额度比上周快 Astra 40%、Sol 25%。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>如果你用 Codex 跑 GPT-6.2，额度会比上周掉得更快。但官方称仍比 6 Astra 和 6.1 Sol 更耐用。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>Go、Plus、Pro、Business 套餐的用户会各多得一次「banked reset」（额度重置），到账方式官方推文没说。</li><li>如果你最近发现 Codex 额度见底变快，原因就在这次修正，不是你用法变了。</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>OpenAI 说其他模型不受影响，也不会向你追收过去多用的差额。</p><p>OpenAI 的发布页称 GPT-6.2 用更少的输出就能完成同样任务，所以这次涨价后额度表现仍可能比旧版好。</p><p>40% 和 25% 是和上周的对比，不是和旧模型比。具体你的额度能撑多久，要看自己的用量。</p></div></details>
+    <div class="signals"><strong>热度</strong> · HN 300 分 · 推文 9460 赞 · 原帖作者是 OpenAI Codex 负责人</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/thsottiaux/status/2125784147889393806" target="_blank" rel="noopener">Thibault Sottiaux 的说明</a> · <a href="https://openai.com/index/introducing-gpt-6-2-astra-sol" target="_blank" rel="noopener">GPT-6.2 发布页</a></div>
+</article>
+
+<article id="item2" class="item item--fyi">
+    <div class="tier-label">ℹ️ 知道就行</div>
+    <h2 class="display title">Karpathy：让 Claude 连跑 7 小时</h2>
+    <div class="explain"><h3>它是什么</h3><p>Karpathy 让 Claude 做一张「文明」游戏风格的美国地图，用真实数据填充。Claude Opus 5.5 自己下载并整理了 31 个公开数据源（人口普查、劳工统计等），花 7 小时写了 4.5 万行代码。结果是一个能在网页上浏览的游戏化地图：GDP 对应金币，城市的产业对应区域。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>不会写代码的人也能用 AI 做出数据量很大的作品，不过得有耐心，还要消耗大量额度。</p></div>
+    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>打开 https://karpathy.ai/usaciv/ 随便点点城市和州，看看数据怎么变成游戏语言。</li><li>想研究做法，可以下载页面上的 usaciv-source.zip（MIT 开源许可）。</li></ol></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>Karpathy 用的是 Claude Code 桌面版，Opus 5.5 选「medium」档并打开 ultracode。你平时用的 Claude Code 也能这样跑长任务。</p><p>他说这花掉了他一半的每周 Claude 额度，所以长时间自动运行成本不低。</p><p>Claude 自己决定跳过几个州和领地。数据由 AI 整理，细节未必都核对过，只能当作有趣的演示。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Karpathy 亲自实测 · 推文 9223 赞 / 774 转</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://x.com/karpathy/status/2125779541952246039" target="_blank" rel="noopener">Karpathy 原推</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ 知道就行</div>
+    <h2 class="display title">Astra 22 分钟查出匿名画册作者</h2>
+    <div class="explain"><h3>它是什么</h3><p>历史教授 Mark Humphries 只给了很少提示，让 GPT-6.2 Astra 查一本耶鲁 Beinecke 图书馆收藏的 1808 年匿名画册是谁画的。Astra 自己用公开史料检索，22 分钟就找到作者线索。它还在纸质档案里挖出一份很少人知道的资料，这份资料本身也是重要发现。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>AI 现在能自己做研究式的侦查，不只是回答问题。对你日常工作影响不大，但值得知道它能做到这一步。</p></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>Astra 先在日记里发现一位子爵 Chabot 到访的记录，时间比画册提到的日期早五天，再推测他的旅行日记能证明画册是他画的，查证后果然如此。</p><p>这是教授本人的案例报告，由 Simon Willison 转载，不是严格的实验。</p><p>Humphries 认为历史学家受到的冲击会比数学家轻，因为历史写作要靠人的解读。</p></div></details>
+    <div class="signals"><strong>热度</strong> · Simon Willison 转载 · 同日 HN 396 分另有 Astra 破代码高尔夫纪录</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison 的博客</a></div>
+</article>
+
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 1</span><div><span class="item-name">OpenAI Private Inference</span> <span class="update">— Sam Altman 说正在小范围测试，面向要求更强隐私的企业客户。目前要联系负责人，没有公开用法。</span></div></li></ul></aside>
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Thariq 加入 OpenAI</td><td>人事变动，不是新工具。</td></tr><tr><td>Scott Aaronson 数学证明帖</td><td>HN 1631 分，但是纯数学成果，没有可用工具。</td></tr><tr><td>Google MCP 不让 Gmail 发邮件</td><td>HN 59 分，偏开发者，影响面小。</td></tr><tr><td>1Password 安全事件</td><td>HN 1477 分，但不是 AI 新闻。</td></tr><tr><td>Amjad：大规模软件迁移可行</td><td>只有一条推文，没有具体产品。</td></tr></tbody></table></details></section>
+
+<footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
+
+<div class="pager" data-current-date="2026-11-26"><a href="#" class="prev">← 前一天</a><span class="issue-num">№161 · 2026-11-26</span><a href="#" class="next">后一天 →</a></div>
+
+<script>
+(async function() {
+    const currentDate = '2026-11-26';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
+})();
+</script>
+</body>
+</html>

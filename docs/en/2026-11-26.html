@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Radar — 2026-11-26 (Week 48)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --bg: oklch(0.97 0.01 90);
+            --surface: oklch(0.99 0.005 90);
+            --text: oklch(0.15 0.02 90);
+            --text-secondary: oklch(0.4 0.02 90);
+            --border: oklch(0.85 0.02 90);
+            --accent: oklch(0.55 0.15 45);
+            --accent-soft: oklch(0.65 0.12 45 / 0.15);
+            --crit: oklch(0.6 0.2 30);
+            --crit-bg: oklch(0.6 0.2 30 / 0.08);
+            --look: oklch(0.55 0.15 80);
+            --look-bg: oklch(0.55 0.15 80 / 0.08);
+            --fyi: oklch(0.5 0.05 240);
+            --fyi-bg: oklch(0.5 0.05 240 / 0.08);
+            --chart-bar: oklch(0.6 0.12 45);
+            --chart-bar-alt: oklch(0.5 0.1 200);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .masthead .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+        .masthead .meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .cover {
+            margin: 1.5rem 0 2rem;
+        }
+        .cover .headline {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+        .cover .counts {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .cover .counts span { font-weight: 600; }
+        .cover .counts .crit-count { color: var(--crit); }
+        .cover .counts .look-count { color: var(--look); }
+        .cover .counts .fyi-count { color: var(--fyi); }
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .toc .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toc ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .toc li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+        .toc .tier-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .tier-tag.crit { background: var(--crit-bg); color: var(--crit); }
+        .tier-tag.look { background: var(--look-bg); color: var(--look); }
+        .tier-tag.fyi { background: var(--fyi-bg); color: var(--fyi); }
+        .item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .item--crit { border-left: 4px solid var(--crit); }
+        .item--look { border-left: 4px solid var(--look); }
+        .item--fyi { border-left: 4px solid var(--fyi); }
+        .item .tier-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+        .item--crit .tier-label { color: var(--crit); }
+        .item--look .tier-label { color: var(--look); }
+        .item--fyi .tier-label { color: var(--fyi); }
+        .item .display-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+        .item .pitch {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .context-box {
+            background: oklch(0.95 0.01 90);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .context-box strong { font-weight: 600; }
+        .chart {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 8px;
+        }
+        .chart .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .chart .bar-row .label { width: 6rem; flex-shrink: 0; text-align: right; font-weight: 500; }
+        .chart .bar-row .bar {
+            height: 1.2rem;
+            border-radius: 4px;
+            background: var(--chart-bar);
+            min-width: 2px;
+        }
+        .chart .bar-row .bar.alt { background: var(--chart-bar-alt); }
+        .chart .bar-row .value { font-size: 0.8rem; color: var(--text-secondary); }
+        .lang { margin: 1rem 0; }
+        .lang h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .lang ul { padding-left: 1.2rem; }
+        .lang li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .action-block {
+            background: var(--accent-soft);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .action-block h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+        .action-block ol { padding-left: 1.2rem; }
+        .action-block li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .action-block code {
+            background: oklch(0.9 0.02 90);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        details.deep-dive {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+        details.deep-dive summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+        }
+        details.deep-dive .dd-content { padding-top: 0.5rem; font-size: 0.9rem; }
+        details.deep-dive table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+        }
+        details.deep-dive th, details.deep-dive td {
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            text-align: left;
+        }
+        details.deep-dive th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .watch-block {
+            margin: 1rem 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            background: oklch(0.96 0.01 90);
+            border-radius: 0 6px 6px 0;
+        }
+        .jargon {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .jargon strong { font-weight: 600; }
+        .who-talking {
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .who-talking a { color: var(--accent); }
+        .try-links {
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .try-links a { color: var(--accent); }
+        .still-tracking {
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .still-tracking .smallcaps {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .still-tracking ul { list-style: none; margin-top: 0.5rem; }
+        .still-tracking li {
+            display: grid;
+            grid-template-columns: 3.5rem 1fr;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid oklch(0.9 0.02 90);
+        }
+        .still-tracking li:last-child { border-bottom: none; }
+        .still-tracking .days {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .still-tracking .item-name { font-weight: 600; }
+        .still-tracking .update { color: var(--text-secondary); }
+        .killed {
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .killed table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+        .killed th, .killed td {
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+        .killed th { background: oklch(0.95 0.01 90); font-weight: 600; }
+        .pager {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .pager a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .pager a:hover { text-decoration: underline; }
+        .pager .prev, .pager .next { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; }
+        .pager .issue-num { color: var(--text-secondary); font-size: 0.8rem; }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .cover .headline { font-size: 1.5rem; }
+            .item { padding: 1rem; }
+            .chart .bar-row .label { width: 4.5rem; }
+        }
+
+
+        details.skipped summary { cursor: pointer; }
+        .signals { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+        .explain { margin-top: 0.9rem; }
+        .explain h3 { font-size: 0.8rem; letter-spacing: 0.04em; opacity: 0.7; margin: 0 0 0.25rem; }
+        .explain p { margin: 0; line-height: 1.7; }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+    <span class="logo">🛰️ AI Radar</span>
+    <span class="meta date-line">2026 · 11 · 26 · Week 48 · №161 · <a href="archive.html">Archive</a></span>
+</header>
+
+<div class="cover">
+    <h1 class="display headline">Codex limits shrink, Karpathy shows off a long run</h1>
+    <p class="lead">OpenAI fixed GPT-6.2 billing, so your limits burn faster. Karpathy let Opus 5.5 run for 7 hours and it built a game map.</p>
+    <div class="counts">
+        <span>🚨 <span class="crit-count">0</span> must see</span>
+        <span>👀 <span class="look-count">1</span> worth a look</span>
+        <span>ℹ️ <span class="fyi-count">2</span> FYI</span>
+    </div>
+</div>
+
+<div class="pager" data-current-date="2026-11-26"><a href="#" class="prev">← Previous</a><span class="issue-num">№161 · 2026-11-26</span><a href="#" class="next">Next →</a></div>
+
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag look">👀 Worth a look</span> GPT-6.2 limits burn faster</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Karpathy: letting Claude run for 7 hours</li><li><span class="tier-tag fyi">ℹ️ FYI</span> Astra figures out who made an anonymous picture book in 22 minutes</li></ul></nav>
+
+<article id="item1" class="item item--look">
+    <div class="tier-label">👀 Worth a look</div>
+    <h2 class="display title">GPT-6.2 limits burn faster</h2>
+    <div class="explain"><h3>What it is</h3><p>OpenAI&#x27;s GPT-6.2 comes in two models: Astra (the flagship) and Sol (the everyday one). At launch the billing was off and most users got an extra discount, so the same work took less of your limit. OpenAI has now fixed it. The same work costs more limit, so you hit your cap faster than last week: 40% faster on Astra and 25% faster on Sol.</p></div>
+    <div class="explain"><h3>What it means</h3><p>If you run GPT-6.2 in Codex, your limit will drop faster than it did last week. But OpenAI says it still lasts longer than 6 Astra and 6.1 Sol.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Users on the Go, Plus, Pro and Business plans each get one extra &quot;banked reset&quot; (a limit reset). The official tweet doesn&#x27;t say how it shows up.</li><li>If your Codex limit has been running out faster lately, this fix is why. It&#x27;s not that you changed how you use it.</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>OpenAI says other models aren&#x27;t affected, and they won&#x27;t charge you back for what you under-paid before.</p><p>OpenAI&#x27;s launch page says GPT-6.2 finishes the same tasks with less output, so even after this price bump your limit may still go further than on the old versions.</p><p>The 40% and 25% are compared to last week, not to older models. How long your limit actually lasts depends on how much you use it.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · HN 300 points · tweet 9460 likes · original poster is the head of OpenAI Codex</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/thsottiaux/status/2125784147889393806" target="_blank" rel="noopener">Thibault Sottiaux&#x27;s explanation</a> · <a href="https://openai.com/index/introducing-gpt-6-2-astra-sol" target="_blank" rel="noopener">GPT-6.2 launch page</a></div>
+</article>
+
+<article id="item2" class="item item--fyi">
+    <div class="tier-label">ℹ️ FYI</div>
+    <h2 class="display title">Karpathy: letting Claude run for 7 hours</h2>
+    <div class="explain"><h3>What it is</h3><p>Karpathy asked Claude to make a map of the US in the style of the &quot;Civilization&quot; games, filled in with real data. Claude Opus 5.5 downloaded and cleaned up 31 public data sources on its own (census, labor statistics and so on), and spent 7 hours writing 45,000 lines of code. The result is a game-style map you can browse on the web: GDP turns into gold coins, and a city&#x27;s industries turn into regions.</p></div>
+    <div class="explain"><h3>What it means</h3><p>Even people who can&#x27;t code can use AI to make something with a lot of data in it. You do need patience though, and it eats a lot of your limit.</p></div>
+    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Open https://karpathy.ai/usaciv/ and click around some cities and states to see how the data turns into game language.</li><li>If you want to see how it was done, download usaciv-source.zip from the page (MIT open-source license).</li></ol></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Karpathy used the Claude Code desktop app, with Opus 5.5 on the &quot;medium&quot; setting and ultracode turned on. The Claude Code you use every day can run long tasks like this too.</p><p>He said it used up half of his weekly Claude limit, so running something for hours isn&#x27;t cheap.</p><p>Claude decided on its own to skip a few states and territories. The AI put the data together, so not every detail has necessarily been checked. Treat it as a fun demo only.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Karpathy tested it himself · tweet 9223 likes / 774 retweets</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://x.com/karpathy/status/2125779541952246039" target="_blank" rel="noopener">Karpathy&#x27;s original tweet</a></div>
+</article>
+
+<article id="item3" class="item item--fyi">
+    <div class="tier-label">ℹ️ FYI</div>
+    <h2 class="display title">Astra figures out who made an anonymous picture book in 22 minutes</h2>
+    <div class="explain"><h3>What it is</h3><p>History professor Mark Humphries gave GPT-6.2 Astra only a few hints and asked it to find out who made an anonymous 1808 picture book held at Yale&#x27;s Beinecke Library. Astra searched public historical sources on its own and found a lead on the author in 22 minutes. It also dug up a little-known document in the paper archives, and that document is an important find in itself.</p></div>
+    <div class="explain"><h3>What it means</h3><p>AI can now do research-style detective work on its own, not just answer questions. It won&#x27;t change your day-to-day work much, but it&#x27;s worth knowing it can do this.</p></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Astra first found a diary entry about a visit from a viscount named Chabot, dated five days before the date the picture book mentions. Then it guessed that his travel diary could prove he drew the book, checked, and it did.</p><p>This is the professor&#x27;s own case report, reposted by Simon Willison. It&#x27;s not a strict experiment.</p><p>Humphries thinks historians will be hit less hard than mathematicians, because writing history depends on human interpretation.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · Reposted by Simon Willison · same day, another HN post (396 points) about Astra breaking a code golf record</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://simonwillison.net/tags/ai" target="_blank" rel="noopener">Simon Willison&#x27;s blog</a></div>
+</article>
+
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 1</span><div><span class="item-name">OpenAI Private Inference</span> <span class="update">— Sam Altman says it&#x27;s being tested on a small scale, aimed at business customers who need stronger privacy. For now you have to contact the person in charge, and there&#x27;s no public way to use it.</span></div></li></ul></aside>
+
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Thariq joins OpenAI</td><td>A personnel change, not a new tool.</td></tr><tr><td>Scott Aaronson&#x27;s math proof post</td><td>HN 1631 points, but it&#x27;s a pure math result with no tool you can use.</td></tr><tr><td>Google MCP won&#x27;t let Gmail send email</td><td>HN 59 points, mostly for developers, small impact.</td></tr><tr><td>1Password security incident</td><td>HN 1477 points, but it&#x27;s not AI news.</td></tr><tr><td>Amjad: large-scale software migration is doable</td><td>Just one tweet, no specific product.</td></tr></tbody></table></details></section>
+
+<footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
+
+<div class="pager" data-current-date="2026-11-26"><a href="#" class="prev">← Previous</a><span class="issue-num">№161 · 2026-11-26</span><a href="#" class="next">Next →</a></div>
+
+<script>
+(async function() {
+    const currentDate = '2026-11-26';
+    let issues = [];
+    try {
+        const resp = await fetch('./archive.json');
+        issues = (await resp.json()).issues || [];
+    } catch (e) { return; }
+    const idx = issues.findIndex(i => i.date === currentDate && i.kind === 'daily');
+    if (idx === -1) return;
+    const prev = issues.slice(idx + 1).find(i => i.kind === 'daily');
+    const next = issues.slice(0, idx).reverse().find(i => i.kind === 'daily');
+    document.querySelectorAll('.pager').forEach(p => {
+        const prevLink = p.querySelector('.prev');
+        const nextLink = p.querySelector('.next');
+        if (prev) { prevLink.href = prev.url; prevLink.textContent = '← ' + prev.date; }
+        else { prevLink.style.opacity = '0.3'; prevLink.style.pointerEvents = 'none'; }
+        if (next) { nextLink.href = next.url; nextLink.textContent = next.date + ' →'; }
+        else { nextLink.style.opacity = '0.3'; nextLink.style.pointerEvents = 'none'; }
+    });
+})();
+</script>
+</body>
+</html>

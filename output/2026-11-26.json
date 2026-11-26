@@ -1,0 +1,102 @@
+{
+  "headline": "Codex 额度缩水，Karpathy 晒长跑",
+  "summary": "OpenAI 修正 GPT-6.2 计费，额度消耗变快；Karpathy 让 Opus 5.5 连跑 7 小时做出游戏地图。",
+  "items": [
+    {
+      "tier": "look",
+      "title": "GPT-6.2 额度消耗变快",
+      "what": "OpenAI 的 GPT-6.2 有 Astra（旗舰款）和 Sol（日常款）两个模型。发布时计费算错，给大多数用户多打了折，同样的活扣的额度偏少。OpenAI 现已改正：同样的活会多扣额度，用满额度比上周快 Astra 40%、Sol 25%。",
+      "meaning": "如果你用 Codex 跑 GPT-6.2，额度会比上周掉得更快。但官方称仍比 6 Astra 和 6.1 Sol 更耐用。",
+      "actions": [
+        "Go、Plus、Pro、Business 套餐的用户会各多得一次「banked reset」（额度重置），到账方式官方推文没说。",
+        "如果你最近发现 Codex 额度见底变快，原因就在这次修正，不是你用法变了。"
+      ],
+      "deep_dive": [
+        "OpenAI 说其他模型不受影响，也不会向你追收过去多用的差额。",
+        "OpenAI 的发布页称 GPT-6.2 用更少的输出就能完成同样任务，所以这次涨价后额度表现仍可能比旧版好。",
+        "40% 和 25% 是和上周的对比，不是和旧模型比。具体你的额度能撑多久，要看自己的用量。"
+      ],
+      "signals": "HN 300 分 · 推文 9460 赞 · 原帖作者是 OpenAI Codex 负责人",
+      "links": [
+        {
+          "label": "Thibault Sottiaux 的说明",
+          "url": "https://x.com/thsottiaux/status/2125784147889393806"
+        },
+        {
+          "label": "GPT-6.2 发布页",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Karpathy：让 Claude 连跑 7 小时",
+      "what": "Karpathy 让 Claude 做一张「文明」游戏风格的美国地图，用真实数据填充。Claude Opus 5.5 自己下载并整理了 31 个公开数据源（人口普查、劳工统计等），花 7 小时写了 4.5 万行代码。结果是一个能在网页上浏览的游戏化地图：GDP 对应金币，城市的产业对应区域。",
+      "meaning": "不会写代码的人也能用 AI 做出数据量很大的作品，不过得有耐心，还要消耗大量额度。",
+      "actions": [
+        "打开 https://karpathy.ai/usaciv/ 随便点点城市和州，看看数据怎么变成游戏语言。",
+        "想研究做法，可以下载页面上的 usaciv-source.zip（MIT 开源许可）。"
+      ],
+      "deep_dive": [
+        "Karpathy 用的是 Claude Code 桌面版，Opus 5.5 选「medium」档并打开 ultracode。你平时用的 Claude Code 也能这样跑长任务。",
+        "他说这花掉了他一半的每周 Claude 额度，所以长时间自动运行成本不低。",
+        "Claude 自己决定跳过几个州和领地。数据由 AI 整理，细节未必都核对过，只能当作有趣的演示。"
+      ],
+      "signals": "Karpathy 亲自实测 · 推文 9223 赞 / 774 转",
+      "links": [
+        {
+          "label": "Karpathy 原推",
+          "url": "https://x.com/karpathy/status/2125779541952246039"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Astra 22 分钟查出匿名画册作者",
+      "what": "历史教授 Mark Humphries 只给了很少提示，让 GPT-6.2 Astra 查一本耶鲁 Beinecke 图书馆收藏的 1808 年匿名画册是谁画的。Astra 自己用公开史料检索，22 分钟就找到作者线索。它还在纸质档案里挖出一份很少人知道的资料，这份资料本身也是重要发现。",
+      "meaning": "AI 现在能自己做研究式的侦查，不只是回答问题。对你日常工作影响不大，但值得知道它能做到这一步。",
+      "actions": [],
+      "deep_dive": [
+        "Astra 先在日记里发现一位子爵 Chabot 到访的记录，时间比画册提到的日期早五天，再推测他的旅行日记能证明画册是他画的，查证后果然如此。",
+        "这是教授本人的案例报告，由 Simon Willison 转载，不是严格的实验。",
+        "Humphries 认为历史学家受到的冲击会比数学家轻，因为历史写作要靠人的解读。"
+      ],
+      "signals": "Simon Willison 转载 · 同日 HN 396 分另有 Astra 破代码高尔夫纪录",
+      "links": [
+        {
+          "label": "Simon Willison 的博客",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "OpenAI Private Inference",
+      "update": "Sam Altman 说正在小范围测试，面向要求更强隐私的企业客户。目前要联系负责人，没有公开用法。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Thariq 加入 OpenAI",
+      "reason": "人事变动，不是新工具。"
+    },
+    {
+      "name": "Scott Aaronson 数学证明帖",
+      "reason": "HN 1631 分，但是纯数学成果，没有可用工具。"
+    },
+    {
+      "name": "Google MCP 不让 Gmail 发邮件",
+      "reason": "HN 59 分，偏开发者，影响面小。"
+    },
+    {
+      "name": "1Password 安全事件",
+      "reason": "HN 1477 分，但不是 AI 新闻。"
+    },
+    {
+      "name": "Amjad：大规模软件迁移可行",
+      "reason": "只有一条推文，没有具体产品。"
+    }
+  ]
+}

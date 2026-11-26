@@ -1,0 +1,102 @@
+{
+  "headline": "Codex limits shrink, Karpathy shows off a long run",
+  "summary": "OpenAI fixed GPT-6.2 billing, so your limits burn faster. Karpathy let Opus 5.5 run for 7 hours and it built a game map.",
+  "items": [
+    {
+      "tier": "look",
+      "title": "GPT-6.2 limits burn faster",
+      "what": "OpenAI's GPT-6.2 comes in two models: Astra (the flagship) and Sol (the everyday one). At launch the billing was off and most users got an extra discount, so the same work took less of your limit. OpenAI has now fixed it. The same work costs more limit, so you hit your cap faster than last week: 40% faster on Astra and 25% faster on Sol.",
+      "meaning": "If you run GPT-6.2 in Codex, your limit will drop faster than it did last week. But OpenAI says it still lasts longer than 6 Astra and 6.1 Sol.",
+      "actions": [
+        "Users on the Go, Plus, Pro and Business plans each get one extra \"banked reset\" (a limit reset). The official tweet doesn't say how it shows up.",
+        "If your Codex limit has been running out faster lately, this fix is why. It's not that you changed how you use it."
+      ],
+      "deep_dive": [
+        "OpenAI says other models aren't affected, and they won't charge you back for what you under-paid before.",
+        "OpenAI's launch page says GPT-6.2 finishes the same tasks with less output, so even after this price bump your limit may still go further than on the old versions.",
+        "The 40% and 25% are compared to last week, not to older models. How long your limit actually lasts depends on how much you use it."
+      ],
+      "signals": "HN 300 points · tweet 9460 likes · original poster is the head of OpenAI Codex",
+      "links": [
+        {
+          "label": "Thibault Sottiaux's explanation",
+          "url": "https://x.com/thsottiaux/status/2125784147889393806"
+        },
+        {
+          "label": "GPT-6.2 launch page",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Karpathy: letting Claude run for 7 hours",
+      "what": "Karpathy asked Claude to make a map of the US in the style of the \"Civilization\" games, filled in with real data. Claude Opus 5.5 downloaded and cleaned up 31 public data sources on its own (census, labor statistics and so on), and spent 7 hours writing 45,000 lines of code. The result is a game-style map you can browse on the web: GDP turns into gold coins, and a city's industries turn into regions.",
+      "meaning": "Even people who can't code can use AI to make something with a lot of data in it. You do need patience though, and it eats a lot of your limit.",
+      "actions": [
+        "Open https://karpathy.ai/usaciv/ and click around some cities and states to see how the data turns into game language.",
+        "If you want to see how it was done, download usaciv-source.zip from the page (MIT open-source license)."
+      ],
+      "deep_dive": [
+        "Karpathy used the Claude Code desktop app, with Opus 5.5 on the \"medium\" setting and ultracode turned on. The Claude Code you use every day can run long tasks like this too.",
+        "He said it used up half of his weekly Claude limit, so running something for hours isn't cheap.",
+        "Claude decided on its own to skip a few states and territories. The AI put the data together, so not every detail has necessarily been checked. Treat it as a fun demo only."
+      ],
+      "signals": "Karpathy tested it himself · tweet 9223 likes / 774 retweets",
+      "links": [
+        {
+          "label": "Karpathy's original tweet",
+          "url": "https://x.com/karpathy/status/2125779541952246039"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "Astra figures out who made an anonymous picture book in 22 minutes",
+      "what": "History professor Mark Humphries gave GPT-6.2 Astra only a few hints and asked it to find out who made an anonymous 1808 picture book held at Yale's Beinecke Library. Astra searched public historical sources on its own and found a lead on the author in 22 minutes. It also dug up a little-known document in the paper archives, and that document is an important find in itself.",
+      "meaning": "AI can now do research-style detective work on its own, not just answer questions. It won't change your day-to-day work much, but it's worth knowing it can do this.",
+      "actions": [],
+      "deep_dive": [
+        "Astra first found a diary entry about a visit from a viscount named Chabot, dated five days before the date the picture book mentions. Then it guessed that his travel diary could prove he drew the book, checked, and it did.",
+        "This is the professor's own case report, reposted by Simon Willison. It's not a strict experiment.",
+        "Humphries thinks historians will be hit less hard than mathematicians, because writing history depends on human interpretation."
+      ],
+      "signals": "Reposted by Simon Willison · same day, another HN post (396 points) about Astra breaking a code golf record",
+      "links": [
+        {
+          "label": "Simon Willison's blog",
+          "url": "https://simonwillison.net/tags/ai"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 1,
+      "name": "OpenAI Private Inference",
+      "update": "Sam Altman says it's being tested on a small scale, aimed at business customers who need stronger privacy. For now you have to contact the person in charge, and there's no public way to use it."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Thariq joins OpenAI",
+      "reason": "A personnel change, not a new tool."
+    },
+    {
+      "name": "Scott Aaronson's math proof post",
+      "reason": "HN 1631 points, but it's a pure math result with no tool you can use."
+    },
+    {
+      "name": "Google MCP won't let Gmail send email",
+      "reason": "HN 59 points, mostly for developers, small impact."
+    },
+    {
+      "name": "1Password security incident",
+      "reason": "HN 1477 points, but it's not AI news."
+    },
+    {
+      "name": "Amjad: large-scale software migration is doable",
+      "reason": "Just one tweet, no specific product."
+    }
+  ]
+}

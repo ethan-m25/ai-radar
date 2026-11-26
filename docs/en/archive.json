@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-26",
+      "weekday": "Thu",
+      "week": 48,
+      "issue": 160,
+      "kind": "daily",
+      "headline": "Codex limits shrink, Karpathy shows off a long run",
+      "summary": "OpenAI fixed GPT-6.2 billing, so your limits burn faster. Karpathy let Opus 5.5 run for 7 hours and it built a game map.",
+      "counts": {
+        "crit": 0,
+        "look": 1,
+        "fyi": 2
+      },
+      "url": "2026-11-26.html"
+    },
+    {
       "date": "2026-11-25",
       "weekday": "Wed",
       "week": 48,
