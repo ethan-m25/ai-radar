@@ -1,0 +1,84 @@
+{
+  "headline": "A quiet day, nothing big",
+  "summary": "No major launches today. Just Google's MCP limits and an open-source video model worth knowing about.",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Google's Gmail MCP can't send email",
+      "what": "On November 24, Google officially launched 8 Workspace MCP servers (the official way to hook AI up to Gmail, Drive, Calendar and so on). Under its new terms, starting February 1, 2027, AI agents have to go through these servers to access Workspace. The Gmail one can only search, read email, make drafts and add labels. It can't send, reply, forward, or edit drafts.",
+      "meaning": "Third-party AI email assistants get stuck, and only partners Google approves can send mail. Using Claude to read your email and write drafts is fine, but don't count on it sending anything for you.",
+      "actions": [],
+      "deep_dive": [
+        "Google says send, reply and forward \"need partner permissions and aren't generally available yet.\" It doesn't say who can apply or when it'll open up.",
+        "The article points out that Anthropic's Claude Google Workspace connector already advertises sending email, and guesses it goes through a partner channel. That's the article's own observation, and Google hasn't confirmed it.",
+        "The rules only cover AI-driven tools. Regular scripts, like a nightly backup, aren't affected. Also, Google can limit memory indexes and vector stores that an AI builds from Workspace data to just 30 days."
+      ],
+      "signals": "HN 347 points · 305 comments (it only had 59 points before)",
+      "links": [
+        {
+          "label": "techstackups article",
+          "url": "https://techstackups.com"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "LTX-2.5: open-source image-to-video model is blowing up",
+      "what": "LTX-2.5 is a video generation model from Lightricks. It's mainly built for image-to-video, but it also does text-to-video and audio-to-video, and it can generate the picture and the sound together. The model files are on Hugging Face (a site for sharing AI models), so you can download them and run it on your own computer. It also works in ComfyUI (a visual tool for building AI workflows).",
+      "meaning": "One more free option for people who want to make AI video locally. If you don't need video or don't have a high-end graphics card, it won't matter much to you.",
+      "actions": [
+        "Search Hugging Face for Lightricks/LTX-2.5. You have to log in and agree to the license before you can download it."
+      ],
+      "deep_dive": [
+        "It uses Lightricks' own LTX-2.x community license, not the usual fully open-source one. Read the terms before using it commercially. I didn't see the details of the terms.",
+        "Running video models locally usually takes a really strong graphics card. If you don't have one, you could look at paid online video generation services.",
+        "Someone on Hugging Face wrote a post about running it on AWS Trainium3 chips. I couldn't open it, so I'm not sure about the details."
+      ],
+      "signals": "Hugging Face trending · 3.08M downloads · 13.6k likes",
+      "links": [
+        {
+          "label": "Hugging Face model page",
+          "url": "https://huggingface.co/models"
+        },
+        {
+          "label": "Hugging Face blog",
+          "url": "https://huggingface.co/blog"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 7,
+      "name": "Inkling 2 Mini",
+      "update": "Still #1 on the Hugging Face trending list with 6.37k likes. Lots of derived versions, and no new official updates."
+    },
+    {
+      "day": 4,
+      "name": "Gemini 4",
+      "update": "Amjad Masad said Google did a great job this time and recommended trying it on Replit. It's just a tweet, and there's no new release yet."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "AI made self-hosting fun again",
+      "reason": "HN 775 points, but it's a blog essay. The source only had the title, so there's no usable tool to point to."
+    },
+    {
+      "name": "1Password 安全事件",
+      "reason": "HN 1676 points, but it's not AI news."
+    },
+    {
+      "name": "The group chat where your AI talks behind your back",
+      "reason": "HN 340 points. The source only had the title, so it's unclear what the product actually is."
+    },
+    {
+      "name": "AMD 版 llama.cpp 分支",
+      "reason": "HN 379 points. It's developer-focused local inference and doesn't have much to do with office work."
+    },
+    {
+      "name": "Nikunj 用 Claude 做的 iMessage 提醒小工具",
+      "reason": "A small personal project with only 23 likes."
+    }
+  ]
+}

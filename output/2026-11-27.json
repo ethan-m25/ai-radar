@@ -1,0 +1,84 @@
+{
+  "headline": "安静的一天，没有大事",
+  "summary": "今天没有重磅发布，只有 Google 的 MCP 限制和一个开源视频模型值得知道",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Google 的 Gmail MCP 不能发邮件",
+      "what": "Google 在 11 月 24 日正式推出 8 个 Workspace MCP 服务器（给 AI 接 Gmail、网盘、日历等的官方接口）。它的新条款规定：从 2027 年 2 月 1 日起，AI agent 必须通过这些服务器访问 Workspace。Gmail 那个只能搜索、读邮件、建草稿、打标签，不能发送、回复、转发，也不能改草稿。",
+      "meaning": "第三方 AI 邮件助手会被卡住，只有 Google 认可的合作伙伴才能发信。你用 Claude 读邮件、写草稿没问题，但不能指望它自动发出去。",
+      "actions": [],
+      "deep_dive": [
+        "发送、回复、转发这些功能 Google 称“需要合作伙伴权限，暂未普遍开放”，没说谁能申请，也没说何时开放。",
+        "文章指出 Anthropic 的 Claude Google Workspace 连接器已宣传能发信，推测它走的是合作伙伴通道。这是文章的观察，Google 没有证实。",
+        "规则只管 AI 驱动的工具。普通脚本，比如夜间备份，不受影响。另外，AI 用 Workspace 数据建的记忆索引、向量库，Google 可限制只保留 30 天。"
+      ],
+      "signals": "HN 347 分 · 305 条评论（此前只有 59 分）",
+      "links": [
+        {
+          "label": "techstackups 文章",
+          "url": "https://techstackups.com"
+        }
+      ]
+    },
+    {
+      "tier": "fyi",
+      "title": "LTX-2.5：开源图生视频模型走红",
+      "what": "LTX-2.5 是 Lightricks 发布的视频生成模型，主打图生视频，也支持文字、音频生成视频，还能同时生成画面和声音。模型文件放在 Hugging Face（AI 模型分享网站）上，可下载到自己电脑上运行，ComfyUI（图形化的 AI 工作流工具）也能用。",
+      "meaning": "想本地做 AI 视频的人多了个免费选择。你没有视频需求或高端显卡的话，对你影响不大。",
+      "actions": [
+        "在 Hugging Face 搜 Lightricks/LTX-2.5，登录并同意许可后才能下载。"
+      ],
+      "deep_dive": [
+        "它用的是 Lightricks 自家的 LTX-2.x 社区许可，不是常见的完全开源协议。商用前要先读条款，我没看到条款细节。",
+        "本地跑视频模型通常要很强的显卡。没有的话，可以考虑付费的在线视频生成服务。",
+        "Hugging Face 上有人写了用 AWS Trainium3 芯片跑它的文章。我没能打开这篇，不确定细节。"
+      ],
+      "signals": "Hugging Face 趋势榜 · 下载量 308 万 · 点赞 1.36 万",
+      "links": [
+        {
+          "label": "Hugging Face 模型页",
+          "url": "https://huggingface.co/models"
+        },
+        {
+          "label": "Hugging Face 博客",
+          "url": "https://huggingface.co/blog"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 7,
+      "name": "Inkling 2 Mini",
+      "update": "仍在 Hugging Face 趋势榜第一，点赞 6.37k，衍生版本很多，没有新的官方更新。"
+    },
+    {
+      "day": 4,
+      "name": "Gemini 4",
+      "update": "Amjad Masad 说 Google 这次做得很好，并推荐在 Replit 上试用。只是一条推文，暂无新发布。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "AI made self-hosting fun again",
+      "reason": "HN 775 分，是博客随笔，来源里只有标题，看不出有可用工具。"
+    },
+    {
+      "name": "1Password 安全事件",
+      "reason": "HN 1676 分，但不是 AI 新闻。"
+    },
+    {
+      "name": "The group chat where your AI talks behind your back",
+      "reason": "HN 340 分，来源里只有标题，看不出具体是什么产品。"
+    },
+    {
+      "name": "AMD 版 llama.cpp 分支",
+      "reason": "HN 379 分，偏开发者的本地推理，和办公关系不大。"
+    },
+    {
+      "name": "Nikunj 用 Claude 做的 iMessage 提醒小工具",
+      "reason": "个人小项目，只有 23 个赞。"
+    }
+  ]
+}

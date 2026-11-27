@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-27",
+      "weekday": "Fri",
+      "week": 48,
+      "issue": 162,
+      "kind": "daily",
+      "headline": "安静的一天，没有大事",
+      "summary": "今天没有重磅发布，只有 Google 的 MCP 限制和一个开源视频模型值得知道",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 2
+      },
+      "url": "2026-11-27.html"
+    },
+    {
       "date": "2026-11-26",
       "weekday": "Thu",
       "week": 48,
