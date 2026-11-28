@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-27 (Week 48)</title>
+<title>AI Radar — 2026-11-28 (Week 48)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -348,55 +348,44 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 27 · Week 48 · №162 · <a href="archive.html">归档</a></span>
+    <span class="meta date-line">2026 · 11 · 28 · Week 48 · №163 · <a href="archive.html">归档</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">安静的一天，没有大事</h1>
-    <p class="lead">今天没有重磅发布，只有 Google 的 MCP 限制和一个开源视频模型值得知道</p>
+    <h1 class="display headline">今天很安静，只有一个安全提醒</h1>
+    <p class="lead">没有大发布；Convex 的 skill 被指偷偷把你的应用想法发到远程服务器</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> 必看</span>
         <span>👀 <span class="look-count">0</span> 值得看</span>
-        <span>ℹ️ <span class="fyi-count">2</span> 知道就行</span>
+        <span>ℹ️ <span class="fyi-count">1</span> 知道就行</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-27"><a href="#" class="prev">← 前一天</a><span class="issue-num">№162 · 2026-11-27</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-28"><a href="#" class="prev">← 前一天</a><span class="issue-num">№163 · 2026-11-28</span><a href="#" class="next">后一天 →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Google 的 Gmail MCP 不能发邮件</li><li><span class="tier-tag fyi">ℹ️ 知道就行</span> LTX-2.5：开源图生视频模型走红</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 今日目录</span><ul><li><span class="tier-tag fyi">ℹ️ 知道就行</span> Convex 的 skill 被指偷传你的想法</li></ul></nav>
 
 <article id="item1" class="item item--fyi">
     <div class="tier-label">ℹ️ 知道就行</div>
-    <h2 class="display title">Google 的 Gmail MCP 不能发邮件</h2>
-    <div class="explain"><h3>它是什么</h3><p>Google 在 11 月 24 日正式推出 8 个 Workspace MCP 服务器（给 AI 接 Gmail、网盘、日历等的官方接口）。它的新条款规定：从 2027 年 2 月 1 日起，AI agent 必须通过这些服务器访问 Workspace。Gmail 那个只能搜索、读邮件、建草稿、打标签，不能发送、回复、转发，也不能改草稿。</p></div>
-    <div class="explain"><h3>意味着什么</h3><p>第三方 AI 邮件助手会被卡住，只有 Google 认可的合作伙伴才能发信。你用 Claude 读邮件、写草稿没问题，但不能指望它自动发出去。</p></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>发送、回复、转发这些功能 Google 称“需要合作伙伴权限，暂未普遍开放”，没说谁能申请，也没说何时开放。</p><p>文章指出 Anthropic 的 Claude Google Workspace 连接器已宣传能发信，推测它走的是合作伙伴通道。这是文章的观察，Google 没有证实。</p><p>规则只管 AI 驱动的工具。普通脚本，比如夜间备份，不受影响。另外，AI 用 Workspace 数据建的记忆索引、向量库，Google 可限制只保留 30 天。</p></div></details>
-    <div class="signals"><strong>热度</strong> · HN 347 分 · 305 条评论（此前只有 59 分）</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://techstackups.com" target="_blank" rel="noopener">techstackups 文章</a></div>
+    <h2 class="display title">Convex 的 skill 被指偷传你的想法</h2>
+    <div class="explain"><h3>它是什么</h3><p>Convex 是一个给应用做后端（存数据、跑服务器逻辑）的平台，官方出了给 AI 编程助手用的 skill（技能包，一份教 AI 怎么做事的说明加脚本）。HN 帖子标题称，这些 skill 会把你的应用创意发到远程服务器，而且没有告诉你。我没能找到帖子原文，具体发了什么、是否默认开启，目前不清楚。</p></div>
+    <div class="explain"><h3>意味着什么</h3><p>这是个提醒：装第三方 skill 前要留意它会不会联网传数据。对你影响不大，除非你用了 Convex。</p></div>
+    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>搜索中能确认的是：Convex 的 convex-quickstart 能根据一句话创意搭出应用模板；另有一个插件会把本次会话记录发给 Convex 团队做复盘，描述里是公开说明的。它和帖子是不是同一件事，我无法确认。</p><p>通用建议：给 Claude Code 或 codex 装任何 skill 前，先打开它的 SKILL.md 和附带脚本，看有没有联网、上传的内容。也可以让 AI 帮你读一遍。</p></div></details>
+    <div class="signals"><strong>热度</strong> · HN 321 分 · 104 条评论</div>
+    <div class="try-links"><strong>链接</strong> · <a href="https://github.com/convex" target="_blank" rel="noopener">Convex skills（GitHub）</a> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN 首页</a></div>
 </article>
 
-<article id="item2" class="item item--fyi">
-    <div class="tier-label">ℹ️ 知道就行</div>
-    <h2 class="display title">LTX-2.5：开源图生视频模型走红</h2>
-    <div class="explain"><h3>它是什么</h3><p>LTX-2.5 是 Lightricks 发布的视频生成模型，主打图生视频，也支持文字、音频生成视频，还能同时生成画面和声音。模型文件放在 Hugging Face（AI 模型分享网站）上，可下载到自己电脑上运行，ComfyUI（图形化的 AI 工作流工具）也能用。</p></div>
-    <div class="explain"><h3>意味着什么</h3><p>想本地做 AI 视频的人多了个免费选择。你没有视频需求或高端显卡的话，对你影响不大。</p></div>
-    <div class="action-block"><h3>🎯 怎么用</h3><ol><li>在 Hugging Face 搜 Lightricks/LTX-2.5，登录并同意许可后才能下载。</li></ol></div>
-    <details class="deep-dive"><summary>🔬 深扒（点开看）</summary><div class="dd-content"><p>它用的是 Lightricks 自家的 LTX-2.x 社区许可，不是常见的完全开源协议。商用前要先读条款，我没看到条款细节。</p><p>本地跑视频模型通常要很强的显卡。没有的话，可以考虑付费的在线视频生成服务。</p><p>Hugging Face 上有人写了用 AWS Trainium3 芯片跑它的文章。我没能打开这篇，不确定细节。</p></div></details>
-    <div class="signals"><strong>热度</strong> · Hugging Face 趋势榜 · 下载量 308 万 · 点赞 1.36 万</div>
-    <div class="try-links"><strong>链接</strong> · <a href="https://huggingface.co/models" target="_blank" rel="noopener">Hugging Face 模型页</a> · <a href="https://huggingface.co/blog" target="_blank" rel="noopener">Hugging Face 博客</a></div>
-</article>
+<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 3</span><div><span class="item-name">GPT-6.2 Astra 查出匿名画册作者</span> <span class="update">— HN 460 分、290 条评论，Simon Willison 也转载了案例；暂无新发布。</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">LTX-2.5 开源图生视频</span> <span class="update">— HF 点赞 13.8k；Hugging Face 发了在 AWS Trainium 上跑它的文章。</span></div></li><li><span class="days">Day 8</span><div><span class="item-name">Inkling 2 Mini 本地模型</span> <span class="update">— HF 趋势榜第一，点赞 6.53k，多个量化版（压缩后更小的版本）在榜；仍偏开发者。</span></div></li></ul></aside>
 
-<aside class="still-tracking"><span class="smallcaps">📈 持续追踪</span><ul><li><span class="days">Day 7</span><div><span class="item-name">Inkling 2 Mini</span> <span class="update">— 仍在 Hugging Face 趋势榜第一，点赞 6.37k，衍生版本很多，没有新的官方更新。</span></div></li><li><span class="days">Day 4</span><div><span class="item-name">Gemini 4</span> <span class="update">— Amjad Masad 说 Google 这次做得很好，并推荐在 Replit 上试用。只是一条推文，暂无新发布。</span></div></li></ul></aside>
-
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>AI made self-hosting fun again</td><td>HN 775 分，是博客随笔，来源里只有标题，看不出有可用工具。</td></tr><tr><td>1Password 安全事件</td><td>HN 1676 分，但不是 AI 新闻。</td></tr><tr><td>The group chat where your AI talks behind your back</td><td>HN 340 分，来源里只有标题，看不出具体是什么产品。</td></tr><tr><td>AMD 版 llama.cpp 分支</td><td>HN 379 分，偏开发者的本地推理，和办公关系不大。</td></tr><tr><td>Nikunj 用 Claude 做的 iMessage 提醒小工具</td><td>个人小项目，只有 23 个赞。</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 今天没选进来的（点开看）</summary><table><thead><tr><th>候选</th><th>为什么没进</th></tr></thead><tbody><tr><td>Google DeepCrossAttention 训练快 3 倍</td><td>HN 450 分，但是研究成果，没有能用的工具。</td></tr><tr><td>Michael Nielsen 下架神经网络教材</td><td>HN 569 分，不是新工具。</td></tr><tr><td>Thariq：模型该像 RPG 属性表打分</td><td>4791 赞，他还对比了 Claude 和 Codex 生图，但只是个人观点，没有新功能。</td></tr><tr><td>Rauch 夸 Flora</td><td>只有一句夸奖，没有细节。</td></tr><tr><td>Nikunj：创业公司把转卖算力算收入</td><td>属于融资和营收话题，不是工具。</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · 每天扫 Smol AI / HN / GitHub / X builders / 官方博客 · 只挑真信号</p></footer>
 
-<div class="pager" data-current-date="2026-11-27"><a href="#" class="prev">← 前一天</a><span class="issue-num">№162 · 2026-11-27</span><a href="#" class="next">后一天 →</a></div>
+<div class="pager" data-current-date="2026-11-28"><a href="#" class="prev">← 前一天</a><span class="issue-num">№163 · 2026-11-28</span><a href="#" class="next">后一天 →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-27';
+    const currentDate = '2026-11-28';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

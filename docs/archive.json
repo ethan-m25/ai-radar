@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-28",
+      "weekday": "Sat",
+      "week": 48,
+      "issue": 163,
+      "kind": "daily",
+      "headline": "今天很安静，只有一个安全提醒",
+      "summary": "没有大发布；Convex 的 skill 被指偷偷把你的应用想法发到远程服务器",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 1
+      },
+      "url": "2026-11-28.html"
+    },
+    {
       "date": "2026-11-27",
       "weekday": "Fri",
       "week": 48,

@@ -1,0 +1,67 @@
+{
+  "headline": "今天很安静，只有一个安全提醒",
+  "summary": "没有大发布；Convex 的 skill 被指偷偷把你的应用想法发到远程服务器",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Convex 的 skill 被指偷传你的想法",
+      "what": "Convex 是一个给应用做后端（存数据、跑服务器逻辑）的平台，官方出了给 AI 编程助手用的 skill（技能包，一份教 AI 怎么做事的说明加脚本）。HN 帖子标题称，这些 skill 会把你的应用创意发到远程服务器，而且没有告诉你。我没能找到帖子原文，具体发了什么、是否默认开启，目前不清楚。",
+      "meaning": "这是个提醒：装第三方 skill 前要留意它会不会联网传数据。对你影响不大，除非你用了 Convex。",
+      "actions": [],
+      "deep_dive": [
+        "搜索中能确认的是：Convex 的 convex-quickstart 能根据一句话创意搭出应用模板；另有一个插件会把本次会话记录发给 Convex 团队做复盘，描述里是公开说明的。它和帖子是不是同一件事，我无法确认。",
+        "通用建议：给 Claude Code 或 codex 装任何 skill 前，先打开它的 SKILL.md 和附带脚本，看有没有联网、上传的内容。也可以让 AI 帮你读一遍。"
+      ],
+      "signals": "HN 321 分 · 104 条评论",
+      "links": [
+        {
+          "label": "Convex skills（GitHub）",
+          "url": "https://github.com/convex"
+        },
+        {
+          "label": "HN 首页",
+          "url": "https://news.ycombinator.com/"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "GPT-6.2 Astra 查出匿名画册作者",
+      "update": "HN 460 分、290 条评论，Simon Willison 也转载了案例；暂无新发布。"
+    },
+    {
+      "day": 2,
+      "name": "LTX-2.5 开源图生视频",
+      "update": "HF 点赞 13.8k；Hugging Face 发了在 AWS Trainium 上跑它的文章。"
+    },
+    {
+      "day": 8,
+      "name": "Inkling 2 Mini 本地模型",
+      "update": "HF 趋势榜第一，点赞 6.53k，多个量化版（压缩后更小的版本）在榜；仍偏开发者。"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Google DeepCrossAttention 训练快 3 倍",
+      "reason": "HN 450 分，但是研究成果，没有能用的工具。"
+    },
+    {
+      "name": "Michael Nielsen 下架神经网络教材",
+      "reason": "HN 569 分，不是新工具。"
+    },
+    {
+      "name": "Thariq：模型该像 RPG 属性表打分",
+      "reason": "4791 赞，他还对比了 Claude 和 Codex 生图，但只是个人观点，没有新功能。"
+    },
+    {
+      "name": "Rauch 夸 Flora",
+      "reason": "只有一句夸奖，没有细节。"
+    },
+    {
+      "name": "Nikunj：创业公司把转卖算力算收入",
+      "reason": "属于融资和营收话题，不是工具。"
+    }
+  ]
+}

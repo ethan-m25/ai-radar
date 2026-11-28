@@ -1,0 +1,67 @@
+{
+  "headline": "Quiet day, just one security heads-up",
+  "summary": "No big launches; Convex's skills are reported to quietly send your app ideas to a remote server",
+  "items": [
+    {
+      "tier": "fyi",
+      "title": "Convex skills reportedly leak your ideas",
+      "what": "Convex is a platform that handles the backend for apps (storing data, running server logic). It put out skills for AI coding assistants (a skill is a bundle of instructions plus scripts that teaches an AI how to do something). The HN post title says these skills send your app ideas to a remote server without telling you. I couldn't find the original post, so I don't know what exactly gets sent or whether it's on by default.",
+      "meaning": "Treat it as a heads-up: before installing any third-party skill, check whether it phones home. It doesn't affect you much unless you use Convex.",
+      "actions": [],
+      "deep_dive": [
+        "What I could confirm from searching: Convex's convex-quickstart can scaffold an app from a one-line idea. There's also a plugin that sends your session transcript to the Convex team for review, and that's stated openly in its description. I can't confirm whether this is the same thing as the post.",
+        "General advice: before installing any skill for Claude Code or codex, open its SKILL.md and any bundled scripts and look for network calls or uploads. You can also ask an AI to read it through for you."
+      ],
+      "signals": "HN 321 points · 104 comments",
+      "links": [
+        {
+          "label": "Convex skills (GitHub)",
+          "url": "https://github.com/convex"
+        },
+        {
+          "label": "HN front page",
+          "url": "https://news.ycombinator.com/"
+        }
+      ]
+    }
+  ],
+  "still_tracking": [
+    {
+      "day": 3,
+      "name": "GPT-6.2 Astra unmasked an anonymous picture book author",
+      "update": "HN 460 points, 290 comments, and Simon Willison reposted the case; no new release yet."
+    },
+    {
+      "day": 2,
+      "name": "LTX-2.5 open-source image-to-video",
+      "update": "HF likes at 13.8k; Hugging Face posted an article on running it on AWS Trainium."
+    },
+    {
+      "day": 8,
+      "name": "Inkling 2 Mini local model",
+      "update": "#1 on HF trending with 6.53k likes, and several quantized versions (compressed to be smaller) are on the chart; still mostly for developers."
+    }
+  ],
+  "skipped": [
+    {
+      "name": "Google DeepCrossAttention trains 3x faster",
+      "reason": "HN 450 points, but it's research with no tool you can use."
+    },
+    {
+      "name": "Michael Nielsen pulls his neural networks textbook",
+      "reason": "HN 569 points, not a new tool."
+    },
+    {
+      "name": "Thariq: models should be scored like an RPG stat sheet",
+      "reason": "4791 likes, and he also compared Claude and Codex image generation, but it's just a personal take with no new feature."
+    },
+    {
+      "name": "Rauch praises Flora",
+      "reason": "Just one line of praise, no details."
+    },
+    {
+      "name": "Nikunj: startups count resold compute as revenue",
+      "reason": "It's about funding and revenue, not a tool."
+    }
+  ]
+}

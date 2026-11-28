@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Radar — 2026-11-27 (Week 48)</title>
+<title>AI Radar — 2026-11-28 (Week 48)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -348,55 +348,44 @@
 
 <header class="masthead">
     <span class="logo">🛰️ AI Radar</span>
-    <span class="meta date-line">2026 · 11 · 27 · Week 48 · №162 · <a href="archive.html">Archive</a></span>
+    <span class="meta date-line">2026 · 11 · 28 · Week 48 · №163 · <a href="archive.html">Archive</a></span>
 </header>
 
 <div class="cover">
-    <h1 class="display headline">A quiet day, nothing big</h1>
-    <p class="lead">No major launches today. Just Google&#x27;s MCP limits and an open-source video model worth knowing about.</p>
+    <h1 class="display headline">Quiet day, just one security heads-up</h1>
+    <p class="lead">No big launches; Convex&#x27;s skills are reported to quietly send your app ideas to a remote server</p>
     <div class="counts">
         <span>🚨 <span class="crit-count">0</span> must see</span>
         <span>👀 <span class="look-count">0</span> worth a look</span>
-        <span>ℹ️ <span class="fyi-count">2</span> FYI</span>
+        <span>ℹ️ <span class="fyi-count">1</span> FYI</span>
     </div>
 </div>
 
-<div class="pager" data-current-date="2026-11-27"><a href="#" class="prev">← Previous</a><span class="issue-num">№162 · 2026-11-27</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-28"><a href="#" class="prev">← Previous</a><span class="issue-num">№163 · 2026-11-28</span><a href="#" class="next">Next →</a></div>
 
-<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag fyi">ℹ️ FYI</span> Google&#x27;s Gmail MCP can&#x27;t send email</li><li><span class="tier-tag fyi">ℹ️ FYI</span> LTX-2.5: open-source image-to-video model is blowing up</li></ul></nav>
+<nav class="toc"><span class="smallcaps">📋 Today</span><ul><li><span class="tier-tag fyi">ℹ️ FYI</span> Convex skills reportedly leak your ideas</li></ul></nav>
 
 <article id="item1" class="item item--fyi">
     <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">Google&#x27;s Gmail MCP can&#x27;t send email</h2>
-    <div class="explain"><h3>What it is</h3><p>On November 24, Google officially launched 8 Workspace MCP servers (the official way to hook AI up to Gmail, Drive, Calendar and so on). Under its new terms, starting February 1, 2027, AI agents have to go through these servers to access Workspace. The Gmail one can only search, read email, make drafts and add labels. It can&#x27;t send, reply, forward, or edit drafts.</p></div>
-    <div class="explain"><h3>What it means</h3><p>Third-party AI email assistants get stuck, and only partners Google approves can send mail. Using Claude to read your email and write drafts is fine, but don&#x27;t count on it sending anything for you.</p></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>Google says send, reply and forward &quot;need partner permissions and aren&#x27;t generally available yet.&quot; It doesn&#x27;t say who can apply or when it&#x27;ll open up.</p><p>The article points out that Anthropic&#x27;s Claude Google Workspace connector already advertises sending email, and guesses it goes through a partner channel. That&#x27;s the article&#x27;s own observation, and Google hasn&#x27;t confirmed it.</p><p>The rules only cover AI-driven tools. Regular scripts, like a nightly backup, aren&#x27;t affected. Also, Google can limit memory indexes and vector stores that an AI builds from Workspace data to just 30 days.</p></div></details>
-    <div class="signals"><strong>Buzz</strong> · HN 347 points · 305 comments (it only had 59 points before)</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://techstackups.com" target="_blank" rel="noopener">techstackups article</a></div>
+    <h2 class="display title">Convex skills reportedly leak your ideas</h2>
+    <div class="explain"><h3>What it is</h3><p>Convex is a platform that handles the backend for apps (storing data, running server logic). It put out skills for AI coding assistants (a skill is a bundle of instructions plus scripts that teaches an AI how to do something). The HN post title says these skills send your app ideas to a remote server without telling you. I couldn&#x27;t find the original post, so I don&#x27;t know what exactly gets sent or whether it&#x27;s on by default.</p></div>
+    <div class="explain"><h3>What it means</h3><p>Treat it as a heads-up: before installing any third-party skill, check whether it phones home. It doesn&#x27;t affect you much unless you use Convex.</p></div>
+    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>What I could confirm from searching: Convex&#x27;s convex-quickstart can scaffold an app from a one-line idea. There&#x27;s also a plugin that sends your session transcript to the Convex team for review, and that&#x27;s stated openly in its description. I can&#x27;t confirm whether this is the same thing as the post.</p><p>General advice: before installing any skill for Claude Code or codex, open its SKILL.md and any bundled scripts and look for network calls or uploads. You can also ask an AI to read it through for you.</p></div></details>
+    <div class="signals"><strong>Buzz</strong> · HN 321 points · 104 comments</div>
+    <div class="try-links"><strong>Links</strong> · <a href="https://github.com/convex" target="_blank" rel="noopener">Convex skills (GitHub)</a> · <a href="https://news.ycombinator.com/" target="_blank" rel="noopener">HN front page</a></div>
 </article>
 
-<article id="item2" class="item item--fyi">
-    <div class="tier-label">ℹ️ FYI</div>
-    <h2 class="display title">LTX-2.5: open-source image-to-video model is blowing up</h2>
-    <div class="explain"><h3>What it is</h3><p>LTX-2.5 is a video generation model from Lightricks. It&#x27;s mainly built for image-to-video, but it also does text-to-video and audio-to-video, and it can generate the picture and the sound together. The model files are on Hugging Face (a site for sharing AI models), so you can download them and run it on your own computer. It also works in ComfyUI (a visual tool for building AI workflows).</p></div>
-    <div class="explain"><h3>What it means</h3><p>One more free option for people who want to make AI video locally. If you don&#x27;t need video or don&#x27;t have a high-end graphics card, it won&#x27;t matter much to you.</p></div>
-    <div class="action-block"><h3>🎯 How to use it</h3><ol><li>Search Hugging Face for Lightricks/LTX-2.5. You have to log in and agree to the license before you can download it.</li></ol></div>
-    <details class="deep-dive"><summary>🔬 Deep dive (tap to open)</summary><div class="dd-content"><p>It uses Lightricks&#x27; own LTX-2.x community license, not the usual fully open-source one. Read the terms before using it commercially. I didn&#x27;t see the details of the terms.</p><p>Running video models locally usually takes a really strong graphics card. If you don&#x27;t have one, you could look at paid online video generation services.</p><p>Someone on Hugging Face wrote a post about running it on AWS Trainium3 chips. I couldn&#x27;t open it, so I&#x27;m not sure about the details.</p></div></details>
-    <div class="signals"><strong>Buzz</strong> · Hugging Face trending · 3.08M downloads · 13.6k likes</div>
-    <div class="try-links"><strong>Links</strong> · <a href="https://huggingface.co/models" target="_blank" rel="noopener">Hugging Face model page</a> · <a href="https://huggingface.co/blog" target="_blank" rel="noopener">Hugging Face blog</a></div>
-</article>
+<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 3</span><div><span class="item-name">GPT-6.2 Astra unmasked an anonymous picture book author</span> <span class="update">— HN 460 points, 290 comments, and Simon Willison reposted the case; no new release yet.</span></div></li><li><span class="days">Day 2</span><div><span class="item-name">LTX-2.5 open-source image-to-video</span> <span class="update">— HF likes at 13.8k; Hugging Face posted an article on running it on AWS Trainium.</span></div></li><li><span class="days">Day 8</span><div><span class="item-name">Inkling 2 Mini local model</span> <span class="update">— #1 on HF trending with 6.53k likes, and several quantized versions (compressed to be smaller) are on the chart; still mostly for developers.</span></div></li></ul></aside>
 
-<aside class="still-tracking"><span class="smallcaps">📈 Still tracking</span><ul><li><span class="days">Day 7</span><div><span class="item-name">Inkling 2 Mini</span> <span class="update">— Still #1 on the Hugging Face trending list with 6.37k likes. Lots of derived versions, and no new official updates.</span></div></li><li><span class="days">Day 4</span><div><span class="item-name">Gemini 4</span> <span class="update">— Amjad Masad said Google did a great job this time and recommended trying it on Replit. It&#x27;s just a tweet, and there&#x27;s no new release yet.</span></div></li></ul></aside>
-
-<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>AI made self-hosting fun again</td><td>HN 775 points, but it&#x27;s a blog essay. The source only had the title, so there&#x27;s no usable tool to point to.</td></tr><tr><td>1Password 安全事件</td><td>HN 1676 points, but it&#x27;s not AI news.</td></tr><tr><td>The group chat where your AI talks behind your back</td><td>HN 340 points. The source only had the title, so it&#x27;s unclear what the product actually is.</td></tr><tr><td>AMD 版 llama.cpp 分支</td><td>HN 379 points. It&#x27;s developer-focused local inference and doesn&#x27;t have much to do with office work.</td></tr><tr><td>Nikunj 用 Claude 做的 iMessage 提醒小工具</td><td>A small personal project with only 23 likes.</td></tr></tbody></table></details></section>
+<section class="killed"><details class="skipped"><summary class="smallcaps">📊 Didn't make the cut (tap to open)</summary><table><thead><tr><th>Candidate</th><th>Why not</th></tr></thead><tbody><tr><td>Google DeepCrossAttention trains 3x faster</td><td>HN 450 points, but it&#x27;s research with no tool you can use.</td></tr><tr><td>Michael Nielsen pulls his neural networks textbook</td><td>HN 569 points, not a new tool.</td></tr><tr><td>Thariq: models should be scored like an RPG stat sheet</td><td>4791 likes, and he also compared Claude and Codex image generation, but it&#x27;s just a personal take with no new feature.</td></tr><tr><td>Rauch praises Flora</td><td>Just one line of praise, no details.</td></tr><tr><td>Nikunj: startups count resold compute as revenue</td><td>It&#x27;s about funding and revenue, not a tool.</td></tr></tbody></table></details></section>
 
 <footer class="footer"><p>🛰️ AI Radar · Scans Smol AI / HN / GitHub / X builders / official blogs daily · signal only</p></footer>
 
-<div class="pager" data-current-date="2026-11-27"><a href="#" class="prev">← Previous</a><span class="issue-num">№162 · 2026-11-27</span><a href="#" class="next">Next →</a></div>
+<div class="pager" data-current-date="2026-11-28"><a href="#" class="prev">← Previous</a><span class="issue-num">№163 · 2026-11-28</span><a href="#" class="next">Next →</a></div>
 
 <script>
 (async function() {
-    const currentDate = '2026-11-27';
+    const currentDate = '2026-11-28';
     let issues = [];
     try {
         const resp = await fetch('./archive.json');

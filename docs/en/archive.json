@@ -3,6 +3,21 @@
   "description": "AI Radar — chronological list of all published digests. Maintained by the daily/weekly run scripts. Most recent first.",
   "issues": [
     {
+      "date": "2026-11-28",
+      "weekday": "Sat",
+      "week": 48,
+      "issue": 162,
+      "kind": "daily",
+      "headline": "Quiet day, just one security heads-up",
+      "summary": "No big launches; Convex's skills are reported to quietly send your app ideas to a remote server",
+      "counts": {
+        "crit": 0,
+        "look": 0,
+        "fyi": 1
+      },
+      "url": "2026-11-28.html"
+    },
+    {
       "date": "2026-11-27",
       "weekday": "Fri",
       "week": 48,
